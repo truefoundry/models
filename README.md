@@ -7,10 +7,12 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 ## Why Use This?
 
-- **Unified Schema**: Consistent model configuration format across 17 providers
-- **Up-to-Date Pricing**: Current cost information for input/output tokens, batch processing, and caching
-- **Capability Tracking**: Know exactly what each model supports (vision, tools, structured output, etc.)
-- **Open Source**: Community-driven updates ensure accuracy and coverage
+LLM model configs change often — prices drop, capabilities expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
+
+- **Unified Schema** — Consistent model configuration format across 17 providers
+- **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
+- **Capability Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
+- **Open Source** — Community-driven updates ensure accuracy and coverage
 
 ## Supported Providers
 
@@ -36,48 +38,10 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 ## Installation
 
-### As a Git Submodule
-
-```bash
-git submodule add https://github.com/truefoundry/models.git
-```
-
 ### Direct Clone
 
 ```bash
 git clone https://github.com/truefoundry/models.git
-```
-
-### Via npm (coming soon)
-
-```bash
-npm install @truefoundry/models
-```
-
-## Usage
-
-### Direct File Access
-
-```python
-import yaml
-
-with open('providers/openai/gpt-4o.yaml', 'r') as f:
-    model_config = yaml.safe_load(f)
-
-print(f"Input cost: ${model_config['costs']['input_cost_per_token']} per token")
-print(f"Max context: {model_config['limits']['max_input_tokens']} tokens")
-print(f"Supports vision: {model_config['capabilities']['supports_vision']}")
-```
-
-### JavaScript/TypeScript
-
-```typescript
-import { readFileSync } from 'fs';
-import { parse } from 'yaml';
-
-const config = parse(readFileSync('providers/openai/gpt-4o.yaml', 'utf8'));
-console.log(`Model: ${config.model}`);
-console.log(`Supports tools: ${config.capabilities.supports_tools}`);
 ```
 
 ## Model Configuration Schema
@@ -128,26 +92,27 @@ deprecation_date: ''
 
 ```
 providers/
-├── ai21/
-├── anthropic/
-├── aws-bedrock/
-├── azure-ai-foundry/
-├── azure-openai/
-├── cerebras/
-├── cohere/
-├── databricks/
-├── deepinfra/
-├── google-gemini/
-├── google-vertex/
-├── groq/
-├── mistral-ai/
-├── openai/
-├── perplexity-ai/
-├── sambanova/
-└── together-ai/
+├── <provider>/
+│   ├── default.yaml        # Default params for all models under this provider
+│   ├── <model>.yaml
+│   └── ...
 ```
 
-> **Note**: File names are for organizational purposes and do not necessarily match the `model` field in the YAML. The `model` field contains the actual identifier used by the provider's API (e.g., a file `claude-sonnet-4.yaml` might contain `model: claude-sonnet-4-20250514`).
+**Example:**
+
+```
+providers/
+├── openai/
+│   ├── default.yaml
+│   ├── gpt-4o.yaml
+│   ├── gpt-4o-mini.yaml
+│   └── ...
+├── anthropic/
+│   ├── default.yaml
+│   ├── claude-3-5-sonnet.yaml
+│   └── ...
+└── ...
+```
 
 ## Contributing
 
@@ -155,7 +120,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Quick Start
 
-1. Fork the repository
+1. Clone the repository
 2. Create a new branch (`git checkout -b add-new-model`)
 3. Add or update model configurations
 4. Validate your YAML files
@@ -191,21 +156,6 @@ python -c "import yaml; yaml.safe_load(open('providers/openai/gpt-4o.yaml'))"
 yq eval '.' providers/openai/gpt-4o.yaml
 ```
 
-## Related Projects
-
-- [Portkey Models](https://github.com/Portkey-AI/models) - Similar model registry
-- [LiteLLM](https://github.com/BerriAI/litellm) - Unified LLM API
-
-## Community
-
-- [GitHub Issues](https://github.com/truefoundry/models/issues) - Bug reports and feature requests
-- [GitHub Discussions](https://github.com/truefoundry/models/discussions) - Questions and ideas
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to all [contributors](https://github.com/truefoundry/models/graphs/contributors)
-- Inspired by the open source AI community
