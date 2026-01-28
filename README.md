@@ -156,21 +156,6 @@ python -c "import yaml; yaml.safe_load(open('providers/openai/gpt-4o.yaml'))"
 yq eval '.' providers/openai/gpt-4o.yaml
 ```
 
-## Related Projects
-
-- [Portkey Models](https://github.com/Portkey-AI/models) - Similar model registry
-- [LiteLLM](https://github.com/BerriAI/litellm) - Unified LLM API
-
-## Community
-
-- [GitHub Issues](https://github.com/truefoundry/models/issues) - Bug reports and feature requests
-- [GitHub Discussions](https://github.com/truefoundry/models/discussions) - Questions and ideas
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to all [contributors](https://github.com/truefoundry/models/graphs/contributors)
-- Inspired by the open source AI community
