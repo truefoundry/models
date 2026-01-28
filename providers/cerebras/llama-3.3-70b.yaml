@@ -1,0 +1,29 @@
+model: llama-3.3-70b
+costs:
+  input_cost_per_token: 8.5e-7
+  output_cost_per_token: 0.0000012
+limits:
+  max_input_tokens: 128000
+  max_output_tokens: 128000
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: false
+  supports_code: false
+  supports_tools: true
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_tool_choice: true
+source: ''
+params:
+  - key: max_tokens
+    maxValue: 32768
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: cerebras

@@ -1,0 +1,57 @@
+model: claude-opus-4-5-20251101
+costs:
+  input_cost_per_token: 0.000005
+  output_cost_per_token: 0.000025
+  cache_read_input_token_cost: 5.e-7
+  cache_creation_input_token_cost: 0.00000625
+limits:
+  max_input_tokens: 200000
+  max_output_tokens: 64000
+  tool_use_system_prompt_tokens: 159
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: true
+  supports_code: false
+  supports_tools: true
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_vision: true
+  supports_tool_choice: true
+  supports_prompt_caching: true
+  supports_response_schema: true
+  supports_assistant_prefill: true
+  supports_pdf_input: true
+source: ''
+params:
+  - key: max_tokens
+    maxValue: 64000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
+          - disabled
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
+removeParams:
+  - temperature
+  - top_p
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: anthropic

@@ -1,0 +1,26 @@
+model: anthropic/claude-haiku-4-5@20251001
+costs:
+  input_cost_per_token: 0.000001
+  output_cost_per_token: 0.000005
+  cache_read_input_token_cost: 1.e-7
+  cache_creation_input_token_cost: 0.00000125
+limits:
+  max_tokens: 8192
+  max_input_tokens: 200000
+  max_output_tokens: 8192
+capabilities:
+  supports_function_calling: true
+  supports_tool_choice: true
+  supports_prompt_caching: true
+  supports_response_schema: true
+  supports_assistant_prefill: true
+  supports_pdf_input: true
+source: https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/haiku-4-5
+params: []
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: vertex_ai-anthropic_models

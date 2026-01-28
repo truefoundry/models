@@ -1,0 +1,33 @@
+model: qwen-3-32b
+costs:
+  input_cost_per_token: 4.e-7
+  output_cost_per_token: 8.e-7
+limits:
+  max_input_tokens: 128000
+  max_output_tokens: 128000
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: false
+  supports_code: false
+  supports_tools: true
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_tool_choice: true
+source: https://inference-docs.cerebras.ai/support/pricing
+params:
+  - key: max_tokens
+    maxValue: 32768
+  - key: temperature
+    defaultValue: 0.6
+  - key: top_p
+    defaultValue: 0.95
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: cerebras

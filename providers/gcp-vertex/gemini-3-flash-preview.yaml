@@ -1,0 +1,84 @@
+model: gemini-3-flash-preview
+costs:
+  input_cost_per_token: 5.e-7
+  output_cost_per_token: 0.000003
+  cache_read_input_token_cost: 5.e-8
+  input_cost_per_audio_token: 0.000001
+limits:
+  max_input_tokens: 1048576
+  max_output_tokens: 65535
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: true
+  supports_code: false
+  supports_tools: true
+  supports_pdf: true
+  supports_doc: true
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_parallel_function_calling: true
+  supports_vision: true
+  supports_audio_output: false
+  supports_system_messages: true
+  supports_tool_choice: true
+  supports_prompt_caching: true
+  supports_response_schema: true
+  supports_pdf_input: true
+source: https://ai.google.dev/pricing/gemini-3
+params:
+  - key: max_tokens
+    maxValue: 65536
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
+        name: JSON Schema
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
+        params:
+          key: json_schema
+          defaultValue: null
+          type: json
+          skipValues:
+            - null
+    skipValues:
+      - null
+    type: string
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
+          - disabled
+      budget_tokens:
+        type: number
+        minValue: 0
+        maxValue: 24576
+    defaultValue: null
+    skipValues:
+      - null
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: vertex_ai-language-models

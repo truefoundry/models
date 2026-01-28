@@ -1,0 +1,35 @@
+model: gemini-2.0-flash-lite
+costs:
+  input_cost_per_token: 7.5e-8
+  output_cost_per_token: 3.e-7
+  cache_read_input_token_cost: 1.875e-8
+  input_cost_per_audio_token: 7.5e-8
+limits:
+  max_tokens: 4096
+  max_input_tokens: 1048576
+  max_output_tokens: 8192
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: true
+  supports_code: false
+  supports_tools: true
+  supports_pdf: true
+  supports_doc: true
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_vision: true
+  supports_audio_output: true
+  supports_system_messages: true
+  supports_tool_choice: true
+  supports_prompt_caching: true
+  supports_response_schema: true
+source: https://ai.google.dev/gemini-api/docs/pricing#gemini-2.0-flash-lite
+params: []
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: '2026-03-31'
+is_deprecated: false
+original_provider: gemini

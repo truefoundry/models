@@ -1,0 +1,56 @@
+model: us.anthropic.claude-3-5-haiku-20241022-v1:0
+costs:
+  input_cost_per_token: 8.e-7
+  output_cost_per_token: 0.000004
+  cache_read_input_token_cost: 8.e-8
+  cache_creation_input_token_cost: 0.000001
+limits:
+  max_tokens: 4096
+  max_input_tokens: 200000
+  max_output_tokens: 8192
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: true
+  supports_code: false
+  supports_tools: true
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_tool_choice: true
+  supports_prompt_caching: true
+  supports_response_schema: true
+  supports_assistant_prefill: true
+  supports_pdf_input: true
+source: ''
+params:
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: bedrock

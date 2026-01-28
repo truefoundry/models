@@ -1,0 +1,29 @@
+model: amazon.titan-embed-image-v1
+costs:
+  input_cost_per_token: 8.e-7
+  output_cost_per_token: 0
+  input_cost_per_image: 0.00006
+limits:
+  max_tokens: 4096
+  max_input_tokens: 128
+  output_vector_size: 1024
+capabilities:
+  supports_chat: false
+  supports_text: true
+  supports_image: false
+  supports_code: false
+  supports_tools: false
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_image_input: true
+  supports_embedding_image_input: true
+source: https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/providers?model=amazon.titan-image-generator-v1
+params: []
+removeParams: []
+requiredParams: []
+mode: embedding
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: bedrock

@@ -1,0 +1,92 @@
+model: o4-mini
+costs:
+  input_cost_per_token: 0.0000011
+  output_cost_per_token: 0.0000044
+  cache_read_input_token_cost: 2.75e-7
+limits:
+  max_tokens: 4096
+  max_input_tokens: 200000
+  max_output_tokens: 100000
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: true
+  supports_code: false
+  supports_tools: true
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_parallel_function_calling: false
+  supports_vision: true
+  supports_tool_choice: true
+  supports_prompt_caching: true
+  supports_response_schema: true
+  supports_pdf_input: true
+source: ''
+messages:
+  options:
+    - user
+    - assistant
+    - developer
+params:
+  - key: max_completion_tokens
+    defaultValue: 1000
+    minValue: 1
+    maxValue: 100000
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
+        name: JSON Schema
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
+        params:
+          key: json_schema
+          defaultValue: null
+          type: json
+          skipValues:
+            - null
+    skipValues:
+      - null
+    type: string
+  - key: reasoning_effort
+    defaultValue: medium
+    options:
+      - value: low
+        name: Low
+      - value: medium
+        name: Medium
+      - value: high
+        name: High
+    type: string
+removeParams:
+  - top_p
+  - presence_penalty
+  - frequency_penalty
+  - logit_bias
+  - max_tokens
+  - temperature
+  - stop
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: openai
