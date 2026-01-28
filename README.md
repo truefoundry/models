@@ -7,10 +7,12 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 ## Why Use This?
 
-- **Unified Schema**: Consistent model configuration format across 17 providers
-- **Up-to-Date Pricing**: Current cost information for input/output tokens, batch processing, and caching
-- **Capability Tracking**: Know exactly what each model supports (vision, tools, structured output, etc.)
-- **Open Source**: Community-driven updates ensure accuracy and coverage
+LLM model configs change often — prices drop, capabilities expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
+
+- **Unified Schema** — Consistent model configuration format across 17 providers
+- **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
+- **Capability Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
+- **Open Source** — Community-driven updates ensure accuracy and coverage
 
 ## Supported Providers
 
@@ -128,23 +130,26 @@ deprecation_date: ''
 
 ```
 providers/
-├── ai21/
-├── anthropic/
-├── aws-bedrock/
-├── azure-ai-foundry/
-├── azure-openai/
-├── cerebras/
-├── cohere/
-├── databricks/
-├── deepinfra/
-├── google-gemini/
-├── google-vertex/
-├── groq/
-├── mistral-ai/
+├── <provider>/
+│   ├── default.yaml        # Default params for all models under this provider
+│   ├── <model>.yaml
+│   └── ...
+```
+
+**Example:**
+
+```
+providers/
 ├── openai/
-├── perplexity-ai/
-├── sambanova/
-└── together-ai/
+│   ├── default.yaml
+│   ├── gpt-4o.yaml
+│   ├── gpt-4o-mini.yaml
+│   └── ...
+├── anthropic/
+│   ├── default.yaml
+│   ├── claude-3-5-sonnet.yaml
+│   └── ...
+└── ...
 ```
 
 > **Note**: File names are for organizational purposes and do not necessarily match the `model` field in the YAML. The `model` field contains the actual identifier used by the provider's API (e.g., a file `claude-sonnet-4.yaml` might contain `model: claude-sonnet-4-20250514`).
@@ -155,7 +160,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Quick Start
 
-1. Fork the repository
+1. Clone the repository
 2. Create a new branch (`git checkout -b add-new-model`)
 3. Add or update model configurations
 4. Validate your YAML files
