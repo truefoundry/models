@@ -38,48 +38,10 @@ LLM model configs change often — prices drop, capabilities expand, limits shif
 
 ## Installation
 
-### As a Git Submodule
-
-```bash
-git submodule add https://github.com/truefoundry/models.git
-```
-
 ### Direct Clone
 
 ```bash
 git clone https://github.com/truefoundry/models.git
-```
-
-### Via npm (coming soon)
-
-```bash
-npm install @truefoundry/models
-```
-
-## Usage
-
-### Direct File Access
-
-```python
-import yaml
-
-with open('providers/openai/gpt-4o.yaml', 'r') as f:
-    model_config = yaml.safe_load(f)
-
-print(f"Input cost: ${model_config['costs']['input_cost_per_token']} per token")
-print(f"Max context: {model_config['limits']['max_input_tokens']} tokens")
-print(f"Supports vision: {model_config['capabilities']['supports_vision']}")
-```
-
-### JavaScript/TypeScript
-
-```typescript
-import { readFileSync } from 'fs';
-import { parse } from 'yaml';
-
-const config = parse(readFileSync('providers/openai/gpt-4o.yaml', 'utf8'));
-console.log(`Model: ${config.model}`);
-console.log(`Supports tools: ${config.capabilities.supports_tools}`);
 ```
 
 ## Model Configuration Schema
@@ -151,8 +113,6 @@ providers/
 │   └── ...
 └── ...
 ```
-
-> **Note**: File names are for organizational purposes and do not necessarily match the `model` field in the YAML. The `model` field contains the actual identifier used by the provider's API (e.g., a file `claude-sonnet-4.yaml` might contain `model: claude-sonnet-4-20250514`).
 
 ## Contributing
 
