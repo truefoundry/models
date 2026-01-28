@@ -26,7 +26,7 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
 
 ### Submitting Changes
 
-1. Fork the repository
+1. Clone the repository (`git clone https://github.com/truefoundry/models.git`)
 2. Create a new branch (`git checkout -b feature/add-new-model`)
 3. Make your changes
 4. Commit your changes (`git commit -m 'Add new model: provider/model-name'`)
@@ -185,12 +185,6 @@ To add a new provider:
 - Use imperative mood ("Update pricing" not "Updates pricing")
 - Keep the first line under 72 characters
 - Reference issues when applicable
-
-### Versioning for Dated Models
-
-For models with version dates:
-- Use the date format from the provider (e.g., `gpt-4-0613.yaml`)
-- Create aliases without dates that point to the latest version
 
 ## Questions?
 

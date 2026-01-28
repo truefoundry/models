@@ -3,14 +3,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-A comprehensive, community-maintained registry of AI/LLM model configurations. This repository provides standardized model metadata including pricing, capabilities, token limits, and supported features across all major AI providers.
+A comprehensive, community-maintained registry of AI/LLM model configurations.
 
 ## Why Use This?
 
-- **Unified Schema**: Consistent model configuration format across 17 providers
-- **Up-to-Date Pricing**: Current cost information for input/output tokens, batch processing, and caching
-- **Capability Tracking**: Know exactly what each model supports (vision, tools, structured output, etc.)
-- **Open Source**: Community-driven updates ensure accuracy and coverage
+LLM model configs change often — prices drop, capabilities expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
+
+- **Unified Schema** — Consistent model configuration format across 17 providers
+- **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
+- **Capability Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
+- **Open Source** — Community-driven updates ensure accuracy and coverage
 
 ## Supported Providers
 
@@ -36,118 +38,71 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 ## Installation
 
-### As a Git Submodule
-
-```bash
-git submodule add https://github.com/truefoundry/models.git
-```
-
-### Direct Clone
-
 ```bash
 git clone https://github.com/truefoundry/models.git
-```
-
-### Via npm (coming soon)
-
-```bash
-npm install @truefoundry/models
-```
-
-## Usage
-
-### Direct File Access
-
-```python
-import yaml
-
-with open('providers/openai/gpt-4o.yaml', 'r') as f:
-    model_config = yaml.safe_load(f)
-
-print(f"Input cost: ${model_config['costs']['input_cost_per_token']} per token")
-print(f"Max context: {model_config['limits']['max_input_tokens']} tokens")
-print(f"Supports vision: {model_config['capabilities']['supports_vision']}")
-```
-
-### JavaScript/TypeScript
-
-```typescript
-import { readFileSync } from 'fs';
-import { parse } from 'yaml';
-
-const config = parse(readFileSync('providers/openai/gpt-4o.yaml', 'utf8'));
-console.log(`Model: ${config.model}`);
-console.log(`Supports tools: ${config.capabilities.supports_tools}`);
-```
-
-## Model Configuration Schema
-
-Each model YAML file follows this schema:
-
-```yaml
-# Model identifier (required)
-model: gpt-4o
-
-# Pricing information
-costs:
-  input_cost_per_token: 0.0000025      # Cost per input token in USD
-  output_cost_per_token: 0.00001       # Cost per output token in USD
-  input_cost_per_token_batches: 0.00000125  # Batch API pricing
-  output_cost_per_token_batches: 0.000005
-  cache_read_input_token_cost: 0.00000125   # Prompt caching cost
-
-# Token limits
-limits:
-  max_input_tokens: 128000             # Maximum context window
-  max_output_tokens: 16384             # Maximum generation length
-
-# Feature capabilities
-capabilities:
-  supports_chat: true                  # Chat completions API
-  supports_vision: true                # Image input support
-  supports_tools: true                 # Tool/function calling
-  supports_function_calling: true      # Function calling (legacy)
-  supports_parallel_function_calling: true
-  supports_system_messages: true       # System prompt support
-  supports_response_schema: true       # Structured output/JSON mode
-  supports_prompt_caching: true        # Prompt caching support
-  supports_pdf_input: true             # PDF document input
-
-# Model mode
-mode: chat                             # chat, completion, embedding, image, audio
-
-# Provider information
-original_provider: openai              # Original model provider
-
-# Deprecation info
-is_deprecated: false
-deprecation_date: ''
 ```
 
 ## Directory Structure
 
 ```
 providers/
-├── ai21/
-├── anthropic/
-├── aws-bedrock/
-├── azure-ai-foundry/
-├── azure-openai/
-├── cerebras/
-├── cohere/
-├── databricks/
-├── deepinfra/
-├── google-gemini/
-├── google-vertex/
-├── groq/
-├── mistral-ai/
-├── openai/
-├── perplexity-ai/
-├── sambanova/
-└── together-ai/
+├── <provider>/
+│   ├── default.yaml        # Default params for all models under this provider
+│   ├── <model>.yaml
+│   └── ...
 ```
 
-> **Note**: File names are for organizational purposes and do not necessarily match the `model` field in the YAML. The `model` field contains the actual identifier used by the provider's API (e.g., a file `claude-sonnet-4.yaml` might contain `model: claude-sonnet-4-20250514`).
+**Example:**
+
+```
+providers/
+├── openai/
+│   ├── default.yaml
+│   ├── gpt-4o.yaml
+│   ├── gpt-4o-mini.yaml
+│   ├── o1.yaml
+│   └── ...
+├── anthropic/
+│   ├── default.yaml
+│   ├── claude-3-5-sonnet.yaml
+│   ├── claude-3-opus.yaml
+│   └── ...
+└── ...
+```
+
+## Model Configuration Template
+
+Each model YAML file follows this schema:
+
+```yaml
+model: <model-identifier>           # Required: API model name
+
+costs:
+  input_cost_per_token: <number>    # Cost per input token (USD)
+  output_cost_per_token: <number>   # Cost per output token (USD)
+  input_cost_per_token_batches: <number>    # Batch API pricing
+  output_cost_per_token_batches: <number>
+  cache_read_input_token_cost: <number>     # Prompt caching cost
+
+limits:
+  max_input_tokens: <number>        # Maximum context window
+  max_output_tokens: <number>       # Maximum generation length
+
+capabilities:
+  supports_chat: <boolean>          # Chat completions API
+  supports_vision: <boolean>        # Image input support
+  supports_tools: <boolean>         # Tool/function calling
+  supports_function_calling: <boolean>
+  supports_system_messages: <boolean>
+  supports_response_schema: <boolean>   # Structured output/JSON mode
+  supports_prompt_caching: <boolean>
+  supports_pdf_input: <boolean>
+
+mode: <chat|completion|embedding|image|audio>
+original_provider: <provider-name>
+is_deprecated: <boolean>
+deprecation_date: <YYYY-MM-DD>
+```
 
 ## Contributing
 
@@ -155,7 +110,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Quick Start
 
-1. Fork the repository
+1. Clone the repository
 2. Create a new branch (`git checkout -b add-new-model`)
 3. Add or update model configurations
 4. Validate your YAML files
@@ -191,21 +146,6 @@ python -c "import yaml; yaml.safe_load(open('providers/openai/gpt-4o.yaml'))"
 yq eval '.' providers/openai/gpt-4o.yaml
 ```
 
-## Related Projects
-
-- [Portkey Models](https://github.com/Portkey-AI/models) - Similar model registry
-- [LiteLLM](https://github.com/BerriAI/litellm) - Unified LLM API
-
-## Community
-
-- [GitHub Issues](https://github.com/truefoundry/models/issues) - Bug reports and feature requests
-- [GitHub Discussions](https://github.com/truefoundry/models/discussions) - Questions and ideas
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to all [contributors](https://github.com/truefoundry/models/graphs/contributors)
-- Inspired by the open source AI community
