@@ -7,7 +7,7 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 ## Why Use This?
 
-- **Unified Schema**: Consistent model configuration format across 25+ providers
+- **Unified Schema**: Consistent model configuration format across 17 providers
 - **Up-to-Date Pricing**: Current cost information for input/output tokens, batch processing, and caching
 - **Capability Tracking**: Know exactly what each model supports (vision, tools, structured output, etc.)
 - **Open Source**: Community-driven updates ensure accuracy and coverage
@@ -16,10 +16,11 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenAI | 75+ | GPT-4, GPT-4o, o1, o3, DALL-E, Whisper, TTS |
+| OpenAI | 81 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Anthropic | 21 | Claude 3, Claude 3.5, Claude 4 |
 | AWS Bedrock | 139 | Claude, Llama, Titan, Mistral on AWS |
-| Azure OpenAI | 78 | OpenAI models on Azure |
+| Azure OpenAI | 77 | OpenAI models on Azure |
+| Azure AI Foundry | 65 | Azure AI models |
 | Google Vertex AI | 110 | Gemini, PaLM on GCP |
 | Google Gemini | 25 | Gemini Pro, Ultra, Flash |
 | Mistral AI | 37 | Mistral, Mixtral, Codestral |
@@ -28,7 +29,10 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 | Together AI | 39 | Open source model hosting |
 | DeepInfra | 67 | Open source model hosting |
 | Perplexity | 25 | Search-augmented models |
-| And more... | | 25+ providers total |
+| Cerebras | 8 | Fast inference models |
+| Databricks | 28 | Databricks-hosted models |
+| SambaNova | 16 | Enterprise AI models |
+| AI21 | 13 | Jamba models |
 
 ## Installation
 
@@ -124,19 +128,23 @@ deprecation_date: ''
 
 ```
 providers/
-├── openai/
-│   ├── default.yaml           # Provider defaults
-│   ├── gpt-4o.yaml
-│   ├── gpt-4o-mini.yaml
-│   └── ...
+├── ai21/
 ├── anthropic/
-│   ├── default.yaml
-│   ├── claude-3-5-sonnet.yaml
-│   └── ...
 ├── aws-bedrock/
+├── azure-ai-foundry/
 ├── azure-openai/
+├── cerebras/
+├── cohere/
+├── databricks/
+├── deepinfra/
+├── google-gemini/
 ├── google-vertex/
-└── ...
+├── groq/
+├── mistral-ai/
+├── openai/
+├── perplexity-ai/
+├── sambanova/
+└── together-ai/
 ```
 
 > **Note**: File names are for organizational purposes and do not necessarily match the `model` field in the YAML. The `model` field contains the actual identifier used by the provider's API (e.g., a file `claude-sonnet-4.yaml` might contain `model: claude-sonnet-4-20250514`).
