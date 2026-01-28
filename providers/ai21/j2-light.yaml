@@ -1,0 +1,27 @@
+model: j2-light
+costs:
+  input_cost_per_token: 0.000003
+  output_cost_per_token: 0.000003
+limits:
+  max_tokens: 4096
+  max_input_tokens: 8192
+  max_output_tokens: 8192
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: false
+  supports_code: false
+  supports_tools: false
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+source: ''
+params: []
+removeParams:
+  - stream
+requiredParams: []
+mode: completion
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: true
+original_provider: ai21

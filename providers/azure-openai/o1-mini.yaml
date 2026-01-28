@@ -1,0 +1,48 @@
+model: o1-mini
+costs:
+  input_cost_per_token: 0.00000121
+  output_cost_per_token: 0.00000484
+  cache_read_input_token_cost: 6.05e-7
+limits:
+  max_tokens: 4096
+  max_input_tokens: 128000
+  max_output_tokens: 65536
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: true
+  supports_code: false
+  supports_tools: false
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_parallel_function_calling: true
+  supports_vision: false
+  supports_prompt_caching: true
+source: ''
+messages:
+  options:
+    - user
+    - assistant
+    - developer
+params:
+  - key: max_completion_tokens
+    defaultValue: 1000
+    minValue: 1
+    maxValue: 65536
+removeParams:
+  - temperature
+  - top_p
+  - 'n'
+  - presence_penalty
+  - frequency_penalty
+  - logit_bias
+  - stream
+  - max_tokens
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: azure

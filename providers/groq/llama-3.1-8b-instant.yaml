@@ -1,0 +1,84 @@
+model: llama-3.1-8b-instant
+costs:
+  input_cost_per_token: 5.e-8
+  output_cost_per_token: 8.e-8
+limits:
+  max_input_tokens: 128000
+  max_output_tokens: 8192
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: false
+  supports_code: false
+  supports_tools: true
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_tool_choice: true
+  supports_response_schema: false
+source: ''
+params:
+  - key: max_tokens
+    maxValue: 8192
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
+        name: JSON Schema
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
+        params:
+          key: json_schema
+          defaultValue: null
+          type: json
+          skipValues:
+            - null
+    skipValues:
+      - null
+    type: string
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: groq

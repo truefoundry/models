@@ -1,0 +1,29 @@
+model: Phi-4
+costs:
+  input_cost_per_token: 1.25e-7
+  output_cost_per_token: 5.e-7
+limits:
+  max_tokens: 4096
+  max_input_tokens: 16384
+  max_output_tokens: 16384
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: false
+  supports_code: false
+  supports_tools: false
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_vision: false
+  supports_tool_choice: true
+source: https://techcommunity.microsoft.com/blog/machinelearningblog/affordable-innovation-unveiling-the-pricing-of-phi-3-slms-on-models-as-a-service/4156495
+params: []
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: azure_ai

@@ -1,0 +1,28 @@
+model: zai-glm-4.6
+costs:
+  input_cost_per_token: 0.00000225
+  output_cost_per_token: 0.00000275
+limits:
+  max_tokens: 4096
+  max_input_tokens: 128000
+  max_output_tokens: 128000
+capabilities:
+  supports_chat: true
+  supports_text: false
+  supports_image: false
+  supports_code: false
+  supports_tools: false
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+  supports_function_calling: true
+  supports_tool_choice: true
+source: https://www.cerebras.ai/pricing
+params: []
+removeParams: []
+requiredParams: []
+mode: chat
+defaultRegion: ''
+deprecation_date: '2026-01-20'
+is_deprecated: false
+original_provider: cerebras

@@ -1,0 +1,26 @@
+model: playai-tts
+costs:
+  input_cost_per_character: 0.00005
+limits:
+  max_input_tokens: 10000
+  max_output_tokens: 10000
+capabilities:
+  supports_chat: false
+  supports_text: false
+  supports_image: false
+  supports_code: false
+  supports_tools: false
+  supports_pdf: false
+  supports_doc: false
+  supports_cache_control: false
+source: ''
+params:
+  - key: max_tokens
+    maxValue: 8192
+removeParams: []
+requiredParams: []
+mode: audio_speech
+defaultRegion: ''
+deprecation_date: ''
+is_deprecated: false
+original_provider: groq
