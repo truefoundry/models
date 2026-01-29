@@ -6,19 +6,7 @@ limits:
   max_tokens: 4096
   max_input_tokens: 4097
   max_output_tokens: 4096
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: false
-  supports_code: false
-  supports_tools: false
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_tool_choice: true
-source: ''
+features: [function_calling, parallel_function_calling, chat]
 params: []
 removeParams: []
 requiredParams: []

@@ -6,20 +6,7 @@ limits:
   max_tokens: 4096
   max_input_tokens: 40000
   max_output_tokens: 40000
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: false
-  supports_code: false
-  supports_tools: false
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_tool_choice: true
-  supports_response_schema: true
-  supports_assistant_prefill: true
-source: https://mistral.ai/news/magistral
+features: [function_calling, chat]
 params: []
 removeParams: []
 requiredParams: []
