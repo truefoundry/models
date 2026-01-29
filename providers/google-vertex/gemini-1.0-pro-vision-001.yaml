@@ -7,12 +7,7 @@ limits:
   max_tokens: 2048
   max_input_tokens: 16384
   max_output_tokens: 2048
-capabilities:
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_vision: true
-  supports_tool_choice: true
-source: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models#foundation_models
+features: [function_calling, parallel_function_calling, vision]
 params: []
 removeParams: []
 requiredParams: []

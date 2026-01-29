@@ -8,23 +8,7 @@ limits:
   max_input_tokens: 200000
   max_output_tokens: 8192
   tool_use_system_prompt_tokens: 264
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: true
-  supports_code: false
-  supports_tools: true
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_vision: true
-  supports_tool_choice: true
-  supports_prompt_caching: true
-  supports_response_schema: true
-  supports_assistant_prefill: true
-  supports_pdf_input: true
-source: ''
+features: [function_calling, vision, chat, image]
 params:
   - key: max_tokens
     maxValue: 8192
