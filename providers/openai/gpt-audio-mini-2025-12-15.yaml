@@ -8,16 +8,7 @@ limits:
   max_tokens: 16384
   max_input_tokens: 128000
   max_output_tokens: 16384
-capabilities:
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_vision: false
-  supports_audio_input: true
-  supports_audio_output: true
-  supports_system_messages: true
-  supports_tool_choice: true
-  supports_prompt_caching: false
-  supports_response_schema: false
+capabilities: [function_calling, parallel_function_calling, audio_input, audio_output]
 source: ''
 params: []
 removeParams: []

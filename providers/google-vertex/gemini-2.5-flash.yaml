@@ -7,24 +7,7 @@ costs:
 limits:
   max_input_tokens: 1048576
   max_output_tokens: 65535
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: true
-  supports_code: false
-  supports_tools: true
-  supports_pdf: true
-  supports_doc: true
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_vision: true
-  supports_audio_output: false
-  supports_system_messages: true
-  supports_tool_choice: true
-  supports_prompt_caching: true
-  supports_response_schema: true
-  supports_pdf_input: true
+capabilities: [function_calling, parallel_function_calling, vision, chat, image, pdf, doc]
 source: https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview
 params:
   - key: max_tokens

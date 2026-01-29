@@ -6,18 +6,7 @@ limits:
   max_tokens: 4096
   max_input_tokens: 10000000
   max_output_tokens: 16384
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: false
-  supports_code: false
-  supports_tools: false
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_vision: true
-  supports_tool_choice: true
+capabilities: [function_calling, vision, chat]
 source: https://azure.microsoft.com/en-us/blog/introducing-the-llama-4-herd-in-azure-ai-foundry-and-azure-databricks/
 params: []
 removeParams: []

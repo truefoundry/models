@@ -8,22 +8,7 @@ limits:
   max_tokens: 4096
   max_input_tokens: 1048576
   max_output_tokens: 8192
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: true
-  supports_code: false
-  supports_tools: true
-  supports_pdf: true
-  supports_doc: true
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_vision: true
-  supports_audio_output: false
-  supports_system_messages: true
-  supports_tool_choice: true
-  supports_prompt_caching: true
-  supports_response_schema: true
+capabilities: [function_calling, vision, chat, image, pdf, doc]
 source: https://ai.google.dev/pricing#2_0flash
 params: []
 removeParams: []
