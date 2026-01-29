@@ -9,21 +9,7 @@ limits:
   max_tokens: 4096
   max_input_tokens: 128000
   max_output_tokens: 4096
-capabilities:
-  supports_chat: false
-  supports_text: true
-  supports_image: false
-  supports_code: false
-  supports_tools: false
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_audio_input: true
-  supports_audio_output: true
-  supports_system_messages: true
-  supports_tool_choice: true
+features: [function_calling, parallel_function_calling, audio_input, audio_output]
 source: ''
 params: []
 removeParams: []

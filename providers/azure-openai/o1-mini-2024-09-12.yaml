@@ -7,19 +7,7 @@ limits:
   max_tokens: 4096
   max_input_tokens: 128000
   max_output_tokens: 65536
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: false
-  supports_code: false
-  supports_tools: true
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_vision: false
-  supports_prompt_caching: true
+features: [function_calling, parallel_function_calling, chat]
 source: ''
 messages:
   options:

@@ -5,19 +5,7 @@ costs:
 limits:
   max_input_tokens: 131072
   max_output_tokens: 32768
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: false
-  supports_code: false
-  supports_tools: false
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_tool_choice: true
-  supports_response_schema: true
+features: [function_calling, parallel_function_calling, chat]
 source: https://www.cerebras.ai/blog/openai-gpt-oss-120b-runs-fastest-on-cerebras
 params:
   - key: max_tokens

@@ -6,18 +6,7 @@ limits:
   max_tokens: 4096
   max_input_tokens: 131072
   max_output_tokens: 131072
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: false
-  supports_code: false
-  supports_tools: false
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_tool_choice: true
-  supports_response_schema: false
+features: [function_calling, chat]
 source: https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/grok/
 params: []
 removeParams: []
