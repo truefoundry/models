@@ -4,11 +4,7 @@ costs:
   output_cost_per_token: 6.e-7
 limits:
   max_input_tokens: 128000
-capabilities:
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_tool_choice: true
-  supports_response_schema: true
+capabilities: [function_calling, parallel_function_calling]
 source: https://www.together.ai/models/gpt-oss-120b
 params: []
 removeParams: []

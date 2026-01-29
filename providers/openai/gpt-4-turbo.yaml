@@ -5,22 +5,7 @@ costs:
 limits:
   max_input_tokens: 128000
   max_output_tokens: 4096
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: true
-  supports_code: false
-  supports_tools: true
-  supports_pdf: false
-  supports_doc: false
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_vision: true
-  supports_system_messages: true
-  supports_tool_choice: true
-  supports_prompt_caching: true
-  supports_pdf_input: true
+capabilities: [function_calling, parallel_function_calling, vision, chat, image]
 source: ''
 params:
   - key: max_tokens

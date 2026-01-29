@@ -8,10 +8,7 @@ limits:
   max_tokens: 2048
   max_input_tokens: 8192
   max_output_tokens: 2048
-capabilities:
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_tool_choice: true
+capabilities: [function_calling, parallel_function_calling]
 source: 'As of Jun, 2024. There is no available doc on vertex ai pricing gemini-1.0-ultra-001. Using gemini-1.0-pro pricing. Got max_tokens info here: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models#foundation_models'
 params: []
 removeParams: []

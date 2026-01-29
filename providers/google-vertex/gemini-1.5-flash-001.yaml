@@ -14,21 +14,7 @@ costs:
 limits:
   max_input_tokens: 1000000
   max_output_tokens: 8192
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: true
-  supports_code: false
-  supports_tools: true
-  supports_pdf: true
-  supports_doc: true
-  supports_cache_control: false
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_vision: true
-  supports_system_messages: true
-  supports_tool_choice: true
-  supports_response_schema: true
+capabilities: [function_calling, parallel_function_calling, vision, chat, image, pdf, doc]
 source: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models#foundation_models
 params:
   - key: max_tokens

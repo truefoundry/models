@@ -4,11 +4,7 @@ costs:
   output_cost_per_token: 0.000006
 limits:
   max_input_tokens: 262000
-capabilities:
-  supports_function_calling: true
-  supports_parallel_function_calling: true
-  supports_tool_choice: true
-  supports_response_schema: true
+capabilities: [function_calling, parallel_function_calling]
 source: https://www.together.ai/models/qwen3-235b-a22b-instruct-2507-fp8
 params: []
 removeParams: []
