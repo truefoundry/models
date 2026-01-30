@@ -1,28 +1,39 @@
 package model
 
 // Schema for individual model YAML files (e.g., gpt-4o.yaml)
+// Shared param definitions are in common.cue
+
+#Feature: "function_calling" | "parallel_function_calling" | "vision" | "audio_input" | "audio_output" | "chat" | "image" | "pdf" | "doc" | "cache_control"
+
+#PricingTier: {
+	from:           number
+	cost_per_token: number
+}
 
 #TieredPricing: {
-	...
+	input?:       [...#PricingTier]
+	output?:      [...#PricingTier]
+	cache_read?:  [...#PricingTier]
+	cache_write?: [...#PricingTier]
 }
 
 #Costs: {
-	input_cost_per_token?:                       number
-	output_cost_per_token?:                      number
-	input_cost_per_token_batches?:               number
-	output_cost_per_token_batches?:              number
-	cache_read_input_token_cost?:                number
-	cache_creation_input_token_cost?:            number
-	input_cost_per_audio_token?:                 number
-	output_cost_per_audio_token?:                number
-	cache_creation_input_audio_token_cost?:      number
-	input_cost_per_request?:                     number
-	input_cost_per_character?:                   number
-	input_cost_per_second?:                      number
-	output_cost_per_second?:                     number
-	input_cost_per_query?:                       number
-	input_cost_per_image?:                       number
-	tiered_pricing?:                             #TieredPricing
+	input_cost_per_token?:                  number
+	output_cost_per_token?:                 number
+	input_cost_per_token_batches?:          number
+	output_cost_per_token_batches?:         number
+	cache_read_input_token_cost?:           number
+	cache_creation_input_token_cost?:       number
+	input_cost_per_audio_token?:            number
+	output_cost_per_audio_token?:           number
+	cache_creation_input_audio_token_cost?: number
+	input_cost_per_request?:                number
+	input_cost_per_character?:              number
+	input_cost_per_second?:                 number
+	output_cost_per_second?:                number
+	input_cost_per_query?:                  number
+	input_cost_per_image?:                  number
+	tiered_pricing?:                        #TieredPricing
 }
 
 #Limits: {
@@ -34,71 +45,46 @@ package model
 	tool_use_system_prompt_tokens?: int
 }
 
-#ParamOption: {
-	value:   _
-	name:    string
-	schema?: _
-	params?: _
-}
-
-#Param: {
-	key:             string
-	defaultValue?:   _
-	minValue?:       number
-	maxValue?:       number
-	type?:           string
-	options?:        [...#ParamOption]
-	skipValues?:     [...]
-	rule?:           _
-	enum?:           [...]
-	nestedOptions?:  _
-	withdrawParams?: _
-	properties?:     _
-}
-
 #ModelConfig: {
 	// Required: Model identifier used by the provider's API
 	model: string
 
-	// Pricing information
-	costs?: #Costs
+	// Pricing information (required, can be empty {})
+	costs: #Costs
 
-	// Token limits
-	limits?: #Limits
+	// Token limits (required, can be empty {})
+	limits: #Limits
 
-	// Feature flags (list of supported features)
-	features?: [...string]
+	// Feature flags (required, can be empty [])
+	features: [...#Feature]
 
-	// Configurable parameters
-	params?: [...#Param]
+	// Configurable parameters (required, can be empty [])
+	params: [...#Param]
 
-	// Parameters to remove from defaults
-	removeParams?: [...string]
+	// Parameters to remove from defaults (required, can be empty [])
+	removeParams: [...string]
 
-	// Required parameters
-	requiredParams?: [...string]
+	// Required parameters (required, can be empty [])
+	requiredParams: [...string]
 
-	// Model mode
-	mode?: string
+	// Model mode (required)
+	mode: string
 
-	// Default region
-	defaultRegion?: string
+	// Default region (required, can be empty "")
+	defaultRegion: string
 
-	// Deprecation date (YYYY-MM-DD format)
-	deprecation_date?: string
+	// Deprecation date (required, can be empty "")
+	deprecation_date: string
 
-	// Whether model is deprecated
-	is_deprecated?: bool
+	// Whether model is deprecated (required)
+	is_deprecated: bool
 
-	// Original provider name
-	original_provider?: string
+	// Original provider name (required)
+	original_provider: string
 
-	// Source URL for pricing/documentation
-	source?: string
-
-	// Messages configuration (some models have this)
-	messages?: {
-		options?: [...string]
+	// Messages configuration
+	messages: {
+		options: [...string]
 		...
 	}
 }

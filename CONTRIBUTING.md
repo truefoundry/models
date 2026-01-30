@@ -71,7 +71,6 @@ features: [<feature1>, <feature2>, ...]  # e.g., [chat, vision, function_calling
 # Metadata (all optional)
 mode: <chat|completion|embedding|image|audio>
 original_provider: <provider-name>
-source: <url-to-pricing-page>
 is_deprecated: <boolean>
 deprecation_date: <YYYY-MM-DD>
 
@@ -105,7 +104,7 @@ When updating a model:
 
 1. Find the model file in `providers/<provider>/` (note: file names may not exactly match the `model` field)
 2. Update the relevant fields
-3. Add a `source` field with a link to the official documentation/pricing page
+3. Add a `source` with a link to the official documentation/pricing page
 4. Submit a PR with a clear description of what changed and why
 
 Common updates include:

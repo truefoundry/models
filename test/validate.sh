@@ -6,6 +6,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+COMMON_SCHEMA="$SCRIPT_DIR/common.cue"
 MODEL_SCHEMA="$SCRIPT_DIR/model.cue"
 DEFAULT_SCHEMA="$SCRIPT_DIR/default.cue"
 
@@ -22,21 +23,20 @@ validate_file() {
     local schema
     local definition
 
-    # Use different schema for default.yaml vs model files
+    # Use different definition for default.yaml vs model files
     if [ "$filename" = "default.yaml" ]; then
-        schema="$DEFAULT_SCHEMA"
         definition="#DefaultConfig"
     else
-        schema="$MODEL_SCHEMA"
         definition="#ModelConfig"
     fi
 
     local result=0
-    if cat "$file" | cue vet "$schema" yaml: - -d "$definition" 2>/dev/null; then
+    # Load common.cue + model.cue + default.cue together (same package)
+    if cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>/dev/null; then
         echo "✓ $file"
     else
         echo "✗ $file"
-        cat "$file" | cue vet "$schema" yaml: - -d "$definition" 2>&1 | head -10
+        cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>&1 | head -10
         result=1
     fi
 
