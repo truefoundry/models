@@ -54,9 +54,9 @@ else
     
     for file in $(find "$PROVIDERS_DIR" -name "*.yaml" -type f); do
         if validate_file "$file"; then
-            ((PASSED++))
+            PASSED=$((PASSED + 1))
         else
-            ((FAILED++))
+            FAILED=$((FAILED + 1))
         fi
     done
     
