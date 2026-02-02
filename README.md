@@ -3,15 +3,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-A comprehensive, community-maintained registry of AI/LLM model configurations. This repository provides standardized model metadata including pricing, capabilities, token limits, and supported features across all major AI providers.
+A comprehensive, community-maintained registry of AI/LLM model configurations. This repository provides standardized model metadata including pricing, features, and token limits across all major AI providers.
 
 ## Why Use This?
 
-LLM model configs change often — prices drop, capabilities expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
+LLM model configs change often — prices drop, features expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
 
 - **Unified Schema** — Consistent model configuration format across 17 providers
 - **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
-- **Capability Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
+- **Feature Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
 - **Open Source** — Community-driven updates ensure accuracy and coverage
 
 ## Supported Providers
