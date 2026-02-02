@@ -50,23 +50,23 @@ Each model YAML file follows this schema:
 
 ```yaml
 # Required
-model: gpt-4o                          # Model identifier (only required field)
+model: gpt-4o                          # Model identifier
 
-# Optional - Pricing
+# Pricing
 costs:
   input_cost_per_token: 0.0000025
   output_cost_per_token: 0.00001
   cache_read_input_token_cost: 0.00000125
 
-# Optional - Token limits
+# Token limits
 limits:
   max_input_tokens: 128000
   max_output_tokens: 16384
 
-# Optional - Features (array of strings)
+# Features (array of strings)
 features: [chat, vision, function_calling, tools]
 
-# Optional - Metadata
+# Metadata
 mode: chat
 original_provider: openai
 is_deprecated: false

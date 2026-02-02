@@ -49,42 +49,19 @@ package model
 	// Required: Model identifier used by the provider's API
 	model: string
 
-	// Pricing information (required, can be empty {})
-	costs: #Costs
-
-	// Token limits (required, can be empty {})
-	limits: #Limits
-
-	// Feature flags (required, can be empty [])
-	features: [...#Feature]
-
-	// Configurable parameters (required, can be empty [])
-	params: [...#Param]
-
-	// Parameters to remove from defaults (required, can be empty [])
-	removeParams: [...string]
-
-	// Required parameters (required, can be empty [])
-	requiredParams: [...string]
-
-	// Model mode (required)
-	mode: string
-
-	// Default region (required, can be empty "")
-	defaultRegion: string
-
-	// Deprecation date (required, can be empty "")
-	deprecation_date: string
-
-	// Whether model is deprecated (required)
-	is_deprecated: bool
-
-	// Original provider name (required)
-	original_provider: string
-
-	// Messages configuration
-	messages: {
-		options: [...string]
+	// Optional fields
+	costs?:            #Costs
+	limits?:           #Limits
+	features?:         [...#Feature]
+	params?:           [...#Param]
+	removeParams?:     [...string]
+	requiredParams?:   [...string]
+	mode?:           string
+	defaultRegion?:  string
+	is_deprecated?:  bool
+	original_provider?: string
+	messages?: {
+		options?: [...string]
 		...
 	}
 }

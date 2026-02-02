@@ -46,13 +46,13 @@ providers/<provider-name>/<model-name>.yaml
 ### 2. Required Field
 
 ```yaml
-model: <model-identifier>   # Only required field
+model: <model-identifier>
 ```
 
 ### 3. Optional Fields
 
 ```yaml
-# Pricing (all optional)
+# Pricing
 costs:
   input_cost_per_token: <number>
   output_cost_per_token: <number>
@@ -60,21 +60,20 @@ costs:
   cache_read_input_token_cost: <number>
   # ... and more pricing fields
 
-# Limits (all optional)
+# Limits
 limits:
   max_input_tokens: <number>
   max_output_tokens: <number>
 
-# Features (array of strings, optional)
+# Features
 features: [<feature1>, <feature2>, ...]  # e.g., [chat, vision, function_calling]
 
-# Metadata (all optional)
+# Metadata
 mode: <chat|completion|embedding|image|audio>
 original_provider: <provider-name>
 is_deprecated: <boolean>
-deprecation_date: <YYYY-MM-DD>
 
-# Parameters (optional)
+# Parameters
 params: <array-of-configurable-parameters>
 removeParams: <array>
 requiredParams: <array>
@@ -118,7 +117,7 @@ Common updates include:
 To add a new provider:
 
 1. Create a new directory: `providers/<provider-name>/`
-2. Add a `default.yaml` with provider-level defaults (optional)
+2. Add a `default.yaml` with provider-level defaults
 3. Add individual model YAML files
 4. Update the README.md to include the new provider in the structure section
 
