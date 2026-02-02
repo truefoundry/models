@@ -14,7 +14,7 @@ We will review and respond as soon as possible.
 
 ## Scope
 
-This repository contains static YAML configuration files for LLM model metadata (pricing, capabilities, limits). It does not contain executable code or handle sensitive data.
+This repository contains static YAML configuration files for LLM model metadata (pricing, features, limits). It does not contain executable code or handle sensitive data.
 
 Security concerns for this repo are primarily:
 
