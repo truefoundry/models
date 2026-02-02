@@ -49,43 +49,27 @@ git clone https://github.com/truefoundry/models.git
 Each model YAML file follows this schema:
 
 ```yaml
-# Model identifier (required)
-model: gpt-4o
+# Required
+model: gpt-4o                          # Model identifier
 
-# Pricing information
+# Pricing
 costs:
-  input_cost_per_token: 0.0000025      # Cost per input token in USD
-  output_cost_per_token: 0.00001       # Cost per output token in USD
-  input_cost_per_token_batches: 0.00000125  # Batch API pricing
-  output_cost_per_token_batches: 0.000005
-  cache_read_input_token_cost: 0.00000125   # Prompt caching cost
+  input_cost_per_token: 0.0000025
+  output_cost_per_token: 0.00001
+  cache_read_input_token_cost: 0.00000125
 
 # Token limits
 limits:
-  max_input_tokens: 128000             # Maximum context window
-  max_output_tokens: 16384             # Maximum generation length
+  max_input_tokens: 128000
+  max_output_tokens: 16384
 
-# Feature capabilities
-capabilities:
-  supports_chat: true                  # Chat completions API
-  supports_vision: true                # Image input support
-  supports_tools: true                 # Tool/function calling
-  supports_function_calling: true      # Function calling (legacy)
-  supports_parallel_function_calling: true
-  supports_system_messages: true       # System prompt support
-  supports_response_schema: true       # Structured output/JSON mode
-  supports_prompt_caching: true        # Prompt caching support
-  supports_pdf_input: true             # PDF document input
+# Features (array of strings)
+features: [chat, vision, function_calling, tools]
 
-# Model mode
-mode: chat                             # chat, completion, embedding, image, audio
-
-# Provider information
-original_provider: openai              # Original model provider
-
-# Deprecation info
+# Metadata
+mode: chat
+original_provider: openai
 is_deprecated: false
-deprecation_date: ''
 ```
 
 ## Directory Structure

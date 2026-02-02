@@ -43,53 +43,41 @@ To add a new model, create a YAML file in the appropriate provider directory:
 providers/<provider-name>/<model-name>.yaml
 ```
 
-### 2. Required Fields
+### 2. Required Field
 
 ```yaml
 model: <model-identifier>
-costs:
-  input_cost_per_token: <number>
-  output_cost_per_token: <number>
-limits:
-  max_input_tokens: <number>
-  max_output_tokens: <number>
-capabilities:
-  supports_chat: <boolean>
-  supports_text: <boolean>
-  supports_image: <boolean>
-  supports_code: <boolean>
-  supports_tools: <boolean>
-  supports_function_calling: <boolean>
-  supports_vision: <boolean>
-  supports_system_messages: <boolean>
-mode: <chat|completion|embedding|image|audio>
-original_provider: <provider-name>
 ```
 
 ### 3. Optional Fields
 
 ```yaml
+# Pricing
 costs:
+  input_cost_per_token: <number>
+  output_cost_per_token: <number>
   input_cost_per_token_batches: <number>
-  output_cost_per_token_batches: <number>
   cache_read_input_token_cost: <number>
-  cache_creation_input_token_cost: <number>
-capabilities:
-  supports_pdf: <boolean>
-  supports_doc: <boolean>
-  supports_cache_control: <boolean>
-  supports_parallel_function_calling: <boolean>
-  supports_tool_choice: <boolean>
-  supports_prompt_caching: <boolean>
-  supports_response_schema: <boolean>
-  supports_pdf_input: <boolean>
-source: <url-to-pricing-page>
+  # ... and more pricing fields
+
+# Limits
+limits:
+  max_input_tokens: <number>
+  max_output_tokens: <number>
+
+# Features
+features: [<feature1>, <feature2>, ...]  # e.g., [chat, vision, function_calling]
+
+# Metadata
+mode: <chat|completion|embedding|image|audio>
+original_provider: <provider-name>
+is_deprecated: <boolean>
+
+# Parameters
 params: <array-of-configurable-parameters>
 removeParams: <array>
 requiredParams: <array>
 defaultRegion: <string>
-deprecation_date: <YYYY-MM-DD>
-is_deprecated: <boolean>
 ```
 
 ### 4. Example
@@ -103,15 +91,7 @@ costs:
 limits:
   max_input_tokens: 128000
   max_output_tokens: 16384
-capabilities:
-  supports_chat: true
-  supports_text: false
-  supports_image: true
-  supports_tools: true
-  supports_function_calling: true
-  supports_vision: true
-  supports_system_messages: true
-  supports_response_schema: true
+features: [chat, vision, function_calling, parallel_function_calling, tools, image]
 mode: chat
 original_provider: openai
 is_deprecated: false
@@ -123,12 +103,12 @@ When updating a model:
 
 1. Find the model file in `providers/<provider>/` (note: file names may not exactly match the `model` field)
 2. Update the relevant fields
-3. Add a `source` field with a link to the official documentation/pricing page
+3. Add a `source` with a link to the official documentation/pricing page
 4. Submit a PR with a clear description of what changed and why
 
 Common updates include:
 - Pricing changes
-- New capabilities
+- New features
 - Token limit updates
 - Deprecation notices
 
@@ -137,7 +117,7 @@ Common updates include:
 To add a new provider:
 
 1. Create a new directory: `providers/<provider-name>/`
-2. Add a `default.yaml` with provider-level defaults (optional)
+2. Add a `default.yaml` with provider-level defaults
 3. Add individual model YAML files
 4. Update the README.md to include the new provider in the structure section
 
@@ -153,7 +133,7 @@ To add a new provider:
 1. **Title**: Use a clear, descriptive title
    - `Add: provider/model-name`
    - `Update: provider/model-name pricing`
-   - `Fix: provider/model-name capabilities`
+   - `Fix: provider/model-name features`
 
 2. **Description**: Include
    - What changes were made

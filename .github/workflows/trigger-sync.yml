@@ -1,0 +1,26 @@
+name: Trigger Model Sync 
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  trigger-sync:
+    name: Trigger model sync job
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: Install truefoundry CLI
+        run: pipx install --pip-args=--pre truefoundry
+
+      - name: Login to Truefoundry
+        run: |
+          tfy login --api-key ${{ secrets.TFY_API_KEY }} --host https://internal.truefoundry.cloud
+
+      - name: Trigger sync job
+        run: |
+          tfy trigger job --application_fqn tfy-usea1-ctl-devtest:models-pricing-data:ai-model-config-sync --PUSH_TO_MODELS_REPO true
