@@ -1,53 +1,15 @@
 model: gpt-4.1-2025-04-14
 costs:
-  input_cost_per_token: 0.000002
-  output_cost_per_token: 0.000008
-  input_cost_per_token_batches: 0.000001
-  output_cost_per_token_batches: 0.000004
-  cache_read_input_token_cost: 5.e-7
+  input_cost_per_token: 0.0000022
+  output_cost_per_token: 0.0000088
+  input_cost_per_token_batches: 0.0000011
+  output_cost_per_token_batches: 0.0000044
+  cache_read_input_token_cost: 5.5e-7
 limits:
-  max_tokens: 4096
+  max_tokens: 32768
   max_input_tokens: 1047576
   max_output_tokens: 32768
-features: [function_calling, parallel_function_calling, vision, chat, image]
-params:
-  - key: max_completion_tokens
-    defaultValue: 1000
-    minValue: 1
-    maxValue: 32768
-  - key: response_format
-    defaultValue: null
-    options:
-      - value: null
-        name: Text
-      - value: json_object
-        name: JSON Object
-        schema:
-          type: object
-          properties:
-            type:
-              type: string
-              value: json_object
-      - value: json_schema
-        name: JSON Schema
-        schema:
-          type: object
-          properties:
-            type:
-              type: string
-              value: json_schema
-            json_schema:
-              type: object
-        params:
-          key: json_schema
-          defaultValue: null
-          type: json
-          skipValues:
-            - null
-    skipValues:
-      - null
-    type: string
-removeParams:
-  - max_tokens
+features: [function_calling, parallel_function_calling, vision]
 mode: chat
+defaultRegion: us
 original_provider: azure

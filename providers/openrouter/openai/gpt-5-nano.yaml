@@ -1,0 +1,11 @@
+model: openai/gpt-5-nano
+costs:
+  input_cost_per_token: 5.e-8
+  output_cost_per_token: 4.e-7
+  cache_read_input_token_cost: 5.e-9
+limits:
+  max_tokens: 128000
+  max_input_tokens: 272000
+  max_output_tokens: 128000
+mode: chat
+original_provider: openrouter

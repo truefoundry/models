@@ -1,0 +1,19 @@
+model: grok-4-1-fast
+costs:
+  input_cost_per_token: 2.e-7
+  output_cost_per_token: 5.e-7
+  cache_read_input_token_cost: 5.e-8
+  tiered_pricing:
+    input:
+      - from: 128000
+        cost_per_token: 4.e-7
+    output:
+      - from: 128000
+        cost_per_token: 0.000001
+limits:
+  max_tokens: 4096
+  max_input_tokens: 2000000
+  max_output_tokens: 2000000
+features: [function_calling, vision, audio_input, chat]
+mode: chat
+original_provider: xai

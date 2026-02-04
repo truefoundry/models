@@ -1,0 +1,12 @@
+model: anthropic/claude-3-haiku-20240307
+costs:
+  input_cost_per_token: 2.5e-7
+  output_cost_per_token: 0.00000125
+limits:
+  max_tokens: 4096
+  max_input_tokens: 200000
+  max_output_tokens: 4096
+  tool_use_system_prompt_tokens: 264
+features: [function_calling, vision]
+mode: chat
+original_provider: openrouter
