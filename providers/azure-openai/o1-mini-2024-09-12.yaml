@@ -1,31 +1,15 @@
 model: o1-mini-2024-09-12
 costs:
-  input_cost_per_token: 0.0000011
-  output_cost_per_token: 0.0000044
-  cache_read_input_token_cost: 5.5e-7
+  input_cost_per_token: 0.00000121
+  output_cost_per_token: 0.00000484
+  input_cost_per_token_batches: 6.05e-7
+  output_cost_per_token_batches: 0.00000242
+  cache_read_input_token_cost: 6.05e-7
 limits:
-  max_tokens: 4096
+  max_tokens: 65536
   max_input_tokens: 128000
   max_output_tokens: 65536
-features: [function_calling, parallel_function_calling, chat]
-messages:
-  options:
-    - user
-    - assistant
-    - developer
-params:
-  - key: max_completion_tokens
-    defaultValue: 1000
-    minValue: 1
-    maxValue: 65536
-removeParams:
-  - temperature
-  - top_p
-  - 'n'
-  - presence_penalty
-  - frequency_penalty
-  - logit_bias
-  - stream
-  - max_tokens
+features: [function_calling, parallel_function_calling]
 mode: chat
+defaultRegion: us
 original_provider: azure
