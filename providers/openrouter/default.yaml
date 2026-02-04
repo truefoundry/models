@@ -1,0 +1,55 @@
+params:
+  - key: max_tokens
+    defaultValue: 128
+    minValue: 1
+    maxValue: 4096
+  - key: temperature
+    defaultValue: 0.8
+    minValue: 0
+    maxValue: 2
+  - key: stop
+    defaultValue: null
+    type: array-of-strings
+    skipValues:
+      - null
+      - []
+  - key: top_p
+    defaultValue: 0.1
+    minValue: 0
+    maxValue: 1
+  - key: 'n'
+    defaultValue: 1
+    minValue: 1
+    maxValue: 10
+  - key: frequency_penalty
+    defaultValue: 0
+    minValue: -2
+    maxValue: 2
+  - key: presence_penalty
+    defaultValue: 0
+    minValue: -2
+    maxValue: 2
+  - key: stream
+    defaultValue: true
+    type: boolean
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+    skipValues:
+      - null
+    type: string
+type:
+  primary: chat
+  supported:
+    - tools
+    - image

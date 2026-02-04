@@ -1,0 +1,13 @@
+model: xiaomi/mimo-v2-flash
+costs:
+  input_cost_per_token: 9.e-8
+  output_cost_per_token: 2.9e-7
+  cache_read_input_token_cost: 0
+  cache_creation_input_token_cost: 0
+limits:
+  max_tokens: 16384
+  max_input_tokens: 262144
+  max_output_tokens: 16384
+features: [function_calling]
+mode: chat
+original_provider: openrouter

@@ -1,12 +1,13 @@
 model: o3-2025-04-16
 costs:
-  input_cost_per_token: 0.000002
-  output_cost_per_token: 0.000008
-  cache_read_input_token_cost: 5.e-7
+  input_cost_per_token: 0.0000022
+  output_cost_per_token: 0.0000088
+  cache_read_input_token_cost: 5.5e-7
 limits:
-  max_tokens: 4096
+  max_tokens: 100000
   max_input_tokens: 200000
   max_output_tokens: 100000
-features: [function_calling, vision, chat]
+features: [function_calling, vision]
 mode: chat
+defaultRegion: us
 original_provider: azure
