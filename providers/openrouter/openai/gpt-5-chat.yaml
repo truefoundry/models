@@ -1,0 +1,11 @@
+model: openai/gpt-5-chat
+costs:
+  input_cost_per_token: 0.00000125
+  output_cost_per_token: 0.00001
+  cache_read_input_token_cost: 1.25e-7
+limits:
+  max_tokens: 16384
+  max_input_tokens: 128000
+  max_output_tokens: 16384
+mode: chat
+original_provider: openrouter

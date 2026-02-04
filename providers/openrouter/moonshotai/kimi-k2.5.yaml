@@ -1,0 +1,12 @@
+model: moonshotai/kimi-k2.5
+costs:
+  input_cost_per_token: 6.e-7
+  output_cost_per_token: 0.000003
+  cache_read_input_token_cost: 1.e-7
+limits:
+  max_tokens: 262144
+  max_input_tokens: 262144
+  max_output_tokens: 262144
+features: [function_calling, vision]
+mode: chat
+original_provider: openrouter

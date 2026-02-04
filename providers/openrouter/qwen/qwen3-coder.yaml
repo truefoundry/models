@@ -1,0 +1,11 @@
+model: qwen/qwen3-coder
+costs:
+  input_cost_per_token: 2.2e-7
+  output_cost_per_token: 9.5e-7
+limits:
+  max_tokens: 262100
+  max_input_tokens: 262100
+  max_output_tokens: 262100
+features: [function_calling]
+mode: chat
+original_provider: openrouter

@@ -1,0 +1,13 @@
+model: anthropic/claude-3.7-sonnet:beta
+costs:
+  input_cost_per_token: 0.000003
+  output_cost_per_token: 0.000015
+  input_cost_per_image: 0.0048
+limits:
+  max_tokens: 128000
+  max_input_tokens: 200000
+  max_output_tokens: 128000
+  tool_use_system_prompt_tokens: 159
+features: [function_calling, vision]
+mode: chat
+original_provider: openrouter

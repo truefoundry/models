@@ -1,0 +1,11 @@
+model: llama-4-maverick-17b-128e-instruct
+features: [chat]
+params:
+  - key: max_tokens
+    maxValue: 32768
+  - key: temperature
+    defaultValue: 0.6
+  - key: top_p
+    defaultValue: 0.9
+mode: chat
+original_provider: cerebras

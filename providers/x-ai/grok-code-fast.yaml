@@ -1,0 +1,12 @@
+model: grok-code-fast
+costs:
+  input_cost_per_token: 2.e-7
+  output_cost_per_token: 0.0000015
+  cache_read_input_token_cost: 2.e-8
+limits:
+  max_tokens: 4096
+  max_input_tokens: 256000
+  max_output_tokens: 256000
+features: [function_calling, chat]
+mode: chat
+original_provider: xai

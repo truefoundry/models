@@ -1,0 +1,29 @@
+model: us-gov.anthropic.claude-3-5-sonnet-20240620-v1:0
+features: [chat, image]
+params:
+  - key: max_tokens
+    maxValue: 8192
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
+mode: chat
+original_provider: bedrock

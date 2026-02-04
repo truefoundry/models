@@ -1,0 +1,14 @@
+model: grok-vision-beta
+costs:
+  input_cost_per_token: 0.000005
+  output_cost_per_token: 0.000015
+  input_cost_per_image: 0.000005
+limits:
+  max_input_tokens: 8192
+  max_output_tokens: 8192
+features: [function_calling, vision, chat, image]
+params:
+  - key: max_tokens
+    maxValue: 4096
+mode: chat
+original_provider: xai
