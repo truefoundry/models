@@ -1,0 +1,37 @@
+model: claude-opus-4-6
+costs:
+  input_cost_per_token: 0.000005
+  output_cost_per_token: 0.000025
+  cache_read_input_token_cost: 5.e-7
+  cache_creation_input_token_cost: 0.00000625
+limits:
+  max_input_tokens: 200000
+  max_output_tokens: 64000
+  tool_use_system_prompt_tokens: 159
+features: [function_calling, vision, chat, image]
+params:
+  - key: max_tokens
+    maxValue: 64000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
+          - disabled
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
+removeParams:
+  - temperature
+  - top_p
+mode: chat
+original_provider: anthropic
