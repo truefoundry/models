@@ -1,0 +1,9 @@
+model: text-davinci-003
+params:
+  - key: max_tokens
+    maxValue: 4096
+removeParams:
+  - tool_choice
+  - response_format
+mode: completion
+original_provider: open-ai
