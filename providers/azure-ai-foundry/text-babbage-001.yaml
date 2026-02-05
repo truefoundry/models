@@ -1,0 +1,9 @@
+model: text-babbage-001
+params:
+  - key: max_tokens
+    maxValue: 2048
+removeParams:
+  - tool_choice
+  - response_format
+mode: completion
+original_provider: azure-ai

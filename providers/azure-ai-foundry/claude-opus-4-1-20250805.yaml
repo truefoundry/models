@@ -1,0 +1,28 @@
+model: claude-opus-4-1-20250805
+features: [chat, image]
+params:
+  - key: max_tokens
+    maxValue: 32000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
+          - disabled
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
+removeParams:
+  - temperature
+  - top_p
+mode: chat
+original_provider: azure-ai

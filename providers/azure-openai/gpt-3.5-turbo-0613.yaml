@@ -1,0 +1,15 @@
+model: gpt-3.5-turbo-0613
+features: [chat]
+params:
+  - key: max_tokens
+    maxValue: 4096
+  - key: frequency_penalty
+    defaultValue: 0
+    minValue: -2
+    maxValue: 2
+  - key: presence_penalty
+    defaultValue: 0
+    minValue: -2
+    maxValue: 2
+mode: chat
+original_provider: azure-openai
