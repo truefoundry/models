@@ -1,0 +1,9 @@
+model: davinci-002
+params:
+  - key: max_tokens
+    maxValue: 16384
+removeParams:
+  - tool_choice
+  - response_format
+mode: completion
+original_provider: open-ai

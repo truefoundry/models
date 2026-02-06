@@ -1,0 +1,9 @@
+model: gpt-3.5-turbo-instruct
+params:
+  - key: max_tokens
+    maxValue: 4096
+removeParams:
+  - tool_choice
+  - response_format
+mode: completion
+original_provider: open-ai

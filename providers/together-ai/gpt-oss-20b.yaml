@@ -1,0 +1,9 @@
+model: gpt-oss-20b
+features: [chat]
+params:
+  - key: max_tokens
+    maxValue: 128000
+removeParams:
+  - stream
+mode: chat
+original_provider: together-ai

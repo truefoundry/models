@@ -5,9 +5,10 @@ costs:
   cache_read_input_token_cost: 5.e-7
   cache_creation_input_token_cost: 0.00000625
 limits:
-  max_tokens: 64000
+  max_tokens: 128000
   max_input_tokens: 200000
-  max_output_tokens: 64000
+  max_output_tokens: 128000
+  tool_use_system_prompt_tokens: 159
 features: [function_calling, vision]
 mode: chat
 original_provider: azure_ai

@@ -1,0 +1,65 @@
+model: o4-mini-2025-04-16
+limits:
+  max_tokens: 4096
+features: [chat, image]
+messages:
+  options:
+    - user
+    - assistant
+    - developer
+params:
+  - key: max_completion_tokens
+    defaultValue: 1000
+    minValue: 1
+    maxValue: 100000
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
+        name: JSON Schema
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
+        params:
+          key: json_schema
+          defaultValue: null
+          type: json
+          skipValues:
+            - null
+    skipValues:
+      - null
+    type: string
+  - key: reasoning_effort
+    defaultValue: medium
+    options:
+      - value: low
+        name: Low
+      - value: medium
+        name: Medium
+      - value: high
+        name: High
+    type: string
+removeParams:
+  - top_p
+  - presence_penalty
+  - frequency_penalty
+  - logit_bias
+  - max_tokens
+  - temperature
+mode: chat
+original_provider: azure-ai
