@@ -1,22 +1,22 @@
-model: us.anthropic.claude-opus-4-6-v1:0
+model: global.anthropic.claude-opus-4-6-v1
 costs:
-  input_cost_per_token: 0.0000055
-  output_cost_per_token: 0.0000275
-  cache_read_input_token_cost: 5.5e-7
-  cache_creation_input_token_cost: 0.000006875
+  input_cost_per_token: 0.000005
+  output_cost_per_token: 0.000025
+  cache_read_input_token_cost: 5.e-7
+  cache_creation_input_token_cost: 0.00000625
   tiered_pricing:
     cache_write:
       - from: 200000
-        cost_per_token: 0.00001375
+        cost_per_token: 0.0000125
     cache_read:
       - from: 200000
-        cost_per_token: 0.0000011
+        cost_per_token: 0.000001
     input:
       - from: 200000
-        cost_per_token: 0.000011
+        cost_per_token: 0.00001
     output:
       - from: 200000
-        cost_per_token: 0.00004125
+        cost_per_token: 0.0000375
 limits:
   max_tokens: 128000
   max_input_tokens: 1000000
