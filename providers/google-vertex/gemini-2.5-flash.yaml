@@ -3,7 +3,21 @@ costs:
   input_cost_per_token: 3.e-7
   output_cost_per_token: 0.0000025
   cache_read_input_token_cost: 3.e-8
-  input_cost_per_audio_token: 0.000001
+  supported_regions:
+    - global
+    - us-central1
+    - us-east1
+    - us-east4
+    - us-east5
+    - us-south1
+    - us-west1
+    - us-west4
+    - europe-central2
+    - europe-north1
+    - europe-southwest1
+    - europe-west1
+    - europe-west4
+    - europe-west8
 limits:
   max_input_tokens: 1048576
   max_output_tokens: 65535

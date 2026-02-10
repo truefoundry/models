@@ -3,19 +3,22 @@ costs:
   input_cost_per_token: 0.00000125
   output_cost_per_token: 0.00001
   cache_read_input_token_cost: 1.25e-7
-  tiered_pricing:
-    cache_read:
-      - from: 200000
-        cost_per_token: 2.5e-7
-    cache_write:
-      - from: 200000
-        cost_per_token: 2.5e-7
-    input:
-      - from: 200000
-        cost_per_token: 0.0000025
-    output:
-      - from: 200000
-        cost_per_token: 0.000015
+  supported_regions:
+    - global
+    - us-central1
+    - us-east1
+    - us-east4
+    - us-east5
+    - us-south1
+    - us-west1
+    - us-west4
+    - europe-central2
+    - europe-north1
+    - europe-southwest1
+    - europe-west1
+    - europe-west4
+    - europe-west8
+    - europe-west9
 limits:
   max_input_tokens: 1048576
   max_output_tokens: 65535
