@@ -1,9 +1,89 @@
 model: global.anthropic.claude-opus-4-5-20251101-v1:0
 costs:
-  input_cost_per_token: 0.000005
-  output_cost_per_token: 0.000025
-  cache_read_input_token_cost: 5.e-7
-  cache_creation_input_token_cost: 0.00000625
+  - region: us-west-2
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: us-west-1
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: us-east-2
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: us-east-1
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: sa-east-1
+    input_cost_per_token: 0.000005
+    output_cost_per_token: 0.000025
+    cache_read_input_token_cost: 5.e-7
+    cache_creation_input_token_cost: 0.00000625
+  - region: eu-north-1
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: eu-south-2
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: eu-west-3
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: eu-south-1
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: eu-west-2
+    input_cost_per_token: 0.000005
+    output_cost_per_token: 0.000025
+    cache_creation_input_token_cost: 0.000011
+  - region: eu-west-1
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: eu-central-1
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: ca-central-1
+    input_cost_per_token: 0.0000055
+    output_cost_per_token: 0.0000275
+    cache_read_input_token_cost: 5.5e-7
+    cache_creation_input_token_cost: 0.000006875
+  - region: ap-southeast-1
+    input_cost_per_token: 0.000005
+    output_cost_per_token: 0.000025
+    cache_read_input_token_cost: 5.e-7
+    cache_creation_input_token_cost: 0.00000625
+  - region: ap-northeast-2
+    input_cost_per_token: 0.000005
+    output_cost_per_token: 0.000025
+    cache_read_input_token_cost: 5.e-7
+    cache_creation_input_token_cost: 0.00000625
+  - region: ap-south-1
+    input_cost_per_token: 0.000005
+    output_cost_per_token: 0.000025
+    cache_read_input_token_cost: 5.e-7
+    cache_creation_input_token_cost: 0.00000625
+  - region: ap-south-2
+    input_cost_per_token: 0.000005
+    output_cost_per_token: 0.000025
+    cache_read_input_token_cost: 5.e-7
+    cache_creation_input_token_cost: 0.00000625
 limits:
   max_input_tokens: 200000
   max_output_tokens: 64000
