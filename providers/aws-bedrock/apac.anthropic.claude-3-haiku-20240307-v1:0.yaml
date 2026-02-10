@@ -1,7 +1,20 @@
 model: apac.anthropic.claude-3-haiku-20240307-v1:0
 costs:
-  input_cost_per_token: 2.5e-7
-  output_cost_per_token: 0.00000125
+  - region: ap-southeast-2
+    input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000125
+  - region: ap-northeast-1
+    input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000125
+  - region: ap-southeast-1
+    input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000125
+  - region: ap-northeast-2
+    input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000125
+  - region: ap-south-1
+    input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000125
 limits:
   max_tokens: 4096
   max_input_tokens: 200000

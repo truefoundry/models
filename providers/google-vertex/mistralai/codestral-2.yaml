@@ -1,7 +1,10 @@
 model: mistralai/codestral-2
 costs:
-  input_cost_per_token: 3.e-7
-  output_cost_per_token: 9.e-7
+  - input_cost_per_token: 3.e-7
+    output_cost_per_token: 9.000000000000001e-7
+    supported_regions:
+      - us-central1
+      - europe-west4
 limits:
   max_tokens: 128000
   max_input_tokens: 128000
