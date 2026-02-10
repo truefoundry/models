@@ -1,7 +1,9 @@
 model: meta-llama/llama-3-70b-instruct:nitro
 costs:
-  input_cost_per_token: 9.e-7
-  output_cost_per_token: 9.e-7
+  - input_cost_per_token: 9.e-7
+    output_cost_per_token: 9.e-7
+    input_cost_per_million_tokens: 0.9
+    output_cost_per_million_tokens: 0.9
 limits:
   max_tokens: 8192
 mode: chat

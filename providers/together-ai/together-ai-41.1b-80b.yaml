@@ -1,7 +1,9 @@
 model: together-ai-41.1b-80b
 costs:
-  input_cost_per_token: 9.e-7
-  output_cost_per_token: 9.e-7
+  - input_cost_per_token: 9.e-7
+    output_cost_per_token: 9.e-7
+    input_cost_per_million_tokens: 0.9
+    output_cost_per_million_tokens: 0.9
 mode: chat
 original_provider: together_ai
 is_deprecated: true

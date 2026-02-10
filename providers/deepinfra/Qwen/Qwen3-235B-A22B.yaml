@@ -1,7 +1,9 @@
 model: Qwen/Qwen3-235B-A22B
 costs:
-  input_cost_per_token: 1.8e-7
-  output_cost_per_token: 5.4e-7
+  - input_cost_per_token: 1.8e-7
+    output_cost_per_token: 5.4e-7
+    input_cost_per_million_tokens: 0.18
+    output_cost_per_million_tokens: 0.54
 limits:
   max_tokens: 40960
   max_input_tokens: 40960

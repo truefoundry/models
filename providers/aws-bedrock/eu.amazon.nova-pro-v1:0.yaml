@@ -1,7 +1,35 @@
 model: eu.amazon.nova-pro-v1:0
 costs:
-  input_cost_per_token: 0.00000105
-  output_cost_per_token: 0.0000042
+  - region: eu-north-1
+    input_cost_per_token: 8.7e-7
+    output_cost_per_token: 0.00000348
+    input_cost_per_million_tokens: 0.87
+    output_cost_per_million_tokens: 3.48
+  - region: eu-south-2
+    input_cost_per_token: 8.8e-7
+    output_cost_per_token: 0.00000352
+    input_cost_per_million_tokens: 0.88
+    output_cost_per_million_tokens: 3.52
+  - region: eu-west-3
+    input_cost_per_token: 0.0000011800000000000001
+    output_cost_per_token: 0.0000047200000000000005
+    input_cost_per_million_tokens: 1.18
+    output_cost_per_million_tokens: 4.72
+  - region: eu-south-1
+    input_cost_per_token: 0.00000128
+    output_cost_per_token: 0.00000521
+    input_cost_per_million_tokens: 1.28
+    output_cost_per_million_tokens: 5.21
+  - region: eu-west-1
+    input_cost_per_token: 9.2e-7
+    output_cost_per_token: 0.00000368
+    input_cost_per_million_tokens: 0.92
+    output_cost_per_million_tokens: 3.68
+  - region: eu-central-1
+    input_cost_per_token: 0.00000105
+    output_cost_per_token: 0.0000042
+    input_cost_per_million_tokens: 1.05
+    output_cost_per_million_tokens: 4.2
 limits:
   max_tokens: 4096
   max_input_tokens: 300000

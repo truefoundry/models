@@ -1,7 +1,60 @@
 model: qwen.qwen3-coder-30b-a3b-v1:0
 costs:
-  input_cost_per_token: 1.5e-7
-  output_cost_per_token: 6.e-7
+  - region: us-west-2
+    input_cost_per_token: 7.5e-8
+    output_cost_per_token: 3.e-7
+    input_cost_per_million_tokens: 0.075
+    output_cost_per_million_tokens: 0.3
+  - region: us-east-2
+    input_cost_per_token: 7.5e-8
+    output_cost_per_token: 3.e-7
+    input_cost_per_million_tokens: 0.075
+    output_cost_per_million_tokens: 0.3
+  - region: us-east-1
+    input_cost_per_token: 7.5e-8
+    output_cost_per_token: 3.e-7
+    input_cost_per_million_tokens: 0.075
+    output_cost_per_million_tokens: 0.3
+  - region: sa-east-1
+    input_cost_per_token: 9.000000000000001e-8
+    output_cost_per_token: 3.65e-7
+    input_cost_per_million_tokens: 0.09
+    output_cost_per_million_tokens: 0.365
+  - region: eu-north-1
+    input_cost_per_token: 7.5e-8
+    output_cost_per_token: 3.e-7
+    input_cost_per_million_tokens: 0.075
+    output_cost_per_million_tokens: 0.3
+  - region: eu-south-1
+    input_cost_per_token: 1.0000000000000001e-7
+    output_cost_per_token: 3.9500000000000003e-7
+    input_cost_per_million_tokens: 0.1
+    output_cost_per_million_tokens: 0.395
+  - region: eu-west-2
+    input_cost_per_token: 1.15e-7
+    output_cost_per_token: 4.6500000000000005e-7
+    input_cost_per_million_tokens: 0.115
+    output_cost_per_million_tokens: 0.465
+  - region: eu-west-1
+    input_cost_per_token: 9.000000000000001e-8
+    output_cost_per_token: 3.5e-7
+    input_cost_per_million_tokens: 0.09
+    output_cost_per_million_tokens: 0.35
+  - region: eu-central-1
+    input_cost_per_token: 1.0000000000000001e-7
+    output_cost_per_token: 3.9500000000000003e-7
+    input_cost_per_million_tokens: 0.1
+    output_cost_per_million_tokens: 0.395
+  - region: ap-northeast-1
+    input_cost_per_token: 9.000000000000001e-8
+    output_cost_per_token: 3.65e-7
+    input_cost_per_million_tokens: 0.09
+    output_cost_per_million_tokens: 0.365
+  - region: ap-south-1
+    input_cost_per_token: 9.000000000000001e-8
+    output_cost_per_token: 3.55e-7
+    input_cost_per_million_tokens: 0.09
+    output_cost_per_million_tokens: 0.355
 limits:
   max_tokens: 131072
   max_input_tokens: 262144

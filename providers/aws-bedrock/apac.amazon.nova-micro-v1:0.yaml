@@ -1,7 +1,30 @@
 model: apac.amazon.nova-micro-v1:0
 costs:
-  input_cost_per_token: 3.7e-8
-  output_cost_per_token: 1.48e-7
+  - region: ap-northeast-1
+    input_cost_per_token: 4.2e-8
+    output_cost_per_token: 1.68e-7
+    input_cost_per_million_tokens: 0.042
+    output_cost_per_million_tokens: 0.168
+  - region: ap-southeast-2
+    input_cost_per_token: 3.7e-8
+    output_cost_per_token: 1.48e-7
+    input_cost_per_million_tokens: 0.037
+    output_cost_per_million_tokens: 0.148
+  - region: ap-southeast-1
+    input_cost_per_token: 4.7e-8
+    output_cost_per_token: 1.88e-7
+    input_cost_per_million_tokens: 0.047
+    output_cost_per_million_tokens: 0.188
+  - region: ap-northeast-2
+    input_cost_per_token: 4.1e-8
+    output_cost_per_token: 1.64e-7
+    input_cost_per_million_tokens: 0.041
+    output_cost_per_million_tokens: 0.164
+  - region: ap-south-1
+    input_cost_per_token: 4.1e-8
+    output_cost_per_token: 1.64e-7
+    input_cost_per_million_tokens: 0.041
+    output_cost_per_million_tokens: 0.164
 limits:
   max_tokens: 10000
   max_input_tokens: 128000

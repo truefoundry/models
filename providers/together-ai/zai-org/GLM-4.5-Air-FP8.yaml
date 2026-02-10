@@ -1,7 +1,9 @@
 model: zai-org/GLM-4.5-Air-FP8
 costs:
-  input_cost_per_token: 2.e-7
-  output_cost_per_token: 0.0000011
+  - input_cost_per_token: 2.e-7
+    output_cost_per_token: 0.0000011
+    input_cost_per_million_tokens: 0.2
+    output_cost_per_million_tokens: 1.1
 limits:
   max_input_tokens: 128000
 features: [function_calling, parallel_function_calling]

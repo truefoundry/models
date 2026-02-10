@@ -1,7 +1,9 @@
 model: openai/o1-mini
 costs:
-  input_cost_per_token: 0.000003
-  output_cost_per_token: 0.000012
+  - input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000012
+    input_cost_per_million_tokens: 3
+    output_cost_per_million_tokens: 12
 limits:
   max_tokens: 65536
   max_input_tokens: 128000

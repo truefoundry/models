@@ -1,6 +1,8 @@
 model: dall-e-2
 costs:
-  input_cost_per_image: 0.02
+  - input_cost_per_image: 0.02
+    input_cost_per_million_tokens: null
+    output_cost_per_million_tokens: null
 limits:
   max_tokens: 4096
 features: [image]

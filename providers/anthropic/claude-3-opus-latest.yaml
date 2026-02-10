@@ -1,9 +1,11 @@
 model: claude-3-opus-latest
 costs:
-  input_cost_per_token: 0.000015
-  output_cost_per_token: 0.000075
-  cache_read_input_token_cost: 0.0000015
-  cache_creation_input_token_cost: 0.00001875
+  - input_cost_per_token: 0.000015
+    output_cost_per_token: 0.000075
+    cache_read_input_token_cost: 0.0000015
+    cache_creation_input_token_cost: 0.00001875
+    input_cost_per_million_tokens: 15
+    output_cost_per_million_tokens: 75
 limits:
   max_input_tokens: 200000
   max_output_tokens: 4096

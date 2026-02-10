@@ -1,7 +1,9 @@
 model: grok-3-mini
 costs:
-  input_cost_per_token: 2.5e-7
-  output_cost_per_token: 0.00000127
+  - input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000127
+    input_cost_per_million_tokens: 0.25
+    output_cost_per_million_tokens: 1.27
 limits:
   max_tokens: 4096
   max_input_tokens: 131072

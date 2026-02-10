@@ -1,7 +1,9 @@
 model: jamba-1.5-large@001
 costs:
-  input_cost_per_token: 0.000002
-  output_cost_per_token: 0.000008
+  - input_cost_per_token: 0.000002
+    output_cost_per_token: 0.000008
+    input_cost_per_million_tokens: 2
+    output_cost_per_million_tokens: 8
 limits:
   max_tokens: 256000
   max_input_tokens: 256000

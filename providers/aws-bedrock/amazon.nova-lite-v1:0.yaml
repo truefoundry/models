@@ -1,7 +1,96 @@
 model: amazon.nova-lite-v1:0
 costs:
-  input_cost_per_token: 6.e-8
-  output_cost_per_token: 2.4e-7
+  - region: us-west-2
+    input_cost_per_token: 6.000000000000001e-8
+    output_cost_per_token: 2.4000000000000003e-7
+    input_cost_per_million_tokens: 0.06
+    output_cost_per_million_tokens: 0.24
+  - region: us-west-1
+    input_cost_per_token: 7.7e-8
+    output_cost_per_token: 3.08e-7
+    input_cost_per_million_tokens: 0.077
+    output_cost_per_million_tokens: 0.308
+  - region: us-east-2
+    input_cost_per_token: 6.000000000000001e-8
+    output_cost_per_token: 2.4000000000000003e-7
+    input_cost_per_million_tokens: 0.06
+    output_cost_per_million_tokens: 0.24
+  - region: us-east-1
+    input_cost_per_token: 6.000000000000001e-8
+    output_cost_per_token: 2.4000000000000003e-7
+    input_cost_per_million_tokens: 0.06
+    output_cost_per_million_tokens: 0.24
+    cache_read_input_token_cost: 1.5000000000000002e-8
+  - region: eu-north-1
+    input_cost_per_token: 6.5e-8
+    output_cost_per_token: 2.6e-7
+    input_cost_per_million_tokens: 0.065
+    output_cost_per_million_tokens: 0.26
+  - region: eu-south-2
+    input_cost_per_token: 6.600000000000001e-8
+    output_cost_per_token: 2.6400000000000003e-7
+    input_cost_per_million_tokens: 0.066
+    output_cost_per_million_tokens: 0.264
+  - region: eu-west-3
+    input_cost_per_token: 8.8e-8
+    output_cost_per_token: 3.52e-7
+    input_cost_per_million_tokens: 0.088
+    output_cost_per_million_tokens: 0.352
+  - region: eu-south-1
+    input_cost_per_token: 9.6e-8
+    output_cost_per_token: 3.84e-7
+    input_cost_per_million_tokens: 0.096
+    output_cost_per_million_tokens: 0.384
+  - region: eu-west-1
+    input_cost_per_token: 6.9e-8
+    output_cost_per_token: 2.76e-7
+    input_cost_per_million_tokens: 0.069
+    output_cost_per_million_tokens: 0.276
+  - region: eu-central-1
+    input_cost_per_token: 7.8e-8
+    output_cost_per_token: 3.12e-7
+    input_cost_per_million_tokens: 0.078
+    output_cost_per_million_tokens: 0.312
+  - region: ca-central-1
+    input_cost_per_token: 6.399999999999999e-8
+    output_cost_per_token: 2.5599999999999996e-7
+    input_cost_per_million_tokens: 0.064
+    output_cost_per_million_tokens: 0.256
+  - region: ap-northeast-1
+    input_cost_per_token: 7.2e-8
+    output_cost_per_token: 2.88e-7
+    input_cost_per_million_tokens: 0.072
+    output_cost_per_million_tokens: 0.288
+  - region: eu-west-2
+    input_cost_per_token: 8.4e-8
+    output_cost_per_token: 3.36e-7
+    input_cost_per_million_tokens: 0.084
+    output_cost_per_million_tokens: 0.336
+  - region: ap-southeast-2
+    input_cost_per_token: 6.3e-8
+    output_cost_per_token: 2.52e-7
+    input_cost_per_million_tokens: 0.063
+    output_cost_per_million_tokens: 0.252
+  - region: ap-southeast-1
+    input_cost_per_token: 8.1e-8
+    output_cost_per_token: 3.24e-7
+    input_cost_per_million_tokens: 0.081
+    output_cost_per_million_tokens: 0.324
+  - region: ap-northeast-2
+    input_cost_per_token: 7.1e-8
+    output_cost_per_token: 2.84e-7
+    input_cost_per_million_tokens: 0.071
+    output_cost_per_million_tokens: 0.284
+  - region: ap-south-1
+    input_cost_per_token: 7.1e-8
+    output_cost_per_token: 2.84e-7
+    input_cost_per_million_tokens: 0.071
+    output_cost_per_million_tokens: 0.284
+  - region: us-gov-west-1
+    input_cost_per_token: 7.2e-8
+    output_cost_per_token: 2.88e-7
+    input_cost_per_million_tokens: 0.072
+    output_cost_per_million_tokens: 0.288
 limits:
   max_tokens: 4096
   max_input_tokens: 300000

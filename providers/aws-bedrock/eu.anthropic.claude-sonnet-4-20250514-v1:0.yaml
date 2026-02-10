@@ -1,22 +1,47 @@
 model: eu.anthropic.claude-sonnet-4-20250514-v1:0
 costs:
-  input_cost_per_token: 0.000003
-  output_cost_per_token: 0.000015
-  cache_read_input_token_cost: 3.e-7
-  cache_creation_input_token_cost: 0.00000375
-  tiered_pricing:
-    input:
-      - from: 200000
-        cost_per_token: 0.000006
-    output:
-      - from: 200000
-        cost_per_token: 0.0000225
-    cache_write:
-      - from: 200000
-        cost_per_token: 0.0000075
-    cache_read:
-      - from: 200000
-        cost_per_token: 6.e-7
+  - region: eu-north-1
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000014999999999999999
+    input_cost_per_million_tokens: 3
+    output_cost_per_million_tokens: 15
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.0000037499999999999997
+  - region: eu-south-2
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000014999999999999999
+    input_cost_per_million_tokens: 3
+    output_cost_per_million_tokens: 15
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.0000037499999999999997
+  - region: eu-west-3
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000014999999999999999
+    input_cost_per_million_tokens: 3
+    output_cost_per_million_tokens: 15
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.0000037499999999999997
+  - region: eu-south-1
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000014999999999999999
+    input_cost_per_million_tokens: 3
+    output_cost_per_million_tokens: 15
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.0000037499999999999997
+  - region: eu-west-1
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000014999999999999999
+    input_cost_per_million_tokens: 3
+    output_cost_per_million_tokens: 15
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.0000037499999999999997
+  - region: eu-central-1
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000014999999999999999
+    input_cost_per_million_tokens: 3
+    output_cost_per_million_tokens: 15
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.0000037499999999999997
 limits:
   max_input_tokens: 1000000
   max_output_tokens: 64000

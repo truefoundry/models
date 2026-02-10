@@ -1,9 +1,11 @@
 model: gemini-3-flash-preview
 costs:
-  input_cost_per_token: 5.e-7
-  output_cost_per_token: 0.000003
-  cache_read_input_token_cost: 5.e-8
-  input_cost_per_audio_token: 0.000001
+  - input_cost_per_token: 5.e-7
+    output_cost_per_token: 0.000003
+    cache_read_input_token_cost: 5.e-8
+    input_cost_per_audio_token: 0.000001
+    input_cost_per_million_tokens: 0.5
+    output_cost_per_million_tokens: 3
 limits:
   max_input_tokens: 1048576
   max_output_tokens: 65535

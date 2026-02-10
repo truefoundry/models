@@ -1,7 +1,9 @@
 model: mistral-large-latest
 costs:
-  input_cost_per_token: 0.000008
-  output_cost_per_token: 0.000024
+  - input_cost_per_token: 0.000008
+    output_cost_per_token: 0.000024
+    input_cost_per_million_tokens: 8
+    output_cost_per_million_tokens: 24
 limits:
   max_tokens: 32000
   max_input_tokens: 32000

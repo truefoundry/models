@@ -1,7 +1,9 @@
 model: meta-llama/Llama-3.3-70B-Instruct
 costs:
-  input_cost_per_token: 2.3e-7
-  output_cost_per_token: 4.e-7
+  - input_cost_per_token: 2.3e-7
+    output_cost_per_token: 4.e-7
+    input_cost_per_million_tokens: 0.23
+    output_cost_per_million_tokens: 0.4
 limits:
   max_tokens: 131072
   max_input_tokens: 131072

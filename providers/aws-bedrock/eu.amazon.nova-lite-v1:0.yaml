@@ -1,7 +1,35 @@
 model: eu.amazon.nova-lite-v1:0
 costs:
-  input_cost_per_token: 7.8e-8
-  output_cost_per_token: 3.12e-7
+  - region: eu-north-1
+    input_cost_per_token: 6.5e-8
+    output_cost_per_token: 2.6e-7
+    input_cost_per_million_tokens: 0.065
+    output_cost_per_million_tokens: 0.26
+  - region: eu-south-2
+    input_cost_per_token: 6.600000000000001e-8
+    output_cost_per_token: 2.6400000000000003e-7
+    input_cost_per_million_tokens: 0.066
+    output_cost_per_million_tokens: 0.264
+  - region: eu-west-3
+    input_cost_per_token: 8.8e-8
+    output_cost_per_token: 3.52e-7
+    input_cost_per_million_tokens: 0.088
+    output_cost_per_million_tokens: 0.352
+  - region: eu-south-1
+    input_cost_per_token: 9.6e-8
+    output_cost_per_token: 3.84e-7
+    input_cost_per_million_tokens: 0.096
+    output_cost_per_million_tokens: 0.384
+  - region: eu-west-1
+    input_cost_per_token: 6.9e-8
+    output_cost_per_token: 2.76e-7
+    input_cost_per_million_tokens: 0.069
+    output_cost_per_million_tokens: 0.276
+  - region: eu-central-1
+    input_cost_per_token: 7.8e-8
+    output_cost_per_token: 3.12e-7
+    input_cost_per_million_tokens: 0.078
+    output_cost_per_million_tokens: 0.312
 limits:
   max_tokens: 4096
   max_input_tokens: 300000

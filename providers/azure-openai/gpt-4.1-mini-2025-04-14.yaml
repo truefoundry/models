@@ -1,10 +1,24 @@
 model: gpt-4.1-mini-2025-04-14
 costs:
-  input_cost_per_token: 4.4e-7
-  output_cost_per_token: 0.00000176
-  input_cost_per_token_batches: 2.2e-7
-  output_cost_per_token_batches: 8.8e-7
-  cache_read_input_token_cost: 1.1e-7
+  - input_cost_per_token: 4.e-7
+    output_cost_per_token: 0.0000016
+    input_cost_per_token_batches: 2.e-7
+    output_cost_per_token_batches: 8.e-7
+    cache_read_input_token_cost: 1.e-7
+    input_cost_per_million_tokens: 0.4
+    output_cost_per_million_tokens: 1.6
+    input_cost_per_million_tokens_batches: 0.2
+    output_cost_per_million_tokens_batches: 0.8
+  - region: us
+    input_cost_per_token: 4.4e-7
+    output_cost_per_token: 0.00000176
+    input_cost_per_token_batches: 2.2e-7
+    output_cost_per_token_batches: 8.8e-7
+    cache_read_input_token_cost: 1.1e-7
+    input_cost_per_million_tokens: 0.44
+    output_cost_per_million_tokens: 1.76
+    input_cost_per_million_tokens_batches: 0.22
+    output_cost_per_million_tokens_batches: 0.88
 limits:
   max_tokens: 32768
   max_input_tokens: 1047576

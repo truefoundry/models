@@ -1,6 +1,8 @@
 model: gpt-image-1.5-2025-12-16
 costs:
-  input_cost_per_image: 0.013
+  - input_cost_per_image: 0.013
+    input_cost_per_million_tokens: null
+    output_cost_per_million_tokens: null
 features: [vision]
 mode: image
 original_provider: openai

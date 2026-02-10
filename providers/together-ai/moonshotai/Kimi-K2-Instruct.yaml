@@ -1,7 +1,9 @@
 model: moonshotai/Kimi-K2-Instruct
 costs:
-  input_cost_per_token: 0.000001
-  output_cost_per_token: 0.000003
+  - input_cost_per_token: 0.000001
+    output_cost_per_token: 0.000003
+    input_cost_per_million_tokens: 1
+    output_cost_per_million_tokens: 3
 features: [function_calling, parallel_function_calling]
 mode: chat
 original_provider: together_ai

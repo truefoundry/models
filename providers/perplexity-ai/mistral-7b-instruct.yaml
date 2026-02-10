@@ -1,7 +1,9 @@
 model: mistral-7b-instruct
 costs:
-  input_cost_per_token: 7.e-8
-  output_cost_per_token: 2.8e-7
+  - input_cost_per_token: 7.e-8
+    output_cost_per_token: 2.8e-7
+    input_cost_per_million_tokens: 0.07
+    output_cost_per_million_tokens: 0.28
 limits:
   max_input_tokens: 4096
   max_output_tokens: 4096
