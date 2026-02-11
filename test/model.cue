@@ -19,7 +19,6 @@ package model
 
 #CostObj: {
 	region?:                                 string
-	supported_regions?:                      [...string]
 	input_cost_per_token?:                   number
 	output_cost_per_token?:                  number
 	cache_read_input_token_cost?:            number
@@ -38,6 +37,11 @@ package model
 	tiered_pricing?:                         #TieredPricing
 }
 
+#CostWithSupportedRegions: {
+	supported_regions: [...string]
+	#CostObj
+}
+
 #Limits: {
 	max_tokens?:                    int
 	max_input_tokens?:              int
@@ -52,7 +56,7 @@ package model
 	model: string
 
 	// Optional fields
-	costs?:            #CostObj | [...#CostObj]
+	costs?:            [...#CostObj] | #CostWithSupportedRegions
 	limits?:           #Limits
 	features?:         [...#Feature]
 	params?:           [...#Param]
