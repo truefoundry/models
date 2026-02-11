@@ -1,46 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
-
-interface MessageConfig {
-  options: string[];
-}
-
-interface ModelData {
-  model: string;
-  is_deprecated?: boolean;
-  costs?: Record<string, unknown>;
-  limits?: Record<string, unknown>;
-  features?: string[];
-  params?: unknown[];
-  messages?: MessageConfig;
-  removeParams?: string[];
-  defaultRegion?: string;
-  mode?: string;
-  original_provider?: string;
-  requiredParams?: string[];
-}
-
-interface UnifiedModelConfig {
-  provider: string;
-  model: string;
-  is_deprecated: boolean;
-  costs: Record<string, unknown> | undefined;
-  limits: Record<string, unknown>;
-  features: string[];
-  params: unknown[];
-  messages?: MessageConfig;
-  defaultProviderParams: Record<string, unknown>;
-  removeParams: string[];
-  defaultRegion: string;
-  mode: string;
-  original_provider: string;
-  requiredParams: string[];
-}
+import { ModelData, UnifiedModelConfig, DefaultProviderParams } from './types';
 
 const PROVIDERS_DIR = path.resolve(__dirname, '..', 'providers');
 const OUTPUT_DIR = path.resolve(__dirname, '..', 'dist');
-const OUTPUT_FILE = path.join(OUTPUT_DIR, 'ai-models.json');
+const OUTPUT_FILE = path.join(OUTPUT_DIR, 'ai-models-2.json');
 
 function collectModelFiles(dir: string): string[] {
   const results: string[] = [];
@@ -64,7 +29,7 @@ function collectModelFiles(dir: string): string[] {
 function buildUnifiedConfig(
   modelData: ModelData,
   providerName: string,
-  defaultProviderParams: Record<string, unknown>,
+  defaultProviderParams: DefaultProviderParams,
 ): UnifiedModelConfig {
   return {
     provider: providerName,
@@ -97,12 +62,12 @@ function main(): void {
     const providerName = providerEntry.name;
     const providerPath = path.join(PROVIDERS_DIR, providerName);
 
-    let defaultProviderParams: Record<string, unknown> = {};
+    let defaultProviderParams: DefaultProviderParams = {};
     const defaultYamlPath = path.join(providerPath, 'default.yaml');
     if (fs.existsSync(defaultYamlPath)) {
       defaultProviderParams = yaml.load(
         fs.readFileSync(defaultYamlPath, 'utf-8'),
-      ) as Record<string, unknown>;
+      ) as DefaultProviderParams;
     }
 
     const modelFiles = collectModelFiles(providerPath);
