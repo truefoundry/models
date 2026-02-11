@@ -17,23 +17,25 @@ package model
 	cache_write?: [...#PricingTier]
 }
 
-#Costs: {
-	input_cost_per_token?:                  number
-	output_cost_per_token?:                 number
-	input_cost_per_token_batches?:          number
-	output_cost_per_token_batches?:         number
-	cache_read_input_token_cost?:           number
-	cache_creation_input_token_cost?:       number
-	input_cost_per_audio_token?:            number
-	output_cost_per_audio_token?:           number
-	cache_creation_input_audio_token_cost?: number
-	input_cost_per_request?:                number
-	input_cost_per_character?:              number
-	input_cost_per_second?:                 number
-	output_cost_per_second?:                number
-	input_cost_per_query?:                  number
-	input_cost_per_image?:                  number
-	tiered_pricing?:                        #TieredPricing
+#CostObj: {
+	region?:                                 string
+	supported_regions?:                      [...string]
+	input_cost_per_token?:                   number
+	output_cost_per_token?:                  number
+	cache_read_input_token_cost?:            number
+	cache_creation_input_token_cost?:        number
+	input_cost_per_token_batches?:           number
+	output_cost_per_token_batches?:          number
+	input_cost_per_audio_token?:             number
+	output_cost_per_audio_token?:            number
+	cache_creation_input_audio_token_cost?:  number
+	input_cost_per_request?:                 number
+	input_cost_per_character?:               number
+	input_cost_per_second?:                  number
+	output_cost_per_second?:                 number
+	input_cost_per_query?:                   number
+	input_cost_per_image?:                   number
+	tiered_pricing?:                         #TieredPricing
 }
 
 #Limits: {
@@ -50,7 +52,7 @@ package model
 	model: string
 
 	// Optional fields
-	costs?:            #Costs
+	costs?:            #CostObj | [...#CostObj]
 	limits?:           #Limits
 	features?:         [...#Feature]
 	params?:           [...#Param]
