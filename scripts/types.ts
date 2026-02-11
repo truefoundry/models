@@ -13,7 +13,6 @@ export interface TieredPricing {
 }
 
 export interface CostObj {
-  region?: string;
   input_cost_per_token?: number;
   output_cost_per_token?: number;
   cache_read_input_token_cost?: number;
@@ -32,11 +31,15 @@ export interface CostObj {
   tiered_pricing?: TieredPricing;
 }
 
-export interface CostWithSupportedRegions extends CostObj {
-  supported_regions: string[];
+export interface CostObjWithRegion extends CostObj {
+  region?: string;
 }
 
-export type Costs = CostObj[] | CostWithSupportedRegions;
+export interface CostWithSupportedRegions extends CostObj {
+  supported_regions?: string[];
+}
+
+export type Costs = CostObjWithRegion[] | CostWithSupportedRegions;
 
 // --- Limits ---
 
