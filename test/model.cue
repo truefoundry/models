@@ -17,8 +17,12 @@ package model
 	cache_write?: [...#PricingTier]
 }
 
-#CostObj: {
+#CostWithRegion: {
 	region?:                                 string
+	#CostObj
+}
+
+#CostObj: {
 	input_cost_per_token?:                   number
 	output_cost_per_token?:                  number
 	cache_read_input_token_cost?:            number
@@ -38,7 +42,7 @@ package model
 }
 
 #CostWithSupportedRegions: {
-	supported_regions: [...string]
+	supported_regions?: [...string]
 	#CostObj
 }
 
@@ -56,7 +60,7 @@ package model
 	model: string
 
 	// Optional fields
-	costs?:            [...#CostObj] | #CostWithSupportedRegions
+	costs?:            [...#CostWithRegion] | #CostWithSupportedRegions
 	limits?:           #Limits
 	features?:         [...#Feature]
 	params?:           [...#Param]
