@@ -1,26 +1,59 @@
-name: Trigger Model Sync 
+name: Build and Upload Model Configs
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  S3_IAM_ROLE_ARN: ${{ secrets.S3_IAM_ROLE_ARN }}
+
 jobs:
-  trigger-sync:
-    name: Trigger model sync job
+  build:
+    name: Build unified JSON
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
 
     steps:
-      - name: Install truefoundry CLI
-        run: pipx install --pip-args=--pre truefoundry
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Login to Truefoundry
-        run: |
-          tfy login --api-key ${{ secrets.TFY_API_KEY }} --host https://internal.truefoundry.cloud
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Trigger sync job
-        run: |
-          tfy trigger job --application_fqn tfy-usea1-ctl-devtest:models-pricing-data:ai-model-config-sync --PUSH_TO_MODELS_REPO true
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build unified JSON
+        run: npm run build:json
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-models
+          path: dist/ai-models.json
+
+  upload:
+    name: Upload to S3
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ai-models
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.S3_IAM_ROLE_ARN }}
+          aws-region: eu-west-1
+
+      - name: Upload to S3
+        run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/ai-models.json
