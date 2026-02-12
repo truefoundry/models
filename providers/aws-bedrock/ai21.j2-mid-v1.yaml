@@ -1,7 +1,8 @@
 model: ai21.j2-mid-v1
 costs:
-  input_cost_per_token: 0.0000125
-  output_cost_per_token: 0.0000125
+  - region: '*'
+    input_cost_per_token: 0.0000125
+    output_cost_per_token: 0.0000125
 limits:
   max_input_tokens: 8191
   max_output_tokens: 8191
@@ -12,5 +13,4 @@ params:
 removeParams:
   - stream
 mode: chat
-original_provider: bedrock
-is_deprecated: true
+isDeprecated: true

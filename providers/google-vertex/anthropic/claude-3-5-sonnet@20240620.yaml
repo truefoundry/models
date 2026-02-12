@@ -1,7 +1,8 @@
 model: anthropic/claude-3-5-sonnet@20240620
 costs:
-  input_cost_per_token: 0.000003
-  output_cost_per_token: 0.000015
+  - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
 limits:
   max_tokens: 8192
   max_input_tokens: 200000
@@ -10,4 +11,3 @@ features: [function_calling, vision]
 requiredParams:
   - max_tokens
 mode: chat
-original_provider: vertex_ai-anthropic_models

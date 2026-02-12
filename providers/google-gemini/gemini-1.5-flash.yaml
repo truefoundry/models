@@ -1,14 +1,15 @@
 model: gemini-1.5-flash
 costs:
-  input_cost_per_token: 7.5e-8
-  output_cost_per_token: 3.e-7
-  tiered_pricing:
-    input:
-      - from: 128000
-        cost_per_token: 1.5e-7
-    output:
-      - from: 128000
-        cost_per_token: 6.e-7
+  - region: '*'
+    input_cost_per_token: 7.5e-8
+    output_cost_per_token: 3.e-7
+    tiered_pricing:
+      input:
+        - from: 128000
+          cost_per_token: 1.5e-7
+      output:
+        - from: 128000
+          cost_per_token: 6.e-7
 limits:
   max_input_tokens: 1048576
   max_output_tokens: 8192
@@ -49,5 +50,4 @@ params:
       - null
     type: string
 mode: chat
-original_provider: gemini
-is_deprecated: true
+isDeprecated: true

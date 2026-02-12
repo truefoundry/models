@@ -1,7 +1,8 @@
 model: sonar-pro
 costs:
-  input_cost_per_token: 0.000003
-  output_cost_per_token: 0.000015
+  - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
 limits:
   max_tokens: 4096
   max_input_tokens: 200000
@@ -10,4 +11,3 @@ features: [chat]
 removeParams:
   - stop
 mode: chat
-original_provider: perplexity

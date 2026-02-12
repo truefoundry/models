@@ -1,13 +1,13 @@
 model: gemini-2.0-flash-lite-001
 costs:
-  input_cost_per_token: 7.5e-8
-  output_cost_per_token: 3.e-7
-  cache_read_input_token_cost: 1.875e-8
-  input_cost_per_audio_token: 7.5e-8
+  - region: '*'
+    input_cost_per_token: 7.5e-8
+    output_cost_per_token: 3.e-7
+    cache_read_input_token_cost: 1.875e-8
+    input_cost_per_audio_token: 7.5e-8
 limits:
   max_tokens: 4096
   max_input_tokens: 1048576
   max_output_tokens: 8192
 features: [function_calling, parallel_function_calling, vision, audio_output, chat, image, pdf, doc]
 mode: chat
-original_provider: vertex_ai-language-models
