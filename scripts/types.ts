@@ -12,7 +12,7 @@ export interface TieredPricing {
   cache_write?: PricingTier[];
 }
 
-export interface CostObj {
+export interface Cost {
   input_cost_per_token?: number;
   output_cost_per_token?: number;
   cache_read_input_token_cost?: number;
@@ -31,15 +31,9 @@ export interface CostObj {
   tiered_pricing?: TieredPricing;
 }
 
-export interface CostObjWithRegion extends CostObj {
-  region?: string;
+export interface CostWithRegion extends Cost {
+  region: string;
 }
-
-export interface CostWithSupportedRegions extends CostObj {
-  supported_regions?: string[];
-}
-
-export type Costs = CostObjWithRegion[] | CostWithSupportedRegions;
 
 // --- Limits ---
 
@@ -101,32 +95,28 @@ export interface DefaultProviderParams {
 
 export interface ModelData {
   model: string;
-  is_deprecated?: boolean;
-  costs?: Costs;
+  costs?: CostWithRegion[];
   limits?: Limits;
   features?: Feature[];
-  params?: ParamConfig[];
   messages?: MessageConfig;
+  params?: ParamConfig[];
   removeParams?: string[];
-  defaultRegion?: string;
-  mode?: string;
-  original_provider?: string;
   requiredParams?: string[];
+  mode?: string;
+  isDeprecated?: boolean;
 }
 
 export interface UnifiedModelConfig {
   provider: string;
+  defaultProviderParams: DefaultProviderParams;
   model: string;
-  is_deprecated: boolean;
-  costs?: Costs;
+  costs?: CostWithRegion[];
   limits: Limits;
   features: Feature[];
-  params: ParamConfig[];
   messages?: MessageConfig;
-  defaultProviderParams: DefaultProviderParams;
+  params: ParamConfig[];
   removeParams: string[];
-  defaultRegion: string;
-  mode: string;
-  original_provider: string;
   requiredParams: string[];
+  mode: string;
+  isDeprecated: boolean;
 }

@@ -56,4 +56,4 @@ jobs:
           aws-region: eu-west-1
 
       - name: Upload to S3
-        run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/ai-models.json
+        run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/ai-models.json

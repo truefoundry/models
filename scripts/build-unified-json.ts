@@ -33,19 +33,17 @@ function buildUnifiedConfig(
 ): UnifiedModelConfig {
   return {
     provider: providerName,
+    defaultProviderParams,
     model: modelData.model,
-    is_deprecated: modelData.is_deprecated || false,
     costs: modelData.costs,
     limits: modelData.limits || {},
     features: modelData.features || [],
-    params: modelData.params || [],
     messages: modelData.messages || undefined,
-    defaultProviderParams,
+    params: modelData.params || [],
     removeParams: modelData.removeParams || [],
-    defaultRegion: modelData.defaultRegion || '',
-    mode: modelData.mode || '',
-    original_provider: modelData.original_provider || providerName,
     requiredParams: modelData.requiredParams || [],
+    mode: modelData.mode || '',
+    isDeprecated: modelData.isDeprecated || false,
   };
 }
 
