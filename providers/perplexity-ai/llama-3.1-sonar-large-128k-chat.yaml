@@ -1,7 +1,8 @@
 model: llama-3.1-sonar-large-128k-chat
 costs:
-  input_cost_per_token: 0.000001
-  output_cost_per_token: 0.000001
+  - region: '*'
+    input_cost_per_token: 0.000001
+    output_cost_per_token: 0.000001
 limits:
   max_input_tokens: 131072
   max_output_tokens: 131072
@@ -10,5 +11,4 @@ params:
   - key: max_tokens
     maxValue: 128000
 mode: chat
-original_provider: perplexity
-is_deprecated: true
+isDeprecated: true

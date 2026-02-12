@@ -1,10 +1,10 @@
 model: Phi-3-medium-4k-instruct
 costs:
-  input_cost_per_token: 1.7e-7
-  output_cost_per_token: 6.8e-7
+  - region: '*'
+    input_cost_per_token: 1.7e-7
+    output_cost_per_token: 6.8e-7
 limits:
   max_tokens: 4096
   max_input_tokens: 4096
   max_output_tokens: 4096
 mode: chat
-original_provider: azure_ai

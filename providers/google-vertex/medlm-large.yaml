@@ -1,10 +1,10 @@
 model: medlm-large
 costs:
-  input_cost_per_character: 0.000005
+  - region: '*'
+    input_cost_per_character: 0.000005
 limits:
   max_tokens: 1024
   max_input_tokens: 8192
   max_output_tokens: 1024
 mode: chat
-original_provider: vertex_ai-language-models
-is_deprecated: true
+isDeprecated: true

@@ -1,7 +1,8 @@
 model: anthropic/claude-3-opus
 costs:
-  input_cost_per_token: 0.000015
-  output_cost_per_token: 0.000075
+  - region: '*'
+    input_cost_per_token: 0.000015
+    output_cost_per_token: 0.000075
 limits:
   max_tokens: 4096
   max_input_tokens: 200000
@@ -10,4 +11,3 @@ features: [function_calling, vision]
 requiredParams:
   - max_tokens
 mode: chat
-original_provider: vertex_ai-anthropic_models
