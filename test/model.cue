@@ -18,7 +18,7 @@ package model
 }
 
 #Cost: {
-    input_cost_per_token?:                   number
+  input_cost_per_token?:                   number
 	output_cost_per_token?:                  number
 	cache_read_input_token_cost?:            number
 	cache_creation_input_token_cost?:        number
