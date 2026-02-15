@@ -1,8 +1,20 @@
 model: apac.amazon.nova-pro-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 8.4e-7
-    output_cost_per_token: 0.00000336
+- region: ap-northeast-1
+  input_cost_per_token: '9.6e-7'
+  output_cost_per_token: '3.84e-6'
+- region: ap-southeast-2
+  input_cost_per_token: '8.4e-7'
+  output_cost_per_token: '3.36e-6'
+- region: ap-southeast-1
+  input_cost_per_token: '1.08e-6'
+  output_cost_per_token: '4.32e-6'
+- region: ap-northeast-2
+  input_cost_per_token: '9.5e-7'
+  output_cost_per_token: '3.8e-6'
+- region: ap-south-1
+  input_cost_per_token: '9.4e-7'
+  output_cost_per_token: '3.76e-6'
 limits:
   max_tokens: 10000
   max_input_tokens: 300000

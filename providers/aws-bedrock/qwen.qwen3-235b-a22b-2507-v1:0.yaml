@@ -1,8 +1,45 @@
 model: qwen.qwen3-235b-a22b-2507-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 2.2e-7
-    output_cost_per_token: 8.8e-7
+- region: us-west-2
+  input_cost_per_token: '1.1e-7'
+  input_cost_per_token_batches: '1.1e-7'
+  output_cost_per_token: '4.4e-7'
+  output_cost_per_token_batches: '4.4e-7'
+- region: us-east-2
+  input_cost_per_token: '1.1e-7'
+  input_cost_per_token_batches: '1.1e-7'
+  output_cost_per_token: '4.4e-7'
+  output_cost_per_token_batches: '4.4e-7'
+- region: eu-north-1
+  input_cost_per_token: '1.1e-7'
+  input_cost_per_token_batches: '1.1e-7'
+  output_cost_per_token: '4.4e-7'
+  output_cost_per_token_batches: '4.4e-7'
+- region: eu-south-1
+  input_cost_per_token: '1.45e-7'
+  input_cost_per_token_batches: '1.45e-7'
+  output_cost_per_token: '5.8e-7'
+  output_cost_per_token_batches: '5.8e-7'
+- region: eu-west-2
+  input_cost_per_token: '1.7e-7'
+  input_cost_per_token_batches: '1.7e-7'
+  output_cost_per_token: '6.85e-7'
+  output_cost_per_token_batches: '6.85e-7'
+- region: eu-central-1
+  input_cost_per_token: '1.45e-7'
+  input_cost_per_token_batches: '1.5e-7'
+  output_cost_per_token: '5.8e-7'
+  output_cost_per_token_batches: '5.8e-7'
+- region: ap-northeast-1
+  input_cost_per_token: '1.35e-7'
+  input_cost_per_token_batches: '1.35e-7'
+  output_cost_per_token: '5.3e-7'
+  output_cost_per_token_batches: '5.3e-7'
+- region: ap-south-1
+  input_cost_per_token: '1.3e-7'
+  input_cost_per_token_batches: '1.3e-7'
+  output_cost_per_token: '5.2e-7'
+  output_cost_per_token_batches: '5.2e-7'
 limits:
   max_tokens: 131072
   max_input_tokens: 262144

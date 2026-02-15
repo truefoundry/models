@@ -1,9 +1,22 @@
 model: us.amazon.nova-2-lite-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 3.3e-7
-    output_cost_per_token: 0.00000275
-    cache_read_input_token_cost: 8.25e-8
+- region: us-west-2
+  input_cost_per_query: '0.03'
+  input_cost_per_token: '1.595e-7'
+  output_cost_per_token: '1.3255e-6'
+- region: us-west-1
+  input_cost_per_token: '2.145e-7'
+  output_cost_per_token: '1.6755e-6'
+- region: us-east-2
+  input_cost_per_token: '1.595e-7'
+  output_cost_per_token: '1.342e-6'
+- region: us-east-1
+  input_cost_per_query: '0.03'
+  input_cost_per_token: '1.65e-7'
+  output_cost_per_token: '1.375e-6'
+- region: ca-central-1
+  input_cost_per_token: '1.76e-7'
+  output_cost_per_token: '1.4685e-6'
 limits:
   max_tokens: 64000
   max_input_tokens: 1000000

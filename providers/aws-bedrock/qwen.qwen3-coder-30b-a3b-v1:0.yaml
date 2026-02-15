@@ -1,8 +1,60 @@
 model: qwen.qwen3-coder-30b-a3b-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 1.5e-7
-    output_cost_per_token: 6.e-7
+- region: us-west-2
+  input_cost_per_token: '7.5e-8'
+  input_cost_per_token_batches: '7.5e-8'
+  output_cost_per_token: 3e-7
+  output_cost_per_token_batches: 3e-7
+- region: us-east-2
+  input_cost_per_token: '7.5e-8'
+  input_cost_per_token_batches: '7.5e-8'
+  output_cost_per_token: 3e-7
+  output_cost_per_token_batches: 3e-7
+- region: us-east-1
+  input_cost_per_token: '7.5e-8'
+  input_cost_per_token_batches: '7.5e-8'
+  output_cost_per_token: 3e-7
+  output_cost_per_token_batches: 3e-7
+- region: sa-east-1
+  input_cost_per_token: 9e-8
+  input_cost_per_token_batches: 9e-8
+  output_cost_per_token: '3.65e-7'
+  output_cost_per_token_batches: '3.65e-7'
+- region: eu-north-1
+  input_cost_per_token: '7.5e-8'
+  input_cost_per_token_batches: '7.5e-8'
+  output_cost_per_token: 3e-7
+  output_cost_per_token_batches: 3e-7
+- region: eu-south-1
+  input_cost_per_token: 1e-7
+  input_cost_per_token_batches: 1e-7
+  output_cost_per_token: '3.95e-7'
+  output_cost_per_token_batches: '3.95e-7'
+- region: eu-west-2
+  input_cost_per_token: '1.15e-7'
+  input_cost_per_token_batches: '1.15e-7'
+  output_cost_per_token: '4.65e-7'
+  output_cost_per_token_batches: '4.65e-7'
+- region: eu-west-1
+  input_cost_per_token: 9e-8
+  input_cost_per_token_batches: 9e-8
+  output_cost_per_token: '3.5e-7'
+  output_cost_per_token_batches: '3.5e-7'
+- region: eu-central-1
+  input_cost_per_token: 1e-7
+  input_cost_per_token_batches: 1e-7
+  output_cost_per_token: '3.95e-7'
+  output_cost_per_token_batches: 4e-7
+- region: ap-northeast-1
+  input_cost_per_token: 9e-8
+  input_cost_per_token_batches: 9e-8
+  output_cost_per_token: '3.65e-7'
+  output_cost_per_token_batches: '3.65e-7'
+- region: ap-south-1
+  input_cost_per_token: 9e-8
+  input_cost_per_token_batches: 9e-8
+  output_cost_per_token: '3.55e-7'
+  output_cost_per_token_batches: '3.55e-7'
 limits:
   max_tokens: 131072
   max_input_tokens: 262144

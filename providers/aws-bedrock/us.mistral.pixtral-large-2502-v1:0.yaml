@@ -1,8 +1,14 @@
 model: us.mistral.pixtral-large-2502-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000002
-    output_cost_per_token: 0.000006
+- region: us-west-2
+  input_cost_per_token: 2e-6
+  output_cost_per_token: 6e-6
+- region: us-east-1
+  input_cost_per_token: 2e-6
+  output_cost_per_token: 6e-6
+- region: us-east-2
+  input_cost_per_token: 2e-6
+  output_cost_per_token: 6e-6
 limits:
   max_tokens: 4096
   max_input_tokens: 128000
