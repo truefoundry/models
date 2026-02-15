@@ -65,13 +65,10 @@ params:
     - key: max_tokens
       maxValue: 64000
     - key: thinking
-      properties: null
       type: number
       enum: [enabled, disabled]
-      budget_tokens: null
       minValue: 1024
       maxValue: 128000
-      defaultValue: null
       withdrawParams: [top_k, top_p]
       skipValues:
       - disabled

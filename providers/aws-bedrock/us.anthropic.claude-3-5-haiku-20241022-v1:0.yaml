@@ -27,7 +27,6 @@ features: [function_calling, chat, image]
 params:
     - key: tool_choice
       type: non-view-manage-data
-      defaultValue: null
       options:
         - value: none
           name: None
@@ -37,13 +36,11 @@ params:
           name: Required
         - value: custom
           name: Custom
-          schema:
           type: json
       skipValues:
       - null
-      rule:
       default:
-        condition: tools
-        then: auto
-        else: null
+      condition: tools
+      then: auto
+      else: null
 mode: chat

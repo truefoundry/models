@@ -65,30 +65,33 @@ params:
     - key: max_tokens
       maxValue: 8192
     - key: thinking
-      properties: null
       type: number
       enum: [enabled, disabled]
-      budget_tokens: null
       minValue: 1024
       maxValue: 128000
-      defaultValue: null
       withdrawParams: [top_k, top_p]
       skipValues:
       - disabled
       - null
     - key: tool_choice
       type: json
-      defaultValue: null
-      options: null
-      value: custom
-      name: Custom
-      schema: null
+      options:
+        - value: none
+          name: None
+        - value: auto
+          name: Auto
+        - value: required
+          name: Required
+        - value: custom
+          name: Custom
+          schema:
+          type: json
       skipValues:
       - null
-      rule: null
-      default: null
-      condition: tools
-      then: auto
-      else: null
+      rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
 removeParams: [top_p]
 mode: chat
