@@ -1,35 +1,35 @@
 model: qwen.qwen3-coder-480b-a35b-v1:0
 costs:
-- region: us-west-2
-  input_cost_per_token: '2.25e-7'
-  input_cost_per_token_batches: '2.25e-7'
-  output_cost_per_token: 9e-7
-  output_cost_per_token_batches: 9e-7
-- region: us-east-2
-  input_cost_per_token: '2.25e-7'
-  input_cost_per_token_batches: '2.25e-7'
-  output_cost_per_token: 9e-7
-  output_cost_per_token_batches: 9e-7
-- region: eu-north-1
-  input_cost_per_token: '2.25e-7'
-  input_cost_per_token_batches: '2.25e-7'
-  output_cost_per_token: 9e-7
-  output_cost_per_token_batches: 9e-7
-- region: eu-west-2
-  input_cost_per_token: '3.5e-7'
-  input_cost_per_token_batches: '3.5e-7'
-  output_cost_per_token: '1.395e-6'
-  output_cost_per_token_batches: '1.395e-6'
-- region: ap-northeast-1
-  input_cost_per_token: '2.7e-7'
-  input_cost_per_token_batches: '2.7e-7'
-  output_cost_per_token: '1.09e-6'
-  output_cost_per_token_batches: '1.09e-6'
-- region: ap-south-1
-  input_cost_per_token: '2.65e-7'
-  input_cost_per_token_batches: '2.65e-7'
-  output_cost_per_token: '1.06e-6'
-  output_cost_per_token_batches: '1.06e-6'
+  - region: us-west-2
+    input_cost_per_token: 2.25e-7
+    input_cost_per_token_batches: 2.25e-7
+    output_cost_per_token: 9e-7
+    output_cost_per_token_batches: 9e-7
+  - region: us-east-2
+    input_cost_per_token: 2.25e-7
+    input_cost_per_token_batches: 2.25e-7
+    output_cost_per_token: 9e-7
+    output_cost_per_token_batches: 9e-7
+  - region: eu-north-1
+    input_cost_per_token: 2.25e-7
+    input_cost_per_token_batches: 2.25e-7
+    output_cost_per_token: 9e-7
+    output_cost_per_token_batches: 9e-7
+  - region: eu-west-2
+    input_cost_per_token: 3.5e-7
+    input_cost_per_token_batches: 3.5e-7
+    output_cost_per_token: 1.395e-6
+    output_cost_per_token_batches: 1.395e-6
+  - region: ap-northeast-1
+    input_cost_per_token: 2.7e-7
+    input_cost_per_token_batches: 2.7e-7
+    output_cost_per_token: 1.09e-6
+    output_cost_per_token_batches: 1.09e-6
+  - region: ap-south-1
+    input_cost_per_token: 2.65e-7
+    input_cost_per_token_batches: 2.65e-7
+    output_cost_per_token: 1.06e-6
+    output_cost_per_token_batches: 1.06e-6
 limits:
   max_tokens: 65536
   max_input_tokens: 262000
