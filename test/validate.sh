@@ -51,12 +51,14 @@ else
     PROVIDERS_DIR="$SCRIPT_DIR/../providers"
     FAILED=0
     PASSED=0
+    FAILED_FILES=()
     
     for file in $(find "$PROVIDERS_DIR" -name "*.yaml" -type f); do
         if validate_file "$file"; then
             PASSED=$((PASSED + 1))
         else
             FAILED=$((FAILED + 1))
+            FAILED_FILES+=("$file")
         fi
     done
     
@@ -64,6 +66,11 @@ else
     echo "Results: $PASSED passed, $FAILED failed"
     
     if [ $FAILED -gt 0 ]; then
+        echo ""
+        echo "Failed files:"
+        for f in "${FAILED_FILES[@]}"; do
+            echo "  - $f"
+        done
         exit 1
     fi
 fi
