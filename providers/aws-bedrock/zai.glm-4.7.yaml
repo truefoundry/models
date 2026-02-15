@@ -1,0 +1,11 @@
+model: zai.glm-4.7
+costs:
+  - region: '*'
+    input_cost_per_token: 6.e-7
+    output_cost_per_token: 0.0000022
+limits:
+  max_tokens: 128000
+  max_input_tokens: 200000
+  max_output_tokens: 128000
+features: [function_calling]
+mode: chat
