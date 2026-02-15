@@ -1,13 +1,13 @@
 model: amazon.rerank-v1:0
 costs:
-- region: us-west-2
-  input_cost_per_query: '0.001'
-- region: eu-central-1
-  input_cost_per_query: '0.001'
-- region: ca-central-1
-  input_cost_per_query: '0.001'
-- region: ap-northeast-1
-  input_cost_per_query: '0.001'
+  - region: us-west-2
+    input_cost_per_query: 0.001
+  - region: eu-central-1
+    input_cost_per_query: 0.001
+  - region: ca-central-1
+    input_cost_per_query: 0.001
+  - region: ap-northeast-1
+    input_cost_per_query: 0.001
 limits:
   max_tokens: 4096
   max_input_tokens: 32000
