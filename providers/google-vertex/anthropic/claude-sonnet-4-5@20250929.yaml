@@ -1,6 +1,6 @@
 model: anthropic/claude-sonnet-4-5@20250929
 costs:
-  - region: '*'
+  - region: global
     input_cost_per_token: 0.000003
     output_cost_per_token: 0.000015
     input_cost_per_token_batches: 0.0000015
@@ -20,6 +20,60 @@ costs:
       cache_read:
         - from: 200000
           cost_per_token: 6.e-7
+  - region: us-east5
+    input_cost_per_token: 0.0000033
+    output_cost_per_token: 0.0000165
+    cache_read_input_token_cost: 3.3e-7
+    cache_creation_input_token_cost: 0.00000413
+    tiered_pricing:
+      input:
+        - from: 200000
+          cost_per_token: 0.0000066
+      output:
+        - from: 200000
+          cost_per_token: 0.00002475
+      cache_write:
+        - from: 200000
+          cost_per_token: 0.00000825
+      cache_read:
+        - from: 200000
+          cost_per_token: 6.6e-7
+  - region: europe-west1
+    input_cost_per_token: 0.0000033
+    output_cost_per_token: 0.0000165
+    cache_read_input_token_cost: 3.3e-7
+    cache_creation_input_token_cost: 0.00000413
+    tiered_pricing:
+      input:
+        - from: 200000
+          cost_per_token: 0.0000066
+      output:
+        - from: 200000
+          cost_per_token: 0.00002475
+      cache_write:
+        - from: 200000
+          cost_per_token: 0.00000825
+      cache_read:
+        - from: 200000
+          cost_per_token: 6.6e-7
+  - region: asia-southeast1
+    input_cost_per_token: 0.0000033
+    output_cost_per_token: 0.0000165
+    cache_read_input_token_cost: 3.3e-7
+    cache_creation_input_token_cost: 0.00000413
+    tiered_pricing:
+      input:
+        - from: 200000
+          cost_per_token: 0.0000066
+      output:
+        - from: 200000
+          cost_per_token: 0.00002475
+      cache_write:
+        - from: 200000
+          cost_per_token: 0.00000825
+      cache_read:
+        - from: 200000
+          cost_per_token: 6.6e-7
 limits:
   max_tokens: 64000
   max_input_tokens: 200000
