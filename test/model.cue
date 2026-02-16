@@ -33,6 +33,9 @@ package model
 	output_cost_per_second?:                 number
 	input_cost_per_query?:                   number
 	input_cost_per_image?:                   number
+	input_cost_per_image_token?:             number
+	output_cost_per_image_token?:            number
+	cache_read_input_image_token_cost?:      number
 	tiered_pricing?:                         #TieredPricing
 }
 
