@@ -1,0 +1,10 @@
+model: allenai/olmOCR-2-7B-1025
+costs:
+  - region: '*'
+    input_cost_per_token: 9.e-8
+    output_cost_per_token: 1.9e-7
+limits:
+  max_tokens: 16384
+  max_input_tokens: 16384
+  max_output_tokens: 16384
+mode: chat
