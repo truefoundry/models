@@ -1,8 +1,7 @@
 model: whisper-large-v3-turbo
 costs:
   - region: '*'
-    input_cost_per_second: 0.00001111
-    output_cost_per_second: 0
+    input_audio_cost_per_hour: 0.04
 limits:
   max_tokens: 4096
 mode: audio_transcription
