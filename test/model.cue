@@ -28,7 +28,7 @@ package model
 	output_cost_per_audio_token?:            number
 	cache_creation_input_audio_token_cost?:  number
 	input_cost_per_request?:                 number
-	input_cost_per_character?:               numbe
+	input_cost_per_character?:               number
 	input_cost_per_second?:                  number
 	output_cost_per_second?:                 number
 	input_cost_per_query?:                   number
