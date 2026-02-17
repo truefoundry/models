@@ -44,6 +44,10 @@ package model
 	[=~"^output_cost_per_image_\\d+x\\d+$"]?: number
 	[=~"^output_cost_per_image_\\d+k$"]?:   number
 	tiered_pricing?:                         #TieredPricing
+
+	// Resolution-based pricing: matches fields like output_cost_per_second_480p, output_cost_per_second_720p, output_cost_per_image_1k, output_cost_per_image_2k, etc.
+	[=~"^output_cost_per_second_\\d+p$"]:    number
+	[=~"^output_cost_per_image_\\d+k$"]:     number
 }
 
 
