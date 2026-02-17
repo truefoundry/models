@@ -28,12 +28,7 @@ export interface Cost {
   output_cost_per_second?: number;
   input_cost_per_query?: number;
   input_cost_per_image?: number;
-  input_cost_per_image_token?: number;
-  output_cost_per_image_token?: number;
-  cache_read_input_image_token_cost?: number;
   tiered_pricing?: TieredPricing;
-  // Resolution-based pricing (Size: Output resolution), e.g. output_cost_per_second_480p, output_cost_per_second_720p, output_cost_per_image_1k, output_cost_per_image_2k
-  [key: string]: number | string | TieredPricing | undefined;
 }
 
 export interface CostWithRegion extends Cost {
