@@ -24,27 +24,22 @@ features:
     - chat
     - image
 params:
-    -
-        key: tool_choice
-        type: non-view-manage-data
-        options:
-            -
-                value: none
-                name: None
-            -
-                value: auto
-                name: Auto
-            -
-                value: required
-                name: Required
-            -
-                value: custom
-                name: Custom
-                type: json
-        skipValues:
-            - null
-        default: null
-        condition: tools
-        then: auto
-        else: null
+    - key: tool_choice
+      type: non-view-manage-data
+      options:
+          - value: none
+            name: None
+          - value: auto
+            name: Auto
+          - value: required
+            name: Required
+          - value: custom
+            name: Custom
+            type: json
+      skipValues:
+          - null
+      default: null
+      condition: tools
+      then: auto
+      else: null
 mode: chat

@@ -19,29 +19,24 @@ features:
     - chat
     - image
 params:
-    -
-        key: tool_choice
-        type: json
-        options:
-            -
-                value: none
-                name: None
-            -
-                value: auto
-                name: Auto
-            -
-                value: required
-                name: Required
-            -
-                value: custom
-                name: Custom
-                schema: null
-                type: json
-        skipValues:
-            - null
-        rule: null
-        default:
-            condition: tools
-            then: auto
-            else: null
+    - key: tool_choice
+      type: json
+      options:
+          - value: none
+            name: None
+          - value: auto
+            name: Auto
+          - value: required
+            name: Required
+          - value: custom
+            name: Custom
+            schema: null
+            type: json
+      skipValues:
+          - null
+      rule: null
+      default:
+          condition: tools
+          then: auto
+          else: null
 mode: chat

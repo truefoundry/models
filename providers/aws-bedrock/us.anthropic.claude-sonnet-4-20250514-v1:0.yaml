@@ -30,46 +30,39 @@ features:
     - chat
     - image
 params:
-    -
-        key: max_tokens
-        maxValue: 128000
-    -
-        key: thinking
-        type: number
-        enum:
-            - enabled
-            - disabled
-        minValue: 1024
-        maxValue: 128000
-        withdrawParams:
-            - top_k
-            - top_p
-        skipValues:
-            - disabled
-            - null
-    -
-        key: tool_choice
-        type: json
-        options:
-            -
-                value: none
-                name: None
-            -
-                value: auto
-                name: Auto
-            -
-                value: required
-                name: Required
-            -
-                value: custom
-                name: Custom
-                schema: null
-                type: json
-        skipValues:
-            - null
-        rule: null
-        default:
-            condition: tools
-            then: auto
-            else: null
+    - key: max_tokens
+      maxValue: 128000
+    - key: thinking
+      type: number
+      enum:
+          - enabled
+          - disabled
+      minValue: 1024
+      maxValue: 128000
+      withdrawParams:
+          - top_k
+          - top_p
+      skipValues:
+          - disabled
+          - null
+    - key: tool_choice
+      type: json
+      options:
+          - value: none
+            name: None
+          - value: auto
+            name: Auto
+          - value: required
+            name: Required
+          - value: custom
+            name: Custom
+            schema: null
+            type: json
+      skipValues:
+          - null
+      rule: null
+      default:
+          condition: tools
+          then: auto
+          else: null
 mode: chat

@@ -35,23 +35,21 @@ features:
     - chat
     - image
 params:
-    -
-        key: max_tokens
-        maxValue: 64000
-    -
-        key: thinking
-        type: number
-        enum:
-            - enabled
-            - disabled
-        minValue: 1024
-        maxValue: 128000
-        withdrawParams:
-            - top_k
-            - top_p
-        skipValues:
-            - disabled
-            - null
+    - key: max_tokens
+      maxValue: 64000
+    - key: thinking
+      type: number
+      enum:
+          - enabled
+          - disabled
+      minValue: 1024
+      maxValue: 128000
+      withdrawParams:
+          - top_k
+          - top_p
+      skipValues:
+          - disabled
+          - null
 removeParams:
     - temperature
     - top_p
