@@ -1,26 +1,39 @@
 model: eu.amazon.nova-lite-v1:0
 costs:
-    - region: eu-north-1
-      input_cost_per_token: 6.5e-8
-      output_cost_per_token: 2.6e-7
-    - region: eu-south-2
-      input_cost_per_token: 6.6e-8
-      output_cost_per_token: 2.64e-7
+    - region: il-central-1
+      cache_read_input_token_cost: 1.87e-8
+      input_cost_per_token: 7.5e-8
+      output_cost_per_token: 3e-7
     - region: eu-west-3
+      cache_read_input_token_cost: 2.2e-8
       input_cost_per_token: 8.8e-8
       output_cost_per_token: 3.52e-7
-    - region: eu-south-1
-      input_cost_per_token: 9.6e-8
-      output_cost_per_token: 3.84e-7
     - region: eu-west-1
+      cache_read_input_token_cost: 1.72e-8
       input_cost_per_token: 6.9e-8
       output_cost_per_token: 2.76e-7
+    - region: eu-south-2
+      cache_read_input_token_cost: 1.65e-8
+      input_cost_per_token: 6.6e-8
+      output_cost_per_token: 2.64e-7
+    - region: eu-south-1
+      cache_read_input_token_cost: 2.4e-8
+      input_cost_per_token: 9.6e-8
+      output_cost_per_token: 3.84e-7
+    - region: eu-north-1
+      cache_read_input_token_cost: 1.62e-8
+      input_cost_per_token: 6.5e-8
+      output_cost_per_token: 2.6e-7
     - region: eu-central-1
+      cache_read_input_token_cost: 1.95e-8
       input_cost_per_token: 7.8e-8
       output_cost_per_token: 3.12e-7
 limits:
     max_tokens: 4096
     max_input_tokens: 300000
     max_output_tokens: 10000
-features: [function_calling, vision, chat]
+features:
+    - function_calling
+    - vision
+    - chat
 mode: chat

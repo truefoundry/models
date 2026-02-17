@@ -1,0 +1,15 @@
+model: us.cohere.embed-v4:0
+costs:
+    - region: us-west-2
+      input_cost_per_token: 1.2e-7
+    - region: us-west-1
+      input_cost_per_token: 1.2e-7
+    - region: us-east-2
+      input_cost_per_token: 1.2e-7
+    - region: us-east-1
+      input_cost_per_token: 1.2e-7
+limits:
+    max_tokens: 128000
+    max_input_tokens: 128000
+    output_vector_size: 1536
+mode: embedding
