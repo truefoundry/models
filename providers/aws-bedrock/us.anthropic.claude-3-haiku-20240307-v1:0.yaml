@@ -16,29 +16,29 @@ costs:
       output_cost_per_token: 1.25e-6
       output_cost_per_token_batches: 6.25e-7
 limits:
-  max_tokens: 4096
-  max_input_tokens: 200000
-  max_output_tokens: 4096
+    max_tokens: 4096
+    max_input_tokens: 200000
+    max_output_tokens: 4096
 features: [function_calling, vision, chat, image]
 params:
     - key: tool_choice
       type: json
       options:
-        - value: none
-          name: None
-        - value: auto
-          name: Auto
-        - value: required
-          name: Required
-        - value: custom
-          name: Custom
-          schema:
-          type: json
+          - value: none
+            name: None
+          - value: auto
+            name: Auto
+          - value: required
+            name: Required
+          - value: custom
+            name: Custom
+            schema:
+            type: json
       skipValues:
-      - null
+          - null
       rule:
       default:
-        condition: tools
-        then: auto
-        else: null
+          condition: tools
+          then: auto
+          else: null
 mode: chat
