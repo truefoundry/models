@@ -27,3 +27,9 @@ costs:
     - region: ap-south-1
       input_cost_per_token: 4.8e-6
       output_cost_per_token: 1.44e-5
+limits:
+    max_tokens: 8192
+    max_input_tokens: 32000
+    max_output_tokens: 8192
+features: [function_calling]
+mode: chat
