@@ -36,6 +36,10 @@ package model
 	input_cost_per_query?:                   number
 	input_cost_per_image?:                   number
 	output_cost_per_image?:                  number
+	input_cost_per_image_token?:             number
+	output_cost_per_image_token?:            number
+	input_cost_per_video_token?:             number
+	output_cost_per_video_token?:            number
 	tiered_pricing?:                         #TieredPricing
 
 	// Resolution-based video pricing: matches fields like output_cost_per_second_480p, output_cost_per_second_4k, etc.
