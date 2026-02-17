@@ -34,6 +34,7 @@ package model
 	input_cost_per_query?:                   number
 	input_cost_per_image?:                   number
 	output_cost_per_image?:                  number
+	input_audio_cost_per_hour?:              number
 	tiered_pricing?:                         #TieredPricing
 
 	// Resolution-based pricing: matches fields like output_cost_per_second_480p, output_cost_per_second_720p, output_cost_per_image_1k, output_cost_per_image_2k, etc.
