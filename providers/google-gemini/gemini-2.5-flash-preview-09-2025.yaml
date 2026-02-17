@@ -1,4 +1,4 @@
-model: gemini-flash-latest
+model: gemini-2.5-flash-preview-09-2025
 costs:
   - region: '*'
     input_cost_per_token: 3.e-7
@@ -10,8 +10,7 @@ costs:
     cache_storage_cost_per_token_per_hour: 0.000001
     input_cost_per_audio_token: 0.000001
 limits:
-  max_tokens: 65535
   max_input_tokens: 1048576
   max_output_tokens: 65535
-features: [function_calling, parallel_function_calling, vision]
+features: [function_calling, parallel_function_calling, vision, chat, image, pdf, doc]
 mode: chat

@@ -26,7 +26,9 @@ package model
 	output_cost_per_token_batches?:          number
 	input_cost_per_audio_token?:             number
 	output_cost_per_audio_token?:            number
+	cache_read_input_audio_token_cost?:      number
 	cache_creation_input_audio_token_cost?:  number
+	cache_storage_cost_per_token_per_hour?:  number
 	input_cost_per_request?:                 number
 	input_cost_per_character?:               number
 	input_cost_per_second?:                  number
@@ -37,9 +39,10 @@ package model
 	input_audio_cost_per_hour?:              number
 	tiered_pricing?:                         #TieredPricing
 
-	// Resolution-based pricing: matches fields like output_cost_per_second_480p, output_cost_per_second_720p, output_cost_per_image_1k, output_cost_per_image_2k, etc.
-	[=~"^output_cost_per_second_\\d+p$"]:    number
-	[=~"^output_cost_per_image_\\d+k$"]:     number
+	// Resolution-based video pricing: matches fields like output_cost_per_second_480p, output_cost_per_second_4k, etc.
+	[=~"^output_cost_per_second_\\d+[pk]$"]:  number
+	// Resolution-based image pricing: matches fields like output_cost_per_image_1k, output_cost_per_image_4k, etc.
+	[=~"^output_cost_per_image_\\d+[pk]$"]:   number
 }
 
 
