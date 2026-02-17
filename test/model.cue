@@ -36,6 +36,10 @@ package model
 	input_cost_per_image_token?:             number
 	output_cost_per_image_token?:            number
 	cache_read_input_image_token_cost?:      number
+	// Resolution-based pricing (Size: Output resolution). OpenAI video API: 720x1280, 1280x720, 1024x1792, 1792x1024. OpenAI image pricing: 1024x1024, 1024x1536, etc. Shorthand: 480p/720p, 1k/2k.
+	[=~"^output_cost_per_second_\\d+x\\d+$"]?: number
+	[=~"^output_cost_per_second_\\d+p$"]?:   number
+	[=~"^output_cost_per_image_\\d+k$"]?:    number
 	tiered_pricing?:                         #TieredPricing
 }
 
