@@ -4,7 +4,9 @@
   "description": "AI model configurations - YAML to unified JSON",
   "private": true,
   "scripts": {
-    "build:json": "ts-node --project scripts/tsconfig.json scripts/build-unified-json.ts"
+    "build:json": "ts-node --project scripts/tsconfig.json scripts/build-unified-json.ts",
+    "sync:bedrock": "ts-node --project scripts/tsconfig.json scripts/sync-bedrock-costs.ts",
+    "lint:yaml": "yamllint -c .yamllint.yml providers/"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
