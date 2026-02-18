@@ -1,8 +1,10 @@
 model: openai/gpt-4
 costs:
-    - region: "*"
-      input_cost_per_token: 0.00003
-      output_cost_per_token: 0.00006
+    -
+        region: '*'
+        input_cost_per_token: 0.00003
+        output_cost_per_token: 0.00006
 limits:
     max_tokens: 8192
+features: [tool_choice]
 mode: chat

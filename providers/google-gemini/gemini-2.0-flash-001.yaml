@@ -1,18 +1,14 @@
 model: gemini-2.0-flash-001
 costs:
-    - region: "*"
-      input_cost_per_token: 1.e-7
-      output_cost_per_token: 4.e-7
-      input_cost_per_token_batches: 5.e-8
-      output_cost_per_token_batches: 2.e-7
-      cache_read_input_token_cost: 2.5e-8
-      cache_read_input_audio_token_cost: 1.75e-7
-      cache_storage_cost_per_token_per_hour: 0.000001
-      input_cost_per_audio_token: 7.e-7
-      output_cost_per_image_1k: 0.039
+    -
+        region: '*'
+        input_cost_per_token: 1.e-7
+        output_cost_per_token: 4.e-7
+        cache_read_input_token_cost: 2.5e-8
+        input_cost_per_audio_token: 7.e-7
 limits:
     max_tokens: 4096
     max_input_tokens: 1048576
     max_output_tokens: 8192
-features: [function_calling, vision, chat, image, pdf, doc]
+features: [chat, image, tools, pdf, doc, function_calling, vision, system_messages, tool_choice, prompt_caching, response_schema]
 mode: chat

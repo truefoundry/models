@@ -1,13 +1,15 @@
 model: grok-beta
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000005
-      output_cost_per_token: 0.000015
+    -
+        region: '*'
+        input_cost_per_token: 0.000005
+        output_cost_per_token: 0.000015
 limits:
     max_input_tokens: 131072
     max_output_tokens: 131072
-features: [function_calling, vision, chat]
+features: [chat, function_calling, vision, tool_choice]
 params:
-    - key: max_tokens
-      maxValue: 4096
+    -
+        key: max_tokens
+        maxValue: 4096
 mode: chat

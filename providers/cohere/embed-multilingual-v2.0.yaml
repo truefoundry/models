@@ -1,8 +1,9 @@
 model: embed-multilingual-v2.0
 costs:
-    - region: "*"
-      input_cost_per_token: 1.e-7
-      output_cost_per_token: 0
+    -
+        region: '*'
+        input_cost_per_token: 1.e-7
+        output_cost_per_token: 0
 limits:
     max_tokens: 4096
     max_input_tokens: 768

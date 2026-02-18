@@ -1,8 +1,9 @@
 model: mistral-large-latest
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000008
-      output_cost_per_token: 0.000024
+    -
+        region: '*'
+        input_cost_per_token: 0.000008
+        output_cost_per_token: 0.000024
 limits:
     max_tokens: 32000
     max_input_tokens: 32000

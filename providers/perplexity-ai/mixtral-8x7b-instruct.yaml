@@ -1,14 +1,16 @@
 model: mixtral-8x7b-instruct
 costs:
-    - region: "*"
-      input_cost_per_token: 7.e-8
-      output_cost_per_token: 2.8e-7
+    -
+        region: '*'
+        input_cost_per_token: 7.e-8
+        output_cost_per_token: 2.8e-7
 limits:
     max_input_tokens: 4096
     max_output_tokens: 4096
 features: [chat]
 params:
-    - key: max_tokens
-      maxValue: 32768
+    -
+        key: max_tokens
+        maxValue: 32768
 mode: chat
 isDeprecated: true

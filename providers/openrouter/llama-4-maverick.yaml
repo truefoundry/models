@@ -1,6 +1,7 @@
 model: llama-4-maverick
-features: [chat, image]
+features: [chat, image, tools]
 params:
-    - key: max_tokens
-      maxValue: 16384
+    -
+        key: max_tokens
+        maxValue: 16384
 mode: chat

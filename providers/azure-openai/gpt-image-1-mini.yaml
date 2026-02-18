@@ -1,8 +1,10 @@
 model: gpt-image-1-mini
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000002
-      cache_read_input_token_cost: 2.e-7
+    -
+        region: '*'
+        input_cost_per_token: 0.000002
+        cache_read_input_token_cost: 2.e-7
 limits:
     max_tokens: 4096
+features: [text]
 mode: image
