@@ -1,9 +1,9 @@
 model: zai-org/GLM-4.5-Air-FP8
 costs:
-  - region: '*'
-    input_cost_per_token: 2.e-7
-    output_cost_per_token: 1.1e-6
+    - region: "*"
+      input_cost_per_token: 2.e-7
+      output_cost_per_token: 1.1e-6
 limits:
-  max_input_tokens: 128000
+    max_input_tokens: 128000
 features: [function_calling, parallel_function_calling]
 mode: chat

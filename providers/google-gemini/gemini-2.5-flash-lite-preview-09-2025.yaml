@@ -1,16 +1,17 @@
 model: gemini-2.5-flash-lite-preview-09-2025
 costs:
-  - region: '*'
-    input_cost_per_token: 1.e-7
-    output_cost_per_token: 4.e-7
-    input_cost_per_token_batches: 5.e-8
-    output_cost_per_token_batches: 2.e-7
-    cache_read_input_token_cost: 1.e-8
-    cache_read_input_audio_token_cost: 3.e-8
-    cache_storage_cost_per_token_per_hour: 0.000001
-    input_cost_per_audio_token: 3.e-7
+    - region: "*"
+      input_cost_per_token: 1.e-7
+      output_cost_per_token: 4.e-7
+      input_cost_per_token_batches: 5.e-8
+      output_cost_per_token_batches: 2.e-7
+      cache_read_input_token_cost: 1.e-8
+      cache_read_input_audio_token_cost: 3.e-8
+      cache_storage_cost_per_token_per_hour: 0.000001
+      input_cost_per_audio_token: 3.e-7
 limits:
-  max_input_tokens: 1048576
-  max_output_tokens: 65535
-features: [function_calling, parallel_function_calling, vision, chat, image, pdf, doc]
+    max_input_tokens: 1048576
+    max_output_tokens: 65535
+features:
+    [function_calling, parallel_function_calling, vision, chat, image, pdf, doc]
 mode: chat
