@@ -1,22 +1,11 @@
 model: eu.mistral.pixtral-large-2502-v1:0
 costs:
-    - region: eu-west-3
-      input_cost_per_token: 2e-6
-      output_cost_per_token: 6e-6
-    - region: eu-west-1
-      input_cost_per_token: 2e-6
-      output_cost_per_token: 6e-6
-    - region: eu-north-1
-      input_cost_per_token: 2e-6
-      output_cost_per_token: 6e-6
-    - region: eu-central-1
-      input_cost_per_token: 2e-6
-      output_cost_per_token: 6e-6
+    - region: "*"
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
 limits:
     max_tokens: 4096
     max_input_tokens: 128000
     max_output_tokens: 4096
-features:
-    - function_calling
-    - image
+features: [text, image, function_calling]
 mode: chat

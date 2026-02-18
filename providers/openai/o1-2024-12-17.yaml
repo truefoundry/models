@@ -8,7 +8,7 @@ limits:
     max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 100000
-features: [function_calling, parallel_function_calling, vision, chat]
+features: [chat, tools, function_calling, parallel_function_calling, vision, system_messages, tool_choice, prompt_caching, response_schema, pdf_input]
 messages:
     options:
         - user
@@ -22,7 +22,7 @@ params:
 removeParams:
     - temperature
     - top_p
-    - "n"
+    - n
     - presence_penalty
     - frequency_penalty
     - logit_bias

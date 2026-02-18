@@ -1,59 +1,30 @@
 model: eu.anthropic.claude-opus-4-5-20251101-v1:0
 costs:
-    - region: eu-west-3
-      cache_creation_input_token_cost: 6.25e-6
+    - region: "*"
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000025
       cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 2.5e-5
-    - region: eu-west-2
-      cache_creation_input_token_cost: 6.25e-6
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 2.5e-5
-    - region: eu-west-1
-      cache_creation_input_token_cost: 6.25e-6
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 2.5e-5
-    - region: eu-south-2
-      cache_creation_input_token_cost: 6.25e-6
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 2.5e-5
-    - region: eu-south-1
-      cache_creation_input_token_cost: 6.25e-6
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 2.5e-5
-    - region: eu-north-1
-      cache_creation_input_token_cost: 6.25e-6
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 2.5e-5
-    - region: eu-central-1
-      cache_creation_input_token_cost: 6.25e-6
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 2.5e-5
+      cache_creation_input_token_cost: 0.00000625
 limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     tool_use_system_prompt_tokens: 159
-features:
-    - function_calling
-    - vision
-    - chat
-    - image
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
     - key: max_tokens
       maxValue: 64000
     - key: thinking
-      type: number
-      enum:
-          - enabled
-          - disabled
-      minValue: 1024
-      maxValue: 128000
+      properties:
+          type:
+              type: string
+              enum:
+                  - enabled
+                  - disabled
+          budget_tokens:
+              type: number
+              minValue: 1024
+              maxValue: 128000
+      defaultValue: null
       withdrawParams:
           - top_k
           - top_p

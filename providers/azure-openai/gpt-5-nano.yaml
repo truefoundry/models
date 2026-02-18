@@ -1,14 +1,14 @@
 model: gpt-5-nano
 costs:
     - region: "*"
-      input_cost_per_token: 5.e-8
-      output_cost_per_token: 4.e-7
-      cache_read_input_token_cost: 5.e-9
+      input_cost_per_token: 5e-8
+      output_cost_per_token: 4e-7
+      cache_read_input_token_cost: 5e-9
 limits:
     max_tokens: 4096
     max_input_tokens: 272000
     max_output_tokens: 128000
-features: [function_calling, parallel_function_calling, vision, chat, image]
+features: [chat, image, tools, function_calling, parallel_function_calling, vision, system_messages, tool_choice, prompt_caching, response_schema, pdf_input]
 params:
     - key: max_completion_tokens
       defaultValue: 20000
@@ -75,7 +75,7 @@ params:
 removeParams:
     - temperature
     - top_p
-    - "n"
+    - n
     - presence_penalty
     - frequency_penalty
     - logit_bias

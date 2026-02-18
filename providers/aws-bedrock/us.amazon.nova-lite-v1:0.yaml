@@ -1,26 +1,11 @@
 model: us.amazon.nova-lite-v1:0
 costs:
-    - region: us-west-2
-      cache_read_input_token_cost: 1.5e-8
-      input_cost_per_token: 6e-8
-      output_cost_per_token: 2.4e-7
-    - region: us-west-1
-      input_cost_per_token: 7.7e-8
-      output_cost_per_token: 3.08e-7
-    - region: us-east-2
-      cache_read_input_token_cost: 1.5e-8
-      input_cost_per_token: 6e-8
-      output_cost_per_token: 2.4e-7
-    - region: us-east-1
-      cache_read_input_token_cost: 1.5e-8
+    - region: "*"
       input_cost_per_token: 6e-8
       output_cost_per_token: 2.4e-7
 limits:
     max_tokens: 4096
     max_input_tokens: 300000
     max_output_tokens: 10000
-features:
-    - function_calling
-    - vision
-    - chat
+features: [chat, function_calling, vision, prompt_caching, response_schema, pdf_input]
 mode: chat

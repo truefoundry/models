@@ -1,31 +1,19 @@
 model: us.anthropic.claude-3-5-haiku-20241022-v1:0
 costs:
-    - region: us-west-2
-      cache_creation_input_token_cost: 1e-6
-      cache_read_input_token_cost: 8e-8
+    - region: "*"
       input_cost_per_token: 8e-7
-      output_cost_per_token: 4e-6
-    - region: us-east-2
-      cache_creation_input_token_cost: 1e-6
+      output_cost_per_token: 0.000004
       cache_read_input_token_cost: 8e-8
-      input_cost_per_token: 8e-7
-      output_cost_per_token: 4e-6
-    - region: us-east-1
-      cache_creation_input_token_cost: 1e-6
-      cache_read_input_token_cost: 8e-8
-      input_cost_per_token: 8e-7
-      output_cost_per_token: 4e-6
+      cache_creation_input_token_cost: 0.000001
 limits:
     max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 8192
-features:
-    - function_calling
-    - chat
-    - image
+features: [chat, image, tools, function_calling, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
     - key: tool_choice
       type: non-view-manage-data
+      defaultValue: null
       options:
           - value: none
             name: None
@@ -35,11 +23,14 @@ params:
             name: Required
           - value: custom
             name: Custom
-            type: json
+            schema:
+                type: json
       skipValues:
           - null
-      default: null
-      condition: tools
-      then: auto
-      else: null
+          - []
+      rule:
+          default:
+              condition: tools
+              then: auto
+              else: null
 mode: chat

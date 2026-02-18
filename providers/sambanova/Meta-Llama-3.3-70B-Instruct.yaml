@@ -1,11 +1,11 @@
 model: Meta-Llama-3.3-70B-Instruct
 costs:
     - region: "*"
-      input_cost_per_token: 6.e-7
+      input_cost_per_token: 6e-7
       output_cost_per_token: 0.0000012
 limits:
     max_tokens: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
-features: [function_calling]
+features: [function_calling, tool_choice, response_schema]
 mode: chat

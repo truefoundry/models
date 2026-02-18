@@ -8,7 +8,7 @@ limits:
     max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 100000
-features: [chat]
+features: [chat, tools, tool_choice, prompt_caching, response_schema]
 messages:
     options:
         - user
@@ -64,7 +64,7 @@ params:
 removeParams:
     - temperature
     - top_p
-    - "n"
+    - n
     - presence_penalty
     - frequency_penalty
     - logit_bias

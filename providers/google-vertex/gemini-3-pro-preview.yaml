@@ -5,11 +5,11 @@ costs:
       output_cost_per_token: 0.000012
       input_cost_per_token_batches: 0.000001
       output_cost_per_token_batches: 0.000006
-      cache_read_input_token_cost: 2.e-7
+      cache_read_input_token_cost: 2e-7
       tiered_pricing:
           cache_read:
               - from: 200000
-                cost_per_token: 4.e-7
+                cost_per_token: 4e-7
           cache_write:
               - from: 200000
                 cost_per_token: 2.5e-7
@@ -22,7 +22,7 @@ costs:
 limits:
     max_input_tokens: 1048576
     max_output_tokens: 65535
-features: [function_calling, vision, audio_input, chat, image, pdf, doc]
+features: [chat, image, tools, pdf, doc, function_calling, vision, audio_input, system_messages, tool_choice, prompt_caching, response_schema, pdf_input]
 params:
     - key: max_tokens
       maxValue: 65536

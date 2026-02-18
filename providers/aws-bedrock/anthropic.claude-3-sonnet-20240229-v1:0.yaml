@@ -7,7 +7,7 @@ limits:
     max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 4096
-features: [function_calling, vision, chat, image]
+features: [chat, image, tools, function_calling, vision, tool_choice, response_schema, pdf_input]
 params:
     - key: tool_choice
       type: non-view-manage-data

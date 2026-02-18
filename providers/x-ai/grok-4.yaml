@@ -1,30 +1,11 @@
 model: grok-4
 costs:
-    - region: us-east-1
+    - region: "*"
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 7.5e-7
-      tiered_pricing:
-          input:
-              - from: 128000
-                cost_per_token: 0.000006
-          output:
-              - from: 128000
-                cost_per_token: 0.00003
-    - region: eu-west-1
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 7.5e-7
-      tiered_pricing:
-          input:
-              - from: 128000
-                cost_per_token: 0.000006
-          output:
-              - from: 128000
-                cost_per_token: 0.00003
 limits:
     max_tokens: 4096
     max_input_tokens: 256000
     max_output_tokens: 256000
-features: [function_calling, chat]
+features: [chat, function_calling, tool_choice]
 mode: chat
