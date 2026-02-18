@@ -1,9 +1,11 @@
-model: embed-multilingual-light-v3.0
 costs:
-    - region: "*"
-      input_cost_per_token: 0.0001
-      output_cost_per_token: 0
+    -
+        input_cost_per_token: 0.0001
+        output_cost_per_token: 0
+        region: '*'
+features: [embedding_image_input]
 limits:
-    max_tokens: 1024
     max_input_tokens: 1024
+    max_tokens: 1024
 mode: embedding
+model: embed-multilingual-light-v3.0

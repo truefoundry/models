@@ -1,11 +1,13 @@
-model: playai-tts
 costs:
-    - region: "*"
-      input_cost_per_character: 0.00005
+    -
+        input_cost_per_character: 0.00005
+        region: '*'
 limits:
     max_input_tokens: 10000
     max_output_tokens: 10000
-params:
-    - key: max_tokens
-      maxValue: 8192
 mode: audio_speech
+model: playai-tts
+params:
+    -
+        key: max_tokens
+        maxValue: 8192

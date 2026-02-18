@@ -1,6 +1,7 @@
-model: jamba-1.6-large
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 4096
+features: [chat, tools]
 mode: chat
+model: jamba-1.6-large
+params:
+    -
+        key: max_tokens
+        maxValue: 4096

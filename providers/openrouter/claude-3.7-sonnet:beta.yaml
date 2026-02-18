@@ -1,6 +1,7 @@
-model: claude-3.7-sonnet:beta
-features: [chat, image]
-params:
-    - key: max_tokens
-      maxValue: 128000
+features: [chat, image, tools]
 mode: chat
+model: claude-3.7-sonnet:beta
+params:
+    -
+        key: max_tokens
+        maxValue: 128000

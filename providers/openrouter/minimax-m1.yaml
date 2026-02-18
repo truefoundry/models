@@ -1,6 +1,7 @@
-model: minimax-m1
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 40000
+features: [chat, tools]
 mode: chat
+model: minimax-m1
+params:
+    -
+        key: max_tokens
+        maxValue: 40000

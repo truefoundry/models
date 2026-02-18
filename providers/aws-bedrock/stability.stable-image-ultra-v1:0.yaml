@@ -1,12 +1,6 @@
-model: stability.stable-image-ultra-v1:0
-costs:
-    - region: us-west-2
-      input_cost_per_token: 1.4e-7
-    - region: us-east-1
-      input_cost_per_token: 1.4e-7
+features: [image]
 limits:
-    max_tokens: 4096
     max_input_tokens: 77
-features:
-    - image
+    max_tokens: 4096
 mode: image
+model: stability.stable-image-ultra-v1:0

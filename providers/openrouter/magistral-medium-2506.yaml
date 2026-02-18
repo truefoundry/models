@@ -1,6 +1,7 @@
-model: magistral-medium-2506
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 40000
+features: [chat, tools]
 mode: chat
+model: magistral-medium-2506
+params:
+    -
+        key: max_tokens
+        maxValue: 40000

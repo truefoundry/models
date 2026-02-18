@@ -1,6 +1,7 @@
-model: o3-mini
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 100000
+features: [chat, tools]
 mode: chat
+model: o3-mini
+params:
+    -
+        key: max_tokens
+        maxValue: 100000

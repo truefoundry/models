@@ -1,6 +1,7 @@
-model: o3
-features: [chat, image]
-params:
-    - key: max_tokens
-      maxValue: 100000
+features: [chat, image, tools]
 mode: chat
+model: o3
+params:
+    -
+        key: max_tokens
+        maxValue: 100000

@@ -1,6 +1,7 @@
-model: qwen-max
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 8192
+features: [chat, tools]
 mode: chat
+model: qwen-max
+params:
+    -
+        key: max_tokens
+        maxValue: 8192

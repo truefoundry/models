@@ -1,6 +1,7 @@
-model: gpt-4-0314
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 4096
+features: [chat, tools]
 mode: chat
+model: gpt-4-0314
+params:
+    -
+        key: max_tokens
+        maxValue: 4096

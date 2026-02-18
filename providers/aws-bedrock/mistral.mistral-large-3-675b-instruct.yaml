@@ -1,27 +1,12 @@
-model: mistral.mistral-large-3-675b-instruct
 costs:
-    - region: us-west-2
-      input_cost_per_token: 5e-7
-      output_cost_per_token: 1.5e-6
-    - region: us-east-2
-      input_cost_per_token: 5e-7
-      output_cost_per_token: 1.5e-6
-    - region: us-east-1
-      input_cost_per_token: 5e-7
-      output_cost_per_token: 1.5e-6
-    - region: sa-east-1
-      input_cost_per_token: 6.1e-7
-      output_cost_per_token: 1.82e-6
-    - region: ap-south-1
-      input_cost_per_token: 5.9e-7
-      output_cost_per_token: 1.76e-6
-    - region: ap-northeast-1
-      input_cost_per_token: 6.1e-7
-      output_cost_per_token: 1.82e-6
+    -
+        input_cost_per_token: 5.e-7
+        output_cost_per_token: 0.0000015
+        region: '*'
+features: [function_calling, system_messages]
 limits:
-    max_tokens: 8192
     max_input_tokens: 128000
     max_output_tokens: 8192
-features:
-    - function_calling
+    max_tokens: 8192
 mode: chat
+model: mistral.mistral-large-3-675b-instruct

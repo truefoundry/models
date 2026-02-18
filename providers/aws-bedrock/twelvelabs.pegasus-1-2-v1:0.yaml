@@ -1,44 +1,9 @@
-model: twelvelabs.pegasus-1-2-v1:0
 costs:
-    - region: us-west-2
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: us-west-1
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: us-east-2
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: us-east-1
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-west-3
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-west-2
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-west-1
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-south-2
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-south-1
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-north-1
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-central-2
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: eu-central-1
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
-    - region: ap-northeast-2
-      input_cost_per_second: 4.9e-4
-      output_cost_per_token: 7.5e-6
+    -
+        output_cost_per_token: 0.0000075
+        region: '*'
+features: [text]
 limits:
     max_tokens: 4096
 mode: chat
+model: twelvelabs.pegasus-1-2-v1:0

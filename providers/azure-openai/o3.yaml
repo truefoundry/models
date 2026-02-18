@@ -1,73 +1,83 @@
-model: o3
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000008
-      cache_read_input_token_cost: 5.e-7
+    -
+        cache_read_input_token_cost: 5.e-7
+        input_cost_per_token: 0.000002
+        output_cost_per_token: 0.000008
+        region: '*'
+features: [chat, tools, function_calling, vision, tool_choice, prompt_caching, response_schema]
 limits:
-    max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 100000
-features: [function_calling, vision, chat]
+    max_tokens: 4096
 messages:
     options:
         - user
         - assistant
         - developer
+mode: chat
+model: o3
 params:
-    - key: max_completion_tokens
-      defaultValue: 1000
-      minValue: 1
-      maxValue: 100000
-    - key: response_format
-      defaultValue: null
-      options:
-          - value: null
-            name: Text
-          - value: json_object
-            name: JSON Object
-            schema:
-                type: object
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-          - value: json_schema
-            name: JSON Schema
-            schema:
-                type: object
-                properties:
-                    type:
-                        type: string
-                        value: json_schema
-                    json_schema:
-                        type: object
-            params:
-                key: json_schema
-                defaultValue: null
-                type: json
-                skipValues:
-                    - null
-      skipValues:
-          - null
-      type: string
-    - key: reasoning_effort
-      defaultValue: medium
-      options:
-          - value: low
-            name: Low
-          - value: medium
-            name: Medium
-          - value: high
-            name: High
-      type: string
+    -
+        defaultValue: 1000
+        key: max_completion_tokens
+        maxValue: 100000
+        minValue: 1
+    -
+        defaultValue: null
+        key: response_format
+        options:
+            -
+                name: Text
+                value: null
+            -
+                name: JSON Object
+                schema:
+                    properties:
+                        type:
+                            type: string
+                            value: json_object
+                    type: object
+                value: json_object
+            -
+                name: JSON Schema
+                params:
+                    defaultValue: null
+                    key: json_schema
+                    skipValues:
+                        - null
+                    type: json
+                schema:
+                    properties:
+                        json_schema:
+                            type: object
+                        type:
+                            type: string
+                            value: json_schema
+                    type: object
+                value: json_schema
+        skipValues:
+            - null
+        type: string
+    -
+        defaultValue: medium
+        key: reasoning_effort
+        options:
+            -
+                name: Low
+                value: low
+            -
+                name: Medium
+                value: medium
+            -
+                name: High
+                value: high
+        type: string
 removeParams:
     - temperature
     - top_p
-    - "n"
+    - 'n'
     - presence_penalty
     - frequency_penalty
     - logit_bias
     - stream
     - max_tokens
-mode: chat

@@ -1,6 +1,7 @@
-model: nova-micro-v1
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 5120
+features: [chat, tools]
 mode: chat
+model: nova-micro-v1
+params:
+    -
+        key: max_tokens
+        maxValue: 5120

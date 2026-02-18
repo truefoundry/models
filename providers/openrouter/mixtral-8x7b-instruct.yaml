@@ -1,6 +1,7 @@
-model: mixtral-8x7b-instruct
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 16384
+features: [chat, tools]
 mode: chat
+model: mixtral-8x7b-instruct
+params:
+    -
+        key: max_tokens
+        maxValue: 16384

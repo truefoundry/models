@@ -1,70 +1,64 @@
-model: us.anthropic.claude-opus-4-20250514-v1:0
 costs:
-    - region: us-west-2
-      cache_creation_input_token_cost: 1.875e-5
-      cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-5
-      output_cost_per_token: 7.5e-5
-    - region: us-east-2
-      cache_creation_input_token_cost: 1.875e-5
-      cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-5
-      output_cost_per_token: 7.5e-5
-    - region: us-east-1
-      cache_creation_input_token_cost: 1.875e-5
-      cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-5
-      output_cost_per_token: 7.5e-5
+    -
+        cache_creation_input_token_cost: 0.00001875
+        cache_read_input_token_cost: 0.0000015
+        input_cost_per_token: 0.000015
+        output_cost_per_token: 0.000075
+        region: '*'
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
     tool_use_system_prompt_tokens: 159
-features:
-    - function_calling
-    - vision
-    - chat
-    - image
-params:
-    - key: max_tokens
-      maxValue: 128000
-    - key: thinking
-      properties:
-          type:
-              type: string
-              enum:
-                  - enabled
-                  - disabled
-          budget_tokens:
-              type: number
-              minValue: 1024
-              maxValue: 128000
-      defaultValue: null
-      withdrawParams:
-          - top_k
-          - top_p
-      skipValues:
-          - disabled
-          - null
-    - key: tool_choice
-      type: non-view-manage-data
-      defaultValue: null
-      options:
-          - value: none
-            name: None
-          - value: auto
-            name: Auto
-          - value: required
-            name: Required
-          - value: custom
-            name: Custom
-            schema:
-                type: json
-      skipValues:
-          - null
-          - []
-      rule:
-          default:
-              condition: tools
-              then: auto
-              else: null
 mode: chat
+model: us.anthropic.claude-opus-4-20250514-v1:0
+params:
+    -
+        key: max_tokens
+        maxValue: 128000
+    -
+        defaultValue: null
+        key: thinking
+        properties:
+            budget_tokens:
+                maxValue: 128000
+                minValue: 1024
+                type: number
+            type:
+                enum:
+                    - enabled
+                    - disabled
+                type: string
+        skipValues:
+            - disabled
+            - null
+        withdrawParams:
+            - top_k
+            - top_p
+    -
+        defaultValue: null
+        key: tool_choice
+        options:
+            -
+                name: None
+                value: none
+            -
+                name: Auto
+                value: auto
+            -
+                name: Required
+                value: required
+            -
+                name: Custom
+                schema:
+                    type: json
+                value: custom
+        rule:
+            default:
+                condition: tools
+                else: null
+                then: auto
+        skipValues:
+            - null
+            - []
+        type: non-view-manage-data

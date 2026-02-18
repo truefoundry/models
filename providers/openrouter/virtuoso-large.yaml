@@ -1,6 +1,7 @@
-model: virtuoso-large
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 64000
+features: [chat, tools]
 mode: chat
+model: virtuoso-large
+params:
+    -
+        key: max_tokens
+        maxValue: 64000

@@ -1,8 +1,10 @@
-model: mistralai/mistral-large
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000008
-      output_cost_per_token: 0.000024
+    -
+        input_cost_per_token: 0.000008
+        output_cost_per_token: 0.000024
+        region: '*'
+features: [tool_choice]
 limits:
     max_tokens: 32000
 mode: chat
+model: mistralai/mistral-large

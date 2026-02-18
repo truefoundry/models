@@ -1,7 +1,9 @@
-model: tts-1-hd
 costs:
-    - region: "*"
-      input_cost_per_character: 0.00003
+    -
+        input_cost_per_character: 0.00003
+        region: '*'
+features: [text]
 limits:
     max_tokens: 4096
 mode: audio_speech
+model: tts-1-hd

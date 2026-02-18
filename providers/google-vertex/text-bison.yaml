@@ -1,9 +1,10 @@
-model: text-bison
 costs:
-    - region: "*"
-      input_cost_per_character: 2.5e-7
+    -
+        input_cost_per_character: 2.5e-7
+        region: '*'
 limits:
-    max_tokens: 2048
     max_input_tokens: 8192
     max_output_tokens: 2048
+    max_tokens: 2048
 mode: completion
+model: text-bison

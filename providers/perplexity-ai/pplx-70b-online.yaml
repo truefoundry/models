@@ -1,15 +1,17 @@
-model: pplx-70b-online
 costs:
-    - region: "*"
-      input_cost_per_token: 0
-      output_cost_per_token: 0.0000028
-      input_cost_per_request: 0.005
+    -
+        input_cost_per_request: 0.005
+        input_cost_per_token: 0
+        output_cost_per_token: 0.0000028
+        region: '*'
+features: [chat]
+isDeprecated: true
 limits:
     max_input_tokens: 4096
     max_output_tokens: 4096
-features: [chat]
-params:
-    - key: max_tokens
-      maxValue: 8192
 mode: chat
-isDeprecated: true
+model: pplx-70b-online
+params:
+    -
+        key: max_tokens
+        maxValue: 8192

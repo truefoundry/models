@@ -1,34 +1,13 @@
-model: us.amazon.nova-2-lite-v1:0
 costs:
-    - region: us-west-2
-      cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3e-7
-      output_cost_per_token: 2.5e-6
-    - region: us-west-1
-      cache_read_input_token_cost: 9.75e-8
-      input_cost_per_token: 3.9e-7
-      output_cost_per_token: 3.21e-6
-    - region: us-east-2
-      cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3e-7
-      output_cost_per_token: 2.5e-6
-    - region: us-east-1
-      cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3e-7
-      output_cost_per_token: 2.5e-6
-    - region: ca-west-1
-      cache_read_input_token_cost: 8.5e-7
-      input_cost_per_token: 3.4e-7
-      output_cost_per_token: 2.81e-6
-    - region: ca-central-1
-      cache_read_input_token_cost: 8e-8
-      input_cost_per_token: 3.2e-7
-      output_cost_per_token: 2.67e-6
+    -
+        cache_read_input_token_cost: 8.25e-8
+        input_cost_per_token: 3.3e-7
+        output_cost_per_token: 0.00000275
+        region: '*'
+features: [function_calling, vision, prompt_caching, response_schema, pdf_input]
 limits:
-    max_tokens: 64000
     max_input_tokens: 1000000
     max_output_tokens: 64000
-features:
-    - function_calling
-    - vision
+    max_tokens: 64000
 mode: chat
+model: us.amazon.nova-2-lite-v1:0

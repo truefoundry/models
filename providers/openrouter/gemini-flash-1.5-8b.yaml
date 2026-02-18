@@ -1,6 +1,7 @@
-model: gemini-flash-1.5-8b
-features: [chat, image]
-params:
-    - key: max_tokens
-      maxValue: 8192
+features: [chat, image, tools]
 mode: chat
+model: gemini-flash-1.5-8b
+params:
+    -
+        key: max_tokens
+        maxValue: 8192
