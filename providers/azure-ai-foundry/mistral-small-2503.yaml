@@ -1,11 +1,11 @@
 model: mistral-small-2503
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000001
-    output_cost_per_token: 0.000003
+    - region: "*"
+      input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000003
 limits:
-  max_tokens: 4096
-  max_input_tokens: 128000
-  max_output_tokens: 128000
+    max_tokens: 4096
+    max_input_tokens: 128000
+    max_output_tokens: 128000
 features: [function_calling, vision, chat, tool_choice]
 mode: chat

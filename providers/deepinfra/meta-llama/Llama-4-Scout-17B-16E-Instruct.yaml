@@ -1,11 +1,11 @@
 model: meta-llama/Llama-4-Scout-17B-16E-Instruct
 costs:
-  - region: '*'
-    input_cost_per_token: 8.e-8
-    output_cost_per_token: 3.e-7
+    - region: "*"
+      input_cost_per_token: 8.e-8
+      output_cost_per_token: 3.e-7
 limits:
-  max_tokens: 327680
-  max_input_tokens: 327680
-  max_output_tokens: 327680
+    max_tokens: 327680
+    max_input_tokens: 327680
+    max_output_tokens: 327680
 mode: chat
 features: [tool_choice]
