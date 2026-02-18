@@ -1,35 +1,31 @@
 params:
     - key: max_tokens
-      defaultValue: 256
-      minValue: 1
-      maxValue: 4096
+    defaultValue: 256
+    minValue: 1
+    maxValue: 4096
     - key: temperature
-      defaultValue: 0.7
-      minValue: 0
-      maxValue: 2
+    defaultValue: 0.7
+    minValue: 0
+    maxValue: 2
     - key: stop
-      defaultValue: null
-      type: array-of-strings
-      skipValues:
-          - null
-          - []
+    defaultValue:
+    type: array-of-strings
+    skipValues:
+        -
+        - []
     - key: top_p
-      defaultValue: 1
-      minValue: 0
-      maxValue: 1
-    - key: "n"
-      defaultValue: 1
-      minValue: 1
-      maxValue: 10
+    defaultValue: 1
+    minValue: 0
+    maxValue: 1
+    - key: n
+    defaultValue: 1
+    minValue: 1
+    maxValue: 10
     - key: stream
-      defaultValue: true
-      type: boolean
+    defaultValue: true
+    type: boolean
 messages:
-    options:
-        - system
-        - user
-        - assistant
+    options: [system, user, assistant]
 type:
     primary: chat
-    supported:
-        - tools
+    supported: [tools]

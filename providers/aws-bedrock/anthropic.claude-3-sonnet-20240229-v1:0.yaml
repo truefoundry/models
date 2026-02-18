@@ -1,8 +1,8 @@
 model: anthropic.claude-3-sonnet-20240229-v1:0
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+    - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
 limits:
     max_tokens: 4096
     max_input_tokens: 200000
@@ -10,25 +10,25 @@ limits:
 features: [function_calling, vision, chat, image]
 params:
     - key: tool_choice
-      type: non-view-manage-data
-      defaultValue: null
-      options:
-          - value: none
-            name: None
-          - value: auto
-            name: Auto
-          - value: required
-            name: Required
-          - value: custom
-            name: Custom
-            schema:
-                type: json
-      skipValues:
-          - null
-          - []
-      rule:
-          default:
-              condition: tools
-              then: auto
-              else: null
+    type: non-view-manage-data
+    defaultValue:
+    options:
+        - value: none
+        name: None
+        - value: auto
+        name: Auto
+        - value: required
+        name: Required
+        - value: custom
+        name: Custom
+        schema:
+            type: json
+    skipValues:
+        -
+        - []
+    rule:
+        default:
+            condition: tools
+            then: auto
+            else:
 mode: chat

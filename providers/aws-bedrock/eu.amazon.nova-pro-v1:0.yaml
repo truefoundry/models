@@ -1,39 +1,36 @@
 model: eu.amazon.nova-pro-v1:0
 costs:
     - region: il-central-1
-      cache_read_input_token_cost: 2.5e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 4e-6
+    cache_read_input_token_cost: 2.5e-7
+    input_cost_per_token: 1e-6
+    output_cost_per_token: 4e-6
     - region: eu-west-3
-      cache_read_input_token_cost: 2.95e-7
-      input_cost_per_token: 1.18e-6
-      output_cost_per_token: 4.72e-6
+    cache_read_input_token_cost: 2.95e-7
+    input_cost_per_token: 1.18e-6
+    output_cost_per_token: 4.72e-6
     - region: eu-west-1
-      cache_read_input_token_cost: 2.3e-7
-      input_cost_per_token: 9.2e-7
-      output_cost_per_token: 3.68e-6
+    cache_read_input_token_cost: 2.3e-7
+    input_cost_per_token: 9.2e-7
+    output_cost_per_token: 3.68e-6
     - region: eu-south-2
-      cache_read_input_token_cost: 2.2e-7
-      input_cost_per_token: 8.8e-7
-      output_cost_per_token: 3.52e-6
+    cache_read_input_token_cost: 2.2e-7
+    input_cost_per_token: 8.8e-7
+    output_cost_per_token: 3.52e-6
     - region: eu-south-1
-      cache_read_input_token_cost: 3.2e-7
-      input_cost_per_token: 1.28e-6
-      output_cost_per_token: 5.21e-6
+    cache_read_input_token_cost: 3.2e-7
+    input_cost_per_token: 1.28e-6
+    output_cost_per_token: 5.21e-6
     - region: eu-north-1
-      cache_read_input_token_cost: 2.175e-7
-      input_cost_per_token: 8.7e-7
-      output_cost_per_token: 3.48e-6
+    cache_read_input_token_cost: 2.175e-7
+    input_cost_per_token: 8.7e-7
+    output_cost_per_token: 3.48e-6
     - region: eu-central-1
-      cache_read_input_token_cost: 2.625e-7
-      input_cost_per_token: 1.05e-6
-      output_cost_per_token: 4.2e-6
+    cache_read_input_token_cost: 2.625e-7
+    input_cost_per_token: 1.05e-6
+    output_cost_per_token: 4.2e-6
 limits:
     max_tokens: 4096
     max_input_tokens: 300000
     max_output_tokens: 10000
-features:
-    - function_calling
-    - vision
-    - chat
+features: [function_calling, vision, chat]
 mode: chat

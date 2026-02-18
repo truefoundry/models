@@ -1,27 +1,27 @@
 model: grok-4-fast-non-reasoning-latest
 costs:
     - region: us-east-1
-      input_cost_per_token: 2.e-7
-      output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 5.e-8
-      tiered_pricing:
-          input:
-              - from: 128000
-                cost_per_token: 4.e-7
-          output:
-              - from: 128000
-                cost_per_token: 0.000001
+    input_cost_per_token: 2.e-7
+    output_cost_per_token: 5.e-7
+    cache_read_input_token_cost: 5.e-8
+    tiered_pricing:
+        input:
+            - from: 128000
+            cost_per_token: 4.e-7
+        output:
+            - from: 128000
+            cost_per_token: 0.000001
     - region: eu-west-1
-      input_cost_per_token: 2.e-7
-      output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 5.e-8
-      tiered_pricing:
-          input:
-              - from: 128000
-                cost_per_token: 4.e-7
-          output:
-              - from: 128000
-                cost_per_token: 0.000001
+    input_cost_per_token: 2.e-7
+    output_cost_per_token: 5.e-7
+    cache_read_input_token_cost: 5.e-8
+    tiered_pricing:
+        input:
+            - from: 128000
+            cost_per_token: 4.e-7
+        output:
+            - from: 128000
+            cost_per_token: 0.000001
 limits:
     max_tokens: 4096
     max_input_tokens: 2000000

@@ -1,51 +1,47 @@
 model: openai.gpt-oss-20b-1:0
 costs:
     - region: us-west-2
-      input_cost_per_token: 7e-8
-      output_cost_per_token: 3e-7
+    input_cost_per_token: 7e-8
+    output_cost_per_token: 3e-7
     - region: us-east-2
-      input_cost_per_token: 7e-8
-      output_cost_per_token: 3e-7
+    input_cost_per_token: 7e-8
+    output_cost_per_token: 3e-7
     - region: us-east-1
-      input_cost_per_token: 7e-8
-      output_cost_per_token: 3e-7
+    input_cost_per_token: 7e-8
+    output_cost_per_token: 3e-7
     - region: sa-east-1
-      input_cost_per_token: 8e-8
-      output_cost_per_token: 3.6e-7
+    input_cost_per_token: 8e-8
+    output_cost_per_token: 3.6e-7
     - region: eu-west-2
-      input_cost_per_token: 1.1e-7
-      output_cost_per_token: 4.7e-7
+    input_cost_per_token: 1.1e-7
+    output_cost_per_token: 4.7e-7
     - region: eu-west-1
-      input_cost_per_token: 8e-8
-      output_cost_per_token: 3.5e-7
+    input_cost_per_token: 8e-8
+    output_cost_per_token: 3.5e-7
     - region: eu-south-1
-      input_cost_per_token: 9e-8
-      output_cost_per_token: 4e-7
+    input_cost_per_token: 9e-8
+    output_cost_per_token: 4e-7
     - region: eu-north-1
-      input_cost_per_token: 7e-8
-      output_cost_per_token: 3e-7
+    input_cost_per_token: 7e-8
+    output_cost_per_token: 3e-7
     - region: eu-central-1
-      input_cost_per_token: 9e-8
-      output_cost_per_token: 4e-7
+    input_cost_per_token: 9e-8
+    output_cost_per_token: 4e-7
     - region: ap-southeast-3
-      input_cost_per_token: 7e-8
-      output_cost_per_token: 3.1e-7
+    input_cost_per_token: 7e-8
+    output_cost_per_token: 3.1e-7
     - region: ap-south-1
-      input_cost_per_token: 8e-8
-      output_cost_per_token: 3.5e-7
+    input_cost_per_token: 8e-8
+    output_cost_per_token: 3.5e-7
     - region: ap-northeast-1
-      input_cost_per_token: 8e-8
-      output_cost_per_token: 3.6e-7
+    input_cost_per_token: 8e-8
+    output_cost_per_token: 3.6e-7
 limits:
     max_input_tokens: 128000
     max_output_tokens: 128000
-features:
-    - function_calling
-    - chat
+features: [function_calling, chat]
 params:
     - key: max_tokens
-      maxValue: 32768
-removeParams:
-    - stream
-    - stop
+    maxValue: 32768
+removeParams: [stream, stop]
 mode: chat

@@ -1,10 +1,10 @@
 model: claude-3-5-sonnet-20241022
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 3.e-7
-      cache_creation_input_token_cost: 0.00000375
+    - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.00000375
 limits:
     max_input_tokens: 200000
     max_output_tokens: 8192
@@ -12,5 +12,5 @@ limits:
 features: [function_calling, vision, chat, image]
 params:
     - key: max_tokens
-      maxValue: 8192
+    maxValue: 8192
 mode: chat

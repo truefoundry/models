@@ -1,22 +1,20 @@
 model: us.amazon.nova-micro-v1:0
 costs:
     - region: us-west-2
-      cache_read_input_token_cost: 8.7e-9
-      input_cost_per_token: 3.5e-8
-      output_cost_per_token: 1.4e-7
+    cache_read_input_token_cost: 8.7e-9
+    input_cost_per_token: 3.5e-8
+    output_cost_per_token: 1.4e-7
     - region: us-east-2
-      cache_read_input_token_cost: 8.7e-9
-      input_cost_per_token: 3.5e-8
-      output_cost_per_token: 1.4e-7
+    cache_read_input_token_cost: 8.7e-9
+    input_cost_per_token: 3.5e-8
+    output_cost_per_token: 1.4e-7
     - region: us-east-1
-      cache_read_input_token_cost: 8.7e-9
-      input_cost_per_token: 3.5e-8
-      output_cost_per_token: 1.4e-7
+    cache_read_input_token_cost: 8.7e-9
+    input_cost_per_token: 3.5e-8
+    output_cost_per_token: 1.4e-7
 limits:
     max_tokens: 4096
     max_input_tokens: 128000
     max_output_tokens: 10000
-features:
-    - function_calling
-    - chat
+features: [function_calling, chat]
 mode: chat

@@ -1,12 +1,12 @@
 model: claude-opus-4-20250514
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000075
-      cache_read_input_token_cost: 0.0000015
-      cache_creation_input_token_cost: 0.00001875
-      input_cost_per_token_batches: 0.0000075
-      output_cost_per_token_batches: 0.0000375
+    - region: '*'
+    input_cost_per_token: 0.000015
+    output_cost_per_token: 0.000075
+    cache_read_input_token_cost: 0.0000015
+    cache_creation_input_token_cost: 0.00001875
+    input_cost_per_token_batches: 0.0000075
+    output_cost_per_token_batches: 0.0000375
 limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
@@ -14,23 +14,17 @@ limits:
 features: [function_calling, vision, chat, image]
 params:
     - key: max_tokens
-      maxValue: 128000
+    maxValue: 128000
     - key: thinking
-      properties:
-          type:
-              type: string
-              enum:
-                  - enabled
-                  - disabled
-          budget_tokens:
-              type: number
-              minValue: 1024
-              maxValue: 128000
-      defaultValue: null
-      withdrawParams:
-          - top_k
-          - top_p
-      skipValues:
-          - disabled
-          - null
+    properties:
+        type:
+            type: string
+            enum: [enabled, disabled]
+        budget_tokens:
+            type: number
+            minValue: 1024
+            maxValue: 128000
+    defaultValue:
+    withdrawParams: [top_k, top_p]
+    skipValues: [disabled, null]
 mode: chat
