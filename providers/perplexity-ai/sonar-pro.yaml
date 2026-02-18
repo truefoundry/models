@@ -1,8 +1,9 @@
 model: sonar-pro
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+    -
+        region: '*'
+        input_cost_per_token: 0.000003
+        output_cost_per_token: 0.000015
 limits:
     max_tokens: 4096
     max_input_tokens: 200000
