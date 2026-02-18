@@ -1,6 +1,7 @@
+---
 model: gemini-2.0-flash
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 1.e-7
     output_cost_per_token: 4.e-7
     input_cost_per_token_batches: 5.e-8
@@ -11,40 +12,46 @@ costs:
     input_cost_per_audio_token: 7.e-7
     output_cost_per_image_1k: 0.039
 limits:
-    max_input_tokens: 1048576
-    max_output_tokens: 8192
-features: [function_calling, vision, audio_input, audio_output, chat, image]
+  max_input_tokens: 1048576
+  max_output_tokens: 8192
+features:
+  - function_calling
+  - vision
+  - audio_input
+  - audio_output
+  - chat
+  - image
 params:
-    - key: max_tokens
+  - key: max_tokens
     maxValue: 8192
-    - key: response_format
+  - key: response_format
     defaultValue:
     options:
-        - value:
+      - value:
         name: Text
-        - value: json_object
+      - value: json_object
         name: JSON Object
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_object
-        - value: json_schema
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
         name: JSON Schema
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_schema
-                json_schema:
-                    type: object
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
         params:
-            key: json_schema
-            defaultValue:
-            type: json
-            skipValues: [null]
+          key: json_schema
+          defaultValue:
+          type: json
+          skipValues: [null]
     skipValues: [null]
     type: string
 mode: chat

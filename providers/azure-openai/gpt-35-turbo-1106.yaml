@@ -1,35 +1,36 @@
+---
 model: gpt-35-turbo-1106
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 0.000001
     output_cost_per_token: 0.000002
 limits:
-    max_input_tokens: 16384
-    max_output_tokens: 4096
+  max_input_tokens: 16384
+  max_output_tokens: 4096
 features: [function_calling, parallel_function_calling, chat]
 params:
-    - key: max_tokens
+  - key: max_tokens
     maxValue: 4096
-    - key: response_format
+  - key: response_format
     defaultValue:
     options:
-        - value:
+      - value:
         name: Text
-        - value: json_object
+      - value: json_object
         name: JSON Object
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_object
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
     skipValues: [null]
     type: string
-    - key: frequency_penalty
+  - key: frequency_penalty
     defaultValue: 0
     minValue: -2
     maxValue: 2
-    - key: presence_penalty
+  - key: presence_penalty
     defaultValue: 0
     minValue: -2
     maxValue: 2

@@ -1,11 +1,12 @@
+---
 model: command
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 0.000001
     output_cost_per_token: 0.000002
 limits:
-    max_tokens: 4096
-    max_input_tokens: 4096
-    max_output_tokens: 4096
+  max_tokens: 4096
+  max_input_tokens: 4096
+  max_output_tokens: 4096
 features: [chat]
 mode: completion

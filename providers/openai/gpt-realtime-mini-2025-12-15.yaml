@@ -1,6 +1,7 @@
+---
 model: gpt-realtime-mini-2025-12-15
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 6.e-7
     output_cost_per_token: 0.0000024
     cache_read_input_token_cost: 6.e-8
@@ -9,8 +10,12 @@ costs:
     cache_creation_input_audio_token_cost: 3.e-7
     input_cost_per_image: 8.e-7
 limits:
-    max_tokens: 4096
-    max_input_tokens: 128000
-    max_output_tokens: 4096
-features: [function_calling, parallel_function_calling, audio_input, audio_output]
+  max_tokens: 4096
+  max_input_tokens: 128000
+  max_output_tokens: 4096
+features:
+  - function_calling
+  - parallel_function_calling
+  - audio_input
+  - audio_output
 mode: chat

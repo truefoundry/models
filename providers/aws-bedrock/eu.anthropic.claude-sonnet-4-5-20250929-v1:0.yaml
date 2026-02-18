@@ -1,78 +1,79 @@
+---
 model: eu.anthropic.claude-sonnet-4-5-20250929-v1:0
 costs:
-    - region: eu-west-3
+  - region: eu-west-3
     cache_creation_input_token_cost: 7.5e-6
     cache_read_input_token_cost: 6e-7
     input_cost_per_token: 3e-6
     output_cost_per_token: 1.5e-5
-    - region: eu-west-2
+  - region: eu-west-2
     cache_creation_input_token_cost: 3.75e-6
     cache_read_input_token_cost: 6e-7
     input_cost_per_token: 3e-6
     output_cost_per_token: 1.5e-5
-    - region: eu-west-1
+  - region: eu-west-1
     cache_creation_input_token_cost: 7.5e-6
     cache_read_input_token_cost: 3e-7
     input_cost_per_token: 6e-6
     output_cost_per_token: 2.25e-5
-    - region: eu-south-2
+  - region: eu-south-2
     cache_creation_input_token_cost: 7.5e-6
     cache_read_input_token_cost: 6e-7
     input_cost_per_token: 6e-6
     output_cost_per_token: 1.5e-5
-    - region: eu-south-1
+  - region: eu-south-1
     cache_creation_input_token_cost: 7.5e-6
     cache_read_input_token_cost: 3e-7
     input_cost_per_token: 6e-6
     output_cost_per_token: 2.25e-5
-    - region: eu-north-1
+  - region: eu-north-1
     cache_creation_input_token_cost: 3.75e-6
     cache_read_input_token_cost: 3e-7
     input_cost_per_token: 6e-6
     output_cost_per_token: 2.25e-5
-    - region: eu-central-2
+  - region: eu-central-2
     cache_creation_input_token_cost: 3.75e-6
     cache_read_input_token_cost: 3e-7
     input_cost_per_token: 6e-6
     output_cost_per_token: 2.25e-5
-    - region: eu-central-1
+  - region: eu-central-1
     cache_creation_input_token_cost: 3.75e-6
     cache_read_input_token_cost: 3e-7
     input_cost_per_token: 6e-6
     output_cost_per_token: 2.25e-5
 limits:
-    max_input_tokens: 200000
-    max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 346
+  max_input_tokens: 200000
+  max_output_tokens: 64000
+  tool_use_system_prompt_tokens: 346
 features: [function_calling, vision, chat, image]
 params:
-    - key: max_tokens
+  - key: max_tokens
     maxValue: 8192
-    - key: thinking
+  - key: thinking
     type: number
     enum: [enabled, disabled]
     minValue: 1024
     maxValue: 128000
     withdrawParams: [top_k, top_p]
     skipValues: [disabled, null]
-    - key: tool_choice
+  - key: tool_choice
     type: json
     options:
-        - value: none
+      - value: none
         name: None
-        - value: auto
+      - value: auto
         name: Auto
-        - value: required
+      - value: required
         name: Required
-        - value: custom
+      - value: custom
         name: Custom
         schema:
         type: json
     skipValues: [null]
     rule:
     default:
-        condition: tools
-        then: auto
-        else:
+      condition: tools
+      then: auto
+      else:
 removeParams: [top_p]
 mode: chat

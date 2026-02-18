@@ -1,65 +1,66 @@
+---
 model: llama-3.3-70b-versatile
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 5.9e-7
     output_cost_per_token: 7.9e-7
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 32768
+  max_input_tokens: 131072
+  max_output_tokens: 32768
 features: [function_calling, chat]
 params:
-    - key: max_tokens
+  - key: max_tokens
     maxValue: 32768
-    - key: tool_choice
+  - key: tool_choice
     type: non-view-manage-data
     defaultValue:
     options:
-        - value: none
+      - value: none
         name: None
-        - value: auto
+      - value: auto
         name: Auto
-        - value: required
+      - value: required
         name: Required
-        - value: custom
+      - value: custom
         name: Custom
         schema:
-            type: json
+          type: json
     skipValues:
-        -
-        - []
+      - 
+      - []
     rule:
-        default:
-            condition: tools
-            then: auto
-            else:
-    - key: response_format
+      default:
+        condition: tools
+        then: auto
+        else:
+  - key: response_format
     defaultValue:
     options:
-        - value:
+      - value:
         name: Text
-        - value: json_object
+      - value: json_object
         name: JSON Object
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_object
-        - value: json_schema
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
         name: JSON Schema
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_schema
-                json_schema:
-                    type: object
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
         params:
-            key: json_schema
-            defaultValue:
-            type: json
-            skipValues: [null]
+          key: json_schema
+          defaultValue:
+          type: json
+          skipValues: [null]
     skipValues: [null]
     type: string
 mode: chat

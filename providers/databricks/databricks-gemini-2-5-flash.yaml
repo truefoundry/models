@@ -1,11 +1,12 @@
+---
 model: databricks-gemini-2-5-flash
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 3.0001999999999995e-7
     output_cost_per_token: 0.00000249998
 limits:
-    max_tokens: 65535
-    max_input_tokens: 1048576
-    max_output_tokens: 65535
+  max_tokens: 65535
+  max_input_tokens: 1048576
+  max_output_tokens: 65535
 features: [function_calling]
 mode: chat

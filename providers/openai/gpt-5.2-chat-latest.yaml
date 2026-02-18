@@ -1,48 +1,61 @@
+---
 model: gpt-5.2-chat-latest
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 0.00000175
     output_cost_per_token: 0.000014
     cache_read_input_token_cost: 1.75e-7
 limits:
-    max_tokens: 4096
-    max_input_tokens: 128000
-    max_output_tokens: 16384
-features: [function_calling, parallel_function_calling, vision, chat, image]
+  max_tokens: 4096
+  max_input_tokens: 128000
+  max_output_tokens: 16384
+features:
+  - function_calling
+  - parallel_function_calling
+  - vision
+  - chat
+  - image
 params:
-    - key: max_completion_tokens
+  - key: max_completion_tokens
     defaultValue: 20000
     minValue: 1
     maxValue: 272000
-    - key: response_format
+  - key: response_format
     defaultValue:
     options:
-        - value:
+      - value:
         name: Text
-        - value: json_object
+      - value: json_object
         name: JSON Object
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_object
-        - value: json_schema
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
         name: JSON Schema
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_schema
-                json_schema:
-                    type: object
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
         params:
-            key: json_schema
-            defaultValue:
-            type: json
-            skipValues: [null]
+          key: json_schema
+          defaultValue:
+          type: json
+          skipValues: [null]
     skipValues: [null]
     type: string
-removeParams: [temperature, top_p, n, presence_penalty, frequency_penalty, logit_bias, max_tokens]
+removeParams:
+  - temperature
+  - top_p
+  - n
+  - presence_penalty
+  - frequency_penalty
+  - logit_bias
+  - max_tokens
 mode: chat

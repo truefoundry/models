@@ -1,11 +1,12 @@
+---
 model: qwen.qwen3-coder-next
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 5.e-7
     output_cost_per_token: 0.0000012
 limits:
-    max_tokens: 8192
-    max_input_tokens: 262144
-    max_output_tokens: 8192
+  max_tokens: 8192
+  max_input_tokens: 262144
+  max_output_tokens: 8192
 features: [function_calling]
 mode: chat

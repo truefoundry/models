@@ -1,49 +1,55 @@
+---
 model: gpt-4.1
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 0.000002
     output_cost_per_token: 0.000008
     input_cost_per_token_batches: 0.000001
     output_cost_per_token_batches: 0.000004
     cache_read_input_token_cost: 5.e-7
 limits:
-    max_tokens: 4096
-    max_input_tokens: 1047576
-    max_output_tokens: 32768
-features: [function_calling, parallel_function_calling, vision, chat, image]
+  max_tokens: 4096
+  max_input_tokens: 1047576
+  max_output_tokens: 32768
+features:
+  - function_calling
+  - parallel_function_calling
+  - vision
+  - chat
+  - image
 params:
-    - key: max_completion_tokens
+  - key: max_completion_tokens
     defaultValue: 1000
     minValue: 1
     maxValue: 32768
-    - key: response_format
+  - key: response_format
     defaultValue:
     options:
-        - value:
+      - value:
         name: Text
-        - value: json_object
+      - value: json_object
         name: JSON Object
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_object
-        - value: json_schema
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
         name: JSON Schema
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_schema
-                json_schema:
-                    type: object
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
         params:
-            key: json_schema
-            defaultValue:
-            type: json
-            skipValues: [null]
+          key: json_schema
+          defaultValue:
+          type: json
+          skipValues: [null]
     skipValues: [null]
     type: string
 removeParams: [max_tokens]

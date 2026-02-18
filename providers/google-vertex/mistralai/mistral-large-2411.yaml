@@ -1,11 +1,12 @@
+---
 model: mistralai/mistral-large-2411
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 0.000002
     output_cost_per_token: 0.000006
 limits:
-    max_tokens: 8191
-    max_input_tokens: 128000
-    max_output_tokens: 8191
+  max_tokens: 8191
+  max_input_tokens: 128000
+  max_output_tokens: 8191
 features: [function_calling]
 mode: chat

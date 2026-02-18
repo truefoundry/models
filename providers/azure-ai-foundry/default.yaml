@@ -1,31 +1,32 @@
+---
 params:
-    - key: max_tokens
+  - key: max_tokens
     defaultValue: 256
     minValue: 1
     maxValue: 4096
-    - key: temperature
+  - key: temperature
     defaultValue: 0.7
     minValue: 0
     maxValue: 2
-    - key: stop
+  - key: stop
     defaultValue:
     type: array-of-strings
     skipValues:
-        -
-        - []
-    - key: top_p
+      - 
+      - []
+  - key: top_p
     defaultValue: 1
     minValue: 0
     maxValue: 1
-    - key: n
+  - key: n
     defaultValue: 1
     minValue: 1
     maxValue: 10
-    - key: stream
+  - key: stream
     defaultValue: true
     type: boolean
 messages:
-    options: [system, user, assistant]
+  options: [system, user, assistant]
 type:
-    primary: chat
-    supported: [tools]
+  primary: chat
+  supported: [tools]

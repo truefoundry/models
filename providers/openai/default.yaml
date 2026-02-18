@@ -1,74 +1,75 @@
+---
 params:
-    - key: max_tokens
+  - key: max_tokens
     defaultValue: 128
     minValue: 1
     maxValue: 4096
-    - key: temperature
+  - key: temperature
     defaultValue: 0.8
     minValue: 0
     maxValue: 2
-    - key: stop
+  - key: stop
     defaultValue:
     type: array-of-strings
     skipValues:
-        -
-        - []
-    - key: top_p
+      - 
+      - []
+  - key: top_p
     defaultValue: 0.1
     minValue: 0
     maxValue: 1
-    - key: n
+  - key: n
     defaultValue: 1
     minValue: 1
     maxValue: 10
-    - key: frequency_penalty
+  - key: frequency_penalty
     defaultValue: 0
     minValue: -2
     maxValue: 2
-    - key: presence_penalty
+  - key: presence_penalty
     defaultValue: 0
     minValue: -2
     maxValue: 2
-    - key: stream
+  - key: stream
     defaultValue: true
     type: boolean
-    - key: tool_choice
+  - key: tool_choice
     type: non-view-manage-data
     defaultValue:
     options:
-        - value: none
+      - value: none
         name: None
-        - value: auto
+      - value: auto
         name: Auto
-        - value: required
+      - value: required
         name: Required
-        - value: custom
+      - value: custom
         name: Custom
         schema:
-            type: json
+          type: json
     skipValues:
-        -
-        - []
+      - 
+      - []
     rule:
-        default:
-            condition: tools
-            then: auto
-            else:
-    - key: parallel_tool_calls
+      default:
+        condition: tools
+        then: auto
+        else:
+  - key: parallel_tool_calls
     type: boolean
     defaultValue: true
     skipValues: [null, true]
     rule:
-        default:
-            condition: tools
-            then: true
-            else: true
-    - key: logit_bias
+      default:
+        condition: tools
+        then: true
+        else: true
+  - key: logit_bias
     defaultValue:
     type: string
     skipValues: [null]
 messages:
-    options: [system, user, assistant, developer]
+  options: [system, user, assistant, developer]
 type:
-    primary: chat
-    supported: []
+  primary: chat
+  supported: []

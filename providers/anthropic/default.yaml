@@ -1,53 +1,54 @@
+---
 params:
-    - key: max_tokens
+  - key: max_tokens
     defaultValue: 256
     minValue: 1
     maxValue: 4096
-    - key: temperature
+  - key: temperature
     defaultValue: 0.7
     minValue: 0
     maxValue: 1
-    - key: top_p
+  - key: top_p
     defaultValue: 1
     minValue: 0
     maxValue: 1
-    - key: top_k
+  - key: top_k
     defaultValue: 0
     minValue: 0
     maxValue: 100
-    - key: stop
+  - key: stop
     defaultValue:
     type: array-of-strings
     skipValues:
-        -
-        - []
-    - key: stream
+      - 
+      - []
+  - key: stream
     defaultValue: true
     type: boolean
-    - key: tool_choice
+  - key: tool_choice
     type: non-view-manage-data
     defaultValue:
     options:
-        - value: none
+      - value: none
         name: None
-        - value: auto
+      - value: auto
         name: Auto
-        - value: required
+      - value: required
         name: Required
-        - value: custom
+      - value: custom
         name: Custom
         schema:
-            type: json
+          type: json
     skipValues:
-        -
-        - []
+      - 
+      - []
     rule:
-        default:
-            condition: tools
-            then: auto
-            else:
+      default:
+        condition: tools
+        then: auto
+        else:
 messages:
-    options: [system, user, assistant]
+  options: [system, user, assistant]
 type:
-    primary: chat
-    supported: [cache_control]
+  primary: chat
+  supported: [cache_control]

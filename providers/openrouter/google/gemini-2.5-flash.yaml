@@ -1,12 +1,13 @@
+---
 model: google/gemini-2.5-flash
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 3.e-7
     output_cost_per_token: 0.0000025
     input_cost_per_audio_token: 7.e-7
 limits:
-    max_tokens: 8192
-    max_input_tokens: 1048576
-    max_output_tokens: 8192
+  max_tokens: 8192
+  max_input_tokens: 1048576
+  max_output_tokens: 8192
 features: [function_calling, vision, audio_output]
 mode: chat

@@ -1,6 +1,7 @@
+---
 model: gemini-3-pro-image-preview
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 0.000002
     output_cost_per_token: 0.000012
     input_cost_per_token_batches: 0.000001
@@ -10,8 +11,8 @@ costs:
     output_cost_per_image_2k: 0.134
     output_cost_per_image_4k: 0.24
 limits:
-    max_tokens: 4096
-    max_input_tokens: 65536
-    max_output_tokens: 32768
+  max_tokens: 4096
+  max_input_tokens: 65536
+  max_output_tokens: 32768
 features: [vision, chat]
 mode: image

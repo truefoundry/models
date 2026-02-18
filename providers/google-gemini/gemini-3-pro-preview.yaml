@@ -1,6 +1,7 @@
+---
 model: gemini-3-pro-preview
 costs:
-    - region: '*'
+  - region: '*'
     input_cost_per_token: 0.000002
     output_cost_per_token: 0.000012
     input_cost_per_token_batches: 0.000001
@@ -8,61 +9,68 @@ costs:
     cache_read_input_token_cost: 2.e-7
     cache_storage_cost_per_token_per_hour: 0.0000045
     tiered_pricing:
-        cache_read:
-            - from: 200000
-            cost_per_token: 4.e-7
-        input:
-            - from: 200000
-            cost_per_token: 0.000004
-        output:
-            - from: 200000
-            cost_per_token: 0.000018
+      cache_read:
+        - from: 200000
+          cost_per_token: 4.e-7
+      input:
+        - from: 200000
+          cost_per_token: 0.000004
+      output:
+        - from: 200000
+          cost_per_token: 0.000018
 limits:
-    max_input_tokens: 1048576
-    max_output_tokens: 65535
-features: [function_calling, vision, audio_input, chat, image, pdf, doc]
+  max_input_tokens: 1048576
+  max_output_tokens: 65535
+features:
+  - function_calling
+  - vision
+  - audio_input
+  - chat
+  - image
+  - pdf
+  - doc
 params:
-    - key: max_tokens
+  - key: max_tokens
     maxValue: 65536
-    - key: response_format
+  - key: response_format
     defaultValue:
     options:
-        - value:
+      - value:
         name: Text
-        - value: json_object
+      - value: json_object
         name: JSON Object
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_object
-        - value: json_schema
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+      - value: json_schema
         name: JSON Schema
         schema:
-            type: object
-            properties:
-                type:
-                    type: string
-                    value: json_schema
-                json_schema:
-                    type: object
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
         params:
-            key: json_schema
-            defaultValue:
-            type: json
-            skipValues: [null]
+          key: json_schema
+          defaultValue:
+          type: json
+          skipValues: [null]
     skipValues: [null]
     type: string
-    - key: thinking
+  - key: thinking
     properties:
-        type:
-            type: string
-            enum: [enabled]
-        budget_tokens:
-            type: number
-            minValue: 128
-            maxValue: 32768
+      type:
+        type: string
+        enum: [enabled]
+      budget_tokens:
+        type: number
+        minValue: 128
+        maxValue: 32768
     defaultValue:
     skipValues: [null]
 mode: chat
