@@ -1,9 +1,9 @@
 model: moonshotai/Kimi-K2-Instruct-0905
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000003
+  - region: '*'
+    input_cost_per_token: 0.000001
+    output_cost_per_token: 0.000003
 limits:
-    max_input_tokens: 262144
+  max_input_tokens: 262144
 features: [function_calling, parallel_function_calling]
 mode: chat

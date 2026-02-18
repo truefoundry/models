@@ -1,66 +1,61 @@
 model: gemini-2.5-flash-lite
 costs:
-    - region: "*"
-      input_cost_per_token: 1.e-7
-      output_cost_per_token: 4.e-7
-      input_cost_per_token_batches: 5.e-8
-      output_cost_per_token_batches: 2.e-7
-      cache_read_input_token_cost: 1.e-8
-      cache_read_input_audio_token_cost: 3.e-8
-      cache_storage_cost_per_token_per_hour: 0.000001
-      input_cost_per_audio_token: 3.e-7
+  - region: '*'
+    input_cost_per_token: 1.e-7
+    output_cost_per_token: 4.e-7
+    cache_read_input_token_cost: 1.e-8
+    input_cost_per_audio_token: 3.e-7
 limits:
-    max_input_tokens: 1048576
-    max_output_tokens: 65535
-features:
-    [function_calling, parallel_function_calling, vision, chat, image, pdf, doc]
+  max_input_tokens: 1048576
+  max_output_tokens: 65535
+features: [function_calling, parallel_function_calling, vision, chat, image, pdf, doc]
 params:
-    - key: max_tokens
-      maxValue: 64000
-    - key: response_format
-      defaultValue: null
-      options:
-          - value: null
-            name: Text
-          - value: json_object
-            name: JSON Object
-            schema:
-                type: object
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-          - value: json_schema
-            name: JSON Schema
-            schema:
-                type: object
-                properties:
-                    type:
-                        type: string
-                        value: json_schema
-                    json_schema:
-                        type: object
-            params:
-                key: json_schema
-                defaultValue: null
-                type: json
-                skipValues:
-                    - null
-      skipValues:
-          - null
-      type: string
-    - key: thinking
-      properties:
-          type:
+  - key: max_tokens
+    maxValue: 64000
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
               type: string
-              enum:
-                  - enabled
-                  - disabled
-          budget_tokens:
-              type: number
-              minValue: 0
-              maxValue: 24576
-      defaultValue: null
-      skipValues:
-          - null
+              value: json_object
+      - value: json_schema
+        name: JSON Schema
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
+        params:
+          key: json_schema
+          defaultValue: null
+          type: json
+          skipValues:
+            - null
+    skipValues:
+      - null
+    type: string
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
+          - disabled
+      budget_tokens:
+        type: number
+        minValue: 0
+        maxValue: 24576
+    defaultValue: null
+    skipValues:
+      - null
 mode: chat

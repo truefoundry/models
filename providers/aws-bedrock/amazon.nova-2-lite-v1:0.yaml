@@ -1,63 +1,12 @@
 model: amazon.nova-2-lite-v1:0
 costs:
-    - region: us-west-2
-      input_cost_per_query: 0.03
-      input_cost_per_token: 1.595e-7
-      output_cost_per_token: 1.3255e-6
-    - region: us-west-1
-      input_cost_per_token: 2.145e-7
-      output_cost_per_token: 1.6755e-6
-    - region: us-east-2
-      input_cost_per_token: 1.595e-7
-      output_cost_per_token: 1.342e-6
-    - region: us-east-1
-      input_cost_per_query: 0.03
-      input_cost_per_token: 1.65e-7
-      output_cost_per_token: 1.375e-6
-    - region: eu-north-1
-      input_cost_per_query: 0.03
-      input_cost_per_token: 1.815e-7
-      output_cost_per_token: 1.496e-6
-    - region: eu-south-2
-      input_cost_per_token: 1.815e-7
-      output_cost_per_token: 1.5125e-6
-    - region: eu-west-3
-      input_cost_per_token: 2.42e-7
-      output_cost_per_token: 2.0295e-6
-    - region: eu-south-1
-      input_cost_per_token: 2.64e-7
-      output_cost_per_token: 2.2055e-6
-    - region: eu-west-2
-      input_cost_per_token: 2.1e-7
-      output_cost_per_token: 1.76e-6
-    - region: eu-west-1
-      input_cost_per_token: 1.87e-7
-      output_cost_per_token: 1.5785e-6
-    - region: eu-central-1
-      input_cost_per_token: 2.145e-7
-      output_cost_per_token: 1.9785e-6
-    - region: ca-central-1
-      input_cost_per_token: 1.76e-7
-      output_cost_per_token: 1.4685e-6
-    - region: ap-northeast-1
-      input_cost_per_query: 0.03
-      input_cost_per_token: 1.98e-7
-      output_cost_per_token: 1.6555e-6
-    - region: ap-southeast-2
-      input_cost_per_token: 1.6e-7
-      output_cost_per_token: 1.315e-6
-    - region: ap-southeast-1
-      input_cost_per_token: 2.05e-7
-      output_cost_per_token: 1.695e-6
-    - region: ap-northeast-2
-      input_cost_per_token: 1.8e-7
-      output_cost_per_token: 1.48e-6
-    - region: ap-south-1
-      input_cost_per_token: 1.75e-7
-      output_cost_per_token: 1.475e-6
+  - region: '*'
+    input_cost_per_token: 3.e-7
+    output_cost_per_token: 0.0000025
+    cache_read_input_token_cost: 7.5e-8
 limits:
-    max_tokens: 64000
-    max_input_tokens: 1000000
-    max_output_tokens: 64000
+  max_tokens: 64000
+  max_input_tokens: 1000000
+  max_output_tokens: 64000
 features: [function_calling, vision]
 mode: chat

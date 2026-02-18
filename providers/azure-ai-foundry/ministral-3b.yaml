@@ -1,11 +1,11 @@
 model: ministral-3b
 costs:
-    - region: "*"
-      input_cost_per_token: 4.e-8
-      output_cost_per_token: 4.e-8
+  - region: '*'
+    input_cost_per_token: 4.e-8
+    output_cost_per_token: 4.e-8
 limits:
-    max_tokens: 4096
-    max_input_tokens: 128000
-    max_output_tokens: 4096
+  max_tokens: 4096
+  max_input_tokens: 128000
+  max_output_tokens: 4096
 features: [function_calling]
 mode: chat
