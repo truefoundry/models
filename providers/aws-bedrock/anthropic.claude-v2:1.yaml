@@ -1,23 +1,12 @@
 model: anthropic.claude-v2:1
 costs:
-    - region: us-west-2
-      input_cost_per_token: 8e-6
-      output_cost_per_token: 6.536e-5
-    - region: us-east-1
-      input_cost_per_token: 8e-6
-      output_cost_per_token: 6.536e-5
-    - region: eu-central-1
-      input_cost_per_token: 8e-6
-      output_cost_per_token: 2.4e-5
-    - region: ap-southeast-1
-      input_cost_per_token: 8e-6
-      output_cost_per_token: 2.4e-5
-    - region: ap-northeast-1
-      input_cost_per_token: 8e-6
-      output_cost_per_token: 2.4e-5
+    -
+        region: '*'
+        input_cost_per_token: 0.000008
+        output_cost_per_token: 0.000024
 limits:
     max_tokens: 8191
     max_input_tokens: 100000
     max_output_tokens: 8191
+features: [tool_choice]
 mode: chat
-isDeprecated: true

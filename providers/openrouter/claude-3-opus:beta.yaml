@@ -1,6 +1,7 @@
 model: claude-3-opus:beta
-features: [chat, image]
+features: [chat, image, tools]
 params:
-    - key: max_tokens
-      maxValue: 4096
+    -
+        key: max_tokens
+        maxValue: 4096
 mode: chat
