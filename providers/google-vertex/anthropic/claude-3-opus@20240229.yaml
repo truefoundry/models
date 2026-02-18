@@ -1,14 +1,14 @@
 model: anthropic/claude-3-opus@20240229
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000015
-    output_cost_per_token: 0.000075
+    - region: "*"
+      input_cost_per_token: 0.000015
+      output_cost_per_token: 0.000075
 limits:
-  max_tokens: 4096
-  max_input_tokens: 200000
-  max_output_tokens: 4096
+    max_tokens: 4096
+    max_input_tokens: 200000
+    max_output_tokens: 4096
 features: [function_calling, vision, tool_choice, assistant_prefill]
 requiredParams:
-  - max_tokens
+    - max_tokens
 mode: chat
 isDeprecated: true
