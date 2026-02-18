@@ -1,16 +1,16 @@
 model: openai.gpt-oss-20b-1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 7.e-8
-    output_cost_per_token: 3.e-7
+    - region: "*"
+      input_cost_per_token: 7.e-8
+      output_cost_per_token: 3.e-7
 limits:
-  max_input_tokens: 128000
-  max_output_tokens: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
 features: [function_calling, chat]
 params:
-  - key: max_tokens
-    maxValue: 32768
+    - key: max_tokens
+      maxValue: 32768
 removeParams:
-  - stream
-  - stop
+    - stream
+    - stop
 mode: chat

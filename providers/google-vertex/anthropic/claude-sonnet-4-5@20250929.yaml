@@ -1,28 +1,28 @@
 model: anthropic/claude-sonnet-4-5@20250929
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000003
-    output_cost_per_token: 0.000015
-    input_cost_per_token_batches: 0.0000015
-    output_cost_per_token_batches: 0.0000075
-    cache_read_input_token_cost: 3.e-7
-    cache_creation_input_token_cost: 0.00000375
-    tiered_pricing:
-      input:
-        - from: 200000
-          cost_per_token: 0.000006
-      output:
-        - from: 200000
-          cost_per_token: 0.0000225
-      cache_write:
-        - from: 200000
-          cost_per_token: 0.0000075
-      cache_read:
-        - from: 200000
-          cost_per_token: 6.e-7
+    - region: "*"
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token_batches: 0.0000075
+      cache_read_input_token_cost: 3.e-7
+      cache_creation_input_token_cost: 0.00000375
+      tiered_pricing:
+          input:
+              - from: 200000
+                cost_per_token: 0.000006
+          output:
+              - from: 200000
+                cost_per_token: 0.0000225
+          cache_write:
+              - from: 200000
+                cost_per_token: 0.0000075
+          cache_read:
+              - from: 200000
+                cost_per_token: 6.e-7
 limits:
-  max_tokens: 64000
-  max_input_tokens: 200000
-  max_output_tokens: 64000
+    max_tokens: 64000
+    max_input_tokens: 200000
+    max_output_tokens: 64000
 features: [function_calling, vision]
 mode: chat

@@ -1,11 +1,11 @@
 model: chatgpt-4o-latest
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000005
-    output_cost_per_token: 0.000015
+    - region: "*"
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000015
 limits:
-  max_tokens: 4096
-  max_input_tokens: 128000
-  max_output_tokens: 4096
+    max_tokens: 4096
+    max_input_tokens: 128000
+    max_output_tokens: 4096
 features: [function_calling, parallel_function_calling, vision, chat]
 mode: chat

@@ -1,11 +1,11 @@
 model: us.amazon.nova-micro-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 3.5e-8
-    output_cost_per_token: 1.4e-7
+    - region: "*"
+      input_cost_per_token: 3.5e-8
+      output_cost_per_token: 1.4e-7
 limits:
-  max_tokens: 4096
-  max_input_tokens: 128000
-  max_output_tokens: 10000
+    max_tokens: 4096
+    max_input_tokens: 128000
+    max_output_tokens: 10000
 features: [function_calling, chat]
 mode: chat
