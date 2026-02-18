@@ -72,7 +72,7 @@ export type Feature =
   | 'image'
   | 'pdf'
   | 'doc'
-  | 'cache_control';
+  | 'cache_control'
 
 // --- Messages ---
 
