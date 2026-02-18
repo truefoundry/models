@@ -1,9 +1,27 @@
 package model
 
-// Schema for individual model YAML files (e.g., gpt-4o.yaml)
-// Shared param definitions are in common.cue
-
-#Feature: "function_calling" | "parallel_function_calling" | "vision" | "audio_input" | "audio_output" | "chat" | "image" | "pdf" | "doc" | "cache_control"
+#Feature:
+	"function_calling" |
+	"parallel_function_calling" |
+	"vision" |
+	"audio_input" |
+	"audio_output" |
+	"chat" |
+	"image" |
+	"pdf" |
+	"doc" |
+	"cache_control" |
+	"system_messages" |
+	"tool_choice" |
+	"prompt_caching" |
+	"response_schema" |
+	"assistant_prefill" |
+	"pdf_input" |
+	"image_input" |
+	"embedding_image_input" |
+	"text" |
+	"code" |
+	"tools"
 
 #PricingTier: {
 	from:           number
