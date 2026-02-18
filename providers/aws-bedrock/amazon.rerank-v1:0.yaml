@@ -1,18 +1,15 @@
 model: amazon.rerank-v1:0
 costs:
-    - region: us-west-2
-      input_cost_per_query: 1e-6
-    - region: eu-central-1
-      input_cost_per_query: 1e-6
-    - region: ca-central-1
-      input_cost_per_query: 1e-6
-    - region: ap-northeast-1
-      input_cost_per_query: 1e-6
+  - region: '*'
+    input_cost_per_token: 0
+    output_cost_per_token: 0
+    input_cost_per_query: 0.001
 limits:
-    max_tokens: 4096
-    max_input_tokens: 32000
-    max_output_tokens: 32000
-    max_query_tokens: 32000
+  max_tokens: 4096
+  max_input_tokens: 32000
+  max_output_tokens: 32000
+  max_query_tokens: 32000
+features: [text]
 removeParams:
-    - stream
+  - stream
 mode: rerank

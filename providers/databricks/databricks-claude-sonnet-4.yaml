@@ -1,11 +1,11 @@
 model: databricks-claude-sonnet-4
 costs:
-    - region: "*"
-      input_cost_per_token: 0.0000029999900000000002
-      output_cost_per_token: 0.000015000020000000002
+  - region: '*'
+    input_cost_per_token: 0.0000029999900000000002
+    output_cost_per_token: 0.000015000020000000002
 limits:
-    max_tokens: 64000
-    max_input_tokens: 200000
-    max_output_tokens: 64000
-features: [function_calling]
+  max_tokens: 64000
+  max_input_tokens: 200000
+  max_output_tokens: 64000
+features: [function_calling, tool_choice, assistant_prefill]
 mode: chat
