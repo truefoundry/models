@@ -1,70 +1,36 @@
 model: eu.anthropic.claude-haiku-4-5-20251001-v1:0
 costs:
-    - region: eu-west-3
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
-    - region: eu-west-2
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
-    - region: eu-west-1
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
-    - region: eu-south-2
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
-    - region: eu-south-1
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
-    - region: eu-north-1
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
-    - region: eu-central-2
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
-    - region: eu-central-1
-      cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
+  - region: '*'
+    input_cost_per_token: 0.0000011
+    output_cost_per_token: 0.0000055
+    cache_read_input_token_cost: 1.1e-7
+    cache_creation_input_token_cost: 0.000001375
 limits:
-    max_input_tokens: 200000
-    max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 346
-features:
-    - function_calling
-    - vision
-    - chat
-    - image
+  max_input_tokens: 200000
+  max_output_tokens: 64000
+  tool_use_system_prompt_tokens: 346
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
-    - key: max_tokens
-      maxValue: 64000
-    - key: thinking
-      type: number
-      enum:
+  - key: max_tokens
+    maxValue: 64000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
           - enabled
           - disabled
-      minValue: 1024
-      maxValue: 128000
-      withdrawParams:
-          - top_k
-          - top_p
-      skipValues:
-          - disabled
-          - null
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
 removeParams:
-    - top_p
+  - top_p
 mode: chat

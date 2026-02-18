@@ -1,17 +1,17 @@
 model: qwen-3-32b
 costs:
-    - region: "*"
-      input_cost_per_token: 4.e-7
-      output_cost_per_token: 8.e-7
+  - region: '*'
+    input_cost_per_token: 4.e-7
+    output_cost_per_token: 8.e-7
 limits:
-    max_input_tokens: 128000
-    max_output_tokens: 128000
-features: [function_calling, chat]
+  max_input_tokens: 128000
+  max_output_tokens: 128000
+features: [chat, tools, function_calling, tool_choice]
 params:
-    - key: max_tokens
-      maxValue: 32768
-    - key: temperature
-      defaultValue: 0.6
-    - key: top_p
-      defaultValue: 0.95
+  - key: max_tokens
+    maxValue: 32768
+  - key: temperature
+    defaultValue: 0.6
+  - key: top_p
+    defaultValue: 0.95
 mode: chat
