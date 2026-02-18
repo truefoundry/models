@@ -1,0 +1,11 @@
+model: c4ai-aya-vision-32b
+costs:
+    - region: "*"
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.0000015
+limits:
+    max_tokens: 16384
+    max_input_tokens: 16384
+    max_output_tokens: 4000
+features: [chat, vision]
+mode: chat

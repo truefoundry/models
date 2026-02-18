@@ -1,0 +1,12 @@
+model: command-r-plus-04-2024
+costs:
+    - region: "*"
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+limits:
+    max_tokens: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 4096
+features: [chat, function_calling]
+mode: chat
+isDeprecated: true
