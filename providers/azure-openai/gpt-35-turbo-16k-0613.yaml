@@ -1,11 +1,11 @@
 model: gpt-35-turbo-16k-0613
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000003
-    output_cost_per_token: 0.000004
+    - region: "*"
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000004
 limits:
-  max_tokens: 4096
-  max_input_tokens: 16385
-  max_output_tokens: 4096
+    max_tokens: 4096
+    max_input_tokens: 16385
+    max_output_tokens: 4096
 features: [function_calling]
 mode: chat

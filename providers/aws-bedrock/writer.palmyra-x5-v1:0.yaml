@@ -1,11 +1,11 @@
 model: writer.palmyra-x5-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 6.e-7
-    output_cost_per_token: 0.000006
+    - region: "*"
+      input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000006
 limits:
-  max_tokens: 4096
-  max_input_tokens: 1000000
-  max_output_tokens: 8192
+    max_tokens: 4096
+    max_input_tokens: 1000000
+    max_output_tokens: 8192
 features: [function_calling]
 mode: chat

@@ -1,12 +1,12 @@
 model: gpt-4o-2024-08-06
 costs:
-  - region: '*'
-    input_cost_per_token: 0.00000275
-    output_cost_per_token: 0.000011
-    cache_read_input_token_cost: 0.000001375
+    - region: "*"
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.000011
+      cache_read_input_token_cost: 0.000001375
 limits:
-  max_tokens: 16384
-  max_input_tokens: 128000
-  max_output_tokens: 16384
+    max_tokens: 16384
+    max_input_tokens: 128000
+    max_output_tokens: 16384
 features: [function_calling, parallel_function_calling, vision]
 mode: chat

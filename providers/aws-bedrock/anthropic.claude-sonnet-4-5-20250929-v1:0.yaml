@@ -162,9 +162,9 @@ costs:
       output_cost_per_token: 1.8e-05
       output_cost_per_token_batches: 9e-6
 limits:
-  max_input_tokens: 200000
-  max_output_tokens: 64000
-  tool_use_system_prompt_tokens: 159
+    max_input_tokens: 200000
+    max_output_tokens: 64000
+    tool_use_system_prompt_tokens: 159
 features: [function_calling, vision, chat, image]
 params:
     - key: max_tokens
@@ -176,27 +176,27 @@ params:
       maxValue: 128000
       withdrawParams: [top_k, top_p]
       skipValues:
-      - disabled
-      - null
+          - disabled
+          - null
     - key: tool_choice
       type: json
       options:
-        - value: none
-          name: None
-        - value: auto
-          name: Auto
-        - value: required
-          name: Required
-        - value: custom
-          name: Custom
-          schema:
-          type: json
+          - value: none
+            name: None
+          - value: auto
+            name: Auto
+          - value: required
+            name: Required
+          - value: custom
+            name: Custom
+            schema:
+            type: json
       skipValues:
-      - null
+          - null
       rule:
       default:
-        condition: tools
-        then: auto
-        else: null
+          condition: tools
+          then: auto
+          else: null
 removeParams: [top_p]
 mode: chat
