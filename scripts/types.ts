@@ -73,7 +73,6 @@ export type Feature =
   | 'pdf'
   | 'doc'
   | 'cache_control'
-  | 'embedding';
 
 // --- Messages ---
 
