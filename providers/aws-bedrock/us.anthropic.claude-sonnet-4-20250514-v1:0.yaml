@@ -1,68 +1,69 @@
 model: us.anthropic.claude-sonnet-4-20250514-v1:0
 costs:
-    - region: us-west-2
-      cache_creation_input_token_cost: 7.5e-6
-      cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 2.25e-5
-    - region: us-west-1
-      cache_creation_input_token_cost: 3.75e-6
-      cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
-    - region: us-east-2
-      cache_creation_input_token_cost: 3.75e-6
-      cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 6e-6
-      output_cost_per_token: 2.25e-5
-    - region: us-east-1
-      cache_creation_input_token_cost: 7.5e-6
-      cache_read_input_token_cost: 6e-7
-      input_cost_per_token: 6e-6
-      output_cost_per_token: 2.25e-5
+  - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.00000375
+    tiered_pricing:
+      input:
+        - from: 200000
+          cost_per_token: 0.000006
+      output:
+        - from: 200000
+          cost_per_token: 0.0000225
+      cache_write:
+        - from: 200000
+          cost_per_token: 0.0000075
+      cache_read:
+        - from: 200000
+          cost_per_token: 6.e-7
 limits:
-    max_input_tokens: 1000000
-    max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 159
-features:
-    - function_calling
-    - vision
-    - chat
-    - image
+  max_input_tokens: 1000000
+  max_output_tokens: 64000
+  tool_use_system_prompt_tokens: 159
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
-    - key: max_tokens
-      maxValue: 128000
-    - key: thinking
-      type: number
-      enum:
+  - key: max_tokens
+    maxValue: 128000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
           - enabled
           - disabled
-      minValue: 1024
-      maxValue: 128000
-      withdrawParams:
-          - top_k
-          - top_p
-      skipValues:
-          - disabled
-          - null
-    - key: tool_choice
-      type: json
-      options:
-          - value: none
-            name: None
-          - value: auto
-            name: Auto
-          - value: required
-            name: Required
-          - value: custom
-            name: Custom
-            schema: null
-            type: json
-      skipValues:
-          - null
-      rule: null
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
       default:
-          condition: tools
-          then: auto
-          else: null
+        condition: tools
+        then: auto
+        else: null
 mode: chat

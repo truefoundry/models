@@ -1,31 +1,13 @@
 model: apac.anthropic.claude-3-5-sonnet-20241022-v2:0
 costs:
-    - region: ap-southeast-2
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
-    - region: ap-southeast-1
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
-    - region: ap-south-2
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
-    - region: ap-south-1
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
-    - region: ap-northeast-3
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
-    - region: ap-northeast-2
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
-    - region: ap-northeast-1
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
+  - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.00000375
 limits:
-    max_tokens: 8192
-    max_input_tokens: 200000
-    max_output_tokens: 8192
-features:
-    - function_calling
-    - vision
+  max_tokens: 8192
+  max_input_tokens: 200000
+  max_output_tokens: 8192
+features: [function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 mode: chat
