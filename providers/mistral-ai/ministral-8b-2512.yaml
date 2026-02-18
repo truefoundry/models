@@ -1,8 +1,9 @@
-model: mistral-large-latest
+model: ministral-8b-2512
 costs:
     - region: "*"
-      input_cost_per_token: 5.e-7
-      output_cost_per_token: 0.0000015
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 1.5e-7
+      input_cost_per_image: 0
 limits:
     max_tokens: 256000
     max_input_tokens: 256000

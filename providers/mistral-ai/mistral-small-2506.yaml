@@ -1,4 +1,4 @@
-model: devstral-small-2505
+model: mistral-small-2506
 costs:
     - region: "*"
       input_cost_per_token: 1.e-7
@@ -7,6 +7,5 @@ limits:
     max_tokens: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
-features: [function_calling]
+features: [function_calling, chat]
 mode: chat
-isDeprecated: true
