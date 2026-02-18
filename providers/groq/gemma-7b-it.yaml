@@ -1,14 +1,14 @@
 model: gemma-7b-it
 costs:
-  - region: '*'
-    input_cost_per_token: 5.e-8
-    output_cost_per_token: 8.e-8
+    - region: "*"
+      input_cost_per_token: 5.e-8
+      output_cost_per_token: 8.e-8
 limits:
-  max_input_tokens: 8192
-  max_output_tokens: 8192
+    max_input_tokens: 8192
+    max_output_tokens: 8192
 features: [chat, function_calling, tool_choice]
 params:
-  - key: max_tokens
-    maxValue: 4096
+    - key: max_tokens
+      maxValue: 4096
 mode: chat
 isDeprecated: true

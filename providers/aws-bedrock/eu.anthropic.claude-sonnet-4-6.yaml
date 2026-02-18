@@ -1,27 +1,36 @@
 model: eu.anthropic.claude-sonnet-4-6
 costs:
-  - region: '*'
-    input_cost_per_token: 0.0000033
-    output_cost_per_token: 0.0000165
-    cache_read_input_token_cost: 3.3e-7
-    cache_creation_input_token_cost: 0.000004125
-    tiered_pricing:
-      cache_write:
-        - from: 200000
-          cost_per_token: 0.00000825
-      cache_read:
-        - from: 200000
-          cost_per_token: 6.6e-7
-      input:
-        - from: 200000
-          cost_per_token: 0.0000066
-      output:
-        - from: 200000
-          cost_per_token: 0.00002475
+    - region: "*"
+      input_cost_per_token: 0.0000033
+      output_cost_per_token: 0.0000165
+      cache_read_input_token_cost: 3.3e-7
+      cache_creation_input_token_cost: 0.000004125
+      tiered_pricing:
+          cache_write:
+              - from: 200000
+                cost_per_token: 0.00000825
+          cache_read:
+              - from: 200000
+                cost_per_token: 6.6e-7
+          input:
+              - from: 200000
+                cost_per_token: 0.0000066
+          output:
+              - from: 200000
+                cost_per_token: 0.00002475
 limits:
-  max_tokens: 64000
-  max_input_tokens: 200000
-  max_output_tokens: 64000
-  tool_use_system_prompt_tokens: 346
-features: [function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
+    max_tokens: 64000
+    max_input_tokens: 200000
+    max_output_tokens: 64000
+    tool_use_system_prompt_tokens: 346
+features:
+    [
+        function_calling,
+        vision,
+        tool_choice,
+        prompt_caching,
+        response_schema,
+        assistant_prefill,
+        pdf_input,
+    ]
 mode: chat

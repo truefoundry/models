@@ -1,47 +1,62 @@
 model: gemini-2.0-flash-001
 costs:
-  - region: '*'
-    input_cost_per_token: 1.5e-7
-    output_cost_per_token: 6.e-7
-    cache_read_input_token_cost: 3.75e-8
-    input_cost_per_audio_token: 0.000001
+    - region: "*"
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6.e-7
+      cache_read_input_token_cost: 3.75e-8
+      input_cost_per_audio_token: 0.000001
 limits:
-  max_input_tokens: 1048576
-  max_output_tokens: 8192
-features: [chat, image, tools, pdf, doc, function_calling, parallel_function_calling, vision, audio_output, system_messages, tool_choice, prompt_caching, response_schema]
+    max_input_tokens: 1048576
+    max_output_tokens: 8192
+features:
+    [
+        chat,
+        image,
+        tools,
+        pdf,
+        doc,
+        function_calling,
+        parallel_function_calling,
+        vision,
+        audio_output,
+        system_messages,
+        tool_choice,
+        prompt_caching,
+        response_schema,
+    ]
 params:
-  - key: max_tokens
-    maxValue: 8192
-  - key: response_format
-    defaultValue: null
-    options:
-      - value: null
-        name: Text
-      - value: json_object
-        name: JSON Object
-        schema:
-          type: object
-          properties:
-            type:
-              type: string
-              value: json_object
-      - value: json_schema
-        name: JSON Schema
-        schema:
-          type: object
-          properties:
-            type:
-              type: string
-              value: json_schema
-            json_schema:
-              type: object
-        params:
-          key: json_schema
-          defaultValue: null
-          type: json
-          skipValues:
-            - null
-    skipValues:
-      - null
-    type: string
+    - key: max_tokens
+      maxValue: 8192
+    - key: response_format
+      defaultValue: null
+      options:
+          - value: null
+            name: Text
+          - value: json_object
+            name: JSON Object
+            schema:
+                type: object
+                properties:
+                    type:
+                        type: string
+                        value: json_object
+          - value: json_schema
+            name: JSON Schema
+            schema:
+                type: object
+                properties:
+                    type:
+                        type: string
+                        value: json_schema
+                    json_schema:
+                        type: object
+            params:
+                key: json_schema
+                defaultValue: null
+                type: json
+                skipValues:
+                    - null
+      skipValues:
+          - null
+      type: string
 mode: chat

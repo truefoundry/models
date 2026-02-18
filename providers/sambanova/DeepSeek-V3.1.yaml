@@ -1,11 +1,11 @@
 model: DeepSeek-V3.1
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000003
-    output_cost_per_token: 0.0000045
+    - region: "*"
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.0000045
 limits:
-  max_tokens: 32768
-  max_input_tokens: 32768
-  max_output_tokens: 32768
+    max_tokens: 32768
+    max_input_tokens: 32768
+    max_output_tokens: 32768
 features: [function_calling, tool_choice]
 mode: chat
