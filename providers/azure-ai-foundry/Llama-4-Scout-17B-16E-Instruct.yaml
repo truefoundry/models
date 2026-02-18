@@ -1,11 +1,11 @@
 model: Llama-4-Scout-17B-16E-Instruct
 costs:
-    - region: "*"
-      input_cost_per_token: 2.e-7
-      output_cost_per_token: 7.8e-7
+  - region: '*'
+    input_cost_per_token: 2.e-7
+    output_cost_per_token: 7.8e-7
 limits:
-    max_tokens: 4096
-    max_input_tokens: 10000000
-    max_output_tokens: 16384
-features: [function_calling, vision, chat]
+  max_tokens: 4096
+  max_input_tokens: 10000000
+  max_output_tokens: 16384
+features: [chat, function_calling, vision, tool_choice]
 mode: chat

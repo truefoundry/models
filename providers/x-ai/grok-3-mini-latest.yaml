@@ -1,16 +1,12 @@
 model: grok-3-mini-latest
 costs:
-    - region: us-east-1
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 7.5e-8
-    - region: eu-west-1
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 7.5e-8
+  - region: '*'
+    input_cost_per_token: 3.e-7
+    output_cost_per_token: 5.e-7
+    cache_read_input_token_cost: 7.5e-8
 limits:
-    max_tokens: 4096
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-features: [function_calling, chat]
+  max_tokens: 4096
+  max_input_tokens: 131072
+  max_output_tokens: 131072
+features: [chat, function_calling, tool_choice]
 mode: chat

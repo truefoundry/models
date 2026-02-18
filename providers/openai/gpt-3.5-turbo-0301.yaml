@@ -1,13 +1,13 @@
 model: gpt-3.5-turbo-0301
 costs:
-    - region: "*"
-      input_cost_per_token: 0.0000015
-      output_cost_per_token: 0.000002
+  - region: '*'
+    input_cost_per_token: 0.0000015
+    output_cost_per_token: 0.000002
 limits:
-    max_input_tokens: 4097
-    max_output_tokens: 4096
-features: [chat]
+  max_input_tokens: 4097
+  max_output_tokens: 4096
+features: [chat, system_messages, tool_choice, prompt_caching]
 params:
-    - key: max_tokens
-      maxValue: 4096
+  - key: max_tokens
+    maxValue: 4096
 mode: chat
