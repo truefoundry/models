@@ -3,27 +3,26 @@ costs:
     - region: us-west-2
       cache_creation_input_token_cost: 1e-6
       cache_read_input_token_cost: 8e-8
-      input_cost_per_token: 1e-6
-      input_cost_per_token_batches: 4e-7
-      output_cost_per_token: 5e-6
-      output_cost_per_token_batches: 2e-6
+      input_cost_per_token: 8e-7
+      output_cost_per_token: 4e-6
     - region: us-east-2
       cache_creation_input_token_cost: 1e-6
       cache_read_input_token_cost: 8e-8
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
+      input_cost_per_token: 8e-7
+      output_cost_per_token: 4e-6
     - region: us-east-1
       cache_creation_input_token_cost: 1e-6
       cache_read_input_token_cost: 8e-8
-      input_cost_per_token: 1e-6
-      input_cost_per_token_batches: 4e-7
-      output_cost_per_token: 5e-6
-      output_cost_per_token_batches: 2e-6
+      input_cost_per_token: 8e-7
+      output_cost_per_token: 4e-6
 limits:
     max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 8192
-features: [function_calling, chat, image]
+features:
+    - function_calling
+    - chat
+    - image
 params:
     - key: tool_choice
       type: non-view-manage-data
@@ -39,7 +38,7 @@ params:
             type: json
       skipValues:
           - null
-      default:
+      default: null
       condition: tools
       then: auto
       else: null

@@ -1,7 +1,11 @@
 model: amazon.nova-canvas-v1:0
 costs:
     - region: us-east-1
-      input_cost_per_image: 0.005
+      output_cost_per_image: 0.06
+    - region: eu-west-1
+      output_cost_per_image: 0.06
+    - region: ap-northeast-1
+      output_cost_per_image: 0.08
 limits:
     max_input_tokens: 2600
 mode: image

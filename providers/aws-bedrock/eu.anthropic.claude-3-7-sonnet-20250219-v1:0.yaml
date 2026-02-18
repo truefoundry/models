@@ -1,0 +1,29 @@
+model: eu.anthropic.claude-3-7-sonnet-20250219-v1:0
+costs:
+    - region: eu-west-3
+      cache_creation_input_token_cost: 3.75e-6
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+    - region: eu-west-1
+      cache_creation_input_token_cost: 3.75e-6
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+    - region: eu-north-1
+      cache_creation_input_token_cost: 3.75e-6
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+    - region: eu-central-1
+      cache_creation_input_token_cost: 3.75e-6
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+limits:
+    max_input_tokens: 200000
+    max_output_tokens: 128000
+features:
+    - function_calling
+    - vision
+mode: chat

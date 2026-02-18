@@ -1,13 +1,20 @@
 model: us.anthropic.claude-3-opus-20240229-v1:0
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000075
+    - region: us-west-2
+      input_cost_per_token: 7.5e-6
+      output_cost_per_token: 7.5e-5
+    - region: us-east-1
+      input_cost_per_token: 7.5e-6
+      output_cost_per_token: 7.5e-5
 limits:
     max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 4096
-features: [function_calling, vision, chat, image]
+features:
+    - function_calling
+    - vision
+    - chat
+    - image
 params:
     - key: tool_choice
       type: non-view-manage-data

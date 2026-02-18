@@ -1,5 +1,8 @@
 model: apac.twelvelabs.pegasus-1-2-v1:0
 costs:
     - region: ap-northeast-2
-      input_cost_per_second: 0.00049
+      input_cost_per_second: 4.9e-4
       output_cost_per_token: 7.5e-6
+limits:
+    max_tokens: 4096
+mode: chat

@@ -1,40 +1,42 @@
 model: us.anthropic.claude-opus-4-1-20250805-v1:0
 costs:
     - region: us-west-2
-      cache_creation_input_token_cost: 1.875e-05
+      cache_creation_input_token_cost: 1.875e-5
       cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-05
-      input_cost_per_token_batches: 7.5e-6
-      output_cost_per_token: 7.5e-05
-      output_cost_per_token_batches: 3.75e-05
+      input_cost_per_token: 1.5e-5
+      output_cost_per_token: 7.5e-5
     - region: us-east-2
-      cache_creation_input_token_cost: 1.875e-05
+      cache_creation_input_token_cost: 1.875e-5
       cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-05
-      input_cost_per_token_batches: 7.5e-6
-      output_cost_per_token: 7.5e-05
-      output_cost_per_token_batches: 3.75e-05
+      input_cost_per_token: 1.5e-5
+      output_cost_per_token: 7.5e-5
     - region: us-east-1
-      cache_creation_input_token_cost: 1.875e-05
+      cache_creation_input_token_cost: 1.875e-5
       cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-05
-      input_cost_per_token_batches: 7.5e-6
-      output_cost_per_token: 7.5e-05
-      output_cost_per_token_batches: 3.75e-05
+      input_cost_per_token: 1.5e-5
+      output_cost_per_token: 7.5e-5
 limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
     tool_use_system_prompt_tokens: 159
-features: [function_calling, vision, chat, image]
+features:
+    - function_calling
+    - vision
+    - chat
+    - image
 params:
     - key: max_tokens
       maxValue: 32000
     - key: thinking
       type: number
-      enum: [enabled, disabled]
+      enum:
+          - enabled
+          - disabled
       minValue: 1024
       maxValue: 128000
-      withdrawParams: [top_k, top_p]
+      withdrawParams:
+          - top_k
+          - top_p
       skipValues:
           - disabled
           - null
@@ -49,11 +51,11 @@ params:
             name: Required
           - value: custom
             name: Custom
-            schema:
+            schema: null
             type: json
       skipValues:
           - null
-      rule:
+      rule: null
       default:
           condition: tools
           then: auto

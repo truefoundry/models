@@ -3,6 +3,9 @@ costs:
     - region: us-west-2
       input_cost_per_token: 2.65e-6
       output_cost_per_token: 3.5e-6
+    - region: us-gov-west-1
+      input_cost_per_token: 2.65e-6
+      output_cost_per_token: 3.5e-6
     - region: us-east-1
       input_cost_per_token: 2.65e-6
       output_cost_per_token: 3.5e-6
@@ -18,6 +21,8 @@ costs:
     - region: ap-south-1
       input_cost_per_token: 3.18e-6
       output_cost_per_token: 4.2e-6
-    - region: us-gov-west-1
-      input_cost_per_token: 2.65e-6
-      output_cost_per_token: 3.5e-6
+limits:
+    max_tokens: 2048
+    max_input_tokens: 8192
+    max_output_tokens: 2048
+mode: chat

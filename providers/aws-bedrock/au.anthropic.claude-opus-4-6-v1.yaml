@@ -1,9 +1,21 @@
 model: au.anthropic.claude-opus-4-6-v1
 costs:
+    - region: ap-southeast-4
+      cache_creation_input_token_cost: 6.25e-6
+      cache_read_input_token_cost: 1e-6
+      input_cost_per_token: 5e-6
+      output_cost_per_token: 2.5e-5
     - region: ap-southeast-2
-      cache_creation_input_token_cost: 6.875e-6
-      cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 5.5e-6
-      input_cost_per_token_batches: 2.75e-6
-      output_cost_per_token: 2.75e-05
-      output_cost_per_token_batches: 1.375e-05
+      cache_creation_input_token_cost: 1.25e-5
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 5e-6
+      output_cost_per_token: 2.5e-5
+limits:
+    max_tokens: 128000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    tool_use_system_prompt_tokens: 346
+features:
+    - function_calling
+    - vision
+mode: chat
