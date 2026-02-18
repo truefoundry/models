@@ -1,0 +1,7 @@
+model: google/gemini-2.5-flash
+costs:
+    - region: "*"
+      input_cost_per_token: 3.e-7
+      cache_read_input_token_cost: 3.e-9
+      output_cost_per_token: 2.5e-6
+mode: chat

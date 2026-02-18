@@ -1,0 +1,14 @@
+model: google/gemini-3-pro-preview
+costs:
+    - region: "*"
+      input_cost_per_token: 2.e-6
+      cache_read_input_token_cost: 2.e-8
+      output_cost_per_token: 1.2e-5
+      tiered_pricing:
+          input:
+              - from: 200000
+                cost_per_token: 4.e-6
+          output:
+              - from: 200000
+                cost_per_token: 1.8e-5
+mode: chat
