@@ -1,4 +1,4 @@
-# On every push: run yamllint on all providers/ YAML; if it fails, fix and push a commit.
+# On every push: run YAML formatter and commit if changed.
 name: YAML Lint and Auto-Fix
 
 on:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-and-fix:
-    name: Lint YAML, fix and commit if needed
+    name: Fix YAML and commit if changed
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -19,23 +19,21 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Install yamllint and yamlfix
-        run: pip install yamllint yamlfix
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Run yamllint
-        id: yamllint
-        run: bash scripts/run-yamllint-all.sh
-        continue-on-error: true
+      - name: Run YAML fix
+        run: npm run lint:yaml:fix
 
-      - name: Fix YAML
-        if: steps.yamllint.outputs.lint_failed == 'true'
-        run: yamlfix providers/
-
-      - name: Commit and push if fixed
-        if: steps.yamllint.outputs.lint_failed == 'true'
-        run: bash scripts/commit-yaml-fix.sh
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add providers/
+          git diff --staged --quiet || (git commit -m "chore: fix YAML format" && git push)
