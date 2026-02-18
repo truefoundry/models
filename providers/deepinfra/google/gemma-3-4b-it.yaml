@@ -1,10 +1,12 @@
 model: google/gemma-3-4b-it
 costs:
-    - region: "*"
-      input_cost_per_token: 4.e-8
-      output_cost_per_token: 8.e-8
+    -
+        region: '*'
+        input_cost_per_token: 4.e-8
+        output_cost_per_token: 8.e-8
 limits:
     max_tokens: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
+features: [tool_choice]
 mode: chat

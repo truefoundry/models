@@ -1,14 +1,16 @@
 model: pplx-7b-chat
 costs:
-    - region: "*"
-      input_cost_per_token: 7.e-8
-      output_cost_per_token: 2.8e-7
+    -
+        region: '*'
+        input_cost_per_token: 7.e-8
+        output_cost_per_token: 2.8e-7
 limits:
     max_input_tokens: 8192
     max_output_tokens: 8192
 features: [chat]
 params:
-    - key: max_tokens
-      maxValue: 4096
+    -
+        key: max_tokens
+        maxValue: 4096
 mode: chat
 isDeprecated: true
