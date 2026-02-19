@@ -8,14 +8,14 @@ limits:
     max_output_tokens: 4096
 features: [function_calling, chat, tools, tool_choice]
 params:
-  - key: max_tokens
-    maxValue: 8192
-  - key: frequency_penalty
-    defaultValue: 0
-    minValue: -2
-    maxValue: 2
-  - key: presence_penalty
-    defaultValue: 0
-    minValue: -2
-    maxValue: 2
+    - key: max_tokens
+      maxValue: 8192
+    - key: frequency_penalty
+      defaultValue: 0
+      minValue: -2
+      maxValue: 2
+    - key: presence_penalty
+      defaultValue: 0
+      minValue: -2
+      maxValue: 2
 mode: chat

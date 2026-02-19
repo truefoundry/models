@@ -11,8 +11,20 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 8192
     tool_use_system_prompt_tokens: 264
-features: [function_calling, vision, chat, image, tools, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
+features:
+    [
+        function_calling,
+        vision,
+        chat,
+        image,
+        tools,
+        tool_choice,
+        prompt_caching,
+        response_schema,
+        assistant_prefill,
+        pdf_input,
+    ]
 params:
-  - key: max_tokens
-    maxValue: 8192
+    - key: max_tokens
+      maxValue: 8192
 mode: chat
