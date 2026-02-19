@@ -28,6 +28,7 @@ export interface Cost {
   output_cost_per_second?: number;
   input_cost_per_query?: number;
   input_cost_per_image?: number;
+  output_cost_per_image?: number;
   tiered_pricing?: TieredPricing;
 }
 
@@ -73,6 +74,7 @@ export type Feature =
   | 'pdf'
   | 'doc'
   | 'cache_control'
+  | 'tool_choice'
 
 // --- Messages ---
 
