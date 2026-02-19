@@ -1,9 +1,11 @@
-model: Qwen/Qwen3-Coder-Next-FP8
 costs:
-    - region: "*"
-      input_cost_per_token: 5.e-7
-      output_cost_per_token: 1.2e-6
+    - input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.0000012
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
 limits:
     max_input_tokens: 262144
-features: [function_calling, parallel_function_calling]
 mode: chat
+model: Qwen/Qwen3-Coder-Next-FP8

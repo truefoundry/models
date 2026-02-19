@@ -1,14 +1,17 @@
-model: gpt-4o-audio-preview
 costs:
-    - region: "*"
+    - input_cost_per_audio_token: 0.00004
       input_cost_per_token: 1.5e-7
-      output_cost_per_token: 6e-7
-      input_cost_per_audio_token: 0.00004
       output_cost_per_audio_token: 0.00008
+      output_cost_per_token: 6.e-7
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - audio_input
+    - audio_output
 limits:
-    max_tokens: 4096
     max_input_tokens: 128000
     max_output_tokens: 16384
-features:
-    [function_calling, parallel_function_calling, audio_input, audio_output]
+    max_tokens: 4096
 mode: chat
+model: gpt-4o-audio-preview

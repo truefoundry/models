@@ -1,25 +1,30 @@
-model: o1-mini
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 6.05e-7
       input_cost_per_token: 0.00000121
       output_cost_per_token: 0.00000484
-      cache_read_input_token_cost: 6.05e-7
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - chat
+    - image
+    - prompt_caching
 limits:
-    max_tokens: 4096
     max_input_tokens: 128000
     max_output_tokens: 65536
-features:
-    [function_calling, parallel_function_calling, chat, image, prompt_caching]
+    max_tokens: 4096
 messages:
     options:
         - user
         - assistant
         - developer
+mode: chat
+model: o1-mini
 params:
-    - key: max_completion_tokens
-      defaultValue: 1000
-      minValue: 1
+    - defaultValue: 1000
+      key: max_completion_tokens
       maxValue: 65536
+      minValue: 1
 removeParams:
     - temperature
     - top_p
@@ -29,4 +34,3 @@ removeParams:
     - logit_bias
     - stream
     - max_tokens
-mode: chat

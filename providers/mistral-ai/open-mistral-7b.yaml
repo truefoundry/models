@@ -1,12 +1,16 @@
-model: open-mistral-7b
 costs:
-    - region: "*"
-      input_cost_per_token: 2.5e-7
+    - input_cost_per_token: 2.5e-7
       output_cost_per_token: 2.5e-7
+      region: "*"
+features:
+    - chat
+    - tool_choice
+    - response_schema
+    - assistant_prefill
+isDeprecated: true
 limits:
-    max_tokens: 4096
     max_input_tokens: 32000
     max_output_tokens: 8191
-features: [chat, tool_choice, response_schema, assistant_prefill]
+    max_tokens: 4096
 mode: chat
-isDeprecated: true
+model: open-mistral-7b

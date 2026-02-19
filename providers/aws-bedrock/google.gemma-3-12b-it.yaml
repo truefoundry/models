@@ -1,36 +1,36 @@
-model: google.gemma-3-12b-it
 costs:
-    - region: us-west-2
-      input_cost_per_token: 9e-8
+    - input_cost_per_token: 9.e-8
       output_cost_per_token: 2.9e-7
-    - region: us-east-2
-      input_cost_per_token: 9e-8
+      region: us-west-2
+    - input_cost_per_token: 9.e-8
       output_cost_per_token: 2.9e-7
-    - region: us-east-1
-      input_cost_per_token: 9e-8
+      region: us-east-2
+    - input_cost_per_token: 9.e-8
       output_cost_per_token: 2.9e-7
-    - region: sa-east-1
-      input_cost_per_token: 1.1e-7
+      region: us-east-1
+    - input_cost_per_token: 1.1e-7
       output_cost_per_token: 3.5e-7
-    - region: eu-west-2
-      input_cost_per_token: 1.4e-7
+      region: sa-east-1
+    - input_cost_per_token: 1.4e-7
       output_cost_per_token: 4.5e-7
-    - region: eu-west-1
-      input_cost_per_token: 1.1e-7
+      region: eu-west-2
+    - input_cost_per_token: 1.1e-7
       output_cost_per_token: 3.4e-7
-    - region: eu-south-1
-      input_cost_per_token: 1.1e-7
+      region: eu-west-1
+    - input_cost_per_token: 1.1e-7
       output_cost_per_token: 3.4e-7
-    - region: ap-south-1
-      input_cost_per_token: 1.1e-7
+      region: eu-south-1
+    - input_cost_per_token: 1.1e-7
       output_cost_per_token: 3.4e-7
-    - region: ap-northeast-1
-      input_cost_per_token: 1.1e-7
+      region: ap-south-1
+    - input_cost_per_token: 1.1e-7
       output_cost_per_token: 3.5e-7
-limits:
-    max_tokens: 8192
-    max_input_tokens: 128000
-    max_output_tokens: 8192
+      region: ap-northeast-1
 features:
     - vision
+limits:
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
+model: google.gemma-3-12b-it

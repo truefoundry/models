@@ -1,17 +1,21 @@
-model: o1-pro
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 0.000075
       input_cost_per_token: 0.00015
       output_cost_per_token: 0.0006
-      cache_read_input_token_cost: 0.000075
+      region: "*"
+features:
+    - function_calling
+    - vision
+    - chat
+    - image
 limits:
-    max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 100000
-features: [function_calling, vision, chat, image]
+    max_tokens: 4096
 messages:
     options:
         - user
         - assistant
         - developer
 mode: chat
+model: o1-pro

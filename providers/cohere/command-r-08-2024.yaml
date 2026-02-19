@@ -1,11 +1,12 @@
-model: command-r-08-2024
 costs:
-    - region: "*"
-      input_cost_per_token: 1.5e-7
+    - input_cost_per_token: 1.5e-7
       output_cost_per_token: 6.e-7
+      region: "*"
+features:
+    - chat
 limits:
-    max_tokens: 128000
     max_input_tokens: 128000
     max_output_tokens: 4000
-features: [chat]
+    max_tokens: 128000
 mode: completion
+model: command-r-08-2024

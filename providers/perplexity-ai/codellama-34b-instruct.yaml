@@ -1,14 +1,16 @@
-model: codellama-34b-instruct
 costs:
-    - region: "*"
-      input_cost_per_token: 3.5e-7
+    - input_cost_per_token: 3.5e-7
       output_cost_per_token: 0.0000014
+      region: "*"
+features:
+    - chat
+    - code
+isDeprecated: true
 limits:
     max_input_tokens: 16384
     max_output_tokens: 16384
-features: [chat, code]
+mode: chat
+model: codellama-34b-instruct
 params:
     - key: max_tokens
       maxValue: 8192
-mode: chat
-isDeprecated: true

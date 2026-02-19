@@ -1,27 +1,29 @@
-model: apac.anthropic.claude-opus-4-6-v1
 costs:
-    - region: "*"
+    - cache_creation_input_token_cost: 0.000006875
+      cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
-      cache_read_input_token_cost: 5.5e-7
-      cache_creation_input_token_cost: 0.000006875
+      region: "*"
       tiered_pricing:
-          cache_write:
-              - from: 200000
-                cost_per_token: 0.00001375
           cache_read:
-              - from: 200000
-                cost_per_token: 0.0000011
+              - cost_per_token: 0.0000011
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00001375
+                from: 200000
           input:
-              - from: 200000
-                cost_per_token: 0.000011
+              - cost_per_token: 0.000011
+                from: 200000
           output:
-              - from: 200000
-                cost_per_token: 0.00004125
+              - cost_per_token: 0.00004125
+                from: 200000
+features:
+    - function_calling
+    - vision
 limits:
-    max_tokens: 128000
     max_input_tokens: 1000000
     max_output_tokens: 128000
+    max_tokens: 128000
     tool_use_system_prompt_tokens: 346
-features: [function_calling, vision]
 mode: chat
+model: apac.anthropic.claude-opus-4-6-v1

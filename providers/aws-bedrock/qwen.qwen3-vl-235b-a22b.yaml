@@ -1,37 +1,37 @@
-model: qwen.qwen3-vl-235b-a22b
 costs:
-    - region: us-west-2
-      input_cost_per_token: 5.3e-7
-      output_cost_per_token: 2.66e-6
-    - region: us-east-2
-      input_cost_per_token: 5.3e-7
-      output_cost_per_token: 2.66e-6
-    - region: us-east-1
-      input_cost_per_token: 5.3e-7
-      output_cost_per_token: 2.66e-6
-    - region: sa-east-1
-      input_cost_per_token: 6.4e-7
-      output_cost_per_token: 3.22e-6
-    - region: eu-west-2
-      input_cost_per_token: 8.2e-7
-      output_cost_per_token: 4.12e-6
-    - region: eu-west-1
-      input_cost_per_token: 6.2e-7
-      output_cost_per_token: 3.12e-6
-    - region: eu-south-1
-      input_cost_per_token: 6.2e-7
-      output_cost_per_token: 3.12e-6
-    - region: ap-south-1
-      input_cost_per_token: 6.2e-7
-      output_cost_per_token: 3.13e-6
-    - region: ap-northeast-1
-      input_cost_per_token: 6.4e-7
-      output_cost_per_token: 3.22e-6
-limits:
-    max_tokens: 8192
-    max_input_tokens: 128000
-    max_output_tokens: 8192
+    - input_cost_per_token: 5.3e-7
+      output_cost_per_token: 0.00000266
+      region: us-west-2
+    - input_cost_per_token: 5.3e-7
+      output_cost_per_token: 0.00000266
+      region: us-east-2
+    - input_cost_per_token: 5.3e-7
+      output_cost_per_token: 0.00000266
+      region: us-east-1
+    - input_cost_per_token: 6.4e-7
+      output_cost_per_token: 0.00000322
+      region: sa-east-1
+    - input_cost_per_token: 8.2e-7
+      output_cost_per_token: 0.00000412
+      region: eu-west-2
+    - input_cost_per_token: 6.2e-7
+      output_cost_per_token: 0.00000312
+      region: eu-west-1
+    - input_cost_per_token: 6.2e-7
+      output_cost_per_token: 0.00000312
+      region: eu-south-1
+    - input_cost_per_token: 6.2e-7
+      output_cost_per_token: 0.00000313
+      region: ap-south-1
+    - input_cost_per_token: 6.4e-7
+      output_cost_per_token: 0.00000322
+      region: ap-northeast-1
 features:
     - function_calling
     - vision
+limits:
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
+model: qwen.qwen3-vl-235b-a22b

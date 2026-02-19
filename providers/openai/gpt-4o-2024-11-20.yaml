@@ -1,45 +1,43 @@
-model: gpt-4o-2024-11-20
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 0.00000125
       input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.00001
       input_cost_per_token_batches: 0.00000125
+      output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
-      cache_read_input_token_cost: 0.00000125
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - vision
+    - chat
+    - image
+    - tools
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - pdf_input
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
-features:
-    [
-        function_calling,
-        parallel_function_calling,
-        vision,
-        chat,
-        image,
-        tools,
-        system_messages,
-        tool_choice,
-        prompt_caching,
-        response_schema,
-        pdf_input,
-    ]
+mode: chat
+model: gpt-4o-2024-11-20
 params:
     - key: max_tokens
       maxValue: 16384
-    - key: response_format
-      defaultValue: null
+    - defaultValue: null
+      key: response_format
       options:
-          - value: null
-            name: Text
-          - value: json_object
-            name: JSON Object
+          - name: Text
+            value: null
+          - name: JSON Object
             schema:
-                type: object
                 properties:
                     type:
                         type: string
                         value: json_object
+                type: object
+            value: json_object
       skipValues:
           - null
       type: string
-mode: chat

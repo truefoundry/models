@@ -1,50 +1,53 @@
+documentation:
+    - https://openrouter.ai/docs
+    - https://openrouter.ai/models
 params:
-    - key: max_tokens
-      defaultValue: 128
-      minValue: 1
+    - defaultValue: 128
+      key: max_tokens
       maxValue: 4096
-    - key: temperature
-      defaultValue: 0.8
-      minValue: 0
+      minValue: 1
+    - defaultValue: 0.8
+      key: temperature
       maxValue: 2
-    - key: stop
-      defaultValue: null
-      type: array-of-strings
+      minValue: 0
+    - defaultValue: null
+      key: stop
       skipValues:
           - null
           - []
-    - key: top_p
-      defaultValue: 0.1
-      minValue: 0
+      type: array-of-strings
+    - defaultValue: 0.1
+      key: top_p
       maxValue: 1
-    - key: "n"
-      defaultValue: 1
-      minValue: 1
+      minValue: 0
+    - defaultValue: 1
+      key: "n"
       maxValue: 10
-    - key: frequency_penalty
-      defaultValue: 0
-      minValue: -2
+      minValue: 1
+    - defaultValue: 0
+      key: frequency_penalty
       maxValue: 2
-    - key: presence_penalty
-      defaultValue: 0
       minValue: -2
+    - defaultValue: 0
+      key: presence_penalty
       maxValue: 2
-    - key: stream
-      defaultValue: true
+      minValue: -2
+    - defaultValue: true
+      key: stream
       type: boolean
-    - key: response_format
-      defaultValue: null
+    - defaultValue: null
+      key: response_format
       options:
-          - value: null
-            name: Text
-          - value: json_object
-            name: JSON Object
+          - name: Text
+            value: null
+          - name: JSON Object
             schema:
-                type: object
                 properties:
                     type:
                         type: string
                         value: json_object
+                type: object
+            value: json_object
       skipValues:
           - null
       type: string
@@ -53,6 +56,3 @@ type:
     supported:
         - tools
         - image
-documentation:
-    - https://openrouter.ai/docs
-    - https://openrouter.ai/models

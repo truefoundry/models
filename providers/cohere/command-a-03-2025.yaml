@@ -1,11 +1,12 @@
-model: command-a-03-2025
 costs:
-    - region: "*"
-      input_cost_per_token: 0.0000025
+    - input_cost_per_token: 0.0000025
       output_cost_per_token: 0.00001
+      region: "*"
+features:
+    - chat
 limits:
-    max_tokens: 256000
     max_input_tokens: 256000
     max_output_tokens: 8000
-features: [chat]
+    max_tokens: 256000
 mode: completion
+model: command-a-03-2025

@@ -1,11 +1,13 @@
-model: gpt-5-pro
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000120
+    - input_cost_per_token: 0.000015
+      output_cost_per_token: 0.00012
+      region: "*"
+features:
+    - function_calling
+    - vision
 limits:
-    max_tokens: 128000
     max_input_tokens: 272000
     max_output_tokens: 128000
-features: [function_calling, vision]
+    max_tokens: 128000
 mode: chat
+model: gpt-5-pro

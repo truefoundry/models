@@ -1,12 +1,12 @@
-model: textembedding-gecko-multilingual
 costs:
-    - region: "*"
+    - input_cost_per_character: 2.5e-8
       input_cost_per_token: 1.e-7
       output_cost_per_token: 0
-      input_cost_per_character: 2.5e-8
+      region: "*"
+isDeprecated: true
 limits:
-    max_tokens: 3072
     max_input_tokens: 3072
+    max_tokens: 3072
     output_vector_size: 768
 mode: embedding
-isDeprecated: true
+model: textembedding-gecko-multilingual

@@ -1,14 +1,15 @@
-model: llama-3.1-sonar-large-128k-chat
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000001
+    - input_cost_per_token: 0.000001
       output_cost_per_token: 0.000001
+      region: "*"
+features:
+    - chat
+isDeprecated: true
 limits:
     max_input_tokens: 131072
     max_output_tokens: 131072
-features: [chat]
+mode: chat
+model: llama-3.1-sonar-large-128k-chat
 params:
     - key: max_tokens
       maxValue: 128000
-mode: chat
-isDeprecated: true

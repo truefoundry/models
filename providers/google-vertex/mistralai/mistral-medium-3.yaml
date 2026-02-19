@@ -1,11 +1,13 @@
-model: mistralai/mistral-medium-3
 costs:
-    - region: "*"
-      input_cost_per_token: 4.e-7
+    - input_cost_per_token: 4.e-7
       output_cost_per_token: 0.000002
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
 limits:
-    max_tokens: 8191
     max_input_tokens: 128000
     max_output_tokens: 8191
-features: [function_calling, tool_choice]
+    max_tokens: 8191
 mode: chat
+model: mistralai/mistral-medium-3

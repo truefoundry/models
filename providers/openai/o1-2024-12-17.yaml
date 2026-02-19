@@ -1,36 +1,35 @@
-model: o1-2024-12-17
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 0.0000075
       input_cost_per_token: 0.000015
       output_cost_per_token: 0.00006
-      cache_read_input_token_cost: 0.0000075
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - vision
+    - chat
+    - tools
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - pdf_input
 limits:
-    max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 100000
-features:
-    [
-        function_calling,
-        parallel_function_calling,
-        vision,
-        chat,
-        tools,
-        system_messages,
-        tool_choice,
-        prompt_caching,
-        response_schema,
-        pdf_input,
-    ]
+    max_tokens: 4096
 messages:
     options:
         - user
         - assistant
         - developer
+mode: chat
+model: o1-2024-12-17
 params:
-    - key: max_completion_tokens
-      defaultValue: 1000
-      minValue: 1
+    - defaultValue: 1000
+      key: max_completion_tokens
       maxValue: 100000
+      minValue: 1
 removeParams:
     - temperature
     - top_p
@@ -40,4 +39,3 @@ removeParams:
     - logit_bias
     - stream
     - max_tokens
-mode: chat

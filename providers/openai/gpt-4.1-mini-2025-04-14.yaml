@@ -1,66 +1,64 @@
-model: gpt-4.1-mini-2025-04-14
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 1.e-7
       input_cost_per_token: 4.e-7
-      output_cost_per_token: 0.0000016
       input_cost_per_token_batches: 2.e-7
+      output_cost_per_token: 0.0000016
       output_cost_per_token_batches: 8.e-7
-      cache_read_input_token_cost: 1.e-7
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - vision
+    - chat
+    - image
+    - tools
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - pdf_input
 limits:
-    max_tokens: 4096
     max_input_tokens: 1047576
     max_output_tokens: 32768
-features:
-    [
-        function_calling,
-        parallel_function_calling,
-        vision,
-        chat,
-        image,
-        tools,
-        system_messages,
-        tool_choice,
-        prompt_caching,
-        response_schema,
-        pdf_input,
-    ]
+    max_tokens: 4096
+mode: chat
+model: gpt-4.1-mini-2025-04-14
 params:
-    - key: max_completion_tokens
-      defaultValue: 1000
-      minValue: 1
+    - defaultValue: 1000
+      key: max_completion_tokens
       maxValue: 32768
-    - key: response_format
-      defaultValue: null
+      minValue: 1
+    - defaultValue: null
+      key: response_format
       options:
-          - value: null
-            name: Text
-          - value: json_object
-            name: JSON Object
+          - name: Text
+            value: null
+          - name: JSON Object
             schema:
-                type: object
                 properties:
                     type:
                         type: string
                         value: json_object
-          - value: json_schema
-            name: JSON Schema
-            schema:
                 type: object
+            value: json_object
+          - name: JSON Schema
+            params:
+                defaultValue: null
+                key: json_schema
+                skipValues:
+                    - null
+                type: json
+            schema:
                 properties:
+                    json_schema:
+                        type: object
                     type:
                         type: string
                         value: json_schema
-                    json_schema:
-                        type: object
-            params:
-                key: json_schema
-                defaultValue: null
-                type: json
-                skipValues:
-                    - null
+                type: object
+            value: json_schema
       skipValues:
           - null
       type: string
 removeParams:
     - max_tokens
-mode: chat

@@ -1,8 +1,9 @@
-model: imagen-4.0-generate-001
 costs:
-    - region: "*"
-      output_cost_per_image: 0.04
+    - output_cost_per_image: 0.04
+      region: "*"
+features:
+    - text
 limits:
     max_tokens: 4096
 mode: image
-features: [text]
+model: imagen-4.0-generate-001

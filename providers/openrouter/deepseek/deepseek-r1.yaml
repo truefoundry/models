@@ -1,11 +1,15 @@
-model: deepseek/deepseek-r1
 costs:
-    - region: "*"
-      input_cost_per_token: 5.5e-7
+    - input_cost_per_token: 5.5e-7
       output_cost_per_token: 0.00000219
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - assistant_prefill
 limits:
-    max_tokens: 8192
     max_input_tokens: 65336
     max_output_tokens: 8192
-features: [function_calling, tool_choice, prompt_caching, assistant_prefill]
+    max_tokens: 8192
 mode: chat
+model: deepseek/deepseek-r1

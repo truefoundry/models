@@ -1,55 +1,50 @@
-model: grok-4-1-fast-non-reasoning-latest
 costs:
-    - region: us-east-1
+    - cache_read_input_token_cost: 5.e-8
       input_cost_per_token: 2.e-7
       output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 5.e-8
+      region: us-east-1
       tiered_pricing:
           input:
-              - from: 128000
-                cost_per_token: 4.e-7
+              - cost_per_token: 4.e-7
+                from: 128000
           output:
-              - from: 128000
-                cost_per_token: 0.000001
-    - region: eu-west-1
+              - cost_per_token: 0.000001
+                from: 128000
+    - cache_read_input_token_cost: 5.e-8
       input_cost_per_token: 2.e-7
       output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 5.e-8
+      region: eu-west-1
       tiered_pricing:
           input:
-              - from: 128000
-                cost_per_token: 4.e-7
+              - cost_per_token: 4.e-7
+                from: 128000
           output:
-              - from: 128000
-                cost_per_token: 0.000001
-    - region: us-east-4
+              - cost_per_token: 0.000001
+                from: 128000
+    - cache_read_input_token_cost: 5.e-8
       input_cost_per_token: 2.e-7
       output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 5.e-8
+      region: us-east-4
       tiered_pricing:
           input:
-              - from: 128000
-                cost_per_token: 4.e-7
+              - cost_per_token: 4.e-7
+                from: 128000
           output:
-              - from: 128000
-                cost_per_token: 0.000001
-    - region: "*"
-      input_cost_per_token: 2.e-7
-      output_cost_per_token: 5.e-7
-      cache_read_input_token_cost: 5.e-8
-      tiered_pricing:
-          input:
-              - from: 128000
-                cost_per_token: 4.e-7
-          output:
-              - from: 128000
-                cost_per_token: 0.000001
+              - cost_per_token: 0.000001
+                from: 128000
+    - cache_read_input_token_cost: 5.e-8
       input_cost_per_image: 2.e-7
       input_cost_per_query: 0.025
-limits:
-    max_tokens: 4096
-    max_input_tokens: 2000000
-    max_output_tokens: 2000000
+      input_cost_per_token: 2.e-7
+      output_cost_per_token: 5.e-7
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 4.e-7
+                from: 128000
+          output:
+              - cost_per_token: 0.000001
+                from: 128000
 features:
     - function_calling
     - vision
@@ -57,4 +52,8 @@ features:
     - chat
     - tool_choice
     - response_schema
+limits:
+    max_input_tokens: 2000000
+    max_output_tokens: 2000000
 mode: chat
+model: grok-4-1-fast-non-reasoning-latest

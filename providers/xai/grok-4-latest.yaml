@@ -1,46 +1,45 @@
-model: grok-4-latest
 costs:
-    - region: us-east-1
+    - cache_read_input_token_cost: 7.5e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 7.5e-7
+      region: us-east-1
       tiered_pricing:
           input:
-              - from: 128000
-                cost_per_token: 0.000006
+              - cost_per_token: 0.000006
+                from: 128000
           output:
-              - from: 128000
-                cost_per_token: 0.00003
-    - region: eu-west-1
+              - cost_per_token: 0.00003
+                from: 128000
+    - cache_read_input_token_cost: 7.5e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 7.5e-7
+      region: eu-west-1
       tiered_pricing:
           input:
-              - from: 128000
-                cost_per_token: 0.000006
+              - cost_per_token: 0.000006
+                from: 128000
           output:
-              - from: 128000
-                cost_per_token: 0.00003
-    - region: "*"
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 7.5e-7
-      tiered_pricing:
-          input:
-              - from: 128000
-                cost_per_token: 0.000006
-          output:
-              - from: 128000
-                cost_per_token: 0.00003
+              - cost_per_token: 0.00003
+                from: 128000
+    - cache_read_input_token_cost: 7.5e-7
       input_cost_per_image: 0.000003
       input_cost_per_query: 0.025
-limits:
-    max_tokens: 4096
-    max_input_tokens: 256000
-    max_output_tokens: 256000
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000006
+                from: 128000
+          output:
+              - cost_per_token: 0.00003
+                from: 128000
 features:
     - function_calling
     - chat
     - tool_choice
+limits:
+    max_input_tokens: 256000
+    max_output_tokens: 256000
 mode: chat
+model: grok-4-latest

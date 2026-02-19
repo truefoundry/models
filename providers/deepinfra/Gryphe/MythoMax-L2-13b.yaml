@@ -1,11 +1,12 @@
-model: Gryphe/MythoMax-L2-13b
 costs:
-    - region: "*"
-      input_cost_per_token: 4.e-7
+    - input_cost_per_token: 4.e-7
       output_cost_per_token: 4.e-7
+      region: "*"
+features:
+    - tool_choice
 limits:
-    max_tokens: 4096
     max_input_tokens: 4096
     max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
-features: [tool_choice]
+model: Gryphe/MythoMax-L2-13b

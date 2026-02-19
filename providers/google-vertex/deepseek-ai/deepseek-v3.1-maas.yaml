@@ -1,9 +1,9 @@
-model: deepseek-ai/deepseek-v3.1-maas
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 6.e-8
       input_cost_per_token: 6.e-7
-      output_cost_per_token: 0.0000017
-      cache_read_input_token_cost: 6.e-8
       input_cost_per_token_batches: 3.e-7
+      output_cost_per_token: 0.0000017
       output_cost_per_token_batches: 8.5e-7
+      region: "*"
 mode: chat
+model: deepseek-ai/deepseek-v3.1-maas

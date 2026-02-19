@@ -1,14 +1,14 @@
-model: jp.amazon.nova-2-lite-v1:0
 costs:
-    - region: ap-northeast-1
-      cache_read_input_token_cost: 9e-8
+    - cache_read_input_token_cost: 9.e-8
       input_cost_per_token: 3.6e-7
-      output_cost_per_token: 3.01e-6
-limits:
-    max_tokens: 64000
-    max_input_tokens: 1000000
-    max_output_tokens: 64000
+      output_cost_per_token: 0.00000301
+      region: ap-northeast-1
 features:
     - function_calling
     - vision
+limits:
+    max_input_tokens: 1000000
+    max_output_tokens: 64000
+    max_tokens: 64000
 mode: chat
+model: jp.amazon.nova-2-lite-v1:0
