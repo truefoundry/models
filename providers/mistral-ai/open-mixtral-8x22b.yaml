@@ -1,12 +1,11 @@
 model: open-mixtral-8x22b
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000006
+  - region: '*'
+    input_cost_per_token: 0.000002
+    output_cost_per_token: 0.000006
 limits:
-    max_tokens: 4096
-    max_input_tokens: 65336
-    max_output_tokens: 8191
-features: [function_calling, chat]
+  max_tokens: 4096
+  max_input_tokens: 65336
+  max_output_tokens: 8191
+features: [chat, function_calling, tool_choice, response_schema, assistant_prefill]
 mode: chat
-isDeprecated: true
