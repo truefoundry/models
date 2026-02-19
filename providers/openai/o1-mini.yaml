@@ -8,25 +8,25 @@ limits:
     max_tokens: 4096
     max_input_tokens: 128000
     max_output_tokens: 65536
-features: [vision, chat, image]
+features: [vision, chat, image, prompt_caching, pdf_input]
 messages:
-    options:
-        - user
-        - assistant
-        - developer
+  options:
+    - user
+    - assistant
+    - developer
 params:
-    - key: max_completion_tokens
-      defaultValue: 1000
-      minValue: 1
-      maxValue: 65536
+  - key: max_completion_tokens
+    defaultValue: 1000
+    minValue: 1
+    maxValue: 65536
 removeParams:
-    - temperature
-    - top_p
-    - "n"
-    - presence_penalty
-    - frequency_penalty
-    - logit_bias
-    - stream
-    - max_tokens
-    - stop
+  - temperature
+  - top_p
+  - 'n'
+  - presence_penalty
+  - frequency_penalty
+  - logit_bias
+  - stream
+  - max_tokens
+  - stop
 mode: chat

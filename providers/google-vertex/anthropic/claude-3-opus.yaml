@@ -9,8 +9,8 @@ limits:
     max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 4096
-features: [function_calling, vision]
+features: [function_calling, vision, tool_choice, assistant_prefill]
 requiredParams:
-    - max_tokens
+  - max_tokens
 mode: chat
 isDeprecated: true

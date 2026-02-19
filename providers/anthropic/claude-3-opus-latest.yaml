@@ -11,32 +11,32 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 4096
     tool_use_system_prompt_tokens: 395
-features: [function_calling, vision, chat, image]
+features: [function_calling, vision, chat, image, tools, tool_choice, prompt_caching, response_schema, assistant_prefill]
 params:
-    - key: max_tokens
-      maxValue: 64000
-    - key: thinking
-      properties:
-          type:
-              type: string
-              enum:
-                  - enabled
-                  - disabled
-          budget_tokens:
-              type: number
-              minValue: 1024
-              maxValue: 128000
-      defaultValue: null
-      withdrawParams:
-          - top_k
-          - top_p
-      skipValues:
+  - key: max_tokens
+    maxValue: 64000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
           - disabled
-          - null
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
 removeParams:
-    - temperature
-    - top_p
+  - temperature
+  - top_p
 requiredParams:
-    - max_tokens
+  - max_tokens
 mode: chat
 isDeprecated: true
