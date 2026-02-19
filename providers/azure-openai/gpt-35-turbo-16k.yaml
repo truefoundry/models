@@ -1,21 +1,21 @@
 model: gpt-35-turbo-16k
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000003
-    output_cost_per_token: 0.000004
+    - region: "*"
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000004
 limits:
-  max_input_tokens: 16385
-  max_output_tokens: 4096
+    max_input_tokens: 16385
+    max_output_tokens: 4096
 features: [chat, tools, tool_choice]
 params:
-  - key: max_tokens
-    maxValue: 16384
-  - key: frequency_penalty
-    defaultValue: 0
-    minValue: -2
-    maxValue: 2
-  - key: presence_penalty
-    defaultValue: 0
-    minValue: -2
-    maxValue: 2
+    - key: max_tokens
+      maxValue: 16384
+    - key: frequency_penalty
+      defaultValue: 0
+      minValue: -2
+      maxValue: 2
+    - key: presence_penalty
+      defaultValue: 0
+      minValue: -2
+      maxValue: 2
 mode: chat

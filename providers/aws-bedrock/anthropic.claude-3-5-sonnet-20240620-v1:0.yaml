@@ -1,11 +1,11 @@
 model: anthropic.claude-3-5-sonnet-20240620-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 0.0000036
-    output_cost_per_token: 0.000018
+    - region: "*"
+      input_cost_per_token: 0.0000036
+      output_cost_per_token: 0.000018
 limits:
-  max_tokens: 8192
-  max_input_tokens: 200000
-  max_output_tokens: 8192
+    max_tokens: 8192
+    max_input_tokens: 200000
+    max_output_tokens: 8192
 features: [function_calling, vision, tool_choice, response_schema, pdf_input]
 mode: chat

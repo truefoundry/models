@@ -1,11 +1,11 @@
 model: embed-english-v3.0
 costs:
-  - region: '*'
-    input_cost_per_token: 1.e-7
-    output_cost_per_token: 0
-    input_cost_per_image: 0.0001
+    - region: "*"
+      input_cost_per_token: 1.e-7
+      output_cost_per_token: 0
+      input_cost_per_image: 0.0001
 limits:
-  max_tokens: 4096
-  max_input_tokens: 1024
+    max_tokens: 4096
+    max_input_tokens: 1024
 features: [image_input, embedding_image_input]
 mode: embedding

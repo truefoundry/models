@@ -1,12 +1,12 @@
 model: cohere.command-text-v14
 costs:
-  - region: '*'
-    input_cost_per_token: 0.0000015
-    output_cost_per_token: 0.000002
+    - region: "*"
+      input_cost_per_token: 0.0000015
+      output_cost_per_token: 0.000002
 limits:
-  max_tokens: 4096
-  max_input_tokens: 4096
-  max_output_tokens: 4096
+    max_tokens: 4096
+    max_input_tokens: 4096
+    max_output_tokens: 4096
 features: [chat, tool_choice]
 mode: chat
 isDeprecated: true

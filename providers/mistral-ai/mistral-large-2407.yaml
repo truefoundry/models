@@ -1,11 +1,11 @@
 model: mistral-large-2407
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000003
-    output_cost_per_token: 0.000009
+    - region: "*"
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000009
 limits:
-  max_tokens: 128000
-  max_input_tokens: 128000
-  max_output_tokens: 128000
+    max_tokens: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
 features: [function_calling, tool_choice, response_schema, assistant_prefill]
 mode: chat

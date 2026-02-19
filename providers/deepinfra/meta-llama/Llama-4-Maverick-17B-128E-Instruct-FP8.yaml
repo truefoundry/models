@@ -1,11 +1,11 @@
 model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
 costs:
-  - region: '*'
-    input_cost_per_token: 1.5e-7
-    output_cost_per_token: 6.e-7
+    - region: "*"
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6.e-7
 limits:
-  max_tokens: 1048576
-  max_input_tokens: 1048576
-  max_output_tokens: 1048576
+    max_tokens: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 1048576
 features: [tool_choice]
 mode: chat
