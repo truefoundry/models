@@ -16,4 +16,7 @@ package model
 		primary?:   string
 		supported?: [...string]
 	}
+
+	// Official documentation links for models, pricing, and deprecations
+	documentation?: [...string]
 }
