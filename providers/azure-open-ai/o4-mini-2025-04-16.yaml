@@ -1,0 +1,13 @@
+model: o4-mini-2025-04-16
+costs:
+    - region: "*"
+      input_cost_per_token: 0.00000121
+      output_cost_per_token: 0.00000484
+      cache_read_input_token_cost: 3.1e-7
+limits:
+    max_tokens: 100000
+    max_input_tokens: 200000
+    max_output_tokens: 100000
+features:
+    [function_calling, vision, tool_choice, prompt_caching, response_schema]
+mode: chat

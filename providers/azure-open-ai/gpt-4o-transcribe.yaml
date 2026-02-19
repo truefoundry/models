@@ -1,0 +1,12 @@
+model: gpt-4o-transcribe
+costs:
+    - region: "*"
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.00001
+      input_cost_per_audio_token: 0.000006
+limits:
+    max_tokens: 4096
+    max_input_tokens: 16000
+    max_output_tokens: 2000
+mode: audio_transcription
+features: [text]

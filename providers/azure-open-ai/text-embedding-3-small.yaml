@@ -1,0 +1,9 @@
+model: text-embedding-3-small
+costs:
+    - region: "*"
+      input_cost_per_token: 2.e-8
+      output_cost_per_token: 0
+limits:
+    max_tokens: 4096
+    max_input_tokens: 8191
+mode: embedding
