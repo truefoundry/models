@@ -1,42 +1,53 @@
 model: claude-3-opus-latest
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000015
-    output_cost_per_token: 0.000075
-    cache_read_input_token_cost: 0.0000015
-    cache_creation_input_token_cost: 0.00001875
-    input_cost_per_token_batches: 0.0000075
-    output_cost_per_token_batches: 0.0000375
+    - region: "*"
+      input_cost_per_token: 0.000015
+      output_cost_per_token: 0.000075
+      cache_read_input_token_cost: 0.0000015
+      cache_creation_input_token_cost: 0.00001875
+      input_cost_per_token_batches: 0.0000075
+      output_cost_per_token_batches: 0.0000375
 limits:
-  max_input_tokens: 200000
-  max_output_tokens: 4096
-  tool_use_system_prompt_tokens: 395
-features: [function_calling, vision, chat, image, tools, tool_choice, prompt_caching, response_schema, assistant_prefill]
+    max_input_tokens: 200000
+    max_output_tokens: 4096
+    tool_use_system_prompt_tokens: 395
+features:
+    [
+        function_calling,
+        vision,
+        chat,
+        image,
+        tools,
+        tool_choice,
+        prompt_caching,
+        response_schema,
+        assistant_prefill,
+    ]
 params:
-  - key: max_tokens
-    maxValue: 64000
-  - key: thinking
-    properties:
-      type:
-        type: string
-        enum:
-          - enabled
+    - key: max_tokens
+      maxValue: 64000
+    - key: thinking
+      properties:
+          type:
+              type: string
+              enum:
+                  - enabled
+                  - disabled
+          budget_tokens:
+              type: number
+              minValue: 1024
+              maxValue: 128000
+      defaultValue: null
+      withdrawParams:
+          - top_k
+          - top_p
+      skipValues:
           - disabled
-      budget_tokens:
-        type: number
-        minValue: 1024
-        maxValue: 128000
-    defaultValue: null
-    withdrawParams:
-      - top_k
-      - top_p
-    skipValues:
-      - disabled
-      - null
+          - null
 removeParams:
-  - temperature
-  - top_p
+    - temperature
+    - top_p
 requiredParams:
-  - max_tokens
+    - max_tokens
 mode: chat
 isDeprecated: true

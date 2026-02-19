@@ -1,18 +1,18 @@
 model: grok-2-vision-1212
 costs:
-  - region: us-east-1
-    input_cost_per_token: 0.000002
-    output_cost_per_token: 0.00001
-    input_cost_per_image: 0.000002
-  - region: eu-west-1
-    input_cost_per_token: 0.000002
-    output_cost_per_token: 0.00001
-    input_cost_per_image: 0.000002
+    - region: us-east-1
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.00001
+      input_cost_per_image: 0.000002
+    - region: eu-west-1
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.00001
+      input_cost_per_image: 0.000002
 limits:
-  max_input_tokens: 32768
-  max_output_tokens: 32768
+    max_input_tokens: 32768
+    max_output_tokens: 32768
 features: [function_calling, vision, chat, image, tool_choice]
 params:
-  - key: max_tokens
-    maxValue: 4096
+    - key: max_tokens
+      maxValue: 4096
 mode: chat
