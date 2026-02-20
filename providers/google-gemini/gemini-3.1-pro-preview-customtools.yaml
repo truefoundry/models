@@ -1,0 +1,24 @@
+model: gemini-3.1-pro-preview-customtools
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000002
+    output_cost_per_token: 0.000012
+    input_cost_per_token_batches: 0.000001
+    output_cost_per_token_batches: 0.000006
+    cache_read_input_token_cost: 2.e-7
+    tiered_pricing:
+      cache_read:
+        - from: 200000
+          cost_per_token: 4.e-7
+      input:
+        - from: 200000
+          cost_per_token: 0.000004
+      output:
+        - from: 200000
+          cost_per_token: 0.000018
+limits:
+  max_tokens: 65536
+  max_input_tokens: 1048576
+  max_output_tokens: 65536
+features: [function_calling, vision, audio_input, system_messages, tool_choice, prompt_caching, response_schema, pdf_input]
+mode: chat
