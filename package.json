@@ -4,6 +4,7 @@
   "description": "AI model configurations - YAML to unified JSON",
   "private": true,
   "scripts": {
+    "validate": "./test/validate.sh",
     "build:json": "ts-node --project scripts/tsconfig.json scripts/build-unified-json.ts",
     "sync:bedrock": "ts-node --project scripts/tsconfig.json scripts/sync-bedrock-costs.ts",
     "lint:yaml": "yamllint -c .yamllint.yml providers/",

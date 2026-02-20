@@ -86,6 +86,7 @@ package model
 #ModelConfig: {
 	// Required: Model identifier used by the provider's API
 	model: string
+	mode:           string
 
 	// Optional fields
 	costs?:            [...#CostWithRegion]
@@ -94,7 +95,6 @@ package model
 	params?:           [...#Param]
 	removeParams?:     [...string]
 	requiredParams?:   [...string]
-	mode?:           string
 	isDeprecated?:  bool
 	messages?: {
 		options?: [...string]
