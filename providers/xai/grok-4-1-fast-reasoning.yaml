@@ -1,39 +1,48 @@
 costs:
-    - cache_read_input_token_cost: 5.e-8
-      input_cost_per_token: 2.e-7
-      output_cost_per_token: 5.e-7
-      region: us-east-1
-      tiered_pricing:
-          input:
-              - cost_per_token: 4.e-7
-                from: 128000
-          output:
-              - cost_per_token: 0.000001
-                from: 128000
-    - cache_read_input_token_cost: 5.e-8
-      input_cost_per_token: 2.e-7
-      output_cost_per_token: 5.e-7
-      region: eu-west-1
-      tiered_pricing:
-          input:
-              - cost_per_token: 4.e-7
-                from: 128000
-          output:
-              - cost_per_token: 0.000001
-                from: 128000
-    - cache_read_input_token_cost: 5.e-8
-      input_cost_per_image: 2.e-7
-      input_cost_per_query: 0.025
-      input_cost_per_token: 2.e-7
-      output_cost_per_token: 5.e-7
-      region: "*"
-      tiered_pricing:
-          input:
-              - cost_per_token: 4.e-7
-                from: 128000
-          output:
-              - cost_per_token: 0.000001
-                from: 128000
+    -
+        cache_read_input_token_cost: 5.e-8
+        input_cost_per_token: 2.e-7
+        output_cost_per_token: 5.e-7
+        region: us-east-1
+        tiered_pricing:
+            input:
+                -
+                    cost_per_token: 4.e-7
+                    from: 128000
+            output:
+                -
+                    cost_per_token: 0.000001
+                    from: 128000
+    -
+        cache_read_input_token_cost: 5.e-8
+        input_cost_per_token: 2.e-7
+        output_cost_per_token: 5.e-7
+        region: eu-west-1
+        tiered_pricing:
+            input:
+                -
+                    cost_per_token: 4.e-7
+                    from: 128000
+            output:
+                -
+                    cost_per_token: 0.000001
+                    from: 128000
+    -
+        cache_read_input_token_cost: 5.e-8
+        input_cost_per_image: 2.e-7
+        input_cost_per_query: 0.025
+        input_cost_per_token: 2.e-7
+        output_cost_per_token: 5.e-7
+        region: "*"
+        tiered_pricing:
+            input:
+                -
+                    cost_per_token: 4.e-7
+                    from: 128000
+            output:
+                -
+                    cost_per_token: 0.000001
+                    from: 128000
 features:
     - function_calling
     - vision

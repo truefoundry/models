@@ -1,14 +1,17 @@
 costs:
-    - cache_read_input_token_cost: 2.e-8
-      input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000012
-      region: "*"
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
+    -
+        cache_read_input_token_cost: 2.e-8
+        input_cost_per_token: 0.000002
+        output_cost_per_token: 0.000012
+        region: "*"
+        tiered_pricing:
+            input:
+                -
+                    cost_per_token: 0.000004
+                    from: 200000
+            output:
+                -
+                    cost_per_token: 0.000018
+                    from: 200000
 mode: chat
 model: google/gemini-3-pro-preview

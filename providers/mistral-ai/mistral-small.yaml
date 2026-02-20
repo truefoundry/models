@@ -1,7 +1,8 @@
 costs:
-    - input_cost_per_token: 1.e-7
-      output_cost_per_token: 3.e-7
-      region: "*"
+    -
+        input_cost_per_token: 1.e-7
+        output_cost_per_token: 3.e-7
+        region: "*"
 features:
     - function_calling
     - chat
@@ -14,5 +15,6 @@ limits:
 mode: chat
 model: mistral-small
 params:
-    - key: max_tokens
-      maxValue: 32768
+    -
+        key: max_tokens
+        maxValue: 32768

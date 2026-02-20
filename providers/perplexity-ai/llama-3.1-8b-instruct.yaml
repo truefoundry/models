@@ -1,7 +1,8 @@
 costs:
-    - input_cost_per_token: 2.e-7
-      output_cost_per_token: 2.e-7
-      region: "*"
+    -
+        input_cost_per_token: 2.e-7
+        output_cost_per_token: 2.e-7
+        region: "*"
 features:
     - chat
 isDeprecated: true
@@ -11,5 +12,6 @@ limits:
 mode: chat
 model: llama-3.1-8b-instruct
 params:
-    - key: max_tokens
-      maxValue: 4096
+    -
+        key: max_tokens
+        maxValue: 4096

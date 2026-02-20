@@ -1,8 +1,9 @@
 costs:
-    - cache_read_input_token_cost: 0.0000075
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.00006
-      region: "*"
+    -
+        cache_read_input_token_cost: 0.0000075
+        input_cost_per_token: 0.000015
+        output_cost_per_token: 0.00006
+        region: "*"
 features:
     - function_calling
     - parallel_function_calling
@@ -23,10 +24,11 @@ messages:
 mode: chat
 model: o1
 params:
-    - defaultValue: 1000
-      key: max_completion_tokens
-      maxValue: 100000
-      minValue: 1
+    -
+        defaultValue: 1000
+        key: max_completion_tokens
+        maxValue: 100000
+        minValue: 1
 removeParams:
     - temperature
     - top_p

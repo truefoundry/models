@@ -1,14 +1,17 @@
 costs:
-    - input_cost_per_token: 7.5e-8
-      output_cost_per_token: 3.e-7
-      region: "*"
-      tiered_pricing:
-          input:
-              - cost_per_token: 1.5e-7
-                from: 128000
-          output:
-              - cost_per_token: 6.e-7
-                from: 128000
+    -
+        input_cost_per_token: 7.5e-8
+        output_cost_per_token: 3.e-7
+        region: "*"
+        tiered_pricing:
+            input:
+                -
+                    cost_per_token: 1.5e-7
+                    from: 128000
+            output:
+                -
+                    cost_per_token: 6.e-7
+                    from: 128000
 features:
     - function_calling
     - vision
@@ -27,37 +30,42 @@ limits:
 mode: chat
 model: gemini-1.5-flash
 params:
-    - key: max_tokens
-      maxValue: 4096
-    - defaultValue: null
-      key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
-      type: string
+    -
+        key: max_tokens
+        maxValue: 4096
+    -
+        defaultValue: null
+        key: response_format
+        options:
+            -
+                name: Text
+                value: null
+            -
+                name: JSON Object
+                schema:
+                    properties:
+                        type:
+                            type: string
+                            value: json_object
+                    type: object
+                value: json_object
+            -
+                name: JSON Schema
+                params:
+                    defaultValue: null
+                    key: json_schema
+                    skipValues:
+                        - null
+                    type: json
+                schema:
+                    properties:
+                        json_schema:
+                            type: object
+                        type:
+                            type: string
+                            value: json_schema
+                    type: object
+                value: json_schema
+        skipValues:
+            - null
+        type: string

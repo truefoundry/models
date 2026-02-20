@@ -1,8 +1,9 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.00001
-      region: "*"
+    -
+        cache_read_input_token_cost: 0.00000125
+        input_cost_per_token: 0.0000025
+        output_cost_per_token: 0.00001
+        region: "*"
 features:
     - function_calling
     - parallel_function_calling
@@ -19,45 +20,52 @@ limits:
 mode: chat
 model: gpt-4o
 params:
-    - key: max_tokens
-      maxValue: 16384
-    - defaultValue: null
-      key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
-      type: string
-    - defaultValue: 0
-      key: frequency_penalty
-      maxValue: 2
-      minValue: -2
-    - defaultValue: 0
-      key: presence_penalty
-      maxValue: 2
-      minValue: -2
+    -
+        key: max_tokens
+        maxValue: 16384
+    -
+        defaultValue: null
+        key: response_format
+        options:
+            -
+                name: Text
+                value: null
+            -
+                name: JSON Object
+                schema:
+                    properties:
+                        type:
+                            type: string
+                            value: json_object
+                    type: object
+                value: json_object
+            -
+                name: JSON Schema
+                params:
+                    defaultValue: null
+                    key: json_schema
+                    skipValues:
+                        - null
+                    type: json
+                schema:
+                    properties:
+                        json_schema:
+                            type: object
+                        type:
+                            type: string
+                            value: json_schema
+                    type: object
+                value: json_schema
+        skipValues:
+            - null
+        type: string
+    -
+        defaultValue: 0
+        key: frequency_penalty
+        maxValue: 2
+        minValue: -2
+    -
+        defaultValue: 0
+        key: presence_penalty
+        maxValue: 2
+        minValue: -2

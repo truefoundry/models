@@ -9,53 +9,64 @@ messages:
         - user
         - assistant
 params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 32768
-      minValue: 1
-    - defaultValue: 0.7
-      key: temperature
-      maxValue: 2
-      minValue: 0
-    - defaultValue: 1
-      key: top_p
-      maxValue: 1
-      minValue: 0
-    - defaultValue: 1
-      key: "n"
-      maxValue: 10
-      minValue: 1
-    - defaultValue: null
-      key: stop
-      skipValues:
-          - null
-          - []
-      type: array-of-strings
-    - defaultValue: true
-      key: stream
-      type: boolean
-    - defaultValue: null
-      key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema:
-                type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
-      skipValues:
-          - null
-          - []
-      type: non-view-manage-data
+    -
+        defaultValue: 256
+        key: max_tokens
+        maxValue: 32768
+        minValue: 1
+    -
+        defaultValue: 0.7
+        key: temperature
+        maxValue: 2
+        minValue: 0
+    -
+        defaultValue: 1
+        key: top_p
+        maxValue: 1
+        minValue: 0
+    -
+        defaultValue: 1
+        key: "n"
+        maxValue: 10
+        minValue: 1
+    -
+        defaultValue: null
+        key: stop
+        skipValues:
+            - null
+            - []
+        type: array-of-strings
+    -
+        defaultValue: true
+        key: stream
+        type: boolean
+    -
+        defaultValue: null
+        key: tool_choice
+        options:
+            -
+                name: None
+                value: none
+            -
+                name: Auto
+                value: auto
+            -
+                name: Required
+                value: required
+            -
+                name: Custom
+                schema:
+                    type: json
+                value: custom
+        rule:
+            default:
+                condition: tools
+                else: null
+                then: auto
+        skipValues:
+            - null
+            - []
+        type: non-view-manage-data
 type:
     primary: chat
     supported:

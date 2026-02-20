@@ -1,7 +1,8 @@
 costs:
-    - input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000004
-      region: "*"
+    -
+        input_cost_per_token: 0.000003
+        output_cost_per_token: 0.000004
+        region: "*"
 features:
     - chat
     - tools
@@ -14,5 +15,6 @@ limits:
 mode: chat
 model: gpt-3.5-turbo-16k
 params:
-    - key: max_tokens
-      maxValue: 16384
+    -
+        key: max_tokens
+        maxValue: 16384

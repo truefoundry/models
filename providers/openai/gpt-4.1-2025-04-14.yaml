@@ -1,10 +1,11 @@
 costs:
-    - cache_read_input_token_cost: 5.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_token: 0.000008
-      output_cost_per_token_batches: 0.000004
-      region: "*"
+    -
+        cache_read_input_token_cost: 5.e-7
+        input_cost_per_token: 0.000002
+        input_cost_per_token_batches: 0.000001
+        output_cost_per_token: 0.000008
+        output_cost_per_token_batches: 0.000004
+        region: "*"
 features:
     - function_calling
     - parallel_function_calling
@@ -24,41 +25,46 @@ limits:
 mode: chat
 model: gpt-4.1-2025-04-14
 params:
-    - defaultValue: 1000
-      key: max_completion_tokens
-      maxValue: 32768
-      minValue: 1
-    - defaultValue: null
-      key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
-      type: string
+    -
+        defaultValue: 1000
+        key: max_completion_tokens
+        maxValue: 32768
+        minValue: 1
+    -
+        defaultValue: null
+        key: response_format
+        options:
+            -
+                name: Text
+                value: null
+            -
+                name: JSON Object
+                schema:
+                    properties:
+                        type:
+                            type: string
+                            value: json_object
+                    type: object
+                value: json_object
+            -
+                name: JSON Schema
+                params:
+                    defaultValue: null
+                    key: json_schema
+                    skipValues:
+                        - null
+                    type: json
+                schema:
+                    properties:
+                        json_schema:
+                            type: object
+                        type:
+                            type: string
+                            value: json_schema
+                    type: object
+                value: json_schema
+        skipValues:
+            - null
+        type: string
 removeParams:
     - max_tokens

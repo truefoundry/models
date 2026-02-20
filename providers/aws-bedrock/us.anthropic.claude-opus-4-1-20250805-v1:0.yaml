@@ -1,19 +1,22 @@
 costs:
-    - cache_creation_input_token_cost: 0.00001875
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000075
-      region: us-west-2
-    - cache_creation_input_token_cost: 0.00001875
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000075
-      region: us-east-2
-    - cache_creation_input_token_cost: 0.00001875
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000075
-      region: us-east-1
+    -
+        cache_creation_input_token_cost: 0.00001875
+        cache_read_input_token_cost: 0.0000015
+        input_cost_per_token: 0.000015
+        output_cost_per_token: 0.000075
+        region: us-west-2
+    -
+        cache_creation_input_token_cost: 0.00001875
+        cache_read_input_token_cost: 0.0000015
+        input_cost_per_token: 0.000015
+        output_cost_per_token: 0.000075
+        region: us-east-2
+    -
+        cache_creation_input_token_cost: 0.00001875
+        cache_read_input_token_cost: 0.0000015
+        input_cost_per_token: 0.000015
+        output_cost_per_token: 0.000075
+        region: us-east-1
 features:
     - function_calling
     - vision
@@ -26,38 +29,45 @@ limits:
 mode: chat
 model: us.anthropic.claude-opus-4-1-20250805-v1:0
 params:
-    - key: max_tokens
-      maxValue: 32000
-    - enum:
-          - enabled
-          - disabled
-      key: thinking
-      maxValue: 128000
-      minValue: 1024
-      skipValues:
-          - disabled
-          - null
-      type: number
-      withdrawParams:
-          - top_k
-          - top_p
-    - default:
-          condition: tools
-          else: null
-          then: auto
-      key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema: null
-            type: json
-            value: custom
-      rule: null
-      skipValues:
-          - null
-      type: json
+    -
+        key: max_tokens
+        maxValue: 32000
+    -
+        enum:
+            - enabled
+            - disabled
+        key: thinking
+        maxValue: 128000
+        minValue: 1024
+        skipValues:
+            - disabled
+            - null
+        type: number
+        withdrawParams:
+            - top_k
+            - top_p
+    -
+        default:
+            condition: tools
+            else: null
+            then: auto
+        key: tool_choice
+        options:
+            -
+                name: None
+                value: none
+            -
+                name: Auto
+                value: auto
+            -
+                name: Required
+                value: required
+            -
+                name: Custom
+                schema: null
+                type: json
+                value: custom
+        rule: null
+        skipValues:
+            - null
+        type: json

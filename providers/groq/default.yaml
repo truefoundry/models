@@ -8,27 +8,32 @@ messages:
         - user
         - assistant
 params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 4096
-      minValue: 1
-    - defaultValue: 0.7
-      key: temperature
-      maxValue: 2
-      minValue: 0
-    - defaultValue: 1
-      key: top_p
-      maxValue: 1
-      minValue: 0
-    - defaultValue: null
-      key: stop
-      skipValues:
-          - null
-          - []
-      type: array-of-strings
-    - defaultValue: true
-      key: stream
-      type: boolean
+    -
+        defaultValue: 256
+        key: max_tokens
+        maxValue: 4096
+        minValue: 1
+    -
+        defaultValue: 0.7
+        key: temperature
+        maxValue: 2
+        minValue: 0
+    -
+        defaultValue: 1
+        key: top_p
+        maxValue: 1
+        minValue: 0
+    -
+        defaultValue: null
+        key: stop
+        skipValues:
+            - null
+            - []
+        type: array-of-strings
+    -
+        defaultValue: true
+        key: stream
+        type: boolean
 type:
     primary: chat
     supported: []
