@@ -1,8 +1,32 @@
 model: zai.glm-4.7
 costs:
-    - region: "*"
+    - region: us-east-1
       input_cost_per_token: 6.e-7
-      output_cost_per_token: 0.0000022
+      output_cost_per_token: 2.2e-6
+    - region: us-east-2
+      input_cost_per_token: 6.e-7
+      output_cost_per_token: 2.2e-6
+    - region: us-west-2
+      input_cost_per_token: 6.e-7
+      output_cost_per_token: 2.2e-6
+    - region: ap-southeast-3
+      input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.24e-6
+    - region: ap-south-1
+      input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.24e-6
+    - region: ap-northeast-1
+      input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.24e-6
+    - region: sa-east-1
+      input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.24e-6
+    - region: eu-north-1
+      input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.24e-6
+    - region: ap-southeast-2
+      input_cost_per_token: 6.18e-7
+      output_cost_per_token: 2.266e-6
 limits:
     max_tokens: 128000
     max_input_tokens: 200000
