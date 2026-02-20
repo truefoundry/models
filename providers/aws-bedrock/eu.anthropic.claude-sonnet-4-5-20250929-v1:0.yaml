@@ -1,52 +1,44 @@
 costs:
-    -
-        cache_creation_input_token_cost: 0.0000075
-        cache_read_input_token_cost: 6.e-7
-        input_cost_per_token: 0.000003
-        output_cost_per_token: 0.000015
-        region: eu-west-3
-    -
-        cache_creation_input_token_cost: 0.00000375
-        cache_read_input_token_cost: 6.e-7
-        input_cost_per_token: 0.000003
-        output_cost_per_token: 0.000015
-        region: eu-west-2
-    -
-        cache_creation_input_token_cost: 0.0000075
-        cache_read_input_token_cost: 3.e-7
-        input_cost_per_token: 0.000006
-        output_cost_per_token: 0.0000225
-        region: eu-west-1
-    -
-        cache_creation_input_token_cost: 0.0000075
-        cache_read_input_token_cost: 6.e-7
-        input_cost_per_token: 0.000006
-        output_cost_per_token: 0.000015
-        region: eu-south-2
-    -
-        cache_creation_input_token_cost: 0.0000075
-        cache_read_input_token_cost: 3.e-7
-        input_cost_per_token: 0.000006
-        output_cost_per_token: 0.0000225
-        region: eu-south-1
-    -
-        cache_creation_input_token_cost: 0.00000375
-        cache_read_input_token_cost: 3.e-7
-        input_cost_per_token: 0.000006
-        output_cost_per_token: 0.0000225
-        region: eu-north-1
-    -
-        cache_creation_input_token_cost: 0.00000375
-        cache_read_input_token_cost: 3.e-7
-        input_cost_per_token: 0.000006
-        output_cost_per_token: 0.0000225
-        region: eu-central-2
-    -
-        cache_creation_input_token_cost: 0.00000375
-        cache_read_input_token_cost: 3.e-7
-        input_cost_per_token: 0.000006
-        output_cost_per_token: 0.0000225
-        region: eu-central-1
+    - cache_creation_input_token_cost: 0.0000075
+      cache_read_input_token_cost: 6.e-7
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: eu-west-3
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 6.e-7
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: eu-west-2
+    - cache_creation_input_token_cost: 0.0000075
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000006
+      output_cost_per_token: 0.0000225
+      region: eu-west-1
+    - cache_creation_input_token_cost: 0.0000075
+      cache_read_input_token_cost: 6.e-7
+      input_cost_per_token: 0.000006
+      output_cost_per_token: 0.000015
+      region: eu-south-2
+    - cache_creation_input_token_cost: 0.0000075
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000006
+      output_cost_per_token: 0.0000225
+      region: eu-south-1
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000006
+      output_cost_per_token: 0.0000225
+      region: eu-north-1
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000006
+      output_cost_per_token: 0.0000225
+      region: eu-central-2
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000006
+      output_cost_per_token: 0.0000225
+      region: eu-central-1
 features:
     - function_calling
     - vision
@@ -59,47 +51,40 @@ limits:
 mode: chat
 model: eu.anthropic.claude-sonnet-4-5-20250929-v1:0
 params:
-    -
-        key: max_tokens
-        maxValue: 8192
-    -
-        enum:
-            - enabled
-            - disabled
-        key: thinking
-        maxValue: 128000
-        minValue: 1024
-        skipValues:
-            - disabled
-            - null
-        type: number
-        withdrawParams:
-            - top_k
-            - top_p
-    -
-        default:
-            condition: tools
-            else: null
-            then: auto
-        key: tool_choice
-        options:
-            -
-                name: None
-                value: none
-            -
-                name: Auto
-                value: auto
-            -
-                name: Required
-                value: required
-            -
-                name: Custom
-                schema: null
-                type: json
-                value: custom
-        rule: null
-        skipValues:
-            - null
-        type: json
+    - key: max_tokens
+      maxValue: 8192
+    - enum:
+          - enabled
+          - disabled
+      key: thinking
+      maxValue: 128000
+      minValue: 1024
+      skipValues:
+          - disabled
+          - null
+      type: number
+      withdrawParams:
+          - top_k
+          - top_p
+    - default:
+          condition: tools
+          else: null
+          then: auto
+      key: tool_choice
+      options:
+          - name: None
+            value: none
+          - name: Auto
+            value: auto
+          - name: Required
+            value: required
+          - name: Custom
+            schema: null
+            type: json
+            value: custom
+      rule: null
+      skipValues:
+          - null
+      type: json
 removeParams:
     - top_p

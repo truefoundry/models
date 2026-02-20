@@ -1,12 +1,11 @@
 costs:
-    -
-        cache_creation_input_token_cost: 0.00001875
-        cache_read_input_token_cost: 0.0000015
-        input_cost_per_token: 0.000015
-        input_cost_per_token_batches: 0.0000075
-        output_cost_per_token: 0.000075
-        output_cost_per_token_batches: 0.0000375
-        region: "*"
+    - cache_creation_input_token_cost: 0.00001875
+      cache_read_input_token_cost: 0.0000015
+      input_cost_per_token: 0.000015
+      input_cost_per_token_batches: 0.0000075
+      output_cost_per_token: 0.000075
+      output_cost_per_token_batches: 0.0000375
+      region: "*"
 features:
     - function_calling
     - vision
@@ -25,28 +24,26 @@ limits:
 mode: chat
 model: claude-3-opus-latest
 params:
-    -
-        key: max_tokens
-        maxValue: 64000
-    -
-        defaultValue: null
-        key: thinking
-        properties:
-            budget_tokens:
-                maxValue: 128000
-                minValue: 1024
-                type: number
-            type:
-                enum:
-                    - enabled
-                    - disabled
-                type: string
-        skipValues:
-            - disabled
-            - null
-        withdrawParams:
-            - top_k
-            - top_p
+    - key: max_tokens
+      maxValue: 64000
+    - defaultValue: null
+      key: thinking
+      properties:
+          budget_tokens:
+              maxValue: 128000
+              minValue: 1024
+              type: number
+          type:
+              enum:
+                  - enabled
+                  - disabled
+              type: string
+      skipValues:
+          - disabled
+          - null
+      withdrawParams:
+          - top_k
+          - top_p
 removeParams:
     - temperature
     - top_p

@@ -1,9 +1,8 @@
 costs:
-    -
-        cache_read_input_token_cost: 0.0000015
-        input_cost_per_token: 0.000003
-        output_cost_per_token: 0.000012
-        region: "*"
+    - cache_read_input_token_cost: 0.0000015
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000012
+      region: "*"
 features:
     - vision
     - chat
@@ -22,11 +21,10 @@ messages:
 mode: chat
 model: o1-mini-2024-09-12
 params:
-    -
-        defaultValue: 1000
-        key: max_completion_tokens
-        maxValue: 65536
-        minValue: 1
+    - defaultValue: 1000
+      key: max_completion_tokens
+      maxValue: 65536
+      minValue: 1
 removeParams:
     - temperature
     - top_p

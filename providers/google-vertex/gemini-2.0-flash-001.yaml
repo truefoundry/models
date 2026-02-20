@@ -1,10 +1,9 @@
 costs:
-    -
-        cache_read_input_token_cost: 3.75e-8
-        input_cost_per_audio_token: 0.000001
-        input_cost_per_token: 1.5e-7
-        output_cost_per_token: 6.e-7
-        region: "*"
+    - cache_read_input_token_cost: 3.75e-8
+      input_cost_per_audio_token: 0.000001
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6.e-7
+      region: "*"
 features:
     - function_calling
     - parallel_function_calling
@@ -25,42 +24,37 @@ limits:
 mode: chat
 model: gemini-2.0-flash-001
 params:
-    -
-        key: max_tokens
-        maxValue: 8192
-    -
-        defaultValue: null
-        key: response_format
-        options:
-            -
-                name: Text
-                value: null
-            -
-                name: JSON Object
-                schema:
-                    properties:
-                        type:
-                            type: string
-                            value: json_object
-                    type: object
-                value: json_object
-            -
-                name: JSON Schema
-                params:
-                    defaultValue: null
-                    key: json_schema
-                    skipValues:
-                        - null
-                    type: json
-                schema:
-                    properties:
-                        json_schema:
-                            type: object
-                        type:
-                            type: string
-                            value: json_schema
-                    type: object
-                value: json_schema
-        skipValues:
-            - null
-        type: string
+    - key: max_tokens
+      maxValue: 8192
+    - defaultValue: null
+      key: response_format
+      options:
+          - name: Text
+            value: null
+          - name: JSON Object
+            schema:
+                properties:
+                    type:
+                        type: string
+                        value: json_object
+                type: object
+            value: json_object
+          - name: JSON Schema
+            params:
+                defaultValue: null
+                key: json_schema
+                skipValues:
+                    - null
+                type: json
+            schema:
+                properties:
+                    json_schema:
+                        type: object
+                    type:
+                        type: string
+                        value: json_schema
+                type: object
+            value: json_schema
+      skipValues:
+          - null
+      type: string

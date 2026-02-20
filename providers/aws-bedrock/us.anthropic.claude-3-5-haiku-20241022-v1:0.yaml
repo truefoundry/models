@@ -1,22 +1,19 @@
 costs:
-    -
-        cache_creation_input_token_cost: 0.000001
-        cache_read_input_token_cost: 8.e-8
-        input_cost_per_token: 8.e-7
-        output_cost_per_token: 0.000004
-        region: us-west-2
-    -
-        cache_creation_input_token_cost: 0.000001
-        cache_read_input_token_cost: 8.e-8
-        input_cost_per_token: 8.e-7
-        output_cost_per_token: 0.000004
-        region: us-east-2
-    -
-        cache_creation_input_token_cost: 0.000001
-        cache_read_input_token_cost: 8.e-8
-        input_cost_per_token: 8.e-7
-        output_cost_per_token: 0.000004
-        region: us-east-1
+    - cache_creation_input_token_cost: 0.000001
+      cache_read_input_token_cost: 8.e-8
+      input_cost_per_token: 8.e-7
+      output_cost_per_token: 0.000004
+      region: us-west-2
+    - cache_creation_input_token_cost: 0.000001
+      cache_read_input_token_cost: 8.e-8
+      input_cost_per_token: 8.e-7
+      output_cost_per_token: 0.000004
+      region: us-east-2
+    - cache_creation_input_token_cost: 0.000001
+      cache_read_input_token_cost: 8.e-8
+      input_cost_per_token: 8.e-7
+      output_cost_per_token: 0.000004
+      region: us-east-1
 features:
     - function_calling
     - chat
@@ -28,26 +25,21 @@ limits:
 mode: chat
 model: us.anthropic.claude-3-5-haiku-20241022-v1:0
 params:
-    -
-        condition: tools
-        default: null
-        else: null
-        key: tool_choice
-        options:
-            -
-                name: None
-                value: none
-            -
-                name: Auto
-                value: auto
-            -
-                name: Required
-                value: required
-            -
-                name: Custom
-                type: json
-                value: custom
-        skipValues:
-            - null
-        then: auto
-        type: non-view-manage-data
+    - condition: tools
+      default: null
+      else: null
+      key: tool_choice
+      options:
+          - name: None
+            value: none
+          - name: Auto
+            value: auto
+          - name: Required
+            value: required
+          - name: Custom
+            type: json
+            value: custom
+      skipValues:
+          - null
+      then: auto
+      type: non-view-manage-data
