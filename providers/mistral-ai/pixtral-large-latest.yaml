@@ -1,11 +1,16 @@
-model: pixtral-large-latest
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000002
+    - input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
+      region: "*"
+features:
+    - function_calling
+    - vision
+    - tool_choice
+    - response_schema
+    - assistant_prefill
 limits:
-    max_tokens: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
-features: [function_calling, vision]
+    max_tokens: 128000
 mode: chat
+model: pixtral-large-latest

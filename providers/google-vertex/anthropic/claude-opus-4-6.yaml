@@ -1,81 +1,87 @@
-model: anthropic/claude-opus-4-6
 costs:
-    - region: global
+    - cache_creation_input_token_cost: 0.00000625
+      cache_read_input_token_cost: 5.e-7
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
-      cache_read_input_token_cost: 5.e-7
-      cache_creation_input_token_cost: 0.00000625
+      region: global
       tiered_pricing:
-          cache_write:
-              - from: 200000
-                cost_per_token: 0.0000125
           cache_read:
-              - from: 200000
-                cost_per_token: 0.000001
+              - cost_per_token: 0.000001
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000125
+                from: 200000
           input:
-              - from: 200000
-                cost_per_token: 0.00001
+              - cost_per_token: 0.00001
+                from: 200000
           output:
-              - from: 200000
-                cost_per_token: 0.0000375
-    - region: us-east5
+              - cost_per_token: 0.0000375
+                from: 200000
+    - cache_creation_input_token_cost: 0.00000688
+      cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
-      cache_read_input_token_cost: 5.5e-7
-      cache_creation_input_token_cost: 0.00000688
+      region: us-east5
       tiered_pricing:
-          cache_write:
-              - from: 200000
-                cost_per_token: 0.00001375
           cache_read:
-              - from: 200000
-                cost_per_token: 0.0000011
+              - cost_per_token: 0.0000011
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00001375
+                from: 200000
           input:
-              - from: 200000
-                cost_per_token: 0.000011
+              - cost_per_token: 0.000011
+                from: 200000
           output:
-              - from: 200000
-                cost_per_token: 0.00004125
-    - region: europe-west1
+              - cost_per_token: 0.00004125
+                from: 200000
+    - cache_creation_input_token_cost: 0.00000688
+      cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
-      cache_read_input_token_cost: 5.5e-7
-      cache_creation_input_token_cost: 0.00000688
+      region: europe-west1
       tiered_pricing:
-          cache_write:
-              - from: 200000
-                cost_per_token: 0.00001375
           cache_read:
-              - from: 200000
-                cost_per_token: 0.0000011
+              - cost_per_token: 0.0000011
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00001375
+                from: 200000
           input:
-              - from: 200000
-                cost_per_token: 0.000011
+              - cost_per_token: 0.000011
+                from: 200000
           output:
-              - from: 200000
-                cost_per_token: 0.00004125
-    - region: asia-southeast1
+              - cost_per_token: 0.00004125
+                from: 200000
+    - cache_creation_input_token_cost: 0.00000688
+      cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
-      cache_read_input_token_cost: 5.5e-7
-      cache_creation_input_token_cost: 0.00000688
+      region: asia-southeast1
       tiered_pricing:
-          cache_write:
-              - from: 200000
-                cost_per_token: 0.00001375
           cache_read:
-              - from: 200000
-                cost_per_token: 0.0000011
+              - cost_per_token: 0.0000011
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00001375
+                from: 200000
           input:
-              - from: 200000
-                cost_per_token: 0.000011
+              - cost_per_token: 0.000011
+                from: 200000
           output:
-              - from: 200000
-                cost_per_token: 0.00004125
+              - cost_per_token: 0.00004125
+                from: 200000
+features:
+    - function_calling
+    - vision
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - pdf_input
 limits:
-    max_tokens: 128000
     max_input_tokens: 1000000
     max_output_tokens: 128000
+    max_tokens: 128000
     tool_use_system_prompt_tokens: 346
-features: [function_calling, vision]
 mode: chat
+model: anthropic/claude-opus-4-6

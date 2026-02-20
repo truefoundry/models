@@ -1,20 +1,25 @@
-params:
-    - key: max_tokens
-      defaultValue: 256
-      minValue: 1
-      maxValue: 4096
-    - key: temperature
-      defaultValue: 0.7
-      minValue: 0
-      maxValue: 1
-    - key: stream
-      defaultValue: true
-      type: boolean
+documentation:
+    - https://docs.cohere.com
+    - https://cohere.com/pricing
+    - https://docs.cohere.com/docs/models
+    - https://docs.cohere.com/docs/deprecations
 messages:
     options:
         - system
         - user
         - assistant
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 4096
+      minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - defaultValue: true
+      key: stream
+      type: boolean
 type:
     primary: chat
     supported: []

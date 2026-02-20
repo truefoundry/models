@@ -1,11 +1,11 @@
-model: eu.twelvelabs.marengo-embed-3-0-v1:0
 costs:
-    - region: eu-west-1
-      input_cost_per_image: 1e-4
+    - input_cost_per_image: 1e-4
       input_cost_per_second: 7e-4
       input_cost_per_request: 7e-05
+      region: eu-west-1
 limits:
-    max_tokens: 500
     max_input_tokens: 500
+    max_tokens: 500
     output_vector_size: 1024
 mode: embedding
+model: eu.twelvelabs.marengo-embed-3-0-v1:0

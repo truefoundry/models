@@ -1,75 +1,87 @@
-model: gpt-5-2025-08-07
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 1.25e-7
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
-      cache_read_input_token_cost: 1.25e-7
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - vision
+    - chat
+    - image
+    - tools
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - pdf_input
 limits:
-    max_tokens: 4096
     max_input_tokens: 272000
     max_output_tokens: 128000
-features: [function_calling, parallel_function_calling, vision, chat, image]
+    max_tokens: 4096
+mode: chat
+model: gpt-5-2025-08-07
 params:
-    - key: max_completion_tokens
-      defaultValue: 20000
-      minValue: 1
+    - defaultValue: 20000
+      key: max_completion_tokens
       maxValue: 32768
-    - key: response_format
-      defaultValue: null
+      minValue: 1
+    - defaultValue: null
+      key: response_format
       options:
-          - value: null
-            name: Text
-          - value: json_object
-            name: JSON Object
+          - name: Text
+            value: null
+          - name: JSON Object
             schema:
-                type: object
                 properties:
                     type:
                         type: string
                         value: json_object
-          - value: json_schema
-            name: JSON Schema
-            schema:
                 type: object
+            value: json_object
+          - name: JSON Schema
+            params:
+                defaultValue: null
+                key: json_schema
+                skipValues:
+                    - null
+                type: json
+            schema:
                 properties:
+                    json_schema:
+                        type: object
                     type:
                         type: string
                         value: json_schema
-                    json_schema:
-                        type: object
-            params:
-                key: json_schema
-                defaultValue: null
-                type: json
-                skipValues:
-                    - null
+                type: object
+            value: json_schema
       skipValues:
           - null
       type: string
-    - key: verbosity
+    - defaultValue: null
       enum:
           - low
           - medium
           - high
           - null
-      defaultValue: null
+      key: verbosity
       skipValues:
           - null
-    - key: reasoning
-      defaultValue: null
+    - defaultValue: null
+      key: reasoning
       nestedOptions:
-          - view: minimal
-            value:
+          - value:
                 effort: minimal
-          - view: low
-            value:
+            view: minimal
+          - value:
                 effort: low
-          - view: medium
-            value:
+            view: low
+          - value:
                 effort: medium
-          - view: high
-            value:
+            view: medium
+          - value:
                 effort: high
+            view: high
       skipValues:
           - null
 removeParams:
@@ -80,4 +92,3 @@ removeParams:
     - frequency_penalty
     - logit_bias
     - max_tokens
-mode: chat

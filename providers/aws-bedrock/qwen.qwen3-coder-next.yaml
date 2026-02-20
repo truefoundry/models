@@ -1,44 +1,45 @@
-model: qwen.qwen3-coder-next
 costs:
-    - region: us-west-2
-      input_cost_per_token: 5e-7
+    - input_cost_per_token: 5e-7
       output_cost_per_token: 1.2e-6
-    - region: us-east-2
-      input_cost_per_token: 5e-7
+      region: us-west-2
+    - input_cost_per_token: 5e-7
       output_cost_per_token: 1.2e-6
-    - region: us-east-1
-      input_cost_per_token: 5e-7
+      region: us-east-2
+    - input_cost_per_token: 5e-7
       output_cost_per_token: 1.2e-6
-    - region: ap-south-1
-      input_cost_per_token: 6e-7
+      region: us-east-1
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 1.44e-6
-    - region: eu-west-1
-      input_cost_per_token: 6e-7
+      region: ap-south-1
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 1.44e-6
-    - region: eu-south-1
-      input_cost_per_token: 6e-7
+      region: eu-west-1
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 1.44e-6
-    - region: sa-east-1
-      input_cost_per_token: 6e-7
+      region: eu-south-1
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 1.44e-6
-    - region: ap-northeast-1
-      input_cost_per_token: 6e-7
+      region: sa-east-1
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 1.44e-6
-    - region: eu-west-2
-      input_cost_per_token: 7.8e-7
+      region: ap-northeast-1
+    - input_cost_per_token: 7.8e-7
       output_cost_per_token: 1.86e-6
-    - region: eu-central-1
-      input_cost_per_token: 6e-7
+      region: eu-west-2
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 1.44e-6
-    - region: ap-southeast-3
-      input_cost_per_token: 6e-7
+      region: eu-central-1
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 1.44e-6
-    - region: ap-southeast-2
-      input_cost_per_token: 5.15e-7
+      region: ap-southeast-3
+    - input_cost_per_token: 5.15e-7
       output_cost_per_token: 1.236e-7
+      region: ap-southeast-2
+features:
+    - function_calling
 limits:
-    max_tokens: 8192
     max_input_tokens: 262144
     max_output_tokens: 8192
-features: [function_calling]
+    max_tokens: 8192
 mode: chat
+model: qwen.qwen3-coder-next

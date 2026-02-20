@@ -1,11 +1,12 @@
-model: x-ai/grok-4-fast:free
 costs:
-    - region: "*"
-      input_cost_per_token: 0
+    - input_cost_per_token: 0
       output_cost_per_token: 0
+      region: "*"
+features:
+    - function_calling
 limits:
-    max_tokens: 30000
     max_input_tokens: 2000000
     max_output_tokens: 30000
-features: [function_calling]
+    max_tokens: 30000
 mode: chat
+model: x-ai/grok-4-fast:free

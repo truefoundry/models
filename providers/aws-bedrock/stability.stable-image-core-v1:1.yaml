@@ -1,6 +1,7 @@
-model: stability.stable-image-core-v1:1
+features:
+    - image
 limits:
-    max_tokens: 4096
     max_input_tokens: 77
-features: [image]
+    max_tokens: 4096
 mode: image
+model: stability.stable-image-core-v1:1

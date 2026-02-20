@@ -1,14 +1,15 @@
-model: j2-light
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000003
+    - input_cost_per_token: 0.000003
       output_cost_per_token: 0.000003
+      region: "*"
+features:
+    - chat
+isDeprecated: true
 limits:
-    max_tokens: 4096
     max_input_tokens: 8192
     max_output_tokens: 8192
-features: [chat]
+    max_tokens: 4096
+mode: completion
+model: j2-light
 removeParams:
     - stream
-mode: completion
-isDeprecated: true

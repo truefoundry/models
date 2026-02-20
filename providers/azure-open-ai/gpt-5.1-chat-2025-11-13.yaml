@@ -1,0 +1,17 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      region: "*"
+features:
+    - vision
+    - system_messages
+    - prompt_caching
+    - response_schema
+    - pdf_input
+limits:
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+mode: chat
+model: gpt-5.1-chat-2025-11-13

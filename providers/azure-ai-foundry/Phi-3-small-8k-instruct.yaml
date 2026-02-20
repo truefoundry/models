@@ -1,11 +1,13 @@
-model: Phi-3-small-8k-instruct
 costs:
-    - region: "*"
-      input_cost_per_token: 1.5e-7
+    - input_cost_per_token: 1.5e-7
       output_cost_per_token: 6.e-7
+      region: "*"
+features:
+    - chat
+    - tool_choice
 limits:
-    max_tokens: 4096
     max_input_tokens: 8192
     max_output_tokens: 4096
-features: [chat]
+    max_tokens: 4096
 mode: chat
+model: Phi-3-small-8k-instruct

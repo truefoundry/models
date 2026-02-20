@@ -1,11 +1,11 @@
-model: apac.twelvelabs.marengo-embed-2-7-v1:0
 costs:
-    - region: ap-northeast-2
-      input_cost_per_image: 1e-4
+    - input_cost_per_image: 1e-4
       input_cost_per_second: 7.e-4
       input_cost_per_request: 7e-05
+      region: ap-northeast-2
 limits:
-    max_tokens: 77
     max_input_tokens: 77
+    max_tokens: 77
     output_vector_size: 1024
 mode: embedding
+model: apac.twelvelabs.marengo-embed-2-7-v1:0

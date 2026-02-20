@@ -1,30 +1,32 @@
-model: anthropic.claude-opus-4-1-20250805-v1:0
 costs:
-    - region: us-west-2
-      cache_creation_input_token_cost: 1.875e-05
-      cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-05
-      input_cost_per_token_batches: 7.5e-6
-      output_cost_per_token: 7.5e-05
-      output_cost_per_token_batches: 3.75e-05
-    - region: us-east-2
-      cache_creation_input_token_cost: 1.875e-05
-      cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-05
-      input_cost_per_token_batches: 7.5e-6
-      output_cost_per_token: 7.5e-05
-      output_cost_per_token_batches: 3.75e-05
-    - region: us-east-1
-      cache_creation_input_token_cost: 1.875e-05
-      cache_read_input_token_cost: 1.5e-6
-      input_cost_per_token: 1.5e-05
-      input_cost_per_token_batches: 7.5e-6
-      output_cost_per_token: 7.5e-05
-      output_cost_per_token_batches: 3.75e-05
+    - cache_creation_input_token_cost: 0.00001875
+      cache_read_input_token_cost: 0.0000015
+      input_cost_per_token: 0.000015
+      input_cost_per_token_batches: 0.0000075
+      output_cost_per_token: 0.000075
+      output_cost_per_token_batches: 0.0000375
+      region: us-west-2
+    - cache_creation_input_token_cost: 0.00001875
+      cache_read_input_token_cost: 0.0000015
+      input_cost_per_token: 0.000015
+      input_cost_per_token_batches: 0.0000075
+      output_cost_per_token: 0.000075
+      output_cost_per_token_batches: 0.0000375
+      region: us-east-2
+    - cache_creation_input_token_cost: 0.00001875
+      cache_read_input_token_cost: 0.0000015
+      input_cost_per_token: 0.000015
+      input_cost_per_token_batches: 0.0000075
+      output_cost_per_token: 0.000075
+      output_cost_per_token_batches: 0.0000375
+      region: us-east-1
+features:
+    - function_calling
+    - vision
 limits:
-    max_tokens: 32000
     max_input_tokens: 200000
     max_output_tokens: 32000
+    max_tokens: 32000
     tool_use_system_prompt_tokens: 159
-features: [function_calling, vision]
 mode: chat
+model: anthropic.claude-opus-4-1-20250805-v1:0

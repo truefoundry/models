@@ -1,11 +1,14 @@
-model: databricks-claude-opus-4-5
 costs:
-    - region: "*"
-      input_cost_per_token: 0.00000500003
+    - input_cost_per_token: 0.00000500003
       output_cost_per_token: 0.000025000010000000002
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - assistant_prefill
 limits:
-    max_tokens: 64000
     max_input_tokens: 200000
     max_output_tokens: 64000
-features: [function_calling]
+    max_tokens: 64000
 mode: chat
+model: databricks-claude-opus-4-5

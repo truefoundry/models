@@ -1,12 +1,16 @@
-model: magistral-medium-2506
 costs:
-    - region: "*"
-      input_cost_per_token: 0.000002
+    - input_cost_per_token: 0.000002
       output_cost_per_token: 0.000005
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - response_schema
+    - assistant_prefill
+isDeprecated: true
 limits:
-    max_tokens: 40000
     max_input_tokens: 40000
     max_output_tokens: 40000
-features: [function_calling]
+    max_tokens: 40000
 mode: chat
-isDeprecated: true
+model: magistral-medium-2506

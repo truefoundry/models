@@ -1,10 +1,12 @@
-model: nvidia/Llama-3.3-Nemotron-Super-49B-v1.5
 costs:
-    - region: "*"
-      input_cost_per_token: 1.e-7
+    - input_cost_per_token: 1.e-7
       output_cost_per_token: 4.e-7
+      region: "*"
+features:
+    - tool_choice
 limits:
-    max_tokens: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
+    max_tokens: 131072
 mode: chat
+model: nvidia/Llama-3.3-Nemotron-Super-49B-v1.5

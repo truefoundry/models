@@ -1,11 +1,12 @@
-model: meta/llama-3.1-8b-instruct-maas
 costs:
-    - region: "*"
-      input_cost_per_token: 0
+    - input_cost_per_token: 0
       output_cost_per_token: 0
+      region: "*"
+features:
+    - vision
 limits:
-    max_tokens: 2048
     max_input_tokens: 128000
     max_output_tokens: 2048
-features: [vision]
+    max_tokens: 2048
 mode: chat
+model: meta/llama-3.1-8b-instruct-maas

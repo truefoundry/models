@@ -1,65 +1,75 @@
-model: o4-mini
 costs:
-    - region: "*"
+    - cache_read_input_token_cost: 2.75e-7
       input_cost_per_token: 0.0000011
       output_cost_per_token: 0.0000044
-      cache_read_input_token_cost: 2.75e-7
+      region: "*"
+features:
+    - function_calling
+    - vision
+    - chat
+    - image
+    - tools
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - pdf_input
 limits:
-    max_tokens: 4096
     max_input_tokens: 200000
     max_output_tokens: 100000
-features: [function_calling, vision, chat, image]
+    max_tokens: 4096
 messages:
     options:
         - user
         - assistant
         - developer
+mode: chat
+model: o4-mini
 params:
-    - key: max_completion_tokens
-      defaultValue: 1000
-      minValue: 1
+    - defaultValue: 1000
+      key: max_completion_tokens
       maxValue: 100000
-    - key: response_format
-      defaultValue: null
+      minValue: 1
+    - defaultValue: null
+      key: response_format
       options:
-          - value: null
-            name: Text
-          - value: json_object
-            name: JSON Object
+          - name: Text
+            value: null
+          - name: JSON Object
             schema:
-                type: object
                 properties:
                     type:
                         type: string
                         value: json_object
-          - value: json_schema
-            name: JSON Schema
-            schema:
                 type: object
+            value: json_object
+          - name: JSON Schema
+            params:
+                defaultValue: null
+                key: json_schema
+                skipValues:
+                    - null
+                type: json
+            schema:
                 properties:
+                    json_schema:
+                        type: object
                     type:
                         type: string
                         value: json_schema
-                    json_schema:
-                        type: object
-            params:
-                key: json_schema
-                defaultValue: null
-                type: json
-                skipValues:
-                    - null
+                type: object
+            value: json_schema
       skipValues:
           - null
       type: string
-    - key: reasoning_effort
-      defaultValue: medium
+    - defaultValue: medium
+      key: reasoning_effort
       options:
-          - value: low
-            name: Low
-          - value: medium
-            name: Medium
-          - value: high
-            name: High
+          - name: Low
+            value: low
+          - name: Medium
+            value: medium
+          - name: High
+            value: high
       type: string
 removeParams:
     - top_p
@@ -69,4 +79,3 @@ removeParams:
     - max_tokens
     - temperature
     - stop
-mode: chat

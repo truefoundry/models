@@ -1,11 +1,11 @@
 model: stability.sd3-large-v1:0
 costs:
-    - region: us-west-2
-      output_cost_per_image: 8e-8
-    - region: us-east-1
-      output_cost_per_image: 8e-8
-limits:
-    max_tokens: 77
-    max_input_tokens: 77
-mode: image
+    - output_cost_per_image: 8e-8
+      region: us-west-2
+    - output_cost_per_image: 8e-8
+      region: us-east-1
 isDeprecated: true
+limits:
+    max_input_tokens: 77
+    max_tokens: 77
+mode: image

@@ -1,10 +1,10 @@
-model: databricks-bge-large-en
 costs:
-    - region: "*"
-      input_cost_per_token: 1.0003e-7
+    - input_cost_per_token: 1.0003e-7
       output_cost_per_token: 0
+      region: "*"
 limits:
-    max_tokens: 512
     max_input_tokens: 512
+    max_tokens: 512
     output_vector_size: 1024
 mode: embedding
+model: databricks-bge-large-en

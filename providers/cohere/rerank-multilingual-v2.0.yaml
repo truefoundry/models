@@ -1,12 +1,12 @@
-model: rerank-multilingual-v2.0
 costs:
-    - region: "*"
+    - input_cost_per_query: 0.002
       input_cost_per_token: 0
       output_cost_per_token: 0
-      input_cost_per_query: 0.002
+      region: "*"
 limits:
-    max_tokens: 4096
     max_input_tokens: 4096
     max_output_tokens: 4096
     max_query_tokens: 2048
+    max_tokens: 4096
 mode: rerank
+model: rerank-multilingual-v2.0

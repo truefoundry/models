@@ -1,17 +1,21 @@
-model: gemini-2.5-computer-use-preview-10-2025
 costs:
-    - region: "*"
-      input_cost_per_token: 0.00000125
+    - input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
+      region: "*"
       tiered_pricing:
           input:
-              - from: 200000
-                cost_per_token: 0.0000025
+              - cost_per_token: 0.0000025
+                from: 200000
           output:
-              - from: 200000
-                cost_per_token: 0.000015
+              - cost_per_token: 0.000015
+                from: 200000
+features:
+    - function_calling
+    - vision
+    - chat
+    - image
 limits:
     max_input_tokens: 1048576
     max_output_tokens: 65535
-features: [function_calling, vision, chat, image]
 mode: chat
+model: gemini-2.5-computer-use-preview-10-2025

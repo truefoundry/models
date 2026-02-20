@@ -1,46 +1,50 @@
-params:
-    - key: max_tokens
-      defaultValue: 256
-      minValue: 1
-      maxValue: 32768
-    - key: temperature
-      defaultValue: 0.7
-      minValue: 0
-      maxValue: 2
-    - key: top_p
-      defaultValue: 1
-      minValue: 0
-      maxValue: 1
-    - key: top_k
-      defaultValue: 1
-      minValue: 0
-      maxValue: 2048
-    - key: "n"
-      defaultValue: 1
-      minValue: 1
-      maxValue: 10
-    - key: frequency_penalty
-      defaultValue: 0
-      minValue: -2
-      maxValue: 2
-    - key: presence_penalty
-      defaultValue: 0
-      minValue: -2
-      maxValue: 2
-    - key: stop
-      defaultValue: null
-      type: array-of-strings
-      skipValues:
-          - null
-          - []
-    - key: stream
-      defaultValue: true
-      type: boolean
+documentation:
+    - https://docs.perplexity.ai
+    - https://docs.perplexity.ai/docs/getting-started/pricing
+    - https://docs.perplexity.ai/docs/getting-started/models
 messages:
     options:
         - system
         - user
         - assistant
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 32768
+      minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 2
+      minValue: 0
+    - defaultValue: 1
+      key: top_p
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 1
+      key: top_k
+      maxValue: 2048
+      minValue: 0
+    - defaultValue: 1
+      key: "n"
+      maxValue: 10
+      minValue: 1
+    - defaultValue: 0
+      key: frequency_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: 0
+      key: presence_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: null
+      key: stop
+      skipValues:
+          - null
+          - []
+      type: array-of-strings
+    - defaultValue: true
+      key: stream
+      type: boolean
 type:
     primary: chat
     supported: []

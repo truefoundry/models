@@ -1,10 +1,11 @@
-model: gpt-4o-transcribe-diarize
 costs:
-    - region: "*"
+    - input_cost_per_audio_token: 0.000006
+      input_cost_per_second: 0.0001
       input_cost_per_token: 0.0000025
       output_cost_per_token: 0.00001
-      input_cost_per_audio_token: 0.000006
+      region: "*"
 limits:
     max_input_tokens: 16000
     max_output_tokens: 2000
 mode: audio_transcription
+model: gpt-4o-transcribe-diarize

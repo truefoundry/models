@@ -1,10 +1,10 @@
-model: deepseek-ai/DeepSeek-OCR
 costs:
-    - region: "*"
-      input_cost_per_token: 3e-8
-      output_cost_per_token: 0.0000001
+    - input_cost_per_token: 3.e-8
+      output_cost_per_token: 1.e-7
+      region: "*"
 limits:
-    max_tokens: 8192
     max_input_tokens: 8192
     max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
+model: deepseek-ai/DeepSeek-OCR

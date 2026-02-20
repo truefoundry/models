@@ -1,10 +1,12 @@
-model: medlm-medium
 costs:
-    - region: "*"
-      input_cost_per_character: 5.e-7
+    - input_cost_per_character: 5.e-7
+      region: "*"
+features:
+    - tool_choice
+isDeprecated: true
 limits:
-    max_tokens: 8192
     max_input_tokens: 32768
     max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
-isDeprecated: true
+model: medlm-medium

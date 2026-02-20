@@ -4,10 +4,12 @@
   "description": "AI model configurations - YAML to unified JSON",
   "private": true,
   "scripts": {
+    "validate": "./test/validate.sh",
     "build:json": "ts-node --project scripts/tsconfig.json scripts/build-unified-json.ts",
     "sync:bedrock": "ts-node --project scripts/tsconfig.json scripts/sync-bedrock-costs.ts",
     "lint:yaml": "yamllint -c .yamllint.yml providers/",
-    "lint:yaml:fix": "prettier --write --tab-width 4 'providers/**/*.yaml'"
+    "sort:yaml": "ts-node --project scripts/tsconfig.json scripts/sort-yaml-keys.ts",
+    "lint:yaml:fix": "npm run sort:yaml && prettier --write --tab-width 4 --print-width 256 'providers/**/*.yaml'"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",

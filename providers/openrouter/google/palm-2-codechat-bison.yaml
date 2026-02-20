@@ -1,8 +1,8 @@
-model: google/palm-2-codechat-bison
 costs:
-    - region: "*"
-      input_cost_per_token: 5.e-7
+    - input_cost_per_token: 5.e-7
       output_cost_per_token: 5.e-7
+      region: "*"
 limits:
     max_tokens: 20070
 mode: chat
+model: google/palm-2-codechat-bison
