@@ -1,21 +1,23 @@
-model: gpt-4-32k
 costs:
-  - region: '*'
-    input_cost_per_token: 0.00006
-    output_cost_per_token: 0.00012
+    - input_cost_per_token: 0.00006
+      output_cost_per_token: 0.00012
+      region: "*"
+features:
+    - chat
+    - tool_choice
 limits:
-  max_input_tokens: 32768
-  max_output_tokens: 4096
-features: [chat, tool_choice]
-params:
-  - key: max_tokens
-    maxValue: 32768
-  - key: frequency_penalty
-    defaultValue: 0
-    minValue: -2
-    maxValue: 2
-  - key: presence_penalty
-    defaultValue: 0
-    minValue: -2
-    maxValue: 2
+    max_input_tokens: 32768
+    max_output_tokens: 4096
 mode: chat
+model: gpt-4-32k
+params:
+    - key: max_tokens
+      maxValue: 32768
+    - defaultValue: 0
+      key: frequency_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: 0
+      key: presence_penalty
+      maxValue: 2
+      minValue: -2

@@ -1,11 +1,14 @@
-model: Phi-4
 costs:
-  - region: '*'
-    input_cost_per_token: 1.25e-7
-    output_cost_per_token: 5.e-7
+    - input_cost_per_token: 1.25e-7
+      output_cost_per_token: 5.e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
 limits:
-  max_tokens: 4096
-  max_input_tokens: 16384
-  max_output_tokens: 16384
-features: [chat, function_calling, tool_choice]
+    max_input_tokens: 16384
+    max_output_tokens: 16384
+    max_tokens: 4096
 mode: chat
+model: Phi-4

@@ -1,8 +1,9 @@
-model: twelvelabs.pegasus-1-2-v1:0
 costs:
-  - region: '*'
-    output_cost_per_token: 0.0000075
+    - output_cost_per_token: 0.0000075
+      region: "*"
+features:
+    - text
 limits:
-  max_tokens: 4096
-features: [text]
+    max_tokens: 4096
 mode: chat
+model: twelvelabs.pegasus-1-2-v1:0

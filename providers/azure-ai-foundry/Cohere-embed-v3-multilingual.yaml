@@ -1,11 +1,13 @@
-model: Cohere-embed-v3-multilingual
 costs:
-  - region: '*'
-    input_cost_per_token: 1.e-7
-    output_cost_per_token: 0
+    - input_cost_per_token: 1.e-7
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - text
+    - embedding_image_input
 limits:
-  max_tokens: 4096
-  max_input_tokens: 512
-  output_vector_size: 1024
-features: [text, embedding_image_input]
+    max_input_tokens: 512
+    max_tokens: 4096
+    output_vector_size: 1024
 mode: embedding
+model: Cohere-embed-v3-multilingual

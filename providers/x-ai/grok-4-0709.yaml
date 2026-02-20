@@ -1,18 +1,21 @@
-model: grok-4-0709
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000003
-    output_cost_per_token: 0.000015
-    tiered_pricing:
-      input:
-        - from: 128000
-          cost_per_token: 0.000006
-      output:
-        - from: 128000
-          cost_per_token: 0.00003
+    - input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000006
+                from: 128000
+          output:
+              - cost_per_token: 0.00003
+                from: 128000
+features:
+    - chat
+    - function_calling
+    - tool_choice
 limits:
-  max_tokens: 4096
-  max_input_tokens: 256000
-  max_output_tokens: 256000
-features: [chat, function_calling, tool_choice]
+    max_input_tokens: 256000
+    max_output_tokens: 256000
+    max_tokens: 4096
 mode: chat
+model: grok-4-0709

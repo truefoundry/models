@@ -1,6 +1,9 @@
-model: mistral-small-3.1-24b-instruct
-features: [chat, image, tools]
-params:
-  - key: max_tokens
-    maxValue: 96000
+features:
+    - chat
+    - image
+    - tools
 mode: chat
+model: mistral-small-3.1-24b-instruct
+params:
+    - key: max_tokens
+      maxValue: 96000

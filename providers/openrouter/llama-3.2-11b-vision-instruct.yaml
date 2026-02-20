@@ -1,6 +1,9 @@
-model: llama-3.2-11b-vision-instruct
-features: [chat, image, tools]
-params:
-  - key: max_tokens
-    maxValue: 16384
+features:
+    - chat
+    - image
+    - tools
 mode: chat
+model: llama-3.2-11b-vision-instruct
+params:
+    - key: max_tokens
+      maxValue: 16384

@@ -1,9 +1,9 @@
-model: baai/bge-base-en-v1.5
 costs:
-  - region: '*'
-    input_cost_per_token: 8.e-9
-    output_cost_per_token: 0
+    - input_cost_per_token: 8.e-9
+      output_cost_per_token: 0
+      region: "*"
 limits:
-  max_input_tokens: 512
-  output_vector_size: 768
+    max_input_tokens: 512
+    output_vector_size: 768
 mode: embedding
+model: baai/bge-base-en-v1.5
