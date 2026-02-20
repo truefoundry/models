@@ -55,5 +55,8 @@ jobs:
           role-to-assume: ${{ env.S3_IAM_ROLE_ARN }}
           aws-region: eu-west-1
 
-      - name: Upload to S3
+      - name: Upload to S3 DevTest
         run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/ai-models.json
+
+      - name: Upload to S3 Production
+        run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/ai-models.json
