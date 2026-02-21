@@ -1,0 +1,11 @@
+model: grok-4
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
+limits:
+  max_tokens: 4096
+  max_input_tokens: 256000
+  max_output_tokens: 256000
+features: [chat, function_calling, tool_choice]
+mode: chat

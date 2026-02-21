@@ -1,12 +1,11 @@
-costs:
-    - input_cost_per_character: 0.000005
-      region: "*"
-features:
-    - tool_choice
-isDeprecated: true
-limits:
-    max_input_tokens: 8192
-    max_output_tokens: 1024
-    max_tokens: 1024
-mode: chat
 model: medlm-large
+costs:
+  - region: '*'
+    input_cost_per_character: 0.000005
+limits:
+  max_tokens: 1024
+  max_input_tokens: 8192
+  max_output_tokens: 1024
+features: [tool_choice]
+mode: chat
+isDeprecated: true
