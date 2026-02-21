@@ -1,11 +1,16 @@
-model: apac.anthropic.claude-3-sonnet-20240229-v1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000003
-    output_cost_per_token: 0.000015
+    - input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: "*"
+features:
+    - function_calling
+    - vision
+    - tool_choice
+    - response_schema
+    - pdf_input
 limits:
-  max_tokens: 4096
-  max_input_tokens: 200000
-  max_output_tokens: 4096
-features: [function_calling, vision, tool_choice, response_schema, pdf_input]
+    max_input_tokens: 200000
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
+model: apac.anthropic.claude-3-sonnet-20240229-v1:0

@@ -1,16 +1,20 @@
-model: openai.gpt-oss-120b-1:0
 costs:
-  - region: '*'
-    input_cost_per_token: 1.5e-7
-    output_cost_per_token: 6.e-7
+    - input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6.e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - response_schema
 limits:
-  max_input_tokens: 128000
-  max_output_tokens: 128000
-features: [chat, function_calling, tool_choice, response_schema]
-params:
-  - key: max_tokens
-    maxValue: 32768
-removeParams:
-  - stream
-  - stop
+    max_input_tokens: 128000
+    max_output_tokens: 128000
 mode: chat
+model: openai.gpt-oss-120b-1:0
+params:
+    - key: max_tokens
+      maxValue: 32768
+removeParams:
+    - stream
+    - stop

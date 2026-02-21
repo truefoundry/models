@@ -1,11 +1,11 @@
-model: sonar-small-chat
 costs:
-  - region: '*'
-    input_cost_per_token: 7.e-8
-    output_cost_per_token: 2.8e-7
-limits:
-  max_tokens: 16384
-  max_input_tokens: 16384
-  max_output_tokens: 16384
-mode: chat
+    - input_cost_per_token: 7.e-8
+      output_cost_per_token: 2.8e-7
+      region: "*"
 isDeprecated: true
+limits:
+    max_input_tokens: 16384
+    max_output_tokens: 16384
+    max_tokens: 16384
+mode: chat
+model: sonar-small-chat

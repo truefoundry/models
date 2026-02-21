@@ -1,15 +1,16 @@
-model: cohere.rerank-v3-5:0
 costs:
-  - region: '*'
-    input_cost_per_token: 0
-    output_cost_per_token: 0
-    input_cost_per_query: 0.002
+    - input_cost_per_query: 0.002
+      input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - text
 limits:
-  max_tokens: 4096
-  max_input_tokens: 32000
-  max_output_tokens: 32000
-  max_query_tokens: 32000
-features: [text]
-removeParams:
-  - stream
+    max_input_tokens: 32000
+    max_output_tokens: 32000
+    max_query_tokens: 32000
+    max_tokens: 4096
 mode: rerank
+model: cohere.rerank-v3-5:0
+removeParams:
+    - stream

@@ -1,6 +1,8 @@
-model: mistral-7b-instruct:free
-features: [chat, tools]
-params:
-  - key: max_tokens
-    maxValue: 16384
+features:
+    - chat
+    - tools
 mode: chat
+model: mistral-7b-instruct:free
+params:
+    - key: max_tokens
+      maxValue: 16384
