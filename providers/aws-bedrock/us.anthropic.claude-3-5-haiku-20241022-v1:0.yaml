@@ -2,7 +2,9 @@ costs:
     - cache_creation_input_token_cost: 0.000001
       cache_read_input_token_cost: 8.e-8
       input_cost_per_token: 8.e-7
+      input_cost_per_token_batches: 4.e-7
       output_cost_per_token: 0.000004
+      output_cost_per_token_batches: 0.000002
       region: us-west-2
     - cache_creation_input_token_cost: 0.000001
       cache_read_input_token_cost: 8.e-8
@@ -12,8 +14,9 @@ costs:
     - cache_creation_input_token_cost: 0.000001
       cache_read_input_token_cost: 8.e-8
       input_cost_per_token: 8.e-7
+      input_cost_per_token_batches: 4.e-7
       output_cost_per_token: 0.000004
-      region: us-east-1
+      output_cost_per_token_batches: 0.000002
 features:
     - function_calling
     - chat

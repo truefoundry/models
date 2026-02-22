@@ -2,12 +2,16 @@ costs:
     - cache_creation_input_token_cost: 0.00000125
       cache_read_input_token_cost: 1.e-7
       input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5.e-7
       output_cost_per_token: 0.000005
+      output_cost_per_token_batches: 0.0000025
       region: ap-southeast-4
     - cache_creation_input_token_cost: 0.00000125
       cache_read_input_token_cost: 1.e-7
       input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5.e-7
       output_cost_per_token: 0.000005
+      output_cost_per_token_batches: 0.0000025
       region: ap-southeast-2
 features:
     - function_calling
