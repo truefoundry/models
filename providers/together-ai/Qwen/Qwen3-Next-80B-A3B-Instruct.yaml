@@ -1,13 +1,9 @@
-costs:
-    - input_cost_per_token: 1.5e-7
-      output_cost_per_token: 0.0000015
-      region: "*"
-features:
-    - function_calling
-    - parallel_function_calling
-    - tool_choice
-    - response_schema
-limits:
-    max_input_tokens: 262144
-mode: chat
 model: Qwen/Qwen3-Next-80B-A3B-Instruct
+costs:
+  - region: '*'
+    input_cost_per_token: 1.5e-7
+    output_cost_per_token: 0.0000015
+limits:
+  max_input_tokens: 262144
+features: [function_calling, parallel_function_calling, tool_choice, response_schema]
+mode: chat
