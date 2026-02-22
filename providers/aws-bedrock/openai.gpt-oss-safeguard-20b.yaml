@@ -1,11 +1,12 @@
-model: openai.gpt-oss-safeguard-20b
 costs:
-  - region: '*'
-    input_cost_per_token: 7.e-8
-    output_cost_per_token: 2.e-7
+    - input_cost_per_token: 7.e-8
+      output_cost_per_token: 2.e-7
+      region: "*"
+features:
+    - system_messages
 limits:
-  max_tokens: 8192
-  max_input_tokens: 128000
-  max_output_tokens: 8192
-features: [system_messages]
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
+model: openai.gpt-oss-safeguard-20b

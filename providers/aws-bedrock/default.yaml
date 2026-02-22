@@ -1,35 +1,35 @@
-params:
-  - key: max_tokens
-    defaultValue: 512
-    minValue: 1
-    maxValue: 2048
-  - key: temperature
-    defaultValue: 0.5
-    minValue: 0
-    maxValue: 1
-  - key: top_p
-    defaultValue: 0.9
-    minValue: 0
-    maxValue: 1
-  - key: 'n'
-    defaultValue: 1
-    minValue: 1
-    maxValue: 10
-  - key: stop
-    defaultValue: null
-    type: array-of-strings
-    skipValues:
-      - null
-      - []
-  - key: stream
-    defaultValue: true
-    type: boolean
 messages:
-  options:
-    - system
-    - user
-    - assistant
+    options:
+        - system
+        - user
+        - assistant
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 2048
+      minValue: 1
+    - defaultValue: 0.5
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 0.9
+      key: top_p
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 1
+      key: "n"
+      maxValue: 10
+      minValue: 1
+    - defaultValue: null
+      key: stop
+      skipValues:
+          - null
+          - []
+      type: array-of-strings
+    - defaultValue: true
+      key: stream
+      type: boolean
 type:
-  primary: chat
-  supported:
-    - cache_control
+    primary: chat
+    supported:
+        - cache_control
