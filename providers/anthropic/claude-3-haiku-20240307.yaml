@@ -1,27 +1,16 @@
-costs:
-    - cache_creation_input_token_cost: 3.e-7
-      cache_read_input_token_cost: 3.e-8
-      input_cost_per_token: 2.5e-7
-      input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.00000125
-      output_cost_per_token_batches: 6.25e-7
-      region: "*"
-features:
-    - function_calling
-    - vision
-    - chat
-    - image
-    - tools
-    - tool_choice
-    - prompt_caching
-    - response_schema
-    - assistant_prefill
-limits:
-    max_input_tokens: 200000
-    max_output_tokens: 4096
-    tool_use_system_prompt_tokens: 264
-mode: chat
 model: claude-3-haiku-20240307
+costs:
+  - region: '*'
+    input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000125
+    cache_read_input_token_cost: 3.e-8
+    cache_creation_input_token_cost: 3.e-7
+limits:
+  max_input_tokens: 200000
+  max_output_tokens: 4096
+  tool_use_system_prompt_tokens: 264
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill]
 params:
-    - key: max_tokens
-      maxValue: 4096
+  - key: max_tokens
+    maxValue: 4096
+mode: chat
