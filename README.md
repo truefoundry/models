@@ -9,7 +9,7 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 LLM model configs change often — prices drop, features expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
 
-- **Unified Schema** — Consistent model configuration format across 17 providers
+- **Unified Schema** — Consistent model configuration format across 19 providers
 - **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
 - **Feature Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
 - **Open Source** — Community-driven updates ensure accuracy and coverage
@@ -18,23 +18,25 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenAI | 81 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
-| Anthropic | 21 | Claude 3, Claude 3.5, Claude 4 |
-| AWS Bedrock | 139 | Claude, Llama, Titan, Mistral on AWS |
-| Azure OpenAI | 77 | OpenAI models on Azure |
-| Azure AI Foundry | 65 | Azure AI models |
-| Google Vertex AI | 110 | Gemini, PaLM on GCP |
-| Google Gemini | 25 | Gemini Pro, Ultra, Flash |
-| Mistral AI | 37 | Mistral, Mixtral, Codestral |
-| Cohere | 16 | Command, Embed models |
-| Groq | 14 | Fast inference models |
-| Together AI | 39 | Open source model hosting |
-| DeepInfra | 67 | Open source model hosting |
-| Perplexity | 25 | Search-augmented models |
-| Cerebras | 8 | Fast inference models |
+| OpenRouter | 411 | Unified API for open source models |
+| AWS Bedrock | 211 | Claude, Llama, Titan, Mistral on AWS |
+| Google Vertex AI | 136 | Gemini, PaLM on GCP |
+| OpenAI | 111 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
+| DeepInfra | 87 | Open source model hosting |
+| Azure OpenAI | 78 | OpenAI models on Azure |
+| Azure AI Foundry | 68 | Azure AI models |
+| Together AI | 56 | Open source model hosting |
+| Mistral AI | 55 | Mistral, Mixtral, Codestral |
+| xAI | 42 | Grok models |
+| Google Gemini | 41 | Gemini Pro, Ultra, Flash |
+| Perplexity | 37 | Search-augmented models |
 | Databricks | 28 | Databricks-hosted models |
-| SambaNova | 16 | Enterprise AI models |
-| AI21 | 13 | Jamba models |
+| Anthropic | 23 | Claude 3, Claude 3.5, Claude 4 |
+| Cohere | 22 | Command, Embed models |
+| SambaNova | 22 | Enterprise AI models |
+| Groq | 15 | Fast inference models |
+| AI21 | 12 | Jamba models |
+| Cerebras | 7 | Fast inference models |
 
 ## Installation
 

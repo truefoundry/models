@@ -10,6 +10,7 @@
     "lint:yaml": "yamllint -c .yamllint.yml providers/",
     "sort:yaml": "ts-node --project scripts/tsconfig.json scripts/sort-yaml-keys.ts",
     "lint:yaml:fix": "npm run sort:yaml && prettier --write --tab-width 4 --print-width 256 'providers/**/*.yaml'",
+    "update:readme": "ts-node --project scripts/tsconfig.json scripts/update-readme-counts.ts",
     "prepare": "husky"
   },
   "devDependencies": {
