@@ -1,67 +1,71 @@
-model: llama-3.3-70b-versatile
 costs:
-  - region: '*'
-    input_cost_per_token: 5.9e-7
-    output_cost_per_token: 7.9e-7
+    - input_cost_per_token: 5.9e-7
+      output_cost_per_token: 7.9e-7
+      region: "*"
+features:
+    - chat
+    - tools
+    - function_calling
+    - tool_choice
 limits:
-  max_input_tokens: 128000
-  max_output_tokens: 32768
-features: [chat, tools, function_calling, tool_choice]
-params:
-  - key: max_tokens
-    maxValue: 32768
-  - key: tool_choice
-    type: non-view-manage-data
-    defaultValue: null
-    options:
-      - value: none
-        name: None
-      - value: auto
-        name: Auto
-      - value: required
-        name: Required
-      - value: custom
-        name: Custom
-        schema:
-          type: json
-    skipValues:
-      - null
-      - []
-    rule:
-      default:
-        condition: tools
-        then: auto
-        else: null
-  - key: response_format
-    defaultValue: null
-    options:
-      - value: null
-        name: Text
-      - value: json_object
-        name: JSON Object
-        schema:
-          type: object
-          properties:
-            type:
-              type: string
-              value: json_object
-      - value: json_schema
-        name: JSON Schema
-        schema:
-          type: object
-          properties:
-            type:
-              type: string
-              value: json_schema
-            json_schema:
-              type: object
-        params:
-          key: json_schema
-          defaultValue: null
-          type: json
-          skipValues:
-            - null
-    skipValues:
-      - null
-    type: string
+    max_input_tokens: 128000
+    max_output_tokens: 32768
 mode: chat
+model: llama-3.3-70b-versatile
+params:
+    - key: max_tokens
+      maxValue: 32768
+    - defaultValue: null
+      key: tool_choice
+      options:
+          - name: None
+            value: none
+          - name: Auto
+            value: auto
+          - name: Required
+            value: required
+          - name: Custom
+            schema:
+                type: json
+            value: custom
+      rule:
+          default:
+              condition: tools
+              else: null
+              then: auto
+      skipValues:
+          - null
+          - []
+      type: non-view-manage-data
+    - defaultValue: null
+      key: response_format
+      options:
+          - name: Text
+            value: null
+          - name: JSON Object
+            schema:
+                properties:
+                    type:
+                        type: string
+                        value: json_object
+                type: object
+            value: json_object
+          - name: JSON Schema
+            params:
+                defaultValue: null
+                key: json_schema
+                skipValues:
+                    - null
+                type: json
+            schema:
+                properties:
+                    json_schema:
+                        type: object
+                    type:
+                        type: string
+                        value: json_schema
+                type: object
+            value: json_schema
+      skipValues:
+          - null
+      type: string

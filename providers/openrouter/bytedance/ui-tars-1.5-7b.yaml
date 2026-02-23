@@ -1,11 +1,12 @@
-model: bytedance/ui-tars-1.5-7b
 costs:
-  - region: '*'
-    input_cost_per_token: 1.e-7
-    output_cost_per_token: 2.e-7
+    - input_cost_per_token: 1.e-7
+      output_cost_per_token: 2.e-7
+      region: "*"
+features:
+    - tool_choice
 limits:
-  max_tokens: 2048
-  max_input_tokens: 131072
-  max_output_tokens: 2048
-features: [tool_choice]
+    max_input_tokens: 131072
+    max_output_tokens: 2048
+    max_tokens: 2048
 mode: chat
+model: bytedance/ui-tars-1.5-7b

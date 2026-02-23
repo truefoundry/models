@@ -1,6 +1,9 @@
-model: claude-3.7-sonnet:thinking
-features: [chat, image, tools]
-params:
-  - key: max_tokens
-    maxValue: 64000
+features:
+    - chat
+    - image
+    - tools
 mode: chat
+model: claude-3.7-sonnet:thinking
+params:
+    - key: max_tokens
+      maxValue: 64000

@@ -1,6 +1,9 @@
-model: gemini-pro-1.5
-features: [chat, image, tools]
-params:
-  - key: max_tokens
-    maxValue: 8192
+features:
+    - chat
+    - image
+    - tools
 mode: chat
+model: gemini-pro-1.5
+params:
+    - key: max_tokens
+      maxValue: 8192

@@ -1,16 +1,25 @@
-model: claude-3-opus-20240229
 costs:
-  - region: '*'
-    input_cost_per_token: 0.000015
-    output_cost_per_token: 0.000075
-    cache_read_input_token_cost: 0.0000015
-    cache_creation_input_token_cost: 0.00001875
+    - cache_creation_input_token_cost: 0.00001875
+      cache_read_input_token_cost: 0.0000015
+      input_cost_per_token: 0.000015
+      output_cost_per_token: 0.000075
+      region: "*"
+features:
+    - chat
+    - image
+    - tools
+    - function_calling
+    - vision
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - assistant_prefill
 limits:
-  max_input_tokens: 200000
-  max_output_tokens: 4096
-  tool_use_system_prompt_tokens: 395
-features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill]
-params:
-  - key: max_tokens
-    maxValue: 4096
+    max_input_tokens: 200000
+    max_output_tokens: 4096
+    tool_use_system_prompt_tokens: 395
 mode: chat
+model: claude-3-opus-20240229
+params:
+    - key: max_tokens
+      maxValue: 4096
