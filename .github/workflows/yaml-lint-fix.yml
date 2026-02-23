@@ -31,6 +31,14 @@ jobs:
       - name: Run YAML fix
         run: npm run lint:yaml:fix
 
+      - name: Validate (yamllint)
+        run: pip install yamllint && yamllint -c .yamllint.yml providers/
+
+      - name: Set up CUE
+        uses: cue-lang/setup-cue@v1.0.1
+      - name: Validate (CUE)
+        run: ./test/validate.sh
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
@@ -39,11 +47,3 @@ jobs:
           if ! git diff --staged --quiet; then
             git commit -m "chore: fix YAML format" && git push
           fi
-
-      - name: Validate (yamllint)
-        run: pip install yamllint && yamllint -c .yamllint.yml providers/
-
-      - name: Set up CUE
-        uses: cue-lang/setup-cue@v1.0.1
-      - name: Validate (CUE)
-        run: ./test/validate.sh
