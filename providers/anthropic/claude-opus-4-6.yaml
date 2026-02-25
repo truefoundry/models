@@ -1,35 +1,45 @@
 costs:
-    - cache_creation_input_token_cost: 0.00000625
-      cache_read_input_token_cost: 5.e-7
-      input_cost_per_token: 0.000005
-      input_cost_per_token_batches: 0.0000025
-      output_cost_per_token: 0.000025
-      output_cost_per_token_batches: 0.0000125
-      region: "*"
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 0.000001
-                from: 200000
-          cache_write:
-              - cost_per_token: 0.0000125
-                from: 200000
-          input:
-              - cost_per_token: 0.00001
-                from: 200000
-          output:
-              - cost_per_token: 0.0000375
-                from: 200000
+    -   cache_creation_input_token_cost: 6.25e-06
+        cache_read_input_token_cost: 5.0e-07
+        input_cost_per_token: 5.0e-06
+        input_cost_per_token_batches: 2.5e-06
+        output_cost_per_token: 2.5e-05
+        output_cost_per_token_batches: 1.25e-05
+        region: '*'
+        tiered_pricing:
+            cache_read:
+                -   cost_per_token: 1.0e-06
+                    from: 200000
+            cache_write:
+                -   cost_per_token: 1.25e-05
+                    from: 200000
+            input:
+                -   cost_per_token: 1.0e-05
+                    from: 200000
+            output:
+                -   cost_per_token: 3.75e-05
+                    from: 200000
 features:
     - function_calling
-    - vision
-    - tool_choice
+    - pdf_input
     - prompt_caching
     - response_schema
-    - pdf_input
+    - tool_choice
+    - vision
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 128000
     max_tokens: 128000
     tool_use_system_prompt_tokens: 346
 mode: chat
 model: claude-opus-4-6
+params:
+    -   defaultValue: 256
+        key: max_tokens
+        maxValue: 128000
+        minValue: 1
+sources:
+    - https://www.anthropic.com/claude/opus
+    - https://www.anthropic.com/news/claude-opus-4-6
+    - https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-6
