@@ -20,7 +20,10 @@ function collectYamlFiles(dir: string): string[] {
 }
 
 function main(): void {
-    const files = collectYamlFiles(PROVIDERS_DIR);
+    const args = process.argv.slice(2);
+    const files = args.length > 0
+        ? args.filter((f) => f.endsWith('.yaml')).map((f) => path.resolve(f))
+        : collectYamlFiles(PROVIDERS_DIR);
     let sortedCount = 0;
 
     for (const filePath of files) {
