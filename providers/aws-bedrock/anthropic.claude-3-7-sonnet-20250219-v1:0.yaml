@@ -12,13 +12,6 @@ costs:
       input_cost_per_token_batches: 0.0000015
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
-      region: us-west-1
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
       region: us-east-2
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
@@ -30,40 +23,31 @@ costs:
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
       output_cost_per_token: 0.000015
-      region: eu-north-1
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: eu-south-2
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
       region: eu-west-3
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: eu-south-1
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: eu-west-1
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: eu-central-1
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
       input_cost_per_token_batches: 0.0000015
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
-      region: ap-northeast-1
+      region: eu-west-1
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: eu-north-1
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: eu-central-1
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -84,12 +68,7 @@ costs:
       input_cost_per_token_batches: 0.0000015
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
-      region: ap-northeast-2
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: ap-northeast-3
+      region: ap-south-2
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -103,12 +82,76 @@ costs:
       input_cost_per_token_batches: 0.0000015
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
-      region: ap-south-2
+      region: ap-northeast-3
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: ap-northeast-2
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: ap-northeast-1
+    - cache_creation_input_token_cost: 0.0000045
+      cache_read_input_token_cost: 3.6e-7
+      input_cost_per_token: 0.0000036
+      output_cost_per_token: 0.000018
+      region: us-gov-east-1
 features:
     - function_calling
     - vision
+    - chat
+    - image
 limits:
     max_input_tokens: 200000
-    max_output_tokens: 64000
+    max_output_tokens: 128000
 mode: chat
-model: anthropic.claude-sonnet-4-20250514-v1:0
+model: anthropic.claude-3-7-sonnet-20250219-v1:0
+params:
+    - key: max_tokens
+      maxValue: 128000
+    - defaultValue: null
+      key: thinking
+      properties:
+          budget_tokens:
+              maxValue: 128000
+              minValue: 1024
+              type: number
+          type:
+              enum:
+                  - enabled
+                  - disabled
+              type: string
+      skipValues:
+          - disabled
+          - null
+      withdrawParams:
+          - top_k
+          - top_p
+    - defaultValue: null
+      key: tool_choice
+      options:
+          - name: None
+            value: none
+          - name: Auto
+            value: auto
+          - name: Required
+            value: required
+          - name: Custom
+            schema:
+                type: json
+            value: custom
+      rule:
+          default:
+              condition: tools
+              else: null
+              then: auto
+      skipValues:
+          - null
+          - []
+      type: non-view-manage-data
