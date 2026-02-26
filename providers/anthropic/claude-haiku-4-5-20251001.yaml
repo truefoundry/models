@@ -9,8 +9,8 @@ costs:
 features:
     - function_calling
     - vision
+    - image_input
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
@@ -18,8 +18,10 @@ features:
     - assistant_prefill
     - pdf_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
+    max_tokens: 64000
 mode: chat
 model: claude-haiku-4-5-20251001
 params:
@@ -45,3 +47,6 @@ params:
           - top_p
 removeParams:
     - top_p
+sources:
+    - https://www.anthropic.com/news/claude-haiku-4-5
+thinking: true

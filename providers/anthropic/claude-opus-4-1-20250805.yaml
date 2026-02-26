@@ -8,19 +8,23 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - vision
+    - image_input
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
     - response_schema
     - assistant_prefill
     - pdf_input
+    - system_messages
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 32000
+    tool_use_system_prompt_tokens: 346
 mode: chat
 model: claude-opus-4-1-20250805
 params:
@@ -47,3 +51,7 @@ params:
 removeParams:
     - temperature
     - top_p
+sources:
+    - https://www.anthropic.com/news/claude-opus-4-1
+    - https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-6
+thinking: true

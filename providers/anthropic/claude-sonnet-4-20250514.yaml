@@ -22,9 +22,6 @@ costs:
 features:
     - function_calling
     - vision
-    - chat
-    - image
-    - tools
     - tool_choice
     - prompt_caching
     - response_schema
@@ -33,27 +30,13 @@ features:
 limits:
     max_input_tokens: 1000000
     max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 64000
 mode: chat
 model: claude-sonnet-4-20250514
 params:
     - key: max_tokens
-      maxValue: 128000
-    - defaultValue: null
-      key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 128000
-              minValue: 1024
-              type: number
-          type:
-              enum:
-                  - enabled
-                  - disabled
-              type: string
-      skipValues:
-          - disabled
-          - null
-      withdrawParams:
-          - top_k
-          - top_p
+      maxValue: 64000
+sources:
+    - https://platform.claude.com/docs/en/build-with-claude/context-windows
+    - https://platform.claude.com/docs/en/build-with-claude/extended-thinking
+thinking: true

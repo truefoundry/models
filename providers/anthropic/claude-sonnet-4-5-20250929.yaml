@@ -31,9 +31,10 @@ features:
     - assistant_prefill
     - pdf_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 346
+    max_tokens: 64000
 mode: chat
 model: claude-sonnet-4-5-20250929
 params:
@@ -59,3 +60,6 @@ params:
           - top_p
 removeParams:
     - top_p
+sources:
+    - https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-5
+thinking: true

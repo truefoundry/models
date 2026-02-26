@@ -27,9 +27,14 @@ features:
     - response_schema
     - pdf_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 128000
     max_tokens: 128000
     tool_use_system_prompt_tokens: 346
 mode: chat
 model: claude-opus-4-6-20260205
+sources:
+    - https://www.anthropic.com/claude/opus
+    - https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-6
+thinking: true
