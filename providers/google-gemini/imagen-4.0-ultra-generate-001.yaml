@@ -1,9 +1,5 @@
-costs:
-    - output_cost_per_image: 0.06
-      region: "*"
-features:
-    - text
-limits:
-    max_tokens: 4096
-mode: image
 model: imagen-4.0-ultra-generate-001
+limits:
+  max_tokens: 4096
+features: [text]
+mode: image

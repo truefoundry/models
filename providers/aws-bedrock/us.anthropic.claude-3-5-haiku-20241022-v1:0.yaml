@@ -1,49 +1,36 @@
-costs:
-    - cache_creation_input_token_cost: 0.000001
-      cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 8.e-7
-      input_cost_per_token_batches: 4.e-7
-      output_cost_per_token: 0.000004
-      output_cost_per_token_batches: 0.000002
-      region: us-west-2
-    - cache_creation_input_token_cost: 0.000001
-      cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 8.e-7
-      output_cost_per_token: 0.000004
-      region: us-east-2
-    - cache_creation_input_token_cost: 0.000001
-      cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 8.e-7
-      input_cost_per_token_batches: 4.e-7
-      output_cost_per_token: 0.000004
-      output_cost_per_token_batches: 0.000002
-      region: us-east-1
-features:
-    - function_calling
-    - chat
-    - image
-limits:
-    max_input_tokens: 200000
-    max_output_tokens: 8192
-    max_tokens: 4096
-mode: chat
 model: us.anthropic.claude-3-5-haiku-20241022-v1:0
+costs:
+  - region: '*'
+    input_cost_per_token: 8.e-7
+    output_cost_per_token: 0.000004
+    cache_read_input_token_cost: 8.e-8
+    cache_creation_input_token_cost: 0.000001
+limits:
+  max_tokens: 4096
+  max_input_tokens: 200000
+  max_output_tokens: 8192
+features: [chat, image, tools, function_calling, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
-    - condition: tools
-      default: null
-      else: null
-      key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            type: json
-            value: custom
-      skipValues:
-          - null
-      then: auto
-      type: non-view-manage-data
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
+mode: chat
