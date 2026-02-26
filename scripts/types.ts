@@ -39,6 +39,7 @@ export interface CostWithRegion extends Cost {
 // --- Limits ---
 
 export interface Limits {
+  context_window?: number;
   max_tokens?: number;
   max_input_tokens?: number;
   max_output_tokens?: number;
@@ -105,7 +106,9 @@ export interface ModelData {
   removeParams?: string[];
   requiredParams?: string[];
   mode?: string;
+  thinking?: boolean;
   isDeprecated?: boolean;
+  sources?: string[];
 }
 
 export interface UnifiedModelConfig {
@@ -120,5 +123,7 @@ export interface UnifiedModelConfig {
   removeParams: string[];
   requiredParams: string[];
   mode: string;
+  thinking: boolean;
   isDeprecated: boolean;
+  sources: string[];
 }

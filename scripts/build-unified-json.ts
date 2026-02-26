@@ -43,7 +43,9 @@ function buildUnifiedConfig(
     removeParams: modelData.removeParams || [],
     requiredParams: modelData.requiredParams || [],
     mode: modelData.mode || '',
+    thinking: modelData.thinking || false,
     isDeprecated: modelData.isDeprecated || false,
+    sources: modelData.sources || [],
   };
 }
 

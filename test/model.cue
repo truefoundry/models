@@ -75,6 +75,7 @@ package model
 }
 
 #Limits: {
+	context_window?:                int
 	max_tokens?:                    int
 	max_input_tokens?:              int
 	max_output_tokens?:             int
@@ -95,7 +96,9 @@ package model
 	params?:           [...#Param]
 	removeParams?:     [...string]
 	requiredParams?:   [...string]
-	isDeprecated?:  bool
+	isDeprecated?:     bool
+	thinking?:         bool
+	sources?:          [...string]
 	messages?: {
 		options?: [...string]
 		...
