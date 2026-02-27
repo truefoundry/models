@@ -1,15 +1,22 @@
 costs:
     - input_cost_per_token: 5.9e-7
+      input_cost_per_token_batches: 2.95e-7
       output_cost_per_token: 7.9e-7
+      output_cost_per_token_batches: 3.95e-7
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - chat
     - tools
     - tool_choice
+    - response_schema
+    - system_messages
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 32768
+    max_tokens: 32768
 mode: chat
 model: llama-3.3-70b-versatile
 params:
@@ -69,3 +76,7 @@ params:
       skipValues:
           - null
       type: string
+sources:
+    - https://console.groq.com/docs/tool-use
+    - https://console.groq.com/docs/prompt-caching
+    - https://console.groq.com/docs/batch

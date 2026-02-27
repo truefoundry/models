@@ -5,12 +5,25 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
     - tool_choice
     - response_schema
+    - prompt_caching
 limits:
+    context_window: 131072
     max_input_tokens: 131072
-    max_output_tokens: 32766
-    max_tokens: 32766
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: openai/gpt-oss-120b
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+sources:
+    - https://console.groq.com/docs/tool-use/overview
+    - https://console.groq.com/docs/reasoning
+    - https://console.groq.com/docs/vision
+    - https://console.groq.com/docs/structured-outputs
+    - https://console.groq.com/docs/prompt-caching
+thinking: true
