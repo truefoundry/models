@@ -5,8 +5,9 @@ costs:
 features:
     - chat
 limits:
-    max_input_tokens: 4096
     max_output_tokens: 4096
     max_tokens: 4096
 mode: completion
 model: command-nightly
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html

@@ -4,6 +4,11 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 1024
-    max_tokens: 4096
 mode: embedding
 model: embed-english-light-v2.0
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
+sources:
+    - https://docs.cohere.com/docs/cohere-embed
