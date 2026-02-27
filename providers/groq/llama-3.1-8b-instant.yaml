@@ -4,17 +4,21 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - chat
     - tools
     - tool_choice
+    - response_schema
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
+    max_tokens: 131072
 mode: chat
 model: llama-3.1-8b-instant
 params:
     - key: max_tokens
-      maxValue: 8192
+      maxValue: 131072
     - defaultValue: null
       key: tool_choice
       options:
@@ -69,3 +73,5 @@ params:
       skipValues:
           - null
       type: string
+sources:
+    - https://console.groq.com/docs/tool-use

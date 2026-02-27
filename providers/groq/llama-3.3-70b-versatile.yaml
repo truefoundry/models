@@ -4,12 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - chat
     - tools
     - tool_choice
+    - system_messages
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 32768
+    max_tokens: 32768
 mode: chat
 model: llama-3.3-70b-versatile
 params:
@@ -50,22 +54,10 @@ params:
                         value: json_object
                 type: object
             value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
       skipValues:
           - null
       type: string
+sources:
+    - https://console.groq.com/docs/tool-use
+    - https://console.groq.com/docs/structured-outputs
+    - https://console.groq.com/docs/prompt-caching

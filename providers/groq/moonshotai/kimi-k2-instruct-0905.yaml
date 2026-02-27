@@ -5,11 +5,20 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - tool_choice
     - response_schema
 limits:
+    context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 16384
     max_tokens: 16384
 mode: chat
 model: moonshotai/kimi-k2-instruct-0905
+params:
+    - key: max_tokens
+      maxValue: 16384
+sources:
+    - https://console.groq.com/docs/tool-use
+    - https://console.groq.com/docs/structured-outputs
+    - https://console.groq.com/docs/vision

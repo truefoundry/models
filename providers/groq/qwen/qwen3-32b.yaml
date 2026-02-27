@@ -5,9 +5,19 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - response_schema
 limits:
-    max_input_tokens: 131072
+    context_window: 131072
     max_output_tokens: 40960
-    max_tokens: 131000
+    max_tokens: 40960
 mode: chat
 model: qwen/qwen3-32b
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 40960
+      minValue: 1
+sources:
+    - https://console.groq.com/docs/model/qwen/qwen3-32b
+    - https://console.groq.com/docs/reasoning
+thinking: true
