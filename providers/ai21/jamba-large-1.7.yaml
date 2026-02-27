@@ -3,10 +3,14 @@ costs:
       output_cost_per_token: 0.000008
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
+    context_window: 256000
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: jamba-large-1.7
+sources:
+    - https://docs.ai21.com/docs/function-calling
+    - https://docs.ai21.com/reference/jamba-1-6-api-ref
