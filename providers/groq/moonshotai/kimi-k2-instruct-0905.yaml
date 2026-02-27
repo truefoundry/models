@@ -1,15 +1,12 @@
-costs:
-    - cache_read_input_token_cost: 5.e-7
-      input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000003
-      region: "*"
-features:
-    - function_calling
-    - tool_choice
-    - response_schema
-limits:
-    max_input_tokens: 262144
-    max_output_tokens: 16384
-    max_tokens: 16384
-mode: chat
 model: moonshotai/kimi-k2-instruct-0905
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000001
+    output_cost_per_token: 0.000003
+    cache_read_input_token_cost: 5.e-7
+limits:
+  max_tokens: 16384
+  max_input_tokens: 262144
+  max_output_tokens: 16384
+features: [function_calling, tool_choice, response_schema]
+mode: chat

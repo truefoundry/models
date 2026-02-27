@@ -1,33 +1,22 @@
-costs:
-    - cache_read_input_token_cost: 1.25e-7
-      cache_storage_cost_per_token_per_hour: 0.0000045
-      input_cost_per_token: 0.00000125
-      input_cost_per_token_batches: 6.25e-7
-      output_cost_per_token: 0.00001
-      output_cost_per_token_batches: 0.000005
-      region: "*"
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 2.5e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.0000025
-                from: 200000
-          output:
-              - cost_per_token: 0.000015
-                from: 200000
-features:
-    - function_calling
-    - vision
-    - audio_input
-    - system_messages
-    - tool_choice
-    - prompt_caching
-    - response_schema
-    - pdf_input
-limits:
-    max_input_tokens: 1048576
-    max_output_tokens: 65535
-    max_tokens: 65535
-mode: chat
 model: gemini-pro-latest
+costs:
+  - region: '*'
+    input_cost_per_token: 0.00000125
+    output_cost_per_token: 0.00001
+    cache_read_input_token_cost: 1.25e-7
+    tiered_pricing:
+      cache_read:
+        - from: 200000
+          cost_per_token: 2.5e-7
+      input:
+        - from: 200000
+          cost_per_token: 0.0000025
+      output:
+        - from: 200000
+          cost_per_token: 0.000015
+limits:
+  max_tokens: 65535
+  max_input_tokens: 1048576
+  max_output_tokens: 65535
+features: [function_calling, vision, audio_input, system_messages, tool_choice, prompt_caching, response_schema, pdf_input]
+mode: chat

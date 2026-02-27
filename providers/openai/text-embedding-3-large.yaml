@@ -1,12 +1,12 @@
-costs:
-    - input_cost_per_token: 1.3e-7
-      input_cost_per_token_batches: 6.5e-8
-      output_cost_per_token: 0
-      output_cost_per_token_batches: 0
-      region: "*"
-limits:
-    max_input_tokens: 8191
-    max_tokens: 4096
-    output_vector_size: 3072
-mode: embedding
 model: text-embedding-3-large
+costs:
+  - region: '*'
+    input_cost_per_token: 1.3e-7
+    output_cost_per_token: 0
+    input_cost_per_token_batches: 6.5e-8
+    output_cost_per_token_batches: 0
+limits:
+  max_tokens: 4096
+  max_input_tokens: 8191
+  output_vector_size: 3072
+mode: embedding

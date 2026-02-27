@@ -1,9 +1,6 @@
-features:
-    - chat
-    - image
-    - tools
-mode: chat
 model: gpt-4o:extended
+features: [chat, image, tools]
 params:
-    - key: max_tokens
-      maxValue: 64000
+  - key: max_tokens
+    maxValue: 64000
+mode: chat
