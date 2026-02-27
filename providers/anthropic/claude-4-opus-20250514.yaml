@@ -10,19 +10,24 @@ features:
     - function_calling
     - vision
     - chat
-    - image
+    - image_input
+    - pdf_input
+    - system_messages
     - tools
     - tool_choice
     - prompt_caching
     - response_schema
     - assistant_prefill
-    - pdf_input
+    - text
+    - code
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 32000
+    tool_use_system_prompt_tokens: 346
 mode: chat
-model: claude-4-opus-20250514
+model: claude-opus-4-20250514
 params:
     - key: max_tokens
       maxValue: 64000
@@ -47,3 +52,4 @@ params:
 removeParams:
     - temperature
     - top_p
+thinking: true

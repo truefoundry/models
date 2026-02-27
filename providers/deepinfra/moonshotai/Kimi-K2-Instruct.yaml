@@ -3,10 +3,15 @@ costs:
       output_cost_per_token: 0.000002
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: moonshotai/Kimi-K2-Instruct
+sources:
+    - https://huggingface.co/moonshotai/Kimi-K2-Instruct
+    - https://deepinfra.com/moonshotai/Kimi-K2-Instruct

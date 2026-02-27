@@ -1,12 +1,21 @@
 costs:
-    - input_cost_per_token: 4.e-7
+    - input_cost_per_token: 2.3e-7
       output_cost_per_token: 4.e-7
       region: "*"
 features:
+    - function_calling
     - tool_choice
+    - chat
+    - system_messages
+    - response_schema
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: meta-llama/Meta-Llama-3.1-70B-Instruct
+sources:
+    - https://deepinfra.com/meta-llama/Meta-Llama-3.1-70B-Instruct/api
+    - https://deepinfra.com/docs/advanced/function_calling
+    - https://deepinfra.com/blog/llama-3-1-70b-instruct-api-from-deepinfra-snappy-starts-fair-pricing-production-fit

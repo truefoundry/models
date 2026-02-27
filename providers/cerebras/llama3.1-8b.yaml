@@ -7,11 +7,15 @@ features:
     - chat
     - tools
     - tool_choice
+    - response_schema
 limits:
-    max_input_tokens: 128000
-    max_output_tokens: 128000
+    context_window: 32768
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
 model: llama3.1-8b
 params:
     - key: max_tokens
-      maxValue: 32768
+      maxValue: 8192
+sources:
+    - https://inference-docs.cerebras.ai/models/llama-31-8b

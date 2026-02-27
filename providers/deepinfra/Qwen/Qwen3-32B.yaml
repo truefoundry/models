@@ -3,10 +3,16 @@ costs:
       output_cost_per_token: 2.8e-7
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
-    max_input_tokens: 40960
-    max_output_tokens: 40960
-    max_tokens: 40960
+    context_window: 40960
+    max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: Qwen/Qwen3-32B
+sources:
+    - https://deepinfra.com/qwen
+    - https://deepinfra.com/docs/advanced/max_tokens_limit
+    - https://huggingface.co/Qwen/Qwen3-32B
+thinking: true

@@ -3,10 +3,16 @@ costs:
       output_cost_per_token: 8.e-8
       region: "*"
 features:
+    - function_calling
     - tool_choice
+    - system_messages
 limits:
+    context_window: 32768
     max_input_tokens: 32768
     max_output_tokens: 32768
     max_tokens: 32768
 mode: chat
 model: mistralai/Mistral-Small-24B-Instruct-2501
+sources:
+    - https://deepinfra.com/mistralai/Mistral-Small-24B-Instruct-2501/api
+    - https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501

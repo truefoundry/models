@@ -5,7 +5,16 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 2048
-    max_tokens: 4096
     output_vector_size: 3072
 mode: embedding
 model: gemini-embedding-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - top_k
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/embeddings

@@ -4,9 +4,30 @@ costs:
       region: "*"
 features:
     - chat
+    - function_calling
+    - system_messages
+    - tool_choice
+    - response_schema
+    - tools
+    - text
 limits:
+    context_window: 256000
     max_input_tokens: 256000
     max_output_tokens: 32000
-    max_tokens: 256000
+    max_tokens: 32000
 mode: completion
 model: command-a-reasoning-08-2025
+params:
+    - defaultValue: 32000
+      key: max_tokens
+      maxValue: 32000
+      minValue: 1
+    - defaultValue: 0.3
+      key: temperature
+      maxValue: 1
+      minValue: 0
+sources:
+    - https://docs.cohere.com/docs/command-a-reasoning
+    - https://docs.cohere.com/docs/reasoning
+    - https://docs.cohere.com/reference/chat
+thinking: true

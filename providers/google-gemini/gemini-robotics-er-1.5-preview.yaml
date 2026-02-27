@@ -8,11 +8,15 @@ features:
     - vision
     - audio_input
     - chat
-    - image
     - pdf
     - doc
+    - response_schema
 limits:
     max_input_tokens: 1048576
-    max_output_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: gemini-robotics-er-1.5-preview
+sources:
+    - https://ai.google.dev/gemini-api/docs/robotics-overview
+thinking: true

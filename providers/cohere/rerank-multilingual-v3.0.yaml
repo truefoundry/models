@@ -4,9 +4,14 @@ costs:
       output_cost_per_token: 0
       region: "*"
 limits:
+    context_window: 4096
     max_input_tokens: 4096
-    max_output_tokens: 4096
-    max_query_tokens: 2048
-    max_tokens: 4096
 mode: rerank
 model: rerank-multilingual-v3.0
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
+sources:
+    - https://docs.cohere.com/docs/rerank
+    - https://docs.cohere.com/reference/rerank

@@ -3,5 +3,14 @@ costs:
       output_cost_per_second_4k: 0.6
       output_cost_per_second_720p: 0.4
       region: "*"
+features:
+    - image_input
+    - audio_output
 mode: video
 model: veo-3.1-generate-preview
+removeParams:
+    - max_tokens
+    - stop
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/video

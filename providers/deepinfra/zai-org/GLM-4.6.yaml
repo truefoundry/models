@@ -1,11 +1,26 @@
 costs:
-    - cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 4.3e-7
-      output_cost_per_token: 0.00000174
+    - cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 4.5e-7
+      output_cost_per_token: 0.0000019
       region: "*"
+features:
+    - chat
+    - function_calling
+    - prompt_caching
+    - system_messages
+    - tool_choice
+    - tools
 limits:
+    context_window: 202752
     max_input_tokens: 202752
-    max_output_tokens: 202752
-    max_tokens: 202752
+    max_output_tokens: 131072
+    max_tokens: 131072
 mode: chat
 model: zai-org/GLM-4.6
+sources:
+    - https://deepinfra.com/zai-org/GLM-4.6/api
+    - https://docs.z.ai/guides/llm/glm-4.6
+    - https://docs.z.ai/guides/overview/pricing
+    - https://docs.z.ai/api-reference/llm/chat-completion
+    - https://docs.z.ai/guides/overview/concept-param
+thinking: true

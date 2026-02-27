@@ -2,8 +2,18 @@ costs:
     - output_cost_per_image: 0.04
       region: "*"
 features:
-    - text
+    - image
 limits:
-    max_tokens: 4096
+    max_input_tokens: 480
 mode: image
 model: imagen-4.0-generate-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - top_k
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/imagen

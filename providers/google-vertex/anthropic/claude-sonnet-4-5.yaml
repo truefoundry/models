@@ -19,7 +19,7 @@ costs:
           output:
               - cost_per_token: 0.0000225
                 from: 200000
-    - cache_creation_input_token_cost: 0.00000413
+    - cache_creation_input_token_cost: 0.000004125
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
@@ -37,7 +37,7 @@ costs:
           output:
               - cost_per_token: 0.00002475
                 from: 200000
-    - cache_creation_input_token_cost: 0.00000413
+    - cache_creation_input_token_cost: 0.000004125
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
@@ -55,7 +55,7 @@ costs:
           output:
               - cost_per_token: 0.00002475
                 from: 200000
-    - cache_creation_input_token_cost: 0.00000413
+    - cache_creation_input_token_cost: 0.000004125
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
@@ -76,8 +76,10 @@ costs:
 features:
     - function_calling
     - vision
+    - system_messages
     - tool_choice
     - prompt_caching
+    - cache_control
     - response_schema
     - assistant_prefill
     - pdf_input
@@ -87,3 +89,9 @@ limits:
     max_tokens: 64000
 mode: chat
 model: anthropic/claude-sonnet-4-5
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4-5
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude
+    - https://platform.claude.com/docs/en/about-claude/models/overview
+    - https://platform.claude.com/docs/en/about-claude/pricing
+thinking: true

@@ -8,13 +8,33 @@ features:
     - chat
     - tool_choice
     - response_schema
+    - prompt_caching
+    - system_messages
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 32768
+    max_tokens: 32768
 mode: chat
 model: gpt-oss-120b
 params:
     - key: max_tokens
       maxValue: 32768
+    - key: temperature
+      maxValue: 1.5
+    - defaultValue: medium
+      key: reasoning_effort
+      options:
+          - low
+          - medium
+          - high
 removeParams:
     - stream
+sources:
+    - https://inference-docs.cerebras.ai/models/openai-oss
+    - https://inference-docs.cerebras.ai/capabilities/reasoning
+    - https://inference-docs.cerebras.ai/capabilities/prompt-caching
+    - https://inference-docs.cerebras.ai/capabilities/tool-use
+    - https://inference-docs.cerebras.ai/capabilities/structured-outputs
+    - https://inference-docs.cerebras.ai/api-reference/chat-completions
+thinking: true

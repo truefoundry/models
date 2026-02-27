@@ -1,10 +1,24 @@
 costs:
     - input_cost_per_token: 5.e-7
+      input_cost_per_token_batches: 2.5e-7
       output_cost_per_audio_token: 0.00001
+      output_cost_per_token_batches: 0.000005
       region: "*"
 features:
     - audio_output
 limits:
-    max_input_tokens: 1048576
+    max_input_tokens: 8192
+    max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: gemini-2.5-flash-preview-tts
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
+removeParams:
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts
+    - https://ai.google.dev/gemini-api/docs/speech-generation

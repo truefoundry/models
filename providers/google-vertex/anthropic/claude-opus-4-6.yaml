@@ -17,7 +17,7 @@ costs:
           output:
               - cost_per_token: 0.0000375
                 from: 200000
-    - cache_creation_input_token_cost: 0.00000688
+    - cache_creation_input_token_cost: 0.000006875
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
@@ -35,7 +35,7 @@ costs:
           output:
               - cost_per_token: 0.00004125
                 from: 200000
-    - cache_creation_input_token_cost: 0.00000688
+    - cache_creation_input_token_cost: 0.000006875
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
@@ -53,7 +53,7 @@ costs:
           output:
               - cost_per_token: 0.00004125
                 from: 200000
-    - cache_creation_input_token_cost: 0.00000688
+    - cache_creation_input_token_cost: 0.000006875
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
@@ -76,12 +76,22 @@ features:
     - vision
     - tool_choice
     - prompt_caching
+    - cache_control
     - response_schema
     - pdf_input
+    - system_messages
+    - assistant_prefill
 limits:
+    context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
-    tool_use_system_prompt_tokens: 346
 mode: chat
 model: anthropic/claude-opus-4-6
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-6
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/docs/about-claude/pricing
+    - https://platform.claude.com/docs/en/docs/build-with-claude/claude-on-vertex-ai
+thinking: true

@@ -3,10 +3,18 @@ costs:
       output_cost_per_token: 2.8e-7
       region: "*"
 features:
+    - function_calling
     - tool_choice
+    - response_schema
 limits:
+    context_window: 40960
     max_input_tokens: 40960
     max_output_tokens: 40960
     max_tokens: 40960
 mode: chat
 model: Qwen/Qwen3-30B-A3B
+sources:
+    - https://deepinfra.com/Qwen/Qwen3-30B-A3B/api
+    - https://huggingface.co/Qwen/Qwen3-30B-A3B
+    - https://openrouter.ai/qwen/qwen3-30b-a3b
+thinking: true

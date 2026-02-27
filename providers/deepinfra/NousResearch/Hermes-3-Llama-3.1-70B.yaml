@@ -1,10 +1,20 @@
 costs:
-    - input_cost_per_token: 3.e-7
-      output_cost_per_token: 3.e-7
+    - input_cost_per_token: 1.e-7
+      output_cost_per_token: 2.8e-7
       region: "*"
+features:
+    - chat
+    - function_calling
+    - system_messages
+    - response_schema
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: NousResearch/Hermes-3-Llama-3.1-70B
+sources:
+    - https://deepinfra.com/NousResearch/Hermes-3-Llama-3.1-70B/api
+    - https://nousresearch.com/hermes3/
+    - https://langdb.ai/app/models/hermes-3-llama-3.1-70b

@@ -2,9 +2,22 @@ costs:
     - input_cost_per_token: 2.e-7
       output_cost_per_token: 6.e-7
       region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - tools
+    - response_schema
+    - text
+    - code
 limits:
+    context_window: 65536
     max_input_tokens: 65536
     max_output_tokens: 65536
     max_tokens: 65536
 mode: chat
 model: allenai/Olmo-3.1-32B-Instruct
+sources:
+    - https://deepinfra.com/allenai/Olmo-3.1-32B-Instruct
+    - https://openrouter.ai/allenai/olmo-3.1-32b-instruct/api
+    - https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/raw/main/config.json

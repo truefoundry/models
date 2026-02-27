@@ -18,9 +18,11 @@ features:
     - assistant_prefill
     - pdf_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 64000
+    tool_use_system_prompt_tokens: 346
 mode: chat
 model: claude-opus-4-5
 params:
@@ -47,3 +49,4 @@ params:
 removeParams:
     - temperature
     - top_p
+thinking: true

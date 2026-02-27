@@ -12,8 +12,8 @@ features:
     - function_calling
     - parallel_function_calling
     - vision
+    - audio_input
     - chat
-    - image
     - pdf
     - doc
     - tools
@@ -22,9 +22,12 @@ features:
     - prompt_caching
     - response_schema
     - pdf_input
+    - image_input
 limits:
+    context_window: 1048576
     max_input_tokens: 1048576
-    max_output_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: gemini-3-flash-preview
 params:
@@ -76,3 +79,8 @@ params:
               type: string
       skipValues:
           - null
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
+    - https://ai.google.dev/gemini-api/docs/thinking
+    - https://ai.google.dev/gemini-api/docs/caching
+thinking: true

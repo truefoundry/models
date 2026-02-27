@@ -3,6 +3,7 @@ costs:
       output_cost_per_token: 8.9e-7
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
     max_input_tokens: 163840
@@ -10,3 +11,5 @@ limits:
     max_tokens: 163840
 mode: chat
 model: deepseek-ai/DeepSeek-V3
+sources:
+    - https://deepinfra.com/deepseek-ai/DeepSeek-V3/api

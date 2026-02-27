@@ -9,18 +9,25 @@ costs:
 features:
     - function_calling
     - vision
+    - image_input
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
+    - cache_control
     - response_schema
     - assistant_prefill
+    - system_messages
     - pdf_input
+    - pdf
+    - text
+    - code
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 32000
+    tool_use_system_prompt_tokens: 346
 mode: chat
 model: claude-opus-4-20250514
 params:
@@ -44,3 +51,4 @@ params:
       withdrawParams:
           - top_k
           - top_p
+thinking: true

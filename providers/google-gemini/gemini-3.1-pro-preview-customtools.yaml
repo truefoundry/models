@@ -21,7 +21,6 @@ features:
     - vision
     - audio_input
     - chat
-    - image
     - pdf
     - doc
     - tools
@@ -30,10 +29,13 @@ features:
     - prompt_caching
     - response_schema
     - pdf_input
+    - image_input
     - code
+    - text
 limits:
     max_input_tokens: 1048576
     max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: gemini-3.1-pro-preview-customtools
 params:
@@ -84,3 +86,6 @@ params:
               type: string
       skipValues:
           - null
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
+thinking: true

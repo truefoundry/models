@@ -4,9 +4,17 @@ costs:
       region: "*"
 features:
     - chat
+    - function_calling
+    - tools
+    - text
+    - system_messages
+    - response_schema
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4000
-    max_tokens: 128000
+    max_tokens: 4000
 mode: completion
 model: command-r-08-2024
+sources:
+    - https://docs.cohere.com/docs/command-r

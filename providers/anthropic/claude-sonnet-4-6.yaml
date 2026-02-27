@@ -1,3 +1,24 @@
+costs:
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200001
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200001
+          input:
+              - cost_per_token: 0.000006
+                from: 200001
+          output:
+              - cost_per_token: 0.0000225
+                from: 200001
 features:
     - function_calling
     - vision
@@ -6,5 +27,13 @@ features:
     - response_schema
     - assistant_prefill
     - pdf_input
+limits:
+    context_window: 200000
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: claude-sonnet-4-6
+params:
+    - key: max_tokens
+      maxValue: 65536
+thinking: true

@@ -23,7 +23,7 @@ features:
     - function_calling
     - vision
     - chat
-    - image
+    - image_input
     - tools
     - tool_choice
     - prompt_caching
@@ -33,7 +33,6 @@ features:
 limits:
     max_input_tokens: 1000000
     max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 159
 mode: chat
 model: claude-sonnet-4-20250514
 params:
@@ -57,3 +56,4 @@ params:
       withdrawParams:
           - top_k
           - top_p
+thinking: true

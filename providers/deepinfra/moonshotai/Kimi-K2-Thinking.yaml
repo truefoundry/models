@@ -3,9 +3,24 @@ costs:
       input_cost_per_token: 4.7e-7
       output_cost_per_token: 0.000002
       region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - system_messages
+    - prompt_caching
+    - response_schema
 limits:
+    context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 262144
     max_tokens: 262144
 mode: chat
 model: moonshotai/Kimi-K2-Thinking
+sources:
+    - https://deepinfra.com/moonshotai/Kimi-K2-Thinking/api
+    - https://deepinfra.com/moonshotai/Kimi-K2-Thinking
+    - https://openrouter.ai/moonshotai/kimi-k2-thinking/api
+    - https://huggingface.co/moonshotai/Kimi-K2-Thinking
+    - https://artificialanalysis.ai/models/kimi-k2-thinking/providers
+thinking: true

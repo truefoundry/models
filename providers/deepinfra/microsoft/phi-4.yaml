@@ -5,8 +5,12 @@ costs:
 features:
     - tool_choice
 limits:
+    context_window: 16384
     max_input_tokens: 16384
     max_output_tokens: 16384
     max_tokens: 16384
 mode: chat
 model: microsoft/phi-4
+sources:
+    - https://deepinfra.com/microsoft/phi-4
+    - https://huggingface.co/microsoft/phi-4
