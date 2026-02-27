@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_token: 5.e-7
+      input_cost_per_token_batches: 2.5e-7
       output_cost_per_token: 0.0000015
+      output_cost_per_token_batches: 7.5e-7
       region: "*"
 features:
     - function_calling
@@ -9,10 +11,11 @@ features:
     - tools
     - system_messages
     - tool_choice
-    - prompt_caching
 limits:
+    context_window: 16385
     max_input_tokens: 16385
     max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: gpt-3.5-turbo-0125
 params:
@@ -34,3 +37,5 @@ params:
       skipValues:
           - null
       type: string
+sources:
+    - https://developers.openai.com/api/docs/guides/prompt-caching/

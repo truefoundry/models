@@ -3,6 +3,31 @@ costs:
       input_cost_per_token: 0.0000015
       output_cost_per_token: 0.000006
       region: "*"
-isDeprecated: true
+features:
+    - chat
+    - function_calling
+    - parallel_function_calling
+    - vision
+    - image_input
+    - system_messages
+    - tool_choice
+    - response_schema
+    - prompt_caching
+    - text
+    - code
+    - tools
+limits:
+    context_window: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
 mode: chat
 model: codex-mini-latest
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 100000
+      minValue: 1
+sources:
+    - https://developers.openai.com/api/docs/models/codex-mini-latest
+    - https://developers.openai.com/api/docs/pricing
+thinking: true
