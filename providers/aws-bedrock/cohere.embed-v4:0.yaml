@@ -1,16 +1,11 @@
-costs:
-    - input_cost_per_token: 1.2e-7
-      output_cost_per_token: 0
-      region: us-east-1
-    - input_cost_per_image: 1.2e-7
-      output_cost_per_token: 0
-      region: eu-west-1
-    - input_cost_per_image: 1.2e-7
-      output_cost_per_token: 0
-      region: ap-northeast-1
-limits:
-    max_input_tokens: 128000
-    max_tokens: 128000
-    output_vector_size: 1536
-mode: embedding
 model: cohere.embed-v4:0
+costs:
+  - region: '*'
+    input_cost_per_token: 1.2e-7
+    output_cost_per_token: 0
+limits:
+  max_tokens: 128000
+  max_input_tokens: 128000
+  output_vector_size: 1536
+features: [embedding_image_input]
+mode: embedding

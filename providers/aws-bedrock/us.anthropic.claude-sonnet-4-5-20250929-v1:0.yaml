@@ -1,150 +1,71 @@
-costs:
-    - cache_creation_input_token_cost: 0.000004125
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
-      region: us-west-2
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 6.6e-7
-                from: 200000
-          cache_write:
-              - cost_per_token: 0.00000825
-                from: 200000
-          input:
-              - cost_per_token: 0.0000066
-                from: 200000
-          output:
-              - cost_per_token: 0.00002475
-                from: 200000
-    - cache_creation_input_token_cost: 0.000004125
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
-      region: us-west-1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 6.6e-7
-                from: 200000
-          cache_write:
-              - cost_per_token: 0.00000825
-                from: 200000
-          input:
-              - cost_per_token: 0.0000066
-                from: 200000
-          output:
-              - cost_per_token: 0.00002475
-                from: 200000
-    - cache_creation_input_token_cost: 0.000004125
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
-      region: us-east-2
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 6.6e-7
-                from: 200000
-          cache_write:
-              - cost_per_token: 0.00000825
-                from: 200000
-          input:
-              - cost_per_token: 0.0000066
-                from: 200000
-          output:
-              - cost_per_token: 0.00002475
-                from: 200000
-    - cache_creation_input_token_cost: 0.000004125
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
-      region: us-east-1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 6.6e-7
-                from: 200000
-          cache_write:
-              - cost_per_token: 0.00000825
-                from: 200000
-          input:
-              - cost_per_token: 0.0000066
-                from: 200000
-          output:
-              - cost_per_token: 0.00002475
-                from: 200000
-    - cache_creation_input_token_cost: 0.000004125
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
-      region: ca-central-1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 6.6e-7
-                from: 200000
-          cache_write:
-              - cost_per_token: 0.00000825
-                from: 200000
-          input:
-              - cost_per_token: 0.0000066
-                from: 200000
-          output:
-              - cost_per_token: 0.00002475
-                from: 200000
-features:
-    - function_calling
-    - vision
-    - chat
-    - image
-limits:
-    max_input_tokens: 200000
-    max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 346
-mode: chat
 model: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+costs:
+  - region: '*'
+    input_cost_per_token: 0.0000033
+    output_cost_per_token: 0.0000165
+    cache_read_input_token_cost: 3.3e-7
+    cache_creation_input_token_cost: 0.000004125
+    tiered_pricing:
+      input:
+        - from: 200000
+          cost_per_token: 0.0000066
+      output:
+        - from: 200000
+          cost_per_token: 0.00002475
+      cache_write:
+        - from: 200000
+          cost_per_token: 0.00000825
+      cache_read:
+        - from: 200000
+          cost_per_token: 6.6e-7
+limits:
+  max_input_tokens: 200000
+  max_output_tokens: 64000
+  tool_use_system_prompt_tokens: 346
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
-    - key: max_tokens
-      maxValue: 64000
-    - enum:
+  - key: max_tokens
+    maxValue: 64000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
           - enabled
           - disabled
-      key: thinking
-      maxValue: 128000
-      minValue: 1024
-      skipValues:
-          - disabled
-          - null
-      type: number
-      withdrawParams:
-          - top_k
-          - top_p
-    - default:
-          condition: tools
-          else: null
-          then: auto
-      key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema: null
-            type: json
-            value: custom
-      rule: null
-      skipValues:
-          - null
-      type: json
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
 removeParams:
-    - top_p
+  - top_p
+mode: chat

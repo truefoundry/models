@@ -1,51 +1,37 @@
-costs:
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: us-west-2
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: us-east-2
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: us-east-1
-features:
-    - function_calling
-    - vision
-    - chat
-    - image
-limits:
-    max_input_tokens: 200000
-    max_output_tokens: 8192
-mode: chat
 model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
+    cache_read_input_token_cost: 3.e-7
+    cache_creation_input_token_cost: 0.00000375
+limits:
+  max_input_tokens: 200000
+  max_output_tokens: 8192
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
-    - key: max_tokens
-      maxValue: 8192
-    - defaultValue: null
-      key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema:
-                type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
-      skipValues:
-          - null
-          - []
-      type: non-view-manage-data
+  - key: max_tokens
+    maxValue: 8192
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
+mode: chat
