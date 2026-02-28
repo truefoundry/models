@@ -2,9 +2,14 @@ costs:
     - input_cost_per_token: 0.000005
       output_cost_per_token: 0.000007
       region: "*"
+features:
+    - chat
 limits:
-    max_input_tokens: 32768
-    max_output_tokens: 32768
-    max_tokens: 32768
+    context_window: 32768
 mode: chat
 model: DeepSeek-R1
+sources:
+    - https://community.sambanova.ai/t/deepseek-r1-context-length-is-now-32k/1121
+    - https://community.sambanova.ai/t/sambanova-context-lengths/1058
+    - https://www.eesel.ai/blog/sambanova-cloud-pricing
+thinking: true
