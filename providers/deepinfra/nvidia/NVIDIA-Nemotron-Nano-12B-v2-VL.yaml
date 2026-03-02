@@ -2,9 +2,20 @@ costs:
     - input_cost_per_token: 2.e-7
       output_cost_per_token: 6.e-7
       region: "*"
+features:
+    - vision
+    - image_input
+    - chat
+    - system_messages
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL
+sources:
+    - https://deepinfra.com/nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL
+    - https://build.nvidia.com/nvidia/nemotron-nano-12b-v2-vl
+    - https://huggingface.co/nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16
+thinking: true

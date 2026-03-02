@@ -1,8 +1,19 @@
+costs:
+    - input_cost_per_token: 2.e-8
+      output_cost_per_token: 2.e-8
+      region: "*"
 features:
     - chat
     - tools
+    - function_calling
+limits:
+    context_window: 131072
+    max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: llama-3.2-3b-instruct
 params:
     - key: max_tokens
-      maxValue: 20000
+      maxValue: 16384
+sources:
+    - https://openrouter.ai/meta-llama/llama-3.2-3b-instruct/api

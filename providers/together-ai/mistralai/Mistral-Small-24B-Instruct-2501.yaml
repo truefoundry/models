@@ -6,5 +6,10 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
+    - response_schema
+limits:
+    context_window: 32768
 mode: chat
 model: mistralai/Mistral-Small-24B-Instruct-2501
+sources:
+    - https://docs.together.ai/docs/serverless-models

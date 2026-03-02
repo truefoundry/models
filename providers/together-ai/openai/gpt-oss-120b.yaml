@@ -8,6 +8,13 @@ features:
     - tool_choice
     - response_schema
 limits:
+    context_window: 128000
     max_input_tokens: 128000
 mode: chat
 model: openai/gpt-oss-120b
+sources:
+    - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/gpt-oss
+    - https://www.together.ai/models/gpt-oss-120b
+thinking: true

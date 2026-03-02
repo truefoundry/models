@@ -1,5 +1,6 @@
 costs:
-    - input_cost_per_token: 3.5e-7
+    - cache_read_input_token_cost: 3.5e-7
+      input_cost_per_token: 3.5e-7
       output_cost_per_token: 7.5e-7
       region: "*"
 features:
@@ -8,13 +9,24 @@ features:
     - chat
     - tool_choice
     - response_schema
+    - prompt_caching
+    - system_messages
 limits:
+    context_window: 131072
     max_input_tokens: 131072
-    max_output_tokens: 32768
+    max_output_tokens: 40000
+    max_tokens: 40000
 mode: chat
 model: gpt-oss-120b
 params:
     - key: max_tokens
-      maxValue: 32768
+      maxValue: 40000
+    - defaultValue: medium
+      key: reasoning_effort
 removeParams:
     - stream
+sources:
+    - https://inference-docs.cerebras.ai/models/openai-oss
+    - https://inference-docs.cerebras.ai/capabilities/reasoning
+    - https://inference-docs.cerebras.ai/capabilities/prompt-caching
+thinking: true

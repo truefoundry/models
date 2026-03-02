@@ -12,12 +12,21 @@ features:
     - function_calling
     - parallel_function_calling
     - vision
+    - audio_input
     - chat
-    - image
     - pdf
     - doc
+    - prompt_caching
+    - response_schema
+    - system_messages
+    - tool_choice
 limits:
+    context_window: 1048576
     max_input_tokens: 1048576
-    max_output_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: gemini-2.5-flash-lite-preview-09-2025
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite
+thinking: true

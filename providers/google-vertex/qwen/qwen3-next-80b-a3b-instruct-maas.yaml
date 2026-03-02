@@ -2,5 +2,26 @@ costs:
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 0.0000012
       region: "*"
+features:
+    - function_calling
+    - response_schema
+    - chat
+    - system_messages
+    - tool_choice
+    - text
+    - code
+    - tools
+limits:
+    context_window: 262144
+    max_output_tokens: 262144
+    max_tokens: 262144
 mode: chat
 model: qwen/qwen3-next-80b-a3b-instruct-maas
+params:
+    - key: max_tokens
+      maxValue: 262144
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-next-instruct
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations/partner-models
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models

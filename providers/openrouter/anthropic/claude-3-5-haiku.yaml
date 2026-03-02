@@ -1,10 +1,20 @@
 costs:
-    - input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000005
+    - cache_creation_input_token_cost: 0.000001
+      cache_read_input_token_cost: 8.e-8
+      input_cost_per_token: 8.e-7
+      output_cost_per_token: 0.000004
       region: "*"
 features:
     - function_calling
+    - vision
+    - tool_choice
+    - prompt_caching
+    - system_messages
 limits:
-    max_tokens: 200000
+    context_window: 200000
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
 model: anthropic/claude-3-5-haiku
+sources:
+    - https://openrouter.ai/anthropic/claude-3-5-haiku/api

@@ -1,14 +1,19 @@
 costs:
-    - input_cost_per_image: 0
-      input_cost_per_token: 2.e-7
+    - input_cost_per_token: 2.e-7
+      input_cost_per_token_batches: 1.e-7
       output_cost_per_token: 2.e-7
+      output_cost_per_token_batches: 1.e-7
       region: "*"
 features:
     - function_calling
     - vision
+    - response_schema
 limits:
+    context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 262144
     max_tokens: 262144
 mode: chat
 model: ministral-14b-2512
+sources:
+    - https://docs.mistral.ai/models/ministral-3-14b-25-12

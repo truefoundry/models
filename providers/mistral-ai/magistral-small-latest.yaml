@@ -9,8 +9,17 @@ features:
     - response_schema
     - assistant_prefill
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
 mode: chat
 model: magistral-small-latest
+params:
+    - key: max_tokens
+      maxValue: 128000
+sources:
+    - https://docs.mistral.ai/models/magistral-small-1-2-25-09
+    - https://docs.mistral.ai/capabilities/reasoning
+    - https://mistral.ai/news/magistral
+thinking: true

@@ -4,15 +4,25 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 features:
+    - function_calling
+    - parallel_function_calling
     - vision
+    - image_input
+    - chat
     - text
     - system_messages
+    - tool_choice
     - prompt_caching
     - response_schema
     - pdf_input
+    - tools
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
-    max_tokens: 4096
+    max_tokens: 16384
 mode: chat
 model: gpt-5.1-chat-latest
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-5.1-chat-latest
+    - https://platform.openai.com/docs/models/gpt-5.1-chat-latest

@@ -1,6 +1,10 @@
 features:
     - chat
 limits:
-    max_tokens: 4096
+    context_window: 32768
 mode: chat
 model: dolphin3.0-r1-mistral-24b
+sources:
+    - https://openrouter.ai/cognitivecomputations/dolphin3.0-r1-mistral-24b/api
+    - https://openrouter.ai/cognitivecomputations/dolphin3.0-r1-mistral-24b
+thinking: true

@@ -8,6 +8,10 @@ features:
     - tool_choice
     - response_schema
 limits:
-    max_input_tokens: 128000
+    context_window: 131072
 mode: chat
 model: zai-org/GLM-4.5-Air-FP8
+sources:
+    - https://www.together.ai/models/glm-4-5-air
+    - https://docs.together.ai/docs/serverless-models
+thinking: true

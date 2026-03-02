@@ -3,9 +3,13 @@ costs:
       output_cost_per_token: 4.e-8
       region: "*"
 features:
-    - function_calling
-    - parallel_function_calling
+    - vision
+    - image_input
+    - response_schema
 limits:
-    max_input_tokens: 32768
+    context_window: 32768
 mode: chat
 model: google/gemma-3n-E4B-it
+sources:
+    - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/models/gemma-3n-e4b-it

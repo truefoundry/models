@@ -8,6 +8,12 @@ features:
     - tool_choice
     - response_schema
 limits:
+    context_window: 262144
     max_input_tokens: 256000
 mode: chat
 model: Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
+sources:
+    - https://www.together.ai/models/qwen3-coder-480b-a35b-instruct
+    - https://docs.together.ai/docs/function-calling
+    - https://docs.together.ai/docs/json-mode
+    - https://docs.together.ai/docs/dedicated-models

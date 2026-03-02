@@ -1,6 +1,27 @@
 costs:
     - input_cost_per_token: 1.e-7
       output_cost_per_token: 3.e-7
-      region: "*"
+      region: us-central1
+    - input_cost_per_token: 1.e-7
+      output_cost_per_token: 3.e-7
+      region: europe-west4
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - doc
+    - system_messages
+    - tool_choice
+    - response_schema
+    - text
+    - code
+    - tools
+limits:
+    context_window: 128000
 mode: chat
 model: mistralai/mistral-small-2503
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral/mistral-small-3-1
+    - https://docs.mistral.ai/models/

@@ -10,3 +10,10 @@ limits:
     output_vector_size: 1536
 mode: embedding
 model: embed-v4.0
+removeParams:
+    - temperature
+    - stream
+sources:
+    - https://docs.cohere.com/docs/cohere-embed
+    - https://docs.cohere.com/reference/embed
+    - https://docs.cohere.com/changelog/embed-multimodal-v4

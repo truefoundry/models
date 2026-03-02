@@ -9,6 +9,7 @@ features:
     - function_calling
     - parallel_function_calling
     - vision
+    - image_input
     - chat
     - image
     - tools
@@ -18,8 +19,10 @@ features:
     - response_schema
     - pdf_input
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: gpt-4o
 params:
@@ -57,3 +60,7 @@ params:
       skipValues:
           - null
       type: string
+sources:
+    - https://platform.openai.com/docs/models/gpt-4o
+    - https://developers.openai.com/api/docs/models/gpt-4o
+    - https://platform.openai.com/docs/guides/prompt-caching

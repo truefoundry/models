@@ -8,8 +8,8 @@ features:
     - response_schema
     - assistant_prefill
 limits:
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
+    context_window: 256000
 mode: chat
 model: devstral-small-latest
+sources:
+    - https://docs.mistral.ai/models/devstral-small-2-25-12

@@ -1,7 +1,15 @@
+costs:
+    - input_cost_per_token: 8.e-7
+      output_cost_per_token: 0.0000012
+      region: "*"
 features:
     - chat
+    - code
+limits:
+    context_window: 4096
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: codellama-7b-instruct-solidity
-params:
-    - key: max_tokens
-      maxValue: 4096
+sources:
+    - https://openrouter.ai/alfredpros/codellama-7b-instruct-solidity/api

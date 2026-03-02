@@ -1,7 +1,15 @@
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
 features:
     - chat
     - tools
+    - function_calling
 limits:
-    max_tokens: 4096
+    context_window: 131072
 mode: chat
 model: kimi-k2:free
+sources:
+    - https://openrouter.ai/moonshotai/kimi-k2:free
+    - https://openrouter.ai/moonshotai/kimi-k2:free/api

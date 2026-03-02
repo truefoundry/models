@@ -6,9 +6,11 @@ costs:
 features:
     - function_calling
     - vision
+    - image_input
+    - response_schema
 limits:
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
+    context_window: 256000
 mode: chat
 model: ministral-3b-latest
+sources:
+    - https://docs.mistral.ai/models/ministral-3-3b-25-12
