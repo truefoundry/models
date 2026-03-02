@@ -7,9 +7,15 @@ features:
     - vision
     - tool_choice
     - response_schema
+lastUpdated: "2026-03-02"
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: Llama-4-Maverick-17B-128E-Instruct
+sources:
+    - https://sambanova.ai/blog/sambanova-partners-with-meta-to-deliver-lightning-fast-inference-on-llama-4
+    - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://community.sambanova.ai/t/llama-4-maverick-17b-128e-instruct-context-window-is-now-64k/1120
