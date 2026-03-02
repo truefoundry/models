@@ -1,41 +1,37 @@
-documentation:
-    - https://docs.mistral.ai
-    - https://mistral.ai/pricing
-    - https://docs.mistral.ai/getting-started/models
-messages:
-    options:
-        - system
-        - user
-        - assistant
 params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 32768
-      minValue: 1
-    - defaultValue: 0.7
-      key: temperature
-      maxValue: 2
-      minValue: 0
-    - defaultValue: 1
-      key: top_p
-      maxValue: 1
-      minValue: 0
-    - defaultValue: null
-      key: seed
-      maxValue: 1
-      minValue: 0
-    - defaultValue: null
-      key: stop
-      skipValues:
-          - null
-          - []
-      type: array-of-strings
-    - defaultValue: true
-      key: safe_prompt
-      type: boolean
-    - defaultValue: true
-      key: stream
-      type: boolean
+  - key: max_tokens
+    defaultValue: 256
+    minValue: 1
+    maxValue: 32768
+  - key: temperature
+    defaultValue: 0.7
+    minValue: 0
+    maxValue: 2
+  - key: top_p
+    defaultValue: 1
+    minValue: 0
+    maxValue: 1
+  - key: seed
+    defaultValue: null
+    minValue: 0
+    maxValue: 1
+  - key: stop
+    defaultValue: null
+    type: array-of-strings
+    skipValues:
+      - null
+      - []
+  - key: safe_prompt
+    defaultValue: true
+    type: boolean
+  - key: stream
+    defaultValue: true
+    type: boolean
+messages:
+  options:
+    - system
+    - user
+    - assistant
 type:
-    primary: chat
-    supported: []
+  primary: chat
+  supported: []

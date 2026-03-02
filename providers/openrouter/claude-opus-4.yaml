@@ -1,9 +1,6 @@
-features:
-    - chat
-    - image
-    - tools
-mode: chat
 model: claude-opus-4
+features: [chat, image, tools]
 params:
-    - key: max_tokens
-      maxValue: 32000
+  - key: max_tokens
+    maxValue: 32000
+mode: chat

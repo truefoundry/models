@@ -1,35 +1,30 @@
-documentation:
-    - https://console.groq.com/docs
-    - https://groq.com/pricing/
-    - https://console.groq.com/docs/models
-    - https://console.groq.com/docs/deprecations
-messages:
-    options:
-        - system
-        - user
-        - assistant
 params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 4096
-      minValue: 1
-    - defaultValue: 0.7
-      key: temperature
-      maxValue: 2
-      minValue: 0
-    - defaultValue: 1
-      key: top_p
-      maxValue: 1
-      minValue: 0
-    - defaultValue: null
-      key: stop
-      skipValues:
-          - null
-          - []
-      type: array-of-strings
-    - defaultValue: true
-      key: stream
-      type: boolean
+  - key: max_tokens
+    defaultValue: 256
+    minValue: 1
+    maxValue: 4096
+  - key: temperature
+    defaultValue: 0.7
+    minValue: 0
+    maxValue: 2
+  - key: top_p
+    defaultValue: 1
+    minValue: 0
+    maxValue: 1
+  - key: stop
+    defaultValue: null
+    type: array-of-strings
+    skipValues:
+      - null
+      - []
+  - key: stream
+    defaultValue: true
+    type: boolean
+messages:
+  options:
+    - system
+    - user
+    - assistant
 type:
-    primary: chat
-    supported: []
+  primary: chat
+  supported: []

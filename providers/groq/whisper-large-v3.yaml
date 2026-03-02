@@ -1,22 +1,8 @@
-costs:
-    - input_cost_per_second: 0.00003083
-      output_cost_per_second: 0
-      region: "*"
-features:
-    - audio_input
-limits:
-    context_window: 448
-mode: audio_transcription
 model: whisper-large-v3
-params:
-    - defaultValue: 0
-      key: temperature
-      maxValue: 1
-      minValue: 0
-removeParams:
-    - max_tokens
-    - top_p
-    - stop
-    - stream
-sources:
-    - https://console.groq.com/docs/speech-to-text
+costs:
+  - region: '*'
+    input_cost_per_second: 0.00003083
+    output_cost_per_second: 0
+limits:
+  max_tokens: 4096
+mode: audio_transcription
