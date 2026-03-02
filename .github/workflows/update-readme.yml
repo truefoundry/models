@@ -13,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -38,11 +41,28 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Commit and push
+      - name: Create branch, commit and push
         if: steps.changes.outputs.changed == 'true'
+        env:
+          HUSKY: '0'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b readme/update-counts
           git add README.md
           git commit -m "docs(readme): update provider model counts"
-          git push
+          git push --force origin readme/update-counts
+
+      - name: Create pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pr_count=$(gh pr list --head readme/update-counts --json number -q 'length')
+          if [ "$pr_count" = "0" ]; then
+            gh pr create \
+              --base main \
+              --head readme/update-counts \
+              --title "docs(readme): update provider model counts" \
+              --body "Auto-generated PR to update README model counts after provider YAML changes. Merge when ready; required status checks will run on this PR."
+          fi
