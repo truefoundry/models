@@ -8,8 +8,9 @@ features:
     - response_schema
     - assistant_prefill
 limits:
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
+    context_window: 262144
 mode: chat
 model: devstral-latest
+sources:
+    - https://docs.mistral.ai/models/devstral-2-25-12
+    - https://mistral.ai/news/devstral-2-vibe-cli

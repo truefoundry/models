@@ -1,17 +1,32 @@
 costs:
     - input_cost_per_token: 5.e-7
+      input_cost_per_token_batches: 2.5e-7
       output_cost_per_token: 0.0000015
+      output_cost_per_token_batches: 7.5e-7
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - vision
+    - image_input
+    - pdf
+    - pdf_input
     - chat
+    - system_messages
     - tool_choice
     - response_schema
     - assistant_prefill
 limits:
+    context_window: 256000
     max_input_tokens: 256000
     max_output_tokens: 256000
     max_tokens: 256000
 mode: chat
 model: mistral-large-latest
+sources:
+    - https://docs.mistral.ai/models/mistral-large-3-25-12
+    - https://docs.mistral.ai/capabilities/function_calling/
+    - https://docs.mistral.ai/capabilities/vision/
+    - https://docs.mistral.ai/capabilities/reasoning
+    - https://docs.mistral.ai/capabilities/document_ai/document_qna
+    - https://docs.mistral.ai/capabilities/batch

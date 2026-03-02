@@ -1,12 +1,12 @@
 costs:
     - input_cost_per_token: 1.e-7
       region: "*"
-features:
-    - function_calling
-    - vision
 limits:
+    context_window: 8000
     max_input_tokens: 8000
     max_output_tokens: 8000
     max_tokens: 8000
 mode: chat
 model: mistral-moderation-2411
+sources:
+    - https://docs.mistral.ai/models/mistral-moderation-24-11

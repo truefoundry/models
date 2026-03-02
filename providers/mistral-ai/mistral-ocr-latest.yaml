@@ -1,6 +1,22 @@
 costs:
     - input_cost_per_annotated_page: 0.003
-      input_cost_per_page: 0.001
+      input_cost_per_page: 0.002
       region: "*"
+features:
+    - chat
+    - doc
+    - function_calling
+    - image_input
+    - pdf
+    - pdf_input
+    - response_schema
+    - system_messages
+    - text
+    - tools
+    - vision
 mode: chat
 model: mistral-ocr-latest
+sources:
+    - https://docs.mistral.ai/models/ocr-3-25-12
+    - https://mistral.ai/news/mistral-ocr-3
+    - https://docs.mistral.ai/api/endpoint/ocr
