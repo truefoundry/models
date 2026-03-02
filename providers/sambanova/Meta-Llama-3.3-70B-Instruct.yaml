@@ -6,9 +6,13 @@ features:
     - function_calling
     - tool_choice
     - response_schema
+lastUpdated: "2026-03-02"
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: Meta-Llama-3.3-70B-Instruct
+sources:
+    - https://docs.sambanova.ai/docs/en/features/function-calling
