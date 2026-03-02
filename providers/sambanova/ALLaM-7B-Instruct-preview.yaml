@@ -4,9 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
+lastUpdated: "2026-03-02"
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 4096
+    max_input_tokens: 4096
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: ALLaM-7B-Instruct-preview
+sources:
+    - https://huggingface.co/ALLaM-AI/ALLaM-7B-Instruct-preview
+    - https://docs.sambanova.ai/cloud/docs/get-started/supported-models
