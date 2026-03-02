@@ -1,13 +1,17 @@
 costs:
-    - input_cost_per_token: 0.000003
-      output_cost_per_token: 0.0000045
+    - input_cost_per_token: 0.000001
+      output_cost_per_token: 0.0000015
       region: "*"
 features:
     - function_calling
     - tool_choice
+    - response_schema
+lastUpdated: "2026-03-02"
 limits:
-    max_input_tokens: 32768
-    max_output_tokens: 32768
-    max_tokens: 32768
+    context_window: 131072
 mode: chat
 model: DeepSeek-V3-0324
+sources:
+    - https://sambanova.ai/blog/deepseek-v3-0324-fastest-inference-in-world
+    - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://community.sambanova.ai/t/deepseek-0324-context-length/1265

@@ -7,9 +7,15 @@ features:
     - vision
     - tool_choice
     - response_schema
+lastUpdated: "2026-03-02"
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: Llama-4-Maverick-17B-128E-Instruct
+sources:
+    - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://docs.sambanova.ai/docs/en/features/vision
+    - https://sambanova.ai/blog/sambanova-partners-with-meta-to-deliver-lightning-fast-inference-on-llama-4

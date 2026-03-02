@@ -6,9 +6,11 @@ features:
     - function_calling
     - tool_choice
     - response_schema
+lastUpdated: "2026-03-02"
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 131072
 mode: chat
 model: Meta-Llama-3.3-70B-Instruct
+sources:
+    - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://community.sambanova.ai/t/context-lengths-up-to-128k-for-meta-llama-3-3-70b-instruct-now-available/950
