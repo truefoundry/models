@@ -1,5 +1,6 @@
 costs:
     - cache_read_input_token_cost: 0.00000125
+      input_cost_per_image_token: 0.000008
       input_cost_per_token: 0.0000025
       input_cost_per_token_batches: 0.00000125
       output_cost_per_token: 0.00001
@@ -9,8 +10,8 @@ features:
     - function_calling
     - parallel_function_calling
     - vision
+    - image_input
     - chat
-    - image
     - tools
     - system_messages
     - tool_choice
@@ -18,8 +19,10 @@ features:
     - response_schema
     - pdf_input
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: gpt-4o
 params:
@@ -57,3 +60,7 @@ params:
       skipValues:
           - null
       type: string
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-4o
+    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/api/docs/deprecations/

@@ -10,7 +10,7 @@ features:
     - parallel_function_calling
     - vision
     - chat
-    - image
+    - image_input
     - tools
     - system_messages
     - tool_choice
@@ -18,9 +18,10 @@ features:
     - response_schema
     - pdf_input
 limits:
+    context_window: 1047576
     max_input_tokens: 1047576
     max_output_tokens: 32768
-    max_tokens: 4096
+    max_tokens: 32768
 mode: chat
 model: gpt-4.1-nano
 params:
@@ -62,3 +63,7 @@ params:
       type: string
 removeParams:
     - max_tokens
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-4.1-nano
+    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/api/docs/deprecations/

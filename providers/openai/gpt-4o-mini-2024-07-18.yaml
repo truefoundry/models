@@ -9,8 +9,8 @@ features:
     - function_calling
     - parallel_function_calling
     - vision
+    - image_input
     - chat
-    - image
     - tools
     - system_messages
     - tool_choice
@@ -18,8 +18,10 @@ features:
     - response_schema
     - pdf_input
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: gpt-4o-mini-2024-07-18
 params:
@@ -57,3 +59,5 @@ params:
       skipValues:
           - null
       type: string
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-4o-mini

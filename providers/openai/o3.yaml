@@ -1,7 +1,51 @@
 costs:
     - cache_read_input_token_cost: 5.e-7
       input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000008
+      output_cost_per_token_batches: 0.000004
       region: "*"
+features:
+    - function_calling
+    - vision
+    - image_input
+    - chat
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - response_schema
+    - text
+    - tools
+limits:
+    context_window: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
 mode: chat
 model: o3
+params:
+    - defaultValue: 100000
+      key: max_completion_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      options:
+          - name: Low
+            value: low
+          - name: Medium
+            value: medium
+          - name: High
+            value: high
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - frequency_penalty
+    - presence_penalty
+    - logit_bias
+    - "n"
+    - stop
+    - parallel_tool_calls
+sources:
+    - https://developers.openai.com/api/docs/pricing
+thinking: true
