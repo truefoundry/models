@@ -7,7 +7,17 @@ features:
     - image_input
     - embedding_image_input
 limits:
-    max_input_tokens: 1024
-    max_tokens: 4096
+    context_window: 512
+    max_input_tokens: 512
 mode: embedding
 model: embed-english-v3.0
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 512
+      minValue: 1
+removeParams:
+    - temperature
+sources:
+    - https://docs.cohere.com/docs/cohere-embed
+    - https://docs.cohere.com/v2/reference/embed
