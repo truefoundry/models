@@ -1,8 +1,6 @@
-features:
-    - chat
-    - image
-mode: chat
 model: o1-pro
+features: [chat, image]
 params:
-    - key: max_tokens
-      maxValue: 100000
+  - key: max_tokens
+    maxValue: 100000
+mode: chat

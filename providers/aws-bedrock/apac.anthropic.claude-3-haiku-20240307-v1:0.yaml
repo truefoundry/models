@@ -1,35 +1,13 @@
-costs:
-    - input_cost_per_token: 2.5e-7
-      input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.00000125
-      output_cost_per_token_batches: 6.25e-7
-      region: ap-southeast-2
-    - input_cost_per_token: 2.5e-7
-      input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.00000125
-      output_cost_per_token_batches: 6.25e-7
-      region: ap-southeast-1
-    - input_cost_per_token: 2.5e-7
-      input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.00000125
-      output_cost_per_token_batches: 6.25e-7
-      region: ap-south-1
-    - input_cost_per_token: 2.5e-7
-      input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.00000125
-      output_cost_per_token_batches: 6.25e-7
-      region: ap-northeast-2
-    - input_cost_per_token: 2.5e-7
-      input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.00000125
-      output_cost_per_token_batches: 6.25e-7
-      region: ap-northeast-1
-features:
-    - function_calling
-    - vision
-limits:
-    max_input_tokens: 200000
-    max_output_tokens: 4096
-    max_tokens: 4096
-mode: chat
 model: apac.anthropic.claude-3-haiku-20240307-v1:0
+costs:
+  - region: '*'
+    input_cost_per_token: 2.5e-7
+    output_cost_per_token: 0.00000125
+    cache_read_input_token_cost: 2.5e-8
+    cache_creation_input_token_cost: 3.125e-7
+limits:
+  max_tokens: 4096
+  max_input_tokens: 200000
+  max_output_tokens: 4096
+features: [function_calling, vision, tool_choice, response_schema, pdf_input]
+mode: chat

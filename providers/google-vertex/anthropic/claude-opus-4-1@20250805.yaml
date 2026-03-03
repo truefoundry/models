@@ -1,19 +1,15 @@
-costs:
-    - cache_creation_input_token_cost: 0.00001875
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      input_cost_per_token_batches: 0.0000075
-      output_cost_per_token: 0.000075
-      output_cost_per_token_batches: 0.0000375
-      region: "*"
-features:
-    - function_calling
-    - vision
-    - tool_choice
-    - assistant_prefill
-limits:
-    max_input_tokens: 200000
-    max_output_tokens: 32000
-    max_tokens: 32000
-mode: chat
 model: anthropic/claude-opus-4-1@20250805
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000015
+    output_cost_per_token: 0.000075
+    input_cost_per_token_batches: 0.0000075
+    output_cost_per_token_batches: 0.0000375
+    cache_read_input_token_cost: 0.0000015
+    cache_creation_input_token_cost: 0.00001875
+limits:
+  max_tokens: 32000
+  max_input_tokens: 200000
+  max_output_tokens: 32000
+features: [function_calling, vision, tool_choice, assistant_prefill]
+mode: chat
