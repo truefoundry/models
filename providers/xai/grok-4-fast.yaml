@@ -1,9 +1,24 @@
 costs:
     - cache_read_input_token_cost: 5.e-8
-      input_cost_per_image: 2.e-7
-      input_cost_per_query: 0.025
+      input_cost_per_query: 0.005
       input_cost_per_token: 2.e-7
+      input_cost_per_token_batches: 1.e-7
       output_cost_per_token: 5.e-7
+      output_cost_per_token_batches: 2.5e-7
       region: "*"
+features:
+    - chat
+    - function_calling
+    - image_input
+    - prompt_caching
+    - response_schema
+    - system_messages
+    - text
+    - vision
+limits:
+    context_window: 2000000
 mode: chat
 model: grok-4-fast
+sources:
+    - https://docs.x.ai/developers/rate-limits
+thinking: true

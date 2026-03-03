@@ -1,9 +1,28 @@
 costs:
     - cache_read_input_token_cost: 5.e-8
-      input_cost_per_image: 2.e-7
-      input_cost_per_query: 0.025
+      input_cost_per_query: 0.005
       input_cost_per_token: 2.e-7
+      input_cost_per_token_batches: 1.e-7
       output_cost_per_token: 5.e-7
+      output_cost_per_token_batches: 2.5e-7
       region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - vision
+    - image_input
+    - chat
+    - system_messages
+    - tool_choice
+    - response_schema
+    - prompt_caching
+    - text
+limits:
+    context_window: 2000000
 mode: chat
 model: grok-4-fast-reasoning-latest
+sources:
+    - https://docs.x.ai/docs/guides/function-calling
+    - https://docs.x.ai/docs/guides/reasoning
+    - https://docs.x.ai/docs/guides/structured-outputs
+thinking: true

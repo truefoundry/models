@@ -1,15 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 5.e-7
-      region: us-east-1
-    - cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 5.e-7
-      region: eu-west-1
-    - cache_read_input_token_cost: 7.5e-8
-      input_cost_per_image: 0
-      input_cost_per_query: 0.025
+    - cache_read_input_token_cost: 7.e-8
       input_cost_per_token: 3.e-7
       output_cost_per_token: 5.e-7
       region: "*"
@@ -17,8 +7,19 @@ features:
     - function_calling
     - chat
     - tool_choice
+    - response_schema
+    - prompt_caching
+    - system_messages
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
+    max_tokens: 131072
 mode: chat
 model: grok-3-mini-fast-beta
+params:
+    - key: max_tokens
+      maxValue: 131072
+sources:
+    - https://docs.oracle.com/en-us/iaas/Content/generative-ai/xai-grok-3-mini-fast.htm
+thinking: true

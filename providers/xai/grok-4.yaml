@@ -1,45 +1,28 @@
 costs:
     - cache_read_input_token_cost: 7.5e-7
       input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
       output_cost_per_token: 0.000015
-      region: us-east-1
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000006
-                from: 128000
-          output:
-              - cost_per_token: 0.00003
-                from: 128000
-    - cache_read_input_token_cost: 7.5e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: eu-west-1
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000006
-                from: 128000
-          output:
-              - cost_per_token: 0.00003
-                from: 128000
-    - cache_read_input_token_cost: 7.5e-7
-      input_cost_per_image: 0.000003
-      input_cost_per_query: 0.025
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
       region: "*"
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000006
-                from: 128000
-          output:
-              - cost_per_token: 0.00003
-                from: 128000
 features:
     - function_calling
+    - parallel_function_calling
+    - vision
+    - image_input
     - chat
     - tool_choice
+    - response_schema
+    - prompt_caching
+    - system_messages
 limits:
-    max_input_tokens: 256000
-    max_output_tokens: 256000
+    context_window: 256000
 mode: chat
 model: grok-4
+sources:
+    - https://docs.x.ai/docs/models
+    - https://docs.x.ai/docs/guides/reasoning
+    - https://docs.x.ai/docs/guides/structured-outputs
+    - https://docs.x.ai/docs/guides/function-calling
+    - https://docs.x.ai/docs/guides/batch-api
+thinking: true
