@@ -5,13 +5,12 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
 limits:
-    context_window: 8000
+    context_window: 8192
 mode: chat
 model: Qwen3-32B
 sources:
+    - https://docs.sambanova.ai/cloud/docs/get-started/supported-models
+    - https://sambanova.ai/blog/qwen3-is-here
     - https://docs.sambanova.ai/docs/en/features/function-calling
-    - https://docs.sambanova.ai/docs/en/features/openai-compatibility
-    - https://docs.sambanova.ai/docs/en/build/reasoning
 thinking: true

@@ -5,16 +5,7 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - response_schema
 limits:
-    context_window: 262144
     max_input_tokens: 262144
-    max_output_tokens: 65536
-    max_tokens: 65536
 mode: chat
 model: Qwen/Qwen3-Coder-Next-FP8
-sources:
-    - https://docs.together.ai/docs/serverless-models
-    - https://docs.together.ai/docs/function-calling
-    - https://huggingface.co/Qwen/Qwen3-Coder-Next
-    - https://github.com/QwenLM/Qwen3-Coder

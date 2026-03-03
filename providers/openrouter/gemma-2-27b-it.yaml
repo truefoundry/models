@@ -1,14 +1,6 @@
-costs:
-    - input_cost_per_token: 6.5e-7
-      output_cost_per_token: 6.5e-7
-      region: "*"
 features:
     - chat
 limits:
-    context_window: 8192
-    max_output_tokens: 2048
-    max_tokens: 2048
+    max_tokens: 4096
 mode: chat
 model: gemma-2-27b-it
-sources:
-    - https://openrouter.ai/google/gemma-2-27b-it/api

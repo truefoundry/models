@@ -1,26 +1,6 @@
-costs:
-    - cache_read_input_token_cost: 1.25e-7
-      input_cost_per_token: 2.5e-7
-      output_cost_per_token: 8.5e-7
-      region: "*"
 features:
     - chat
-    - function_calling
-    - tool_choice
-    - tools
-    - response_schema
 limits:
-    context_window: 163840
-    max_output_tokens: 163840
-    max_tokens: 163840
+    max_tokens: 4096
 mode: chat
 model: deepseek-r1t2-chimera
-params:
-    - defaultValue: 128
-      key: max_tokens
-      maxValue: 163840
-      minValue: 1
-sources:
-    - https://openrouter.ai/tngtech/deepseek-r1t2-chimera
-    - https://openrouter.ai/tngtech/deepseek-r1t2-chimera/api
-thinking: true

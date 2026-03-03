@@ -1,27 +1,9 @@
-costs:
-    - cache_read_input_token_cost: 5.e-7
-      input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000008
-      region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - function_calling
+    - image
     - tools
-    - tool_choice
-    - system_messages
-    - response_schema
-    - prompt_caching
-limits:
-    context_window: 1047576
-    max_output_tokens: 32768
-    max_tokens: 32768
 mode: chat
 model: gpt-4.1
 params:
     - key: max_tokens
       maxValue: 32768
-sources:
-    - https://openrouter.ai/openai/gpt-4.1/api
-    - https://developers.openai.com/api/docs/models/gpt-4.1

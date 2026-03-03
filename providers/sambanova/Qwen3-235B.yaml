@@ -3,10 +3,9 @@ costs:
       output_cost_per_token: 8.e-7
       region: "*"
 limits:
-    context_window: 64000
+    context_window: 65536
 mode: chat
 model: Qwen3-235B-A22B-Instruct-2507
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling
     - https://pricepertoken.com/pricing-page/model/qwen-qwen3-235b-a22b
-    - https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507

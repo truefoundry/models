@@ -1,49 +1,9 @@
-costs:
-    - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: "*"
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 6.e-7
-                from: 200001
-          cache_write:
-              - cost_per_token: 0.0000075
-                from: 200001
-          input:
-              - cost_per_token: 0.000006
-                from: 200001
-          output:
-              - cost_per_token: 0.0000225
-                from: 200001
 features:
     - chat
-    - text
-    - code
+    - image
     - tools
-    - function_calling
-    - parallel_function_calling
-    - vision
-    - image_input
-    - pdf_input
-    - system_messages
-    - tool_choice
-    - prompt_caching
-    - cache_control
-    - assistant_prefill
-    - response_schema
-limits:
-    context_window: 1000000
-    max_output_tokens: 64000
-    max_tokens: 64000
 mode: chat
 model: claude-sonnet-4
 params:
     - key: max_tokens
       maxValue: 64000
-sources:
-    - https://openrouter.ai/anthropic/claude-sonnet-4/api
-    - https://platform.claude.com/docs/en/docs/about-claude/models
-    - https://platform.claude.com/docs/en/about-claude/pricing
-thinking: true

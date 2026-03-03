@@ -3,13 +3,7 @@ costs:
       output_cost_per_token: 2.e-7
       region: "*"
 features:
-    - vision
-    - image_input
-limits:
-    context_window: 1048576
+    - function_calling
+    - parallel_function_calling
 mode: chat
 model: meta-llama/Llama-Guard-4-12B
-sources:
-    - https://www.together.ai/pricing
-    - https://docs.together.ai/docs/serverless-models
-    - https://huggingface.co/meta-llama/Llama-Guard-4-12B

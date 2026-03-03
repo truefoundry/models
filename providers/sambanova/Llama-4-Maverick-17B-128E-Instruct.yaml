@@ -8,7 +8,10 @@ features:
     - tool_choice
     - response_schema
 limits:
-    context_window: 128000
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
 mode: chat
 model: Llama-4-Maverick-17B-128E-Instruct
 sources:
