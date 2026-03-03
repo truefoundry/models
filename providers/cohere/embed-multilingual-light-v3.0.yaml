@@ -5,7 +5,14 @@ costs:
 features:
     - embedding_image_input
 limits:
-    max_input_tokens: 1024
-    max_tokens: 1024
+    context_window: 512
+    max_input_tokens: 512
 mode: embedding
 model: embed-multilingual-light-v3.0
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
+sources:
+    - https://docs.cohere.com/docs/cohere-embed
+    - https://docs.cohere.com/v2/reference/embed

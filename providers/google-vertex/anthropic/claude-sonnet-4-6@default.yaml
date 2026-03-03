@@ -1,10 +1,112 @@
+costs:
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
+    - cache_creation_input_token_cost: 0.000004125
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: us-east5
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+    - cache_creation_input_token_cost: 0.000004125
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: europe-west1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+    - cache_creation_input_token_cost: 0.000004125
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: asia-southeast1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
 features:
     - function_calling
     - vision
     - tool_choice
     - prompt_caching
+    - cache_control
     - response_schema
     - assistant_prefill
     - pdf_input
+    - image_input
+    - system_messages
+limits:
+    context_window: 200000
+    max_output_tokens: 64000
+    max_tokens: 64000
 mode: chat
 model: anthropic/claude-sonnet-4-6@default
+params:
+    - key: max_tokens
+      maxValue: 64000
+    - key: temperature
+      maxValue: 1
+removeParams:
+    - "n"
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4-6
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude
+thinking: true

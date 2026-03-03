@@ -9,8 +9,11 @@ features:
     - response_schema
     - assistant_prefill
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
 mode: chat
 model: pixtral-large-2411
+sources:
+    - https://docs.mistral.ai/models/pixtral-large-24-11

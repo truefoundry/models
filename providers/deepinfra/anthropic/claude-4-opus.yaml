@@ -3,10 +3,22 @@ costs:
       output_cost_per_token: 0.0000825
       region: "*"
 features:
+    - function_calling
+    - vision
+    - image_input
     - tool_choice
+    - system_messages
+    - prompt_caching
 limits:
+    context_window: 200000
     max_input_tokens: 200000
-    max_output_tokens: 200000
-    max_tokens: 200000
+    max_output_tokens: 32000
+    max_tokens: 32000
 mode: chat
 model: anthropic/claude-4-opus
+sources:
+    - https://deepinfra.com/anthropic/claude-4-opus/api
+    - https://deepinfra.com/claude
+    - https://platform.claude.com/docs/en/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+thinking: true

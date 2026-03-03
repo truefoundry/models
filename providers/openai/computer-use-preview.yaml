@@ -2,5 +2,29 @@ costs:
     - input_cost_per_token: 0.000003
       output_cost_per_token: 0.000012
       region: "*"
+features:
+    - chat
+    - function_calling
+    - image_input
+    - system_messages
+    - text
+    - tool_choice
+    - tools
+    - vision
+limits:
+    context_window: 8192
+    max_output_tokens: 1024
+    max_tokens: 1024
 mode: chat
 model: computer-use-preview
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 1024
+      minValue: 1
+removeParams:
+    - stream
+sources:
+    - https://developers.openai.com/api/docs/models/computer-use-preview
+    - https://developers.openai.com/api/docs/guides/tools-computer-use/
+thinking: true

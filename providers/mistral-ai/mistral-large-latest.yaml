@@ -4,14 +4,28 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - vision
     - chat
+    - image_input
+    - pdf_input
+    - pdf
+    - doc
+    - system_messages
     - tool_choice
     - response_schema
     - assistant_prefill
+    - text
+    - code
+    - tools
 limits:
+    context_window: 256000
     max_input_tokens: 256000
     max_output_tokens: 256000
     max_tokens: 256000
 mode: chat
 model: mistral-large-latest
+sources:
+    - https://docs.mistral.ai/models/mistral-large-3-25-12
+    - https://docs.mistral.ai/capabilities/function_calling/
+    - https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512

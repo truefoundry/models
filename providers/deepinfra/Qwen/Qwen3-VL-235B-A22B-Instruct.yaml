@@ -3,9 +3,24 @@ costs:
       input_cost_per_token: 2.e-7
       output_cost_per_token: 8.8e-7
       region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - system_messages
+    - tool_choice
+    - response_schema
+    - prompt_caching
 limits:
+    context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 262144
     max_tokens: 262144
 mode: chat
 model: Qwen/Qwen3-VL-235B-A22B-Instruct
+sources:
+    - https://deepinfra.com/Qwen/Qwen3-VL-235B-A22B-Instruct/api
+    - https://openrouter.ai/qwen/qwen3-vl-235b-a22b-instruct/api
+    - https://github.com/QwenLM/Qwen3-VL
+    - https://blog.galaxy.ai/model/qwen3-vl-235b-a22b-instruct

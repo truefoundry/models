@@ -8,15 +8,33 @@ costs:
       output_cost_per_token: 0.000012
       output_cost_per_token_batches: 0.000006
       region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000018
+                from: 200000
 features:
     - vision
+    - image_input
     - chat
+    - image
     - system_messages
-    - prompt_caching
     - response_schema
 limits:
     max_input_tokens: 65536
     max_output_tokens: 32768
-    max_tokens: 4096
+    max_tokens: 32768
 mode: image
 model: gemini-3-pro-image-preview
+params:
+    - key: max_tokens
+      maxValue: 32768
+removeParams:
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview
+    - https://ai.google.dev/gemini-api/docs/image-generation
+    - https://ai.google.dev/gemini-api/docs/thinking
+thinking: true

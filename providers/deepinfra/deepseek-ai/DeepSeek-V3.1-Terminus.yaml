@@ -4,10 +4,16 @@ costs:
       output_cost_per_token: 7.9e-7
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
+    context_window: 163840
     max_input_tokens: 163840
     max_output_tokens: 163840
     max_tokens: 163840
 mode: chat
 model: deepseek-ai/DeepSeek-V3.1-Terminus
+sources:
+    - https://deepinfra.com/deepseek-ai/DeepSeek-V3.1-Terminus/api
+    - https://openrouter.ai/deepseek/deepseek-v3.1-terminus/api
+thinking: true

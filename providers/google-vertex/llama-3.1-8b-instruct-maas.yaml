@@ -1,6 +1,15 @@
 features:
-    - vision
+    - function_calling
     - system_messages
     - tool_choice
+limits:
+    context_window: 128000
 mode: chat
 model: llama-3.1-8b-instruct-maas
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama/llama3-1-8
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama/use-llama
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-maas
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
+    - https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct

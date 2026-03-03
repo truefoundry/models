@@ -2,8 +2,17 @@ costs:
     - cache_creation_input_token_cost: 0.00001875
       cache_read_input_token_cost: 0.0000015
       input_cost_per_token: 0.000015
+      input_cost_per_token_batches: 0.0000075
       output_cost_per_token: 0.000075
-      region: "*"
+      output_cost_per_token_batches: 0.0000375
+      region: us-east5
+    - cache_creation_input_token_cost: 0.00001875
+      cache_read_input_token_cost: 0.0000015
+      input_cost_per_token: 0.000015
+      input_cost_per_token_batches: 0.0000075
+      output_cost_per_token: 0.000075
+      output_cost_per_token_batches: 0.0000375
+      region: global
 features:
     - function_calling
     - vision
@@ -13,9 +22,15 @@ features:
     - assistant_prefill
     - pdf_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
-    tool_use_system_prompt_tokens: 159
 mode: chat
 model: anthropic/claude-opus-4
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+thinking: true

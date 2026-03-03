@@ -4,13 +4,6 @@ costs:
       input_cost_per_token: 0
       output_cost_per_token: 0
       region: "*"
-      tiered_pricing:
-          input:
-              - cost_per_token: 0
-                from: 128000
-          output:
-              - cost_per_token: 0
-                from: 128000
 features:
     - function_calling
     - vision
@@ -22,3 +15,7 @@ limits:
     max_tokens: 8192
 mode: chat
 model: gemma-3-27b-it
+sources:
+    - https://ai.google.dev/gemma/docs/core
+    - https://ai.google.dev/gemma/docs/core/model_card_3
+    - https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api
