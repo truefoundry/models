@@ -46,7 +46,6 @@ function main(): void {
         if (sorted !== content) {
             fs.writeFileSync(filePath, sorted, 'utf-8');
             sortedCount++;
-            console.log(`  Sorted: ${path.relative(PROVIDERS_DIR, filePath)}`);
         }
     }
 

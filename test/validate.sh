@@ -32,14 +32,7 @@ validate_file() {
 
     local result=0
     # Load common.cue + model.cue + default.cue together (same package)
-    if cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>/dev/null; then
-        echo "✓ $file"
-    else
-        echo "✗ $file"
-        cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>&1 | head -10
-        result=1
-    fi
-
+    cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>/dev/null || result=1
     return $result
 }
 
