@@ -1,0 +1,11 @@
+model: mistral-medium-3-1-2508
+costs:
+  - region: '*'
+    input_cost_per_token: 4.e-7
+    output_cost_per_token: 0.000002
+limits:
+  max_tokens: 131072
+  max_input_tokens: 131072
+  max_output_tokens: 131072
+features: [function_calling, vision, tool_choice, response_schema, assistant_prefill]
+mode: chat

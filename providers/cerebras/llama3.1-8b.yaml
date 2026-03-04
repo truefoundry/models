@@ -1,27 +1,13 @@
-costs:
-    - input_cost_per_token: 1.e-7
-      output_cost_per_token: 1.e-7
-      region: "*"
-features:
-    - function_calling
-    - chat
-    - tools
-    - tool_choice
-    - response_schema
-    - system_messages
-limits:
-    context_window: 32000
-    max_output_tokens: 8000
-    max_tokens: 8000
-mode: chat
 model: llama3.1-8b
+costs:
+  - region: '*'
+    input_cost_per_token: 1.e-7
+    output_cost_per_token: 1.e-7
+limits:
+  max_input_tokens: 128000
+  max_output_tokens: 128000
+features: [chat, tools, function_calling, tool_choice]
 params:
-    - key: max_tokens
-      maxValue: 8000
-sources:
-    - https://inference-docs.cerebras.ai/models/llama-31-8b
-    - https://inference-docs.cerebras.ai/capabilities/tool-use
-    - https://inference-docs.cerebras.ai/capabilities/structured-outputs
-    - https://inference-docs.cerebras.ai/capabilities/prompt-caching
-    - https://inference-docs.cerebras.ai/capabilities/reasoning
-    - https://inference-docs.cerebras.ai/api-reference/chat-completions
+  - key: max_tokens
+    maxValue: 32768
+mode: chat

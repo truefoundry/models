@@ -1,16 +1,11 @@
-costs:
-    - input_cost_per_token: 6.e-7
-      output_cost_per_token: 6.e-7
-      region: "*"
-features:
-    - tool_choice
-limits:
-    context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 4096
-    max_tokens: 4096
-mode: chat
 model: nvidia/Llama-3.1-Nemotron-70B-Instruct
-sources:
-    - https://deepinfra.com/nvidia/Llama-3.1-Nemotron-70B-Instruct/api
-    - https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct
+costs:
+  - region: '*'
+    input_cost_per_token: 6.e-7
+    output_cost_per_token: 6.e-7
+limits:
+  max_tokens: 131072
+  max_input_tokens: 131072
+  max_output_tokens: 131072
+features: [tool_choice]
+mode: chat

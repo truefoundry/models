@@ -1,11 +1,10 @@
-costs:
-    - input_cost_per_token: 1.25e-7
-      output_cost_per_token: 1.25e-7
-      region: "*"
-isDeprecated: true
-limits:
-    max_input_tokens: 2048
-    max_output_tokens: 64
-    max_tokens: 64
-mode: completion
 model: code-gecko
+costs:
+  - region: '*'
+    input_cost_per_token: 1.25e-7
+    output_cost_per_token: 1.25e-7
+limits:
+  max_tokens: 64
+  max_input_tokens: 2048
+  max_output_tokens: 64
+mode: completion

@@ -1,20 +1,11 @@
-costs:
-    - input_cost_per_image: 0.0001
-      input_cost_per_token: 1.e-7
-      output_cost_per_token: 0
-      region: "*"
-features:
-    - image_input
-    - embedding_image_input
-limits:
-    context_window: 512
-    max_input_tokens: 512
-mode: embedding
 model: embed-english-v3.0
-removeParams:
-    - max_tokens
-    - temperature
-    - stream
-sources:
-    - https://docs.cohere.com/reference/embed
-    - https://docs.cohere.com/docs/cohere-embed
+costs:
+  - region: '*'
+    input_cost_per_token: 1.e-7
+    output_cost_per_token: 0
+    input_cost_per_image: 0.0001
+limits:
+  max_tokens: 4096
+  max_input_tokens: 1024
+features: [image_input, embedding_image_input]
+mode: embedding

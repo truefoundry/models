@@ -1,21 +1,11 @@
-costs:
-    - input_cost_per_token: 4.e-7
-      output_cost_per_token: 4.e-7
-      region: "*"
-features:
-    - function_calling
-    - tool_choice
-    - system_messages
-    - chat
-limits:
-    context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 16384
-    max_tokens: 16384
-mode: chat
 model: meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
-sources:
-    - https://deepinfra.com/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo/api
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
-    - https://deepinfra.com/docs/advanced/function_calling
-    - https://deepinfra.com/docs/model-features
+costs:
+  - region: '*'
+    input_cost_per_token: 1.e-7
+    output_cost_per_token: 2.8e-7
+limits:
+  max_tokens: 131072
+  max_input_tokens: 131072
+  max_output_tokens: 131072
+features: [tool_choice]
+mode: chat

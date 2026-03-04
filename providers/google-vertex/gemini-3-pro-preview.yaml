@@ -1,588 +1,74 @@
-costs:
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: global
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: us-west1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: us-west4
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: us-central1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: us-east1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: us-east4
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: us-east5
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: us-south1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: northamerica-northeast1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: southamerica-east1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-west1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-west2
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-west3
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-west4
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-west6
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-north1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-central2
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-west8
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-southwest1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: europe-west9
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: asia-south1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: asia-southeast1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: asia-east1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: asia-east2
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: asia-northeast1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: asia-northeast3
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: australia-southeast1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: me-west1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: me-central1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-    - cache_read_input_token_cost: 2.e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
-      region: me-central2
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 4.e-7
-                from: 200000
-          input:
-              - cost_per_token: 0.000004
-                from: 200000
-          output:
-              - cost_per_token: 0.000018
-                from: 200000
-features:
-    - function_calling
-    - vision
-    - audio_input
-    - chat
-    - image
-    - pdf
-    - doc
-    - tools
-    - system_messages
-    - tool_choice
-    - prompt_caching
-    - response_schema
-    - pdf_input
-    - text
-    - code
-    - image_input
-limits:
-    context_window: 1048576
-    max_input_tokens: 1048576
-    max_output_tokens: 65536
-    max_tokens: 65536
-mode: chat
 model: gemini-3-pro-preview
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000002
+    output_cost_per_token: 0.000012
+    input_cost_per_token_batches: 0.000001
+    output_cost_per_token_batches: 0.000006
+    cache_read_input_token_cost: 2.e-7
+    tiered_pricing:
+      cache_read:
+        - from: 200000
+          cost_per_token: 4.e-7
+      cache_write:
+        - from: 200000
+          cost_per_token: 2.5e-7
+      input:
+        - from: 200000
+          cost_per_token: 0.000004
+      output:
+        - from: 200000
+          cost_per_token: 0.000018
+limits:
+  max_input_tokens: 1048576
+  max_output_tokens: 65535
+features: [chat, image, tools, pdf, doc, function_calling, vision, audio_input, system_messages, tool_choice, prompt_caching, response_schema, pdf_input]
 params:
-    - key: max_tokens
-      maxValue: 65536
-    - defaultValue: null
-      key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
-      type: string
-    - defaultValue: null
-      key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 32768
-              minValue: 128
-              type: number
-          type:
-              enum:
-                  - enabled
+  - key: max_tokens
+    maxValue: 65536
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
               type: string
-      skipValues:
-          - null
-sources:
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview
-thinking: true
+              value: json_object
+      - value: json_schema
+        name: JSON Schema
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_schema
+            json_schema:
+              type: object
+        params:
+          key: json_schema
+          defaultValue: null
+          type: json
+          skipValues:
+            - null
+    skipValues:
+      - null
+    type: string
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
+      budget_tokens:
+        type: number
+        minValue: 128
+        maxValue: 32768
+    defaultValue: null
+    skipValues:
+      - null
+mode: chat

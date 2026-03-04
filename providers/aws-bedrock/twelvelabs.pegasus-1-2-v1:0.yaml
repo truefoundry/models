@@ -1,44 +1,8 @@
-costs:
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: us-west-2
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: us-west-1
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: us-east-2
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: us-east-1
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-west-3
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-west-2
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-west-1
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-south-2
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-south-1
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-north-1
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-central-2
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: eu-central-1
-    - input_cost_per_second: 0.00049
-      output_cost_per_token: 0.0000075
-      region: ap-northeast-2
-limits:
-    max_tokens: 4096
-mode: video
 model: twelvelabs.pegasus-1-2-v1:0
+costs:
+  - region: '*'
+    output_cost_per_token: 0.0000075
+limits:
+  max_tokens: 4096
+features: [text]
+mode: chat

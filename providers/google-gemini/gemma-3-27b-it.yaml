@@ -1,21 +1,20 @@
-costs:
-    - input_cost_per_character: 0
-      input_cost_per_image: 0
-      input_cost_per_token: 0
-      output_cost_per_token: 0
-      region: "*"
-features:
-    - function_calling
-    - vision
-    - tool_choice
-    - response_schema
-limits:
-    max_input_tokens: 131072
-    max_output_tokens: 8192
-    max_tokens: 8192
-mode: chat
 model: gemma-3-27b-it
-sources:
-    - https://ai.google.dev/gemma/docs/core
-    - https://ai.google.dev/gemma/docs/core/model_card_3
-    - https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api
+costs:
+  - region: '*'
+    input_cost_per_token: 0
+    output_cost_per_token: 0
+    input_cost_per_character: 0
+    input_cost_per_image: 0
+    tiered_pricing:
+      input:
+        - from: 128000
+          cost_per_token: 0
+      output:
+        - from: 128000
+          cost_per_token: 0
+limits:
+  max_tokens: 8192
+  max_input_tokens: 131072
+  max_output_tokens: 8192
+features: [function_calling, vision, tool_choice, response_schema]
+mode: chat

@@ -1,9 +1,6 @@
-features:
-    - chat
-    - image
-    - tools
-mode: chat
 model: o1
+features: [chat, image, tools]
 params:
-    - key: max_tokens
-      maxValue: 100000
+  - key: max_tokens
+    maxValue: 100000
+mode: chat

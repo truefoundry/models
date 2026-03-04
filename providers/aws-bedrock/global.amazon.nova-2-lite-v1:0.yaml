@@ -1,110 +1,12 @@
-costs:
-    - cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 0.0000025
-      region: us-west-2
-    - cache_read_input_token_cost: 9.75e-8
-      input_cost_per_token: 3.9e-7
-      output_cost_per_token: 0.00000321
-      region: us-west-1
-    - cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 0.0000025
-      region: us-east-2
-    - cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 0.0000025
-      region: us-east-1
-    - cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 0.0000025
-      region: me-central-1
-    - cache_read_input_token_cost: 9.5e-8
-      input_cost_per_token: 3.8e-7
-      output_cost_per_token: 0.00000313
-      region: il-central-1
-    - cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 4.4e-7
-      output_cost_per_token: 0.00000369
-      region: eu-west-3
-    - cache_read_input_token_cost: 1.05e-7
-      input_cost_per_token: 4.2e-7
-      output_cost_per_token: 0.00000352
-      region: eu-west-2
-    - cache_read_input_token_cost: 8.5e-8
-      input_cost_per_token: 3.4e-7
-      output_cost_per_token: 0.00000287
-      region: eu-west-1
-    - cache_read_input_token_cost: 8.25e-8
-      input_cost_per_token: 3.3e-7
-      output_cost_per_token: 0.00000275
-      region: eu-south-2
-    - cache_read_input_token_cost: 8.25e-8
-      input_cost_per_token: 4.81e-7
-      output_cost_per_token: 0.0000041
-      region: eu-south-1
-    - cache_read_input_token_cost: 8.25e-8
-      input_cost_per_token: 3.3e-7
-      output_cost_per_token: 0.00000272
-      region: eu-north-1
-    - cache_read_input_token_cost: 9.75e-8
-      input_cost_per_token: 3.9e-7
-      output_cost_per_token: 0.00000327
-      region: eu-central-1
-    - cache_read_input_token_cost: 8.5e-7
-      input_cost_per_token: 3.4e-7
-      output_cost_per_token: 0.00000281
-      region: ca-west-1
-    - cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 3.2e-7
-      output_cost_per_token: 0.00000267
-      region: ca-central-1
-    - cache_read_input_token_cost: 1.025e-7
-      input_cost_per_token: 4.1e-7
-      output_cost_per_token: 0.00000339
-      region: ap-southeast-7
-    - cache_read_input_token_cost: 1.025e-7
-      input_cost_per_token: 4.1e-7
-      output_cost_per_token: 0.00000339
-      region: ap-southeast-5
-    - cache_read_input_token_cost: 8.25e-8
-      input_cost_per_token: 3.3e-7
-      output_cost_per_token: 0.00000271
-      region: ap-southeast-4
-    - cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 3.2e-7
-      output_cost_per_token: 0.00000264
-      region: ap-southeast-3
-    - cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 3.2e-7
-      output_cost_per_token: 0.00000263
-      region: ap-southeast-2
-    - cache_read_input_token_cost: 1.025e-7
-      input_cost_per_token: 4.1e-7
-      output_cost_per_token: 0.00000339
-      region: ap-southeast-1
-    - cache_read_input_token_cost: 8.75e-8
-      input_cost_per_token: 3.5e-7
-      output_cost_per_token: 0.00000295
-      region: ap-south-1
-    - cache_read_input_token_cost: 9.e-8
-      input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000296
-      region: ap-northeast-2
-    - cache_read_input_token_cost: 9.e-8
-      input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000301
-      region: ap-northeast-1
-    - cache_read_input_token_cost: 9.e-8
-      input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000301
-      region: ap-east-2
-features:
-    - function_calling
-    - vision
-limits:
-    max_input_tokens: 1000000
-    max_output_tokens: 64000
-    max_tokens: 64000
-mode: chat
 model: global.amazon.nova-2-lite-v1:0
+costs:
+  - region: '*'
+    input_cost_per_token: 3.e-7
+    output_cost_per_token: 0.0000025
+    cache_read_input_token_cost: 7.5e-8
+limits:
+  max_tokens: 64000
+  max_input_tokens: 1000000
+  max_output_tokens: 64000
+features: [function_calling, vision, prompt_caching, response_schema, pdf_input]
+mode: chat

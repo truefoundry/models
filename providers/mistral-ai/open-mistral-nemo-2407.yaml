@@ -1,19 +1,11 @@
-costs:
-    - input_cost_per_token: 1.5e-7
-      output_cost_per_token: 1.5e-7
-      region: "*"
-features:
-    - function_calling
-    - tool_choice
-    - response_schema
-    - assistant_prefill
-limits:
-    context_window: 128000
-    max_input_tokens: 128000
-    max_output_tokens: 128000
-    max_tokens: 128000
-mode: chat
 model: open-mistral-nemo-2407
-sources:
-    - https://docs.mistral.ai/models/mistral-nemo-12b-24-07
-    - https://docs.mistral.ai/getting-started/models/models_overview/
+costs:
+  - region: '*'
+    input_cost_per_token: 3.e-7
+    output_cost_per_token: 3.e-7
+limits:
+  max_tokens: 128000
+  max_input_tokens: 128000
+  max_output_tokens: 128000
+features: [tool_choice, response_schema, assistant_prefill]
+mode: chat
