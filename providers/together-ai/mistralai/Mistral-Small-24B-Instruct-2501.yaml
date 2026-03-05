@@ -1,16 +1,3 @@
-costs:
-    - input_cost_per_token: 1.e-7
-      output_cost_per_token: 3.e-7
-      region: "*"
-features:
-    - function_calling
-    - parallel_function_calling
-    - tool_choice
-    - response_schema
-limits:
-    context_window: 32768
-mode: chat
 model: mistralai/Mistral-Small-24B-Instruct-2501
-sources:
-    - https://www.together.ai/models/mistral-small-3
-    - https://docs.together.ai/docs/serverless-models
+features: [function_calling, parallel_function_calling, tool_choice]
+mode: chat

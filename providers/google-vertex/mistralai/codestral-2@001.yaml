@@ -1,19 +1,11 @@
-costs:
-    - input_cost_per_token: 3.e-7
-      output_cost_per_token: 9.e-7
-      region: us-central1
-    - input_cost_per_token: 3.e-7
-      output_cost_per_token: 9.e-7
-      region: europe-west4
-features:
-    - function_calling
-    - tool_choice
-limits:
-    context_window: 128000
-    max_input_tokens: 128000
-    max_output_tokens: 128000
-    max_tokens: 128000
-mode: chat
 model: mistralai/codestral-2@001
-sources:
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral/codestral-2
+costs:
+  - region: '*'
+    input_cost_per_token: 3.e-7
+    output_cost_per_token: 9.e-7
+limits:
+  max_tokens: 128000
+  max_input_tokens: 128000
+  max_output_tokens: 128000
+features: [function_calling, tool_choice]
+mode: chat

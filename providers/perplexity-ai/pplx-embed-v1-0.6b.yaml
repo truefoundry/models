@@ -1,0 +1,10 @@
+model: pplx-embed-v1-0.6b
+costs:
+  - region: '*'
+    input_cost_per_token: 4.e-9
+    output_cost_per_token: 0
+limits:
+  max_tokens: 32768
+  max_input_tokens: 32768
+  output_vector_size: 1024
+mode: embedding

@@ -1,22 +1,9 @@
-costs:
-    - input_cost_per_token: 6.e-7
-      output_cost_per_token: 0.0000036
-      region: "*"
-features:
-    - chat
-    - code
-    - function_calling
-    - vision
-    - image_input
-    - response_schema
-limits:
-    context_window: 262144
-    max_input_tokens: 262144
-    max_output_tokens: 262144
-    max_tokens: 262144
-mode: chat
 model: Qwen/Qwen3.5-397B-A17B
-sources:
-    - https://www.together.ai/models/qwen3-5-397b-a17b
-    - https://docs.together.ai/docs/serverless-models
-    - https://www.together.ai/pricing
+costs:
+  - region: '*'
+    input_cost_per_token: 6.e-7
+    output_cost_per_token: 0.0000036
+limits:
+  max_input_tokens: 262144
+features: [function_calling, parallel_function_calling, tool_choice, response_schema]
+mode: chat

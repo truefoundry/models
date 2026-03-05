@@ -1,9 +1,6 @@
-features:
-    - chat
-    - image
-    - tools
-mode: chat
 model: claude-3.5-haiku-20241022
+features: [chat, image, tools]
 params:
-    - key: max_tokens
-      maxValue: 8192
+  - key: max_tokens
+    maxValue: 8192
+mode: chat

@@ -1,20 +1,11 @@
-costs:
-    - input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000005
-      region: "*"
-features:
-    - function_calling
-    - chat
-    - tool_choice
-    - response_schema
-    - assistant_prefill
-limits:
-    context_window: 128000
-mode: chat
 model: magistral-medium-latest
-sources:
-    - https://docs.mistral.ai/models/magistral-medium-1-2-25-09
-    - https://docs.mistral.ai/capabilities/reasoning/
-    - https://docs.mistral.ai/capabilities/vision/
-    - https://docs.mistral.ai/capabilities/function_calling
-thinking: true
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000002
+    output_cost_per_token: 0.000005
+limits:
+  max_tokens: 4096
+  max_input_tokens: 40000
+  max_output_tokens: 40000
+features: [chat, function_calling, tool_choice, response_schema, assistant_prefill]
+mode: chat

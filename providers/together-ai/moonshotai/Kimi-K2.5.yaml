@@ -1,22 +1,11 @@
-costs:
-    - input_cost_per_token: 5.e-7
-      output_cost_per_token: 0.0000028
-      region: "*"
-features:
-    - function_calling
-    - vision
-    - tool_choice
-limits:
-    context_window: 256000
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
-mode: chat
 model: moonshotai/Kimi-K2.5
-sources:
-    - https://www.together.ai/models/kimi-k2-5
-    - https://together.ai/pricing
-    - https://docs.together.ai/docs/vision-overview
-    - https://docs.together.ai/docs/function-calling
-    - https://huggingface.co/moonshotai/Kimi-K2.5
-thinking: true
+costs:
+  - region: '*'
+    input_cost_per_token: 5.e-7
+    output_cost_per_token: 0.0000028
+limits:
+  max_tokens: 256000
+  max_input_tokens: 256000
+  max_output_tokens: 256000
+features: [function_calling, vision, tool_choice]
+mode: chat

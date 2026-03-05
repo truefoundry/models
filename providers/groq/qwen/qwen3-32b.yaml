@@ -1,25 +1,11 @@
-costs:
-    - input_cost_per_token: 2.9e-7
-      output_cost_per_token: 5.9e-7
-      region: "*"
-features:
-    - function_calling
-    - parallel_function_calling
-    - tool_choice
-    - response_schema
-limits:
-    context_window: 131072
-    max_output_tokens: 40960
-    max_tokens: 40960
-mode: chat
 model: qwen/qwen3-32b
-params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 40960
-      minValue: 1
-sources:
-    - https://console.groq.com/docs/model/qwen/qwen3-32b
-    - https://console.groq.com/docs/reasoning
-    - https://console.groq.com/docs/tool-use
-thinking: true
+costs:
+  - region: '*'
+    input_cost_per_token: 2.9e-7
+    output_cost_per_token: 5.9e-7
+limits:
+  max_tokens: 131000
+  max_input_tokens: 131000
+  max_output_tokens: 131000
+features: [function_calling, tool_choice]
+mode: chat

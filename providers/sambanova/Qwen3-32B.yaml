@@ -1,16 +1,11 @@
-costs:
-    - input_cost_per_token: 4.e-7
-      output_cost_per_token: 8.e-7
-      region: "*"
-features:
-    - function_calling
-    - tool_choice
-limits:
-    context_window: 8192
-mode: chat
 model: Qwen3-32B
-sources:
-    - https://docs.sambanova.ai/cloud/docs/get-started/supported-models
-    - https://sambanova.ai/blog/qwen3-is-here
-    - https://docs.sambanova.ai/docs/en/features/function-calling
-thinking: true
+costs:
+  - region: '*'
+    input_cost_per_token: 4.e-7
+    output_cost_per_token: 8.e-7
+limits:
+  max_tokens: 8192
+  max_input_tokens: 8192
+  max_output_tokens: 8192
+features: [function_calling, tool_choice]
+mode: chat

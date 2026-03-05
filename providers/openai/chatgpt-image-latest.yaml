@@ -1,24 +1,6 @@
-costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_image_token: 0.000008
-      input_cost_per_token: 0.000005
-      output_cost_per_image_token: 0.000032
-      output_cost_per_token: 0.00001
-      region: "*"
-features:
-    - chat
-    - image
-    - image_input
-    - prompt_caching
-    - system_messages
-    - text
-    - vision
-mode: image
 model: chatgpt-image-latest
-removeParams:
-    - tool_choice
-    - parallel_tool_calls
-    - stream
-sources:
-    - https://developers.openai.com/api/docs/models/chatgpt-image-latest
-    - https://developers.openai.com/api/docs/guides/images-vision
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000005
+    cache_read_input_token_cost: 0.00000125
+mode: image

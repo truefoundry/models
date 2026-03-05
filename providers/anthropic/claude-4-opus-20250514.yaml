@@ -1,58 +1,37 @@
-costs:
-    - cache_creation_input_token_cost: 0.00001875
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      input_cost_per_token_batches: 0.0000075
-      output_cost_per_token: 0.000075
-      output_cost_per_token_batches: 0.0000375
-      region: "*"
-features:
-    - function_calling
-    - parallel_function_calling
-    - vision
-    - image_input
-    - chat
-    - tools
-    - tool_choice
-    - prompt_caching
-    - cache_control
-    - response_schema
-    - assistant_prefill
-    - pdf_input
-    - pdf
-    - system_messages
-    - text
-    - code
-limits:
-    context_window: 200000
-    max_input_tokens: 200000
-    max_output_tokens: 32000
-    max_tokens: 32000
-    tool_use_system_prompt_tokens: 346
-mode: chat
 model: claude-4-opus-20250514
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000015
+    output_cost_per_token: 0.000075
+    cache_read_input_token_cost: 0.0000015
+    cache_creation_input_token_cost: 0.00001875
+limits:
+  max_input_tokens: 200000
+  max_output_tokens: 32000
+  tool_use_system_prompt_tokens: 159
+features: [chat, image, tools, function_calling, vision, tool_choice, prompt_caching, response_schema, assistant_prefill, pdf_input]
 params:
-    - key: max_tokens
-      maxValue: 64000
-    - defaultValue: null
-      key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 128000
-              minValue: 1024
-              type: number
-          type:
-              enum:
-                  - enabled
-                  - disabled
-              type: string
-      skipValues:
+  - key: max_tokens
+    maxValue: 64000
+  - key: thinking
+    properties:
+      type:
+        type: string
+        enum:
+          - enabled
           - disabled
-          - null
-      withdrawParams:
-          - top_k
-          - top_p
+      budget_tokens:
+        type: number
+        minValue: 1024
+        maxValue: 128000
+    defaultValue: null
+    withdrawParams:
+      - top_k
+      - top_p
+    skipValues:
+      - disabled
+      - null
 removeParams:
-    - temperature
-    - top_p
-thinking: true
+  - temperature
+  - top_p
+mode: chat
