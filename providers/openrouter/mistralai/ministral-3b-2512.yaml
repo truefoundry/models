@@ -7,9 +7,13 @@ features:
     - function_calling
     - vision
     - tool_choice
+    - response_schema
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: mistralai/ministral-3b-2512
+sources:
+    - https://openrouter.ai/mistralai/ministral-3b-2512/api

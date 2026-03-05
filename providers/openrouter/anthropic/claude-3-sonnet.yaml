@@ -7,6 +7,12 @@ features:
     - function_calling
     - vision
 limits:
-    max_tokens: 200000
+    context_window: 200000
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: anthropic/claude-3-sonnet
+sources:
+    - https://openrouter.ai/anthropic/claude-3-sonnet/api
+    - https://platform.claude.com/docs/en/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/model-deprecations

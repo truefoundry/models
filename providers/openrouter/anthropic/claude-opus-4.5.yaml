@@ -10,10 +10,16 @@ features:
     - tool_choice
     - prompt_caching
     - assistant_prefill
+    - pdf
+    - response_schema
 limits:
+    context_window: 200000
     max_input_tokens: 200000
-    max_output_tokens: 32000
-    max_tokens: 32000
+    max_output_tokens: 64000
+    max_tokens: 64000
     tool_use_system_prompt_tokens: 159
 mode: chat
 model: anthropic/claude-opus-4.5
+sources:
+    - https://openrouter.ai/anthropic/claude-opus-4.5/api
+thinking: true

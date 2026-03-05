@@ -1,6 +1,12 @@
 features:
     - chat
+    - function_calling
+    - tool_choice
 limits:
+    context_window: 131072
     max_tokens: 4096
 mode: chat
 model: llama-3.1-nemotron-ultra-253b-v1
+sources:
+    - https://openrouter.ai/nvidia/llama-3.1-nemotron-ultra-253b-v1/api
+thinking: true

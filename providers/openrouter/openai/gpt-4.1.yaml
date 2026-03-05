@@ -12,8 +12,11 @@ features:
     - prompt_caching
     - response_schema
 limits:
+    context_window: 1047576
     max_input_tokens: 1047576
     max_output_tokens: 32768
     max_tokens: 32768
 mode: chat
 model: openai/gpt-4.1
+sources:
+    - https://openrouter.ai/openai/gpt-4.1/api

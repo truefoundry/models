@@ -1,7 +1,12 @@
 features:
     - chat
-    - image
+    - vision
+    - image_input
 limits:
+    context_window: 32000
+    max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: internvl3-14b
+sources:
+    - https://openrouter.ai/opengvlab/internvl3-14b/api

@@ -1,6 +1,10 @@
 features:
     - chat
 limits:
+    context_window: 32768
     max_tokens: 4096
 mode: chat
 model: sarvam-m
+sources:
+    - https://openrouter.ai/sarvamai/sarvam-m/api
+thinking: true

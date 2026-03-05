@@ -1,8 +1,28 @@
+costs:
+    - cache_read_input_token_cost: 7.5e-7
+      input_cost_per_query: 0.005
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000006
+                from: 128000
+          output:
+              - cost_per_token: 0.00003
+                from: 128000
 features:
     - chat
-    - image
+    - vision
+    - image_input
     - tools
+    - function_calling
+    - tool_choice
+    - response_schema
 limits:
-    max_tokens: 4096
+    context_window: 256000
 mode: chat
 model: grok-4
+sources:
+    - https://openrouter.ai/x-ai/grok-4/api
+thinking: true

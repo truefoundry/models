@@ -38,8 +38,13 @@ costs:
 features:
     - function_calling
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 8192
     max_tokens: 8192
 mode: chat
 model: qwen.qwen3-32b-v1:0
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
+    - https://huggingface.co/Qwen/Qwen3-32B
+thinking: true

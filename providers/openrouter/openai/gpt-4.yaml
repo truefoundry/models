@@ -3,8 +3,13 @@ costs:
       output_cost_per_token: 0.00006
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
-    max_tokens: 8192
+    context_window: 8191
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: openai/gpt-4
+sources:
+    - https://openrouter.ai/openai/gpt-4/api

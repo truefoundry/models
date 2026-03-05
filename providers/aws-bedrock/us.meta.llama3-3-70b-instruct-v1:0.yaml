@@ -12,8 +12,13 @@ features:
     - function_calling
     - chat
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: us.meta.llama3-3-70b-instruct-v1:0
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html

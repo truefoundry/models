@@ -7,9 +7,13 @@ features:
     - parallel_function_calling
     - vision
     - tool_choice
+    - response_schema
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: openai/gpt-4o-2024-05-13
+sources:
+    - https://openrouter.ai/openai/gpt-4o-2024-05-13/api

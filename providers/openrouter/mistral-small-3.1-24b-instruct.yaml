@@ -1,9 +1,22 @@
+costs:
+    - input_cost_per_token: 3.5e-7
+      output_cost_per_token: 5.6e-7
+      region: "*"
 features:
     - chat
     - image
     - tools
+    - function_calling
+    - vision
+    - image_input
+limits:
+    context_window: 128000
+    max_output_tokens: 96000
+    max_tokens: 96000
 mode: chat
 model: mistral-small-3.1-24b-instruct
 params:
     - key: max_tokens
       maxValue: 96000
+sources:
+    - https://openrouter.ai/mistralai/mistral-small-3.1-24b-instruct/api

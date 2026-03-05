@@ -1,9 +1,26 @@
+costs:
+    - cache_read_input_token_cost: 3.75e-7
+      input_cost_per_token: 0.0000015
+      output_cost_per_token: 0.000006
+      region: "*"
 features:
     - chat
-    - image
     - tools
+    - function_calling
+    - vision
+    - image_input
+    - response_schema
+limits:
+    context_window: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
 mode: chat
 model: codex-mini
 params:
     - key: max_tokens
       maxValue: 100000
+sources:
+    - https://openrouter.ai/openai/codex-mini/api
+    - https://developers.openai.com/docs/models/codex-mini-latest
+    - https://developers.openai.com/docs/pricing
+thinking: true

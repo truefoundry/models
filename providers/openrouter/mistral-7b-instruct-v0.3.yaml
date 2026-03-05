@@ -1,8 +1,13 @@
 features:
     - chat
     - tools
+    - function_calling
+limits:
+    context_window: 32768
 mode: chat
 model: mistral-7b-instruct-v0.3
 params:
     - key: max_tokens
       maxValue: 16384
+sources:
+    - https://openrouter.ai/mistralai/mistral-7b-instruct-v0.3/api
