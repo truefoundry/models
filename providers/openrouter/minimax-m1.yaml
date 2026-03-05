@@ -1,8 +1,20 @@
+costs:
+    - input_cost_per_token: 4.e-7
+      output_cost_per_token: 0.0000022
+      region: "*"
 features:
     - chat
     - tools
+    - function_calling
+limits:
+    context_window: 1000000
+    max_output_tokens: 40000
+    max_tokens: 40000
 mode: chat
 model: minimax-m1
 params:
     - key: max_tokens
       maxValue: 40000
+sources:
+    - https://openrouter.ai/minimax/minimax-m1/api
+thinking: true

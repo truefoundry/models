@@ -1,6 +1,10 @@
 features:
     - chat
 limits:
+    context_window: 131072
+    max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: deepseek-v3-base
+sources:
+    - https://openrouter.ai/deepseek/deepseek-v3-base/api

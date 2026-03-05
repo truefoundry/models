@@ -3,6 +3,9 @@ costs:
       output_cost_per_token: 5.e-7
       region: "*"
 limits:
+    context_window: 9216
     max_tokens: 25804
 mode: chat
 model: google/palm-2-chat-bison
+sources:
+    - https://openrouter.ai/google/palm-2-chat-bison/api

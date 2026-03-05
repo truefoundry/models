@@ -1,6 +1,14 @@
 features:
     - chat
+    - code
 limits:
+    context_window: 32768
+    max_input_tokens: 32768
+    max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
-model: phi-4-reasoning-plus
+model: microsoft/phi-4-reasoning-plus
+sources:
+    - https://openrouter.ai/microsoft/phi-4-reasoning-plus/api
+    - https://huggingface.co/microsoft/Phi-4-reasoning-plus
+thinking: true

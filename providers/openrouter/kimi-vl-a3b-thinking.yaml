@@ -1,7 +1,12 @@
 features:
     - chat
-    - image
+    - vision
+    - image_input
 limits:
+    context_window: 131072
     max_tokens: 4096
 mode: chat
 model: kimi-vl-a3b-thinking
+sources:
+    - https://openrouter.ai/moonshotai/kimi-vl-a3b-thinking/api
+thinking: true

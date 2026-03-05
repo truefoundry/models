@@ -1,7 +1,21 @@
+costs:
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000011
+      output_cost_per_token: 0.0000044
+      region: "*"
 features:
     - chat
+    - text
+limits:
+    context_window: 128000
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: o1-mini-2024-09-12
 params:
     - key: max_tokens
       maxValue: 65536
+sources:
+    - https://openrouter.ai/openai/o1-mini-2024-09-12/api
+    - https://developers.openai.com/docs/models/o1-mini
+thinking: true

@@ -3,8 +3,14 @@ costs:
       output_cost_per_token: 0.000004
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
-    max_tokens: 16383
+    context_window: 16385
+    max_input_tokens: 12289
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: openai/gpt-3.5-turbo-16k
+sources:
+    - https://openrouter.ai/openai/gpt-3.5-turbo-16k/api

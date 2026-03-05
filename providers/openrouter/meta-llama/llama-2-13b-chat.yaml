@@ -3,6 +3,10 @@ costs:
       output_cost_per_token: 2.e-7
       region: "*"
 limits:
+    context_window: 4096
+    max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: meta-llama/llama-2-13b-chat
+sources:
+    - https://openrouter.ai/meta-llama/llama-2-13b-chat/api

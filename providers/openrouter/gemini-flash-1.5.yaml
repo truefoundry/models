@@ -2,8 +2,12 @@ features:
     - chat
     - image
     - tools
+limits:
+    context_window: 1000000
 mode: chat
 model: gemini-flash-1.5
 params:
     - key: max_tokens
       maxValue: 8192
+sources:
+    - https://openrouter.ai/google/gemini-flash-1.5/api

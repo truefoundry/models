@@ -1,7 +1,18 @@
+costs:
+    - cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.0000022
+      region: "*"
 features:
     - chat
     - tools
+    - function_calling
 limits:
-    max_tokens: 4096
+    context_window: 131072
+    max_output_tokens: 98304
+    max_tokens: 98304
 mode: chat
 model: glm-4.5
+sources:
+    - https://openrouter.ai/z-ai/glm-4.5/api
+thinking: true

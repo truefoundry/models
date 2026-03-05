@@ -12,8 +12,11 @@ features:
     - prompt_caching
     - response_schema
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 100000
     max_tokens: 100000
 mode: chat
 model: openai/o1
+sources:
+    - https://openrouter.ai/openai/o1/api

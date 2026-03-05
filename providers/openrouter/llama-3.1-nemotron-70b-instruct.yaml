@@ -1,8 +1,20 @@
+costs:
+    - input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.0000012
+      region: "*"
 features:
     - chat
     - tools
+    - function_calling
+    - tool_choice
+limits:
+    context_window: 131072
+    max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: llama-3.1-nemotron-70b-instruct
 params:
     - key: max_tokens
       maxValue: 131072
+sources:
+    - https://openrouter.ai/nvidia/llama-3.1-nemotron-70b-instruct/api

@@ -1,7 +1,17 @@
+costs:
+    - input_cost_per_token: 8.e-7
+      output_cost_per_token: 0.0000012
+      region: "*"
 features:
     - chat
+limits:
+    context_window: 81920
+    max_output_tokens: 38000
+    max_tokens: 38000
 mode: chat
 model: morph-v3-fast
 params:
     - key: max_tokens
-      maxValue: 16000
+      maxValue: 38000
+sources:
+    - https://openrouter.ai/morph/morph-v3-fast/api

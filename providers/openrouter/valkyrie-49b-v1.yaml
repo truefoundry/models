@@ -1,7 +1,14 @@
 features:
     - chat
+limits:
+    context_window: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
 mode: chat
 model: valkyrie-49b-v1
 params:
     - key: max_tokens
       maxValue: 131072
+sources:
+    - https://openrouter.ai/thedrummer/valkyrie-49b-v1
+    - https://openrouter.ai/thedrummer/valkyrie-49b-v1/api

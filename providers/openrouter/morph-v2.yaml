@@ -1,7 +1,14 @@
 features:
     - chat
+    - text
+    - code
+limits:
+    context_window: 32000
 mode: chat
-model: morph-v2
+model: morph/morph-v2
 params:
     - key: max_tokens
       maxValue: 16000
+sources:
+    - https://openrouter.ai/morph/morph-v2/api
+    - https://openrouter.ai/morph/morph-v2

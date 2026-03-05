@@ -1,6 +1,14 @@
+costs:
+    - input_cost_per_token: 0.000001
+      output_cost_per_token: 0.00000175
+      region: "*"
 features:
     - chat
 limits:
-    max_tokens: 4096
+    context_window: 4096
+    max_output_tokens: 2048
+    max_tokens: 2048
 mode: chat
 model: noromaid-20b
+sources:
+    - https://openrouter.ai/neversleep/noromaid-20b/api

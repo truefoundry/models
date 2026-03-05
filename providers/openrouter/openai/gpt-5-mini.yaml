@@ -4,10 +4,19 @@ costs:
       output_cost_per_token: 0.000002
       region: "*"
 features:
+    - function_calling
+    - vision
+    - image_input
     - tool_choice
+    - response_schema
+    - prompt_caching
 limits:
+    context_window: 400000
     max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
 mode: chat
 model: openai/gpt-5-mini
+sources:
+    - https://openrouter.ai/openai/gpt-5-mini/api
+thinking: true

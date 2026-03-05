@@ -1,7 +1,17 @@
 features:
     - chat
+limits:
+    context_window: 8192
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
-model: llama-3-lumimaid-70b
+model: neversleep/llama-3-lumimaid-70b
 params:
     - key: max_tokens
       maxValue: 4096
+    - defaultValue:
+          - <|eot_id|>
+          - <|end_of_text|>
+      key: stop
+sources:
+    - https://openrouter.ai/neversleep/llama-3-lumimaid-70b/api

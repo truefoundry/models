@@ -1,9 +1,27 @@
+costs:
+    - cache_creation_input_token_cost: 0.0000075
+      cache_read_input_token_cost: 6.e-7
+      input_cost_per_token: 0.000006
+      output_cost_per_token: 0.00003
+      region: "*"
 features:
     - chat
-    - image
+    - function_calling
+    - vision
+    - image_input
     - tools
+    - tool_choice
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 200000
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
 model: claude-3.5-sonnet
 params:
     - key: max_tokens
       maxValue: 8192
+sources:
+    - https://openrouter.ai/anthropic/claude-3.5-sonnet/api
+thinking: false

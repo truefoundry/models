@@ -1,6 +1,13 @@
 features:
     - chat
+    - vision
+    - image_input
+    - audio_input
+    - image
 limits:
+    context_window: 2000000
     max_tokens: 4096
 mode: chat
 model: auto
+sources:
+    - https://openrouter.ai/openrouter/auto/api

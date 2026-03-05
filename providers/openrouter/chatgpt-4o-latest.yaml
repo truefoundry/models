@@ -1,8 +1,14 @@
 features:
     - chat
     - image
+    - vision
+limits:
+    context_window: 128000
 mode: chat
 model: chatgpt-4o-latest
 params:
     - key: max_tokens
       maxValue: 16384
+sources:
+    - https://openrouter.ai/openai/chatgpt-4o-latest/api
+    - https://developers.openai.com/docs/models
