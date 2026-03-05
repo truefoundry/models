@@ -3,17 +3,5 @@ costs:
       region: us-east-1
     - output_cost_per_second: 0.08
       region: ap-northeast-1
-features:
-    - vision
-    - image_input
 mode: video
 model: amazon.nova-reel-v1:1
-removeParams:
-    - max_tokens
-    - temperature
-    - top_p
-    - "n"
-    - stop
-    - stream
-sources:
-    - https://docs.aws.amazon.com/nova/latest/userguide/video-gen-access.html

@@ -1,13 +1,7 @@
 features:
     - chat
-    - function_calling
-    - code
-limits:
-    context_window: 32768
 mode: chat
 model: glm-4-32b
 params:
     - key: max_tokens
       maxValue: 32000
-sources:
-    - https://openrouter.ai/THUDM/glm-4-32b/api

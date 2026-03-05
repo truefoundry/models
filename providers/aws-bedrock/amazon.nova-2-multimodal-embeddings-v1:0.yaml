@@ -5,13 +5,9 @@ costs:
       region: us-east-1
 features:
     - audio_input
-    - embedding_image_input
 limits:
     max_input_tokens: 8172
+    max_tokens: 8172
+    output_vector_size: 3072
 mode: embedding
 model: amazon.nova-2-multimodal-embeddings-v1:0
-sources:
-    - https://docs.aws.amazon.com/ai/responsible-ai/nova-multimodal-embeddings/overview.html
-    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/embeddings.html
-    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
-    - https://aws.amazon.com/nova/pricing/

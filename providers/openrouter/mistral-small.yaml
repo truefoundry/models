@@ -1,8 +1,7 @@
 features:
     - chat
+    - tools
 limits:
-    context_window: 32000
+    max_tokens: 4096
 mode: chat
 model: mistral-small
-sources:
-    - https://openrouter.ai/mistralai/mistral-small/api

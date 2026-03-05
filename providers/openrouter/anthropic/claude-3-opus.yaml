@@ -6,11 +6,9 @@ features:
     - function_calling
     - vision
 limits:
-    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
+    tool_use_system_prompt_tokens: 395
 mode: chat
 model: anthropic/claude-3-opus
-sources:
-    - https://openrouter.ai/anthropic/claude-3-opus/api

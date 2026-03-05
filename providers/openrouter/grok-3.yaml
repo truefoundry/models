@@ -1,23 +1,7 @@
-costs:
-    - cache_read_input_token_cost: 7.5e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: "*"
 features:
     - chat
     - tools
-    - function_calling
-    - response_schema
 limits:
-    context_window: 131072
     max_tokens: 4096
 mode: chat
 model: grok-3
-params:
-    - defaultValue: 4096
-      key: max_tokens
-      maxValue: 131072
-      minValue: 1
-sources:
-    - https://openrouter.ai/x-ai/grok-3/api
-    - https://docs.x.ai/developers/models#models-and-pricing

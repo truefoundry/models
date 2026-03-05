@@ -1,19 +1,8 @@
-costs:
-    - input_cost_per_token: 1.e-7
-      output_cost_per_token: 2.e-7
-      region: "*"
 features:
     - chat
-    - vision
-    - image_input
-limits:
-    context_window: 128000
-    max_output_tokens: 2048
-    max_tokens: 2048
+    - image
 mode: chat
 model: ui-tars-1.5-7b
 params:
     - key: max_tokens
       maxValue: 2048
-sources:
-    - https://openrouter.ai/bytedance/ui-tars-1.5-7b/api

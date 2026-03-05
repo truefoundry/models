@@ -9,19 +9,8 @@ costs:
       output_cost_per_token: 0.0000054
       region: us-east-1
 limits:
-    context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 32768
-    max_tokens: 32768
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: us.deepseek.r1-v1:0
-params:
-    - defaultValue: 512
-      key: max_tokens
-      maxValue: 32768
-      minValue: 1
-sources:
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-deepseek.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
-    - https://api-docs.deepseek.com/quick_start/pricing
-thinking: true

@@ -1,6 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_token: 0.0000025
+    - input_cost_per_token: 0.0000025
       output_cost_per_token: 0.00001
       region: "*"
 features:
@@ -9,16 +8,8 @@ features:
     - vision
     - tool_choice
 limits:
-    context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 16384
-    max_tokens: 16384
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: openai/gpt-4o
-params:
-    - defaultValue: 128
-      key: max_tokens
-      maxValue: 16384
-      minValue: 1
-sources:
-    - https://openrouter.ai/openai/gpt-4o/api

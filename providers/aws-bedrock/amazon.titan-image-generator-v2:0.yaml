@@ -3,19 +3,5 @@ costs:
       region: us-west-2
     - output_cost_per_image: 0.012
       region: us-east-1
-features:
-    - image
-messages:
-    options:
-        - user
 mode: image
 model: amazon.titan-image-generator-v2:0
-removeParams:
-    - temperature
-    - top_p
-    - "n"
-    - stop
-    - stream
-    - max_tokens
-sources:
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-image.html

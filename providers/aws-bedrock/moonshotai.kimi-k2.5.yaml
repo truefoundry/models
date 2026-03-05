@@ -30,17 +30,8 @@ features:
     - function_calling
     - vision
 limits:
-    context_window: 256000
-    max_output_tokens: 81920
-    max_tokens: 81920
+    max_input_tokens: 262144
+    max_output_tokens: 262144
+    max_tokens: 262144
 mode: chat
 model: moonshotai.kimi-k2.5
-params:
-    - defaultValue: 512
-      key: max_tokens
-      maxValue: 81920
-      minValue: 1
-sources:
-    - https://github.com/MoonshotAI/Kimi-K2.5
-    - https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/
-thinking: true

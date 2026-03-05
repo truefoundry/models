@@ -1,22 +1,8 @@
-costs:
-    - cache_read_input_token_cost: 2.73e-8
-      input_cost_per_token: 1.365e-7
-      output_cost_per_token: 4.095e-7
-      region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - tool_choice
-limits:
-    context_window: 131072
-    max_input_tokens: 129024
-    max_output_tokens: 8192
-    max_tokens: 8192
+    - image
 mode: chat
 model: qwen-vl-plus
 params:
     - key: max_tokens
-      maxValue: 8192
-sources:
-    - https://openrouter.ai/qwen/qwen-vl-plus/api
+      maxValue: 1500

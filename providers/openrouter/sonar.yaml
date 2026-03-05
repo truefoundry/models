@@ -1,16 +1,7 @@
-costs:
-    - input_cost_per_query: 0.005
-      input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000001
-      region: "*"
 features:
     - chat
-    - vision
-    - image_input
+    - image
 limits:
-    context_window: 127072
+    max_tokens: 4096
 mode: chat
 model: sonar
-sources:
-    - https://openrouter.ai/perplexity/sonar/api
-thinking: false

@@ -1,6 +1,3 @@
-costs:
-    - output_cost_per_image: 0.08
-      region: us-west-2
 features:
     - image
 limits:
@@ -8,12 +5,3 @@ limits:
     max_tokens: 4096
 mode: image
 model: stability.stable-image-ultra-v1:1
-removeParams:
-    - max_tokens
-    - temperature
-    - top_p
-    - "n"
-    - stop
-    - stream
-sources:
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-stable-ultra-text-image-request-response.html

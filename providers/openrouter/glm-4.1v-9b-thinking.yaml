@@ -1,14 +1,8 @@
 features:
     - chat
-    - vision
-    - image_input
-limits:
-    context_window: 65536
+    - image
 mode: chat
 model: glm-4.1v-9b-thinking
 params:
     - key: max_tokens
       maxValue: 8000
-sources:
-    - https://openrouter.ai/THUDM/glm-4.1v-9b-thinking/api
-thinking: true

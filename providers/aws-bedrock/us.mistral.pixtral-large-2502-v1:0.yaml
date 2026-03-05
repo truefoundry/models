@@ -1,26 +1,19 @@
 costs:
     - input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
-      region: us-east-1
+      region: us-west-2
     - input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
       region: us-east-2
     - input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
-      region: us-west-2
+      region: us-east-1
 features:
     - function_calling
-    - vision
-    - image_input
-    - response_schema
+    - image
 limits:
-    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: us.mistral.pixtral-large-2502-v1:0
-sources:
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-pixtral-large.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
-    - https://docs.mistral.ai/models/pixtral-large-24-11/
