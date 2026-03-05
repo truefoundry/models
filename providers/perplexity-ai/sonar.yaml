@@ -4,10 +4,14 @@ costs:
       region: "*"
 features:
     - chat
+    - response_schema
 limits:
     max_input_tokens: 128000
+    max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: sonar
 removeParams:
     - stop
+sources:
+    - https://docs.perplexity.ai/docs/sonar/models/sonar
