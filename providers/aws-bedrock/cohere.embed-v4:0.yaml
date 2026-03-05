@@ -8,9 +8,22 @@ costs:
     - input_cost_per_image: 1.2e-7
       output_cost_per_token: 0
       region: ap-northeast-1
+features:
+    - embedding_image_input
 limits:
     max_input_tokens: 128000
-    max_tokens: 128000
-    output_vector_size: 1536
 mode: embedding
 model: cohere.embed-v4:0
+params:
+    - defaultValue: 128000
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v4.html

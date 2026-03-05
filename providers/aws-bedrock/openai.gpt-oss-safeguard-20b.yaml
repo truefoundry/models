@@ -29,9 +29,15 @@ costs:
     - input_cost_per_token: 7.21e-8
       output_cost_per_token: 2.064e-7
       region: ap-southeast-2
+features:
+    - chat
+    - system_messages
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
 mode: chat
 model: openai.gpt-oss-safeguard-20b
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html

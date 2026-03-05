@@ -34,3 +34,13 @@ limits:
     max_tokens: 131072
 mode: chat
 model: qwen.qwen3-235b-a22b-2507-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
+sources:
+    - https://aws.amazon.com/bedrock/qwen/
+    - https://huggingface.co/Qwen/Qwen3-235B-A22B
+    - https://aws.amazon.com/about-aws/whats-new/2025/09/qwen3-models-fully-managed-amazon-bedrock/
+thinking: true
