@@ -178,11 +178,17 @@ features:
     - function_calling
     - vision
     - chat
-    - image
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - tool_choice
+    - assistant_prefill
+    - image_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 64000
 mode: chat
 model: global.anthropic.claude-opus-4-5-20251101-v1:0
 params:
@@ -204,3 +210,7 @@ params:
 removeParams:
     - temperature
     - top_p
+sources:
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+thinking: true

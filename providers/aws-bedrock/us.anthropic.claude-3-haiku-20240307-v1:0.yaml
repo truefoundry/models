@@ -20,6 +20,7 @@ features:
     - chat
     - image
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
@@ -46,3 +47,6 @@ params:
       skipValues:
           - null
       type: json
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://platform.claude.com/docs/en/docs/about-claude/models

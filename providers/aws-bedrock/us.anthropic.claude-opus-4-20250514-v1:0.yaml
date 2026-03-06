@@ -19,10 +19,16 @@ features:
     - vision
     - chat
     - image
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - assistant_prefill
+    - pdf_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 32000
 mode: chat
 model: us.anthropic.claude-opus-4-20250514-v1:0
 params:
@@ -68,3 +74,7 @@ params:
           - null
           - []
       type: non-view-manage-data
+sources:
+    - https://platform.claude.com/docs/en/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+thinking: true

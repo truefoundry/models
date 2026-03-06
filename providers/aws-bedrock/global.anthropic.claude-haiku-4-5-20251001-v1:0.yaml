@@ -193,10 +193,16 @@ features:
     - vision
     - chat
     - image
+    - prompt_caching
+    - system_messages
+    - tool_choice
+    - assistant_prefill
+    - pdf_input
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 346
+    max_tokens: 64000
 mode: chat
 model: global.anthropic.claude-haiku-4-5-20251001-v1:0
 params:
@@ -217,3 +223,8 @@ params:
           - top_p
 removeParams:
     - top_p
+sources:
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+thinking: true
