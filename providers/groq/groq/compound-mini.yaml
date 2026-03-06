@@ -1,2 +1,10 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - system_messages
+limits:
+    context_window: 131072
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
 model: groq/compound-mini
