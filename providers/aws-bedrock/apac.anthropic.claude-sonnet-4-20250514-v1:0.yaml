@@ -4,16 +4,91 @@ costs:
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: me-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: ap-southeast-7
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: ap-southeast-5
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: ap-southeast-4
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
+    - cache_creation_input_token_cost: 0.00000375
+      cache_read_input_token_cost: 3.e-7
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: ap-southeast-3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -21,6 +96,19 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: ap-southeast-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -28,6 +116,19 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: ap-southeast-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -35,6 +136,19 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: ap-south-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -42,11 +156,37 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: ap-south-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: ap-northeast-3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -54,6 +194,19 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: ap-northeast-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -61,18 +214,65 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: ap-northeast-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: ap-east-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
 features:
     - function_calling
     - vision
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - tool_choice
+    - assistant_prefill
+    - response_schema
+    - pdf_input
 limits:
+    context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 64000
     max_tokens: 64000
-    tool_use_system_prompt_tokens: 159
+    tool_use_system_prompt_tokens: 346
 mode: chat
 model: apac.anthropic.claude-sonnet-4-20250514-v1:0
+params:
+    - defaultValue: 64000
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
+removeParams:
+    - "n"
+sources:
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html
+thinking: true

@@ -23,9 +23,25 @@ costs:
 features:
     - function_calling
     - vision
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - tool_choice
+    - assistant_prefill
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 8192
     max_tokens: 8192
 mode: chat
 model: apac.anthropic.claude-3-5-sonnet-20241022-v2:0
+params:
+    - defaultValue: 8192
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html
+thinking: false

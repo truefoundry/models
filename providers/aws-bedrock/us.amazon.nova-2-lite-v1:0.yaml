@@ -27,8 +27,15 @@ features:
     - function_calling
     - vision
 limits:
+    context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 64000
-    max_tokens: 64000
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: us.amazon.nova-2-lite-v1:0
+sources:
+    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
+    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
+    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/using-multimodal-models.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+thinking: true
