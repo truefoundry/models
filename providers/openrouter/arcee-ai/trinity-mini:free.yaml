@@ -1,2 +1,23 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - response_schema
+    - text
+    - tools
+limits:
+    context_window: 131072
+mode: chat
 model: arcee-ai/trinity-mini:free
+params:
+    - defaultValue: 0.15
+      key: temperature
+    - defaultValue: 0.75
+      key: top_p
+sources:
+    - https://openrouter.ai/arcee-ai/trinity-mini:free/api
+thinking: true

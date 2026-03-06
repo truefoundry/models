@@ -1,2 +1,34 @@
-mode: unknown
+costs:
+    - cache_creation_input_token_cost: 8.3e-8
+      cache_read_input_token_cost: 5.e-8
+      input_cost_per_audio_token: 0.000001
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000003
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - audio_input
+    - pdf_input
+    - text
+    - tools
+    - tool_choice
+    - response_schema
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
+mode: chat
 model: google/gemini-3-flash-preview
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+sources:
+    - https://openrouter.ai/google/gemini-3-flash-preview/api
+thinking: true

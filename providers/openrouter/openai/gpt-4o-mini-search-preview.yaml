@@ -1,2 +1,21 @@
-mode: unknown
+costs:
+    - input_cost_per_query: 0.0275
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6.e-7
+      region: "*"
+features:
+    - chat
+    - text
+    - tool_choice
+    - response_schema
+    - function_calling
+    - system_messages
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+mode: chat
 model: openai/gpt-4o-mini-search-preview
+sources:
+    - https://openrouter.ai/openai/gpt-4o-mini-search-preview/api

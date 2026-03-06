@@ -1,2 +1,27 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 2.5e-7
+      output_cost_per_token: 0.000002
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 5.e-7
+                from: 128000
+          output:
+              - cost_per_token: 0.000004
+                from: 128000
+features:
+    - chat
+    - vision
+    - image_input
+    - function_calling
+    - tool_choice
+    - response_schema
+limits:
+    context_window: 262144
+    max_output_tokens: 32768
+    max_tokens: 32768
+mode: chat
 model: bytedance-seed/seed-1.6
+sources:
+    - https://openrouter.ai/bytedance-seed/seed-1.6/api
+thinking: true

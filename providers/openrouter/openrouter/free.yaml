@@ -1,2 +1,19 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - chat
+    - text
+    - vision
+    - image_input
+    - function_calling
+    - response_schema
+    - tools
+limits:
+    context_window: 200000
+mode: chat
 model: openrouter/free
+sources:
+    - https://openrouter.ai/openrouter/free/api
+thinking: true

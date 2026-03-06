@@ -1,2 +1,25 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 2.e-7
+      output_cost_per_token: 0.0000011
+      region: "*"
+features:
+    - chat
+    - text
+    - function_calling
+    - tools
+    - tool_choice
+    - response_schema
+limits:
+    context_window: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
+mode: chat
 model: prime-intellect/intellect-3
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
+sources:
+    - https://openrouter.ai/prime-intellect/intellect-3/api
+thinking: true

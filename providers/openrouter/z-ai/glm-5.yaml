@@ -1,2 +1,19 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 1.6e-7
+      input_cost_per_token: 8.e-7
+      output_cost_per_token: 0.00000256
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - response_schema
+    - text
+    - tools
+limits:
+    context_window: 202752
+mode: chat
 model: z-ai/glm-5
+sources:
+    - https://openrouter.ai/z-ai/glm-5/api
+thinking: true

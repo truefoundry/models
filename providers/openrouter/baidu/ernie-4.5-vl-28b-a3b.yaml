@@ -1,2 +1,18 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.4e-7
+      output_cost_per_token: 5.6e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - text
+limits:
+    context_window: 30000
+    max_output_tokens: 8000
+    max_tokens: 8000
 model: baidu/ernie-4.5-vl-28b-a3b
+sources:
+    - https://openrouter.ai/baidu/ernie-4.5-vl-28b-a3b/api
+thinking: true

@@ -1,2 +1,23 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 6.25e-7
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.0000125
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - tool_choice
+    - system_messages
+    - text
+    - tools
+limits:
+    context_window: 1000000
+    max_input_tokens: 968000
+    max_output_tokens: 32000
+    max_tokens: 32000
+mode: chat
 model: amazon/nova-premier-v1
+sources:
+    - https://openrouter.ai/amazon/nova-premier-v1/api

@@ -1,2 +1,16 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0.00000148
+      output_cost_per_token: 0.00000148
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+limits:
+    context_window: 8192
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
 model: sao10k/l3-euryale-70b
+sources:
+    - https://openrouter.ai/sao10k/l3-euryale-70b/api

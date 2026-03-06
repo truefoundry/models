@@ -1,2 +1,22 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 2.6e-7
+      output_cost_per_token: 0.00000208
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - tool_choice
+    - response_schema
+    - text
+limits:
+    context_window: 262144
+    max_input_tokens: 258048
+    max_output_tokens: 65536
+    max_tokens: 65536
+mode: chat
 model: qwen/qwen3.5-122b-a10b
+sources:
+    - https://openrouter.ai/qwen/qwen3.5-122b-a10b/api
+thinking: true

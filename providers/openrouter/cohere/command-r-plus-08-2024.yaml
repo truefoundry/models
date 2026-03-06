@@ -1,2 +1,22 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.00001
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - text
+    - tools
+    - tool_choice
+    - system_messages
+    - response_schema
+limits:
+    context_window: 128000
+    max_input_tokens: 124000
+    max_output_tokens: 4000
+    max_tokens: 4000
+mode: chat
 model: cohere/command-r-plus-08-2024
+sources:
+    - https://openrouter.ai/cohere/command-r-plus-08-2024/api
+    - https://docs.cohere.com/docs/command-r-plus

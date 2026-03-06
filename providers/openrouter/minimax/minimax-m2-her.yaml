@@ -1,2 +1,22 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+limits:
+    context_window: 65536
+    max_input_tokens: 63488
+    max_output_tokens: 2048
+    max_tokens: 2048
+mode: chat
 model: minimax/minimax-m2-her
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 2048
+      minValue: 1
+sources:
+    - https://openrouter.ai/minimax/minimax-m2-her/api

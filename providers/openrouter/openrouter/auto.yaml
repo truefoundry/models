@@ -1,2 +1,13 @@
-mode: unknown
+features:
+    - chat
+    - text
+    - vision
+    - image_input
+    - audio_input
+    - image
+limits:
+    context_window: 2000000
+mode: chat
 model: openrouter/auto
+sources:
+    - https://openrouter.ai/openrouter/auto/api

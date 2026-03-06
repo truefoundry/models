@@ -1,2 +1,13 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - chat
+    - text
+limits:
+    context_window: 32768
+mode: chat
 model: liquid/lfm-2.5-1.2b-instruct:free
+sources:
+    - https://openrouter.ai/liquid/lfm-2.5-1.2b-instruct:free/api

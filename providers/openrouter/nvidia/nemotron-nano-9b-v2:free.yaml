@@ -1,2 +1,17 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - response_schema
+    - system_messages
+limits:
+    context_window: 128000
+mode: chat
 model: nvidia/nemotron-nano-9b-v2:free
+sources:
+    - https://openrouter.ai/nvidia/nemotron-nano-9b-v2:free/api
+thinking: true

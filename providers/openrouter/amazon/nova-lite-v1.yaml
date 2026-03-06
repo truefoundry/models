@@ -1,2 +1,18 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 6.e-8
+      output_cost_per_token: 2.4e-7
+      region: "*"
+features:
+    - chat
+    - vision
+    - image_input
+    - function_calling
+    - tool_choice
+limits:
+    context_window: 300000
+    max_output_tokens: 5120
+    max_tokens: 5120
+mode: chat
 model: amazon/nova-lite-v1
+sources:
+    - https://openrouter.ai/amazon/nova-lite-v1/api

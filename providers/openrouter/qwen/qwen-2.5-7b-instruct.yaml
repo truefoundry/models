@@ -1,2 +1,17 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 4.e-8
+      output_cost_per_token: 1.e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - text
+limits:
+    context_window: 32768
+    max_output_tokens: 8000
+    max_tokens: 8000
+mode: chat
 model: qwen/qwen-2.5-7b-instruct
+sources:
+    - https://openrouter.ai/qwen/qwen-2.5-7b-instruct/api
