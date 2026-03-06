@@ -46,6 +46,7 @@ function buildUnifiedConfig(
     thinking: modelData.thinking || false,
     isDeprecated: modelData.isDeprecated || false,
     sources: modelData.sources || [],
+    supported_endpoints: modelData.supported_endpoints || [],
   };
 }
 

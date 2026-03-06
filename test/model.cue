@@ -99,6 +99,7 @@ package model
 	isDeprecated?:     bool
 	thinking?:         bool
 	sources?:          [...string]
+	supported_endpoints?: [...string]
 	messages?: {
 		options?: [...string]
 		...
