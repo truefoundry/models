@@ -1,2 +1,11 @@
-mode: unknown
+limits:
+    context_window: 32000
+mode: rerank
 model: rerank-v4.0-fast
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
+sources:
+    - https://docs.cohere.com/docs/rerank
+    - https://docs.cohere.com/reference/rerank
