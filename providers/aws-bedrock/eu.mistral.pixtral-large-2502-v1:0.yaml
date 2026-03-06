@@ -13,10 +13,22 @@ costs:
       region: eu-north-1
 features:
     - function_calling
-    - image
+    - vision
+    - system_messages
+    - doc
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: eu.mistral.pixtral-large-2502-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 4096
+      minValue: 1
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-pixtral-large.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
