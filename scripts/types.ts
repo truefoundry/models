@@ -109,7 +109,7 @@ export interface ModelData {
   thinking?: boolean;
   isDeprecated?: boolean;
   sources?: string[];
-  supported_endpoints?: string[];
+  supportedEndpoints?: string[];
 }
 
 export interface UnifiedModelConfig {
@@ -127,5 +127,5 @@ export interface UnifiedModelConfig {
   thinking: boolean;
   isDeprecated: boolean;
   sources: string[];
-  supported_endpoints: string[];
+  supportedEndpoints?: string[];
 }
