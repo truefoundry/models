@@ -13,9 +13,40 @@ costs:
       region: us-east-1
 features:
     - function_calling
+    - doc
+    - system_messages
 limits:
-    max_input_tokens: 128000
+    context_window: 128000
+    max_input_tokens: 122880
     max_output_tokens: 8192
-    max_tokens: 4096
+    max_tokens: 8192
 mode: chat
 model: us.writer.palmyra-x4-v1:0
+params:
+    - defaultValue: 16
+      key: max_tokens
+      maxValue: 8192
+      minValue: 0
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+      minValue: 0
+    - defaultValue: 1
+      key: top_p
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 0
+      key: presence_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: 0
+      key: frequency_penalty
+      maxValue: 2
+      minValue: -2
+removeParams:
+    - "n"
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-palmyra-x4.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-writer-palmyra.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html

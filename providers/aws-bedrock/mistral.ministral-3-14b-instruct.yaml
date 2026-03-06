@@ -26,11 +26,19 @@ costs:
     - input_cost_per_token: 2.4e-7
       output_cost_per_token: 2.4e-7
       region: ap-northeast-1
+    - input_cost_per_token: 2.4e-7
+      output_cost_per_token: 2.4e-7
+      region: ap-southeast-2
 features:
     - function_calling
+    - vision
+    - image_input
 limits:
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
 mode: chat
 model: mistral.ministral-3-14b-instruct
+sources:
+    - https://docs.mistral.ai/models/ministral-3-14b-25-12
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-chat-completion.html

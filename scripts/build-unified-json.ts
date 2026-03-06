@@ -46,6 +46,7 @@ function buildUnifiedConfig(
     thinking: modelData.thinking || false,
     isDeprecated: modelData.isDeprecated || false,
     sources: modelData.sources || [],
+    supportedEndpoints: modelData.supportedEndpoints,
   };
 }
 
@@ -77,6 +78,7 @@ function main(): void {
         const modelData = yaml.load(
           fs.readFileSync(modelFilePath, 'utf-8'),
         ) as ModelData;
+        if (!modelData.costs || modelData.costs.length === 0) continue;
         configs.push(
           buildUnifiedConfig(modelData, providerName, defaultProviderParams),
         );

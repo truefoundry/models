@@ -32,9 +32,25 @@ costs:
 features:
     - function_calling
     - vision
+    - tool_choice
+    - prompt_caching
+    - pdf_input
+    - doc
 limits:
+    context_window: 300000
     max_input_tokens: 300000
     max_output_tokens: 10000
     max_tokens: 10000
 mode: chat
 model: apac.amazon.nova-pro-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 10000
+      minValue: 1
+sources:
+    - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/modalities.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
