@@ -24,8 +24,13 @@ features:
     - function_calling
     - chat
 limits:
+    context_window: 163840
     max_input_tokens: 163840
     max_output_tokens: 81920
     max_tokens: 4096
 mode: chat
 model: deepseek.v3-v1:0
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-deepseek.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html

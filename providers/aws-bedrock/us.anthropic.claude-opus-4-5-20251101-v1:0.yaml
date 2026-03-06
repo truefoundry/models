@@ -5,14 +5,7 @@ costs:
       input_cost_per_token_batches: 0.00000275
       output_cost_per_token: 0.0000275
       output_cost_per_token_batches: 0.00001375
-      region: us-west-2
-    - cache_creation_input_token_cost: 0.000006875
-      cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000055
-      input_cost_per_token_batches: 0.00000275
-      output_cost_per_token: 0.0000275
-      output_cost_per_token_batches: 0.00001375
-      region: us-west-1
+      region: us-east-1
     - cache_creation_input_token_cost: 0.000006875
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
@@ -26,7 +19,14 @@ costs:
       input_cost_per_token_batches: 0.00000275
       output_cost_per_token: 0.0000275
       output_cost_per_token_batches: 0.00001375
-      region: us-east-1
+      region: us-west-1
+    - cache_creation_input_token_cost: 0.000006875
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
+      region: us-west-2
     - cache_creation_input_token_cost: 0.000006875
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
@@ -37,12 +37,21 @@ costs:
 features:
     - function_calling
     - vision
+    - image_input
     - chat
-    - image
+    - prompt_caching
+    - system_messages
+    - tool_choice
+    - assistant_prefill
+    - pdf_input
+    - text
+    - code
+    - tools
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
-    tool_use_system_prompt_tokens: 159
+    max_tokens: 64000
 mode: chat
 model: us.anthropic.claude-opus-4-5-20251101-v1:0
 params:
@@ -64,3 +73,7 @@ params:
 removeParams:
     - temperature
     - top_p
+sources:
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+thinking: true
