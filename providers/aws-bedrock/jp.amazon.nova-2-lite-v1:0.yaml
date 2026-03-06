@@ -1,14 +1,29 @@
 costs:
-    - cache_read_input_token_cost: 9.e-8
-      input_cost_per_token: 3.96e-7
-      output_cost_per_token: 0.000003311
-      region: ap-northeast-1
+    - cache_read_input_token_cost: 8.25e-8
+      input_cost_per_token: 3.3e-7
+      output_cost_per_token: 0.00000275
+      region: jp
 features:
     - function_calling
     - vision
+    - prompt_caching
 limits:
+    context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 64000
-    max_tokens: 64000
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: jp.amazon.nova-2-lite-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+sources:
+    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+    - https://aws.amazon.com/nova/models/
+    - https://aws.amazon.com/about-aws/whats-new/2025/12/nova-2-foundation-models-amazon-bedrock/
+    - https://cloudprice.net/models/global.amazon.nova-2-lite-v1:0
+thinking: true

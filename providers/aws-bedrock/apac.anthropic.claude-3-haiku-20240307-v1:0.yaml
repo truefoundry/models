@@ -28,8 +28,13 @@ features:
     - function_calling
     - vision
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: apac.anthropic.claude-3-haiku-20240307-v1:0
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html

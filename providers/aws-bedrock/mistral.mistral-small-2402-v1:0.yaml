@@ -10,3 +10,18 @@ limits:
     max_tokens: 8192
 mode: chat
 model: mistral.mistral-small-2402-v1:0
+params:
+    - defaultValue: 8192
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 1
+      key: top_p
+      maxValue: 1
+      minValue: 0
+removeParams:
+    - "n"
