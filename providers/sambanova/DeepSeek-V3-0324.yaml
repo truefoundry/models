@@ -8,9 +8,10 @@ features:
     - response_schema
 limits:
     context_window: 131072
+    max_output_tokens: 7168
+    max_tokens: 7168
 mode: chat
 model: DeepSeek-V3-0324
 sources:
-    - https://sambanova.ai/blog/deepseek-v3-0324-fastest-inference-in-world
     - https://docs.sambanova.ai/docs/en/features/function-calling
-    - https://community.sambanova.ai/t/deepseek-0324-context-length/1265
+    - https://api.sambanova.ai/v1/models
