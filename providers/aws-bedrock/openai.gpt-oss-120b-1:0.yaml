@@ -36,11 +36,9 @@ costs:
       output_cost_per_token: 7.3e-7
       region: ap-northeast-1
 features:
-    - function_calling
     - chat
 limits:
-    max_input_tokens: 128000
-    max_output_tokens: 128000
+    context_window: 128000
 mode: chat
 model: openai.gpt-oss-120b-1:0
 params:
@@ -49,3 +47,5 @@ params:
 removeParams:
     - stream
     - stop
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html
