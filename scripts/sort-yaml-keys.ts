@@ -39,7 +39,7 @@ function main(): void {
             record.costs = [...record.costs].sort((a, b) => {
                 const ra = String((a as Record<string, unknown>).region ?? '');
                 const rb = String((b as Record<string, unknown>).region ?? '');
-                return ra.localeCompare(rb);
+                return rb.localeCompare(ra);
             });
         }
 
