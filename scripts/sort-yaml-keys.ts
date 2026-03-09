@@ -34,6 +34,15 @@ function main(): void {
             continue;
         }
 
+        const record = data as Record<string, unknown>;
+        if (Array.isArray(record.costs)) {
+            record.costs = [...record.costs].sort((a, b) => {
+                const ra = String((a as Record<string, unknown>).region ?? '');
+                const rb = String((b as Record<string, unknown>).region ?? '');
+                return ra.localeCompare(rb);
+            });
+        }
+
         const sorted = yaml.dump(data, {
             sortKeys: true,
             indent: 4,
