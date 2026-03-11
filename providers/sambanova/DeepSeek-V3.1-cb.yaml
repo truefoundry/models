@@ -1,2 +1,13 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - response_schema
+    - system_messages
+limits:
+    context_window: 128000
+mode: chat
 model: DeepSeek-V3.1-cb
+sources:
+    - https://docs.sambanova.ai/docs/api-reference/chat-completions/create-chat-based-completion

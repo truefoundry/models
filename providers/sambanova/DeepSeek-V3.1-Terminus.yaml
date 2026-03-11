@@ -1,2 +1,12 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 128000
+mode: chat
 model: DeepSeek-V3.1-Terminus
+sources:
+    - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://docs.sambanova.ai/docs/en/features/openai-compatibility

@@ -1,2 +1,11 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - system_messages
+limits:
+    context_window: 40000
+mode: chat
 model: mistralai/Magistral-Small-2506
+sources:
+    - https://docs.mistral.ai/getting-started/models/
+thinking: true
