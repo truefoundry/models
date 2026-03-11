@@ -1,2 +1,15 @@
+costs:
+    - input_cost_per_token: 1.5e-7
+      output_cost_per_token: 1.5e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - response_schema
+limits:
+    context_window: 32768
+    max_tokens: 32768
 mode: chat
 model: essentialai/rnj-1-instruct
+sources:
+    - https://docs.together.ai/docs/serverless-models
