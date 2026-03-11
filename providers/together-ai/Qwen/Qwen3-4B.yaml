@@ -1,2 +1,18 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - system_messages
+    - text
+    - code
+    - tools
+limits:
+    context_window: 32768
+    max_output_tokens: 32768
+    max_tokens: 32768
+mode: chat
 model: Qwen/Qwen3-4B
+sources:
+    - https://huggingface.co/Qwen/Qwen3-4B
+    - https://www.together.ai/pricing
+thinking: true

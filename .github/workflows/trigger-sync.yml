@@ -27,7 +27,7 @@ jobs:
       - name: Set up CUE
         uses: cue-lang/setup-cue@v1.0.1
       - name: Validate (CUE)
-        run: ./test/validate.sh
+        run: ./.github/test/validate.sh
 
   build:
     name: Build unified JSON

@@ -1,2 +1,23 @@
-mode: unknown
+costs:
+    - output_cost_per_second: 0.1
+      region: "*"
+features:
+    - image_input
+messages:
+    options: []
+mode: video
 model: sora-2
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - frequency_penalty
+    - presence_penalty
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - logit_bias
+sources:
+    - https://developers.openai.com/api/docs/models/sora-2

@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-const PROVIDERS_DIR = path.resolve(__dirname, '..', 'providers');
-const README_PATH = path.resolve(__dirname, '..', 'README.md');
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const PROVIDERS_DIR = path.join(REPO_ROOT, 'providers');
+const README_PATH = path.join(REPO_ROOT, 'README.md');
 
 interface ProviderMeta {
   name: string;
