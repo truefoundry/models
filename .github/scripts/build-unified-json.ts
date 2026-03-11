@@ -3,8 +3,9 @@ import path from 'path';
 import yaml from 'js-yaml';
 import { ModelData, UnifiedModelConfig, DefaultProviderParams } from './types';
 
-const PROVIDERS_DIR = path.resolve(__dirname, '..', 'providers');
-const OUTPUT_DIR = path.resolve(__dirname, '..', 'dist');
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const PROVIDERS_DIR = path.join(REPO_ROOT, 'providers');
+const OUTPUT_DIR = path.join(REPO_ROOT, 'dist');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'ai-models.json');
 
 function collectModelFiles(dir: string): string[] {

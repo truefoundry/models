@@ -1,2 +1,11 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - system_messages
+    - text
+limits:
+    context_window: 8000
+mode: chat
 model: DeepSeek-V3.2
+sources:
+    - https://docs.sambanova.ai/docs/en/features/function-calling

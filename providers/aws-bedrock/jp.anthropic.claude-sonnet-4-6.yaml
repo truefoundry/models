@@ -5,7 +5,7 @@ costs:
       input_cost_per_token_batches: 0.00000165
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
-      region: ap-southeast-2
+      region: ap-northeast-3
       tiered_pricing:
           cache_read:
               - cost_per_token: 6.6e-7
@@ -25,7 +25,7 @@ costs:
       input_cost_per_token_batches: 0.00000165
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
-      region: ap-southeast-4
+      region: ap-northeast-1
       tiered_pricing:
           cache_read:
               - cost_per_token: 6.6e-7
@@ -42,21 +42,11 @@ costs:
 features:
     - function_calling
     - vision
-    - system_messages
-    - tool_choice
-    - cache_control
-    - prompt_caching
-    - assistant_prefill
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
-    tool_use_system_prompt_tokens: 346
 mode: chat
-model: au.anthropic.claude-sonnet-4-6
-sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
-    - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+model: jp.anthropic.claude-sonnet-4-6
 thinking: true

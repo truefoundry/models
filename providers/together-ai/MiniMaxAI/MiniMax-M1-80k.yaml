@@ -1,2 +1,12 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - system_messages
+limits:
+    context_window: 1000000
+mode: chat
 model: MiniMaxAI/MiniMax-M1-80k
+sources:
+    - https://www.together.ai/pricing
+    - https://huggingface.co/MiniMaxAI/MiniMax-M1-80k
+thinking: true

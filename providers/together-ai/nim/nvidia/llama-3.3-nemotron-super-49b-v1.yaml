@@ -1,2 +1,16 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 16384
+    max_tokens: 16384
+mode: chat
 model: nim/nvidia/llama-3.3-nemotron-super-49b-v1
+sources:
+    - https://www.together.ai/models/nim-llama-3-3-nemotron-super-49b-v1
+    - https://build.nvidia.com/nvidia/llama-3_3-nemotron-super-49b-v1
+thinking: true

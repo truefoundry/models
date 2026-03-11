@@ -1,2 +1,13 @@
-mode: unknown
+features:
+    - function_calling
+    - chat
+    - code
+    - system_messages
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+mode: chat
 model: mistralai/Devstral-Small-2505
+sources:
+    - https://docs.mistral.ai/models/
+thinking: false

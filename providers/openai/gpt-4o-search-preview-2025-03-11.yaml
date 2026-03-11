@@ -1,2 +1,28 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 0.00000125
+      input_cost_per_query: 0.03
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.00001
+      region: "*"
+features:
+    - chat
+    - system_messages
+    - response_schema
+    - prompt_caching
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+mode: chat
 model: gpt-4o-search-preview-2025-03-11
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
+removeParams:
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-4o-search-preview
