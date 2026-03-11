@@ -1,2 +1,38 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2.4e-7
+      input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.000006
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.8e-7
+                from: 32000
+              - cost_per_token: 6.e-7
+                from: 128000
+          input:
+              - cost_per_token: 0.0000024
+                from: 32000
+              - cost_per_token: 0.000003
+                from: 128000
+          output:
+              - cost_per_token: 0.000012
+                from: 32000
+              - cost_per_token: 0.000015
+                from: 128000
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - tools
+    - prompt_caching
+    - response_schema
+    - system_messages
+limits:
+    context_window: 262144
+    max_input_tokens: 258048
+    max_output_tokens: 32768
+    max_tokens: 32768
+mode: chat
 model: qwen/qwen3-max
+sources:
+    - https://openrouter.ai/qwen/qwen3-max/api
