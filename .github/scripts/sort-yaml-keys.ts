@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-const PROVIDERS_DIR = path.resolve(__dirname, '..', 'providers');
+const PROVIDERS_DIR = path.resolve(__dirname, '..', '..', 'providers');
 
 function collectYamlFiles(dir: string): string[] {
     const results: string[] = [];

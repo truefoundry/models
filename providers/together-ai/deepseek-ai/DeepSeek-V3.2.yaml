@@ -1,2 +1,16 @@
-mode: unknown
+features:
+    - chat
+    - function_calling
+    - response_schema
+    - code
+limits:
+    context_window: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
 model: deepseek-ai/DeepSeek-V3.2
+sources:
+    - https://together.ai/pricing
+    - https://api-docs.deepseek.com/
+    - https://api-docs.deepseek.com/quick_start/pricing
+thinking: true
