@@ -4,7 +4,7 @@ import yaml from 'js-yaml';
 
 import type { CostWithRegion, ModelData } from './types';
 
-const PROVIDERS_DIR = path.resolve(__dirname, '..', 'providers');
+const PROVIDERS_DIR = path.resolve(__dirname, '..', '..', 'providers');
 
 function collectYamlFiles(dir: string): string[] {
     const results: string[] = [];
