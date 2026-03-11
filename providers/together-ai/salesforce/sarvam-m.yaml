@@ -1,2 +1,15 @@
-mode: unknown
+features:
+    - chat
+    - system_messages
+    - function_calling
+    - tool_choice
+limits:
+    context_window: 32768
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
 model: salesforce/sarvam-m
+sources:
+    - https://openrouter.ai/sarvamai/sarvam-m/api
+    - https://huggingface.co/sarvamai/sarvam-m
+thinking: true

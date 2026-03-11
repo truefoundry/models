@@ -41,7 +41,7 @@ if [ -n "$1" ]; then
     validate_file "$1"
 else
     # Validate all YAML files in providers/
-    PROVIDERS_DIR="$SCRIPT_DIR/../providers"
+    PROVIDERS_DIR="$SCRIPT_DIR/../../providers"
     FAILED=0
     PASSED=0
     FAILED_FILES=()
