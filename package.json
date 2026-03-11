@@ -4,13 +4,14 @@
   "description": "AI model configurations - YAML to unified JSON",
   "private": true,
   "scripts": {
-    "validate": "./test/validate.sh",
-    "build:json": "ts-node --project scripts/tsconfig.json scripts/build-unified-json.ts",
-    "sync:bedrock": "ts-node --project scripts/tsconfig.json scripts/sync-bedrock-costs.ts",
+    "validate": "./.github/test/validate.sh",
+    "build:json": "ts-node --project .github/scripts/tsconfig.json .github/scripts/build-unified-json.ts",
+    "sync:bedrock": "ts-node --project .github/scripts/tsconfig.json .github/scripts/sync-bedrock-costs.ts",
     "lint:yaml": "yamllint -c .yamllint.yml providers/",
-    "sort:yaml": "ts-node --project scripts/tsconfig.json scripts/sort-yaml-keys.ts",
+    "sort:yaml": "ts-node --project .github/scripts/tsconfig.json .github/scripts/sort-yaml-keys.ts",
+    "validate:costs": "ts-node --project .github/scripts/tsconfig.json .github/scripts/validate-costs.ts",
     "lint:yaml:fix": "npm run sort:yaml && prettier --write --log-level silent --tab-width 4 --print-width 256 'providers/**/*.yaml'",
-    "update:readme": "ts-node --project scripts/tsconfig.json scripts/update-readme-counts.ts",
+    "update:readme": "ts-node --project .github/scripts/tsconfig.json .github/scripts/update-readme-counts.ts",
     "prepare": "husky"
   },
   "devDependencies": {
