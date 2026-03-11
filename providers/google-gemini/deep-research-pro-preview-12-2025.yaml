@@ -1,2 +1,33 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2.e-7
+      cache_storage_cost_per_token_per_hour: 0.0000045
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000018
+                from: 200000
+features:
+    - vision
+    - image_input
+    - pdf
+    - pdf_input
+    - text
+limits:
+    context_window: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 model: deep-research-pro-preview-12-2025
+removeParams:
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025
+    - https://ai.google.dev/gemini-api/docs/deep-research
+thinking: true
