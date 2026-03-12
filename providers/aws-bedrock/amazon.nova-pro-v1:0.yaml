@@ -1,0 +1,134 @@
+costs:
+    - input_cost_per_token: 8.e-7
+      input_cost_per_token_batches: 4.e-7
+      output_cost_per_token: 0.0000032
+      output_cost_per_token_batches: 0.0000016
+      region: us-west-2
+    - input_cost_per_token: 0.00000103
+      output_cost_per_token: 0.00000412
+      region: us-west-1
+    - input_cost_per_token: 9.6e-7
+      input_cost_per_token_batches: 4.8e-7
+      output_cost_per_token: 0.00000384
+      output_cost_per_token_batches: 0.00000192
+      region: us-gov-west-1
+    - input_cost_per_token: 8.e-7
+      input_cost_per_token_batches: 4.e-7
+      output_cost_per_token: 0.0000032
+      output_cost_per_token_batches: 0.0000016
+      region: us-east-2
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 8.e-7
+      input_cost_per_token_batches: 4.e-7
+      output_cost_per_token: 0.0000032
+      output_cost_per_token_batches: 0.0000016
+      region: us-east-1
+    - input_cost_per_token: 8.e-7
+      input_cost_per_token_batches: 4.e-7
+      output_cost_per_token: 0.0000032
+      output_cost_per_token_batches: 0.0000016
+      region: me-central-1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5.e-7
+      output_cost_per_token: 0.000004
+      output_cost_per_token_batches: 0.000002
+      region: il-central-1
+    - input_cost_per_token: 0.00000118
+      input_cost_per_token_batches: 5.9e-7
+      output_cost_per_token: 0.00000472
+      output_cost_per_token_batches: 0.00000236
+      region: eu-west-3
+    - input_cost_per_token: 0.00000113
+      output_cost_per_token: 0.00000452
+      region: eu-west-2
+    - input_cost_per_token: 9.2e-7
+      input_cost_per_token_batches: 4.6e-7
+      output_cost_per_token: 0.00000368
+      output_cost_per_token_batches: 0.00000184
+      region: eu-west-1
+    - input_cost_per_token: 8.8e-7
+      output_cost_per_token: 0.00000352
+      region: eu-south-2
+    - input_cost_per_token: 0.00000128
+      output_cost_per_token: 0.00000521
+      region: eu-south-1
+    - input_cost_per_token: 8.7e-7
+      input_cost_per_token_batches: 4.35e-7
+      output_cost_per_token: 0.00000348
+      output_cost_per_token_batches: 0.00000174
+      region: eu-north-1
+    - input_cost_per_token: 0.00000105
+      input_cost_per_token_batches: 5.25e-7
+      output_cost_per_token: 0.0000042
+      output_cost_per_token_batches: 0.0000021
+      region: eu-central-1
+    - input_cost_per_token: 8.7e-7
+      input_cost_per_token_batches: 4.35e-7
+      output_cost_per_token: 0.00000348
+      output_cost_per_token_batches: 0.00000174
+      region: ap-southeast-4
+    - input_cost_per_token: 8.4e-7
+      input_cost_per_token_batches: 4.2e-7
+      output_cost_per_token: 0.00000336
+      output_cost_per_token_batches: 0.00000168
+      region: ap-southeast-2
+    - input_cost_per_token: 0.00000108
+      input_cost_per_token_batches: 5.4e-7
+      output_cost_per_token: 0.00000432
+      output_cost_per_token_batches: 0.00000216
+      region: ap-southeast-1
+    - input_cost_per_token: 9.4e-7
+      input_cost_per_token_batches: 4.7e-7
+      output_cost_per_token: 0.00000376
+      output_cost_per_token_batches: 0.00000188
+      region: ap-south-1
+    - input_cost_per_token: 9.5e-7
+      input_cost_per_token_batches: 4.75e-7
+      output_cost_per_token: 0.0000038
+      output_cost_per_token_batches: 0.0000019
+      region: ap-northeast-2
+    - input_cost_per_token: 9.6e-7
+      input_cost_per_token_batches: 4.8e-7
+      output_cost_per_token: 0.00000384
+      output_cost_per_token_batches: 0.00000192
+      region: ap-northeast-1
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - pdf_input
+    - pdf
+    - doc
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - text
+    - tools
+limits:
+    context_window: 300000
+    max_input_tokens: 295000
+    max_output_tokens: 5000
+    max_tokens: 5000
+mode: chat
+model: amazon.nova-pro-v1:0
+params:
+    - defaultValue: 5000
+      key: max_tokens
+      maxValue: 5000
+      minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0.00001
+    - defaultValue: 250
+      key: top_k
+      maxValue: 128
+      minValue: 0
+removeParams:
+    - "n"
+sources:
+    - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/modalities.html
+thinking: true

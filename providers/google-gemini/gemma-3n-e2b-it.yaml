@@ -1,0 +1,22 @@
+costs:
+    - cache_read_input_token_cost: 0
+      cache_storage_cost_per_token_per_hour: 0
+      input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - chat
+    - vision
+    - image_input
+    - audio_input
+    - text
+    - system_messages
+limits:
+    context_window: 32000
+mode: chat
+model: gemma-3n-e2b-it
+removeParams:
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemma/docs/gemma-3n
+    - https://huggingface.co/google/gemma-3n-E2B-it

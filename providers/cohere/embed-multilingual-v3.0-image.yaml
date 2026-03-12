@@ -1,2 +1,14 @@
-mode: unknown
+features:
+    - embedding_image_input
+limits:
+    max_input_tokens: 512
+messages:
+    options: []
+mode: embedding
 model: embed-multilingual-v3.0-image
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
+sources:
+    - https://docs.cohere.com/reference/embed

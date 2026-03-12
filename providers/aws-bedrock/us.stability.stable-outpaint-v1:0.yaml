@@ -1,0 +1,21 @@
+costs:
+    - input_cost_per_image: 0
+      region: us-west-2
+    - input_cost_per_image: 0
+      region: us-east-2
+    - input_cost_per_image: 0
+      region: us-east-1
+features:
+    - image
+    - image_input
+mode: image
+model: us.stability.stable-outpaint-v1:0
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html

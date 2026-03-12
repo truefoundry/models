@@ -7,10 +7,8 @@ features:
     - vision
     - tool_choice
 limits:
-    context_window: 256000
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
+    context_window: 262144
+    max_input_tokens: 262144
 mode: chat
 model: moonshotai/Kimi-K2.5
 sources:
@@ -18,5 +16,5 @@ sources:
     - https://together.ai/pricing
     - https://docs.together.ai/docs/vision-overview
     - https://docs.together.ai/docs/function-calling
-    - https://huggingface.co/moonshotai/Kimi-K2.5
+    - https://docs.together.ai/docs/json-mode
 thinking: true

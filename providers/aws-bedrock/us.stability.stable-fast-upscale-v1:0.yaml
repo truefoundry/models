@@ -1,0 +1,16 @@
+features:
+    - image_input
+    - image
+messages:
+    options: []
+mode: image
+model: us.stability.stable-fast-upscale-v1:0
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html
