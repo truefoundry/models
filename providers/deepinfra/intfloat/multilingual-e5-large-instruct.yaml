@@ -1,2 +1,11 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.e-8
+      region: "*"
+features:
+    - embedding_image_input
+limits:
+    max_input_tokens: 512
+mode: embedding
 model: intfloat/multilingual-e5-large-instruct
+sources:
+    - https://deepinfra.com/intfloat/multilingual-e5-large-instruct/api

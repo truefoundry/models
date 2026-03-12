@@ -1,2 +1,11 @@
-mode: unknown
+costs:
+    - output_cost_per_image: 0.01
+      region: "*"
+features:
+    - image
+    - image_input
+mode: image_generation
 model: black-forest-labs/FLUX.1-Kontext-dev
+sources:
+    - https://deepinfra.com/black-forest-labs/FLUX.1-Kontext-dev/api
+    - https://deepinfra.com/flux
