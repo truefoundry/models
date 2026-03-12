@@ -20,7 +20,6 @@ fi
 validate_file() {
     local file="$1"
     local filename=$(basename "$file")
-    local schema
     local definition
 
     # Use different definition for default.yaml vs model files
@@ -30,39 +29,45 @@ validate_file() {
         definition="#ModelConfig"
     fi
 
-    local result=0
     # Load common.cue + model.cue + default.cue together (same package)
-    cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>/dev/null || result=1
-    return $result
+    cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>&1
 }
 
 if [ -n "$1" ]; then
     # Validate specific file
-    validate_file "$1"
+    if ! output=$(validate_file "$1"); then
+        echo "$output"
+        exit 1
+    fi
 else
     # Validate all YAML files in providers/
     PROVIDERS_DIR="$SCRIPT_DIR/../../providers"
     FAILED=0
     PASSED=0
     FAILED_FILES=()
-    
+    FAILED_ERRORS=()
+
     for file in $(find "$PROVIDERS_DIR" -name "*.yaml" -type f); do
-        if validate_file "$file"; then
+        if output=$(validate_file "$file") && [ -z "$output" ]; then
             PASSED=$((PASSED + 1))
         else
             FAILED=$((FAILED + 1))
             FAILED_FILES+=("$file")
+            FAILED_ERRORS+=("$output")
         fi
     done
-    
+
     echo ""
     echo "Results: $PASSED passed, $FAILED failed"
-    
+
     if [ $FAILED -gt 0 ]; then
         echo ""
         echo "Failed files:"
-        for f in "${FAILED_FILES[@]}"; do
-            echo "  - $f"
+        for i in "${!FAILED_FILES[@]}"; do
+            echo "  - ${FAILED_FILES[$i]}"
+            if [ -n "${FAILED_ERRORS[$i]}" ]; then
+                echo "${FAILED_ERRORS[$i]}" | sed 's/^/      /'
+            fi
         done
         exit 1
     fi
