@@ -1,2 +1,17 @@
+costs:
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - response_schema
+    - system_messages
+limits:
+    context_window: 2000000
 mode: chat
 model: grok-4.20-beta-0309
+thinking: true

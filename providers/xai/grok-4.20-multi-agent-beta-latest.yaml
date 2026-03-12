@@ -1,2 +1,19 @@
+costs:
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - system_messages
+    - response_schema
+limits:
+    context_window: 2000000
 mode: chat
 model: grok-4.20-multi-agent-beta-latest
+sources:
+    - https://docs.x.ai/developers/models#models-and-pricing
+thinking: true
