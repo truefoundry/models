@@ -1,2 +1,34 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 2.2e-7
+      input_cost_per_token_batches: 1.1e-7
+      output_cost_per_token: 2.2e-7
+      output_cost_per_token_batches: 1.1e-7
+      region: us-west-2
+    - input_cost_per_token: 2.2e-7
+      input_cost_per_token_batches: 1.1e-7
+      output_cost_per_token: 2.2e-7
+      output_cost_per_token_batches: 1.1e-7
+      region: us-east-2
+    - input_cost_per_token: 2.2e-7
+      input_cost_per_token_batches: 1.1e-7
+      output_cost_per_token: 2.2e-7
+      output_cost_per_token_batches: 1.1e-7
+      region: us-east-1
+features:
+    - chat
+    - function_calling
+    - system_messages
+    - doc
+    - text
+    - tools
+limits:
+    context_window: 128000
+    max_output_tokens: 2048
+    max_tokens: 2048
+mode: chat
 model: meta.llama3-1-8b-instruct-v1:0
+removeParams:
+    - "n"
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
