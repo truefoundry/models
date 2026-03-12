@@ -7,10 +7,13 @@ features:
     - vision
     - image_input
     - audio_input
+    - system_messages
     - text
 limits:
     context_window: 32000
 mode: chat
 model: gemma-3n-e4b-it
+removeParams:
+    - tool_choice
 sources:
     - https://ai.google.dev/gemma/docs/3n

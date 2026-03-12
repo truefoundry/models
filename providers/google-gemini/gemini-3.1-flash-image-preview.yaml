@@ -13,17 +13,19 @@ features:
     - image_input
     - pdf
     - pdf_input
+    - response_schema
+    - system_messages
 limits:
-    context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 32768
-    max_tokens: 32768
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: image
 model: gemini-3.1-flash-image-preview
 params:
     - defaultValue: 256
       key: max_tokens
-      maxValue: 32768
+      maxValue: 65536
       minValue: 1
 removeParams:
     - tool_choice
