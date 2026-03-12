@@ -18,21 +18,21 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 680 | Unified API for open source models |
-| Together AI | 239 | Open source model hosting |
-| AWS Bedrock | 163 | Claude, Llama, Titan, Mistral on AWS |
+| OpenRouter | 686 | Unified API for open source models |
+| Together AI | 244 | Open source model hosting |
+| AWS Bedrock | 193 | Claude, Llama, Titan, Mistral on AWS |
+| DeepInfra | 157 | Open source model hosting |
 | Google Vertex AI | 137 | Gemini, PaLM on GCP |
 | OpenAI | 127 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
-| DeepInfra | 86 | Open source model hosting |
 | Azure OpenAI | 78 | OpenAI models on Azure |
 | Azure AI Foundry | 68 | Azure AI models |
 | Mistral AI | 66 | Mistral, Mixtral, Codestral |
-| Google Gemini | 41 | Gemini Pro, Ultra, Flash |
-| xAI | 40 | Grok models |
+| xAI | 59 | Grok models |
+| Google Gemini | 54 | Gemini Pro, Ultra, Flash |
 | Cohere | 35 | Command, Embed models |
 | Databricks | 28 | Databricks-hosted models |
 | SambaNova | 26 | Enterprise AI models |
-| Perplexity | 23 | Search-augmented models |
+| Perplexity | 24 | Search-augmented models |
 | Anthropic | 22 | Claude 3, Claude 3.5, Claude 4 |
 | Groq | 22 | Fast inference models |
 | AI21 | 12 | Jamba models |
