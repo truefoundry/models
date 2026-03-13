@@ -86,11 +86,15 @@ limits:
     max_tokens: 64000
 mode: chat
 model: anthropic/claude-sonnet-4@20250514
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 sources:
     - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude
 thinking: true

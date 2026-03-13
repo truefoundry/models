@@ -2,7 +2,7 @@ costs:
     - cache_read_input_token_cost: 1.e-7
       input_cost_per_token: 0.000001
       output_cost_per_token: 0.0000032
-      region: "*"
+      region: global
 features:
     - chat
     - doc
@@ -22,4 +22,5 @@ model: zai-org/glm-5-maas
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-5
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/capabilities/thinking
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg
 thinking: true
