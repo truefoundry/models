@@ -12,8 +12,8 @@ features:
     - prompt_caching
     - system_messages
 limits:
-    context_window: 131072
-    max_input_tokens: 131072
+    context_window: 131000
+    max_input_tokens: 131000
     max_output_tokens: 40000
     max_tokens: 40000
 mode: chat
@@ -29,4 +29,5 @@ sources:
     - https://inference-docs.cerebras.ai/models/openai-oss
     - https://inference-docs.cerebras.ai/capabilities/reasoning
     - https://inference-docs.cerebras.ai/capabilities/prompt-caching
+    - https://inference-docs.cerebras.ai/support/deprecation
 thinking: true
