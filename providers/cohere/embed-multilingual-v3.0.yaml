@@ -9,6 +9,10 @@ limits:
     max_input_tokens: 512
 mode: embedding
 model: embed-multilingual-v3.0
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
 sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.cohere.com/reference/embed
