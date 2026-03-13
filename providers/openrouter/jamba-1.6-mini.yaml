@@ -1,8 +1,15 @@
 features:
     - chat
     - tools
+    - function_calling
+    - response_schema
+    - system_messages
+limits:
+    context_window: 256000
 mode: chat
 model: jamba-1.6-mini
 params:
     - key: max_tokens
       maxValue: 4096
+sources:
+    - https://openrouter.ai/ai21/jamba-1.6-mini/api

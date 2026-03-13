@@ -1,7 +1,12 @@
 features:
     - chat
+limits:
+    context_window: 131072
 mode: chat
 model: deepseek-r1-distill-qwen-1.5b
 params:
     - key: max_tokens
       maxValue: 32768
+sources:
+    - https://openrouter.ai/deepseek/deepseek-r1-distill-qwen-1.5b/api
+thinking: true

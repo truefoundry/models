@@ -1,7 +1,16 @@
+costs:
+    - input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: "*"
 features:
     - chat
     - tools
+    - function_calling
+    - response_schema
+    - tool_choice
 limits:
-    max_tokens: 4096
+    context_window: 65536
 mode: chat
 model: mixtral-8x22b-instruct
+sources:
+    - https://openrouter.ai/mistralai/mixtral-8x22b-instruct/api

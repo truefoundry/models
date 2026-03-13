@@ -1,6 +1,16 @@
+costs:
+    - input_cost_per_token: 6.5e-7
+      output_cost_per_token: 7.5e-7
+      region: "*"
 features:
     - chat
+    - function_calling
+    - tool_choice
 limits:
-    max_tokens: 4096
+    context_window: 131072
+    max_output_tokens: 16384
+    max_tokens: 16384
 mode: chat
 model: l3.3-euryale-70b
+sources:
+    - https://openrouter.ai/sao10k/l3.3-euryale-70b/api

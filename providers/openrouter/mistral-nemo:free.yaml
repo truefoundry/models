@@ -1,7 +1,19 @@
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
 features:
     - chat
+    - function_calling
+    - system_messages
+limits:
+    context_window: 131072
+    max_output_tokens: 128000
+    max_tokens: 128000
 mode: chat
 model: mistral-nemo:free
 params:
     - key: max_tokens
       maxValue: 128000
+sources:
+    - https://openrouter.ai/mistralai/mistral-nemo:free/api

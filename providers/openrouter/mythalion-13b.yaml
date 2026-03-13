@@ -1,7 +1,11 @@
 features:
     - chat
+limits:
+    context_window: 8192
 mode: chat
 model: mythalion-13b
 params:
     - key: max_tokens
       maxValue: 4096
+sources:
+    - https://openrouter.ai/pygmalionai/mythalion-13b/api

@@ -1,6 +1,11 @@
 features:
     - chat
 limits:
+    context_window: 128000
+    max_output_tokens: 4096
     max_tokens: 4096
 mode: chat
 model: r1-1776
+sources:
+    - https://openrouter.ai/perplexity/r1-1776/api
+thinking: true

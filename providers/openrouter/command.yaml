@@ -1,7 +1,14 @@
 features:
     - chat
+limits:
+    context_window: 4096
+    max_output_tokens: 4096
+    max_tokens: 4096
 mode: chat
 model: command
 params:
     - key: max_tokens
       maxValue: 4000
+sources:
+    - https://openrouter.ai/cohere/command/api
+    - https://docs.cohere.com/docs/models

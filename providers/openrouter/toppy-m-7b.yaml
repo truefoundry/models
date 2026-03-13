@@ -1,7 +1,11 @@
 features:
     - chat
+limits:
+    context_window: 4096
 mode: chat
 model: toppy-m-7b
 params:
     - key: max_tokens
       maxValue: 4096
+sources:
+    - https://openrouter.ai/undi95/toppy-m-7b/api

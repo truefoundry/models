@@ -7,8 +7,12 @@ features:
     - tool_choice
     - prompt_caching
 limits:
-    max_input_tokens: 204800
-    max_output_tokens: 204800
-    max_tokens: 204800
+    context_window: 196608
+    max_input_tokens: 196608
+    max_output_tokens: 196608
+    max_tokens: 196608
 mode: chat
 model: minimax/minimax-m2
+sources:
+    - https://openrouter.ai/minimax/minimax-m2/api
+thinking: true

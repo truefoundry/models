@@ -1,8 +1,14 @@
 features:
     - chat
     - tools
+    - function_calling
+limits:
+    context_window: 128000
 mode: chat
 model: command-r-03-2024
 params:
     - key: max_tokens
       maxValue: 4000
+sources:
+    - https://openrouter.ai/cohere/command-r-03-2024/api
+    - https://docs.cohere.com/docs/command-r

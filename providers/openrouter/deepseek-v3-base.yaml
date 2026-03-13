@@ -1,6 +1,10 @@
+costs:
+    - region: "*"
 features:
     - chat
 limits:
-    max_tokens: 4096
+    context_window: 131072
 mode: chat
 model: deepseek-v3-base
+sources:
+    - https://openrouter.ai/deepseek/deepseek-v3-base/api

@@ -1,2 +1,25 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - chat
+    - text
+    - function_calling
+    - tools
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 1048576
+    max_output_tokens: 32000
+    max_tokens: 32000
+mode: chat
 model: openrouter/hunter-alpha
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 32000
+      minValue: 1
+sources:
+    - https://openrouter.ai/openrouter/hunter-alpha/api
+thinking: true

@@ -1,14 +1,19 @@
 costs:
-    - input_cost_per_image: 0
-      input_cost_per_token: 1.5e-7
-      output_cost_per_token: 6.e-7
+    - input_cost_per_token: 4.e-7
+      output_cost_per_token: 0.000002
       region: "*"
 features:
     - function_calling
     - tool_choice
+    - response_schema
+    - code
 limits:
+    context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 65536
     max_tokens: 65536
 mode: chat
 model: mistralai/devstral-2512
+sources:
+    - https://openrouter.ai/mistralai/devstral-2512/api
+    - https://docs.mistral.ai/models/devstral-2-25-12

@@ -1,6 +1,9 @@
 features:
     - chat
 limits:
-    max_tokens: 4096
+    context_window: 32768
 mode: chat
 model: lfm-3b
+sources:
+    - https://openrouter.ai/liquid/lfm-3b/api
+    - https://openrouter.ai/liquid/lfm-3b

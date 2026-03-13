@@ -1,7 +1,11 @@
 features:
     - chat
+limits:
+    context_window: 8192
 mode: chat
 model: fimbulvetr-11b-v2
 params:
     - key: max_tokens
       maxValue: 4096
+sources:
+    - https://openrouter.ai/sao10k/fimbulvetr-11b-v2/api

@@ -1,6 +1,11 @@
 features:
     - chat
 limits:
-    max_tokens: 4096
+    context_window: 127000
 mode: chat
 model: sonar-reasoning
+sources:
+    - https://openrouter.ai/perplexity/sonar-reasoning/api
+    - https://docs.perplexity.ai/guides/pricing
+    - https://docs.perplexity.ai/guides/model-cards
+thinking: true

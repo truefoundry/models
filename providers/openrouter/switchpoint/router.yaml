@@ -5,8 +5,12 @@ costs:
 features:
     - tool_choice
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
 mode: chat
 model: switchpoint/router
+sources:
+    - https://openrouter.ai/switchpoint/router/api
+thinking: true
