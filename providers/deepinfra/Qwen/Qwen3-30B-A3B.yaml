@@ -5,10 +5,9 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - response_schema
 limits:
-    max_input_tokens: 40960
-    max_output_tokens: 40960
-    max_tokens: 40960
+    context_window: 40960
 mode: chat
 model: Qwen/Qwen3-30B-A3B
 sources:

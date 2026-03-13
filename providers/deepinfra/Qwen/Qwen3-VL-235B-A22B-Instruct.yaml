@@ -1,6 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 2.e-7
+    - input_cost_per_token: 2.e-7
       output_cost_per_token: 8.8e-7
       region: "*"
 features:
@@ -11,7 +10,6 @@ features:
     - system_messages
     - tool_choice
     - response_schema
-    - prompt_caching
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -23,4 +21,3 @@ sources:
     - https://deepinfra.com/Qwen/Qwen3-VL-235B-A22B-Instruct/api
     - https://openrouter.ai/qwen/qwen3-vl-235b-a22b-instruct/api
     - https://github.com/QwenLM/Qwen3-VL
-    - https://blog.galaxy.ai/model/qwen3-vl-235b-a22b-instruct

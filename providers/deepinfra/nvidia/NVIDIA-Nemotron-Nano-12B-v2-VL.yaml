@@ -5,13 +5,14 @@ costs:
 features:
     - vision
     - image_input
+    - function_calling
     - chat
     - system_messages
 limits:
-    context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
 model: nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL
 sources:
