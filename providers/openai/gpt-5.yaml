@@ -16,7 +16,6 @@ features:
     - tool_choice
     - prompt_caching
     - response_schema
-    - pdf_input
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -96,6 +95,7 @@ removeParams:
     - logit_bias
     - max_tokens
 sources:
-    - https://platform.openai.com/docs/models/gpt-5
-    - https://platform.openai.com/docs/pricing
+    - https://developers.openai.com/api/docs/models/gpt-5
+    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/api/docs/deprecations
 thinking: true

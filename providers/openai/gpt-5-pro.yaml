@@ -17,6 +17,14 @@ params:
       key: max_tokens
       maxValue: 272000
       minValue: 1
+removeParams:
+    - temperature
+    - top_p
+    - frequency_penalty
+    - presence_penalty
+    - "n"
+    - logit_bias
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-pro
 thinking: true

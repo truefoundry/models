@@ -11,6 +11,15 @@ limits:
     max_output_tokens: 2000
 mode: audio_transcription
 model: gpt-4o-mini-transcribe-2025-03-20
+removeParams:
+    - top_p
+    - "n"
+    - frequency_penalty
+    - presence_penalty
+    - tool_choice
+    - parallel_tool_calls
+    - logit_bias
+    - stop
 sources:
     - https://developers.openai.com/docs/guides/speech-to-text
     - https://developers.openai.com/docs/pricing

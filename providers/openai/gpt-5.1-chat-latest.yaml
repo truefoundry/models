@@ -14,7 +14,6 @@ features:
     - tool_choice
     - prompt_caching
     - response_schema
-    - pdf_input
     - tools
 limits:
     context_window: 128000
@@ -23,6 +22,10 @@ limits:
     max_tokens: 16384
 mode: chat
 model: gpt-5.1-chat-latest
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.1-chat-latest
-    - https://platform.openai.com/docs/models/gpt-5.1-chat-latest

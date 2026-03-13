@@ -3,6 +3,8 @@ costs:
       region: "*"
 features:
     - audio_output
+limits:
+    max_input_tokens: 4096
 mode: audio_speech
 model: tts-1-1106
 removeParams:
@@ -21,3 +23,4 @@ sources:
     - https://developers.openai.com/api/docs/models/tts-1
     - https://developers.openai.com/api/docs/guides/text-to-speech
     - https://developers.openai.com/api/reference/resources/audio/subresources/speech/methods/create/
+    - https://developers.openai.com/api/docs/deprecations

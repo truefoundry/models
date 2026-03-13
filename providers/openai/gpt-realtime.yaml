@@ -1,10 +1,9 @@
 costs:
     - cache_read_input_audio_token_cost: 4.e-7
-      cache_read_input_token_cost: 4.e-7
+      cache_read_input_token_cost: 5.e-7
       input_cost_per_audio_token: 0.000032
-      input_cost_per_token: 0.000004
+      input_cost_per_token: 0.000005
       output_cost_per_audio_token: 0.000064
-      output_cost_per_token: 0.000016
       region: "*"
 features:
     - function_calling
@@ -27,3 +26,4 @@ model: gpt-realtime
 sources:
     - https://developers.openai.com/api/docs/models/gpt-realtime
     - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/api/docs/deprecations

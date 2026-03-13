@@ -1,5 +1,6 @@
 costs:
     - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_query: 0.01
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
@@ -15,3 +16,4 @@ model: gpt-5-search-api
 sources:
     - https://developers.openai.com/api/docs/guides/tools-web-search/
     - https://developers.openai.com/api/docs/models/gpt-5
+    - https://developers.openai.com/api/docs/pricing

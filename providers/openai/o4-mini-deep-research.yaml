@@ -9,7 +9,6 @@ features:
     - image_input
     - system_messages
     - prompt_caching
-    - response_schema
     - text
 limits:
     context_window: 200000
@@ -27,5 +26,6 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/guides/deep-research
+    - https://developers.openai.com/api/docs/models/o4-mini-deep-research
     - https://openrouter.ai/openai/o4-mini-deep-research/api
 thinking: true

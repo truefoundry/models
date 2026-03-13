@@ -1,10 +1,23 @@
 costs:
     - cache_read_input_token_cost: 1.25e-7
       input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
       output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
       region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 272000
+          input:
+              - cost_per_token: 0.0000025
+                from: 272000
+          output:
+              - cost_per_token: 0.000015
+                from: 272000
 features:
     - function_calling
+    - parallel_function_calling
     - vision
     - image_input
     - chat
@@ -23,7 +36,7 @@ model: gpt-5.1
 params:
     - defaultValue: 20000
       key: max_completion_tokens
-      maxValue: 272000
+      maxValue: 128000
       minValue: 1
     - defaultValue: null
       key: response_format
@@ -67,4 +80,5 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.1
+    - https://developers.openai.com/docs/pricing
 thinking: true

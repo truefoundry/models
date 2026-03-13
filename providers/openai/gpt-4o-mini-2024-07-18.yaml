@@ -1,22 +1,20 @@
 costs:
-    - cache_read_input_token_cost: 7.5e-8
-      input_cost_per_token: 1.5e-7
-      input_cost_per_token_batches: 7.5e-8
-      output_cost_per_token: 6.e-7
-      output_cost_per_token_batches: 3.e-7
+    - cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 2.5e-7
+      input_cost_per_token_batches: 1.5e-7
+      output_cost_per_token: 0.000001
+      output_cost_per_token_batches: 6.e-7
       region: "*"
 features:
     - function_calling
     - parallel_function_calling
     - vision
     - chat
-    - image
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
     - response_schema
-    - pdf_input
 limits:
     context_window: 128000
     max_input_tokens: 128000

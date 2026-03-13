@@ -1,9 +1,9 @@
 costs:
-    - cache_read_input_token_cost: 1.e-7
-      input_cost_per_token: 4.e-7
-      input_cost_per_token_batches: 2.e-7
-      output_cost_per_token: 0.0000016
-      output_cost_per_token_batches: 8.e-7
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 8.e-7
+      input_cost_per_token_batches: 4.e-7
+      output_cost_per_token: 0.0000032
+      output_cost_per_token_batches: 0.0000016
       region: "*"
 features:
     - function_calling
@@ -64,6 +64,7 @@ params:
 removeParams:
     - max_tokens
 sources:
-    - https://platform.openai.com/docs/models/gpt-4.1-mini
+    - https://developers.openai.com/api/docs/models/gpt-4.1-mini
     - https://developers.openai.com/api/docs/deprecations/
-    - https://platform.openai.com/docs/guides/pdf-files
+    - https://developers.openai.com/docs/pricing
+    - https://developers.openai.com/docs/guides/pdf-files
