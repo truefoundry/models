@@ -1,2 +1,31 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.000006
+      output_cost_per_token_batches: 0.000003
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - tool_choice
+    - response_schema
+    - text
+    - tools
+limits:
+    context_window: 2000000
+mode: chat
 model: x-ai/grok-4.20-beta
+sources:
+    - https://openrouter.ai/x-ai/grok-4.20-beta/api
+    - https://docs.x.ai/developers/models#models-and-pricing
+thinking: true
