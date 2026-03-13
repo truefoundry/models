@@ -33,4 +33,9 @@ limits:
     max_tokens: 64000
 mode: chat
 model: claude-4-sonnet-20250514
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 thinking: true

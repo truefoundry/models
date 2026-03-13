@@ -21,4 +21,9 @@ limits:
     max_tokens: 64000
 mode: chat
 model: claude-haiku-4-5
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 thinking: true
