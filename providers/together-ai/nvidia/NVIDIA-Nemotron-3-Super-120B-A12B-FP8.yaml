@@ -1,2 +1,16 @@
-mode: unknown
+features:
+    - function_calling
+    - chat
+    - tool_choice
+    - response_schema
+    - system_messages
+    - text
+    - code
+    - tools
+limits:
+    context_window: 1000000
+mode: chat
 model: nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8
+sources:
+    - https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8
+thinking: true
