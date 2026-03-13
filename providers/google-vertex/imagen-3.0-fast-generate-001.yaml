@@ -63,6 +63,14 @@ features:
     - image
 mode: image
 model: imagen-3.0-fast-generate-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-generate
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api

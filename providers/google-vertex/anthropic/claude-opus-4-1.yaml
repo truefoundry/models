@@ -27,6 +27,9 @@ limits:
     max_tokens: 32000
 mode: chat
 model: anthropic/claude-opus-4-1
+params:
+    - key: max_tokens
+      maxValue: 32000
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-1
     - https://platform.claude.com/docs/en/docs/about-claude/models

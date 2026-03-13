@@ -89,12 +89,21 @@ costs:
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 0
       region: asia-east1
+features:
+    - text
+    - code
 limits:
     max_input_tokens: 2048
-    max_tokens: 4096
     output_vector_size: 3072
 mode: embedding
 model: gemini-embedding-001
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations

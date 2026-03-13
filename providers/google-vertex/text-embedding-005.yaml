@@ -5,10 +5,17 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 2048
-    max_tokens: 4096
+    max_tokens: 2048
     output_vector_size: 768
 mode: embedding
 model: text-embedding-005
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
