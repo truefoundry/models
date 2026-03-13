@@ -1,2 +1,12 @@
-mode: unknown
+mode: moderation
 model: mistral-moderation-latest
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - seed
+    - stop
+    - safe_prompt
+    - stream
+sources:
+    - https://docs.mistral.ai/capabilities/guardrailing/
