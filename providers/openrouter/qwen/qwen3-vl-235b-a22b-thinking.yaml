@@ -1,2 +1,20 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 2.6e-7
+      output_cost_per_token: 0.0000026
+      region: "*"
+features:
+    - chat
+    - vision
+    - image_input
+    - function_calling
+    - text
+    - code
+    - tools
+    - tool_choice
+limits:
+    context_window: 131072
+mode: chat
 model: qwen/qwen3-vl-235b-a22b-thinking
+sources:
+    - https://openrouter.ai/qwen/qwen3-vl-235b-a22b-thinking/api
+thinking: true

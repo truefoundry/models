@@ -1,2 +1,15 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0.00000375
+      output_cost_per_token: 0.0000075
+      region: "*"
+features:
+    - chat
+    - text
+limits:
+    context_window: 6144
+    max_output_tokens: 1024
+    max_tokens: 1024
+mode: chat
 model: alpindale/goliath-120b
+sources:
+    - https://openrouter.ai/alpindale/goliath-120b/api

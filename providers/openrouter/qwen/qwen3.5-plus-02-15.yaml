@@ -1,2 +1,34 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 2.6e-7
+      output_cost_per_token: 0.00000156
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 3.25e-7
+                from: 256000
+          output:
+              - cost_per_token: 0.00000195
+                from: 256000
+features:
+    - chat
+    - text
+    - vision
+    - image_input
+    - function_calling
+    - tool_choice
+    - response_schema
+    - tools
+limits:
+    context_window: 1000000
+    max_output_tokens: 65536
+    max_tokens: 65536
+mode: chat
 model: qwen/qwen3.5-plus-02-15
+params:
+    - defaultValue: 65536
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+sources:
+    - https://openrouter.ai/qwen/qwen3.5-plus-02-15/api
+thinking: true

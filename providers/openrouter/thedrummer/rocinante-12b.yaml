@@ -1,2 +1,17 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.7e-7
+      output_cost_per_token: 4.3e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - response_schema
+limits:
+    context_window: 32768
+    max_output_tokens: 32768
+    max_tokens: 32768
+mode: chat
 model: thedrummer/rocinante-12b
+sources:
+    - https://openrouter.ai/thedrummer/rocinante-12b/api

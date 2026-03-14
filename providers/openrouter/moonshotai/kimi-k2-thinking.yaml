@@ -1,2 +1,24 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 1.41e-7
+      input_cost_per_token: 4.7e-7
+      output_cost_per_token: 0.000002
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+    - tools
+    - text
+    - system_messages
+    - response_schema
+limits:
+    context_window: 131072
+mode: chat
 model: moonshotai/kimi-k2-thinking
+params:
+    - defaultValue: null
+      key: reasoning
+      type: object
+sources:
+    - https://openrouter.ai/moonshotai/kimi-k2-thinking/api
+thinking: true

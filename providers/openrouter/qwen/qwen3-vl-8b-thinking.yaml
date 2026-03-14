@@ -1,2 +1,24 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.17e-7
+      output_cost_per_token: 0.000001365
+      region: "*"
+features:
+    - chat
+    - vision
+    - image_input
+    - function_calling
+    - tool_choice
+    - response_schema
+    - text
+    - code
+    - tools
+limits:
+    context_window: 131072
+    max_input_tokens: 126976
+    max_output_tokens: 32768
+    max_tokens: 32768
+mode: chat
 model: qwen/qwen3-vl-8b-thinking
+sources:
+    - https://openrouter.ai/qwen/qwen3-vl-8b-thinking/api
+thinking: true

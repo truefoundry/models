@@ -1,2 +1,22 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0.00002
+      output_cost_per_token: 0.00008
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - tool_choice
+    - response_schema
+    - text
+    - tools
+limits:
+    context_window: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
+mode: chat
 model: openai/o3-pro
+sources:
+    - https://openrouter.ai/openai/o3-pro/api
+thinking: true

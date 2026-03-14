@@ -1,8 +1,14 @@
 features:
     - chat
-    - image
+    - vision
+    - image_input
+limits:
+    context_window: 131072
 mode: chat
 model: llama-3.2-90b-vision-instruct
 params:
     - key: max_tokens
       maxValue: 2048
+sources:
+    - https://openrouter.ai/meta-llama/llama-3.2-90b-vision-instruct/api
+    - https://openrouter.ai/meta-llama/llama-3.2-90b-vision-instruct

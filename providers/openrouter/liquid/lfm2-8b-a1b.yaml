@@ -1,2 +1,14 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.e-8
+      output_cost_per_token: 2.e-8
+      region: "*"
+features:
+    - chat
+    - text
+limits:
+    context_window: 32768
+    max_tokens: 32768
+mode: chat
 model: liquid/lfm2-8b-a1b
+sources:
+    - https://openrouter.ai/liquid/lfm2-8b-a1b/api

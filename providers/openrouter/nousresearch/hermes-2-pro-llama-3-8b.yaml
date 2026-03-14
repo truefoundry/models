@@ -1,2 +1,19 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.4e-7
+      output_cost_per_token: 1.4e-7
+      region: "*"
+features:
+    - function_calling
+    - response_schema
+    - chat
+    - text
+    - code
+    - tools
+limits:
+    context_window: 8192
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
 model: nousresearch/hermes-2-pro-llama-3-8b
+sources:
+    - https://openrouter.ai/nousresearch/hermes-2-pro-llama-3-8b/api
