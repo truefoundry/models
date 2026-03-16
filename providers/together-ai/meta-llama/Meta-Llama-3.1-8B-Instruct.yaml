@@ -4,10 +4,10 @@ costs:
       region: "*"
 features:
     - chat
-    - function_calling
-    - response_schema
 limits:
     context_window: 131072
-    max_tokens: 131072
 mode: chat
 model: meta-llama/Meta-Llama-3.1-8B-Instruct
+sources:
+    - https://docs.together.ai/docs/function-calling
+    - https://docs.together.ai/docs/json-mode
