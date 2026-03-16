@@ -5,11 +5,13 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - response_schema
     - tool_choice
 limits:
     context_window: 256000
+modalities:
+    input:
+        - image
 mode: chat
 model: ministral-8b-latest
 sources:

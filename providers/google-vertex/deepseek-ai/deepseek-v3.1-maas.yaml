@@ -13,12 +13,16 @@ features:
     - response_schema
     - system_messages
     - prompt_caching
-    - text
-    - doc
 limits:
     context_window: 163840
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+        - doc
+    output:
+        - text
 mode: chat
 model: deepseek-ai/deepseek-v3.1-maas
 sources:

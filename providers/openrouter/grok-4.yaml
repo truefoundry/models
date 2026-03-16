@@ -13,8 +13,6 @@ costs:
                 from: 128000
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - parallel_function_calling
     - tools
@@ -24,6 +22,9 @@ features:
 limits:
     context_window: 256000
     max_tokens: 4096
+modalities:
+    input:
+        - image
 mode: chat
 model: grok-4
 sources:

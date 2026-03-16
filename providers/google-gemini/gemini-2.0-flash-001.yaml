@@ -11,11 +11,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image
-    - pdf
-    - doc
     - tools
     - system_messages
     - tool_choice
@@ -26,5 +22,10 @@ limits:
     max_input_tokens: 1048576
     max_output_tokens: 8192
     max_tokens: 4096
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
 mode: chat
 model: gemini-2.0-flash-001

@@ -3,12 +3,13 @@ costs:
       output_cost_per_token: 4.e-8
       region: "*"
 features:
-    - vision
-    - image_input
     - response_schema
 limits:
     context_window: 32768
     max_input_tokens: 32768
+modalities:
+    input:
+        - image
 mode: chat
 model: google/gemma-3n-E4B-it
 sources:

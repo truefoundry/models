@@ -7,13 +7,18 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - text
-    - code
     - response_schema
 limits:
     context_window: 40960
     max_output_tokens: 40960
     max_tokens: 40960
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: qwen/qwen3-30b-a3b
 sources:

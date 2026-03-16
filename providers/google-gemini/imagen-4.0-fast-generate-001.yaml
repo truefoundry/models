@@ -1,12 +1,15 @@
 costs:
     - output_cost_per_image: 0.02
       region: "*"
-features:
-    - image
-    - text
 isDeprecated: true
 limits:
     max_input_tokens: 480
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: image
 model: imagen-4.0-fast-generate-001
 sources:

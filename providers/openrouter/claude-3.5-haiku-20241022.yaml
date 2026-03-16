@@ -9,14 +9,15 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - vision
-    - image_input
     - prompt_caching
     - system_messages
 limits:
     context_window: 200000
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: claude-3.5-haiku-20241022
 params:

@@ -4,10 +4,11 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 16000
+modalities:
+    input:
+        - image
 mode: chat
 model: allenai/olmOCR-2-7B-1025
 sources:

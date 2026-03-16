@@ -10,11 +10,16 @@ features:
     - system_messages
     - tool_choice
     - tools
-    - text
-    - code
     - response_schema
 limits:
     context_window: 32000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: gemma-3-1b-it
 sources:

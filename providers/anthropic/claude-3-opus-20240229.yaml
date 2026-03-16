@@ -8,9 +8,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
@@ -21,6 +19,9 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 4096
     tool_use_system_prompt_tokens: 395
+modalities:
+    input:
+        - image
 mode: chat
 model: claude-3-opus-20240229
 params:

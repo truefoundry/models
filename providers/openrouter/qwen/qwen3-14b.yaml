@@ -9,12 +9,17 @@ features:
     - tool_choice
     - response_schema
     - system_messages
-    - text
-    - code
 limits:
     context_window: 40960
     max_output_tokens: 40960
     max_tokens: 40960
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: qwen/qwen3-14b
 sources:

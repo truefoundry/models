@@ -7,12 +7,13 @@ costs:
       region: europe-west4
 features:
     - function_calling
-    - vision
-    - image_input
     - tool_choice
     - response_schema
 limits:
     context_window: 128000
+modalities:
+    input:
+        - image
 mode: chat
 model: mistralai/mistral-medium-3
 sources:

@@ -6,10 +6,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - tools
@@ -20,6 +16,14 @@ limits:
     context_window: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: anthropic/claude-sonnet-4.6
 params:

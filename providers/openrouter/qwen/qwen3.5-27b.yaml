@@ -5,18 +5,22 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - tools
     - tool_choice
     - response_schema
-    - text
-    - code
     - system_messages
 limits:
     context_window: 262144
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: qwen/qwen3.5-27b
 sources:

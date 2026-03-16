@@ -1,13 +1,12 @@
 costs:
     - input_cost_per_image: 0.02
       region: "*"
-features:
-    - image
-    - vision
-    - image_input
 messages:
     options:
         - user
+modalities:
+    input:
+        - image
 mode: image-generation
 model: grok-imagine-image-2026-03-02
 removeParams:

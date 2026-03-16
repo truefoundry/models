@@ -4,11 +4,9 @@ costs:
       output_cost_per_token: 0.000012
       region: "*"
 features:
-    - vision
     - chat
     - tools
     - prompt_caching
-    - pdf_input
 isDeprecated: true
 limits:
     max_input_tokens: 128000
@@ -19,6 +17,10 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: o1-mini-2024-09-12
 params:

@@ -7,12 +7,17 @@ features:
     - function_calling
     - tool_choice
     - system_messages
-    - text
-    - code
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistralai/mistral-small-creative
 sources:

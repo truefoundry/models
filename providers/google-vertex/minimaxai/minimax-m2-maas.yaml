@@ -9,14 +9,19 @@ features:
     - response_schema
     - tool_choice
     - system_messages
-    - text
-    - code
     - tools
-    - doc
 limits:
     context_window: 196608
     max_output_tokens: 196608
     max_tokens: 196608
+modalities:
+    input:
+        - text
+        - doc
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: minimaxai/minimax-m2-maas
 sources:

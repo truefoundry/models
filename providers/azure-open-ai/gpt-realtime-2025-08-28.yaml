@@ -10,14 +10,18 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - audio_input
-    - audio_output
-    - text
     - system_messages
     - tool_choice
 limits:
     max_input_tokens: 32000
     max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
 mode: realtime
 model: gpt-realtime-2025-08-28

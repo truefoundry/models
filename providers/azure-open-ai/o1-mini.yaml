@@ -7,7 +7,6 @@ features:
     - function_calling
     - parallel_function_calling
     - chat
-    - image
     - prompt_caching
 limits:
     max_input_tokens: 128000
@@ -18,6 +17,9 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
 mode: chat
 model: o1-mini
 params:

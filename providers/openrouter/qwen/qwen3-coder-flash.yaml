@@ -22,14 +22,19 @@ features:
     - function_calling
     - tool_choice
     - response_schema
-    - text
-    - code
     - tools
 limits:
     context_window: 1000000
     max_input_tokens: 997952
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: qwen/qwen3-coder-flash
 sources:

@@ -1,11 +1,16 @@
 features:
     - chat
     - function_calling
-    - text
-    - code
     - tools
 limits:
     context_window: 128000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: deepcogito/cogito-v1-preview-llama-70B
 sources:

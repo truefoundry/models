@@ -4,11 +4,13 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
 limits:
     max_input_tokens: 256000
     max_output_tokens: 8191
     max_tokens: 8191
+modalities:
+    input:
+        - image
 mode: chat
 model: mistral-large-3

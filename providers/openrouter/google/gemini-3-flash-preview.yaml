@@ -7,12 +7,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
-    - vision
-    - image_input
-    - audio_input
-    - pdf_input
     - function_calling
     - tools
     - tool_choice
@@ -23,6 +17,16 @@ limits:
     context_window: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - pdf
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: google/gemini-3-flash-preview
 sources:

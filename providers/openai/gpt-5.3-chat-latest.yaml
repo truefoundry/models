@@ -5,9 +5,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - system_messages
@@ -18,6 +15,12 @@ limits:
     max_input_tokens: 111616
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: gpt-5.3-chat-latest
 params:

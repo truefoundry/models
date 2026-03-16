@@ -1,8 +1,12 @@
 features:
     - chat
-    - text
 limits:
     context_window: 16000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: raifle/sorcererlm-8x22b
 sources:

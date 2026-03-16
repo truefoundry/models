@@ -2,12 +2,13 @@ costs:
     - input_cost_per_token: 5.e-7
       output_cost_per_token: 0.0001
       region: "*"
-features:
-    - audio_input
 isDeprecated: true
 limits:
     max_input_tokens: 4096
     max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - audio
 mode: chat
 model: Qwen2-Audio-7B-Instruct

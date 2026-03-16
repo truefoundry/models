@@ -10,19 +10,7 @@ package model
 	"prompt_caching" |
 	"response_schema" |
 	"assistant_prefill" |
-	"tools" |
-	// Legacy modality values kept for backward compatibility during migration
-	"vision" |
-	"audio_input" |
-	"audio_output" |
-	"image" |
-	"pdf" |
-	"doc" |
-	"pdf_input" |
-	"image_input" |
-	"embedding_image_input" |
-	"text" |
-	"code"
+	"tools"
 
 #Modality:
 	"text" |
@@ -34,8 +22,8 @@ package model
 	"video"
 
 #Modalities: {
-	input:  [...#Modality]
-	output: [...#Modality]
+	input?:  [...#Modality]
+	output?: [...#Modality]
 }
 
 #PricingTier: {

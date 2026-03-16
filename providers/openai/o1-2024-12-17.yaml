@@ -8,7 +8,6 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
     - tools
     - system_messages
@@ -25,6 +24,9 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
 mode: chat
 model: o1-2024-12-17
 params:

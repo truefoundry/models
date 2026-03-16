@@ -4,15 +4,18 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image_input
     - system_messages
     - response_schema
 limits:
     context_window: 1048576
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: meta-llama/llama-4-maverick
 sources:

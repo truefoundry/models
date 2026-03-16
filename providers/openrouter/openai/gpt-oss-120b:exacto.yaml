@@ -8,11 +8,16 @@ features:
     - tool_choice
     - response_schema
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: openai/gpt-oss-120b:exacto
 sources:

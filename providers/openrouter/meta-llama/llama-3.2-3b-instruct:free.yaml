@@ -5,11 +5,16 @@ costs:
 features:
     - chat
     - function_calling
-    - text
-    - code
     - system_messages
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: meta-llama/llama-3.2-3b-instruct:free
 sources:

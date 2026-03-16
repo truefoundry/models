@@ -21,16 +21,20 @@ costs:
       region: ap-northeast-1
 features:
     - chat
-    - audio_input
-    - audio_output
     - function_calling
-    - text
     - system_messages
     - tools
 limits:
     context_window: 1000000
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
 mode: chat
 model: amazon.nova-2-sonic-v1:0
 sources:

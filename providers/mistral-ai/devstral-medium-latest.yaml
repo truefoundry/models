@@ -7,9 +7,13 @@ features:
     - tool_choice
     - response_schema
     - assistant_prefill
-    - code
 limits:
     context_window: 128000
+modalities:
+    input:
+        - code
+    output:
+        - code
 mode: chat
 model: devstral-medium-latest
 sources:

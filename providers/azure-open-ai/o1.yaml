@@ -6,9 +6,7 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
-    - image
     - tool_choice
     - prompt_caching
 limits:
@@ -20,6 +18,9 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
 mode: chat
 model: o1
 params:

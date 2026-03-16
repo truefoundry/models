@@ -6,8 +6,6 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - tool_choice
     - response_schema
 limits:
@@ -15,6 +13,9 @@ limits:
     max_input_tokens: 1047576
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - image
 mode: chat
 model: openai/gpt-4.1-mini-2025-04-14
 sources:

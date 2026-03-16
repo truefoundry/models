@@ -7,12 +7,16 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - text
     - system_messages
     - tool_choice
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: gpt-audio-2025-08-28

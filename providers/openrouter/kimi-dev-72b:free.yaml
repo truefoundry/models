@@ -4,9 +4,13 @@ costs:
       region: "*"
 features:
     - chat
-    - code
 limits:
     context_window: 131072
+modalities:
+    input:
+        - code
+    output:
+        - code
 mode: chat
 model: kimi-dev-72b:free
 sources:

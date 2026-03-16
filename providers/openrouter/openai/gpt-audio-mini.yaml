@@ -9,13 +9,16 @@ features:
     - function_calling
     - tool_choice
     - response_schema
-    - audio_input
-    - audio_output
     - system_messages
 limits:
     context_window: 128000
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - audio
+    output:
+        - audio
 mode: chat
 model: openai/gpt-audio-mini
 sources:

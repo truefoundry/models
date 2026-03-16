@@ -8,11 +8,16 @@ features:
     - response_schema
     - system_messages
     - chat
-    - text
-    - code
     - tools
 limits:
     context_window: 131000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: arcee-ai/trinity-large-preview:free
 sources:

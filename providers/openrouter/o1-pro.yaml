@@ -4,12 +4,13 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
+modalities:
+    input:
+        - image
 mode: chat
 model: o1-pro
 params:

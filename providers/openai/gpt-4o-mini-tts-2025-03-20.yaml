@@ -4,10 +4,11 @@ costs:
       output_cost_per_second: 0.00025
       output_cost_per_token: 0.00001
       region: "*"
-features:
-    - audio_output
 limits:
     max_input_tokens: 2000
+modalities:
+    output:
+        - audio
 mode: audio_speech
 model: gpt-4o-mini-tts-2025-03-20
 sources:

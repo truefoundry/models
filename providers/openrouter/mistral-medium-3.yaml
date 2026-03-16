@@ -4,14 +4,15 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - tools
     - function_calling
     - tool_choice
     - response_schema
 limits:
     context_window: 131072
+modalities:
+    input:
+        - image
 mode: chat
 model: mistral-medium-3
 sources:

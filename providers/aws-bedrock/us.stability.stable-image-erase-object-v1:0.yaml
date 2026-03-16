@@ -5,9 +5,9 @@ costs:
       region: us-east-2
     - input_cost_per_image: 0.04
       region: us-east-1
-features:
-    - image_input
-    - image
+modalities:
+    input:
+        - image
 mode: image
 model: us.stability.stable-image-erase-object-v1:0
 params:
@@ -15,12 +15,6 @@ params:
       key: seed
       maxValue: 4294967294
       minValue: 0
-    - defaultValue: 5
-      key: grow_mask
-      maxValue: 20
-      minValue: 0
-    - defaultValue: png
-      key: output_format
 removeParams:
     - max_tokens
     - temperature

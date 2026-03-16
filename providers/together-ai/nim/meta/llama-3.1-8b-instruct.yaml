@@ -2,7 +2,12 @@ features:
     - chat
     - function_calling
     - system_messages
-    - text
-    - code
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: nim/meta/llama-3.1-8b-instruct

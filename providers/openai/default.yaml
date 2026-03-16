@@ -33,55 +33,20 @@ params:
       key: "n"
       maxValue: 10
       minValue: 1
-    - defaultValue: 0
-      key: frequency_penalty
-      maxValue: 2
-      minValue: -2
-    - defaultValue: 0
-      key: presence_penalty
-      maxValue: 2
-      minValue: -2
     - defaultValue: true
       key: stream
       type: boolean
     - defaultValue: null
       key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema:
-                type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
       skipValues:
           - null
           - []
-      type: non-view-manage-data
     - defaultValue: true
       key: parallel_tool_calls
-      rule:
-          default:
-              condition: tools
-              else: true
-              then: true
       skipValues:
           - null
           - true
       type: boolean
-    - defaultValue: null
-      key: logit_bias
-      skipValues:
-          - null
-      type: string
 type:
     primary: chat
     supported: []

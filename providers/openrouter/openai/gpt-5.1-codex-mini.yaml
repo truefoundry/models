@@ -5,10 +5,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - tools
@@ -19,6 +15,14 @@ limits:
     max_input_tokens: 300000
     max_output_tokens: 100000
     max_tokens: 100000
+modalities:
+    input:
+        - text
+        - image
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: openai/gpt-5.1-codex-mini
 sources:

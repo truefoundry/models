@@ -2,8 +2,9 @@ costs:
     - output_cost_per_second_1080p: 0.5
       output_cost_per_second_720p: 0.3
       region: "*"
-features:
-    - image
+modalities:
+    input:
+        - image
 mode: video
 model: sora-2-pro
 removeParams:

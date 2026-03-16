@@ -6,13 +6,18 @@ features:
     - function_calling
     - response_schema
     - chat
-    - text
-    - code
     - tools
 limits:
     context_window: 8192
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: nousresearch/hermes-2-pro-llama-3-8b
 sources:

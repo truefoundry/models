@@ -43,13 +43,11 @@ costs:
       region: ca-central-1
 features:
     - function_calling
-    - vision
     - tool_choice
     - cache_control
     - prompt_caching
     - system_messages
     - assistant_prefill
-    - pdf_input
     - response_schema
 limits:
     context_window: 1000000
@@ -57,6 +55,10 @@ limits:
     max_output_tokens: 64000
     max_tokens: 64000
     tool_use_system_prompt_tokens: 346
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: us.anthropic.claude-sonnet-4-6
 params:

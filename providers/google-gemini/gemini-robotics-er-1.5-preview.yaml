@@ -5,8 +5,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - audio_input
     - chat
     - response_schema
 limits:
@@ -14,6 +12,10 @@ limits:
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - image
+        - audio
 mode: chat
 model: gemini-robotics-er-1.5-preview
 sources:

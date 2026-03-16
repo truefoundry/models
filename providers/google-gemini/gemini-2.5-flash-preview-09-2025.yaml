@@ -11,14 +11,15 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
-    - image
-    - pdf
-    - doc
 isDeprecated: true
 limits:
     max_input_tokens: 1048576
     max_output_tokens: 65535
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
 mode: chat
 model: gemini-2.5-flash-preview-09-2025

@@ -6,13 +6,15 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - prompt_caching
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: anthropic/claude-3-5-haiku-20241022
 sources:

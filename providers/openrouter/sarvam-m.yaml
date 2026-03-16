@@ -1,9 +1,13 @@
 costs: []
 features:
     - chat
-    - text
 limits:
     context_window: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: sarvam-m
 sources:

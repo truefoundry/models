@@ -8,11 +8,6 @@ limits:
     max_input_tokens: 4096
 mode: rerank
 model: rerank-v3.5
-params:
-    - defaultValue: 4096
-      key: max_tokens_per_doc
-      maxValue: 4096
-      minValue: 1
 removeParams:
     - max_tokens
     - temperature

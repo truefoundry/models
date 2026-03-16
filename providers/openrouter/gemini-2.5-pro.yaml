@@ -17,9 +17,6 @@ costs:
                 from: 200000
 features:
     - chat
-    - vision
-    - image_input
-    - audio_input
     - function_calling
     - tools
     - tool_choice
@@ -30,6 +27,10 @@ limits:
     context_window: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - image
+        - audio
 mode: chat
 model: gemini-2.5-pro
 params:

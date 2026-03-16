@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - chat
     - response_schema
 limits:
@@ -18,6 +16,9 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
 mode: chat
 model: o1-pro
 params:

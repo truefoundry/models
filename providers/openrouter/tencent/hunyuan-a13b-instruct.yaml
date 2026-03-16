@@ -4,13 +4,18 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
     - response_schema
 limits:
     context_window: 131072
     max_output_tokens: 131072
     max_tokens: 131072
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: tencent/hunyuan-a13b-instruct
 sources:

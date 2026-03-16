@@ -10,12 +10,17 @@ features:
     - tool_choice
     - response_schema
     - system_messages
-    - text
-    - code
 limits:
     context_window: 163840
     max_output_tokens: 163840
     max_tokens: 163840
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: deepseek/deepseek-v3.2-speciale
 sources:

@@ -511,26 +511,28 @@ costs:
                 from: 200000
 features:
     - function_calling
-    - vision
-    - audio_input
     - chat
-    - image
-    - pdf
-    - doc
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
     - response_schema
-    - pdf_input
-    - text
-    - code
-    - image_input
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - pdf
+        - doc
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: gemini-3-pro-preview
 params:
@@ -538,33 +540,6 @@ params:
       maxValue: 65536
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
       skipValues:
           - null
       type: string

@@ -6,10 +6,6 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
-    - pdf
-    - doc
     - response_schema
     - system_messages
     - tool_choice
@@ -19,6 +15,11 @@ limits:
     max_input_tokens: 256000
     max_output_tokens: 256000
     max_tokens: 256000
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
 mode: chat
 model: ministral-14b-latest
 sources:

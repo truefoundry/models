@@ -6,11 +6,6 @@ costs:
 features:
     - chat
     - function_calling
-    - audio_input
-    - vision
-    - image_input
-    - pdf_input
-    - doc
     - response_schema
     - assistant_prefill
     - tool_choice
@@ -18,6 +13,12 @@ features:
     - system_messages
 limits:
     context_window: 32000
+modalities:
+    input:
+        - image
+        - audio
+        - pdf
+        - doc
 mode: chat
 model: voxtral-small-latest
 sources:

@@ -9,12 +9,17 @@ features:
     - system_messages
     - tool_choice
     - tools
-    - text
-    - code
 limits:
     context_window: 32768
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistralai/mistral-small-24b-instruct-2501
 sources:

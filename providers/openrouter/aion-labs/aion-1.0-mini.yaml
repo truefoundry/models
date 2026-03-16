@@ -4,13 +4,17 @@ costs:
       region: "*"
 features:
     - chat
-    - text
     - tool_choice
     - system_messages
 limits:
     context_window: 131072
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: aion-labs/aion-1.0-mini
 sources:

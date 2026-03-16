@@ -4,10 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - text
 limits:
     context_window: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: liquid/lfm2-8b-a1b
 sources:

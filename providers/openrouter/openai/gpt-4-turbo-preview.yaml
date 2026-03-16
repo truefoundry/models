@@ -10,12 +10,17 @@ features:
     - tool_choice
     - response_schema
     - tools
-    - text
-    - code
 limits:
     context_window: 128000
     max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: openai/gpt-4-turbo-preview
 sources:

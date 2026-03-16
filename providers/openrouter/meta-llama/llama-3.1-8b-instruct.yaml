@@ -6,13 +6,18 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - text
-    - code
     - tools
 limits:
     context_window: 16384
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: meta-llama/llama-3.1-8b-instruct
 sources:

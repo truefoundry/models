@@ -4,13 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - tool_choice
 limits:
     context_window: 1048576
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
 sources:

@@ -13,14 +13,16 @@ costs:
       region: eu-central-1
 features:
     - function_calling
-    - vision
     - system_messages
-    - doc
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - image
+        - doc
 mode: chat
 model: eu.mistral.pixtral-large-2502-v1:0
 params:

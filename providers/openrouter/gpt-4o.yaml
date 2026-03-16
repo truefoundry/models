@@ -5,8 +5,6 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tools
     - tool_choice
@@ -17,6 +15,9 @@ limits:
     context_window: 128000
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: gpt-4o
 params:

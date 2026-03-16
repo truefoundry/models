@@ -5,12 +5,17 @@ costs:
 features:
     - chat
     - function_calling
-    - text
-    - code
     - tools
 limits:
     context_window: 163840
     max_input_tokens: 163840
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: deepseek/deepseek-v3.1-terminus:exacto
 sources:

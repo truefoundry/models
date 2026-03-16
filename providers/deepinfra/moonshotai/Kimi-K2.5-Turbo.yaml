@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - response_schema
@@ -16,6 +14,9 @@ limits:
     max_input_tokens: 262144
     max_output_tokens: 65535
     max_tokens: 65535
+modalities:
+    input:
+        - image
 mode: chat
 model: moonshotai/Kimi-K2.5-Turbo
 sources:

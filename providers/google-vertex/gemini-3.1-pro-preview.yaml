@@ -20,20 +20,23 @@ features:
     - chat
     - function_calling
     - parallel_function_calling
-    - vision
-    - audio_input
-    - image_input
-    - pdf_input
     - system_messages
     - tool_choice
     - prompt_caching
     - response_schema
-    - code
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - image
+        - audio
+        - pdf
+        - code
+    output:
+        - code
 mode: chat
 model: gemini-3.1-pro-preview
 params:

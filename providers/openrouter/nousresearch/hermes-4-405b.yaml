@@ -8,11 +8,16 @@ features:
     - tool_choice
     - response_schema
     - tools
-    - text
-    - code
     - system_messages
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: nousresearch/hermes-4-405b
 sources:

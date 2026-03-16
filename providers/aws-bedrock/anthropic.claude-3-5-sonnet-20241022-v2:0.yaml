@@ -50,22 +50,25 @@ costs:
       region: eu-central-1
 features:
     - function_calling
-    - vision
-    - image_input
     - chat
-    - doc
-    - pdf_input
     - cache_control
     - system_messages
     - tool_choice
     - prompt_caching
     - assistant_prefill
-    - text
 isDeprecated: true
 limits:
     context_window: 200000
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+        - doc
+    output:
+        - text
 mode: chat
 model: anthropic.claude-3-5-sonnet-20241022-v2:0
 params:

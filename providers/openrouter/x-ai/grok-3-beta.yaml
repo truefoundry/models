@@ -9,10 +9,14 @@ features:
     - tool_choice
     - response_schema
     - system_messages
-    - text
     - tools
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: x-ai/grok-3-beta
 sources:

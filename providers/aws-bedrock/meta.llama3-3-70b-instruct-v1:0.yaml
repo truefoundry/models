@@ -18,12 +18,17 @@ features:
     - chat
     - function_calling
     - system_messages
-    - text
-    - code
 limits:
     context_window: 128000
     max_output_tokens: 2048
     max_tokens: 2048
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: meta.llama3-3-70b-instruct-v1:0
 removeParams:

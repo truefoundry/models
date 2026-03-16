@@ -4,15 +4,15 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - pdf_input
-    - pdf
-    - doc
     - system_messages
     - response_schema
 limits:
     context_window: 200000
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
 mode: chat
 model: sonar-pro-search
 sources:

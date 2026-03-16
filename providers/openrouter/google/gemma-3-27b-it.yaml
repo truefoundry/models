@@ -6,17 +6,20 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - response_schema
     - tool_choice
     - tools
-    - text
 limits:
     context_window: 128000
     max_input_tokens: 62464
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: google/gemma-3-27b-it
 sources:

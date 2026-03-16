@@ -57,15 +57,12 @@ costs:
       region: eu-central-1
 features:
     - function_calling
-    - vision
-    - image_input
     - chat
     - system_messages
     - tool_choice
     - prompt_caching
     - cache_control
     - assistant_prefill
-    - pdf_input
     - response_schema
 limits:
     context_window: 200000
@@ -73,6 +70,10 @@ limits:
     max_output_tokens: 64000
     max_tokens: 64000
     tool_use_system_prompt_tokens: 346
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: eu.anthropic.claude-haiku-4-5-20251001-v1:0
 params:

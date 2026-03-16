@@ -6,12 +6,14 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - tool_choice
 isDeprecated: true
 limits:
     max_input_tokens: 16384
     max_output_tokens: 2048
     max_tokens: 2048
+modalities:
+    input:
+        - image
 mode: chat
 model: gemini-pro-vision

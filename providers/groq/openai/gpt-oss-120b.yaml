@@ -6,7 +6,6 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - tool_choice
     - response_schema
     - prompt_caching
@@ -15,6 +14,9 @@ limits:
     max_input_tokens: 131072
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - image
 mode: chat
 model: openai/gpt-oss-120b
 params:

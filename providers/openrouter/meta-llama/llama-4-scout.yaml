@@ -5,18 +5,22 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
     - tools
     - response_schema
-    - text
-    - code
 limits:
     context_window: 327680
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: meta-llama/llama-4-scout
 sources:

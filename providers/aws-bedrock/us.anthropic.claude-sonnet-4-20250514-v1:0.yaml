@@ -81,16 +81,12 @@ costs:
                 from: 200000
 features:
     - function_calling
-    - vision
     - chat
-    - image_input
     - prompt_caching
     - cache_control
     - system_messages
     - tool_choice
     - assistant_prefill
-    - pdf_input
-    - text
     - tools
 limits:
     context_window: 1000000
@@ -98,6 +94,13 @@ limits:
     max_output_tokens: 64000
     max_tokens: 64000
     tool_use_system_prompt_tokens: 346
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: us.anthropic.claude-sonnet-4-20250514-v1:0
 params:
@@ -117,22 +120,6 @@ params:
           - top_k
           - top_p
     - key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema: null
-            type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
       skipValues:
           - null
       type: json

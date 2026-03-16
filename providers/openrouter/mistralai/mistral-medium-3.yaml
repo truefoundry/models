@@ -5,14 +5,17 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - response_schema
     - tool_choice
-    - text
     - tools
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: mistralai/mistral-medium-3
 sources:

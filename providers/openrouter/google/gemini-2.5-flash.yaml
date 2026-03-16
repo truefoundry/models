@@ -7,8 +7,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - audio_input
     - system_messages
     - tool_choice
     - response_schema
@@ -16,6 +14,10 @@ limits:
     context_window: 1048576
     max_output_tokens: 65535
     max_tokens: 65535
+modalities:
+    input:
+        - image
+        - audio
 mode: chat
 model: google/gemini-2.5-flash
 sources:

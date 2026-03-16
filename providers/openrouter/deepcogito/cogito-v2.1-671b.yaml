@@ -8,11 +8,16 @@ features:
     - tool_choice
     - tools
     - response_schema
-    - text
-    - code
     - system_messages
 limits:
     context_window: 128000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: deepcogito/cogito-v2.1-671b
 sources:

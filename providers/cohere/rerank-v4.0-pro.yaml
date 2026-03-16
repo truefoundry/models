@@ -1,10 +1,13 @@
 costs:
     - input_cost_per_query: 0.0025
       region: "*"
-features:
-    - text
 limits:
     context_window: 32000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: rerank
 model: rerank-v4.0-pro
 removeParams:

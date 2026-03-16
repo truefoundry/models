@@ -9,9 +9,6 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - audio_input
     - function_calling
     - tool_choice
     - tools
@@ -23,6 +20,10 @@ limits:
     max_input_tokens: 1048576
     max_output_tokens: 65535
     max_tokens: 65535
+modalities:
+    input:
+        - image
+        - audio
 mode: chat
 model: gemini-2.5-flash
 params:

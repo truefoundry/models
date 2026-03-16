@@ -8,7 +8,6 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
     - tools
     - system_messages
@@ -20,6 +19,9 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: gpt-4o-mini-2024-07-18
 params:
@@ -27,33 +29,6 @@ params:
       maxValue: 16384
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
       skipValues:
           - null
       type: string

@@ -15,16 +15,18 @@ costs:
       region: global
 features:
     - function_calling
-    - vision
     - tool_choice
     - assistant_prefill
     - prompt_caching
-    - pdf_input
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: anthropic/claude-opus-4-1
 params:

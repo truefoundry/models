@@ -5,19 +5,22 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - prompt_caching
     - system_messages
-    - pdf_input
 limits:
     context_window: 128000
     max_input_tokens: 111616
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: openai/gpt-5.3-chat
 sources:

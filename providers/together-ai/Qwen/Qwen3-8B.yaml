@@ -1,13 +1,18 @@
 features:
     - chat
     - function_calling
-    - text
-    - code
     - tools
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: Qwen/Qwen3-8B
 sources:

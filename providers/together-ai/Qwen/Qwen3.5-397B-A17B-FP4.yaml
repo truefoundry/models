@@ -5,11 +5,12 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - response_schema
 limits:
     context_window: 262144
+modalities:
+    input:
+        - image
 mode: chat
 model: Qwen/Qwen3.5-397B-A17B-FP4
 sources:

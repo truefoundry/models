@@ -7,11 +7,16 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - text
-    - code
     - tools
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: moonshotai/kimi-k2-0905:exacto
 params:

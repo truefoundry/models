@@ -6,12 +6,16 @@ features:
     - function_calling
     - tool_choice
     - response_schema
-    - code
 limits:
     context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - code
+    output:
+        - code
 mode: chat
 model: mistralai/devstral-2512
 sources:

@@ -5,17 +5,19 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
-    - pdf
-    - pdf_input
-    - doc
     - response_schema
     - system_messages
     - assistant_prefill
-    - text
     - tools
     - tool_choice
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+        - doc
+    output:
+        - text
 mode: chat
 model: mistral-ocr-latest
 sources:

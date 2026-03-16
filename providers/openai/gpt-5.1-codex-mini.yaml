@@ -5,12 +5,8 @@ costs:
       region: "*"
 features:
     - chat
-    - code
-    - text
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
     - response_schema
@@ -20,6 +16,14 @@ limits:
     context_window: 400000
     max_output_tokens: 128000
     max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: gpt-5.1-codex-mini
 params:

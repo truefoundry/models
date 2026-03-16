@@ -11,17 +11,20 @@ costs:
                 from: 128000
 features:
     - function_calling
-    - vision
-    - image_input
     - response_schema
     - chat
-    - text
     - tools
     - tool_choice
 limits:
     context_window: 262144
     max_output_tokens: 131072
     max_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: bytedance-seed/seed-2.0-lite
 sources:

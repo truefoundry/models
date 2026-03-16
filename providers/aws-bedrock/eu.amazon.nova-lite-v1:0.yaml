@@ -29,16 +29,18 @@ costs:
       region: eu-central-1
 features:
     - function_calling
-    - vision
     - chat
     - prompt_caching
-    - doc
-    - pdf_input
 limits:
     context_window: 300000
     max_input_tokens: 300000
     max_output_tokens: 10000
     max_tokens: 10000
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
 mode: chat
 model: eu.amazon.nova-lite-v1:0
 params:

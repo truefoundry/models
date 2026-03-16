@@ -5,9 +5,11 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
 isDeprecated: true
 limits:
     max_tokens: 45875
+modalities:
+    input:
+        - image
 mode: chat
 model: google/gemini-pro-vision

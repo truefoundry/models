@@ -5,7 +5,6 @@ package model
 #ParamKey:
 	"max_tokens" |
 	"max_completion_tokens" |
-	"max_tokens_per_doc" |
 	"temperature" |
 	"top_p" |
 	"top_k" |
@@ -19,38 +18,16 @@ package model
 	"stream" |
 	"stop" |
 	"n" |
-	"frequency_penalty" |
-	"presence_penalty" |
 	"seed" |
 	"min_tokens" |
-	"creativity" |
-	"grow_mask" |
-	"output_format" |
-	"safe_prompt" |
-	"parallel_tool_calls" |
-	"logit_bias" |
-	"disable_reasoning" |
-	"clear_thinking"
+	"parallel_tool_calls"
 
 #ParamType:
 	"string" |
 	"boolean" |
 	"array-of-strings" |
 	"json" |
-	"number" |
-	"object" |
-	"non-view-manage-data"
-
-#ParamOption: {
-	value:   string | null
-	name:    string
-	schema?: null | {
-		type:        string
-		properties?: {[string]: {type: string, value?: string}}
-	}
-	params?: #Param
-	type?:   string
-}
+	"number"
 
 #Param: {
 	key:             #ParamKey
@@ -58,7 +35,6 @@ package model
 	minValue?:       number
 	maxValue?:       number
 	type?:           #ParamType
-	options?:        [...#ParamOption]
 	skipValues?:     [...(string | bool | null | [...string])]
 	withdrawParams?: [...string]
 	properties?: {[string]: {
@@ -69,9 +45,4 @@ package model
 	}}
 	enum?:          [...(string | null)]
 	nestedOptions?: [...{value: {[string]: string}, view: string}]
-	rule?:          null | {default: {
-		condition: string
-		else:      string | bool | null
-		then:      string | bool | null
-	}}
 }

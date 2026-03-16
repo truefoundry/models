@@ -6,17 +6,20 @@ features:
     - chat
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
     - response_schema
     - prompt_caching
-    - text
 limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: o3-pro
 params:
@@ -26,13 +29,6 @@ params:
       minValue: 1
     - defaultValue: medium
       key: reasoning_effort
-      options:
-          - name: Low
-            value: low
-          - name: Medium
-            value: medium
-          - name: High
-            value: high
 removeParams:
     - max_tokens
     - temperature

@@ -4,7 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
     - response_schema
 limits:
@@ -12,6 +11,9 @@ limits:
     max_input_tokens: 2000000
     max_output_tokens: 30000
     max_tokens: 30000
+modalities:
+    input:
+        - image
 mode: chat
 model: x-ai/grok-4-fast:free
 sources:

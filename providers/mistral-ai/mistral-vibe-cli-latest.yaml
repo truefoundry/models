@@ -1,7 +1,12 @@
 features:
     - chat
-    - text
-    - code
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistral-vibe-cli-latest
 sources:

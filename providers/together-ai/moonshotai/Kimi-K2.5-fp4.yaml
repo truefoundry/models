@@ -4,10 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - code
     - function_calling
     - response_schema
 limits:
     context_window: 262144
+modalities:
+    input:
+        - code
+    output:
+        - code
 mode: chat
 model: moonshotai/Kimi-K2.5-fp4

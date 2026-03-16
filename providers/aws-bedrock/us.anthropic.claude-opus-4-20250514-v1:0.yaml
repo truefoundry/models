@@ -16,19 +16,20 @@ costs:
       region: us-east-1
 features:
     - function_calling
-    - vision
     - chat
-    - image
     - system_messages
     - tool_choice
     - prompt_caching
     - assistant_prefill
-    - pdf_input
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: us.anthropic.claude-opus-4-20250514-v1:0
 params:
@@ -54,26 +55,9 @@ params:
           - top_p
     - defaultValue: null
       key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema:
-                type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
       skipValues:
           - null
           - []
-      type: non-view-manage-data
 sources:
     - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing

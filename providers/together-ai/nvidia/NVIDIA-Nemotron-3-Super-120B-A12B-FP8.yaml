@@ -4,11 +4,16 @@ features:
     - tool_choice
     - response_schema
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 1000000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8
 sources:

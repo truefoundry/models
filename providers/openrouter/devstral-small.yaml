@@ -4,7 +4,6 @@ costs:
       region: "*"
 features:
     - chat
-    - code
     - tools
     - function_calling
     - tool_choice
@@ -12,6 +11,11 @@ features:
     - system_messages
 limits:
     context_window: 131072
+modalities:
+    input:
+        - code
+    output:
+        - code
 mode: chat
 model: devstral-small
 sources:

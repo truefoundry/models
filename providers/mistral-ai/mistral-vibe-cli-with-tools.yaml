@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
     - function_calling
     - tools
     - tool_choice
@@ -13,6 +11,13 @@ features:
     - response_schema
 limits:
     context_window: 256000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistral-vibe-cli-with-tools
 sources:

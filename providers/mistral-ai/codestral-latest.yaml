@@ -7,10 +7,15 @@ features:
     - tool_choice
     - response_schema
     - assistant_prefill
-    - code
-    - text
 limits:
     context_window: 128000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: codestral-latest
 sources:

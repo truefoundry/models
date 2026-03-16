@@ -8,20 +8,21 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
     - response_schema
     - assistant_prefill
-    - pdf_input
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     tool_use_system_prompt_tokens: 159
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: claude-3-7-sonnet-latest
 params:

@@ -3,12 +3,13 @@ costs:
       output_cost_per_token: 2.e-7
       region: "*"
 features:
-    - vision
-    - image_input
     - chat
 limits:
     context_window: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - image
 mode: chat
 model: fireworks/firellava-13b
 sources:

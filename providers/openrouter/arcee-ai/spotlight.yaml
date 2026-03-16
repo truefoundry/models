@@ -4,12 +4,13 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 131072
     max_output_tokens: 65537
     max_tokens: 65537
+modalities:
+    input:
+        - image
 mode: chat
 model: arcee-ai/spotlight
 sources:

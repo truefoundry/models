@@ -8,13 +8,18 @@ features:
     - tool_choice
     - system_messages
     - response_schema
-    - text
-    - code
     - tools
 limits:
     context_window: 32768
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistralai/mixtral-8x7b-instruct
 sources:

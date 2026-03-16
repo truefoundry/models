@@ -7,10 +7,15 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - text
-    - code
 limits:
     context_window: 262144
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: qwen/qwen3-coder:exacto
 sources:

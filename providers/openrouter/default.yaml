@@ -24,30 +24,11 @@ params:
       key: "n"
       maxValue: 10
       minValue: 1
-    - defaultValue: 0
-      key: frequency_penalty
-      maxValue: 2
-      minValue: -2
-    - defaultValue: 0
-      key: presence_penalty
-      maxValue: 2
-      minValue: -2
     - defaultValue: true
       key: stream
       type: boolean
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
       skipValues:
           - null
       type: string

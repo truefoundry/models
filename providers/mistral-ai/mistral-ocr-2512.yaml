@@ -4,12 +4,12 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
-    - pdf
-    - pdf_input
-    - doc
     - response_schema
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
 mode: chat
 model: mistral-ocr-2512
 sources:

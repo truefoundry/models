@@ -3,14 +3,15 @@ costs:
       output_cost_per_token: 0.0000015
       region: "*"
 features:
-    - vision
-    - image_input
     - chat
 isDeprecated: true
 limits:
     max_input_tokens: 16384
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: allenai/olmOCR-7B-0725-FP8
 sources:

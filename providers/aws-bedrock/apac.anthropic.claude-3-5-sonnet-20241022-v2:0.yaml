@@ -22,7 +22,6 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
-    - vision
     - prompt_caching
     - cache_control
     - system_messages
@@ -34,6 +33,9 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: apac.anthropic.claude-3-5-sonnet-20241022-v2:0
 params:

@@ -21,31 +21,17 @@ costs:
 features:
     - function_calling
     - chat
-    - image
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 8192
     max_tokens: 4096
+modalities:
+    input:
+        - image
 mode: chat
 model: us.anthropic.claude-3-5-haiku-20241022-v1:0
 params:
     - key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
       skipValues:
           - null
-      type: non-view-manage-data

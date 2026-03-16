@@ -7,11 +7,16 @@ features:
     - function_calling
     - tool_choice
     - response_schema
-    - text
-    - code
     - tools
 limits:
     context_window: 256000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistralai/codestral-2508
 sources:

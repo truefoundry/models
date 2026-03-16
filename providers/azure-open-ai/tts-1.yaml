@@ -1,9 +1,12 @@
 costs:
     - input_cost_per_character: 0.000015
       region: "*"
-features:
-    - text
 limits:
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: audio_speech
 model: tts-1

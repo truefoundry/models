@@ -41,12 +41,17 @@ costs:
 features:
     - function_calling
     - chat
-    - text
-    - code
     - response_schema
     - tools
 limits:
     context_window: 256000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistral.devstral-2-123b
 sources:

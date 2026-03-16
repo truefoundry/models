@@ -4,11 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - system_messages
 limits:
     context_window: 163840
+modalities:
+    input:
+        - image
 mode: chat
 model: meta-llama/llama-guard-4-12b
 sources:

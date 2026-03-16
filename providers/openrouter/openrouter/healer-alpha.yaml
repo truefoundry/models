@@ -4,10 +4,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image_input
-    - audio_input
     - function_calling
     - tool_choice
     - response_schema
@@ -17,6 +13,13 @@ limits:
     max_input_tokens: 230144
     max_output_tokens: 32000
     max_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
 mode: chat
 model: openrouter/healer-alpha
 params:

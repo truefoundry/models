@@ -1,8 +1,12 @@
-features:
-    - text
-    - code
 limits:
     context_window: 32768
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: completion
 model: Qwen/Qwen3-0.6B-Base
 sources:

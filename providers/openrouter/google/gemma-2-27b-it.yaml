@@ -8,13 +8,18 @@ features:
     - tool_choice
     - response_schema
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 8192
     max_output_tokens: 2048
     max_tokens: 2048
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: google/gemma-2-27b-it
 sources:

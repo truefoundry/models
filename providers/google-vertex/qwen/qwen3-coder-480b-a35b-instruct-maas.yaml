@@ -17,14 +17,19 @@ features:
     - response_schema
     - system_messages
     - tool_choice
-    - text
-    - code
     - tools
     - prompt_caching
 limits:
     context_window: 262144
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: qwen/qwen3-coder-480b-a35b-instruct-maas
 params:

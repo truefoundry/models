@@ -6,7 +6,6 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - tool_choice
     - prompt_caching
     - response_schema
@@ -14,5 +13,8 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: gpt-4o-mini-2024-07-18

@@ -5,7 +5,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
     - function_calling
     - tool_choice
     - response_schema
@@ -14,6 +13,11 @@ features:
     - prompt_caching
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: x-ai/grok-3
 sources:

@@ -8,12 +8,16 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - code
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
+modalities:
+    input:
+        - code
+    output:
+        - code
 mode: chat
 model: mistralai/codestral-2@001
 sources:
