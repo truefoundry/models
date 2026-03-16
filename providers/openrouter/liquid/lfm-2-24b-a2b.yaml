@@ -1,2 +1,15 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 3.e-8
+      output_cost_per_token: 1.2e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tool_choice
+limits:
+    context_window: 32768
+    max_tokens: 32768
+mode: chat
 model: liquid/lfm-2-24b-a2b
+sources:
+    - https://openrouter.ai/liquid/lfm-2-24b-a2b/api

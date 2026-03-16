@@ -1,2 +1,17 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.3e-7
+      output_cost_per_token: 4.e-7
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - tools
+    - response_schema
+    - system_messages
+limits:
+    context_window: 131072
+mode: chat
 model: nousresearch/hermes-4-70b
+sources:
+    - https://openrouter.ai/nousresearch/hermes-4-70b/api
+thinking: true

@@ -1,2 +1,47 @@
-mode: unknown
+costs:
+    - cache_creation_input_token_cost: 0.00000625
+      cache_read_input_token_cost: 5.e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000025
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000125
+                from: 200000
+          input:
+              - cost_per_token: 0.00001
+                from: 200000
+          output:
+              - cost_per_token: 0.0000375
+                from: 200000
+features:
+    - chat
+    - text
+    - vision
+    - image_input
+    - function_calling
+    - tool_choice
+    - tools
+    - response_schema
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+mode: chat
 model: anthropic/claude-opus-4.6
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: null
+      key: top_k
+      minValue: 0
+sources:
+    - https://openrouter.ai/anthropic/claude-opus-4.6/api
+thinking: true

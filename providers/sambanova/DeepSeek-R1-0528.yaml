@@ -1,8 +1,15 @@
 features:
     - chat
     - text
+    - function_calling
+    - tool_choice
+    - response_schema
 limits:
     context_window: 128000
 mode: chat
 model: DeepSeek-R1-0528
+sources:
+    - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://docs.sambanova.ai/docs/en/features/vision
+    - https://docs.sambanova.ai/docs/en/models/rate-limits
 thinking: true

@@ -1,2 +1,26 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 3.7e-8
+      input_cost_per_token: 7.5e-8
+      output_cost_per_token: 3.e-7
+      region: "*"
+features:
+    - chat
+    - text
+    - function_calling
+    - tool_choice
+    - tools
+    - response_schema
+limits:
+    context_window: 131072
+    max_output_tokens: 65536
+    max_tokens: 65536
+mode: chat
 model: openai/gpt-oss-safeguard-20b
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+sources:
+    - https://openrouter.ai/openai/gpt-oss-safeguard-20b/api
+thinking: true

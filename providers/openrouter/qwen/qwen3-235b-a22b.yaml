@@ -1,2 +1,28 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 4.55e-7
+      output_cost_per_token: 0.00000182
+      region: "*"
+features:
+    - chat
+    - text
+    - code
+    - function_calling
+    - tool_choice
+    - vision
+    - image_input
+    - response_schema
+limits:
+    context_window: 131072
+    max_input_tokens: 98304
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
 model: qwen/qwen3-235b-a22b
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+sources:
+    - https://openrouter.ai/qwen/qwen3-235b-a22b/api
+thinking: true

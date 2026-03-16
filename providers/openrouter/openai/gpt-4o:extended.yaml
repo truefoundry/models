@@ -1,2 +1,26 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0.000006
+      output_cost_per_token: 0.000018
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - vision
+    - image_input
+    - system_messages
+    - tool_choice
+    - response_schema
+    - text
+limits:
+    context_window: 128000
+    max_output_tokens: 64000
+    max_tokens: 64000
+mode: chat
 model: openai/gpt-4o:extended
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
+sources:
+    - https://openrouter.ai/openai/gpt-4o:extended/api

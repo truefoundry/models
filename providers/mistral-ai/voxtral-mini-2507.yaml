@@ -1,2 +1,21 @@
-mode: unknown
+costs:
+    - input_cost_per_second: 0.0000166667
+      input_cost_per_token: 4.e-8
+      output_cost_per_token: 4.e-8
+      region: "*"
+features:
+    - chat
+    - function_calling
+    - audio_input
+    - response_schema
+    - assistant_prefill
+    - pdf
+    - doc
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 32000
+mode: chat
 model: voxtral-mini-2507
+sources:
+    - https://docs.mistral.ai/models/voxtral-mini-25-07

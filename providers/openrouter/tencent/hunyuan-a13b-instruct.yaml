@@ -1,2 +1,18 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 1.4e-7
+      output_cost_per_token: 5.7e-7
+      region: "*"
+features:
+    - chat
+    - text
+    - code
+    - response_schema
+limits:
+    context_window: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
+mode: chat
 model: tencent/hunyuan-a13b-instruct
+sources:
+    - https://openrouter.ai/tencent/hunyuan-a13b-instruct/api
+thinking: true

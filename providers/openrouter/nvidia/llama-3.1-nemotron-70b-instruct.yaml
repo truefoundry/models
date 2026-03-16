@@ -1,2 +1,16 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.0000012
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - tools
+limits:
+    context_window: 131072
+    max_output_tokens: 16384
+    max_tokens: 16384
+mode: chat
 model: nvidia/llama-3.1-nemotron-70b-instruct
+sources:
+    - https://openrouter.ai/nvidia/llama-3.1-nemotron-70b-instruct/api

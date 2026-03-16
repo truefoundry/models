@@ -1,2 +1,16 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - chat
+    - vision
+    - image_input
+    - text
+limits:
+    context_window: 128000
+mode: chat
 model: nvidia/nemotron-nano-12b-v2-vl:free
+sources:
+    - https://openrouter.ai/nvidia/nemotron-nano-12b-v2-vl:free/api
+thinking: true
