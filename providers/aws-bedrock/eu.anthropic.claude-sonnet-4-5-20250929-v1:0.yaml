@@ -193,11 +193,7 @@ params:
       withdrawParams:
           - top_k
           - top_p
-    - default:
-          condition: tools
-          else: null
-          then: auto
-      key: tool_choice
+    - key: tool_choice
       options:
           - name: None
             value: none
@@ -209,7 +205,11 @@ params:
             schema: null
             type: json
             value: custom
-      rule: null
+      rule:
+          default:
+              condition: tools
+              else: null
+              then: auto
       skipValues:
           - null
       type: json

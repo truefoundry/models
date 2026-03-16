@@ -30,10 +30,7 @@ limits:
 mode: chat
 model: us.anthropic.claude-3-5-haiku-20241022-v1:0
 params:
-    - condition: tools
-      default: null
-      else: null
-      key: tool_choice
+    - key: tool_choice
       options:
           - name: None
             value: none
@@ -44,7 +41,11 @@ params:
           - name: Custom
             type: json
             value: custom
+      rule:
+          default:
+              condition: tools
+              else: null
+              then: auto
       skipValues:
           - null
-      then: auto
       type: non-view-manage-data

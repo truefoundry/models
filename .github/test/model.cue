@@ -3,25 +3,40 @@ package model
 #Feature:
 	"function_calling" |
 	"parallel_function_calling" |
-	"vision" |
-	"audio_input" |
-	"audio_output" |
 	"chat" |
-	"image" |
-	"pdf" |
-	"doc" |
 	"cache_control" |
 	"system_messages" |
 	"tool_choice" |
 	"prompt_caching" |
 	"response_schema" |
 	"assistant_prefill" |
+	"tools" |
+	// Legacy modality values kept for backward compatibility during migration
+	"vision" |
+	"audio_input" |
+	"audio_output" |
+	"image" |
+	"pdf" |
+	"doc" |
 	"pdf_input" |
 	"image_input" |
 	"embedding_image_input" |
 	"text" |
+	"code"
+
+#Modality:
+	"text" |
+	"image" |
+	"audio" |
+	"pdf" |
+	"doc" |
 	"code" |
-	"tools"
+	"video"
+
+#Modalities: {
+	input:  [...#Modality]
+	output: [...#Modality]
+}
 
 #PricingTier: {
 	from:           number
@@ -93,6 +108,7 @@ package model
 	costs?:            [...#CostWithRegion]
 	limits?:           #Limits
 	features?:         [...#Feature]
+	modalities?:       #Modalities
 	params?:           [...#Param]
 	removeParams?:     [...string]
 	requiredParams?:   [...string]
