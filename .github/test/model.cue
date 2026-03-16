@@ -89,7 +89,7 @@ package model
 
 #ModelConfig: {
 	// Required: Model identifier used by the provider's API
-	model: string
+	model:          string
 	mode:           string
 
 	// Optional fields
@@ -101,6 +101,7 @@ package model
 	removeParams?:     [...string]
 	requiredParams?:   [...string]
 	isDeprecated?:     bool
+	deprecationDate?:  string
 	thinking?:         bool
 	sources?:          [...string]
 	supportedEndpoints?: [...string]

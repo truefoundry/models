@@ -50,16 +50,44 @@ export interface Limits {
 
 // --- Params ---
 
+export type ParamKey =
+  | 'max_tokens'
+  | 'max_completion_tokens'
+  | 'temperature'
+  | 'top_p'
+  | 'top_k'
+  | 'response_format'
+  | 'json_schema'
+  | 'reasoning_effort'
+  | 'verbosity'
+  | 'reasoning'
+  | 'thinking'
+  | 'tool_choice'
+  | 'stream'
+  | 'stop'
+  | 'n'
+  | 'seed'
+  | 'min_tokens'
+  | 'parallel_tool_calls';
+
+export type ParamType = 'string' | 'boolean' | 'array-of-strings' | 'json' | 'number';
+
 export interface ParamConfig {
-  key: string;
-  defaultValue?: any;
+  key: ParamKey;
+  defaultValue?: string | number | boolean | null;
   minValue?: number;
   maxValue?: number;
-  type?: string;
-  options?: any[];
-  skipValues?: Array<string | number | boolean | null>;
-  rule?: Record<string, any>;
-  properties?: Record<string, any>;
+  type?: ParamType;
+  skipValues?: Array<string | boolean | null | string[]>;
+  withdrawParams?: string[];
+  properties?: Record<string, {
+    type?: string;
+    minValue?: number;
+    maxValue?: number;
+    enum?: string[];
+  }>;
+  enum?: Array<string | null>;
+  nestedOptions?: Array<{ value: Record<string, string>; view: string }>;
 }
 
 // --- Features ---
@@ -67,15 +95,23 @@ export interface ParamConfig {
 export type Feature =
   | 'function_calling'
   | 'parallel_function_calling'
-  | 'vision'
-  | 'audio_input'
-  | 'audio_output'
   | 'chat'
-  | 'image'
-  | 'pdf'
-  | 'doc'
   | 'cache_control'
+  | 'system_messages'
   | 'tool_choice'
+  | 'prompt_caching'
+  | 'response_schema'
+  | 'assistant_prefill'
+  | 'tools'
+
+// --- Modalities ---
+
+export type Modality = 'text' | 'image' | 'audio' | 'pdf' | 'doc' | 'code' | 'video';
+
+export interface Modalities {
+  input?: Modality[];
+  output?: Modality[];
+}
 
 // --- Messages ---
 
@@ -88,10 +124,6 @@ export interface MessageConfig {
 export interface DefaultProviderParams {
   params?: ParamConfig[];
   messages?: MessageConfig;
-  type?: {
-    primary?: string;
-    supported?: string[];
-  };
 }
 
 // --- Model config ---
@@ -101,6 +133,7 @@ export interface ModelData {
   costs?: CostWithRegion[];
   limits?: Limits;
   features?: Feature[];
+  modalities?: Modalities;
   messages?: MessageConfig;
   params?: ParamConfig[];
   removeParams?: string[];
@@ -108,6 +141,7 @@ export interface ModelData {
   mode?: string;
   thinking?: boolean;
   isDeprecated?: boolean;
+  deprecationDate?: string;
   sources?: string[];
   supportedEndpoints?: string[];
 }
@@ -119,6 +153,7 @@ export interface UnifiedModelConfig {
   costs?: CostWithRegion[];
   limits: Limits;
   features: Feature[];
+  modalities?: Modalities;
   messages?: MessageConfig;
   params: ParamConfig[];
   removeParams: string[];
@@ -126,6 +161,7 @@ export interface UnifiedModelConfig {
   mode: string;
   thinking: boolean;
   isDeprecated: boolean;
+  deprecationDate?: string;
   sources: string[];
   supportedEndpoints?: string[];
 }

@@ -39,6 +39,7 @@ function buildUnifiedConfig(
     costs: modelData.costs,
     limits: modelData.limits || {},
     features: modelData.features || [],
+    modalities: modelData.modalities,
     messages: modelData.messages || undefined,
     params: modelData.params || [],
     removeParams: modelData.removeParams || [],
@@ -46,6 +47,7 @@ function buildUnifiedConfig(
     mode: modelData.mode || '',
     thinking: modelData.thinking || false,
     isDeprecated: modelData.isDeprecated || false,
+    deprecationDate: modelData.deprecationDate,
     sources: modelData.sources || [],
     supportedEndpoints: modelData.supportedEndpoints,
   };
