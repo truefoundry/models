@@ -4,13 +4,8 @@ costs:
       region: "*"
 features:
     - chat
-    - function_calling
-    - tools
 limits:
-    context_window: 32000
-    max_input_tokens: 32000
-    max_output_tokens: 32000
-    max_tokens: 32000
+    context_window: 32768
 mode: chat
 model: LiquidAI/LFM2-24B-A2B-Preview
 sources:
