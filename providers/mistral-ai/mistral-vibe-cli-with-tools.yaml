@@ -1,2 +1,22 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 4.e-7
+      output_cost_per_token: 0.000002
+      region: "*"
+features:
+    - chat
+    - text
+    - code
+    - function_calling
+    - tools
+    - tool_choice
+    - system_messages
+    - response_schema
+limits:
+    context_window: 256000
+mode: chat
 model: mistral-vibe-cli-with-tools
+sources:
+    - https://docs.mistral.ai/models/devstral-2-25-12
+    - https://mistral.ai/news/devstral-2-vibe-cli
+    - https://docs.mistral.ai/mistral-vibe/introduction
+    - https://docs.mistral.ai/mistral-vibe/introduction/configuration
