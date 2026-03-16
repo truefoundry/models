@@ -9,7 +9,7 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 LLM model configs change often — prices drop, features expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
 
-- **Unified Schema** — Consistent model configuration format across 19 providers
+- **Unified Schema** — Consistent model configuration format across 20 providers
 - **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
 - **Feature Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
 - **Open Source** — Community-driven updates ensure accuracy and coverage
@@ -18,15 +18,15 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 688 | Unified API for open source models |
-| Together AI | 249 | Open source model hosting |
+| OpenRouter | 690 | Unified API for open source models |
+| Together AI | 253 | Open source model hosting |
 | AWS Bedrock | 193 | Claude, Llama, Titan, Mistral on AWS |
-| DeepInfra | 157 | Open source model hosting |
+| DeepInfra | 158 | Open source model hosting |
 | Google Vertex AI | 137 | Gemini, PaLM on GCP |
 | OpenAI | 127 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Azure OpenAI | 78 | OpenAI models on Azure |
+| Mistral AI | 69 | Mistral, Mixtral, Codestral |
 | Azure AI Foundry | 68 | Azure AI models |
-| Mistral AI | 66 | Mistral, Mixtral, Codestral |
 | xAI | 59 | Grok models |
 | Google Gemini | 54 | Gemini Pro, Ultra, Flash |
 | Cohere | 35 | Command, Embed models |
@@ -36,6 +36,7 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 | Anthropic | 22 | Claude 3, Claude 3.5, Claude 4 |
 | Groq | 22 | Fast inference models |
 | AI21 | 12 | Jamba models |
+| Elevenlabs | 8 |  |
 | Cerebras | 5 | Fast inference models |
 
 ## Installation
