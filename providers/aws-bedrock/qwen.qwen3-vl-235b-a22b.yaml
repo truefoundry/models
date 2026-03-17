@@ -1,0 +1,49 @@
+costs:
+    - input_cost_per_token: 5.3e-7
+      output_cost_per_token: 0.00000266
+      region: us-west-2
+    - input_cost_per_token: 5.3e-7
+      output_cost_per_token: 0.00000266
+      region: us-east-2
+    - input_cost_per_token: 5.3e-7
+      output_cost_per_token: 0.00000266
+      region: us-east-1
+    - input_cost_per_token: 6.4e-7
+      output_cost_per_token: 0.00000322
+      region: sa-east-1
+    - input_cost_per_token: 8.2e-7
+      output_cost_per_token: 0.00000412
+      region: eu-west-2
+    - input_cost_per_token: 6.2e-7
+      output_cost_per_token: 0.00000313
+      region: eu-west-1
+    - input_cost_per_token: 6.2e-7
+      output_cost_per_token: 0.00000313
+      region: eu-south-1
+    - input_cost_per_token: 5.459e-7
+      output_cost_per_token: 0.000001236
+      region: ap-southeast-2
+    - input_cost_per_token: 6.2e-7
+      output_cost_per_token: 0.00000313
+      region: ap-south-1
+    - input_cost_per_token: 6.4e-7
+      output_cost_per_token: 0.00000322
+      region: ap-northeast-1
+features:
+    - function_calling
+    - vision
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
+model: qwen.qwen3-vl-235b-a22b
+params:
+    - defaultValue: 8192
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+sources:
+    - https://github.com/QwenLM/Qwen3-VL
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-vl-235b-a22b.html

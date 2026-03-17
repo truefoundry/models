@@ -1,0 +1,55 @@
+costs:
+    - input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000006
+      region: us-west-2
+    - input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000006
+      region: us-west-1
+    - input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000006
+      region: us-east-2
+    - input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000006
+      region: us-east-1
+features:
+    - function_calling
+    - response_schema
+limits:
+    context_window: 1048192
+    max_input_tokens: 1040000
+    max_output_tokens: 8192
+    max_tokens: 8192
+mode: chat
+model: us.writer.palmyra-x5-v1:0
+params:
+    - defaultValue: 16
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+      minValue: 0
+    - defaultValue: 1
+      key: top_p
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 0
+      key: frequency_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: 0
+      key: presence_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: null
+      key: seed
+    - defaultValue: 0
+      key: min_tokens
+      minValue: 0
+removeParams:
+    - "n"
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-palmyra-x5.html
+    - https://aws.amazon.com/marketplace/pp/prodview-aaysji6xh2mgi
+    - https://aws.amazon.com/bedrock/writer/

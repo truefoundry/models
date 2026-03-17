@@ -1,0 +1,16 @@
+costs:
+    - output_cost_per_image: 8.e-8
+      region: us-west-2
+features:
+    - image
+mode: image
+model: stability.sd3-5-large-v1:0
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html

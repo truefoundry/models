@@ -1,0 +1,49 @@
+costs:
+    - input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000003
+      region: us-west-2
+    - input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000003
+      region: us-east-2
+    - input_cost_per_token: 6.e-7
+      output_cost_per_token: 0.000003
+      region: us-east-1
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 0.0000036
+      region: sa-east-1
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 0.0000036
+      region: eu-west-2
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 0.0000036
+      region: eu-north-1
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 0.0000036
+      region: ap-southeast-3
+    - input_cost_per_token: 6.18e-7
+      output_cost_per_token: 0.00000309
+      region: ap-southeast-2
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 0.0000036
+      region: ap-south-1
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 0.0000036
+      region: ap-northeast-1
+features:
+    - function_calling
+    - vision
+limits:
+    context_window: 256000
+    max_output_tokens: 81920
+    max_tokens: 81920
+mode: chat
+model: moonshotai.kimi-k2.5
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 81920
+      minValue: 1
+sources:
+    - https://github.com/MoonshotAI/Kimi-K2.5
+    - https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/
+thinking: true
