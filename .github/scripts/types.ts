@@ -139,7 +139,6 @@ export type Mode =
   | 'moderation'
   | 'image'
   | 'video'
-  | 'proxy'
   | 'unknown';
 
 // --- Modalities ---

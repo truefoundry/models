@@ -26,7 +26,6 @@ package model
 	"moderation" |
 	"image" |
 	"video" |
-	"proxy" |
 	"unknown"
 
 // Input/output modality types
