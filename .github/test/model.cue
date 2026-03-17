@@ -171,11 +171,11 @@ package model
 	// Input/output modality support (e.g. text, image, audio)
 	modalities?: #Modalities
 	// Param overrides or additions relative to the provider default
-	params?: [...#Param]
+	params?: [...#ModelParam]
 	// Param keys to remove from the provider default
-	removeParams?: [...#ParamKey]
+	removeParams?: [...#ModelParamKey]
 	// Param keys that must always be provided by callers
-	requiredParams?: [...#ParamKey]
+	requiredParams?: [...#ModelParamKey]
 	// Whether the model is deprecated
 	isDeprecated?: bool
 	// Date after which the model is considered deprecated (YYYY-MM-DD)

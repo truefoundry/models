@@ -2,7 +2,7 @@ package model
 
 // Shared definitions for model and default schemas
 
-#ParamKey:
+#ModelParamKey:
 	"max_tokens" |
 	"max_completion_tokens" |
 	"temperature" |
@@ -22,17 +22,17 @@ package model
 	"min_tokens" |
 	"parallel_tool_calls"
 
-#ParamType:
+#ModelParamType:
 	"string" |
 	"boolean" |
 	"array-of-strings" |
 	"json" |
 	"number"
 
-#Param: {
-	key:             #ParamKey
+#ModelParam: {
+	key:             #ModelParamKey
 	defaultValue?:   string | number | bool | null
 	minValue?:       number
 	maxValue?:       number
-	type?:           #ParamType
+	type?:           #ModelParamType
 }

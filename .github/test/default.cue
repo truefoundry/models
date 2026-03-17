@@ -4,7 +4,7 @@ package model
 
 #DefaultConfig: {
 	// Configurable parameters with defaults
-	params?: [...#Param]
+	params?: [...#ModelParam]
 
 	// Message types supported
 	messages?: {
