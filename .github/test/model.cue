@@ -4,7 +4,6 @@ package model
 #Feature:
 	"function_calling" |           // Model supports tool/function calling
 	"parallel_function_calling" |  // Model can invoke multiple tools in a single turn
-	"chat" |                       // Model supports multi-turn conversational context
 	"cache_control" |              // Caller can apply fine-grained cache breakpoints on content blocks
 	"system_messages" |            // Model accepts a system prompt
 	"tool_choice" |                // Caller can force or restrict which tool the model uses
