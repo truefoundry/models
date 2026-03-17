@@ -21,7 +21,7 @@ features:
     - parallel_function_calling
     - tool_choice
     - system_messages
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 1050000
@@ -33,7 +33,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: gpt-5.4
 params:
     - defaultValue: 128

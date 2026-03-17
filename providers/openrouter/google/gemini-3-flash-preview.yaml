@@ -11,7 +11,7 @@ features:
     - tools
     - tool_choice
     - system_messages
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 1048576
@@ -27,7 +27,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: google/gemini-3-flash-preview
 sources:
     - https://openrouter.ai/google/gemini-3-flash-preview/api

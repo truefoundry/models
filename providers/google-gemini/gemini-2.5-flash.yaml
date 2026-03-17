@@ -16,7 +16,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 isDeprecated: true
 limits:
     context_window: 1048576
@@ -29,30 +29,16 @@ modalities:
         - audio
         - pdf
         - doc
-mode: chat
+mode: completion
 model: gemini-2.5-flash
 params:
     - key: max_tokens
       maxValue: 65536
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string
     - defaultValue: null
       key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 24576
-              minValue: 0
-              type: number
-          type:
-              enum:
-                  - enabled
-                  - disabled
-              type: string
-      skipValues:
-          - null
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash
     - https://ai.google.dev/gemini-api/docs/thinking

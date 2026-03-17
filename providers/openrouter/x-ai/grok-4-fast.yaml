@@ -9,7 +9,7 @@ features:
     - system_messages
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 2000000
@@ -23,7 +23,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: x-ai/grok-4-fast
 sources:
     - https://openrouter.ai/x-ai/grok-4-fast/api

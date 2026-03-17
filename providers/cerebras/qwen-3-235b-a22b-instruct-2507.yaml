@@ -8,7 +8,7 @@ features:
     - chat
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
     - system_messages
 limits:
@@ -16,7 +16,7 @@ limits:
     max_input_tokens: 131072
     max_output_tokens: 40960
     max_tokens: 40960
-mode: chat
+mode: completion
 model: qwen-3-235b-a22b-instruct-2507
 sources:
     - https://inference-docs.cerebras.ai/models/qwen-3-235b-2507

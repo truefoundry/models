@@ -8,7 +8,7 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_output_tokens: 16384
@@ -16,7 +16,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-4o-mini
 params:
     - key: max_tokens

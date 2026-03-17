@@ -4,12 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - response_schema
+    - structured_output
 limits:
     context_window: 16384
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+mode: completion
 model: microsoft/phi-4
 sources:
     - https://openrouter.ai/microsoft/phi-4/api

@@ -2,7 +2,7 @@ features:
     - function_calling
     - chat
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -14,7 +14,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8
 sources:
     - https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8

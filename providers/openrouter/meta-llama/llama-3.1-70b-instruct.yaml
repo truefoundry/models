@@ -8,7 +8,7 @@ features:
     - tool_choice
     - tools
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_tokens: 131072
@@ -19,7 +19,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: meta-llama/llama-3.1-70b-instruct
 sources:
     - https://openrouter.ai/meta-llama/llama-3.1-70b-instruct/api

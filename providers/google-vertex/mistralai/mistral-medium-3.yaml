@@ -8,13 +8,13 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: mistralai/mistral-medium-3
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral

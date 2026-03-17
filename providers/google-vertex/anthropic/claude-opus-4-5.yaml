@@ -31,7 +31,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 limits:
     context_window: 200000
@@ -42,7 +42,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: anthropic/claude-opus-4-5
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-5

@@ -7,13 +7,13 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 16385
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+mode: completion
 model: gpt-3.5-turbo
 params:
     - key: max_tokens

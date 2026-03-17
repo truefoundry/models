@@ -18,7 +18,7 @@ features:
     - tools
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 isDeprecated: true
 limits:
     max_input_tokens: 1048576
@@ -28,13 +28,11 @@ modalities:
         - image
         - pdf
         - doc
-mode: chat
+mode: completion
 model: gemini-1.5-flash-002
 params:
     - key: max_tokens
       maxValue: 8192
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string

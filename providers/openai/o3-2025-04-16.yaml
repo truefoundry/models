@@ -8,7 +8,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - prompt_caching
     - tool_choice
     - system_messages
@@ -22,7 +22,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: o3-2025-04-16
 params:
     - defaultValue: 100000
@@ -36,8 +36,6 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
-removeParams:
-    - logit_bias
 sources:
     - https://developers.openai.com/api/docs/models/o3
 thinking: true

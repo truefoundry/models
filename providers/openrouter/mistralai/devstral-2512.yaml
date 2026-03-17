@@ -5,7 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -16,7 +16,7 @@ modalities:
         - code
     output:
         - code
-mode: chat
+mode: completion
 model: mistralai/devstral-2512
 sources:
     - https://openrouter.ai/mistralai/devstral-2512/api

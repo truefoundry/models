@@ -6,7 +6,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 32000
@@ -18,7 +18,7 @@ modalities:
         - doc
     output:
         - text
-mode: chat
+mode: completion
 model: voxtral-small-2507
 sources:
     - https://docs.mistral.ai/models/voxtral-small-25-07

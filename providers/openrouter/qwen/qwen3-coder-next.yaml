@@ -6,7 +6,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - chat
     - tools
 limits:
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: qwen/qwen3-coder-next
 sources:
     - https://openrouter.ai/qwen/qwen3-coder-next/api

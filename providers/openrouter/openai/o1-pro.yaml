@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - chat
-    - response_schema
+    - structured_output
 limits:
     context_window: 200000
     max_output_tokens: 100000
@@ -15,7 +15,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: openai/o1-pro
 sources:
     - https://openrouter.ai/openai/o1-pro/api

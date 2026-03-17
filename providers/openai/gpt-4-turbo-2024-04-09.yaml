@@ -19,13 +19,11 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-4-turbo-2024-04-09
 params:
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4-turbo

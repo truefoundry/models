@@ -25,11 +25,8 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: eu.anthropic.claude-3-sonnet-20240229-v1:0
 params:
     - defaultValue: null
       key: tool_choice
-      skipValues:
-          - null
-          - []

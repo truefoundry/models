@@ -7,7 +7,7 @@ features:
     - function_calling
     - tool_choice
     - system_messages
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 32768
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: mistralai/mixtral-8x7b-instruct
 sources:
     - https://openrouter.ai/mistralai/mixtral-8x7b-instruct/api

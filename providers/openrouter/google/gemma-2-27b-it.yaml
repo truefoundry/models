@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: google/gemma-2-27b-it
 sources:
     - https://openrouter.ai/google/gemma-2-27b-it/api

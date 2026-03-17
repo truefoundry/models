@@ -10,20 +10,18 @@ features:
     - tools
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-4o
 params:
     - key: max_tokens
       maxValue: 16384
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string

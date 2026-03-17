@@ -19,7 +19,7 @@ features:
     - function_calling
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -29,7 +29,7 @@ modalities:
     input:
         - image
         - audio
-mode: chat
+mode: completion
 model: google/gemini-2.5-pro
 sources:
     - https://openrouter.ai/google/gemini-2.5-pro/api

@@ -6,7 +6,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - tools
@@ -22,7 +22,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: zai-org/glm-4.7-maas
 params:
     - key: max_tokens

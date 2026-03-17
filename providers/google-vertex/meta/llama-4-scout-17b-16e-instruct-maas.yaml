@@ -6,7 +6,7 @@ costs:
       region: us-east5
 features:
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 1310720
     max_input_tokens: 1310720
@@ -15,7 +15,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: meta/llama-4-scout-17b-16e-instruct-maas
 params:
     - defaultValue: 256

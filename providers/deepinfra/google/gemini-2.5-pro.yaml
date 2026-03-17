@@ -9,7 +9,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -20,7 +20,7 @@ modalities:
         - image
         - audio
         - pdf
-mode: chat
+mode: completion
 model: google/gemini-2.5-pro
 sources:
     - https://deepinfra.com/google/gemini-2.5-pro/api

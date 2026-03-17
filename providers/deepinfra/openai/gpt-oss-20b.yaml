@@ -5,13 +5,13 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
-mode: chat
+mode: completion
 model: openai/gpt-oss-20b
 sources:
     - https://developers.openai.com/api/docs/models/gpt-oss-20b

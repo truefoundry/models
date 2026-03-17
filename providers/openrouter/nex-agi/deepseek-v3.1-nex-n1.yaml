@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 131072
@@ -19,7 +19,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: nex-agi/deepseek-v3.1-nex-n1
 sources:
     - https://openrouter.ai/nex-agi/deepseek-v3.1-nex-n1/api

@@ -8,7 +8,7 @@ features:
     - system_messages
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
 limits:
     context_window: 327680
     max_output_tokens: 16384
@@ -21,7 +21,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: meta-llama/llama-4-scout
 sources:
     - https://openrouter.ai/meta-llama/llama-4-scout/api

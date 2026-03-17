@@ -7,7 +7,7 @@ features:
     - tools
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 4096
@@ -15,7 +15,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: pixtral-large-2411
 sources:
     - https://openrouter.ai/mistralai/pixtral-large-2411/api

@@ -7,7 +7,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -17,7 +17,7 @@ modalities:
         - text
     output:
         - text
-mode: chat
+mode: completion
 model: x-ai/grok-3-beta
 sources:
     - https://openrouter.ai/x-ai/grok-3-beta/api

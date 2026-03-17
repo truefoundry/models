@@ -7,7 +7,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - tools
@@ -21,7 +21,7 @@ modalities:
         - doc
     output:
         - text
-mode: chat
+mode: completion
 model: deepseek-ai/deepseek-r1-0528-maas
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek

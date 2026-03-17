@@ -8,7 +8,7 @@ features:
     - chat
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
     - tools
 limits:
@@ -26,7 +26,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: mistral-large-latest
 sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12

@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 131072
@@ -19,7 +19,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: mistralai/mistral-large-2407
 sources:
     - https://openrouter.ai/mistralai/mistral-large-2407/api

@@ -8,7 +8,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tools
     - tool_choice
@@ -22,6 +22,6 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: grok-4.20-beta-latest-reasoning
 thinking: true

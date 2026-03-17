@@ -8,7 +8,7 @@ package model
 
 	// Message types supported
 	messages?: {
-		options?: [...string]
+		options?: [...#MessageOption]
 	}
 
 	// Official documentation links for models, pricing, and deprecations

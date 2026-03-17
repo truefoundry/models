@@ -7,7 +7,7 @@ features:
     - function_calling
     - chat
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - prompt_caching
 limits:
@@ -17,7 +17,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: openai/gpt-4o-mini
 sources:
     - https://openrouter.ai/openai/gpt-4o-mini/api

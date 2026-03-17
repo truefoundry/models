@@ -6,7 +6,7 @@ limits:
 modalities:
     output:
         - audio
-mode: audio_speech
+mode: text_to_speech
 model: tts-1-1106
 removeParams:
     - max_tokens
@@ -14,12 +14,9 @@ removeParams:
     - stop
     - top_p
     - "n"
-    - frequency_penalty
-    - presence_penalty
     - stream
     - tool_choice
     - parallel_tool_calls
-    - logit_bias
 sources:
     - https://developers.openai.com/api/docs/models/tts-1
     - https://developers.openai.com/api/docs/guides/text-to-speech

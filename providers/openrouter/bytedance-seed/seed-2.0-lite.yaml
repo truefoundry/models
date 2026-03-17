@@ -11,7 +11,7 @@ costs:
                 from: 128000
 features:
     - function_calling
-    - response_schema
+    - structured_output
     - chat
     - tools
     - tool_choice
@@ -25,7 +25,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: bytedance-seed/seed-2.0-lite
 sources:
     - https://openrouter.ai/bytedance-seed/seed-2.0-lite/api

@@ -7,7 +7,7 @@ features:
     - function_calling
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 262144
     max_output_tokens: 16384
@@ -15,7 +15,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: Qwen/Qwen3-VL-30B-A3B-Instruct
 sources:
     - https://deepinfra.com/Qwen/Qwen3-VL-30B-A3B-Instruct/api

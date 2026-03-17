@@ -21,7 +21,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 isDeprecated: true
 limits:
     max_input_tokens: 1048576
@@ -32,7 +32,7 @@ modalities:
         - image
         - audio
         - pdf
-mode: chat
+mode: completion
 model: gemini-pro-latest
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview

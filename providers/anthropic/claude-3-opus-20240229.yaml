@@ -12,7 +12,7 @@ features:
     - tools
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 isDeprecated: true
 limits:
@@ -22,7 +22,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: claude-3-opus-20240229
 params:
     - key: max_tokens

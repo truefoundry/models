@@ -10,7 +10,7 @@ features:
     - function_calling
     - system_messages
     - prompt_caching
-    - response_schema
+    - structured_output
     - tool_choice
 limits:
     context_window: 400000
@@ -20,7 +20,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-5-search-api-2025-10-14
 params:
     - defaultValue: 128

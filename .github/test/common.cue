@@ -35,14 +35,4 @@ package model
 	minValue?:       number
 	maxValue?:       number
 	type?:           #ParamType
-	skipValues?:     [...(string | bool | null | [...string])]
-	withdrawParams?: [...string]
-	properties?: {[string]: {
-		type?:     string
-		minValue?: number
-		maxValue?: number
-		enum?:     [...string]
-	}}
-	enum?:          [...(string | null)]
-	nestedOptions?: [...{value: {[string]: string}, view: string}]
 }

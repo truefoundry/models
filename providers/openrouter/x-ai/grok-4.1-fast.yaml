@@ -15,7 +15,7 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - prompt_caching
     - system_messages
 limits:
@@ -28,7 +28,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: x-ai/grok-4.1-fast
 params:
     - defaultValue: 128

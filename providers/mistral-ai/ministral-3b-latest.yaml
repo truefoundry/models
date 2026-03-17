@@ -5,13 +5,13 @@ costs:
       region: "*"
 features:
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 256000
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: ministral-3b-latest
 sources:
     - https://docs.mistral.ai/models/ministral-3-3b-25-12

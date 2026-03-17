@@ -9,7 +9,7 @@ features:
     - tools
     - tool_choice
     - system_messages
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 400000
@@ -23,7 +23,7 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: completion
 model: openai/gpt-5.1
 sources:
     - https://openrouter.ai/openai/gpt-5.1/api

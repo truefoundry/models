@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 256000
@@ -19,7 +19,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: cohere/command-a
 sources:
     - https://openrouter.ai/cohere/command-a/api

@@ -8,7 +8,7 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - chat
     - system_messages
 limits:
@@ -23,7 +23,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: openai/o4-mini-deep-research
 sources:
     - https://openrouter.ai/openai/o4-mini-deep-research/api

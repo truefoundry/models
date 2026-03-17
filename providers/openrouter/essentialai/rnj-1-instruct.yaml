@@ -5,7 +5,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 32768
@@ -16,7 +16,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: essentialai/rnj-1-instruct
 sources:
     - https://openrouter.ai/essentialai/rnj-1-instruct/api

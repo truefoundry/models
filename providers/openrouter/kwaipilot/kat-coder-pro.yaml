@@ -7,7 +7,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 256000
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: kwaipilot/kat-coder-pro
 sources:
     - https://openrouter.ai/kwaipilot/kat-coder-pro/api

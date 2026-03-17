@@ -9,7 +9,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 2000000
@@ -19,7 +19,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: grok-4-fast-reasoning-latest
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing

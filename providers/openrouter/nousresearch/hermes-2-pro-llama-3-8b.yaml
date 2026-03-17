@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - response_schema
+    - structured_output
     - chat
     - tools
 limits:
@@ -18,7 +18,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: nousresearch/hermes-2-pro-llama-3-8b
 sources:
     - https://openrouter.ai/nousresearch/hermes-2-pro-llama-3-8b/api

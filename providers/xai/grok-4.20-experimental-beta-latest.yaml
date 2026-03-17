@@ -6,7 +6,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - tools
@@ -15,7 +15,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: grok-4.20-experimental-beta-latest
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing

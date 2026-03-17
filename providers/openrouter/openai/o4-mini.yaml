@@ -6,7 +6,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - tools
     - tool_choice
     - system_messages
@@ -22,7 +22,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: openai/o4-mini
 sources:
     - https://openrouter.ai/openai/o4-mini/api

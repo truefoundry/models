@@ -1,7 +1,7 @@
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_output_tokens: 8192
@@ -11,7 +11,7 @@ modalities:
         - code
     output:
         - code
-mode: chat
+mode: completion
 model: deepseek-ai/DeepSeek-V3.2
 sources:
     - https://together.ai/pricing

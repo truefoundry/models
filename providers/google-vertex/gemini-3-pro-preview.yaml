@@ -516,7 +516,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -533,29 +533,16 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: gemini-3-pro-preview
 params:
     - key: max_tokens
       maxValue: 65536
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string
     - defaultValue: null
       key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 32768
-              minValue: 128
-              type: number
-          type:
-              enum:
-                  - enabled
-              type: string
-      skipValues:
-          - null
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations

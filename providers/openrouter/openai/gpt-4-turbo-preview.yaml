@@ -8,7 +8,7 @@ features:
     - chat
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 128000
@@ -21,7 +21,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: openai/gpt-4-turbo-preview
 sources:
     - https://openrouter.ai/openai/gpt-4-turbo-preview/api

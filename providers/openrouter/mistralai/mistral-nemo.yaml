@@ -8,7 +8,7 @@ features:
     - tool_choice
     - system_messages
     - tools
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 16384
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: mistralai/mistral-nemo
 sources:
     - https://openrouter.ai/mistralai/mistral-nemo/api

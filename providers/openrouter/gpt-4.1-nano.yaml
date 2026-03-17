@@ -8,7 +8,7 @@ features:
     - tools
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 1047576
@@ -17,7 +17,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-4.1-nano
 params:
     - key: max_tokens

@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 200000
@@ -18,7 +18,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: openai/o3-pro
 sources:
     - https://openrouter.ai/openai/o3-pro/api

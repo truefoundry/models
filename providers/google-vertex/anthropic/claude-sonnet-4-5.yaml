@@ -77,7 +77,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 limits:
     context_window: 200000
@@ -88,7 +88,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: anthropic/claude-sonnet-4-5
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models

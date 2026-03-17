@@ -16,20 +16,15 @@ limits:
     max_input_tokens: 131072
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: llama-3.3-70b-versatile
 params:
     - key: max_tokens
       maxValue: 32768
     - defaultValue: null
       key: tool_choice
-      skipValues:
-          - null
-          - []
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string
 sources:
     - https://console.groq.com/docs/tool-use

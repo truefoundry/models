@@ -7,7 +7,7 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
@@ -15,5 +15,5 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-4o-2024-11-20

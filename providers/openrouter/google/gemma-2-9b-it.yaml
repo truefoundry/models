@@ -6,10 +6,10 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 8192
-mode: chat
+mode: completion
 model: google/gemma-2-9b-it
 sources:
     - https://openrouter.ai/google/gemma-2-9b-it/api

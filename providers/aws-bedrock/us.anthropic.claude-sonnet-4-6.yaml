@@ -48,7 +48,7 @@ features:
     - prompt_caching
     - system_messages
     - assistant_prefill
-    - response_schema
+    - structured_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -59,7 +59,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: us.anthropic.claude-sonnet-4-6
 params:
     - defaultValue: 64000

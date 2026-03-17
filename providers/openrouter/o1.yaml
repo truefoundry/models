@@ -8,7 +8,7 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 200000
     max_output_tokens: 100000
@@ -19,7 +19,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: o1
 params:
     - key: max_tokens

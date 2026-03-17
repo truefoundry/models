@@ -13,7 +13,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
     - tools
 limits:
@@ -26,7 +26,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: bytedance-seed/seed-2.0-mini
 sources:
     - https://openrouter.ai/bytedance-seed/seed-2.0-mini/api

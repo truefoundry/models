@@ -10,7 +10,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 128000
@@ -23,7 +23,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: gpt-5.1-chat-latest
 params:
     - defaultValue: 128

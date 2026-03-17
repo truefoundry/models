@@ -16,11 +16,8 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: us.anthropic.claude-3-opus-20240229-v1:0
 params:
     - defaultValue: null
       key: tool_choice
-      skipValues:
-          - null
-          - []

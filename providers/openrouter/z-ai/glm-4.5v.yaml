@@ -7,7 +7,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 65536
@@ -19,7 +19,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: z-ai/glm-4.5v
 sources:
     - https://openrouter.ai/z-ai/glm-4.5v/api

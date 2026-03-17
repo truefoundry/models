@@ -8,10 +8,10 @@ features:
     - chat
     - system_messages
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
-mode: chat
+mode: completion
 model: gpt-5-search-api
 sources:
     - https://developers.openai.com/api/docs/guides/tools-web-search/

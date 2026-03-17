@@ -10,7 +10,7 @@ features:
     - system_messages
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
 limits:
     context_window: 32000
 modalities:
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: gemma-3-1b-it
 sources:
     - https://ai.google.dev/gemma/docs/core

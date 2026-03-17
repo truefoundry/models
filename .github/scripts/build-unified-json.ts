@@ -44,12 +44,12 @@ function buildUnifiedConfig(
     params: modelData.params || [],
     removeParams: modelData.removeParams || [],
     requiredParams: modelData.requiredParams || [],
-    mode: modelData.mode || '',
+    mode: modelData.mode || 'unknown',
     thinking: modelData.thinking || false,
     isDeprecated: modelData.isDeprecated || false,
     deprecationDate: modelData.deprecationDate,
     sources: modelData.sources || [],
-    supportedEndpoints: modelData.supportedEndpoints,
+    supportedModes: modelData.supportedModes,
   };
 }
 

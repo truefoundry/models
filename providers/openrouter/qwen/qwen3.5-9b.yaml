@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 262144
@@ -16,7 +16,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: qwen/qwen3.5-9b
 sources:
     - https://openrouter.ai/qwen/qwen3.5-9b/api

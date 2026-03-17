@@ -6,7 +6,7 @@ costs:
       region: us-east5
 features:
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 524288
     max_output_tokens: 8192
@@ -14,7 +14,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: meta/llama-4-maverick-17b-128e-instruct-maas
 params:
     - key: max_tokens

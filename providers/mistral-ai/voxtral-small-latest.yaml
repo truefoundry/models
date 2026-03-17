@@ -6,7 +6,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - assistant_prefill
     - tool_choice
     - tools
@@ -19,7 +19,7 @@ modalities:
         - audio
         - pdf
         - doc
-mode: chat
+mode: completion
 model: voxtral-small-latest
 sources:
     - https://docs.mistral.ai/models/voxtral-small-25-07

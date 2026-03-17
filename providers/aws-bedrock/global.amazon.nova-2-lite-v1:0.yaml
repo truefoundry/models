@@ -110,8 +110,9 @@ limits:
     max_tokens: 65536
 modalities:
     input:
+        - doc
         - image
-mode: chat
+mode: completion
 model: global.amazon.nova-2-lite-v1:0
 params:
     - defaultValue: 512

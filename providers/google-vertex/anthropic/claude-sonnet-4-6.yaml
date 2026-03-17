@@ -75,7 +75,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
     - system_messages
 limits:
@@ -86,7 +86,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: anthropic/claude-sonnet-4-6
 params:
     - key: max_tokens

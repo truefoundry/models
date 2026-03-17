@@ -5,14 +5,14 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 131072
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: google/gemma-3-12b-it
 sources:
     - https://openrouter.ai/google/gemma-3-12b-it/api

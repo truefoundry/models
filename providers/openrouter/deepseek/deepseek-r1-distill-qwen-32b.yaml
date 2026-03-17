@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - chat
-    - response_schema
+    - structured_output
 limits:
     context_window: 32768
     max_output_tokens: 32768
@@ -16,7 +16,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: deepseek/deepseek-r1-distill-qwen-32b
 sources:
     - https://openrouter.ai/deepseek/deepseek-r1-distill-qwen-32b/api

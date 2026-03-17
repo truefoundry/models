@@ -7,7 +7,7 @@ features:
     - function_calling
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_output_tokens: 64000
@@ -18,7 +18,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: openai/gpt-4o:extended
 params:
     - defaultValue: 128

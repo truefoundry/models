@@ -6,7 +6,7 @@ features:
     - function_calling
     - chat
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
 limits:
     context_window: 128000
@@ -16,7 +16,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: magistral-small-latest
 params:
     - key: max_tokens

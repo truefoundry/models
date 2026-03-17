@@ -8,7 +8,7 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
     - system_messages
 limits:
@@ -23,7 +23,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: moonshotai/kimi-k2-thinking-maas
 params:
     - defaultValue: 256

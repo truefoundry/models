@@ -56,24 +56,15 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: us.anthropic.claude-opus-4-5-20251101-v1:0
 params:
     - key: max_tokens
       maxValue: 64000
-    - enum:
-          - enabled
-          - disabled
-      key: thinking
+    - key: thinking
       maxValue: 128000
       minValue: 1024
-      skipValues:
-          - disabled
-          - null
       type: number
-      withdrawParams:
-          - top_k
-          - top_p
 removeParams:
     - temperature
     - top_p

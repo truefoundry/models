@@ -8,13 +8,13 @@ features:
     - tool_choice
     - prompt_caching
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 131072
     max_tokens: 131072
-mode: chat
+mode: completion
 model: moonshotai/Kimi-K2-Instruct-0905
 sources:
     - https://deepinfra.com/moonshotai/Kimi-K2-Instruct-0905/api

@@ -8,7 +8,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 isDeprecated: true
 limits:
@@ -20,7 +20,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: anthropic/claude-3-7-sonnet@20250219
 requiredParams:
     - max_tokens

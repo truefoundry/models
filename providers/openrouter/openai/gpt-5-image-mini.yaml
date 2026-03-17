@@ -10,7 +10,7 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - prompt_caching
 limits:
@@ -24,7 +24,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: openai/gpt-5-image-mini
 sources:
     - https://openrouter.ai/openai/gpt-5-image-mini/api

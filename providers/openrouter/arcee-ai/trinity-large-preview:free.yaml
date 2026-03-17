@@ -5,7 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - chat
     - tools
@@ -18,7 +18,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: arcee-ai/trinity-large-preview:free
 sources:
     - https://openrouter.ai/arcee-ai/trinity-large-preview:free/api

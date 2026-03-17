@@ -11,7 +11,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -21,7 +21,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: gpt-5-nano
 params:
     - defaultValue: 20000
@@ -30,42 +30,15 @@ params:
       minValue: 1
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string
     - defaultValue: null
-      enum:
-          - low
-          - medium
-          - high
-          - null
       key: verbosity
-      skipValues:
-          - null
     - defaultValue: null
       key: reasoning
-      nestedOptions:
-          - value:
-                effort: minimal
-            view: minimal
-          - value:
-                effort: low
-            view: low
-          - value:
-                effort: medium
-            view: medium
-          - value:
-                effort: high
-            view: high
-      skipValues:
-          - null
 removeParams:
     - temperature
     - top_p
     - "n"
-    - presence_penalty
-    - frequency_penalty
-    - logit_bias
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-nano

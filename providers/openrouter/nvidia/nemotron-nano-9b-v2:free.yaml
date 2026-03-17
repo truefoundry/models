@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -16,7 +16,7 @@ modalities:
         - text
     output:
         - text
-mode: chat
+mode: completion
 model: nvidia/nemotron-nano-9b-v2:free
 sources:
     - https://openrouter.ai/nvidia/nemotron-nano-9b-v2:free/api

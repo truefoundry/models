@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
     - system_messages
 limits:
@@ -18,7 +18,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: nousresearch/hermes-4-405b
 sources:
     - https://openrouter.ai/nousresearch/hermes-4-405b/api

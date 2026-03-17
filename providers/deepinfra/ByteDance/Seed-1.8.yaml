@@ -16,7 +16,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - tool_choice
     - prompt_caching
 limits:
@@ -24,7 +24,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: ByteDance/Seed-1.8
 sources:
     - https://deepinfra.com/ByteDance/Seed-1.8/api

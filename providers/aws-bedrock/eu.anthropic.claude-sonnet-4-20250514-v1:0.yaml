@@ -130,27 +130,16 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: eu.anthropic.claude-sonnet-4-20250514-v1:0
 params:
     - key: max_tokens
       maxValue: 128000
-    - enum:
-          - enabled
-          - disabled
-      key: thinking
+    - key: thinking
       maxValue: 128000
       minValue: 1024
-      skipValues:
-          - disabled
-          - null
       type: number
-      withdrawParams:
-          - top_k
-          - top_p
     - key: tool_choice
-      skipValues:
-          - null
       type: json
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html

@@ -5,7 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 2000000
     max_input_tokens: 2000000
@@ -14,7 +14,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: x-ai/grok-4-fast:free
 sources:
     - https://openrouter.ai/x-ai/grok-4-fast:free/api

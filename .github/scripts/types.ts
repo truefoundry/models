@@ -78,16 +78,6 @@ export interface ParamConfig {
   minValue?: number;
   maxValue?: number;
   type?: ParamType;
-  skipValues?: Array<string | boolean | null | string[]>;
-  withdrawParams?: string[];
-  properties?: Record<string, {
-    type?: string;
-    minValue?: number;
-    maxValue?: number;
-    enum?: string[];
-  }>;
-  enum?: Array<string | null>;
-  nestedOptions?: Array<{ value: Record<string, string>; view: string }>;
 }
 
 // --- Features ---
@@ -100,9 +90,26 @@ export type Feature =
   | 'system_messages'
   | 'tool_choice'
   | 'prompt_caching'
-  | 'response_schema'
+  | 'structured_output'
   | 'assistant_prefill'
   | 'tools'
+  | 'code_execution';
+
+// --- Modes ---
+
+export type Mode =
+  | 'completion'
+  | 'embedding'
+  | 'rerank'
+  | 'realtime'
+  | 'audio_transcription'
+  | 'audio_translation'
+  | 'text_to_speech'
+  | 'moderation'
+  | 'image'
+  | 'video'
+  | 'proxy'
+  | 'unknown';
 
 // --- Modalities ---
 
@@ -115,8 +122,10 @@ export interface Modalities {
 
 // --- Messages ---
 
+export type MessageOption = 'system' | 'user' | 'assistant' | 'developer';
+
 export interface MessageConfig {
-  options: string[];
+  options: MessageOption[];
 }
 
 // --- Default provider config (from default.yaml) ---
@@ -136,14 +145,14 @@ export interface ModelData {
   modalities?: Modalities;
   messages?: MessageConfig;
   params?: ParamConfig[];
-  removeParams?: string[];
-  requiredParams?: string[];
-  mode?: string;
+  removeParams?: ParamKey[];
+  requiredParams?: ParamKey[];
+  mode?: Mode;
   thinking?: boolean;
   isDeprecated?: boolean;
   deprecationDate?: string;
   sources?: string[];
-  supportedEndpoints?: string[];
+  supportedModes?: Mode[];
 }
 
 export interface UnifiedModelConfig {
@@ -156,12 +165,12 @@ export interface UnifiedModelConfig {
   modalities?: Modalities;
   messages?: MessageConfig;
   params: ParamConfig[];
-  removeParams: string[];
-  requiredParams: string[];
-  mode: string;
+  removeParams: ParamKey[];
+  requiredParams: ParamKey[];
+  mode: Mode;
   thinking: boolean;
   isDeprecated: boolean;
   deprecationDate?: string;
   sources: string[];
-  supportedEndpoints?: string[];
+  supportedModes?: Mode[];
 }

@@ -16,7 +16,7 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 isDeprecated: true
 limits:
     max_input_tokens: 1000000
@@ -25,5 +25,5 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gemini-1.5-flash

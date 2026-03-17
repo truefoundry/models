@@ -23,7 +23,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
     - tools
 limits:
@@ -38,7 +38,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: qwen/qwen3-coder-plus
 sources:
     - https://openrouter.ai/qwen/qwen3-coder-plus/api

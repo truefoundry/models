@@ -5,7 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -14,7 +14,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
 sources:
     - https://docs.mistral.ai/models/mistral-small-3-2-25-06

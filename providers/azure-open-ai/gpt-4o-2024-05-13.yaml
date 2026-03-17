@@ -15,13 +15,11 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-4o-2024-05-13
 params:
     - key: max_tokens
       maxValue: 16384
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string

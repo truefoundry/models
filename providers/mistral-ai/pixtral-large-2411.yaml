@@ -5,7 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
 limits:
     context_window: 128000
@@ -15,7 +15,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: pixtral-large-2411
 sources:
     - https://docs.mistral.ai/models/pixtral-large-24-11

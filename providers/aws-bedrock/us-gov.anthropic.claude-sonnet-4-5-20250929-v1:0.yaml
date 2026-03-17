@@ -54,27 +54,16 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: us-gov.anthropic.claude-sonnet-4-5-20250929-v1:0
 params:
     - key: max_tokens
       maxValue: 8192
-    - enum:
-          - enabled
-          - disabled
-      key: thinking
+    - key: thinking
       maxValue: 128000
       minValue: 1024
-      skipValues:
-          - disabled
-          - null
       type: number
-      withdrawParams:
-          - top_k
-          - top_p
     - key: tool_choice
-      skipValues:
-          - null
       type: json
 removeParams:
     - top_p

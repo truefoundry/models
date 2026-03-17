@@ -6,7 +6,7 @@ costs:
 features:
     - system_messages
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
@@ -15,5 +15,5 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: gpt-5.1-chat-2025-11-13

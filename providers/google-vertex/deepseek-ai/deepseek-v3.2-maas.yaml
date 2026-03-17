@@ -8,7 +8,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - tools
@@ -23,7 +23,7 @@ modalities:
         - doc
     output:
         - text
-mode: chat
+mode: completion
 model: deepseek-ai/deepseek-v3.2-maas
 params:
     - defaultValue: 256

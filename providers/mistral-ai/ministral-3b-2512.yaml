@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - response_schema
+    - structured_output
     - assistant_prefill
     - tool_choice
 limits:
@@ -12,7 +12,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: ministral-3b-2512
 sources:
     - https://docs.mistral.ai/models/ministral-3-3b-25-12

@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 32768
@@ -17,7 +17,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: qwen/qwen2.5-coder-7b-instruct
 sources:
     - https://openrouter.ai/qwen/qwen2.5-coder-7b-instruct/api

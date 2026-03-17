@@ -5,14 +5,14 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - response_schema
+    - structured_output
     - tool_choice
 limits:
     context_window: 256000
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: ministral-8b-latest
 sources:
     - https://docs.mistral.ai/models/ministral-3-8b-25-12

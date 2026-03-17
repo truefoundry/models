@@ -8,7 +8,7 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -23,7 +23,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: openai/gpt-4o-2024-08-06
 sources:
     - https://openrouter.ai/openai/gpt-4o-2024-08-06/api

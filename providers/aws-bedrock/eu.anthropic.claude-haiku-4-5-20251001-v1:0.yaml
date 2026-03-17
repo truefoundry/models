@@ -63,7 +63,7 @@ features:
     - prompt_caching
     - cache_control
     - assistant_prefill
-    - response_schema
+    - structured_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -74,24 +74,15 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: eu.anthropic.claude-haiku-4-5-20251001-v1:0
 params:
     - key: max_tokens
       maxValue: 64000
-    - enum:
-          - enabled
-          - disabled
-      key: thinking
+    - key: thinking
       maxValue: 128000
       minValue: 1024
-      skipValues:
-          - disabled
-          - null
       type: number
-      withdrawParams:
-          - top_k
-          - top_p
 removeParams:
     - top_p
 sources:

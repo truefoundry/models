@@ -6,7 +6,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - tool_choice
     - tools
 limits:
@@ -20,7 +20,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: google/gemma-3-27b-it
 sources:
     - https://openrouter.ai/google/gemma-3-27b-it/api

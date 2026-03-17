@@ -6,7 +6,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - tool_choice
     - tools
 limits:
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: inception/mercury-coder
 sources:
     - https://openrouter.ai/inception/mercury-coder/api

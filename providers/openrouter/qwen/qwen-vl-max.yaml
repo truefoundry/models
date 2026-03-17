@@ -5,7 +5,7 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 32768
@@ -16,7 +16,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: qwen/qwen-vl-max
 sources:
     - https://openrouter.ai/qwen/qwen-vl-max/api

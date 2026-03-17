@@ -13,7 +13,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: relace/relace-apply-3
 params:
     - defaultValue: 128
@@ -24,8 +24,6 @@ removeParams:
     - temperature
     - top_p
     - "n"
-    - frequency_penalty
-    - presence_penalty
     - response_format
 sources:
     - https://openrouter.ai/relace/relace-apply-3/api

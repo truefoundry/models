@@ -7,7 +7,7 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_output_tokens: 16384
@@ -15,7 +15,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: llama-4-maverick
 params:
     - key: max_tokens

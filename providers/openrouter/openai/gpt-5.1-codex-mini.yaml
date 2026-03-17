@@ -8,7 +8,7 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 400000
@@ -23,7 +23,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: openai/gpt-5.1-codex-mini
 sources:
     - https://openrouter.ai/openai/gpt-5.1-codex-mini/api

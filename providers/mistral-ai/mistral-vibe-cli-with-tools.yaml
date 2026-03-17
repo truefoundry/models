@@ -8,7 +8,7 @@ features:
     - tools
     - tool_choice
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 256000
 modalities:
@@ -18,7 +18,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: mistral-vibe-cli-with-tools
 sources:
     - https://docs.mistral.ai/models/devstral-2-25-12

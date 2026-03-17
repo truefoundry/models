@@ -22,7 +22,7 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - prompt_caching
     - system_messages
 limits:
@@ -35,7 +35,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: anthropic/claude-opus-4.6
 params:
     - defaultValue: 128

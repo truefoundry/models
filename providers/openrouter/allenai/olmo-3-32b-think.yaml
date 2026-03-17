@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 65536
     max_output_tokens: 65536
@@ -16,7 +16,7 @@ modalities:
         - text
     output:
         - text
-mode: chat
+mode: completion
 model: allenai/olmo-3-32b-think
 sources:
     - https://openrouter.ai/allenai/olmo-3-32b-think/api

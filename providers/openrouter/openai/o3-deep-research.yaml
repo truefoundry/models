@@ -8,7 +8,7 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 200000
@@ -20,7 +20,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: openai/o3-deep-research
 sources:
     - https://openrouter.ai/openai/o3-deep-research/api

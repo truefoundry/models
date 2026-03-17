@@ -17,7 +17,7 @@ features:
     - parallel_function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 256000
@@ -25,7 +25,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: grok-4
 sources:
     - https://openrouter.ai/x-ai/grok-4/api

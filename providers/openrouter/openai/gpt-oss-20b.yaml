@@ -6,13 +6,13 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: openai/gpt-oss-20b
 sources:
     - https://openrouter.ai/openai/gpt-oss-20b/api

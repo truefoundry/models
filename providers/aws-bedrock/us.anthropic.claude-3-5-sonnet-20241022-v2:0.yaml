@@ -35,16 +35,13 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
 params:
     - key: max_tokens
       maxValue: 8192
     - defaultValue: null
       key: tool_choice
-      skipValues:
-          - null
-          - []
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/model-deprecations

@@ -7,7 +7,7 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 131072
@@ -16,7 +16,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: mistral-small-3.2-24b-instruct:free
 sources:
     - https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct:free/api

@@ -23,7 +23,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 isDeprecated: true
 limits:
     max_input_tokens: 1048576
@@ -34,26 +34,13 @@ modalities:
         - audio
         - pdf
         - doc
-mode: chat
+mode: completion
 model: gemini-3-pro-preview
 params:
     - key: max_tokens
       maxValue: 65536
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string
     - defaultValue: null
       key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 32768
-              minValue: 128
-              type: number
-          type:
-              enum:
-                  - enabled
-              type: string
-      skipValues:
-          - null

@@ -5,7 +5,7 @@ costs:
 features:
     - chat
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_output_tokens: 16384
@@ -16,7 +16,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: meta-llama/llama-4-maverick
 sources:
     - https://openrouter.ai/meta-llama/llama-4-maverick/api

@@ -7,7 +7,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -22,7 +22,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: openai/o3
 sources:
     - https://openrouter.ai/openai/o3/api

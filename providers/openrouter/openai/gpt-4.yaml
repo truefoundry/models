@@ -5,12 +5,12 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 8191
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+mode: completion
 model: openai/gpt-4
 sources:
     - https://openrouter.ai/openai/gpt-4/api

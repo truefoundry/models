@@ -8,7 +8,7 @@ features:
     - tool_choice
     - tools
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 32768
     max_output_tokens: 16384
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: qwen/qwen-2.5-72b-instruct
 sources:
     - https://openrouter.ai/qwen/qwen-2.5-72b-instruct/api

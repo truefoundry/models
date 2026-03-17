@@ -7,7 +7,7 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 131072
@@ -17,7 +17,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: openai/gpt-oss-120b
 params:
     - defaultValue: 256

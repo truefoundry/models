@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 1000000
@@ -19,7 +19,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: qwen/qwen3.5-flash-02-23
 sources:
     - https://openrouter.ai/qwen/qwen3.5-flash-02-23/api

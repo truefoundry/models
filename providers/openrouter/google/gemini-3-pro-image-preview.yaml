@@ -13,7 +13,7 @@ features:
     - tool_choice
     - system_messages
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 65536
     max_output_tokens: 32768
@@ -24,7 +24,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: google/gemini-3-pro-image-preview
 sources:
     - https://openrouter.ai/google/gemini-3-pro-image-preview/api

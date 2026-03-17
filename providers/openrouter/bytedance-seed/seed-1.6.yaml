@@ -14,7 +14,7 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 262144
@@ -26,7 +26,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: bytedance-seed/seed-1.6
 sources:
     - https://openrouter.ai/bytedance-seed/seed-1.6/api

@@ -5,12 +5,12 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: togethercomputer/EssentialAI-RNJ-1-Instruct
 sources:
     - https://docs.together.ai/docs/serverless-models

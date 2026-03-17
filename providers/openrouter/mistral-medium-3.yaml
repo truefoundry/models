@@ -7,13 +7,13 @@ features:
     - tools
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: mistral-medium-3
 sources:
     - https://openrouter.ai/mistralai/mistral-medium-3/api

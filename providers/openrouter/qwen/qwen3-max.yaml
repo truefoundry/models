@@ -25,14 +25,14 @@ features:
     - tool_choice
     - tools
     - prompt_caching
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 262144
     max_input_tokens: 258048
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: qwen/qwen3-max
 sources:
     - https://openrouter.ai/qwen/qwen3-max/api

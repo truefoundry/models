@@ -6,7 +6,7 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - assistant_prefill
@@ -20,7 +20,7 @@ modalities:
         - image
         - pdf
         - doc
-mode: chat
+mode: completion
 model: ministral-14b-latest
 sources:
     - https://docs.mistral.ai/models/ministral-3-14b-25-12

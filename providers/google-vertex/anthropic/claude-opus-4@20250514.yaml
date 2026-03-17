@@ -214,7 +214,7 @@ features:
     - cache_control
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 limits:
     context_window: 200000
@@ -225,7 +225,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: anthropic/claude-opus-4@20250514
 params:
     - key: max_tokens

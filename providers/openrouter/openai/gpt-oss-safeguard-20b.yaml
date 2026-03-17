@@ -8,7 +8,7 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 65536
@@ -18,7 +18,7 @@ modalities:
         - text
     output:
         - text
-mode: chat
+mode: completion
 model: openai/gpt-oss-safeguard-20b
 params:
     - defaultValue: 128

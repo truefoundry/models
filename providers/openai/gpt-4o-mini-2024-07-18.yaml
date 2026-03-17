@@ -13,7 +13,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -22,15 +22,13 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gpt-4o-mini-2024-07-18
 params:
     - key: max_tokens
       maxValue: 16384
     - defaultValue: null
       key: response_format
-      skipValues:
-          - null
       type: string
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-mini

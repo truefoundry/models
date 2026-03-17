@@ -28,7 +28,7 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -37,7 +37,7 @@ limits:
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: mistral.magistral-small-2509
 sources:
     - https://docs.mistral.ai/models/magistral-small-1-2-25-09

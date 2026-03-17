@@ -28,10 +28,10 @@ limits:
     max_tokens: 10000
 modalities:
     input:
+        - doc
         - image
         - pdf
-        - doc
-mode: chat
+mode: completion
 model: us.amazon.nova-pro-v1:0
 params:
     - defaultValue: 512

@@ -8,7 +8,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -18,7 +18,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: openai/gpt-5.2
 sources:
     - https://openrouter.ai/openai/gpt-5.2/api

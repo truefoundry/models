@@ -604,7 +604,7 @@ features:
     - chat
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 limits:
     context_window: 1000000
@@ -615,7 +615,7 @@ modalities:
     input:
         - image
         - pdf
-mode: chat
+mode: completion
 model: anthropic/claude-sonnet-4
 params:
     - key: max_tokens

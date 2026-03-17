@@ -6,13 +6,13 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
 modalities:
     input:
         - image
-mode: chat
+mode: completion
 model: gemma-3-12b-it
 params:
     - key: max_tokens

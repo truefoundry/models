@@ -7,7 +7,7 @@ features:
     - chat
     - function_calling
     - system_messages
-    - response_schema
+    - structured_output
     - prompt_caching
     - tool_choice
     - tools
@@ -19,6 +19,6 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: grok-4.20-multi-agent-beta-0309-exp-ma
 thinking: true

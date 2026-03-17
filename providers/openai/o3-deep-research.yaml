@@ -17,7 +17,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: o3-deep-research
 params:
     - defaultValue: 100000
@@ -27,11 +27,8 @@ params:
 removeParams:
     - tool_choice
     - parallel_tool_calls
-    - logit_bias
     - temperature
     - top_p
-    - frequency_penalty
-    - presence_penalty
     - stop
     - "n"
 sources:

@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: nvidia/nemotron-3-super-120b-a12b:free
 sources:
     - https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b:free/api

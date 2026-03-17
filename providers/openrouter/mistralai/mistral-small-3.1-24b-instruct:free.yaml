@@ -6,7 +6,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
@@ -19,7 +19,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: mistralai/mistral-small-3.1-24b-instruct:free
 sources:
     - https://openrouter.ai/mistralai/mistral-small-3.1-24b-instruct:free/api

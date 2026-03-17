@@ -12,7 +12,7 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - system_messages
     - prompt_caching
 limits:
@@ -24,7 +24,7 @@ modalities:
     input:
         - image
         - audio
-mode: chat
+mode: completion
 model: gemini-2.5-flash
 params:
     - key: max_tokens

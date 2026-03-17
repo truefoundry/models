@@ -5,7 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - chat
     - tools
 limits:
@@ -19,7 +19,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: arcee-ai/trinity-mini
 sources:
     - https://openrouter.ai/arcee-ai/trinity-mini/api

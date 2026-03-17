@@ -9,7 +9,7 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
     - tools
 limits:
@@ -24,7 +24,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: gpt-5.1-codex-mini
 params:
     - defaultValue: 128

@@ -14,7 +14,7 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 2000000
@@ -24,7 +24,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: x-ai/grok-4.20-multi-agent-beta
 sources:
     - https://openrouter.ai/x-ai/grok-4.20-multi-agent-beta/api

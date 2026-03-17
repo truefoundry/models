@@ -5,7 +5,7 @@ costs:
 features:
     - function_calling
     - chat
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - tools
@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - code
-mode: chat
+mode: completion
 model: mistralai/mistral-medium-3.1
 sources:
     - https://openrouter.ai/mistralai/mistral-medium-3.1/api

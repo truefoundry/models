@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - chat
-    - response_schema
+    - structured_output
 limits:
     context_window: 16384
     max_output_tokens: 8192
@@ -15,7 +15,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: completion
 model: PaddlePaddle/PaddleOCR-VL-0.9B
 sources:
     - https://api.deepinfra.com/models/PaddlePaddle/PaddleOCR-VL-0.9B
