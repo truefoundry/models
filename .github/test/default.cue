@@ -11,12 +11,6 @@ package model
 		options?: [...string]
 	}
 
-	// Model type configuration
-	type?: {
-		primary?:   string
-		supported?: [...string]
-	}
-
 	// Official documentation links for models, pricing, and deprecations
 	documentation?: [...string]
 }
