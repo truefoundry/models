@@ -6,15 +6,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image_input
     - tool_choice
 limits:
     max_input_tokens: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: grok-2-vision-1212
 params:
     - key: max_tokens

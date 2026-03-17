@@ -4,12 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
     - tool_choice
 limits:
     max_input_tokens: 10000000
     max_output_tokens: 16384
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: Llama-4-Scout-17B-16E-Instruct

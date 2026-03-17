@@ -7,13 +7,12 @@ features:
     - function_calling
     - tool_choice
     - system_messages
-    - text
     - tools
 limits:
     context_window: 131072
     max_output_tokens: 96000
     max_tokens: 96000
-mode: chat
+mode: completion
 model: z-ai/glm-4.5-air:free
 sources:
     - https://openrouter.ai/z-ai/glm-4.5-air:free/api

@@ -8,18 +8,17 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
-    - doc
     - system_messages
     - tool_choice
-    - response_schema
-    - text
-    - code
+    - structured_output
     - tools
 limits:
     context_window: 128000
-mode: chat
+modalities:
+    input:
+        - doc
+        - image
+mode: completion
 model: mistralai/mistral-small-2503
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral

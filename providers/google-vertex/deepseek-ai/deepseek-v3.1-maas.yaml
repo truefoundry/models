@@ -10,16 +10,17 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - system_messages
     - prompt_caching
-    - text
-    - doc
 limits:
     context_window: 163840
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+modalities:
+    input:
+        - doc
+mode: completion
 model: deepseek-ai/deepseek-v3.1-maas
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-v31

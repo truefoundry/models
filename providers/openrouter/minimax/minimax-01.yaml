@@ -4,13 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 1000192
     max_output_tokens: 1000192
     max_tokens: 1000192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: minimax/minimax-01
 sources:
     - https://openrouter.ai/minimax/minimax-01/api

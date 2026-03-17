@@ -6,21 +6,20 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - chat
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
-    - text
-    - code
+    - structured_output
     - tools
 limits:
     context_window: 400000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gpt-5.2-codex
 params:
     - defaultValue: 128
@@ -29,15 +28,6 @@ params:
       minValue: 1
     - defaultValue: high
       key: reasoning_effort
-      options:
-          - name: Low
-            value: low
-          - name: Medium
-            value: medium
-          - name: High
-            value: high
-          - name: Extra High
-            value: xhigh
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.2-codex
     - https://developers.openai.com/api/docs/pricing

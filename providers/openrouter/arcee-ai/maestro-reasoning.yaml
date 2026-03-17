@@ -4,12 +4,11 @@ costs:
       region: "*"
 features:
     - chat
-    - text
 limits:
     context_window: 131072
     max_output_tokens: 32000
     max_tokens: 32000
-mode: chat
+mode: completion
 model: arcee-ai/maestro-reasoning
 sources:
     - https://openrouter.ai/arcee-ai/maestro-reasoning/api

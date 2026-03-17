@@ -8,8 +8,6 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
     - prompt_caching
@@ -18,7 +16,10 @@ limits:
     max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gpt-5.2-pro
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.2-pro

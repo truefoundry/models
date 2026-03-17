@@ -6,16 +6,14 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 8192
     max_output_tokens: 2048
     max_tokens: 2048
-mode: chat
+mode: completion
 model: google/gemma-2-27b-it
 sources:
     - https://openrouter.ai/google/gemma-2-27b-it/api

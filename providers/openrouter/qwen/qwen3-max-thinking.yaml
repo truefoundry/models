@@ -15,16 +15,15 @@ costs:
                 from: 128000
 features:
     - chat
-    - text
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 262144
     max_input_tokens: 258048
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: qwen/qwen3-max-thinking
 params:
     - defaultValue: 128

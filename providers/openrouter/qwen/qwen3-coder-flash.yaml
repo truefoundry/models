@@ -21,16 +21,14 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
-    - text
-    - code
+    - structured_output
     - tools
 limits:
     context_window: 1000000
     max_input_tokens: 997952
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+mode: completion
 model: qwen/qwen3-coder-flash
 sources:
     - https://openrouter.ai/qwen/qwen3-coder-flash/api

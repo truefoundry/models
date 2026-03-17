@@ -4,13 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - text
     - function_calling
     - tool_choice
     - tools
 limits:
     context_window: 32768
-mode: chat
+mode: completion
 model: qwen/qwen3-30b-a3b-thinking-2507
 sources:
     - https://openrouter.ai/qwen/qwen3-30b-a3b-thinking-2507/api

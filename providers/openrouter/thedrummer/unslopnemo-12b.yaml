@@ -6,13 +6,12 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
-    - text
+    - structured_output
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: thedrummer/unslopnemo-12b
 sources:
     - https://openrouter.ai/thedrummer/unslopnemo-12b/api

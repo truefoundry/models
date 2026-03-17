@@ -5,41 +5,21 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
 limits:
     max_input_tokens: 128000
     max_output_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gpt-4o-2024-05-13
 params:
     - key: max_tokens
       maxValue: 16384
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-      skipValues:
-          - null
       type: string
-    - defaultValue: 0
-      key: frequency_penalty
-      maxValue: 2
-      minValue: -2
-    - defaultValue: 0
-      key: presence_penalty
-      maxValue: 2
-      minValue: -2

@@ -4,12 +4,11 @@ costs:
       region: "*"
 features:
     - chat
-    - text
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: meta-llama/llama-3.1-405b
 sources:
     - https://openrouter.ai/meta-llama/llama-3.1-405b/api

@@ -20,13 +20,12 @@ costs:
 features:
     - chat
     - system_messages
-    - text
 limits:
     context_window: 8192
     max_input_tokens: 8192
     max_output_tokens: 2048
     max_tokens: 2048
-mode: chat
+mode: completion
 model: meta.llama3-70b-instruct-v1:0
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html

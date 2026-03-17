@@ -6,19 +6,21 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - audio_input
-    - audio_output
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - tools
 limits:
     context_window: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+modalities:
+    input:
+        - audio
+    output:
+        - audio
+mode: completion
 model: openai/gpt-4o-audio-preview
 sources:
     - https://openrouter.ai/openai/gpt-4o-audio-preview/api

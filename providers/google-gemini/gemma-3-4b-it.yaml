@@ -4,18 +4,18 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
-    - text
     - tool_choice
 limits:
     context_window: 128000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gemma-3-4b-it
 params:
     - defaultValue: 256

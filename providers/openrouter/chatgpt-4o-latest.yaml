@@ -1,8 +1,10 @@
 features:
     - chat
-    - image
 isDeprecated: true
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: chatgpt-4o-latest
 params:
     - key: max_tokens

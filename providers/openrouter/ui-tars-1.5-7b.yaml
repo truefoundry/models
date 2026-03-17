@@ -4,13 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 128000
     max_output_tokens: 2048
     max_tokens: 2048
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: ui-tars-1.5-7b
 params:
     - key: max_tokens

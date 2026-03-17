@@ -14,24 +14,11 @@ isDeprecated: true
 limits:
     max_input_tokens: 16385
     max_output_tokens: 4096
-mode: chat
+mode: completion
 model: gpt-3.5-turbo-1106
 params:
     - key: max_tokens
       maxValue: 4096
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-      skipValues:
-          - null
       type: string

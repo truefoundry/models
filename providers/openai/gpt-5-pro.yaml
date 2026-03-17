@@ -4,13 +4,15 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - response_schema
+    - structured_output
 limits:
     context_window: 400000
     max_output_tokens: 272000
     max_tokens: 272000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gpt-5-pro
 params:
     - defaultValue: 128
@@ -20,10 +22,7 @@ params:
 removeParams:
     - temperature
     - top_p
-    - frequency_penalty
-    - presence_penalty
     - "n"
-    - logit_bias
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-pro

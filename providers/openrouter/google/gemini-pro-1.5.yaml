@@ -5,13 +5,15 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
 limits:
     context_window: 2000000
     max_input_tokens: 2000000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: google/gemini-pro-1.5
 sources:
     - https://openrouter.ai/google/gemini-pro-1.5/api

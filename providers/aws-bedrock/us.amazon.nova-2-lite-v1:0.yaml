@@ -25,15 +25,17 @@ costs:
       region: ca-central-1
 features:
     - function_calling
-    - vision
-    - pdf_input
-    - doc
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
+mode: completion
 model: us.amazon.nova-2-lite-v1:0
 params:
     - defaultValue: 65536

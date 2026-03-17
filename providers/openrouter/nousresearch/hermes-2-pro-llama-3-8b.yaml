@@ -4,16 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - response_schema
+    - structured_output
     - chat
-    - text
-    - code
     - tools
 limits:
     context_window: 8192
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+mode: completion
 model: nousresearch/hermes-2-pro-llama-3-8b
 sources:
     - https://openrouter.ai/nousresearch/hermes-2-pro-llama-3-8b/api

@@ -1,12 +1,11 @@
 features:
     - chat
-    - text
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
-mode: chat
+mode: completion
 model: DeepSeek-R1-0528
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling

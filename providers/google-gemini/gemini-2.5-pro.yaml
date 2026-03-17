@@ -18,76 +18,34 @@ costs:
                 from: 200000
 features:
     - function_calling
-    - vision
-    - audio_input
     - chat
-    - image_input
-    - pdf
-    - pdf_input
-    - doc
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
-    - text
-    - code
+    - structured_output
 isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+modalities:
+    input:
+        - audio
+        - doc
+        - image
+        - pdf
+mode: completion
 model: gemini-2.5-pro
 params:
     - key: max_tokens
       maxValue: 65536
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
       type: string
     - defaultValue: null
       key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 32768
-              minValue: 128
-              type: number
-          type:
-              enum:
-                  - enabled
-              type: string
-      skipValues:
-          - null
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro
     - https://ai.google.dev/gemini-api/docs/thinking

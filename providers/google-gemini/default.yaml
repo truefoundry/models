@@ -28,36 +28,9 @@ params:
       minValue: 0
     - defaultValue: null
       key: stop
-      skipValues:
-          - null
-          - []
       type: array-of-strings
     - defaultValue: true
       key: stream
       type: boolean
     - defaultValue: null
       key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema:
-                type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
-      skipValues:
-          - null
-          - []
-      type: non-view-manage-data
-type:
-    primary: chat
-    supported:
-        - mime_type

@@ -5,12 +5,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 128000
     max_tokens: 128000
     tool_use_system_prompt_tokens: 159
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: anthropic/claude-3.7-sonnet:beta

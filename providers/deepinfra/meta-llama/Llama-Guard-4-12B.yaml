@@ -4,14 +4,15 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 163840
     max_input_tokens: 163840
     max_output_tokens: 163840
     max_tokens: 163840
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: meta-llama/Llama-Guard-4-12B
 sources:
     - https://deepinfra.com/meta-llama/Llama-Guard-4-12B/api

@@ -13,54 +13,26 @@ costs:
                 from: 128000
 features:
     - function_calling
-    - vision
     - chat
-    - image
-    - pdf
-    - doc
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 isDeprecated: true
 limits:
     max_input_tokens: 1048576
     max_output_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
+mode: completion
 model: gemini-1.5-flash-001
 params:
     - key: max_tokens
       maxValue: 4096
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
       type: string

@@ -6,10 +6,10 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 262144
-mode: chat
+mode: completion
 model: moonshotai/Kimi-K2-Instruct
 sources:
     - https://docs.together.ai/docs/serverless-models

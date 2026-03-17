@@ -122,21 +122,22 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - audio_input
     - chat
-    - image_input
-    - pdf_input
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - audio
+        - image
+        - pdf
+mode: completion
 model: gemini-2.0-flash
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash

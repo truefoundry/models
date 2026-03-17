@@ -4,15 +4,16 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - tools
     - function_calling
 limits:
     context_window: 4096
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: pixtral-12b
 sources:
     - https://openrouter.ai/mistralai/pixtral-12b/api

@@ -31,13 +31,12 @@ costs:
       region: ap-northeast-1
 features:
     - chat
-    - text
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+mode: completion
 model: openai.gpt-oss-safeguard-120b
 params:
     - defaultValue: 512

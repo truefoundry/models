@@ -2,10 +2,11 @@ costs:
     - input_cost_per_second: 0.00003083
       output_cost_per_second: 0
       region: "*"
-features:
-    - audio_input
 limits:
     context_window: 448
+modalities:
+    input:
+        - audio
 mode: audio_transcription
 model: whisper-large-v3
 params:

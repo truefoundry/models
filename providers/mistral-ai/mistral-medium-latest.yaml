@@ -5,23 +5,21 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
-    - audio_input
     - chat
-    - pdf
-    - pdf_input
-    - doc
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - text
-    - code
     - tools
 limits:
     context_window: 128000
-mode: chat
+modalities:
+    input:
+        - audio
+        - doc
+        - image
+        - pdf
+mode: completion
 model: mistral-medium-latest
 sources:
     - https://docs.mistral.ai/models/mistral-medium-3-1-25-08

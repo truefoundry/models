@@ -11,13 +11,12 @@ costs:
 features:
     - chat
     - system_messages
-    - text
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: us.deepseek.r1-v1:0
 params:
     - defaultValue: 512

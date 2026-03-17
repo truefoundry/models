@@ -7,13 +7,14 @@ costs:
       region: europe-west4
 features:
     - function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: mistralai/mistral-medium-3
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral

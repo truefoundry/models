@@ -14,15 +14,16 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
 limits:
     context_window: 1050000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gpt-5.4-pro-2026-03-05
 params:
     - defaultValue: 128
@@ -31,13 +32,6 @@ params:
       minValue: 1
     - defaultValue: medium
       key: reasoning_effort
-      options:
-          - name: Medium
-            value: medium
-          - name: High
-            value: high
-          - name: Extra High
-            value: xhigh
       type: string
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.4-pro

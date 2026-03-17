@@ -4,17 +4,18 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - tools
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: pixtral-large-2411
 sources:
     - https://openrouter.ai/mistralai/pixtral-large-2411/api

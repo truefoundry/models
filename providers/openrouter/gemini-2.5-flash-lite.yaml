@@ -9,17 +9,18 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - audio_input
     - tools
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_output_tokens: 65535
     max_tokens: 65535
-mode: chat
+modalities:
+    input:
+        - audio
+        - image
+mode: completion
 model: gemini-2.5-flash-lite
 params:
     - key: max_tokens

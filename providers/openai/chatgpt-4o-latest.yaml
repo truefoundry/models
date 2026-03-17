@@ -5,16 +5,18 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
     - system_messages
     - tool_choice
     - prompt_caching
-    - pdf_input
 isDeprecated: true
 limits:
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+        - pdf
+mode: completion
 model: chatgpt-4o-latest

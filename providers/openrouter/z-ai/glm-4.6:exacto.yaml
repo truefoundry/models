@@ -5,12 +5,12 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 204800
     max_output_tokens: 204800
     max_tokens: 204800
-mode: chat
+mode: completion
 model: z-ai/glm-4.6:exacto
 sources:
     - https://openrouter.ai/z-ai/glm-4.6:exacto/api

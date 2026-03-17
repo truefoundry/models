@@ -6,16 +6,14 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 163840
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+mode: completion
 model: deepseek/deepseek-v3.2-exp
 sources:
     - https://openrouter.ai/deepseek/deepseek-v3.2-exp/api

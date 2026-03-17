@@ -7,15 +7,13 @@ features:
     - tool_choice
     - tools
     - chat
-    - text
-    - code
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 160000
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: qwen/qwen3-coder-30b-a3b-instruct
 sources:
     - https://openrouter.ai/qwen/qwen3-coder-30b-a3b-instruct/api

@@ -6,8 +6,6 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - tools
     - function_calling
     - tool_choice
@@ -19,7 +17,10 @@ limits:
     context_window: 200000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: claude-3-haiku:beta
 params:
     - key: max_tokens

@@ -5,17 +5,15 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - tools
-    - text
-    - code
 limits:
     context_window: 32768
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+mode: completion
 model: mistralai/mistral-small-24b-instruct-2501
 sources:
     - https://openrouter.ai/mistralai/mistral-small-24b-instruct-2501/api

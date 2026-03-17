@@ -1,8 +1,10 @@
 features:
     - chat
-    - image
     - tools
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: horizon-alpha
 params:
     - key: max_tokens

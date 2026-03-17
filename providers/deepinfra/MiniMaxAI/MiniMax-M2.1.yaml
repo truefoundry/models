@@ -8,15 +8,13 @@ features:
     - tool_choice
     - tools
     - system_messages
-    - response_schema
+    - structured_output
     - prompt_caching
-    - text
-    - code
 limits:
     context_window: 196608
     max_output_tokens: 131072
     max_tokens: 131072
-mode: chat
+mode: completion
 model: MiniMaxAI/MiniMax-M2.1
 sources:
     - https://deepinfra.com/MiniMaxAI/MiniMax-M2.1/api

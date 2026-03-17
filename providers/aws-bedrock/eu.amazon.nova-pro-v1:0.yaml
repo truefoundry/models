@@ -29,18 +29,20 @@ costs:
       region: eu-central-1
 features:
     - function_calling
-    - vision
     - chat
     - prompt_caching
-    - pdf
-    - doc
     - system_messages
 limits:
     context_window: 300000
     max_input_tokens: 300000
     max_output_tokens: 5000
     max_tokens: 5000
-mode: chat
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
+mode: completion
 model: eu.amazon.nova-pro-v1:0
 params:
     - defaultValue: 512

@@ -7,10 +7,10 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 features:
-    - vision
-    - image
-    - image_input
     - prompt_caching
+modalities:
+    input:
+        - image
 mode: image
 model: gpt-image-1.5-2025-12-16
 removeParams:
@@ -18,9 +18,6 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
     - stop
-    - frequency_penalty
-    - presence_penalty
-    - logit_bias
 sources:
     - https://developers.openai.com/api/docs/models/gpt-image-1.5
     - https://developers.openai.com/api/docs/deprecations

@@ -4,13 +4,11 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
 limits:
     context_window: 4096
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+mode: completion
 model: alfredpros/codellama-7b-instruct-solidity
 sources:
     - https://openrouter.ai/alfredpros/codellama-7b-instruct-solidity/api

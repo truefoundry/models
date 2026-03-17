@@ -7,15 +7,13 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
-    - text
-    - code
 limits:
     context_window: 40960
     max_output_tokens: 40960
     max_tokens: 40960
-mode: chat
+mode: completion
 model: qwen/qwen3-14b
 sources:
     - https://openrouter.ai/qwen/qwen3-14b/api

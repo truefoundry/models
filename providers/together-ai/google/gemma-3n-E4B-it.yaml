@@ -3,13 +3,14 @@ costs:
       output_cost_per_token: 4.e-8
       region: "*"
 features:
-    - vision
-    - image_input
-    - response_schema
+    - structured_output
 limits:
     context_window: 32768
     max_input_tokens: 32768
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: google/gemma-3n-E4B-it
 sources:
     - https://www.together.ai/models/gemma-3n-e4b-it

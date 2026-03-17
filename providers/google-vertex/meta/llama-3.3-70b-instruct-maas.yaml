@@ -6,18 +6,16 @@ costs:
       region: us-central1
 features:
     - chat
-    - code
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
-    - text
     - tool_choice
     - tools
 limits:
     context_window: 128000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+mode: completion
 model: meta/llama-3.3-70b-instruct-maas
 params:
     - defaultValue: 256

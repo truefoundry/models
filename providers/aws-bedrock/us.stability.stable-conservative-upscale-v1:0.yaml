@@ -5,26 +5,19 @@ costs:
       region: us-east-2
     - input_cost_per_image: 0
       region: us-east-1
-features:
-    - image
-    - image_input
 messages:
     options:
         - user
+modalities:
+    input:
+        - image
 mode: image
 model: us.stability.stable-conservative-upscale-v1:0
 params:
-    - defaultValue: 0.35
-      key: creativity
-      maxValue: 0.5
-      minValue: 0.1
     - defaultValue: 0
       key: seed
       maxValue: 4294967294
       minValue: 0
-    - defaultValue: png
-      key: output_format
-      type: string
 removeParams:
     - max_tokens
     - temperature

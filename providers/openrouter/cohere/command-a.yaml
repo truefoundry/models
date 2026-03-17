@@ -6,15 +6,13 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
-    - text
-    - code
+    - structured_output
     - tools
 limits:
     context_window: 256000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+mode: completion
 model: cohere/command-a
 sources:
     - https://openrouter.ai/cohere/command-a/api

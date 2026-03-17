@@ -4,11 +4,10 @@ costs:
       region: "*"
 features:
     - chat
-    - text
 limits:
     context_window: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: liquid/lfm2-8b-a1b
 sources:
     - https://openrouter.ai/liquid/lfm2-8b-a1b/api

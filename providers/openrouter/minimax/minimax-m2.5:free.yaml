@@ -7,14 +7,13 @@ features:
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
-    - text
 limits:
     context_window: 196608
     max_output_tokens: 196608
     max_tokens: 196608
-mode: chat
+mode: completion
 model: minimax/minimax-m2.5:free
 sources:
     - https://openrouter.ai/minimax/minimax-m2.5:free/api

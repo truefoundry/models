@@ -5,11 +5,12 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
 limits:
     context_window: 131072
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: google/gemma-3-4b-it
 sources:
     - https://openrouter.ai/google/gemma-3-4b-it/api

@@ -6,12 +6,12 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 16384
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+mode: completion
 model: phi-4
 params:
     - defaultValue: 128

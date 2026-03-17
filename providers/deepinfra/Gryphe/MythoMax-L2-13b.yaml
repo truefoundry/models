@@ -4,11 +4,11 @@ costs:
       region: "*"
 features:
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 4096
     max_input_tokens: 4096
-mode: chat
+mode: completion
 model: Gryphe/MythoMax-L2-13b
 sources:
     - https://deepinfra.com/Gryphe/MythoMax-L2-13b/api

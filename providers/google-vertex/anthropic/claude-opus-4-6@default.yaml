@@ -81,11 +81,9 @@ costs:
                 from: 200001
 features:
     - function_calling
-    - vision
     - tool_choice
     - prompt_caching
-    - response_schema
-    - pdf_input
+    - structured_output
     - system_messages
     - assistant_prefill
     - cache_control
@@ -93,7 +91,11 @@ limits:
     context_window: 200000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+modalities:
+    input:
+        - image
+        - pdf
+mode: completion
 model: anthropic/claude-opus-4-6@default
 params:
     - key: max_tokens

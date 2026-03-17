@@ -12,17 +12,15 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
-    - text
-    - code
     - tools
 limits:
     context_window: 262144
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+mode: completion
 model: qwen/qwen3-235b-a22b-instruct-2507-maas
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-235b

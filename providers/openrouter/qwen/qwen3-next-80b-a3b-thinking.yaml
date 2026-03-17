@@ -6,16 +6,14 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
-    - text
-    - code
+    - structured_output
     - tools
 limits:
     context_window: 131072
     max_input_tokens: 126976
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: qwen/qwen3-next-80b-a3b-thinking
 sources:
     - https://openrouter.ai/qwen/qwen3-next-80b-a3b-thinking/api

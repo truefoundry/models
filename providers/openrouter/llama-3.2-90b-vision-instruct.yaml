@@ -1,10 +1,11 @@
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 131072
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: llama-3.2-90b-vision-instruct
 params:
     - key: max_tokens

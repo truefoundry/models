@@ -2,16 +2,17 @@ costs:
     - input_cost_per_second: 0.0001
       region: "*"
 features:
-    - audio_input
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - assistant_prefill
     - tools
     - tool_choice
-    - text
     - system_messages
-mode: chat
+modalities:
+    input:
+        - audio
+mode: completion
 model: voxtral-mini-realtime-2602
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02

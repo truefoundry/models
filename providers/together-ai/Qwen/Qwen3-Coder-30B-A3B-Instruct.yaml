@@ -3,12 +3,11 @@ features:
     - function_calling
     - tool_choice
     - system_messages
-    - code
 limits:
     context_window: 262144
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+mode: completion
 model: Qwen/Qwen3-Coder-30B-A3B-Instruct
 sources:
     - https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct

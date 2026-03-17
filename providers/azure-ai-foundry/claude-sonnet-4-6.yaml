@@ -1,10 +1,12 @@
 features:
     - function_calling
-    - vision
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - pdf_input
-mode: chat
+modalities:
+    input:
+        - image
+        - pdf
+mode: completion
 model: claude-sonnet-4-6

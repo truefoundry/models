@@ -4,13 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - text
 limits:
     context_window: 16384
     max_input_tokens: 14336
     max_output_tokens: 2048
     max_tokens: 2048
-mode: chat
+mode: completion
 model: anthracite-org/magnum-v4-72b
 sources:
     - https://openrouter.ai/anthracite-org/magnum-v4-72b/api

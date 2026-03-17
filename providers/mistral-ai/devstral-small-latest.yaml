@@ -6,12 +6,11 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - code
 limits:
     context_window: 256000
-mode: chat
+mode: completion
 model: devstral-small-latest
 sources:
     - https://docs.mistral.ai/models/devstral-small-2-25-12

@@ -6,14 +6,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - prompt_caching
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: anthropic/claude-3-5-haiku-20241022
 sources:
     - https://openrouter.ai/anthropic/claude-3-5-haiku-20241022/api

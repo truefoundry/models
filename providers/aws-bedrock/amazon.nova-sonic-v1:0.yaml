@@ -15,15 +15,17 @@ costs:
       output_cost_per_token: 2.88e-7
       region: ap-northeast-1
 features:
-    - audio_input
-    - audio_output
-    - text
     - function_calling
     - tools
     - system_messages
 limits:
     context_window: 300000
-mode: chat
+modalities:
+    input:
+        - audio
+    output:
+        - audio
+mode: completion
 model: amazon.nova-sonic-v1:0
 removeParams:
     - "n"

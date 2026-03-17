@@ -5,17 +5,15 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
 limits:
     context_window: 256000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+mode: completion
 model: kwaipilot/kat-coder-pro
 sources:
     - https://openrouter.ai/kwaipilot/kat-coder-pro/api

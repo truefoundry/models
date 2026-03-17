@@ -5,13 +5,15 @@ costs:
       region: "*"
 features:
     - chat
-    - audio_input
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 32000
-mode: chat
+modalities:
+    input:
+        - audio
+mode: completion
 model: mistralai/voxtral-small-24b-2507
 sources:
     - https://openrouter.ai/mistralai/voxtral-small-24b-2507/api

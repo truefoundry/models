@@ -4,16 +4,17 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
 sources:
     - https://docs.mistral.ai/models/mistral-small-3-2-25-06

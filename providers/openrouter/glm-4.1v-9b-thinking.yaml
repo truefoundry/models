@@ -1,10 +1,11 @@
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 65536
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: glm-4.1v-9b-thinking
 params:
     - key: max_tokens

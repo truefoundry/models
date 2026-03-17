@@ -4,11 +4,12 @@ costs:
       output_cost_per_audio_token: 0.00001
       output_cost_per_token_batches: 0.000005
       region: "*"
-features:
-    - audio_output
 limits:
     context_window: 32000
-mode: text-to-speech
+modalities:
+    output:
+        - audio
+mode: text_to_speech
 model: gemini-2.5-flash-preview-tts
 sources:
     - https://ai.google.dev/gemini-api/docs/speech-generation

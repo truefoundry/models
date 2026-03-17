@@ -5,13 +5,14 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
 sources:
     - https://www.together.ai/models/llama-4-maverick

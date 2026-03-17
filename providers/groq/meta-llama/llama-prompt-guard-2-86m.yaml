@@ -2,13 +2,11 @@ costs:
     - input_cost_per_token: 4.e-8
       output_cost_per_token: 4.e-8
       region: "*"
-features:
-    - text
 limits:
     context_window: 512
     max_output_tokens: 512
     max_tokens: 512
-mode: classification
+mode: moderation
 model: meta-llama/llama-prompt-guard-2-86m
 params:
     - defaultValue: 256

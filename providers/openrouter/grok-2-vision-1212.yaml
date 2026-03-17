@@ -1,10 +1,11 @@
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 32768
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: grok-2-vision-1212
 sources:
     - https://openrouter.ai/x-ai/grok-2-vision-1212/api

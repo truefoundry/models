@@ -17,14 +17,13 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
-    - text
+    - structured_output
 limits:
     context_window: 1000000
     max_input_tokens: 995904
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: qwen/qwen-plus
 sources:
     - https://openrouter.ai/qwen/qwen-plus/api

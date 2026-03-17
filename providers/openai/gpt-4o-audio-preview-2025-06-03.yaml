@@ -7,15 +7,18 @@ costs:
 features:
     - chat
     - function_calling
-    - audio_input
-    - audio_output
     - tool_choice
     - system_messages
 limits:
     context_window: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+modalities:
+    input:
+        - audio
+    output:
+        - audio
+mode: completion
 model: gpt-4o-audio-preview-2025-06-03
 params:
     - defaultValue: 16384

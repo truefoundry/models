@@ -4,19 +4,18 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - tools
-    - text
-    - code
 limits:
     context_window: 131072
     max_input_tokens: 129024
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: qwen/qwen3-vl-32b-instruct
 sources:
     - https://openrouter.ai/qwen/qwen3-vl-32b-instruct/api

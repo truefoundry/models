@@ -7,10 +7,10 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
-mode: chat
+mode: completion
 model: gpt-oss-120b
 params:
     - key: max_tokens

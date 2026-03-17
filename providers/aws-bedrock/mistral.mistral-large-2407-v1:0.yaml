@@ -5,12 +5,14 @@ costs:
 features:
     - function_calling
     - system_messages
-    - doc
 limits:
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - doc
+mode: completion
 model: mistral.mistral-large-2407-v1:0
 params:
     - defaultValue: 8192

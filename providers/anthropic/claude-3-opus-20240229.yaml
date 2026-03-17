@@ -8,20 +8,21 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 4096
     tool_use_system_prompt_tokens: 395
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: claude-3-opus-20240229
 params:
     - key: max_tokens

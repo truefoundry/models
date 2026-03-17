@@ -3,12 +3,13 @@ costs:
       output_cost_per_image_4k: 0.24
       region: "*"
 features:
-    - vision
     - chat
-    - image
 limits:
     max_input_tokens: 65536
     max_output_tokens: 32768
+modalities:
+    input:
+        - image
 mode: image
 model: google/gemini-3-pro-image
 sources:

@@ -6,7 +6,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
     - assistant_prefill
     - prompt_caching
@@ -15,7 +14,10 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: anthropic/claude-3.5-sonnet
 sources:
     - https://openrouter.ai/anthropic/claude-3.5-sonnet/api

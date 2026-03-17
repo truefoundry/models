@@ -4,13 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 131072
     max_output_tokens: 65537
     max_tokens: 65537
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: arcee-ai/spotlight
 sources:
     - https://openrouter.ai/arcee-ai/spotlight/api

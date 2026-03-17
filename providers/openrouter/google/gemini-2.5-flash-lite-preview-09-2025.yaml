@@ -6,18 +6,18 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
-    - audio_input
     - tool_choice
-    - response_schema
-    - text
+    - structured_output
     - tools
 limits:
     context_window: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+modalities:
+    input:
+        - audio
+        - image
+mode: completion
 model: google/gemini-2.5-flash-lite-preview-09-2025
 sources:
     - https://openrouter.ai/google/gemini-2.5-flash-lite-preview-09-2025/api

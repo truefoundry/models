@@ -6,14 +6,12 @@ features:
     - function_calling
     - tool_choice
     - chat
-    - text
-    - code
     - tools
 limits:
     context_window: 131072
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: aion-labs/aion-1.0
 sources:
     - https://openrouter.ai/aion-labs/aion-1.0/api

@@ -1,10 +1,12 @@
 features:
     - chat
-    - vision
     - tools
 limits:
     context_window: 1000000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gemini-flash-1.5
 params:
     - key: max_tokens

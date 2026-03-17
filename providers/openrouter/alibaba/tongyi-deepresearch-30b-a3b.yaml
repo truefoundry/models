@@ -6,13 +6,11 @@ features:
     - chat
     - function_calling
     - tools
-    - text
-    - code
     - system_messages
 limits:
     context_window: 131072
     max_tokens: 131072
-mode: chat
+mode: completion
 model: alibaba/tongyi-deepresearch-30b-a3b
 sources:
     - https://openrouter.ai/alibaba/tongyi-deepresearch-30b-a3b/api

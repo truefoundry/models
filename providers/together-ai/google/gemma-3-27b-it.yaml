@@ -1,8 +1,9 @@
 features:
     - chat
-    - vision
-    - code
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: google/gemma-3-27b-it
 sources:
     - https://together.ai/pricing

@@ -1,10 +1,11 @@
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 32000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: internvl3-14b
 sources:
     - https://openrouter.ai/opengvlab/internvl3-14b/api

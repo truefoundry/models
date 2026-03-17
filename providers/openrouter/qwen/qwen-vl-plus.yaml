@@ -4,14 +4,16 @@ costs:
       output_cost_per_token: 4.095e-7
       region: "*"
 features:
-    - vision
     - tool_choice
 limits:
     context_window: 131072
     max_input_tokens: 129024
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: qwen/qwen-vl-plus
 sources:
     - https://openrouter.ai/qwen/qwen-vl-plus/api

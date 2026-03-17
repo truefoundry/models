@@ -5,10 +5,12 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
 limits:
     context_window: 200000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: anthropic/claude-3-sonnet
 sources:
     - https://openrouter.ai/anthropic/claude-3-sonnet/api

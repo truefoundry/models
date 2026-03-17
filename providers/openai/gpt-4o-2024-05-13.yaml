@@ -7,39 +7,27 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
-    - image_input
     - tools
     - system_messages
     - tool_choice
-    - response_schema
-    - pdf_input
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+modalities:
+    input:
+        - image
+        - pdf
+mode: completion
 model: gpt-4o-2024-05-13
 params:
     - key: max_tokens
       maxValue: 16384
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-      skipValues:
-          - null
       type: string
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o

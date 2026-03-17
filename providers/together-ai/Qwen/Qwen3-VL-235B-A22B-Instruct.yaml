@@ -1,8 +1,9 @@
 features:
     - chat
-    - vision
-    - image_input
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: Qwen/Qwen3-VL-235B-A22B-Instruct
 sources:
     - https://together.ai/pricing

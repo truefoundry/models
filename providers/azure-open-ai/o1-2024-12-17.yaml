@@ -6,12 +6,14 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - tool_choice
     - prompt_caching
 limits:
     max_input_tokens: 200000
     max_output_tokens: 100000
     max_tokens: 100000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: o1-2024-12-17

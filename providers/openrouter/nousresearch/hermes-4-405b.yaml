@@ -6,14 +6,12 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - tools
-    - text
-    - code
     - system_messages
 limits:
     context_window: 131072
-mode: chat
+mode: completion
 model: nousresearch/hermes-4-405b
 sources:
     - https://openrouter.ai/nousresearch/hermes-4-405b/api

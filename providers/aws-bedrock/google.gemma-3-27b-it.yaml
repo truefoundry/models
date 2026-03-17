@@ -30,14 +30,16 @@ costs:
       output_cost_per_token: 4.6e-7
       region: ap-northeast-1
 features:
-    - vision
     - function_calling
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: google.gemma-3-27b-it
 params:
     - defaultValue: 8192

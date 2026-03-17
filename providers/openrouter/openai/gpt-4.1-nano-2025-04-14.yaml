@@ -6,16 +6,17 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
-    - response_schema
+    - structured_output
     - prompt_caching
     - tool_choice
 limits:
     context_window: 1047576
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: openai/gpt-4.1-nano-2025-04-14
 sources:
     - https://openrouter.ai/openai/gpt-4.1-nano-2025-04-14/api

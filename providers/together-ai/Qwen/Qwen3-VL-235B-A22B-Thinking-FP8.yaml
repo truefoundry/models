@@ -1,10 +1,11 @@
 features:
-    - vision
-    - image_input
     - chat
     - function_calling
     - tool_choice
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: Qwen/Qwen3-VL-235B-A22B-Thinking-FP8
 sources:
     - https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Thinking-FP8

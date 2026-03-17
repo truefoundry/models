@@ -5,19 +5,19 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image_input
     - function_calling
     - tools
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: openai/o3-deep-research
 sources:
     - https://openrouter.ai/openai/o3-deep-research/api

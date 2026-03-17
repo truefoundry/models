@@ -1,8 +1,9 @@
 features:
-    - vision
-    - image_input
     - chat
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: Qwen/Qwen3-VL-235B-A22B-Instruct-FP8
 sources:
     - https://docs.together.ai/docs/serverless-models

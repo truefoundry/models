@@ -8,14 +8,14 @@ features:
     - tool_choice
     - chat
     - prompt_caching
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 163840
     max_input_tokens: 163840
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: deepseek-ai/DeepSeek-V3.1
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-V3.1/api

@@ -6,13 +6,13 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 163840
     max_input_tokens: 163840
     max_output_tokens: 32768
     max_tokens: 32768
-mode: chat
+mode: completion
 model: deepseek-ai/DeepSeek-R1-0528
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-R1-0528/api

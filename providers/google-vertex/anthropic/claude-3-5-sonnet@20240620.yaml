@@ -6,16 +6,18 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
     - assistant_prefill
-    - pdf_input
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+        - pdf
+mode: completion
 model: anthropic/claude-3-5-sonnet@20240620
 requiredParams:
     - max_tokens

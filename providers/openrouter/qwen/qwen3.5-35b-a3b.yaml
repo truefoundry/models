@@ -5,18 +5,18 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
-    - text
+    - structured_output
     - tools
 limits:
     context_window: 262144
     max_input_tokens: 258048
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: qwen/qwen3.5-35b-a3b
 sources:
     - https://openrouter.ai/qwen/qwen3.5-35b-a3b/api

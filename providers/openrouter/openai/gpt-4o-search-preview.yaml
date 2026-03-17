@@ -5,15 +5,14 @@ costs:
       region: "*"
 features:
     - chat
-    - text
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+mode: completion
 model: openai/gpt-4o-search-preview
 sources:
     - https://openrouter.ai/openai/gpt-4o-search-preview/api

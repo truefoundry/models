@@ -5,12 +5,11 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - code
 limits:
     context_window: 128000
-mode: chat
+mode: completion
 model: devstral-medium-latest
 sources:
     - https://docs.mistral.ai/models/devstral-medium-1-0-25-07

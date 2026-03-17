@@ -6,15 +6,13 @@ features:
     - function_calling
     - tool_choice
     - chat
-    - text
-    - code
     - tools
 limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 64000
     max_tokens: 64000
-mode: chat
+mode: completion
 model: arcee-ai/virtuoso-large
 sources:
     - https://openrouter.ai/arcee-ai/virtuoso-large/api

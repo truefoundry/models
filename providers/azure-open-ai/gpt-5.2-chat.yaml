@@ -6,15 +6,17 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
-    - pdf_input
+    - structured_output
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+modalities:
+    input:
+        - image
+        - pdf
+mode: completion
 model: gpt-5.2-chat

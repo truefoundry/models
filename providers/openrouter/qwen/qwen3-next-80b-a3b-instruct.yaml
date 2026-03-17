@@ -4,14 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
     - system_messages
 limits:
     context_window: 131072
     max_output_tokens: 131072
     max_tokens: 131072
-mode: chat
+mode: completion
 model: qwen/qwen3-next-80b-a3b-instruct
 sources:
     - https://openrouter.ai/qwen/qwen3-next-80b-a3b-instruct/api

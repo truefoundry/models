@@ -6,14 +6,12 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 131072
-mode: chat
+mode: completion
 model: mistralai/devstral-medium
 sources:
     - https://openrouter.ai/mistralai/devstral-medium/api

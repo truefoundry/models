@@ -6,15 +6,13 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
-    - text
-    - code
+    - structured_output
     - tools
 limits:
     context_window: 131072
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+mode: completion
 model: mistralai/mistral-large-2407
 sources:
     - https://openrouter.ai/mistralai/mistral-large-2407/api

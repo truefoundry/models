@@ -16,13 +16,15 @@ costs:
       region: eu-central-1
 features:
     - function_calling
-    - vision
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: eu.anthropic.claude-3-haiku-20240307-v1:0
 params:
     - defaultValue: 512

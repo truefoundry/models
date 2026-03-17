@@ -5,18 +5,18 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
-    - text
 limits:
     context_window: 65536
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: z-ai/glm-4.5v
 sources:
     - https://openrouter.ai/z-ai/glm-4.5v/api

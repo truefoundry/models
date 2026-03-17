@@ -4,15 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - tool_choice
 limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: google/gemma-3-27b-it
 sources:
     - https://deepinfra.com/google/gemma-3-27b-it/api

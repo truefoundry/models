@@ -5,13 +5,11 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     max_input_tokens: 200000
     max_output_tokens: 100000
@@ -21,7 +19,10 @@ messages:
         - user
         - assistant
         - developer
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: o4-mini
 params:
     - defaultValue: 1000
@@ -30,50 +31,11 @@ params:
       minValue: 1
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
       type: string
     - defaultValue: medium
       key: reasoning_effort
-      options:
-          - name: Low
-            value: low
-          - name: Medium
-            value: medium
-          - name: High
-            value: high
       type: string
 removeParams:
     - top_p
-    - presence_penalty
-    - frequency_penalty
-    - logit_bias
     - max_tokens
     - temperature

@@ -18,14 +18,15 @@ features:
     - chat
     - function_calling
     - system_messages
-    - doc
-    - text
     - tools
 limits:
     context_window: 128000
     max_output_tokens: 2048
     max_tokens: 2048
-mode: chat
+modalities:
+    input:
+        - doc
+mode: completion
 model: meta.llama3-1-8b-instruct-v1:0
 removeParams:
     - "n"

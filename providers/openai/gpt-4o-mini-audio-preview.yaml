@@ -7,12 +7,15 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - audio_input
-    - audio_output
 isDeprecated: true
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - audio
+    output:
+        - audio
+mode: completion
 model: gpt-4o-mini-audio-preview

@@ -8,13 +8,12 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - code
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+mode: completion
 model: mistralai/codestral-2@001
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral/codestral-2

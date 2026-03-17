@@ -5,12 +5,12 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+mode: completion
 model: hermes-3-llama-3.1-405b
 params:
     - key: max_tokens

@@ -1,7 +1,9 @@
 features:
     - chat
-    - image
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: spotlight
 params:
     - key: max_tokens

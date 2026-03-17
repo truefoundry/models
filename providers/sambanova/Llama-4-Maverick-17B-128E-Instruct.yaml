@@ -4,12 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: Llama-4-Maverick-17B-128E-Instruct
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling

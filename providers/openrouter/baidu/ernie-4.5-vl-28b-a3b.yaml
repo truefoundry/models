@@ -4,17 +4,17 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - tools
-    - text
 limits:
     context_window: 131072
     max_output_tokens: 8000
     max_tokens: 8000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: baidu/ernie-4.5-vl-28b-a3b
 sources:
     - https://openrouter.ai/baidu/ernie-4.5-vl-28b-a3b/api

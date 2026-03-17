@@ -2,17 +2,19 @@ costs:
     - cache_read_input_token_cost: 8.25e-8
       input_cost_per_token: 3.3e-7
       output_cost_per_token: 0.00000275
-      region: jp
+      region: ap-northeast-1
 features:
     - function_calling
-    - vision
     - prompt_caching
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: jp.amazon.nova-2-lite-v1:0
 params:
     - defaultValue: 512

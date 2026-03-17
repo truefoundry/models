@@ -3,8 +3,6 @@ costs:
       output_cost_per_token: 6.e-7
       region: "*"
 features:
-    - vision
-    - image_input
     - function_calling
     - chat
     - system_messages
@@ -13,7 +11,10 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL
 sources:
     - https://deepinfra.com/nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL

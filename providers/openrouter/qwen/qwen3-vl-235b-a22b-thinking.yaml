@@ -4,16 +4,15 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
-    - text
-    - code
     - tools
     - tool_choice
 limits:
     context_window: 131072
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: qwen/qwen3-vl-235b-a22b-thinking
 sources:
     - https://openrouter.ai/qwen/qwen3-vl-235b-a22b-thinking/api

@@ -7,11 +7,9 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - text
-    - code
 limits:
     context_window: 262144
-mode: chat
+mode: completion
 model: qwen/qwen3-coder:exacto
 sources:
     - https://openrouter.ai/qwen/qwen3-coder:exacto/api

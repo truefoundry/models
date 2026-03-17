@@ -101,14 +101,16 @@ costs:
       region: ap-east-2
 features:
     - function_calling
-    - vision
-    - doc
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+modalities:
+    input:
+        - doc
+        - image
+mode: completion
 model: global.amazon.nova-2-lite-v1:0
 params:
     - defaultValue: 512

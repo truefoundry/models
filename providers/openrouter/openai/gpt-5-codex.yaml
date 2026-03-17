@@ -5,17 +5,18 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 400000
     max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: openai/gpt-5-codex
 sources:
     - https://openrouter.ai/openai/gpt-5-codex/api

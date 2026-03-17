@@ -5,18 +5,19 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - chat
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
     - prompt_caching
 limits:
     context_window: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: openai/gpt-4o-mini
 sources:
     - https://openrouter.ai/openai/gpt-4o-mini/api

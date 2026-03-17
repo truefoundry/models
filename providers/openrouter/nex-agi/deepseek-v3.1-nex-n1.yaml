@@ -6,15 +6,13 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - response_schema
-    - text
-    - code
+    - structured_output
     - tools
 limits:
     context_window: 131072
     max_output_tokens: 163840
     max_tokens: 163840
-mode: chat
+mode: completion
 model: nex-agi/deepseek-v3.1-nex-n1
 sources:
     - https://openrouter.ai/nex-agi/deepseek-v3.1-nex-n1/api

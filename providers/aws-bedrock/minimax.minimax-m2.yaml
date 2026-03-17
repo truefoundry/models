@@ -34,14 +34,12 @@ features:
     - function_calling
     - tool_choice
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 200000
     max_output_tokens: 128000
     max_tokens: 128000
-mode: chat
+mode: completion
 model: minimax.minimax-m2
 params:
     - defaultValue: 128000

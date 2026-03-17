@@ -4,17 +4,18 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tools
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 128000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gpt-4-turbo
 params:
     - key: max_tokens

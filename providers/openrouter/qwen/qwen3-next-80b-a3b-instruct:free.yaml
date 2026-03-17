@@ -7,12 +7,10 @@ features:
     - function_calling
     - tool_choice
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 262144
-mode: chat
+mode: completion
 model: qwen/qwen3-next-80b-a3b-instruct:free
 sources:
     - https://openrouter.ai/qwen/qwen3-next-80b-a3b-instruct:free/api

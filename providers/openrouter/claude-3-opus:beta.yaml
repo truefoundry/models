@@ -6,8 +6,6 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tools
     - tool_choice
@@ -17,7 +15,10 @@ limits:
     context_window: 200000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: claude-3-opus:beta
 sources:
     - https://openrouter.ai/anthropic/claude-3-opus:beta/api

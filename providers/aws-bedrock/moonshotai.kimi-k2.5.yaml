@@ -31,12 +31,14 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
-    - vision
 limits:
     context_window: 256000
     max_output_tokens: 81920
     max_tokens: 81920
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: moonshotai.kimi-k2.5
 params:
     - defaultValue: 512

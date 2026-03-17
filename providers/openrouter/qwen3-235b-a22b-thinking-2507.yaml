@@ -7,13 +7,13 @@ features:
     - chat
     - tools
     - function_calling
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 262144
     max_output_tokens: 81920
     max_tokens: 81920
-mode: chat
+mode: completion
 model: qwen3-235b-a22b-thinking-2507
 sources:
     - https://openrouter.ai/qwen/qwen3-235b-a22b-thinking-2507/api

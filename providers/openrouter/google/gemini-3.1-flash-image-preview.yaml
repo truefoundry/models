@@ -5,20 +5,19 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image_input
-    - image
     - function_calling
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 65536
     max_output_tokens: 65536
     max_tokens: 65536
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: google/gemini-3.1-flash-image-preview
 sources:
     - https://openrouter.ai/google/gemini-3.1-flash-image-preview/api

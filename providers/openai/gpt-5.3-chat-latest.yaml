@@ -5,20 +5,20 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - system_messages
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 128000
     max_input_tokens: 111616
     max_output_tokens: 16384
     max_tokens: 16384
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: gpt-5.3-chat-latest
 params:
     - defaultValue: 128

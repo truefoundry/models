@@ -5,25 +5,23 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
-    - image_input
-    - pdf_input
-    - pdf
-    - doc
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - text
-    - code
     - tools
 limits:
     context_window: 256000
     max_input_tokens: 256000
     max_output_tokens: 256000
     max_tokens: 256000
-mode: chat
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
+mode: completion
 model: mistral-large-latest
 sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12

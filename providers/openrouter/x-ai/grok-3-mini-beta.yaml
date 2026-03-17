@@ -5,13 +5,12 @@ costs:
       region: "*"
 features:
     - chat
-    - text
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
-mode: chat
+mode: completion
 model: x-ai/grok-3-mini-beta
 sources:
     - https://openrouter.ai/x-ai/grok-3-mini-beta/api

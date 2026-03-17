@@ -5,18 +5,18 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tools
     - tool_choice
-    - response_schema
-    - text
+    - structured_output
 limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: o1
 params:
     - key: max_tokens

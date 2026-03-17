@@ -4,12 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 12000
     max_tokens: 12000
-mode: chat
+mode: completion
 model: baidu/ernie-4.5-300b-a47b
 params:
     - defaultValue: 128

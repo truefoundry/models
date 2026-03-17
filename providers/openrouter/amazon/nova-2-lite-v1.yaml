@@ -5,16 +5,16 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - tool_choice
     - tools
-    - text
 limits:
     context_window: 1000000
     max_output_tokens: 65535
     max_tokens: 65535
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: amazon/nova-2-lite-v1
 params:
     - defaultValue: 128

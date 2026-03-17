@@ -5,17 +5,18 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 262144
     max_tokens: 262144
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: Qwen/Qwen3-VL-235B-A22B-Instruct
 sources:
     - https://deepinfra.com/Qwen/Qwen3-VL-235B-A22B-Instruct/api

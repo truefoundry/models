@@ -3,14 +3,15 @@ costs:
       output_cost_per_token: 2.e-7
       region: "*"
 features:
-    - vision
-    - image_input
     - chat
 limits:
     context_window: 4096
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: allenai/Molmo-7B-D-0924
 sources:
     - https://docs.together.ai/docs/vision-overview

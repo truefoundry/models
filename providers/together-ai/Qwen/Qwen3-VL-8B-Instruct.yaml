@@ -4,11 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 262144
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: Qwen/Qwen3-VL-8B-Instruct
 sources:
     - https://docs.together.ai/docs/serverless-models

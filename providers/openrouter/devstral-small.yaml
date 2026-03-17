@@ -4,15 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - code
     - tools
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 131072
-mode: chat
+mode: completion
 model: devstral-small
 sources:
     - https://openrouter.ai/mistralai/devstral-small/api

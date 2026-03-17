@@ -1,9 +1,11 @@
 features:
     - chat
-    - image
     - tools
 isDeprecated: true
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: claude-3.5-sonnet-20240620:beta
 params:
     - key: max_tokens

@@ -6,12 +6,13 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 2000000
-mode: chat
+modalities:
+    input:
+        - image
+mode: completion
 model: grok-4.20-beta-0309
 thinking: true
