@@ -33,6 +33,7 @@ features:
     - function_calling
     - vision
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
@@ -45,3 +46,4 @@ params:
       minValue: 1
 sources:
     - https://github.com/QwenLM/Qwen3-VL
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-vl-235b-a22b.html

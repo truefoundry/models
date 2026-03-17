@@ -39,6 +39,12 @@ features:
     - chat
 limits:
     context_window: 128000
+messages:
+    options:
+        - system
+        - user
+        - assistant
+        - developer
 mode: chat
 model: openai.gpt-oss-120b-1:0
 params:
@@ -49,3 +55,4 @@ removeParams:
     - stop
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html
+thinking: true

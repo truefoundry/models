@@ -21,14 +21,14 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 25000
+    max_tokens: 25000
 mode: chat
 model: us.amazon.nova-premier-v1:0
 params:
-    - defaultValue: 10000
+    - defaultValue: 5000
       key: max_tokens
-      maxValue: 10000
+      maxValue: 25000
       minValue: 1
     - defaultValue: 0.7
       key: temperature
@@ -42,4 +42,5 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://aws.amazon.com/nova/pricing/
     - https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.html
-thinking: false
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-premier.html
+thinking: true

@@ -38,5 +38,10 @@ limits:
     max_tokens: 8192
 mode: chat
 model: google.gemma-3-4b-it
+params:
+    - defaultValue: 8192
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
 sources:
     - https://huggingface.co/google/gemma-3-4b-it

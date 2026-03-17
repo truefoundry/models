@@ -2,6 +2,10 @@ costs:
     - cache_read_input_token_cost: 1.6e-8
       input_cost_per_token: 6.4e-8
       output_cost_per_token: 2.56e-7
+      region: ca-west-1
+    - cache_read_input_token_cost: 1.6e-8
+      input_cost_per_token: 6.4e-8
+      output_cost_per_token: 2.56e-7
       region: ca-central-1
 features:
     - function_calling
@@ -32,3 +36,6 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+thinking: true

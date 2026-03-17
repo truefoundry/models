@@ -11,6 +11,8 @@ costs:
 features:
     - function_calling
     - chat
+    - doc
+    - system_messages
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -20,3 +22,4 @@ mode: chat
 model: us.meta.llama3-1-8b-instruct-v1:0
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html

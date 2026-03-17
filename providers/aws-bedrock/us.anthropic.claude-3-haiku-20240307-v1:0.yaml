@@ -17,8 +17,11 @@ costs:
 features:
     - function_calling
     - vision
+    - image_input
     - chat
-    - image
+    - tool_choice
+    - system_messages
+    - assistant_prefill
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -50,3 +53,6 @@ params:
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/docs/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+thinking: false

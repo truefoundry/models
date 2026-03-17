@@ -37,6 +37,17 @@ limits:
     max_tokens: 8192
 mode: chat
 model: mistral.mistral-7b-instruct-v0:2
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+    - defaultValue: 50
+      key: top_k
+      maxValue: 200
+      minValue: 1
+removeParams:
+    - "n"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-text-completion.html
     - https://docs.mistral.ai/getting-started/models/

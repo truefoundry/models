@@ -26,6 +26,8 @@ costs:
 features:
     - function_calling
     - vision
+    - pdf_input
+    - doc
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -33,6 +35,11 @@ limits:
     max_tokens: 65536
 mode: chat
 model: us.amazon.nova-2-lite-v1:0
+params:
+    - defaultValue: 65536
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
 sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html

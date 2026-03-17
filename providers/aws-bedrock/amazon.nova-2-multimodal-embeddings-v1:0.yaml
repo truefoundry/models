@@ -10,6 +10,13 @@ limits:
     max_input_tokens: 8172
 mode: embedding
 model: amazon.nova-2-multimodal-embeddings-v1:0
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - max_tokens
 sources:
     - https://docs.aws.amazon.com/ai/responsible-ai/nova-multimodal-embeddings/overview.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/embeddings.html

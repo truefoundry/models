@@ -4,5 +4,13 @@ costs:
       region: us-west-2
 mode: video
 model: luma.ray-v2:0
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
 sources:
     - https://lumalabs.ai/learning-hub
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-luma.html

@@ -32,6 +32,7 @@ costs:
 features:
     - function_calling
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
@@ -39,3 +40,5 @@ mode: chat
 model: qwen.qwen3-next-80b-a3b
 sources:
     - https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-next-80b-a3b.html
+thinking: true

@@ -22,7 +22,10 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+    - parallel_function_calling
     - vision
+    - tool_choice
+    - response_schema
 limits:
     context_window: 256000
     max_input_tokens: 128000

@@ -4,7 +4,9 @@ costs:
       region: us-east-1
 features:
     - chat
+    - system_messages
 limits:
+    context_window: 256000
     max_input_tokens: 256000
     max_output_tokens: 4096
     max_tokens: 4096

@@ -56,6 +56,11 @@ limits:
     tool_use_system_prompt_tokens: 346
 mode: chat
 model: jp.anthropic.claude-sonnet-4-5-20250929-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://platform.claude.com/docs/en/docs/about-claude/models
