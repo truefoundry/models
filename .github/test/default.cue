@@ -8,13 +8,7 @@ package model
 
 	// Message types supported
 	messages?: {
-		options?: [...string]
-	}
-
-	// Model type configuration
-	type?: {
-		primary?:   string
-		supported?: [...string]
+		options?: [...#MessageOption]
 	}
 
 	// Official documentation links for models, pricing, and deprecations

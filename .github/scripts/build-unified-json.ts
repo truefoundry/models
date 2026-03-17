@@ -39,15 +39,17 @@ function buildUnifiedConfig(
     costs: modelData.costs,
     limits: modelData.limits || {},
     features: modelData.features || [],
+    modalities: modelData.modalities,
     messages: modelData.messages || undefined,
     params: modelData.params || [],
     removeParams: modelData.removeParams || [],
     requiredParams: modelData.requiredParams || [],
-    mode: modelData.mode || '',
+    mode: modelData.mode || 'unknown',
     thinking: modelData.thinking || false,
     isDeprecated: modelData.isDeprecated || false,
+    deprecationDate: modelData.deprecationDate,
     sources: modelData.sources || [],
-    supportedEndpoints: modelData.supportedEndpoints,
+    supportedModes: modelData.supportedModes,
   };
 }
 
