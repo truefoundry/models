@@ -57,20 +57,22 @@ costs:
       region: eu-central-1
 features:
     - function_calling
-    - vision
     - tool_choice
     - system_messages
     - prompt_caching
     - cache_control
     - assistant_prefill
-    - response_schema
-    - pdf_input
+    - structured_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
     tool_use_system_prompt_tokens: 346
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: eu.anthropic.claude-opus-4-6-v1
 params:

@@ -122,25 +122,24 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - audio_input
     - chat
-    - image
-    - pdf
-    - doc
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
     - cache_control
-    - response_schema
-    - pdf_input
-    - image_input
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65535
     max_tokens: 65535
+modalities:
+    input:
+        - audio
+        - doc
+        - image
+        - pdf
 mode: chat
 model: gemini-2.5-flash-lite
 params:
@@ -148,50 +147,9 @@ params:
       maxValue: 64000
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
       type: string
     - defaultValue: null
       key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 24576
-              minValue: 0
-              type: number
-          type:
-              enum:
-                  - enabled
-                  - disabled
-              type: string
-      skipValues:
-          - null
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite
 thinking: true

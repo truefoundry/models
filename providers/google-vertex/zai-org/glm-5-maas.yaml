@@ -5,18 +5,19 @@ costs:
       region: "*"
 features:
     - chat
-    - doc
     - function_calling
     - prompt_caching
-    - response_schema
+    - structured_output
     - system_messages
-    - text
     - tool_choice
     - tools
 limits:
     context_window: 200000
     max_output_tokens: 128000
     max_tokens: 128000
+modalities:
+    input:
+        - doc
 mode: chat
 model: zai-org/glm-5-maas
 sources:

@@ -27,11 +27,13 @@ costs:
       output_cost_per_token: 3.6e-7
       region: ap-northeast-1
 features:
-    - audio_input
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 32000
+modalities:
+    input:
+        - audio
 mode: chat
 model: mistral.voxtral-small-24b-2507
 sources:

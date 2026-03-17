@@ -8,17 +8,17 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
-    - response_schema
+    - structured_output
     - prompt_caching
     - tool_choice
     - system_messages
-    - text
 limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
+modalities:
+    input:
+        - image
 mode: chat
 model: o3-2025-04-16
 params:
@@ -32,16 +32,7 @@ params:
       minValue: 0
     - defaultValue: medium
       key: reasoning_effort
-      options:
-          - name: Low
-            value: low
-          - name: Medium
-            value: medium
-          - name: High
-            value: high
       type: string
-removeParams:
-    - logit_bias
 sources:
     - https://developers.openai.com/api/docs/models/o3
 thinking: true

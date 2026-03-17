@@ -7,36 +7,17 @@ costs:
       region: us-east-1
 features:
     - function_calling
-    - vision
     - chat
-    - image
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - image
 mode: chat
 model: us.anthropic.claude-3-opus-20240229-v1:0
 params:
     - defaultValue: null
       key: tool_choice
-      options:
-          - name: None
-            value: none
-          - name: Auto
-            value: auto
-          - name: Required
-            value: required
-          - name: Custom
-            schema:
-                type: json
-            value: custom
-      rule:
-          default:
-              condition: tools
-              else: null
-              then: auto
-      skipValues:
-          - null
-          - []
-      type: non-view-manage-data

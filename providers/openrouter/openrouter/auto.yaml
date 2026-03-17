@@ -1,11 +1,11 @@
 features:
     - chat
-    - vision
-    - image_input
-    - audio_input
-    - text
 limits:
     context_window: 2000000
+modalities:
+    input:
+        - audio
+        - image
 mode: chat
 model: openrouter/auto
 sources:

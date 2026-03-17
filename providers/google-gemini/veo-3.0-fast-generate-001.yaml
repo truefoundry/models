@@ -1,9 +1,11 @@
 costs:
     - output_cost_per_second: 0.15
       region: "*"
-features:
-    - audio_output
-    - image_input
+modalities:
+    input:
+        - image
+    output:
+        - audio
 mode: video
 model: veo-3.0-fast-generate-001
 sources:

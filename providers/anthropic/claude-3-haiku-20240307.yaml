@@ -8,19 +8,20 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 4096
     tool_use_system_prompt_tokens: 264
+modalities:
+    input:
+        - image
 mode: chat
 model: claude-3-haiku-20240307
 params:

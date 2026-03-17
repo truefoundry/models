@@ -7,19 +7,17 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - vision
-    - image
-    - image_input
-    - pdf
-    - pdf_input
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - image
+        - pdf
 mode: image
 model: gemini-3.1-flash-image-preview
 params:

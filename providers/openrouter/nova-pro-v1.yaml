@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tools
     - tool_choice
@@ -13,6 +11,9 @@ limits:
     context_window: 300000
     max_output_tokens: 5120
     max_tokens: 5120
+modalities:
+    input:
+        - image
 mode: chat
 model: nova-pro-v1
 params:

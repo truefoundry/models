@@ -9,11 +9,12 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
-    - response_schema
+    - structured_output
 limits:
     context_window: 2000000
+modalities:
+    input:
+        - image
 mode: chat
 model: grok-4-fast
 sources:

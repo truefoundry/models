@@ -4,21 +4,19 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - chat
     - system_messages
     - tool_choice
     - tools
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - pdf
-    - pdf_input
-    - doc
-    - text
-    - code
 limits:
     context_window: 128000
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
 mode: chat
 model: mistral-medium-2508
 sources:

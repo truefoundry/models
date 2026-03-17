@@ -13,12 +13,13 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 256000
+modalities:
+    input:
+        - image
 mode: chat
 model: x-ai/grok-4
 sources:

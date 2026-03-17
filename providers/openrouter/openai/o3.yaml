@@ -6,18 +6,17 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
-    - text
-    - code
     - tools
 limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
+modalities:
+    input:
+        - image
 mode: chat
 model: openai/o3
 sources:

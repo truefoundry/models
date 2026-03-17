@@ -4,13 +4,13 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - audio_input
     - system_messages
-    - text
 limits:
     context_window: 32000
+modalities:
+    input:
+        - audio
+        - image
 mode: chat
 model: gemma-3n-e4b-it
 removeParams:

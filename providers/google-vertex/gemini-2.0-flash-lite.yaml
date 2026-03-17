@@ -92,21 +92,23 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - audio_input
     - chat
-    - pdf
-    - doc
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - audio
+        - doc
+        - image
+        - pdf
 mode: chat
 model: gemini-2.0-flash-lite
 sources:

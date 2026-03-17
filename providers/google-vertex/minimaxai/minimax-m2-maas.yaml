@@ -6,17 +6,17 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - tool_choice
     - system_messages
-    - text
-    - code
     - tools
-    - doc
 limits:
     context_window: 196608
     max_output_tokens: 196608
     max_tokens: 196608
+modalities:
+    input:
+        - doc
 mode: chat
 model: minimaxai/minimax-m2-maas
 sources:

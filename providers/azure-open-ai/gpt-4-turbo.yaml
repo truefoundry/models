@@ -6,12 +6,14 @@ features:
     - function_calling
     - parallel_function_calling
     - chat
-    - image
     - tools
     - tool_choice
 limits:
     max_input_tokens: 128000
     max_output_tokens: 4096
+modalities:
+    input:
+        - image
 mode: chat
 model: gpt-4-turbo
 params:
@@ -19,17 +21,4 @@ params:
       maxValue: 4096
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-      skipValues:
-          - null
       type: string

@@ -2,8 +2,9 @@ costs:
     - output_cost_per_second_1080p: 0.5
       output_cost_per_second_720p: 0.3
       region: "*"
-features:
-    - image
+modalities:
+    input:
+        - image
 mode: video
 model: sora-2-pro
 removeParams:
@@ -12,12 +13,9 @@ removeParams:
     - stop
     - top_p
     - "n"
-    - frequency_penalty
-    - presence_penalty
     - stream
     - tool_choice
     - parallel_tool_calls
-    - logit_bias
 sources:
     - https://developers.openai.com/api/docs/models/sora-2-pro
     - https://developers.openai.com/api/docs/guides/video-generation

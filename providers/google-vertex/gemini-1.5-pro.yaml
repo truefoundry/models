@@ -14,15 +14,17 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - system_messages
     - tool_choice
-    - response_schema
-    - pdf_input
+    - structured_output
 isDeprecated: true
 limits:
     max_input_tokens: 2097152
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: gemini-1.5-pro

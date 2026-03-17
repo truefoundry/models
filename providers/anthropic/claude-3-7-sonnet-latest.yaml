@@ -8,20 +8,21 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image
     - tools
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - pdf_input
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     tool_use_system_prompt_tokens: 159
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: claude-3-7-sonnet-latest
 params:
@@ -29,19 +30,3 @@ params:
       maxValue: 128000
     - defaultValue: null
       key: thinking
-      properties:
-          budget_tokens:
-              maxValue: 128000
-              minValue: 1024
-              type: number
-          type:
-              enum:
-                  - enabled
-                  - disabled
-              type: string
-      skipValues:
-          - disabled
-          - null
-      withdrawParams:
-          - top_k
-          - top_p

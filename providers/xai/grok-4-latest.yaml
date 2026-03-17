@@ -7,13 +7,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - chat
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 2000000
+modalities:
+    input:
+        - image
 mode: chat
 model: grok-4-latest
 thinking: true

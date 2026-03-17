@@ -1,9 +1,10 @@
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: grok-vision-beta
 sources:

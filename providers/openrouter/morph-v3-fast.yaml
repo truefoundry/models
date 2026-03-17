@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - chat
-    - text
-    - code
 limits:
     context_window: 81920
     max_input_tokens: 81920
@@ -19,8 +17,6 @@ params:
 removeParams:
     - top_p
     - "n"
-    - frequency_penalty
-    - presence_penalty
     - response_format
 sources:
     - https://openrouter.ai/morph/morph-v3-fast/api

@@ -5,13 +5,15 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
     - system_messages
-    - response_schema
+    - structured_output
     - prompt_caching
 limits:
     context_window: 200000
+modalities:
+    input:
+        - image
 mode: chat
 model: anthropic/claude-3-7-sonnet-latest
 sources:

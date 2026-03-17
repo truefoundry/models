@@ -5,15 +5,16 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - chat
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - doc
 limits:
     context_window: 128000
+modalities:
+    input:
+        - doc
+        - image
 mode: chat
 model: mistral-small
 sources:

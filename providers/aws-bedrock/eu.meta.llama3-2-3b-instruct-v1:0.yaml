@@ -11,13 +11,15 @@ costs:
 features:
     - chat
     - system_messages
-    - doc
 isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 2048
     max_tokens: 2048
+modalities:
+    input:
+        - doc
 mode: chat
 model: eu.meta.llama3-2-3b-instruct-v1:0
 sources:

@@ -1,9 +1,10 @@
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 32000
+modalities:
+    input:
+        - image
 mode: chat
 model: internvl3-14b
 sources:

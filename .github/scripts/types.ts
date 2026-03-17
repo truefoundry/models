@@ -129,6 +129,7 @@ export type Feature =
 // --- Modes ---
 
 export type Mode =
+  | 'chat'
   | 'completion'
   | 'embedding'
   | 'rerank'

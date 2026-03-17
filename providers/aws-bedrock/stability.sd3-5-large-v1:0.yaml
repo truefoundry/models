@@ -1,8 +1,9 @@
 costs:
     - output_cost_per_image: 8.e-8
       region: us-west-2
-features:
-    - image
+modalities:
+    input:
+        - image
 mode: image
 model: stability.sd3-5-large-v1:0
 removeParams:

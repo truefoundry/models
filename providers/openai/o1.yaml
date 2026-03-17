@@ -7,14 +7,11 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - chat
-    - image_input
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
-    - pdf_input
+    - structured_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -25,6 +22,10 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
+        - pdf
 mode: chat
 model: o1
 params:
@@ -36,9 +37,6 @@ removeParams:
     - temperature
     - top_p
     - "n"
-    - presence_penalty
-    - frequency_penalty
-    - logit_bias
     - stream
     - max_tokens
 sources:

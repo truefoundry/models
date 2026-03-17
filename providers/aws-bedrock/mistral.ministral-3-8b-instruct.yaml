@@ -31,14 +31,15 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
-    - vision
-    - image_input
-    - response_schema
+    - structured_output
     - tool_choice
 limits:
     context_window: 256000
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: mistral.ministral-3-8b-instruct
 params:

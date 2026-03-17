@@ -16,6 +16,7 @@ package model
 
 // Canonical mode values for a model
 #Mode:
+	"chat" |
 	"completion" |
 	"embedding" |
 	"rerank" |

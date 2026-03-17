@@ -4,13 +4,13 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
-    - text
 limits:
     context_window: 200000
+modalities:
+    input:
+        - image
 mode: chat
 model: openrouter/free
 sources:

@@ -4,15 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
-    - pdf_input
-    - doc
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
 limits:
     context_window: 128000
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
 mode: chat
 model: magistral-medium-2509
 sources:

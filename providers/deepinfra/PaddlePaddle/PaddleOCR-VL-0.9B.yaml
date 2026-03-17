@@ -4,14 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - response_schema
-    - text
+    - structured_output
 limits:
     context_window: 16384
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: PaddlePaddle/PaddleOCR-VL-0.9B
 sources:

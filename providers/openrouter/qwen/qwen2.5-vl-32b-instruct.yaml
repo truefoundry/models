@@ -4,10 +4,11 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
 limits:
     context_window: 128000
+modalities:
+    input:
+        - image
 mode: chat
 model: qwen/qwen2.5-vl-32b-instruct
 sources:

@@ -4,17 +4,16 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
     - system_messages
-    - text
-    - code
 limits:
     context_window: 131072
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: meta-llama/llama-3.2-11b-vision-instruct
 sources:

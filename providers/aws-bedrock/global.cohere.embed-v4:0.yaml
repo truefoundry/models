@@ -43,10 +43,11 @@ costs:
       region: ap-northeast-2
     - input_cost_per_token: 1.2e-7
       region: ap-northeast-1
-features:
-    - embedding_image_input
 limits:
     max_input_tokens: 128000
+modalities:
+    input:
+        - image
 mode: embedding
 model: global.cohere.embed-v4:0
 removeParams:

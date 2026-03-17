@@ -122,24 +122,23 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - audio_input
-    - image_input
     - chat
-    - pdf
-    - doc
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
-    - text
-    - code
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - audio
+        - doc
+        - image
+        - pdf
 mode: chat
 model: gemini-2.0-flash-001
 params:
@@ -147,35 +146,6 @@ params:
       maxValue: 8192
     - defaultValue: null
       key: response_format
-      options:
-          - name: Text
-            value: null
-          - name: JSON Object
-            schema:
-                properties:
-                    type:
-                        type: string
-                        value: json_object
-                type: object
-            value: json_object
-          - name: JSON Schema
-            params:
-                defaultValue: null
-                key: json_schema
-                skipValues:
-                    - null
-                type: json
-            schema:
-                properties:
-                    json_schema:
-                        type: object
-                    type:
-                        type: string
-                        value: json_schema
-                type: object
-            value: json_schema
-      skipValues:
-          - null
       type: string
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash

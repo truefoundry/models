@@ -5,17 +5,16 @@ costs:
       output_cost_per_token: 0.0000025
       region: "*"
 features:
-    - vision
-    - image
-    - image_input
     - chat
-    - text
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - image
 mode: chat
 model: google/gemini-2.5-flash-image
 sources:

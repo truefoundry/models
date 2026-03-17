@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - tool_choice
     - system_messages
     - chat
@@ -15,6 +13,9 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
+modalities:
+    input:
+        - image
 mode: chat
 model: anthropic/claude-4-sonnet
 sources:

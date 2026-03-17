@@ -8,17 +8,19 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - audio_input
-    - audio_output
     - chat
-    - image_input
     - tool_choice
     - system_messages
 limits:
     context_window: 32000
     max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - audio
+        - image
+    output:
+        - audio
 mode: chat
 model: gpt-realtime-1.5
 sources:

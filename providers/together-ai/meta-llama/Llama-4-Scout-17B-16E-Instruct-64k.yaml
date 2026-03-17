@@ -1,13 +1,14 @@
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 65536
+modalities:
+    input:
+        - image
 mode: chat
 model: meta-llama/Llama-4-Scout-17B-16E-Instruct-64k
 sources:

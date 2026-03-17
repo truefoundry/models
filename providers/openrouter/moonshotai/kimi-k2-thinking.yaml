@@ -8,9 +8,8 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - text
     - system_messages
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
 mode: chat
@@ -18,7 +17,6 @@ model: moonshotai/kimi-k2-thinking
 params:
     - defaultValue: null
       key: reasoning
-      type: object
 sources:
     - https://openrouter.ai/moonshotai/kimi-k2-thinking/api
 thinking: true

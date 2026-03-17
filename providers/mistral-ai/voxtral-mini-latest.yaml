@@ -5,13 +5,15 @@ costs:
       region: "*"
 features:
     - chat
-    - audio_input
-    - vision
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 32000
     max_tokens: 32768
+modalities:
+    input:
+        - audio
+        - image
 mode: chat
 model: voxtral-mini-latest
 sources:

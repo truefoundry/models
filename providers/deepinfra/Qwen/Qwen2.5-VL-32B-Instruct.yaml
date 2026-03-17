@@ -4,12 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
+modalities:
+    input:
+        - image
 mode: chat
 model: Qwen/Qwen2.5-VL-32B-Instruct
 sources:

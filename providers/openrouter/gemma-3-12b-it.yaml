@@ -4,13 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
+modalities:
+    input:
+        - image
 mode: chat
 model: gemma-3-12b-it
 params:

@@ -5,16 +5,18 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 features:
-    - audio_input
-    - audio_output
     - chat
-    - response_schema
+    - structured_output
     - system_messages
-    - text
 limits:
     context_window: 128000
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - audio
+    output:
+        - audio
 mode: chat
 model: openai/gpt-audio
 sources:

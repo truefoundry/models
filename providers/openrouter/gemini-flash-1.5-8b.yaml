@@ -4,15 +4,16 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
     - function_calling
     - tools
-    - image_input
     - system_messages
 limits:
     context_window: 1000000
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: gemini-flash-1.5-8b
 params:

@@ -4,13 +4,13 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - text
 limits:
     context_window: 123000
     max_output_tokens: 16000
     max_tokens: 16000
+modalities:
+    input:
+        - image
 mode: chat
 model: baidu/ernie-4.5-vl-424b-a47b
 sources:

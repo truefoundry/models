@@ -6,17 +6,17 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
     - system_messages
     - tool_choice
-    - text
     - tools
 limits:
     context_window: 1000000
     max_input_tokens: 968000
     max_output_tokens: 32000
     max_tokens: 32000
+modalities:
+    input:
+        - image
 mode: chat
 model: amazon/nova-premier-v1
 sources:

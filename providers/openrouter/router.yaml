@@ -4,12 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
-    - audio_input
-    - image
 limits:
     context_window: 2000000
+modalities:
+    input:
+        - audio
+        - image
 mode: chat
 model: router
 sources:

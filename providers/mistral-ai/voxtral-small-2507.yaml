@@ -6,14 +6,15 @@ costs:
 features:
     - chat
     - function_calling
-    - audio_input
-    - response_schema
-    - pdf
-    - doc
+    - structured_output
     - tools
-    - text
 limits:
     context_window: 32000
+modalities:
+    input:
+        - audio
+        - doc
+        - pdf
 mode: chat
 model: voxtral-small-2507
 sources:

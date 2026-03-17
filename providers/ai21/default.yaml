@@ -18,9 +18,6 @@ params:
       minValue: 0
     - defaultValue: null
       key: stop
-      skipValues:
-          - null
-          - []
       type: array-of-strings
     - defaultValue: 1
       key: top_p
@@ -34,17 +31,6 @@ params:
       key: "n"
       maxValue: 10
       minValue: 1
-    - defaultValue: 0
-      key: frequency_penalty
-      maxValue: 500
-      minValue: 0
-    - defaultValue: 0
-      key: presence_penalty
-      maxValue: 5
-      minValue: 0
     - defaultValue: true
       key: stream
       type: boolean
-type:
-    primary: chat
-    supported: []

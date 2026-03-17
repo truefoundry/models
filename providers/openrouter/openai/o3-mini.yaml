@@ -7,7 +7,7 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 200000
     max_output_tokens: 100000
@@ -17,13 +17,6 @@ model: openai/o3-mini
 params:
     - defaultValue: medium
       key: reasoning_effort
-      options:
-          - name: Low
-            value: low
-          - name: Medium
-            value: medium
-          - name: High
-            value: high
       type: string
 sources:
     - https://openrouter.ai/openai/o3-mini/api

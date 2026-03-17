@@ -8,13 +8,12 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
     - chat
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
-    - response_schema
+    - structured_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -25,6 +24,9 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
 mode: chat
 model: o1-2024-12-17
 params:
@@ -36,9 +38,6 @@ removeParams:
     - temperature
     - top_p
     - "n"
-    - presence_penalty
-    - frequency_penalty
-    - logit_bias
     - stream
     - max_tokens
 sources:

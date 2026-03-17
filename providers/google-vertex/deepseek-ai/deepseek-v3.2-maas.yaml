@@ -8,17 +8,18 @@ costs:
 features:
     - chat
     - function_calling
-    - response_schema
+    - structured_output
     - system_messages
     - tool_choice
     - tools
     - prompt_caching
-    - text
-    - doc
 limits:
     context_window: 163840
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - doc
 mode: chat
 model: deepseek-ai/deepseek-v3.2-maas
 params:

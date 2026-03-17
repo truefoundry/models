@@ -2,9 +2,11 @@ costs:
     - input_cost_per_second: 0.0001
       region: "*"
 features:
-    - audio_input
     - function_calling
-    - response_schema
+    - structured_output
+modalities:
+    input:
+        - audio
 mode: audio_transcription
 model: voxtral-mini-realtime-latest
 params:
@@ -12,6 +14,5 @@ params:
       key: temperature
 removeParams:
     - top_p
-    - safe_prompt
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02

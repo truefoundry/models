@@ -16,14 +16,15 @@ costs:
 features:
     - chat
     - function_calling
-    - vision
-    - image_input
-    - response_schema
+    - structured_output
     - tools
     - prompt_caching
     - system_messages
 limits:
     context_window: 256000
+modalities:
+    input:
+        - image
 mode: chat
 model: ByteDance/Seed-2.0-mini
 sources:

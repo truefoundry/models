@@ -6,12 +6,14 @@ features:
     - function_calling
     - chat
     - tool_choice
-    - response_schema
+    - structured_output
     - assistant_prefill
-    - pdf
-    - doc
 limits:
     context_window: 128000
+modalities:
+    input:
+        - doc
+        - pdf
 mode: chat
 model: magistral-medium-latest
 sources:

@@ -4,12 +4,13 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
+modalities:
+    input:
+        - image
 mode: chat
 model: meta-llama/Llama-4-Maverick-17B-128E
 sources:

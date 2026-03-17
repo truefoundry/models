@@ -225,37 +225,29 @@ costs:
       region: af-south-1
 features:
     - function_calling
-    - vision
     - chat
     - prompt_caching
     - cache_control
     - system_messages
     - tool_choice
     - assistant_prefill
-    - image_input
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
+modalities:
+    input:
+        - image
 mode: chat
 model: global.anthropic.claude-opus-4-5-20251101-v1:0
 params:
     - key: max_tokens
       maxValue: 64000
-    - enum:
-          - enabled
-          - disabled
-      key: thinking
+    - key: thinking
       maxValue: 128000
       minValue: 1024
-      skipValues:
-          - disabled
-          - null
       type: number
-      withdrawParams:
-          - top_k
-          - top_p
 removeParams:
     - temperature
     - top_p

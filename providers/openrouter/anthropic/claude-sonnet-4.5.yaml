@@ -21,7 +21,6 @@ costs:
                 from: 200000
 features:
     - function_calling
-    - vision
     - tool_choice
     - prompt_caching
     - assistant_prefill
@@ -29,6 +28,9 @@ limits:
     context_window: 1000000
     max_output_tokens: 64000
     max_tokens: 64000
+modalities:
+    input:
+        - image
 mode: chat
 model: anthropic/claude-sonnet-4.5
 sources:

@@ -17,16 +17,18 @@ costs:
                 from: 200000
 features:
     - function_calling
-    - vision
-    - audio_input
     - system_messages
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - audio
+        - image
 mode: chat
 model: google/gemini-2.5-pro
 sources:

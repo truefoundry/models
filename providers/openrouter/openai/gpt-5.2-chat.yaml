@@ -6,7 +6,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
     - tool_choice
     - prompt_caching
 limits:
@@ -14,6 +13,9 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: openai/gpt-5.2-chat
 sources:

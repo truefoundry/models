@@ -5,17 +5,17 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
-    - response_schema
+    - structured_output
     - prompt_caching
-    - text
 limits:
     context_window: 65536
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - image
 mode: chat
 model: z-ai/glm-4.5v
 sources:

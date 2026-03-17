@@ -17,16 +17,15 @@ costs:
                 from: 200000
 features:
     - chat
-    - vision
-    - image
-    - image_input
-    - response_schema
+    - structured_output
     - system_messages
-    - text
 limits:
     max_input_tokens: 65536
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - image
 mode: image
 model: nano-banana-pro-preview
 params:

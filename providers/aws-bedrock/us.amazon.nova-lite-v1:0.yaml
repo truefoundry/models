@@ -22,10 +22,7 @@ costs:
       region: us-east-1
 features:
     - function_calling
-    - vision
     - chat
-    - doc
-    - pdf
     - tool_choice
     - prompt_caching
 limits:
@@ -33,6 +30,11 @@ limits:
     max_input_tokens: 300000
     max_output_tokens: 10000
     max_tokens: 10000
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
 mode: chat
 model: us.amazon.nova-lite-v1:0
 params:

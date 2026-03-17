@@ -4,10 +4,8 @@ costs:
       region: "*"
 features:
     - function_calling
-    - vision
-    - image_input
     - chat
-    - response_schema
+    - structured_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -18,6 +16,9 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - image
 mode: chat
 model: o1-pro
 params:

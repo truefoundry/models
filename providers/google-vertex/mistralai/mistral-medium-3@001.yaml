@@ -8,13 +8,15 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - vision
-    - response_schema
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 8191
     max_tokens: 8191
+modalities:
+    input:
+        - image
 mode: chat
 model: mistralai/mistral-medium-3@001
 sources:

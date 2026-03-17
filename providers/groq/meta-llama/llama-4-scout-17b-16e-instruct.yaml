@@ -7,15 +7,16 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - image
 mode: chat
 model: meta-llama/llama-4-scout-17b-16e-instruct
 params:

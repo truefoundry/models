@@ -15,7 +15,6 @@ costs:
       region: ap-southeast-2
 features:
     - function_calling
-    - vision
     - prompt_caching
     - tool_choice
 limits:
@@ -23,6 +22,9 @@ limits:
     max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
+modalities:
+    input:
+        - image
 mode: chat
 model: au.anthropic.claude-opus-4-6-v1
 sources:

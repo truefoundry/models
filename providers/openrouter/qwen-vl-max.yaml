@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - chat
-    - vision
-    - image_input
     - function_calling
     - tool_choice
 limits:
@@ -13,6 +11,9 @@ limits:
     max_input_tokens: 129024
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - image
 mode: chat
 model: qwen-vl-max
 params:

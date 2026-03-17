@@ -5,10 +5,7 @@ costs:
       region: ca-central-1
 features:
     - function_calling
-    - vision
     - chat
-    - pdf
-    - doc
     - prompt_caching
     - cache_control
     - system_messages
@@ -17,6 +14,11 @@ limits:
     max_input_tokens: 300000
     max_output_tokens: 10000
     max_tokens: 10000
+modalities:
+    input:
+        - doc
+        - image
+        - pdf
 mode: chat
 model: ca.amazon.nova-lite-v1:0
 params:

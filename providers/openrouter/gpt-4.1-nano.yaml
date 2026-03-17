@@ -7,15 +7,16 @@ features:
     - chat
     - tools
     - function_calling
-    - vision
-    - image_input
     - tool_choice
-    - response_schema
+    - structured_output
     - system_messages
 limits:
     context_window: 1047576
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - image
 mode: chat
 model: gpt-4.1-nano
 params:
