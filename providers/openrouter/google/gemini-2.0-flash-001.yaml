@@ -7,20 +7,18 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
+    - audio_input
     - system_messages
     - tool_choice
-    - structured_output
+    - response_schema
     - prompt_caching
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 8192
     max_tokens: 8192
-modalities:
-    input:
-        - image
-        - audio
-mode: completion
+mode: chat
 model: google/gemini-2.0-flash-001
 sources:
     - https://openrouter.ai/google/gemini-2.0-flash-001/api

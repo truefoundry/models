@@ -6,12 +6,12 @@ features:
     - chat
     - tools
     - function_calling
-    - structured_output
+    - response_schema
 limits:
     context_window: 256000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: completion
+mode: chat
 model: jamba-1.6-large
 sources:
     - https://openrouter.ai/ai21/jamba-1.6-large/api

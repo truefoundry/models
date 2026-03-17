@@ -2,18 +2,14 @@ costs:
     - input_cost_per_token: 8.5e-7
       output_cost_per_token: 0.00000125
       region: "*"
+features:
+    - code
+    - text
 limits:
     context_window: 256000
     max_output_tokens: 128000
     max_tokens: 128000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: relace/relace-apply-3
 params:
     - defaultValue: 128
@@ -24,6 +20,8 @@ removeParams:
     - temperature
     - top_p
     - "n"
+    - frequency_penalty
+    - presence_penalty
     - response_format
 sources:
     - https://openrouter.ai/relace/relace-apply-3/api

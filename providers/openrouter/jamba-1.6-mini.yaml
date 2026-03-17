@@ -2,11 +2,11 @@ features:
     - chat
     - tools
     - function_calling
-    - structured_output
+    - response_schema
     - system_messages
 limits:
     context_window: 256000
-mode: completion
+mode: chat
 model: jamba-1.6-mini
 params:
     - key: max_tokens

@@ -8,13 +8,13 @@ features:
     - function_calling
     - system_messages
     - prompt_caching
-    - structured_output
+    - response_schema
 limits:
     context_window: 131072
     max_input_tokens: 65536
     max_output_tokens: 65536
     max_tokens: 65536
-mode: completion
+mode: chat
 model: openai/gpt-oss-safeguard-20b
 params:
     - defaultValue: 256

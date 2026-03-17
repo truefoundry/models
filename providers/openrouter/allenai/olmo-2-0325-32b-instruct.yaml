@@ -4,14 +4,10 @@ costs:
       region: "*"
 features:
     - chat
+    - text
 limits:
     context_window: 128000
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: allenai/olmo-2-0325-32b-instruct
 sources:
     - https://openrouter.ai/allenai/olmo-2-0325-32b-instruct/api

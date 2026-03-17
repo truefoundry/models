@@ -5,17 +5,16 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
     - tools
-    - structured_output
+    - response_schema
 limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: o4-mini
 params:
     - key: max_tokens

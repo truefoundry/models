@@ -4,23 +4,19 @@ costs:
       region: "*"
 features:
     - chat
+    - text
+    - code
     - function_calling
     - tool_choice
-    - structured_output
+    - vision
+    - image_input
+    - response_schema
 limits:
     context_window: 131072
     max_input_tokens: 98304
     max_output_tokens: 8192
     max_tokens: 8192
-modalities:
-    input:
-        - text
-        - image
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: qwen/qwen3-235b-a22b
 params:
     - defaultValue: 128

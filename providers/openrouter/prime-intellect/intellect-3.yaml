@@ -4,20 +4,16 @@ costs:
       region: "*"
 features:
     - chat
+    - text
     - function_calling
     - tools
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 131072
     max_output_tokens: 131072
     max_tokens: 131072
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: prime-intellect/intellect-3
 params:
     - defaultValue: 128

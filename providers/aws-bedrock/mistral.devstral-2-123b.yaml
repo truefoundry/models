@@ -41,18 +41,13 @@ costs:
 features:
     - function_calling
     - chat
-    - structured_output
+    - text
+    - code
+    - response_schema
     - tools
 limits:
     context_window: 256000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: mistral.devstral-2-123b
 sources:
     - https://docs.mistral.ai/models/devstral-2-25-12

@@ -5,18 +5,14 @@ costs:
       region: "*"
 features:
     - chat
+    - code
     - function_calling
-    - structured_output
+    - response_schema
     - tool_choice
     - tools
 limits:
     context_window: 262144
-modalities:
-    input:
-        - code
-    output:
-        - code
-mode: completion
+mode: chat
 model: qwen3-coder
 sources:
     - https://openrouter.ai/qwen/qwen3-coder/api

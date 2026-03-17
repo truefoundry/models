@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - chat
+    - text
     - function_calling
     - tools
     - tool_choice
@@ -12,12 +13,7 @@ limits:
     context_window: 1048576
     max_output_tokens: 32000
     max_tokens: 32000
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: openrouter/hunter-alpha
 params:
     - defaultValue: 128

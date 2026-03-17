@@ -22,20 +22,55 @@ costs:
       region: us-east-1
 features:
     - function_calling
+    - vision
     - chat
+    - image
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 8192
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: us.anthropic.claude-3-7-sonnet-20250219-v1:0
 params:
     - key: max_tokens
       maxValue: 128000
     - defaultValue: null
       key: thinking
+      properties:
+          budget_tokens:
+              maxValue: 128000
+              minValue: 1024
+              type: number
+          type:
+              enum:
+                  - enabled
+                  - disabled
+              type: string
+      skipValues:
+          - disabled
+          - null
+      withdrawParams:
+          - top_k
+          - top_p
     - defaultValue: null
       key: tool_choice
+      options:
+          - name: None
+            value: none
+          - name: Auto
+            value: auto
+          - name: Required
+            value: required
+          - name: Custom
+            schema:
+                type: json
+            value: custom
+      rule:
+          default:
+              condition: tools
+              else: null
+              then: auto
+      skipValues:
+          - null
+          - []
+      type: non-view-manage-data

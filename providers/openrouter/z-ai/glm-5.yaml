@@ -6,6 +6,7 @@ features:
     - chat
     - function_calling
     - tools
+    - text
     - system_messages
     - tool_choice
 limits:
@@ -13,12 +14,7 @@ limits:
     max_input_tokens: 71680
     max_output_tokens: 131072
     max_tokens: 131072
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: z-ai/glm-5
 sources:
     - https://openrouter.ai/z-ai/glm-5/api

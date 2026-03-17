@@ -7,14 +7,12 @@ costs:
       region: "*"
 features:
     - chat
+    - image
+    - image_input
     - prompt_caching
     - system_messages
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+    - text
+    - vision
 mode: image
 model: chatgpt-image-latest
 removeParams:

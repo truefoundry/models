@@ -11,11 +11,32 @@ features:
 limits:
     max_input_tokens: 16384
     max_output_tokens: 4096
-mode: completion
+mode: chat
 model: gpt-35-turbo-1106
 params:
     - key: max_tokens
       maxValue: 4096
     - defaultValue: null
       key: response_format
+      options:
+          - name: Text
+            value: null
+          - name: JSON Object
+            schema:
+                properties:
+                    type:
+                        type: string
+                        value: json_object
+                type: object
+            value: json_object
+      skipValues:
+          - null
       type: string
+    - defaultValue: 0
+      key: frequency_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: 0
+      key: presence_penalty
+      maxValue: 2
+      minValue: -2

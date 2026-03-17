@@ -5,18 +5,13 @@ costs:
 features:
     - function_calling
     - chat
+    - text
+    - code
     - tools
     - system_messages
 limits:
     context_window: 163840
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: deepseek/deepseek-v3.1-terminus
 sources:
     - https://openrouter.ai/deepseek/deepseek-v3.1-terminus/api

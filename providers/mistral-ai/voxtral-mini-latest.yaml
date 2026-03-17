@@ -5,16 +5,14 @@ costs:
       region: "*"
 features:
     - chat
+    - audio_input
+    - vision
     - function_calling
-    - structured_output
+    - response_schema
 limits:
     context_window: 32000
     max_tokens: 32768
-modalities:
-    input:
-        - image
-        - audio
-mode: completion
+mode: chat
 model: voxtral-mini-latest
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-25-07

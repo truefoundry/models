@@ -6,15 +6,13 @@ features:
     - function_calling
     - chat
     - tool_choice
-    - structured_output
+    - response_schema
     - assistant_prefill
+    - pdf
+    - doc
 limits:
     context_window: 128000
-modalities:
-    input:
-        - pdf
-        - doc
-mode: completion
+mode: chat
 model: magistral-medium-latest
 sources:
     - https://docs.mistral.ai/models/magistral-medium-1-2-25-09

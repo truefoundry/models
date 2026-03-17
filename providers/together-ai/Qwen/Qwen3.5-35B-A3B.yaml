@@ -5,13 +5,11 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - vision
+    - response_schema
 limits:
     context_window: 262144
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: Qwen/Qwen3.5-35B-A3B
 sources:
     - https://together.ai/pricing

@@ -6,17 +6,14 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - vision
+    - image_input
+    - response_schema
     - system_messages
+    - text
 limits:
     context_window: 2000000
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: grok-4.20-multi-agent-beta-0309
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing

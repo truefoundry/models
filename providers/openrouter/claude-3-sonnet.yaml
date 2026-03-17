@@ -4,6 +4,8 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - tools
     - function_calling
     - system_messages
@@ -11,10 +13,7 @@ limits:
     context_window: 200000
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: claude-3-sonnet
 params:
     - key: max_tokens

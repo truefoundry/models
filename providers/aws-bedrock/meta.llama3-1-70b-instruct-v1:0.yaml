@@ -12,17 +12,13 @@ features:
     - function_calling
     - chat
     - system_messages
+    - text
     - tool_choice
 limits:
     context_window: 128000
     max_output_tokens: 2048
     max_tokens: 2048
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: meta.llama3-1-70b-instruct-v1:0
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html

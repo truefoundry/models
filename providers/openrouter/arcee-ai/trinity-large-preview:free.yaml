@@ -5,20 +5,15 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
     - system_messages
     - chat
+    - text
+    - code
     - tools
 limits:
     context_window: 131000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: arcee-ai/trinity-large-preview:free
 sources:
     - https://openrouter.ai/arcee-ai/trinity-large-preview:free/api

@@ -4,16 +4,12 @@ costs:
       region: "*"
 features:
     - chat
+    - code
 isDeprecated: true
 limits:
     max_input_tokens: 16384
     max_output_tokens: 16384
-modalities:
-    input:
-        - code
-    output:
-        - code
-mode: completion
+mode: chat
 model: codellama-34b-instruct
 params:
     - key: max_tokens

@@ -6,16 +6,11 @@ features:
     - chat
     - function_calling
     - tool_choice
+    - text
+    - code
 limits:
     context_window: 128000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: glm-4-32b
 params:
     - key: max_tokens

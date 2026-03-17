@@ -6,22 +6,20 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - vision
     - chat
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
-    - structured_output
+    - response_schema
+    - pdf_input
 limits:
     context_window: 400000
     max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
-modalities:
-    input:
-        - image
-        - pdf
-mode: completion
+mode: chat
 model: gpt-5-nano
 params:
     - defaultValue: 20000
@@ -30,15 +28,69 @@ params:
       minValue: 1
     - defaultValue: null
       key: response_format
+      options:
+          - name: Text
+            value: null
+          - name: JSON Object
+            schema:
+                properties:
+                    type:
+                        type: string
+                        value: json_object
+                type: object
+            value: json_object
+          - name: JSON Schema
+            params:
+                defaultValue: null
+                key: json_schema
+                skipValues:
+                    - null
+                type: json
+            schema:
+                properties:
+                    json_schema:
+                        type: object
+                    type:
+                        type: string
+                        value: json_schema
+                type: object
+            value: json_schema
+      skipValues:
+          - null
       type: string
     - defaultValue: null
+      enum:
+          - low
+          - medium
+          - high
+          - null
       key: verbosity
+      skipValues:
+          - null
     - defaultValue: null
       key: reasoning
+      nestedOptions:
+          - value:
+                effort: minimal
+            view: minimal
+          - value:
+                effort: low
+            view: low
+          - value:
+                effort: medium
+            view: medium
+          - value:
+                effort: high
+            view: high
+      skipValues:
+          - null
 removeParams:
     - temperature
     - top_p
     - "n"
+    - presence_penalty
+    - frequency_penalty
+    - logit_bias
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-nano

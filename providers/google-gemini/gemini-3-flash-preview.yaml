@@ -11,33 +11,72 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - vision
+    - audio_input
     - chat
+    - pdf
+    - doc
     - tools
     - system_messages
     - tool_choice
     - prompt_caching
-    - structured_output
+    - response_schema
+    - pdf_input
+    - image_input
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-modalities:
-    input:
-        - image
-        - audio
-        - pdf
-        - doc
-mode: completion
+mode: chat
 model: gemini-3-flash-preview
 params:
     - key: max_tokens
       maxValue: 65536
     - defaultValue: null
       key: response_format
+      options:
+          - name: Text
+            value: null
+          - name: JSON Object
+            schema:
+                properties:
+                    type:
+                        type: string
+                        value: json_object
+                type: object
+            value: json_object
+          - name: JSON Schema
+            params:
+                defaultValue: null
+                key: json_schema
+                skipValues:
+                    - null
+                type: json
+            schema:
+                properties:
+                    json_schema:
+                        type: object
+                    type:
+                        type: string
+                        value: json_schema
+                type: object
+            value: json_schema
+      skipValues:
+          - null
       type: string
     - defaultValue: null
       key: thinking
+      properties:
+          thinking_level:
+              enum:
+                  - minimal
+                  - low
+                  - medium
+                  - high
+              type: string
+      skipValues:
+          - null
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
     - https://ai.google.dev/gemini-api/docs/thinking

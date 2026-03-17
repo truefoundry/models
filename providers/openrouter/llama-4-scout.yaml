@@ -4,16 +4,15 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
     - tools
 limits:
     context_window: 327680
     max_output_tokens: 16384
     max_tokens: 16384
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: llama-4-scout
 params:
     - key: max_tokens

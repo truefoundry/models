@@ -6,6 +6,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
     - tool_choice
     - assistant_prefill
 isDeprecated: true
@@ -13,10 +14,7 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: anthropic/claude-3-opus
 requiredParams:
     - max_tokens

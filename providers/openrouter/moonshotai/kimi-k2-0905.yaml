@@ -8,16 +8,12 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - structured_output
+    - text
+    - response_schema
     - system_messages
 limits:
     context_window: 131072
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: moonshotai/kimi-k2-0905
 sources:
     - https://openrouter.ai/moonshotai/kimi-k2-0905/api

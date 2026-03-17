@@ -7,10 +7,10 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 196608
-mode: completion
+mode: chat
 model: minimax/minimax-m2.5
 sources:
     - https://openrouter.ai/minimax/minimax-m2.5/api

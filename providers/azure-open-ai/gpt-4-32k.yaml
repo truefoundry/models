@@ -8,8 +8,16 @@ features:
 limits:
     max_input_tokens: 32768
     max_output_tokens: 4096
-mode: completion
+mode: chat
 model: gpt-4-32k
 params:
     - key: max_tokens
       maxValue: 32768
+    - defaultValue: 0
+      key: frequency_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: 0
+      key: presence_penalty
+      maxValue: 2
+      minValue: -2

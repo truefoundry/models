@@ -11,27 +11,24 @@ costs:
 features:
     - chat
     - function_calling
+    - vision
+    - image_input
+    - audio_input
+    - pdf
+    - pdf_input
     - system_messages
     - tool_choice
     - prompt_caching
-    - structured_output
+    - response_schema
+    - text
+    - code
     - tools
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-modalities:
-    input:
-        - text
-        - image
-        - audio
-        - pdf
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: gemini-3.1-flash-lite-preview
 params:
     - defaultValue: 65536

@@ -5,9 +5,10 @@ costs:
       region: us-east-2
     - input_cost_per_image: 0.04
       region: us-east-1
-modalities:
-    input:
-        - image
+features:
+    - image
+    - image_input
+    - vision
 mode: image
 model: us.stability.stable-image-search-replace-v1:0
 removeParams:

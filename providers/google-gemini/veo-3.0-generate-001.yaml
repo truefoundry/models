@@ -1,11 +1,9 @@
 costs:
     - output_cost_per_second: 0.4
       region: "*"
-modalities:
-    input:
-        - image
-    output:
-        - audio
+features:
+    - audio_output
+    - image_input
 mode: video
 model: veo-3.0-generate-001
 removeParams:

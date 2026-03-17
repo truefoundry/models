@@ -5,12 +5,12 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 131072
     max_output_tokens: 7168
     max_tokens: 7168
-mode: completion
+mode: chat
 model: DeepSeek-V3-0324
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling

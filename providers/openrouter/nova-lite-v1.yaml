@@ -4,6 +4,8 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
     - tool_choice
     - tools
@@ -11,10 +13,7 @@ limits:
     context_window: 300000
     max_output_tokens: 5120
     max_tokens: 5120
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: nova-lite-v1
 params:
     - key: max_tokens

@@ -5,13 +5,12 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - tool_choice
 limits:
     context_window: 127072
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: sonar
 sources:
     - https://openrouter.ai/perplexity/sonar/api

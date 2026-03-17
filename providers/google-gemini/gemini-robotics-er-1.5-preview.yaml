@@ -5,18 +5,16 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
+    - audio_input
     - chat
-    - structured_output
+    - response_schema
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-modalities:
-    input:
-        - image
-        - audio
-mode: completion
+mode: chat
 model: gemini-robotics-er-1.5-preview
 sources:
     - https://ai.google.dev/gemini-api/docs/robotics-overview

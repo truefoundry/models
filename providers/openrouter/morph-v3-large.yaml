@@ -4,18 +4,13 @@ costs:
       region: "*"
 features:
     - chat
+    - text
+    - code
 limits:
     context_window: 262144
     max_output_tokens: 131072
     max_tokens: 131072
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: morph-v3-large
 params:
     - key: max_tokens

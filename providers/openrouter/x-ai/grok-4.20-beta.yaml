@@ -15,18 +15,15 @@ costs:
 features:
     - chat
     - function_calling
+    - vision
+    - image_input
     - tool_choice
-    - structured_output
+    - response_schema
+    - text
     - tools
 limits:
     context_window: 2000000
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: x-ai/grok-4.20-beta
 sources:
     - https://openrouter.ai/x-ai/grok-4.20-beta/api

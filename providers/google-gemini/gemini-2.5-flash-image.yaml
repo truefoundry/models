@@ -7,19 +7,17 @@ costs:
       output_cost_per_image_token: 0.00003
       region: "*"
 features:
+    - vision
     - chat
+    - image
+    - image_input
     - prompt_caching
-    - structured_output
+    - response_schema
+    - text
 limits:
     max_input_tokens: 65536
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
 mode: image
 model: gemini-2.5-flash-image
 params:

@@ -3,22 +3,22 @@ costs:
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.000005
       region: "*"
+features:
+    - audio_input
+    - text
 limits:
     max_input_tokens: 16000
     max_output_tokens: 2000
-modalities:
-    input:
-        - text
-        - audio
-    output:
-        - text
 mode: audio_transcription
 model: gpt-4o-mini-transcribe-2025-03-20
 removeParams:
     - top_p
     - "n"
+    - frequency_penalty
+    - presence_penalty
     - tool_choice
     - parallel_tool_calls
+    - logit_bias
     - stop
 sources:
     - https://developers.openai.com/docs/guides/speech-to-text

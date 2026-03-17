@@ -4,16 +4,11 @@ costs:
       region: "*"
 features:
     - chat
+    - text
+    - code
 limits:
     context_window: 32768
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: liquid/lfm-2.5-1.2b-instruct:free
 sources:
     - https://openrouter.ai/liquid/lfm-2.5-1.2b-instruct:free/api

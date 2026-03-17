@@ -15,20 +15,18 @@ costs:
               - cost_per_token: 0.000018
                 from: 200000
 features:
-    - structured_output
+    - vision
+    - image_input
+    - pdf
+    - pdf_input
+    - response_schema
     - system_messages
+    - text
 limits:
     context_window: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-modalities:
-    input:
-        - text
-        - image
-        - pdf
-    output:
-        - text
-mode: completion
+mode: chat
 model: deep-research-pro-preview-12-2025
 removeParams:
     - tool_choice

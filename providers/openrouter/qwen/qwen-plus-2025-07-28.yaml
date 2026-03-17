@@ -13,18 +13,14 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
+    - text
 limits:
     context_window: 1000000
     max_input_tokens: 995904
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: qwen/qwen-plus-2025-07-28
 params:
     - defaultValue: 128

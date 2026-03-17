@@ -4,16 +4,15 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
+    - pdf
 limits:
     context_window: 8192
     max_input_tokens: 8192
     max_output_tokens: 8192
     max_tokens: 8192
-modalities:
-    input:
-        - image
-        - pdf
-mode: completion
+mode: chat
 model: deepseek-ai/DeepSeek-OCR
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-OCR

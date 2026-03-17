@@ -4,18 +4,14 @@ costs:
       region: "*"
 features:
     - chat
+    - text
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
     - tools
 limits:
     context_window: 256000
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: nvidia/nemotron-3-nano-30b-a3b:free
 sources:
     - https://openrouter.ai/nvidia/nemotron-3-nano-30b-a3b:free/api

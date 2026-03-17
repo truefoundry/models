@@ -211,18 +211,16 @@ costs:
       region: asia-east1
 features:
     - chat
+    - vision
+    - image
+    - image_input
+    - pdf_input
     - system_messages
+    - text
 limits:
     max_input_tokens: 65536
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-        - image
-        - pdf
-    output:
-        - text
 mode: image
 model: gemini-3-pro-image-preview
 removeParams:

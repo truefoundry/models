@@ -1,10 +1,9 @@
 costs:
     - output_cost_per_image: 0.001
       region: "*"
-modalities:
-    input:
-        - image
-mode: image
+features:
+    - image
+mode: image_generation
 model: stabilityai/sdxl-turbo
 sources:
     - https://deepinfra.com/stabilityai/sdxl-turbo/api

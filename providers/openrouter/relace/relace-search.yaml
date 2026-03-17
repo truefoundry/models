@@ -6,20 +6,15 @@ features:
     - function_calling
     - tool_choice
     - tools
+    - text
+    - code
     - system_messages
 limits:
     context_window: 256000
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: relace/relace-search
 sources:
     - https://openrouter.ai/relace/relace-search/api

@@ -6,11 +6,11 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
     - system_messages
 limits:
     context_window: 128000
-mode: completion
+mode: chat
 model: DeepSeek-V3.1-cb
 sources:
     - https://docs.sambanova.ai/docs/api-reference/chat-completions/create-chat-based-completion

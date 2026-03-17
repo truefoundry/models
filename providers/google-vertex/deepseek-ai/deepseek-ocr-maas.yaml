@@ -4,23 +4,20 @@ costs:
       region: us-central1
 features:
     - chat
+    - text
+    - vision
+    - image_input
+    - doc
+    - pdf_input
     - function_calling
     - tools
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 8192
     max_output_tokens: 8192
     max_tokens: 8192
-modalities:
-    input:
-        - text
-        - image
-        - pdf
-        - doc
-    output:
-        - text
-mode: completion
+mode: chat
 model: deepseek-ai/deepseek-ocr-maas
 params:
     - defaultValue: 256

@@ -4,6 +4,8 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
+    - image_input
     - tool_choice
     - system_messages
     - prompt_caching
@@ -12,10 +14,7 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: anthropic/claude-4-opus
 sources:
     - https://deepinfra.com/anthropic/claude-4-opus/api

@@ -4,21 +4,16 @@ costs:
       region: "*"
 features:
     - chat
+    - text
+    - code
     - function_calling
     - tools
     - tool_choice
     - system_messages
-    - structured_output
+    - response_schema
 limits:
     context_window: 256000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: mistral-vibe-cli-with-tools
 sources:
     - https://docs.mistral.ai/models/devstral-2-25-12

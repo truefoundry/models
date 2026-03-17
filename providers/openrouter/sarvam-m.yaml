@@ -1,14 +1,10 @@
 costs: []
 features:
     - chat
+    - text
 limits:
     context_window: 32768
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: sarvam-m
 sources:
     - https://openrouter.ai/sarvamai/sarvam-m/api

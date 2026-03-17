@@ -5,21 +5,18 @@ costs:
 features:
     - chat
     - function_calling
+    - vision
+    - image_input
     - system_messages
     - tool_choice
-    - structured_output
+    - response_schema
+    - text
     - tools
 limits:
     context_window: 128000
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: openai/gpt-4-turbo
 sources:
     - https://openrouter.ai/openai/gpt-4-turbo/api

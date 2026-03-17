@@ -5,18 +5,15 @@ costs:
       region: "*"
 features:
     - chat
+    - text
+    - vision
+    - image_input
     - function_calling
     - tool_choice
     - tools
 limits:
     context_window: 127072
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: perplexity/sonar
 params:
     - defaultValue: 0

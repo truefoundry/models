@@ -7,16 +7,15 @@ costs:
 features:
     - chat
     - function_calling
+    - vision
+    - image_input
     - tool_choice
     - tools
 limits:
     context_window: 200000
     max_output_tokens: 8192
     max_tokens: 8192
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: claude-3.5-sonnet
 params:
     - key: max_tokens

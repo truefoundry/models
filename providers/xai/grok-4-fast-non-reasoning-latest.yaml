@@ -5,14 +5,13 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
+    - image_input
     - chat
-    - structured_output
+    - response_schema
 limits:
     context_window: 2000000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: grok-4-fast-non-reasoning-latest
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing

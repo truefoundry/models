@@ -6,12 +6,12 @@ features:
     - function_calling
     - parallel_function_calling
     - prompt_caching
-    - structured_output
+    - response_schema
 limits:
     context_window: 131072
     max_output_tokens: 40000
     max_tokens: 40000
-mode: completion
+mode: chat
 model: zai-glm-4.7
 params:
     - defaultValue: 1
@@ -20,6 +20,12 @@ params:
       key: top_p
     - key: max_tokens
       maxValue: 40000
+    - defaultValue: false
+      key: disable_reasoning
+      type: boolean
+    - defaultValue: true
+      key: clear_thinking
+      type: boolean
 sources:
     - https://inference-docs.cerebras.ai/models/zai-glm-47
     - https://inference-docs.cerebras.ai/resources/glm-47-migration

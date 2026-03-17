@@ -40,6 +40,7 @@ costs:
       region: ap-east-2
 features:
     - function_calling
+    - vision
     - prompt_caching
     - system_messages
     - pdf_input
@@ -49,10 +50,7 @@ limits:
     max_input_tokens: 300000
     max_output_tokens: 10000
     max_tokens: 10000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: apac.amazon.nova-lite-v1:0
 params:
     - defaultValue: 0.7

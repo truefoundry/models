@@ -4,19 +4,14 @@ costs:
       region: "*"
 features:
     - chat
-    - structured_output
+    - text
+    - code
+    - response_schema
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: qwen/qwq-32b
 sources:
     - https://openrouter.ai/qwen/qwq-32b/api

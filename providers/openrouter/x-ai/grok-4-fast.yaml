@@ -6,24 +6,20 @@ costs:
 features:
     - chat
     - function_calling
+    - vision
+    - image_input
     - system_messages
     - tool_choice
     - tools
-    - structured_output
+    - response_schema
     - prompt_caching
+    - text
+    - code
 limits:
     context_window: 2000000
     max_output_tokens: 30000
     max_tokens: 30000
-modalities:
-    input:
-        - text
-        - image
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: x-ai/grok-4-fast
 sources:
     - https://openrouter.ai/x-ai/grok-4-fast/api

@@ -12,23 +12,20 @@ costs:
                 from: 128000
 features:
     - chat
+    - text
+    - vision
+    - image_input
     - function_calling
     - tool_choice
     - tools
-    - structured_output
+    - response_schema
     - prompt_caching
     - system_messages
 limits:
     context_window: 2000000
     max_output_tokens: 30000
     max_tokens: 30000
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: x-ai/grok-4.1-fast
 params:
     - defaultValue: 128

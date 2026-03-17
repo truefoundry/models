@@ -5,18 +5,14 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - response_schema
     - system_messages
+    - text
     - tools
     - tool_choice
 limits:
     context_window: 131072
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: nousresearch/hermes-3-llama-3.1-70b
 sources:
     - https://openrouter.ai/nousresearch/hermes-3-llama-3.1-70b/api

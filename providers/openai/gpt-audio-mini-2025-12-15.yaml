@@ -8,6 +8,8 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - audio_input
+    - audio_output
     - system_messages
     - tool_choice
 limits:
@@ -15,12 +17,7 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-modalities:
-    input:
-        - audio
-    output:
-        - audio
-mode: completion
+mode: chat
 model: gpt-audio-mini-2025-12-15
 sources:
     - https://developers.openai.com/api/docs/models/gpt-audio-mini

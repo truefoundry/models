@@ -4,14 +4,12 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
     - chat
     - tool_choice
 limits:
     max_input_tokens: 128000
     max_output_tokens: 2048
     max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: Llama-3.2-90B-Vision-Instruct

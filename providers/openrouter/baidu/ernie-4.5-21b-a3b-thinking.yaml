@@ -4,16 +4,12 @@ costs:
       region: "*"
 features:
     - chat
+    - text
 limits:
     context_window: 131072
     max_output_tokens: 65536
     max_tokens: 65536
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: baidu/ernie-4.5-21b-a3b-thinking
 sources:
     - https://openrouter.ai/baidu/ernie-4.5-21b-a3b-thinking/api

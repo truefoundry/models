@@ -4,15 +4,11 @@ costs:
       region: "*"
 features:
     - chat
+    - code
 limits:
     context_window: 128000
     max_tokens: 4096
-modalities:
-    input:
-        - code
-    output:
-        - code
-mode: completion
+mode: chat
 model: qwen/qwen-2.5-coder-32b-instruct:free
 sources:
     - https://openrouter.ai/qwen/qwen-2.5-coder-32b-instruct:free/api

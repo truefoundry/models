@@ -1,12 +1,11 @@
 costs:
     - input_cost_per_token: 1.e-8
       region: "*"
+features:
+    - embedding_image_input
 limits:
     max_input_tokens: 512
     max_tokens: 512
-modalities:
-    input:
-        - image
 mode: embedding
 model: BAAI/bge-large-en-v1.5
 sources:

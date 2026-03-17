@@ -6,20 +6,15 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
     - system_messages
+    - text
+    - code
     - tools
 limits:
     context_window: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: mistralai/mistral-saba
 sources:
     - https://openrouter.ai/mistralai/mistral-saba/api

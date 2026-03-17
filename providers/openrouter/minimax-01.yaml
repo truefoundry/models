@@ -4,14 +4,13 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
 limits:
     context_window: 1000192
     max_output_tokens: 1000192
     max_tokens: 1000192
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: minimax-01
 params:
     - key: max_tokens

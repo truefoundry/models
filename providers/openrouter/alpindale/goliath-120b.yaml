@@ -4,16 +4,12 @@ costs:
       region: "*"
 features:
     - chat
+    - text
 limits:
     context_window: 6144
     max_output_tokens: 1024
     max_tokens: 1024
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: alpindale/goliath-120b
 sources:
     - https://openrouter.ai/alpindale/goliath-120b/api

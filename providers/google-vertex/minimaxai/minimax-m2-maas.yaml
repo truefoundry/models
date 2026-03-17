@@ -6,23 +6,18 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - response_schema
     - tool_choice
     - system_messages
+    - text
+    - code
     - tools
+    - doc
 limits:
     context_window: 196608
     max_output_tokens: 196608
     max_tokens: 196608
-modalities:
-    input:
-        - text
-        - doc
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: minimaxai/minimax-m2-maas
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/minimax/minimax-m2

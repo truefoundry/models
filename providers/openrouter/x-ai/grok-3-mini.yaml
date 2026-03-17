@@ -6,18 +6,14 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
     - system_messages
     - chat
+    - text
 limits:
     context_window: 131072
     max_tokens: 131072
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: x-ai/grok-3-mini
 sources:
     - https://openrouter.ai/x-ai/grok-3-mini/api

@@ -5,7 +5,7 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - response_schema
     - system_messages
     - tool_choice
     - prompt_caching
@@ -13,7 +13,7 @@ limits:
     context_window: 196608
     max_output_tokens: 131072
     max_tokens: 131072
-mode: completion
+mode: chat
 model: MiniMaxAI/MiniMax-M2.5
 sources:
     - https://deepinfra.com/MiniMaxAI/MiniMax-M2.5/api

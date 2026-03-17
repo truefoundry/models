@@ -4,15 +4,13 @@ costs:
       region: us-gov-east-1
 features:
     - function_calling
+    - vision
 limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: us-gov.anthropic.claude-3-haiku-20240307-v1:0
 params:
     - defaultValue: 512

@@ -8,12 +8,12 @@ features:
     - tools
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 40960
     max_output_tokens: 40960
     max_tokens: 40960
-mode: completion
+mode: chat
 model: qwen3-32b
 sources:
     - https://openrouter.ai/qwen/qwen3-32b/api

@@ -8,16 +8,12 @@ features:
     - function_calling
     - tool_choice
     - tools
+    - text
 limits:
     context_window: 32768
     max_output_tokens: 8192
     max_tokens: 8192
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: qwen/qwen-max
 sources:
     - https://openrouter.ai/qwen/qwen-max/api

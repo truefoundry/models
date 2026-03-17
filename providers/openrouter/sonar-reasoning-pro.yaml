@@ -5,12 +5,11 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
 limits:
     context_window: 128000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: sonar-reasoning-pro
 sources:
     - https://openrouter.ai/perplexity/sonar-reasoning-pro/api

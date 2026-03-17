@@ -19,6 +19,8 @@ costs:
                 from: 200000
 features:
     - chat
+    - vision
+    - image_input
     - tools
     - function_calling
     - tool_choice
@@ -26,20 +28,14 @@ features:
     - prompt_caching
     - cache_control
     - assistant_prefill
+    - pdf
+    - text
+    - code
 limits:
     context_window: 200000
     max_output_tokens: 64000
     max_tokens: 64000
-modalities:
-    input:
-        - text
-        - image
-        - pdf
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: claude-sonnet-4
 params:
     - key: max_tokens

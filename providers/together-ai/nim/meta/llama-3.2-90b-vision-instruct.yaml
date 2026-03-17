@@ -1,12 +1,11 @@
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
 limits:
     context_window: 128000
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: nim/meta/llama-3.2-90b-vision-instruct

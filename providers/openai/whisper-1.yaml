@@ -1,9 +1,8 @@
 costs:
     - input_cost_per_second: 0.0001
       region: "*"
-modalities:
-    input:
-        - audio
+features:
+    - audio_input
 mode: audio_transcription
 model: whisper-1
 params:
@@ -16,6 +15,8 @@ removeParams:
     - stop
     - top_p
     - "n"
+    - frequency_penalty
+    - presence_penalty
     - stream
     - tool_choice
     - parallel_tool_calls

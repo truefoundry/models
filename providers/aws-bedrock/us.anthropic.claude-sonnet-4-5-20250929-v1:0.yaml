@@ -101,7 +101,10 @@ costs:
                 from: 200000
 features:
     - function_calling
+    - vision
     - chat
+    - image_input
+    - pdf_input
     - system_messages
     - tool_choice
     - prompt_caching
@@ -113,20 +116,43 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
-modalities:
-    input:
-        - image
-        - pdf
-mode: completion
+mode: chat
 model: us.anthropic.claude-sonnet-4-5-20250929-v1:0
 params:
     - key: max_tokens
       maxValue: 64000
-    - key: thinking
+    - enum:
+          - enabled
+          - disabled
+      key: thinking
       maxValue: 128000
       minValue: 1024
+      skipValues:
+          - disabled
+          - null
       type: number
-    - key: tool_choice
+      withdrawParams:
+          - top_k
+          - top_p
+    - default:
+          condition: tools
+          else: null
+          then: auto
+      key: tool_choice
+      options:
+          - name: None
+            value: none
+          - name: Auto
+            value: auto
+          - name: Required
+            value: required
+          - name: Custom
+            schema: null
+            type: json
+            value: custom
+      rule: null
+      skipValues:
+          - null
       type: json
 removeParams:
     - top_p

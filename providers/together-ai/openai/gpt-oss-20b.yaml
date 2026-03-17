@@ -7,10 +7,10 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 128000
-mode: completion
+mode: chat
 model: openai/gpt-oss-20b
 sources:
     - https://www.together.ai/models/gpt-oss-20b

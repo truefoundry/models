@@ -4,14 +4,12 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
     - tool_choice
 limits:
     context_window: 262144
     max_input_tokens: 262144
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: moonshotai/Kimi-K2.5
 sources:
     - https://www.together.ai/models/kimi-k2-5

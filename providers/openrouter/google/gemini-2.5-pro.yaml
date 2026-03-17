@@ -17,19 +17,17 @@ costs:
                 from: 200000
 features:
     - function_calling
+    - vision
+    - audio_input
     - system_messages
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-modalities:
-    input:
-        - image
-        - audio
-mode: completion
+mode: chat
 model: google/gemini-2.5-pro
 sources:
     - https://openrouter.ai/google/gemini-2.5-pro/api

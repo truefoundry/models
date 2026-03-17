@@ -5,17 +5,16 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - vision
+    - image_input
+    - audio_input
+    - response_schema
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 1000000
     max_tokens: 1000000
-modalities:
-    input:
-        - image
-        - audio
-mode: completion
+mode: chat
 model: google/gemini-2.5-flash
 sources:
     - https://deepinfra.com/google/gemini-2.5-flash

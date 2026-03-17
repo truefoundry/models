@@ -4,13 +4,13 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
+    - audio_input
+    - image
 limits:
     context_window: 2000000
-modalities:
-    input:
-        - image
-        - audio
-mode: completion
+mode: chat
 model: auto
 sources:
     - https://openrouter.ai/openrouter/auto/api

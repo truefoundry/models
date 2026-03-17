@@ -6,12 +6,10 @@ costs:
       region: us-gov-east-1
 features:
     - function_calling
+    - vision
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 128000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: us-gov.anthropic.claude-3-7-sonnet-20250219-v1:0

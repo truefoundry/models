@@ -4,16 +4,12 @@ costs:
       region: "*"
 features:
     - chat
+    - code
     - tools
 limits:
     context_window: 131072
     max_input_tokens: 131072
-modalities:
-    input:
-        - code
-    output:
-        - code
-mode: completion
+mode: chat
 model: devstral-small-2505:free
 sources:
     - https://openrouter.ai/mistralai/devstral-small-2505:free/api

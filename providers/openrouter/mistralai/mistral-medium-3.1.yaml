@@ -4,23 +4,19 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
+    - image_input
     - chat
-    - structured_output
+    - response_schema
     - system_messages
     - tool_choice
     - tools
+    - text
+    - code
 limits:
     context_window: 131072
     max_output_tokens: 131072
-modalities:
-    input:
-        - text
-        - image
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: mistralai/mistral-medium-3.1
 sources:
     - https://openrouter.ai/mistralai/mistral-medium-3.1/api

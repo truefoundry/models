@@ -43,6 +43,7 @@ costs:
       region: ca-central-1
 features:
     - function_calling
+    - vision
     - prompt_caching
     - tool_choice
 limits:
@@ -51,10 +52,7 @@ limits:
     max_output_tokens: 128000
     max_tokens: 128000
     tool_use_system_prompt_tokens: 346
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: us.anthropic.claude-opus-4-6-v1
 params:
     - defaultValue: 4096

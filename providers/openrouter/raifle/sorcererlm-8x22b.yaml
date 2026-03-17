@@ -1,13 +1,9 @@
 features:
     - chat
+    - text
 limits:
     context_window: 16000
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: raifle/sorcererlm-8x22b
 sources:
     - https://openrouter.ai/raifle/sorcererlm-8x22b/api

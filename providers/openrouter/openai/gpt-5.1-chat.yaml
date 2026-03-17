@@ -5,22 +5,19 @@ costs:
       region: "*"
 features:
     - chat
+    - text
+    - vision
+    - image_input
     - function_calling
     - tool_choice
     - tools
-    - structured_output
+    - response_schema
     - system_messages
 limits:
     context_window: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: openai/gpt-5.1-chat
 sources:
     - https://openrouter.ai/openai/gpt-5.1-chat/api

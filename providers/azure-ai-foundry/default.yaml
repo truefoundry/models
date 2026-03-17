@@ -19,6 +19,9 @@ params:
       minValue: 0
     - defaultValue: null
       key: stop
+      skipValues:
+          - null
+          - []
       type: array-of-strings
     - defaultValue: 1
       key: top_p
@@ -31,3 +34,7 @@ params:
     - defaultValue: true
       key: stream
       type: boolean
+type:
+    primary: chat
+    supported:
+        - tools

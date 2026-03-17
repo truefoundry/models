@@ -6,18 +6,16 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - audio_input
+    - response_schema
     - assistant_prefill
+    - pdf
+    - doc
     - system_messages
     - tool_choice
 limits:
     context_window: 32000
-modalities:
-    input:
-        - audio
-        - pdf
-        - doc
-mode: completion
+mode: chat
 model: voxtral-mini-2507
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-25-07

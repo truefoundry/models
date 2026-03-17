@@ -5,18 +5,15 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - vision
+    - image_input
+    - response_schema
     - tool_choice
+    - text
     - tools
 limits:
     context_window: 131072
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: mistralai/mistral-medium-3
 sources:
     - https://openrouter.ai/mistralai/mistral-medium-3/api

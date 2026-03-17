@@ -4,20 +4,17 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
-    - structured_output
+    - response_schema
+    - text
     - tools
 limits:
     context_window: 32768
     max_output_tokens: 8192
     max_tokens: 8192
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: google/gemma-3-12b-it:free
 sources:
     - https://openrouter.ai/google/gemma-3-12b-it:free/api

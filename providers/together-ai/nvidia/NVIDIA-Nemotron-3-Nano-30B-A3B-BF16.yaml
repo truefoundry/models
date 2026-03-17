@@ -1,16 +1,11 @@
 features:
     - chat
     - function_calling
+    - text
+    - code
 limits:
     context_window: 1000000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
 sources:
     - https://together.ai/models/nvidia-nemotron-3-nano

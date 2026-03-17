@@ -5,14 +5,12 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
+    - audio_input
     - chat
 limits:
     max_input_tokens: 131072
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - image
-        - audio
-mode: completion
+mode: chat
 model: Phi-4-multimodal-instruct

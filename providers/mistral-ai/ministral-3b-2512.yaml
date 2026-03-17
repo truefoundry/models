@@ -4,15 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
+    - vision
+    - image_input
+    - response_schema
     - assistant_prefill
     - tool_choice
 limits:
     context_window: 256000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: ministral-3b-2512
 sources:
     - https://docs.mistral.ai/models/ministral-3-3b-25-12

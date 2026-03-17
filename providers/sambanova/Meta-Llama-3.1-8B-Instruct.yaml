@@ -5,13 +5,13 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 16384
     max_input_tokens: 16384
     max_output_tokens: 16384
     max_tokens: 16384
-mode: completion
+mode: chat
 model: Meta-Llama-3.1-8B-Instruct
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling

@@ -18,21 +18,19 @@ costs:
                 from: 200000
 features:
     - function_calling
+    - vision
+    - audio_input
     - system_messages
     - tool_choice
     - prompt_caching
-    - structured_output
+    - response_schema
+    - pdf_input
 isDeprecated: true
 limits:
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
-modalities:
-    input:
-        - image
-        - audio
-        - pdf
-mode: completion
+mode: chat
 model: gemini-pro-latest
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview

@@ -1,11 +1,10 @@
 costs:
     - input_cost_per_second: 0.0000333333
       region: "*"
+features:
+    - audio_input
 limits:
     context_window: 32000
-modalities:
-    input:
-        - audio
 mode: audio_transcription
 model: voxtral-mini-transcribe-2507
 removeParams:
@@ -13,6 +12,7 @@ removeParams:
     - top_p
     - seed
     - stop
+    - safe_prompt
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-25-07
     - https://docs.mistral.ai/capabilities/audio_transcription/offline_transcription

@@ -59,14 +59,11 @@ costs:
       region: asia-east2
     - output_cost_per_image: 0.06
       region: asia-east1
+features:
+    - text
+    - image
 limits:
     max_tokens: 4096
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
 mode: image
 model: imagen-4.0-ultra-generate-001
 sources:

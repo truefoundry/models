@@ -84,17 +84,17 @@ costs:
       output_cost_per_token_batches: 0.00000125
       region: europe-central2
 features:
+    - vision
     - chat
     - system_messages
+    - image
+    - image_input
+    - pdf_input
 limits:
     context_window: 32768
     max_input_tokens: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - image
-        - pdf
 mode: image
 model: gemini-2.5-flash-image
 removeParams:

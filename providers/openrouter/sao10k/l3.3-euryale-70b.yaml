@@ -5,16 +5,12 @@ costs:
 features:
     - chat
     - function_calling
+    - text
 limits:
     context_window: 131072
     max_output_tokens: 16384
     max_tokens: 16384
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: sao10k/l3.3-euryale-70b
 sources:
     - https://openrouter.ai/sao10k/l3.3-euryale-70b/api

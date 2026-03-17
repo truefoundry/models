@@ -6,12 +6,12 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 202752
     max_output_tokens: 128000
     max_tokens: 128000
-mode: completion
+mode: chat
 model: zai-org/GLM-4.7
 sources:
     - https://www.together.ai/models/glm-4-7

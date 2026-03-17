@@ -5,20 +5,17 @@ costs:
 features:
     - chat
     - function_calling
+    - image_input
     - system_messages
+    - text
     - tool_choice
     - tools
+    - vision
 limits:
     context_window: 8192
     max_output_tokens: 1024
     max_tokens: 1024
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: computer-use-preview
 params:
     - defaultValue: 128

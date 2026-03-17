@@ -4,16 +4,12 @@ costs:
       region: "*"
 features:
     - chat
-    - structured_output
+    - text
+    - response_schema
 limits:
     context_window: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: cognitivecomputations/dolphin-mistral-24b-venice-edition:free
 sources:
     - https://openrouter.ai/cognitivecomputations/dolphin-mistral-24b-venice-edition:free/api

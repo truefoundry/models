@@ -6,7 +6,11 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - vision
+    - image_input
+    - response_schema
+    - text
+    - code
     - tools
     - tool_choice
     - system_messages
@@ -14,15 +18,7 @@ limits:
     context_window: 200000
     max_output_tokens: 100000
     max_tokens: 100000
-modalities:
-    input:
-        - text
-        - image
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: openai/o4-mini
 sources:
     - https://openrouter.ai/openai/o4-mini/api

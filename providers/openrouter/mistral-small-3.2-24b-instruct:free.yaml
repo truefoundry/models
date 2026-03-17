@@ -4,19 +4,18 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
     - tools
     - tool_choice
-    - structured_output
+    - response_schema
     - system_messages
 limits:
     context_window: 131072
     max_output_tokens: 131072
     max_tokens: 131072
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: mistral-small-3.2-24b-instruct:free
 sources:
     - https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct:free/api

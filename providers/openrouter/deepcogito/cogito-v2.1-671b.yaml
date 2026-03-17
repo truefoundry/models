@@ -7,18 +7,13 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - structured_output
+    - response_schema
+    - text
+    - code
     - system_messages
 limits:
     context_window: 128000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: deepcogito/cogito-v2.1-671b
 sources:
     - https://openrouter.ai/deepcogito/cogito-v2.1-671b/api

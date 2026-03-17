@@ -4,13 +4,12 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
 limits:
     context_window: 131072
     max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: kimi-vl-a3b-thinking:free
 sources:
     - https://openrouter.ai/moonshotai/kimi-vl-a3b-thinking:free/api

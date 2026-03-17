@@ -1,13 +1,9 @@
 features:
     - chat
+    - code
 limits:
     context_window: 32000
-modalities:
-    input:
-        - code
-    output:
-        - code
-mode: completion
+mode: chat
 model: morph-v2
 params:
     - key: max_tokens

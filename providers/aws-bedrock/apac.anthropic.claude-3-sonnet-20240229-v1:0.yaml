@@ -26,13 +26,11 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+    - vision
 isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: apac.anthropic.claude-3-sonnet-20240229-v1:0

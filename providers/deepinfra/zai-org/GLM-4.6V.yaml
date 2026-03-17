@@ -4,18 +4,17 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
+    - pdf
+    - doc
 limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 16384
     max_tokens: 16384
-modalities:
-    input:
-        - image
-        - pdf
-        - doc
-mode: completion
+mode: chat
 model: zai-org/GLM-4.6V
 sources:
     - https://deepinfra.com/zai-org/GLM-4.6V/api

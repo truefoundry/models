@@ -12,16 +12,15 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - vision
+    - image_input
     - chat
     - tools
 limits:
     max_input_tokens: 128000
     max_output_tokens: 64000
     max_tokens: 64000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: gemini-2.5-computer-use-preview-10-2025
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025

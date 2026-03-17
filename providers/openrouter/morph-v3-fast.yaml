@@ -4,19 +4,14 @@ costs:
       region: "*"
 features:
     - chat
+    - text
+    - code
 limits:
     context_window: 81920
     max_input_tokens: 81920
     max_output_tokens: 38000
     max_tokens: 38000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: morph-v3-fast
 params:
     - key: max_tokens
@@ -24,6 +19,8 @@ params:
 removeParams:
     - top_p
     - "n"
+    - frequency_penalty
+    - presence_penalty
     - response_format
 sources:
     - https://openrouter.ai/morph/morph-v3-fast/api

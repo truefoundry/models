@@ -5,14 +5,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
+    - response_schema
     - prompt_caching
 limits:
     context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 131072
     max_tokens: 131072
-mode: completion
+mode: chat
 model: moonshotai/Kimi-K2-Thinking
 sources:
     - https://deepinfra.com/moonshotai/Kimi-K2-Thinking

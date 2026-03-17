@@ -6,19 +6,15 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - response_schema
+    - text
     - tools
     - tool_choice
 limits:
     context_window: 163840
     max_output_tokens: 163840
     max_tokens: 163840
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: tngtech/deepseek-r1t2-chimera
 sources:
     - https://openrouter.ai/tngtech/deepseek-r1t2-chimera/api

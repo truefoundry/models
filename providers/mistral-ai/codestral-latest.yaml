@@ -5,18 +5,13 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
     - assistant_prefill
+    - code
+    - text
 limits:
     context_window: 128000
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: codestral-latest
 sources:
     - https://docs.mistral.ai/models/codestral-25-08

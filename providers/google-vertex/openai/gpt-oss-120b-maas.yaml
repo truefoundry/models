@@ -12,19 +12,15 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - response_schema
     - system_messages
+    - text
     - tool_choice
 limits:
     context_window: 131072
     max_output_tokens: 131072
     max_tokens: 131072
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: openai/gpt-oss-120b-maas
 params:
     - defaultValue: 256

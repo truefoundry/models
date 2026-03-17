@@ -27,8 +27,9 @@ costs:
       output_cost_per_token: 3.6e-7
       region: ap-northeast-1
 features:
+    - audio_input
     - function_calling
-    - structured_output
+    - response_schema
 limits:
     context_window: 32000
 mode: chat

@@ -1,15 +1,11 @@
 features:
     - chat
+    - text
 limits:
     context_window: 8192
     max_output_tokens: 4096
     max_tokens: 4096
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: neversleep/noromaid-20b
 sources:
     - https://openrouter.ai/neversleep/noromaid-20b/api

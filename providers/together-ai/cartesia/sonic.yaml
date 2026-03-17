@@ -1,8 +1,7 @@
 costs:
     - input_cost_per_character: 0.000065
       region: "*"
-modalities:
-    output:
-        - audio
-mode: text_to_speech
+features:
+    - audio_output
+mode: audio
 model: cartesia/sonic

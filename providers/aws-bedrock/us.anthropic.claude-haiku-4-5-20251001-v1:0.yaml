@@ -36,6 +36,7 @@ costs:
       region: ca-central-1
 features:
     - function_calling
+    - vision
     - chat
     - prompt_caching
     - cache_control
@@ -44,18 +45,24 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: us.anthropic.claude-haiku-4-5-20251001-v1:0
 params:
     - key: max_tokens
       maxValue: 64000
-    - key: thinking
+    - enum:
+          - enabled
+          - disabled
+      key: thinking
       maxValue: 128000
       minValue: 1024
+      skipValues:
+          - disabled
+          - null
       type: number
+      withdrawParams:
+          - top_k
+          - top_p
 removeParams:
     - top_p
 sources:

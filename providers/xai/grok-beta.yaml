@@ -4,16 +4,14 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
     - chat
     - tool_choice
 isDeprecated: true
 limits:
     max_input_tokens: 131072
     max_output_tokens: 131072
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: grok-beta
 params:
     - key: max_tokens

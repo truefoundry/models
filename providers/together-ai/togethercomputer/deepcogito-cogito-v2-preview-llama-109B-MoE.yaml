@@ -2,11 +2,10 @@ features:
     - chat
     - function_calling
     - parallel_function_calling
+    - vision
+    - image_input
     - system_messages
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: togethercomputer/deepcogito-cogito-v2-preview-llama-109B-MoE
 sources:
     - https://huggingface.co/deepcogito/cogito-v2-preview-llama-109B-MoE

@@ -4,13 +4,13 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
-modalities:
-    input:
-        - image
-        - pdf
-        - doc
-mode: completion
+    - vision
+    - image_input
+    - pdf
+    - pdf_input
+    - doc
+    - response_schema
+mode: chat
 model: mistral-ocr-2512
 sources:
     - https://docs.mistral.ai/models/ocr-3-25-12

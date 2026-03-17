@@ -5,12 +5,12 @@ costs:
       region: "*"
 features:
     - chat
-    - structured_output
+    - response_schema
     - prompt_caching
 limits:
     context_window: 128000
     max_input_tokens: 128000
-mode: completion
+mode: chat
 model: sonar
 removeParams:
     - stop

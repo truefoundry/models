@@ -8,11 +8,11 @@ features:
     - tools
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 131072
     max_tokens: 4096
-mode: completion
+mode: chat
 model: grok-3-mini-beta
 sources:
     - https://openrouter.ai/x-ai/grok-3-mini-beta/api

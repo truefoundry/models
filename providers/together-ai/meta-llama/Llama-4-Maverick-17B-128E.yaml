@@ -4,14 +4,13 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
     - function_calling
-    - structured_output
+    - response_schema
 limits:
     context_window: 1048576
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: meta-llama/Llama-4-Maverick-17B-128E
 sources:
     - https://docs.together.ai/docs/serverless-models

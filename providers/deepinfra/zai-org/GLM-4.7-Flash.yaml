@@ -6,12 +6,12 @@ costs:
 features:
     - function_calling
     - chat
-    - structured_output
+    - response_schema
 limits:
     context_window: 200000
     max_output_tokens: 16384
     max_tokens: 16384
-mode: completion
+mode: chat
 model: zai-org/GLM-4.7-Flash
 sources:
     - https://docs.z.ai/guides/llm/glm-4.7

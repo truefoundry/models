@@ -8,12 +8,12 @@ features:
     - function_calling
     - tool_choice
     - tools
-    - structured_output
+    - response_schema
 limits:
     context_window: 163840
     max_output_tokens: 163840
     max_tokens: 163840
-mode: completion
+mode: chat
 model: deepseek-r1t2-chimera
 sources:
     - https://openrouter.ai/tngtech/deepseek-r1t2-chimera/api

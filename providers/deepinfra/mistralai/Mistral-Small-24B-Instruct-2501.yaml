@@ -5,13 +5,13 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 32768
     max_input_tokens: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-mode: completion
+mode: chat
 model: mistralai/Mistral-Small-24B-Instruct-2501
 sources:
     - https://deepinfra.com/mistralai/Mistral-Small-24B-Instruct-2501

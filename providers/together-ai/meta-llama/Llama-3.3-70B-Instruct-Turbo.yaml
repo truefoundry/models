@@ -6,10 +6,10 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 131072
-mode: completion
+mode: chat
 model: meta-llama/Llama-3.3-70B-Instruct-Turbo
 sources:
     - https://docs.together.ai/docs/serverless-models

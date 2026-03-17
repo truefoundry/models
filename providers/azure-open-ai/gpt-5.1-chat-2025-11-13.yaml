@@ -4,16 +4,14 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 features:
+    - vision
     - system_messages
     - prompt_caching
-    - structured_output
+    - response_schema
+    - pdf_input
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-modalities:
-    input:
-        - image
-        - pdf
-mode: completion
+mode: chat
 model: gpt-5.1-chat-2025-11-13

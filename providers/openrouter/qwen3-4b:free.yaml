@@ -7,10 +7,10 @@ features:
     - tools
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 40960
-mode: completion
+mode: chat
 model: qwen3-4b:free
 sources:
     - https://openrouter.ai/qwen/qwen3-4b:free/api

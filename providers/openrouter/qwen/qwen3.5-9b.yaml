@@ -5,18 +5,15 @@ costs:
 features:
     - chat
     - function_calling
+    - vision
+    - image_input
     - tool_choice
-    - structured_output
+    - response_schema
+    - text
     - tools
 limits:
     context_window: 262144
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: qwen/qwen3.5-9b
 sources:
     - https://openrouter.ai/qwen/qwen3.5-9b/api

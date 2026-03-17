@@ -6,16 +6,14 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
     - chat
     - tool_choice
 limits:
     max_input_tokens: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: grok-2-vision
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing

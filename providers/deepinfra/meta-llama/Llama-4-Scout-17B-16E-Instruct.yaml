@@ -4,6 +4,8 @@ costs:
       region: "*"
 features:
     - function_calling
+    - vision
+    - image_input
     - tool_choice
     - chat
     - system_messages
@@ -12,10 +14,7 @@ limits:
     max_input_tokens: 327680
     max_output_tokens: 327680
     max_tokens: 327680
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: meta-llama/Llama-4-Scout-17B-16E-Instruct
 sources:
     - https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct/api

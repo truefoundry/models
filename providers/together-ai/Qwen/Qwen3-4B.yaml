@@ -3,19 +3,14 @@ features:
     - function_calling
     - tool_choice
     - system_messages
+    - text
+    - code
     - tools
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-        - code
-    output:
-        - text
-        - code
-mode: completion
+mode: chat
 model: Qwen/Qwen3-4B
 sources:
     - https://huggingface.co/Qwen/Qwen3-4B

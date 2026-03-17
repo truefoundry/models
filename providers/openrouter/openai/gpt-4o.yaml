@@ -6,17 +6,15 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - vision
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: openai/gpt-4o
 sources:
     - https://openrouter.ai/openai/gpt-4o/api

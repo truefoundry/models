@@ -6,11 +6,11 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 256000
     max_input_tokens: 256000
-mode: completion
+mode: chat
 model: Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
 sources:
     - https://www.together.ai/models/qwen3-coder-480b-a35b-instruct

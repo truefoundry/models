@@ -5,10 +5,10 @@ costs:
       output_cost_per_image_token: 0.00004
       region: "*"
 features:
+    - image
+    - vision
+    - image_input
     - prompt_caching
-modalities:
-    input:
-        - image
 mode: image
 model: gpt-image-1
 removeParams:

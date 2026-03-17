@@ -15,6 +15,7 @@ costs:
       region: ap-southeast-2
 features:
     - function_calling
+    - vision
     - system_messages
     - tool_choice
     - cache_control
@@ -26,10 +27,7 @@ limits:
     max_output_tokens: 64000
     max_tokens: 64000
     tool_use_system_prompt_tokens: 346
-modalities:
-    input:
-        - image
-mode: completion
+mode: chat
 model: au.anthropic.claude-sonnet-4-6
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models

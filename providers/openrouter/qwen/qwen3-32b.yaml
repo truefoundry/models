@@ -7,17 +7,13 @@ features:
     - chat
     - function_calling
     - tool_choice
+    - text
     - tools
 limits:
     context_window: 40960
     max_output_tokens: 40960
     max_tokens: 40960
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: qwen/qwen3-32b
 params:
     - defaultValue: 40960

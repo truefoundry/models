@@ -13,13 +13,13 @@ costs:
       region: us-east-1
 features:
     - function_calling
-    - structured_output
+    - response_schema
 limits:
     context_window: 1048192
     max_input_tokens: 1040000
     max_output_tokens: 8192
     max_tokens: 8192
-mode: completion
+mode: chat
 model: us.writer.palmyra-x5-v1:0
 params:
     - defaultValue: 16
@@ -34,6 +34,14 @@ params:
       key: top_p
       maxValue: 1
       minValue: 0
+    - defaultValue: 0
+      key: frequency_penalty
+      maxValue: 2
+      minValue: -2
+    - defaultValue: 0
+      key: presence_penalty
+      maxValue: 2
+      minValue: -2
     - defaultValue: null
       key: seed
     - defaultValue: 0

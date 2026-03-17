@@ -59,9 +59,10 @@ costs:
       region: asia-east2
     - output_cost_per_image: 0.04
       region: asia-east1
-modalities:
-    input:
-        - image
+features:
+    - image
+    - vision
+    - image_input
 mode: image
 model: imagen-3.0-capability-001
 removeParams:

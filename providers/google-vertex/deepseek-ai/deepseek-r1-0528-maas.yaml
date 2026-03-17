@@ -7,21 +7,17 @@ costs:
 features:
     - chat
     - function_calling
-    - structured_output
+    - response_schema
     - system_messages
     - tool_choice
     - tools
+    - text
+    - doc
 limits:
     context_window: 163840
     max_output_tokens: 32768
     max_tokens: 32768
-modalities:
-    input:
-        - text
-        - doc
-    output:
-        - text
-mode: completion
+mode: chat
 model: deepseek-ai/deepseek-r1-0528-maas
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek

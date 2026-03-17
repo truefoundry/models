@@ -4,15 +4,12 @@ costs:
       region: "*"
 features:
     - chat
+    - vision
+    - image_input
+    - text
 limits:
     context_window: 131072
-modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
-mode: completion
+mode: chat
 model: nvidia/nemotron-nano-12b-v2-vl
 sources:
     - https://openrouter.ai/nvidia/nemotron-nano-12b-v2-vl/api

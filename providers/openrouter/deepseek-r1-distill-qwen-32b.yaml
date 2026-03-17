@@ -6,12 +6,12 @@ features:
     - chat
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
 limits:
     context_window: 32768
     max_output_tokens: 32768
     max_tokens: 32768
-mode: completion
+mode: chat
 model: deepseek-r1-distill-qwen-32b
 params:
     - key: max_tokens

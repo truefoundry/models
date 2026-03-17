@@ -8,12 +8,12 @@ features:
     - tool_choice
     - prompt_caching
     - assistant_prefill
-    - structured_output
+    - response_schema
 limits:
     context_window: 163840
     max_output_tokens: 65536
     max_tokens: 65536
-mode: completion
+mode: chat
 model: deepseek/deepseek-r1-0528
 sources:
     - https://openrouter.ai/deepseek/deepseek-r1-0528/api

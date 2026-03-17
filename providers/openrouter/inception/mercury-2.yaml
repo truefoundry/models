@@ -6,19 +6,15 @@ costs:
 features:
     - function_calling
     - tool_choice
-    - structured_output
+    - response_schema
     - chat
+    - text
     - tools
 limits:
     context_window: 128000
     max_output_tokens: 50000
     max_tokens: 50000
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: completion
+mode: chat
 model: inception/mercury-2
 sources:
     - https://openrouter.ai/inception/mercury-2/api
