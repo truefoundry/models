@@ -6,8 +6,9 @@ features:
     - function_calling
 isDeprecated: true
 limits:
+    context_window: 4096
     max_input_tokens: 131072
-    max_output_tokens: 131072
+    max_output_tokens: 4096
     max_tokens: 131072
 mode: chat
 model: ALLaM-7B-Instruct-preview

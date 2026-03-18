@@ -6,7 +6,8 @@ features:
     - function_calling
     - tool_choice
 limits:
-    context_window: 32000
+    context_window: 32768
+    max_output_tokens: 4096
 mode: chat
 model: Qwen3-32B
 sources:

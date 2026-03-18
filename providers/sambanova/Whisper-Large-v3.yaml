@@ -1,6 +1,9 @@
 costs:
     - input_cost_per_second: 0.00002778
       region: "*"
+limits:
+    context_window: 4096
+    max_output_tokens: 4096
 modalities:
     input:
         - audio
