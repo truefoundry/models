@@ -2,8 +2,10 @@ features:
     - function_calling
     - system_messages
 limits:
-    context_window: 131072
+    context_window: 16384
 mode: chat
 model: meta-llama/Meta-Llama-3.1-8B-Instruct-Reference
 sources:
     - https://docs.together.ai/docs/changelog
+supportedModes:
+    - chat

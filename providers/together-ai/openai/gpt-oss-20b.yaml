@@ -9,7 +9,7 @@ features:
     - tool_choice
     - structured_output
 limits:
-    context_window: 128000
+    context_window: 131072
 mode: chat
 model: openai/gpt-oss-20b
 sources:
@@ -17,4 +17,6 @@ sources:
     - https://docs.together.ai/docs/gpt-oss
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
+supportedModes:
+    - chat
 thinking: true
