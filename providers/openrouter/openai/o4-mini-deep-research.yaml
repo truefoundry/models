@@ -1,6 +1,5 @@
 costs:
     - cache_read_input_token_cost: 5.e-7
-      input_cost_per_query: 0.01
       input_cost_per_token: 0.000002
       output_cost_per_token: 0.000008
       region: "*"
@@ -16,7 +15,11 @@ limits:
     max_tokens: 100000
 modalities:
     input:
+        - pdf
         - image
+        - text
+    output:
+        - text
 mode: chat
 model: openai/o4-mini-deep-research
 sources:

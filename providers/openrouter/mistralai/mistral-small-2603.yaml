@@ -1,2 +1,15 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6.e-7
+      region: "*"
+limits:
+    context_window: 262144
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: mistralai/mistral-small-2603

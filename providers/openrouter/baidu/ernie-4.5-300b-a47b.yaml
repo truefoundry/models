@@ -5,9 +5,14 @@ costs:
 features:
     - structured_output
 limits:
-    context_window: 131072
+    context_window: 123000
     max_output_tokens: 12000
     max_tokens: 12000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: baidu/ernie-4.5-300b-a47b
 params:

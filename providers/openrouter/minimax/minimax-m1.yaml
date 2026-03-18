@@ -2,10 +2,6 @@ costs:
     - input_cost_per_token: 4.e-7
       output_cost_per_token: 0.0000022
       region: "*"
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.0000013
-                from: 200000
 features:
     - function_calling
     - system_messages
@@ -14,6 +10,11 @@ limits:
     context_window: 1000000
     max_output_tokens: 40000
     max_tokens: 40000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: minimax/minimax-m1
 sources:

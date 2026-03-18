@@ -14,7 +14,10 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: z-ai/glm-4.5v
 sources:

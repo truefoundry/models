@@ -16,7 +16,10 @@ limits:
     max_tokens: 30000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: x-ai/grok-4-fast
 sources:

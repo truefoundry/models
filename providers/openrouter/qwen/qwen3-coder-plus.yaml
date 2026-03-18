@@ -3,22 +3,6 @@ costs:
       input_cost_per_token: 6.5e-7
       output_cost_per_token: 0.00000325
       region: "*"
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 3.6e-7
-                from: 32000
-              - cost_per_token: 6.e-7
-                from: 128000
-          input:
-              - cost_per_token: 0.0000018
-                from: 32000
-              - cost_per_token: 0.000003
-                from: 128000
-          output:
-              - cost_per_token: 0.000009
-                from: 32000
-              - cost_per_token: 0.000015
-                from: 128000
 features:
     - function_calling
     - tool_choice
@@ -30,6 +14,11 @@ limits:
     max_input_tokens: 997952
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen/qwen3-coder-plus
 sources:
