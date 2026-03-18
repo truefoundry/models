@@ -16,12 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Detect changed model YAML files
         id: changes
         run: |
-          changed=$(git diff --name-only HEAD~1 HEAD -- 'providers/**/*.yaml' | grep -v '/default\.yaml' || true)
+          changed=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'providers/**/*.yaml' | grep -v '/default\.yaml' || true)
 
           if [ -z "$changed" ]; then
             echo "No model YAML files changed, skipping."
@@ -38,16 +38,20 @@ jobs:
 
       - name: Install truefoundry
         if: steps.changes.outputs.has_changes == 'true'
-        run: pipx install --pip-args=--pre truefoundry
+        run: pipx install truefoundry
 
       - name: Login to TrueFoundry
         if: steps.changes.outputs.has_changes == 'true'
-        run: |
-          tfy login --api-key ${{ secrets.TFY_API_KEY }} --host https://internal.truefoundry.cloud
+        env:
+          TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
+          TFY_HOST: ${{ secrets.TFY_HOST }}
+        run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
 
       - name: Trigger updation job
         if: steps.changes.outputs.has_changes == 'true'
+        env:
+          TFY_JOB_FQN: ${{ secrets.TFY_JOB_FQN }}
         run: |
           tfy job trigger \
-            --fqn tfy-usea1-ctl-devtest:models-pricing-data:models-agent-job \
+            --fqn "$TFY_JOB_FQN" \
             --command "python job.py"
