@@ -1,13 +1,14 @@
 costs:
-    - input_cost_per_token: 4.e-7
-      output_cost_per_token: 8.e-7
+    - input_cost_per_token: "0.00000040"
+      output_cost_per_token: "0.00000080"
       region: "*"
 features:
     - function_calling
 limits:
-    context_window: 64000
+    context_window: 65536
+    max_output_tokens: 4096
 mode: chat
-model: Qwen3-235B-A22B-Instruct-2507
+model: Qwen3-235B
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling
     - https://docs.sambanova.ai/docs/en/build/reasoning
