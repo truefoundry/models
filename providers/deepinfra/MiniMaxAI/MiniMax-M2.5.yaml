@@ -1,17 +1,14 @@
 costs:
-    - input_cost_per_token: 2.7e-7
+    - cache_read_input_token_cost: 2.99999997e-8
+      input_cost_per_token: 2.7e-7
       output_cost_per_token: 9.5e-7
       region: "*"
 features:
-    - function_calling
-    - structured_output
-    - system_messages
-    - tool_choice
     - prompt_caching
 limits:
     context_window: 196608
     max_output_tokens: 131072
-    max_tokens: 131072
+    max_tokens: 196608
 mode: chat
 model: MiniMaxAI/MiniMax-M2.5
 sources:
