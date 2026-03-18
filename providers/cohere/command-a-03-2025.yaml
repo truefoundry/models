@@ -3,17 +3,15 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 features:
-    - function_calling
-    - tools
-    - tool_choice
     - structured_output
-    - system_messages
+    - tool_choice
+    - tools
 limits:
-    context_window: 256000
+    context_window: 288000
     max_input_tokens: 256000
     max_output_tokens: 8000
     max_tokens: 8000
-mode: completion
+mode: chat
 model: command-a-03-2025
 params:
     - defaultValue: 256

@@ -1,2 +1,8 @@
-mode: chat
+features:
+    - structured_output
+limits:
+    context_window: 8192
+mode: completion
 model: tiny-aya-fire
+supportedModes:
+    - chat

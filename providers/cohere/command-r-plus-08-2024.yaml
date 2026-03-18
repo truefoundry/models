@@ -2,10 +2,17 @@ costs:
     - input_cost_per_token: 0.0000025
       output_cost_per_token: 0.00001
       region: "*"
+features:
+    - structured_output
+    - tool_choice
+    - tools
 isDeprecated: true
 limits:
+    context_window: 132096
     max_input_tokens: 128000
     max_output_tokens: 4000
     max_tokens: 128000
 mode: completion
 model: command-r-plus-08-2024
+supportedModes:
+    - chat
