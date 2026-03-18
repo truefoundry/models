@@ -7,7 +7,7 @@ features:
     - function_calling
     - structured_output
 limits:
-    context_window: 32000
+    context_window: 16384
     max_tokens: 32768
 modalities:
     input:
@@ -17,3 +17,5 @@ mode: chat
 model: voxtral-mini-latest
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-25-07
+supportedModes:
+    - audio_transcription

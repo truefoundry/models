@@ -4,12 +4,12 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
-    - assistant_prefill
 limits:
-    context_window: 128000
+    context_window: 256000
 mode: chat
 model: codestral-latest
 sources:
     - https://docs.mistral.ai/models/codestral-25-08
+supportedModes:
+    - completion
+    - chat

@@ -4,9 +4,8 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
-    context_window: 32000
+    context_window: 32768
     max_input_tokens: 32000
     max_output_tokens: 32000
     max_tokens: 32000
@@ -14,3 +13,5 @@ mode: chat
 model: labs-mistral-small-creative
 sources:
     - https://docs.mistral.ai/models/mistral-small-creative-25-12
+supportedModes:
+    - chat

@@ -4,14 +4,10 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
-    - system_messages
-    - assistant_prefill
-    - tools
-    - tool_choice
+limits:
+    context_window: 16384
 modalities:
     input:
-        - doc
         - image
         - pdf
 mode: chat

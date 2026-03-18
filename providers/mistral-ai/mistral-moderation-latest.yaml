@@ -1,3 +1,5 @@
+limits:
+    context_window: 8192
 mode: moderation
 model: mistral-moderation-latest
 removeParams:
@@ -9,3 +11,5 @@ removeParams:
     - stream
 sources:
     - https://docs.mistral.ai/capabilities/guardrailing/
+supportedModes:
+    - moderation

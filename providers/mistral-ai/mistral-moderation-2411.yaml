@@ -2,9 +2,11 @@ costs:
     - input_cost_per_token: 1.e-7
       region: "*"
 limits:
-    context_window: 8000
+    context_window: 8192
 mode: chat
 model: mistral-moderation-2411
 sources:
     - https://docs.mistral.ai/models/mistral-moderation-24-11
     - https://docs.mistral.ai/capabilities/guardrailing
+supportedModes:
+    - moderation

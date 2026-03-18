@@ -4,19 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
-    - assistant_prefill
 limits:
-    context_window: 128000
+    context_window: 131072
 modalities:
     input:
-        - doc
         - image
-        - pdf
 mode: chat
 model: magistral-medium-2509
 sources:
     - https://docs.mistral.ai/models/magistral-medium-1-2-25-09
     - https://docs.mistral.ai/capabilities/reasoning
+supportedModes:
+    - chat
 thinking: true

@@ -5,16 +5,14 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
-    - tools
 limits:
-    context_window: 32000
+    context_window: 32768
 modalities:
     input:
         - audio
-        - doc
-        - pdf
 mode: chat
 model: voxtral-small-2507
 sources:
     - https://docs.mistral.ai/models/voxtral-small-25-07
+supportedModes:
+    - chat

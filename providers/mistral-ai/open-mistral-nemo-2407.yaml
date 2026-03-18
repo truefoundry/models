@@ -4,12 +4,9 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
-    - assistant_prefill
 isDeprecated: true
 limits:
-    context_window: 128000
+    context_window: 131072
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
@@ -18,3 +15,5 @@ model: open-mistral-nemo-2407
 sources:
     - https://docs.mistral.ai/models/mistral-nemo-12b-24-07
     - https://docs.mistral.ai/getting-started/models/models_overview/
+supportedModes:
+    - chat

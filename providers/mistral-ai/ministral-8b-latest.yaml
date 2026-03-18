@@ -4,11 +4,8 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
-    - structured_output
-    - tool_choice
 limits:
-    context_window: 256000
+    context_window: 262144
 modalities:
     input:
         - image
@@ -19,3 +16,5 @@ sources:
     - https://docs.mistral.ai/capabilities/vision
     - https://docs.mistral.ai/capabilities/structured_output
     - https://docs.mistral.ai/capabilities/function_calling
+supportedModes:
+    - chat

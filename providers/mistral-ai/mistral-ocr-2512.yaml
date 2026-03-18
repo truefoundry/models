@@ -4,10 +4,10 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
+limits:
+    context_window: 16384
 modalities:
     input:
-        - doc
         - image
         - pdf
 mode: chat
