@@ -1,7 +1,7 @@
 costs:
     - cache_read_input_token_cost: 2.4e-7
       input_cost_per_token: 0.0000012
-      output_cost_per_token: 0.000006
+      output_cost_per_token: 0.000005999999999999999
       region: "*"
       tiered_pricing:
           cache_read:
@@ -20,16 +20,12 @@ costs:
               - cost_per_token: 0.000015
                 from: 128000
 features:
-    - function_calling
-    - system_messages
-    - tool_choice
     - prompt_caching
-    - structured_output
 limits:
     context_window: 256000
     max_output_tokens: 16384
-    max_tokens: 16384
-mode: chat
+    max_tokens: 256000
+mode: unknown
 model: Qwen/Qwen3-Max-Thinking
 sources:
     - https://deepinfra.com/Qwen/Qwen3-Max-Thinking

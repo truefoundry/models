@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 5.e-8
+    - cache_read_input_token_cost: 5.0000000000000004e-8
       input_cost_per_token: 2.5e-7
       output_cost_per_token: 0.000002
       region: "*"
@@ -14,16 +14,14 @@ costs:
               - cost_per_token: 0.000004
                 from: 128000
 features:
-    - function_calling
-    - structured_output
-    - tool_choice
     - prompt_caching
 limits:
     context_window: 256000
+    max_tokens: 256000
 modalities:
     input:
         - image
-mode: chat
+mode: unknown
 model: ByteDance/Seed-1.8
 sources:
     - https://deepinfra.com/ByteDance/Seed-1.8/api

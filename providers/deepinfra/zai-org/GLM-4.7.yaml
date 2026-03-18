@@ -1,20 +1,17 @@
 costs:
-    - cache_read_input_token_cost: 1.e-8
-      input_cost_per_token: 6.e-8
-      output_cost_per_token: 4.e-7
+    - cache_read_input_token_cost: 8.000000000000001e-8
+      input_cost_per_token: 4.0000000000000003e-7
+      output_cost_per_token: 0.00000175
       region: "*"
 features:
-    - function_calling
     - prompt_caching
-    - structured_output
-    - tools
 limits:
     context_window: 202752
     max_input_tokens: 202752
     max_output_tokens: 131072
-    max_tokens: 131072
-mode: chat
-model: zai-org/GLM-4.7-Flash
+    max_tokens: 202752
+mode: unknown
+model: zai-org/GLM-4.7
 sources:
     - https://docs.z.ai/guides/llm/glm-4.7
     - https://huggingface.co/zai-org/GLM-4.7-Flash

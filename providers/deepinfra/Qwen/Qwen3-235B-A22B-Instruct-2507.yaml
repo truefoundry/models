@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 7.1e-8
-      output_cost_per_token: 0.000001
+    - input_cost_per_token: 7.099999999999999e-8
+      output_cost_per_token: 1.0000000000000001e-7
       region: "*"
 features:
     - function_calling
@@ -12,9 +12,10 @@ limits:
     max_input_tokens: 262144
     max_output_tokens: 262144
     max_tokens: 262144
-mode: chat
+mode: unknown
 model: Qwen/Qwen3-235B-A22B-Instruct-2507
 sources:
     - https://deepinfra.com/Qwen/Qwen3-235B-A22B-Instruct-2507/api
     - https://api.deepinfra.com/models/Qwen/Qwen3-235B-A22B-Instruct-2507
     - https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
+thinking: true

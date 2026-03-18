@@ -3,11 +3,12 @@ costs:
       output_cost_per_token: 1.9e-7
       region: "*"
 limits:
-    context_window: 16000
+    context_window: 16384
+    max_tokens: 16384
 modalities:
     input:
         - image
-mode: chat
+mode: unknown
 model: allenai/olmOCR-2-7B-1025
 sources:
     - https://deepinfra.com/allenai/olmOCR-2-7B-1025/api

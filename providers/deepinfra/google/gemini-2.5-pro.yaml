@@ -11,16 +11,14 @@ features:
     - tool_choice
     - structured_output
 limits:
-    context_window: 1048576
+    context_window: 1000000
     max_input_tokens: 1048576
     max_output_tokens: 65536
-    max_tokens: 65536
+    max_tokens: 1000000
 modalities:
     input:
-        - audio
         - image
-        - pdf
-mode: chat
+mode: unknown
 model: google/gemini-2.5-pro
 sources:
     - https://deepinfra.com/google/gemini-2.5-pro/api

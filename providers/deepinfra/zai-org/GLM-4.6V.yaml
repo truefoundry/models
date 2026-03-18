@@ -1,6 +1,6 @@
 costs:
     - input_cost_per_token: 3.e-7
-      output_cost_per_token: 9.e-7
+      output_cost_per_token: 9.000000000000001e-7
       region: "*"
 features:
     - function_calling
@@ -8,13 +8,11 @@ limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 16384
-    max_tokens: 16384
+    max_tokens: 131072
 modalities:
     input:
-        - doc
         - image
-        - pdf
-mode: chat
+mode: unknown
 model: zai-org/GLM-4.6V
 sources:
     - https://deepinfra.com/zai-org/GLM-4.6V/api

@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 4.e-7
-      output_cost_per_token: 4.e-7
+    - input_cost_per_token: 4.0000000000000003e-7
+      output_cost_per_token: 4.0000000000000003e-7
       region: "*"
 features:
     - tool_choice
@@ -8,7 +8,8 @@ features:
 limits:
     context_window: 4096
     max_input_tokens: 4096
-mode: chat
+    max_tokens: 4096
+mode: unknown
 model: Gryphe/MythoMax-L2-13b
 sources:
     - https://deepinfra.com/Gryphe/MythoMax-L2-13b/api

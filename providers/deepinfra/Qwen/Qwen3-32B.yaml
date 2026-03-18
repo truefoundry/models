@@ -6,10 +6,11 @@ features:
     - function_calling
     - tool_choice
 limits:
+    context_window: 40960
     max_input_tokens: 40960
     max_output_tokens: 40960
     max_tokens: 40960
-mode: chat
+mode: unknown
 model: Qwen/Qwen3-32B
 sources:
     - https://deepinfra.com/Qwen/Qwen3-32B
