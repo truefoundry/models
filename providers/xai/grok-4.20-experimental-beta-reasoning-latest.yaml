@@ -13,7 +13,10 @@ limits:
     context_window: 2000000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: grok-4.20-experimental-beta-reasoning-latest
 sources:
