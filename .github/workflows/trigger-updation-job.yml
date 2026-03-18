@@ -25,44 +25,29 @@ jobs:
 
           if [ -z "$changed" ]; then
             echo "No model YAML files changed, skipping."
-            echo "matrix=[]" >> "$GITHUB_OUTPUT"
-            exit 0
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-          matrix=$(echo "$changed" | while IFS= read -r file; do
-            provider=$(echo "$file" | cut -d'/' -f2)
-            model=$(basename "$file" .yaml)
-            echo "{\"provider\":\"$provider\",\"model\":\"$model\"}"
-          done | jq -s '.')
-
-          echo "Detected changes: $matrix"
-          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
-
       - name: Set up Python
-        if: steps.changes.outputs.matrix != '[]'
+        if: steps.changes.outputs.has_changes == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: Install truefoundry
-        if: steps.changes.outputs.matrix != '[]'
+        if: steps.changes.outputs.has_changes == 'true'
         run: pipx install --pip-args=--pre truefoundry
 
       - name: Login to TrueFoundry
-        if: steps.changes.outputs.matrix != '[]'
+        if: steps.changes.outputs.has_changes == 'true'
         run: |
           tfy login --api-key ${{ secrets.TFY_API_KEY }} --host https://internal.truefoundry.cloud
 
-      - name: Trigger updation job for each changed model
-        if: steps.changes.outputs.matrix != '[]'
-        env:
-          MATRIX: ${{ steps.changes.outputs.matrix }}
+      - name: Trigger updation job
+        if: steps.changes.outputs.has_changes == 'true'
         run: |
-          echo "$MATRIX" | jq -c '.[]' | while read -r entry; do
-            provider=$(echo "$entry" | jq -r '.provider')
-            model=$(echo "$entry" | jq -r '.model')
-            echo "Triggering job for provider=$provider model=$model"
-            tfy job trigger \
-              --fqn tfy-usea1-ctl-devtest:models-pricing-data:models-agent-job \
-              --command "python job.py --provider $provider --model $model"
-          done
+          tfy job trigger \
+            --fqn tfy-usea1-ctl-devtest:models-pricing-data:models-agent-job \
+            --command "python job.py"
