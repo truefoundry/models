@@ -12,12 +12,14 @@ features:
     - structured_output
 limits:
     context_window: 200000
-    max_input_tokens: 200000
     max_output_tokens: 64000
-    max_tokens: 64000
 modalities:
     input:
+        - pdf
         - image
+        - text
+    output:
+        - text
 mode: chat
 model: anthropic/claude-opus-4.5
 sources:

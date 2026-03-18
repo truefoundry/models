@@ -8,12 +8,13 @@ features:
     - system_messages
 limits:
     context_window: 300000
-    max_input_tokens: 294880
     max_output_tokens: 5120
-    max_tokens: 5120
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: amazon/nova-lite-v1
 sources:

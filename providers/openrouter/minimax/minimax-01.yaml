@@ -5,10 +5,12 @@ costs:
 limits:
     context_window: 1000192
     max_output_tokens: 1000192
-    max_tokens: 1000192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: minimax/minimax-01
 sources:

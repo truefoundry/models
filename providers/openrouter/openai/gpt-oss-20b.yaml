@@ -9,9 +9,11 @@ features:
     - structured_output
 limits:
     context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 32768
-    max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: openai/gpt-oss-20b
 sources:

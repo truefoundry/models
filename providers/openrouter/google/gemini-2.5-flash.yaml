@@ -1,7 +1,7 @@
 costs:
-    - cache_creation_input_token_cost: 8.333333e-8
+    - cache_creation_input_token_cost: 8.333333333333334e-8
       cache_read_input_token_cost: 3.e-8
-      input_cost_per_audio_token: 0.000001
+      input_cost_per_image: 3.e-7
       input_cost_per_token: 3.e-7
       output_cost_per_token: 0.0000025
       region: "*"
@@ -13,11 +13,15 @@ features:
 limits:
     context_window: 1048576
     max_output_tokens: 65535
-    max_tokens: 65535
 modalities:
     input:
-        - audio
+        - pdf
         - image
+        - text
+        - audio
+        - video
+    output:
+        - text
 mode: chat
 model: google/gemini-2.5-flash
 sources:

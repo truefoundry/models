@@ -8,12 +8,13 @@ features:
     - tools
 limits:
     context_window: 131072
-    max_input_tokens: 126976
     max_output_tokens: 32768
-    max_tokens: 32768
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: qwen/qwen3-vl-30b-a3b-thinking
 sources:

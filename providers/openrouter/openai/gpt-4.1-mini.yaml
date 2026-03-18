@@ -11,12 +11,15 @@ features:
     - prompt_caching
     - structured_output
 limits:
-    max_input_tokens: 1047576
+    context_window: 1047576
     max_output_tokens: 32768
-    max_tokens: 32768
 modalities:
     input:
         - image
+        - text
+        - pdf
+    output:
+        - text
 mode: chat
 model: openai/gpt-4.1-mini
 sources:

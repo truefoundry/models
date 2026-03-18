@@ -10,7 +10,11 @@ features:
 limits:
     context_window: 32768
     max_output_tokens: 7168
-    max_tokens: 7168
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek/deepseek-chat-v3.1
 sources:

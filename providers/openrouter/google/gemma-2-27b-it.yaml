@@ -11,7 +11,11 @@ features:
 limits:
     context_window: 8192
     max_output_tokens: 2048
-    max_tokens: 2048
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: google/gemma-2-27b-it
 sources:

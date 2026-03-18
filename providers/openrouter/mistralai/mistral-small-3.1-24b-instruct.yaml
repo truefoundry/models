@@ -8,7 +8,10 @@ limits:
     context_window: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistralai/mistral-small-3.1-24b-instruct
 sources:

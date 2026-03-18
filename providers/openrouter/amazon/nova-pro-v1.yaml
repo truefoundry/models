@@ -8,10 +8,12 @@ features:
 limits:
     context_window: 300000
     max_output_tokens: 5120
-    max_tokens: 5120
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: amazon/nova-pro-v1
 sources:

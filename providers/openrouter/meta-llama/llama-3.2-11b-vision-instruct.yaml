@@ -9,10 +9,12 @@ features:
 limits:
     context_window: 131072
     max_output_tokens: 16384
-    max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: meta-llama/llama-3.2-11b-vision-instruct
 sources:

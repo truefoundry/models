@@ -9,7 +9,11 @@ features:
 limits:
     context_window: 204800
     max_output_tokens: 204800
-    max_tokens: 204800
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: z-ai/glm-4.6
 sources:

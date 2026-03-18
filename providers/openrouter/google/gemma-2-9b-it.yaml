@@ -8,6 +8,11 @@ features:
     - structured_output
 limits:
     context_window: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: google/gemma-2-9b-it
 sources:

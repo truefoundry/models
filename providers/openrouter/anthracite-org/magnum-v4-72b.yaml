@@ -4,9 +4,12 @@ costs:
       region: "*"
 limits:
     context_window: 16384
-    max_input_tokens: 14336
     max_output_tokens: 2048
-    max_tokens: 2048
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: anthracite-org/magnum-v4-72b
 sources:

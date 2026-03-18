@@ -9,7 +9,11 @@ features:
 limits:
     context_window: 32768
     max_output_tokens: 32768
-    max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: thedrummer/rocinante-12b
 sources:
