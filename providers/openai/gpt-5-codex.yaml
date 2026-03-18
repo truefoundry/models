@@ -23,9 +23,11 @@ mode: chat
 model: gpt-5-codex
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
+removeParams:
+    - max_tokens
 sources:
     - https://developers.openai.com/docs/models/gpt-5-codex
     - https://developers.openai.com/docs/pricing
