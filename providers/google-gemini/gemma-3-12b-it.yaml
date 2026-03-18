@@ -8,10 +8,8 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 128000
-    max_input_tokens: 128000
+    max_input_tokens: 32768
     max_output_tokens: 8192
-    max_tokens: 8192
 modalities:
     input:
         - image

@@ -11,7 +11,8 @@ features:
     - tools
     - structured_output
 limits:
-    context_window: 32000
+    max_input_tokens: 32768
+    max_output_tokens: 8192
 mode: chat
 model: gemma-3-1b-it
 sources:
