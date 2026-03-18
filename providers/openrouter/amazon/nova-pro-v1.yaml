@@ -11,7 +11,10 @@ limits:
     max_tokens: 5120
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: amazon/nova-pro-v1
 sources:

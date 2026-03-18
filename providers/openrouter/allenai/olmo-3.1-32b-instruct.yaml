@@ -8,6 +8,11 @@ features:
     - structured_output
 limits:
     context_window: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: allenai/olmo-3.1-32b-instruct
 sources:

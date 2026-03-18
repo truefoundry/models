@@ -12,6 +12,11 @@ limits:
     context_window: 160000
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen/qwen3-coder-30b-a3b-instruct
 sources:

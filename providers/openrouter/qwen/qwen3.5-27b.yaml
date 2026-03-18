@@ -14,7 +14,11 @@ limits:
     max_tokens: 65536
 modalities:
     input:
+        - text
         - image
+        - video
+    output:
+        - text
 mode: chat
 model: qwen/qwen3.5-27b
 sources:

@@ -16,7 +16,11 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: anthropic/claude-3.5-sonnet
 sources:

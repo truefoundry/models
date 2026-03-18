@@ -1,8 +1,6 @@
 costs:
     - cache_read_input_token_cost: 2.5e-7
-      input_cost_per_query: 0.01
       input_cost_per_token: 0.0000025
-      output_cost_per_image_token: 0.000008
       output_cost_per_token: 0.000002
       region: "*"
 features:
@@ -19,7 +17,12 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - pdf
         - image
+        - text
+    output:
+        - image
+        - text
 mode: chat
 model: openai/gpt-5-image-mini
 sources:

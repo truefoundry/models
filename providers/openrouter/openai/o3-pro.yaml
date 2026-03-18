@@ -13,7 +13,11 @@ limits:
     max_tokens: 100000
 modalities:
     input:
+        - text
+        - pdf
         - image
+    output:
+        - text
 mode: chat
 model: openai/o3-pro
 sources:

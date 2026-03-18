@@ -12,7 +12,12 @@ limits:
     max_tokens: 65535
 modalities:
     input:
+        - text
         - image
+        - video
+        - pdf
+    output:
+        - text
 mode: chat
 model: amazon/nova-2-lite-v1
 params:

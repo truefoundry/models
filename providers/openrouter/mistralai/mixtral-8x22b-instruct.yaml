@@ -1,5 +1,6 @@
 costs:
-    - input_cost_per_token: 0.000002
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
       region: "*"
 features:
@@ -10,6 +11,11 @@ limits:
     context_window: 65536
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mistralai/mixtral-8x22b-instruct
 sources:

@@ -15,7 +15,11 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: openai/gpt-4o
 sources:

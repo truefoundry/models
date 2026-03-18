@@ -4,6 +4,11 @@ costs:
       region: "*"
 limits:
     context_window: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: liquid/lfm-2.5-1.2b-instruct:free
 sources:
