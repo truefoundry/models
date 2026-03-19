@@ -6,8 +6,16 @@ features:
     - function_calling
     - tool_choice
 limits:
+    context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65535
     max_tokens: 65535
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: databricks-gemini-2-5-flash
+thinking: true
