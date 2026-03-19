@@ -34,7 +34,10 @@ limits:
     output_vector_size: 1024
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: embedding
 model: amazon.titan-embed-image-v1
 removeParams:

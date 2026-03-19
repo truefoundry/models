@@ -40,7 +40,10 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral.ministral-3-14b-instruct
 params:

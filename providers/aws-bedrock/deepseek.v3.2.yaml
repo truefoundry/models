@@ -11,6 +11,7 @@ costs:
     - input_cost_per_token: 7.4e-7
       output_cost_per_token: 0.00000222
       region: sa-east-1
+    - region: eu-west-2
     - input_cost_per_token: 7.4e-7
       output_cost_per_token: 0.00000222
       region: eu-north-1
@@ -32,6 +33,11 @@ limits:
     context_window: 128000
     max_output_tokens: 8000
     max_tokens: 8000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek.v3.2
 params:

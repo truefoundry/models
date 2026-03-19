@@ -7,8 +7,10 @@ limits:
     max_input_tokens: 8172
 modalities:
     input:
-        - audio
+        - text
         - image
+    output:
+        - text
 mode: embedding
 model: amazon.nova-2-multimodal-embeddings-v1:0
 removeParams:

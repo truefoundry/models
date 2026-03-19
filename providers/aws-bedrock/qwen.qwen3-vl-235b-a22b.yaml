@@ -38,7 +38,10 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: qwen.qwen3-vl-235b-a22b
 params:
