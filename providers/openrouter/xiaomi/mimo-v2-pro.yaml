@@ -1,0 +1,20 @@
+costs:
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000003
+      region: "*"
+limits:
+    context_window: 1048576
+    max_output_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: xiaomi/mimo-v2-pro
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p

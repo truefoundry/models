@@ -1,0 +1,20 @@
+costs:
+    - cache_read_input_token_cost: 6.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: "*"
+limits:
+    context_window: 204800
+    max_output_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: minimax/minimax-m2.7
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
