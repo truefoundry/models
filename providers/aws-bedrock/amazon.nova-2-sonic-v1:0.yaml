@@ -28,11 +28,9 @@ limits:
     max_output_tokens: 65536
     max_tokens: 65536
 modalities:
-    input:
-        - audio
     output:
-        - audio
-mode: chat
+        - text
+mode: unknown
 model: amazon.nova-2-sonic-v1:0
 sources:
     - https://aws.amazon.com/nova/models/

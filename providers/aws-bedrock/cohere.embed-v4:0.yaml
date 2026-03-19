@@ -12,8 +12,11 @@ limits:
     max_input_tokens: 128000
 modalities:
     input:
+        - text
         - image
-mode: embedding
+    output:
+        - text
+mode: unknown
 model: cohere.embed-v4:0
 params:
     - defaultValue: 128000

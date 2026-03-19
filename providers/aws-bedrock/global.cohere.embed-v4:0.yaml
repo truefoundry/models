@@ -13,6 +13,7 @@ costs:
       region: eu-west-3
     - input_cost_per_token: 1.2e-7
       region: eu-west-2
+    - region: eu-west-1
     - input_cost_per_token: 1.2e-7
       region: eu-south-2
     - input_cost_per_token: 1.2e-7
@@ -48,7 +49,7 @@ limits:
 modalities:
     input:
         - image
-mode: embedding
+mode: unknown
 model: global.cohere.embed-v4:0
 removeParams:
     - max_tokens

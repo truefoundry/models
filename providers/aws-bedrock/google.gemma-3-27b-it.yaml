@@ -38,8 +38,11 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
-mode: chat
+    output:
+        - text
+mode: unknown
 model: google.gemma-3-27b-it
 params:
     - defaultValue: 8192

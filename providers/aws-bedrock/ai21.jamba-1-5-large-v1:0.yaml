@@ -9,7 +9,12 @@ limits:
     max_input_tokens: 256000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unknown
 model: ai21.jamba-1-5-large-v1:0
 params:
     - defaultValue: 4096

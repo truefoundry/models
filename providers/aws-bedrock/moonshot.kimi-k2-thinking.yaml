@@ -29,7 +29,12 @@ limits:
     context_window: 128000
     max_output_tokens: 16000
     max_tokens: 16000
-mode: chat
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unknown
 model: moonshot.kimi-k2-thinking
 params:
     - defaultValue: 16000

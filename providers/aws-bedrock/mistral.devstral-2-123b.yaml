@@ -44,7 +44,12 @@ features:
     - tools
 limits:
     context_window: 256000
-mode: chat
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unknown
 model: mistral.devstral-2-123b
 sources:
     - https://docs.mistral.ai/models/devstral-2-25-12

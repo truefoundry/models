@@ -3,8 +3,11 @@ costs:
       region: us-west-2
 modalities:
     input:
+        - text
         - image
-mode: image
+    output:
+        - image
+mode: unknown
 model: stability.sd3-5-large-v1:0
 removeParams:
     - max_tokens

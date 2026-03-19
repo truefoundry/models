@@ -48,6 +48,7 @@ costs:
       output_cost_per_token: 0.00003
       output_cost_per_token_batches: 0.000015
       region: eu-central-1
+    - region: ap-southeast-2
 features:
     - function_calling
     - cache_control
@@ -62,10 +63,11 @@ limits:
     max_tokens: 8192
 modalities:
     input:
-        - doc
+        - text
         - image
-        - pdf
-mode: chat
+    output:
+        - text
+mode: unknown
 model: anthropic.claude-3-5-sonnet-20241022-v2:0
 params:
     - defaultValue: 8192

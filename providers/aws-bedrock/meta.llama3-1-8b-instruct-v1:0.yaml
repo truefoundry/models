@@ -24,8 +24,10 @@ limits:
     max_tokens: 2048
 modalities:
     input:
-        - doc
-mode: chat
+        - text
+    output:
+        - text
+mode: unknown
 model: meta.llama3-1-8b-instruct-v1:0
 removeParams:
     - "n"
