@@ -4,6 +4,16 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
+        - image
+    output:
         - image
 mode: image
 model: grok-2-image-latest
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
