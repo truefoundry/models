@@ -5,16 +5,23 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - structured_output
+    - tools
 limits:
     context_window: 202752
     max_input_tokens: 202752
     max_output_tokens: 131072
-    max_tokens: 202752
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: zai-org/GLM-4.7
 sources:
     - https://docs.z.ai/guides/llm/glm-4.7
     - https://huggingface.co/zai-org/GLM-4.7-Flash
-    - https://artificialanalysis.ai/models/glm-4-7-flash/providers
-    - https://openrouter.ai/z-ai/glm-4.7-flash/api
+    - https://huggingface.co/zai-org/GLM-4.7/resolve/main/config.json
 thinking: true

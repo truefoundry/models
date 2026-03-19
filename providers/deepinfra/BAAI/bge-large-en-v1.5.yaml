@@ -3,10 +3,10 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 512
-    max_tokens: 512
+    output_vector_size: 1024
 modalities:
     input:
-        - image
+        - text
 mode: embedding
 model: BAAI/bge-large-en-v1.5
 sources:

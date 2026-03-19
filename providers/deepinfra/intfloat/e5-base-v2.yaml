@@ -3,10 +3,10 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 512
-    max_tokens: 512
+    output_vector_size: 768
 modalities:
     input:
-        - image
+        - text
 mode: embedding
 model: intfloat/e5-base-v2
 sources:
