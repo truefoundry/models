@@ -2,11 +2,9 @@ costs:
     - output_cost_per_image: 0.04
       region: "*"
 modalities:
-    input:
+    output:
         - image
 mode: image
 model: google/imagen-4.0-preview
 sources:
     - https://docs.together.ai/docs/serverless-models
-supportedModes:
-    - image
