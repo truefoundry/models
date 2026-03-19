@@ -46,7 +46,12 @@ costs:
 limits:
     max_input_tokens: 8192
     output_vector_size: 1024
-mode: embedding
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unknown
 model: amazon.titan-embed-text-v2:0
 removeParams:
     - max_tokens

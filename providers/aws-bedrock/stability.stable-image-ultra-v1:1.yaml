@@ -6,8 +6,10 @@ limits:
     max_tokens: 4096
 modalities:
     input:
+        - text
+    output:
         - image
-mode: image
+mode: unknown
 model: stability.stable-image-ultra-v1:1
 removeParams:
     - max_tokens

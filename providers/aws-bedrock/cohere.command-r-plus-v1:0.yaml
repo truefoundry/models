@@ -10,5 +10,10 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
-mode: chat
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unknown
 model: cohere.command-r-plus-v1:0

@@ -11,7 +11,12 @@ limits:
     max_input_tokens: 32000
     max_output_tokens: 32000
     max_tokens: 4096
-mode: rerank
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unknown
 model: amazon.rerank-v1:0
 removeParams:
     - stream

@@ -8,8 +8,11 @@ messages:
         - user
 modalities:
     input:
+        - text
         - image
-mode: image
+    output:
+        - image
+mode: unknown
 model: amazon.titan-image-generator-v2:0
 removeParams:
     - temperature

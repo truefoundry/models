@@ -3,8 +3,10 @@ costs:
       input_cost_per_token: 3.5e-8
       output_cost_per_token: 1.4e-7
       region: me-central-1
+    - region: ap-southeast-7
     - input_cost_per_token: 4.2e-8
       region: ap-southeast-5
+    - region: ap-southeast-3
     - cache_read_input_token_cost: 9.3e-9
       input_cost_per_token: 3.7e-8
       output_cost_per_token: 1.48e-7
@@ -25,6 +27,7 @@ costs:
       input_cost_per_token: 4.2e-8
       output_cost_per_token: 1.68e-7
       region: ap-northeast-1
+    - region: ap-east-2
 features:
     - function_calling
     - prompt_caching
@@ -33,7 +36,7 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 10000
     max_tokens: 10000
-mode: chat
+mode: unknown
 model: apac.amazon.nova-micro-v1:0
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html

@@ -32,8 +32,11 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
-mode: chat
+    output:
+        - text
+mode: unknown
 model: mistral.mistral-large-3-675b-instruct
 params:
     - defaultValue: 8192

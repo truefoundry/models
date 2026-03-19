@@ -37,8 +37,11 @@ limits:
     max_tokens: 81920
 modalities:
     input:
+        - text
         - image
-mode: chat
+    output:
+        - text
+mode: unknown
 model: moonshotai.kimi-k2.5
 params:
     - defaultValue: 512

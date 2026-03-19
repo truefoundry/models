@@ -21,11 +21,9 @@ features:
 limits:
     context_window: 300000
 modalities:
-    input:
-        - audio
     output:
-        - audio
-mode: chat
+        - text
+mode: unknown
 model: amazon.nova-sonic-v1:0
 removeParams:
     - "n"

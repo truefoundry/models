@@ -11,7 +11,12 @@ costs:
       region: ap-northeast-1
 limits:
     max_tokens: 4096
-mode: rerank
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unknown
 model: cohere.rerank-v3-5:0
 removeParams:
     - stream
