@@ -1,0 +1,36 @@
+name: Trigger Updation Job on Provider Change
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'providers/**'
+
+jobs:
+  trigger-updation:
+    name: Trigger updation job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install truefoundry
+        run: pipx install truefoundry
+
+      - name: Login to TrueFoundry
+        env:
+          TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
+          TFY_HOST: ${{ secrets.TFY_HOST }}
+        run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
+
+      - name: Trigger updation job
+        env:
+          TFY_JOB_FQN: ${{ secrets.TFY_JOB_FQN }}
+        run: |
+          tfy job trigger \
+            --fqn "$TFY_JOB_FQN" \
+            --command "python job.py"
