@@ -39,7 +39,9 @@ limits:
     max_input_tokens: 512
 modalities:
     input:
-        - image
+        - text
+    output:
+        - text
 mode: embedding
 model: cohere.embed-multilingual-v3
 removeParams:

@@ -36,7 +36,10 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: nvidia.nemotron-nano-12b-v2
 sources:
