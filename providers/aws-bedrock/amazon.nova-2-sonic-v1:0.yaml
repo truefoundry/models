@@ -28,13 +28,23 @@ limits:
     max_output_tokens: 65536
     max_tokens: 65536
 modalities:
+    input:
+        - text
+        - audio
     output:
         - text
+        - audio
 mode: chat
 model: amazon.nova-2-sonic-v1:0
+params:
+    - defaultValue: 65536
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
 sources:
     - https://aws.amazon.com/nova/models/
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/using-conversational-speech.html
     - https://docs.aws.amazon.com/ai/responsible-ai/nova-2-sonic/overview.html
     - https://aws.amazon.com/nova/pricing/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-sonic.html
