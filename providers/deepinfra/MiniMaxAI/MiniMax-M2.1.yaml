@@ -5,10 +5,12 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - structured_output
 limits:
     context_window: 196608
     max_output_tokens: 131072
-    max_tokens: 196608
+    max_tokens: 131072
 mode: chat
 model: MiniMaxAI/MiniMax-M2.1
 sources:

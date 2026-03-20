@@ -7,6 +7,9 @@ costs:
       region: us-east-1
 modalities:
     input:
+        - text
+        - image
+    output:
         - image
 mode: image
 model: us.stability.stable-image-erase-object-v1:0
@@ -25,3 +28,4 @@ removeParams:
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html
     - https://aws.amazon.com/about-aws/whats-new/2025/10/stability-ai-image-updates-amazon-bedrock/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html

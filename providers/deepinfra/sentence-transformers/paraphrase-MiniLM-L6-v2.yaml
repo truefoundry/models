@@ -3,6 +3,10 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 512
+    output_vector_size: 384
+modalities:
+    input:
+        - text
 mode: embedding
 model: sentence-transformers/paraphrase-MiniLM-L6-v2
 sources:

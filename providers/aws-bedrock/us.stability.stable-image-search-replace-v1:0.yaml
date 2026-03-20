@@ -8,6 +8,8 @@ costs:
 modalities:
     input:
         - image
+    output:
+        - image
 mode: image
 model: us.stability.stable-image-search-replace-v1:0
 removeParams:
@@ -19,3 +21,4 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html

@@ -3,7 +3,12 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 8192
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
 mode: embedding
 model: BAAI/bge-m3-multi
 sources:
     - https://deepinfra.com/BAAI/bge-m3-multi/api
+    - https://huggingface.co/BAAI/bge-m3
