@@ -3,9 +3,10 @@ costs:
       region: "*"
 limits:
     max_tokens: 512
+    output_vector_size: 384
 modalities:
     input:
-        - image
+        - text
 mode: embedding
 model: sentence-transformers/all-MiniLM-L12-v2
 sources:

@@ -4,6 +4,10 @@ costs:
 limits:
     context_window: 32768
     max_input_tokens: 8192
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
 mode: embedding
 model: Qwen/Qwen3-Embedding-0.6B-batch
 sources:

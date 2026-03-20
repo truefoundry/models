@@ -1,6 +1,11 @@
 costs:
     - input_cost_per_image: 0
       region: "*"
+modalities:
+    input:
+        - image
+    output:
+        - image
 mode: image
 model: Bria/remove_background
 sources:

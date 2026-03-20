@@ -1,6 +1,9 @@
+limits:
+    output_vector_size: 512
 modalities:
     input:
         - image
+        - text
 mode: embedding
 model: sentence-transformers/clip-ViT-B-32
 sources:

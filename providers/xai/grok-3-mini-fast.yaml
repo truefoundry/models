@@ -1,14 +1,17 @@
 costs:
-    - cache_read_input_token_cost: 7.5e-8
+    - cache_read_input_token_cost: 7.e-8
       input_cost_per_token: 3.e-7
       output_cost_per_token: 5.e-7
       region: "*"
 features:
     - function_calling
     - tool_choice
+    - structured_output
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -16,6 +19,9 @@ modalities:
         - text
 mode: chat
 model: grok-3-mini-fast
+params:
+    - key: max_tokens
+      maxValue: 131072
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing
 thinking: true

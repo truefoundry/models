@@ -1,11 +1,16 @@
 costs:
-    - region: us-west-2
-    - region: us-east-2
-    - region: us-east-1
+    - input_cost_per_image: 0.03
+      region: us-west-2
+    - input_cost_per_image: 0.03
+      region: us-east-2
+    - input_cost_per_image: 0.03
+      region: us-east-1
 messages:
     options: []
 modalities:
     input:
+        - image
+    output:
         - image
 mode: image
 model: us.stability.stable-fast-upscale-v1:0

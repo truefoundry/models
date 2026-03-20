@@ -1,7 +1,11 @@
 costs:
     - input_cost_per_token: 5.e-9
       region: "*"
+limits:
+    max_input_tokens: 512
+    output_vector_size: 768
 mode: embedding
 model: sentence-transformers/multi-qa-mpnet-base-dot-v1
 sources:
     - https://deepinfra.com/sentence-transformers/multi-qa-mpnet-base-dot-v1/api
+    - https://huggingface.co/sentence-transformers/multi-qa-mpnet-base-dot-v1

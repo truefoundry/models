@@ -3,9 +3,10 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 32768
+    output_vector_size: 4096
 modalities:
     input:
-        - image
+        - text
 mode: embedding
 model: Qwen/Qwen3-Embedding-8B
 sources:

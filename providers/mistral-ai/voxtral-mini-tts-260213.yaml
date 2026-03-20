@@ -1,2 +1,13 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
 model: voxtral-mini-tts-260213
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - seed
+    - stop

@@ -4,8 +4,11 @@ limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: chat
 model: mistral-vibe-cli-fast
 supportedModes:
     - chat

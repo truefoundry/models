@@ -3,6 +3,10 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 512
+    output_vector_size: 768
+modalities:
+    input:
+        - text
 mode: embedding
 model: thenlper/gte-base
 sources:

@@ -10,5 +10,12 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: databricks-claude-opus-4
+thinking: true
