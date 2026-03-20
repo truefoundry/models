@@ -7,12 +7,18 @@ features:
     - structured_output
 limits:
     context_window: 262144
+    max_output_tokens: 81920
+    max_tokens: 81920
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3.5-35B-A3B
 sources:
     - https://together.ai/pricing
     - https://docs.together.ai/docs/serverless-models
+    - https://huggingface.co/Qwen/Qwen3.5-35B-A3B
 thinking: true

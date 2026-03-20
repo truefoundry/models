@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_token: 6.e-7
+      input_cost_per_token_batches: 2.e-7
       output_cost_per_token: 0.0000017
+      output_cost_per_token_batches: 6.e-7
       region: "*"
 features:
     - function_calling
@@ -8,6 +10,11 @@ features:
     - structured_output
 limits:
     context_window: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek-ai/DeepSeek-V3
 sources:

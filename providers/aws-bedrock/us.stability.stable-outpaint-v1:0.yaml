@@ -1,12 +1,15 @@
 costs:
-    - input_cost_per_image: 0
+    - input_cost_per_image: 0.06
       region: us-west-2
-    - input_cost_per_image: 0
+    - input_cost_per_image: 0.06
       region: us-east-2
-    - input_cost_per_image: 0
+    - input_cost_per_image: 0.06
       region: us-east-1
 modalities:
     input:
+        - image
+        - text
+    output:
         - image
 mode: image
 model: us.stability.stable-outpaint-v1:0
@@ -19,3 +22,4 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html
+    - https://docs.aws.amazon.com/en_us/bedrock/latest/userguide/model-card-stability-ai-stable-image-outpaint.html

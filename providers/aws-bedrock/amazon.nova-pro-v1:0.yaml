@@ -101,13 +101,15 @@ features:
     - tools
 limits:
     context_window: 300000
-    max_input_tokens: 295000
     max_output_tokens: 5000
     max_tokens: 5000
 modalities:
     input:
         - text
         - image
+        - video
+        - pdf
+        - doc
     output:
         - text
 mode: chat
@@ -121,8 +123,7 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0.00001
-    - defaultValue: 250
-      key: top_k
+    - key: top_k
       maxValue: 128
       minValue: 0
 removeParams:
