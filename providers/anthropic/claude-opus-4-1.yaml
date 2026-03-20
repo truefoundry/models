@@ -8,6 +8,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - cache_control
     - tools
     - tool_choice
     - prompt_caching
@@ -19,10 +20,14 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
+    tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: claude-opus-4-1
 params:

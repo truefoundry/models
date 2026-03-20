@@ -6,34 +6,29 @@ costs:
       output_cost_per_token: 0.000025
       output_cost_per_token_batches: 0.0000125
       region: "*"
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 0.000001
-                from: 200000
-          cache_write:
-              - cost_per_token: 0.0000125
-                from: 200000
-          input:
-              - cost_per_token: 0.00001
-                from: 200000
-          output:
-              - cost_per_token: 0.0000375
-                from: 200000
 features:
     - function_calling
     - tool_choice
     - prompt_caching
     - structured_output
+    - cache_control
+    - assistant_prefill
 limits:
-    context_window: 200000
-    max_input_tokens: 200000
+    context_window: 1000000
+    max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: claude-opus-4-6
+params:
+    - key: max_tokens
+      maxValue: 128000
 thinking: true

@@ -10,6 +10,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - cache_control
     - structured_output
     - assistant_prefill
 limits:
@@ -17,10 +18,14 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
+    tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: claude-haiku-4-5
 params:

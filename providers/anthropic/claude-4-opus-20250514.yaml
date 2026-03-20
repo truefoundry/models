@@ -24,8 +24,11 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: claude-4-opus-20250514
 params:
