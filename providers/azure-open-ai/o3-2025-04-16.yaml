@@ -3,19 +3,38 @@ costs:
       input_cost_per_token: 0.0000022
       output_cost_per_token: 0.0000088
       region: "*"
+deprecationDate: "2026-10-16"
 features:
     - function_calling
     - tool_choice
     - prompt_caching
     - structured_output
 limits:
+    context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 100000
     max_tokens: 100000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: o3-2025-04-16
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
+removeParams:
+    - temperature
+    - top_p
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 supportedModes:
     - chat
+thinking: true

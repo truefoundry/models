@@ -1,2 +1,17 @@
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: gpt-4o-transcribe-diarize-2025-10-15
+removeParams:
+    - max_tokens
+    - top_p
+    - stop
+    - "n"
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

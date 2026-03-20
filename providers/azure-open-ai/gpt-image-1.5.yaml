@@ -4,5 +4,19 @@ costs:
       region: "*"
 limits:
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - image
 mode: image
 model: gpt-image-1.5
+removeParams:
+    - temperature
+    - top_p
+    - stop
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

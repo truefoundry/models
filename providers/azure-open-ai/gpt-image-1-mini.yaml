@@ -1,8 +1,22 @@
 costs:
     - cache_read_input_token_cost: 2.e-7
+      input_cost_per_image_token: 0.0000025
       input_cost_per_token: 0.000002
+      output_cost_per_image_token: 0.000008
       region: "*"
-limits:
-    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
 mode: image
 model: gpt-image-1-mini
+removeParams:
+    - max_tokens
+    - stop
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://developers.openai.com/docs/models/gpt-image-1-mini

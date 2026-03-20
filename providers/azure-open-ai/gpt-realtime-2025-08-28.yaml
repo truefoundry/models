@@ -7,6 +7,7 @@ costs:
       output_cost_per_audio_token: 0.000064
       output_cost_per_token: 0.000016
       region: "*"
+deprecationDate: "2027-02-28"
 features:
     - function_calling
     - parallel_function_calling
@@ -18,8 +19,12 @@ limits:
     max_tokens: 4096
 modalities:
     input:
+        - text
         - audio
     output:
+        - text
         - audio
 mode: realtime
 model: gpt-realtime-2025-08-28
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

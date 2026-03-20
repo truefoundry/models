@@ -11,14 +11,21 @@ features:
     - prompt_caching
     - structured_output
 limits:
-    max_input_tokens: 128000
+    context_window: 128000
+    max_input_tokens: 111616
     max_output_tokens: 16384
     max_tokens: 16384
 modalities:
     input:
-        - image
-        - pdf
+        - text
+    output:
+        - text
 mode: chat
 model: gpt-5.2-chat-2025-12-11
+params:
+    - key: max_tokens
+      maxValue: 16384
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 supportedModes:
     - chat
