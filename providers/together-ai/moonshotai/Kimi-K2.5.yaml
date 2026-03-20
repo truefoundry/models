@@ -4,13 +4,24 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - tool_choice
+    - structured_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
+messages:
+    options:
+        - system
+        - user
+        - assistant
+        - developer
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: moonshotai/Kimi-K2.5
 sources:
@@ -19,6 +30,7 @@ sources:
     - https://docs.together.ai/docs/vision-overview
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
+    - https://docs.together.ai/reference/chat-completions
 supportedModes:
     - chat
 thinking: true

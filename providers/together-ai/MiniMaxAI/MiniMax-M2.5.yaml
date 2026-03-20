@@ -8,7 +8,12 @@ features:
     - parallel_function_calling
     - structured_output
 limits:
-    context_window: 196608
+    context_window: 228700
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: MiniMaxAI/MiniMax-M2.5
 sources:

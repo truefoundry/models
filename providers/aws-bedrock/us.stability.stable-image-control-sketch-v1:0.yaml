@@ -7,6 +7,9 @@ costs:
       region: us-east-1
 modalities:
     input:
+        - text
+        - image
+    output:
         - image
 mode: image
 model: us.stability.stable-image-control-sketch-v1:0
@@ -19,3 +22,4 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-stability-ai-stable-image-control-sketch.html

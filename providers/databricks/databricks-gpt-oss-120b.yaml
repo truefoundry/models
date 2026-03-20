@@ -3,8 +3,15 @@ costs:
       output_cost_per_token: 6.e-7
       region: "*"
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: databricks-gpt-oss-120b
+thinking: true

@@ -6,7 +6,10 @@ limits:
     context_window: 1048576
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: meta-llama/Llama-Guard-4-12B
 sources:
