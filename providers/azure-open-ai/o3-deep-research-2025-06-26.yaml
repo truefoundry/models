@@ -1,3 +1,16 @@
+costs:
+    - cache_read_input_token_cost: 0.0000025
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00004
+      region: global
+    - cache_read_input_token_cost: 0.00000275
+      input_cost_per_token: 0.000011
+      output_cost_per_token: 0.000044
+      region: datazone_us
+    - cache_read_input_token_cost: 0.00000275
+      input_cost_per_token: 0.000011
+      output_cost_per_token: 0.000044
+      region: datazone_eu
 mode: chat
 model: o3-deep-research-2025-06-26
 supportedModes:
