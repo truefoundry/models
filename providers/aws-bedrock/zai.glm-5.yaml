@@ -1,10 +1,31 @@
 costs:
-    - region: us-west-2
-    - region: us-east-1
+    - input_cost_per_token: 0.000001
+      output_cost_per_token: 0.0000032
+      region: us-west-2
+    - input_cost_per_token: 0.000001
+      output_cost_per_token: 0.0000032
+      region: us-east-1
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 200000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
     output:
         - text
-mode: unknown
+mode: chat
 model: zai.glm-5
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+sources:
+    - https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-minimax-glm/
+    - https://docs.z.ai/guides/llm/glm-5
+thinking: true

@@ -3,15 +3,27 @@ costs:
       input_cost_per_token: 2.e-7
       output_cost_per_token: 0.00000125
       region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - tools
+    - structured_output
 limits:
     context_window: 400000
     max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
-        - pdf
-        - image
         - text
+        - image
+        - pdf
     output:
         - text
 mode: chat
 model: openai/gpt-5.4-nano
+params:
+    - key: reasoning_effort
+      type: string
+sources:
+    - https://openrouter.ai/openai/gpt-5.4-nano/api
+thinking: true

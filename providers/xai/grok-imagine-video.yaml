@@ -5,7 +5,15 @@ modalities:
     input:
         - text
         - image
+        - video
     output:
         - video
 mode: video
 model: grok-imagine-video
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream

@@ -1,10 +1,33 @@
 costs:
-    - region: us-west-2
-    - region: us-east-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: us-west-2
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: us-east-1
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 204800
 modalities:
     input:
         - text
     output:
         - text
-mode: unknown
+mode: chat
 model: minimax.minimax-m2.5
+removeParams:
+    - "n"
+sources:
+    - https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-minimax-glm/
+    - https://platform.minimax.io/docs/api-reference/api-overview
+    - https://platform.minimax.io/docs/guides/pricing-paygo
+    - https://platform.minimax.io/docs/api-reference/text-anthropic-api
+    - https://www.minimax.io/news/minimax-m25
+thinking: true

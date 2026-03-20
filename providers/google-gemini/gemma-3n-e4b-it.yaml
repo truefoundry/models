@@ -5,15 +5,19 @@ costs:
 features:
     - system_messages
 limits:
-    max_input_tokens: 8192
-    max_output_tokens: 2048
+    context_window: 32000
 modalities:
     input:
+        - text
         - audio
         - image
+        - video
+    output:
+        - text
 mode: chat
 model: gemma-3n-e4b-it
 removeParams:
     - tool_choice
 sources:
     - https://ai.google.dev/gemma/docs/3n
+    - https://ai.google.dev/gemma/docs/gemma-3n/model_card

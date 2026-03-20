@@ -15,14 +15,25 @@ features:
     - prompt_caching
     - structured_output
     - tools
+    - code_execution
 limits:
     max_input_tokens: 1048576
     max_output_tokens: 65536
+    max_tokens: 65536
+messages:
+    options:
+        - system
+        - user
+        - assistant
 modalities:
     input:
-        - audio
+        - text
         - image
+        - audio
+        - video
         - pdf
+    output:
+        - text
 mode: chat
 model: gemini-3.1-flash-lite-preview
 params:

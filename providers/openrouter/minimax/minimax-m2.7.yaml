@@ -3,9 +3,15 @@ costs:
       input_cost_per_token: 3.e-7
       output_cost_per_token: 0.0000012
       region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - tools
 limits:
     context_window: 204800
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -18,3 +24,6 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+sources:
+    - https://openrouter.ai/minimax/minimax-m2.7/api
+thinking: true

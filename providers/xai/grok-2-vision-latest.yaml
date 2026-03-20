@@ -9,8 +9,12 @@ features:
 limits:
     max_input_tokens: 32768
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: grok-2-vision-latest
