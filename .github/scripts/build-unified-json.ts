@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
-import { ModelData, UnifiedModelConfig, DefaultProviderParams } from './types';
+import { DefaultConfig, ModelConfig } from './autogen/types';
+import { UnifiedModelConfig } from './types';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const PROVIDERS_DIR = path.join(REPO_ROOT, 'providers');
@@ -28,28 +29,14 @@ function collectModelFiles(dir: string): string[] {
 }
 
 function buildUnifiedConfig(
-  modelData: ModelData,
+  modelData: ModelConfig,
   providerName: string,
-  defaultProviderParams: DefaultProviderParams,
+  defaultProviderParams: DefaultConfig,
 ): UnifiedModelConfig {
   return {
+    ...modelData,
     provider: providerName,
     defaultProviderParams,
-    model: modelData.model,
-    costs: modelData.costs,
-    limits: modelData.limits || {},
-    features: modelData.features || [],
-    modalities: modelData.modalities,
-    messages: modelData.messages || undefined,
-    params: modelData.params || [],
-    removeParams: modelData.removeParams || [],
-    requiredParams: modelData.requiredParams || [],
-    mode: modelData.mode || 'unknown',
-    thinking: modelData.thinking || false,
-    isDeprecated: modelData.isDeprecated || false,
-    deprecationDate: modelData.deprecationDate,
-    sources: modelData.sources || [],
-    supportedModes: modelData.supportedModes,
   };
 }
 
@@ -66,12 +53,12 @@ function main(): void {
     const providerName = providerEntry.name;
     const providerPath = path.join(PROVIDERS_DIR, providerName);
 
-    let defaultProviderParams: DefaultProviderParams = {};
+    let defaultProviderParams: DefaultConfig = {};
     const defaultYamlPath = path.join(providerPath, 'default.yaml');
     if (fs.existsSync(defaultYamlPath)) {
       defaultProviderParams = yaml.load(
         fs.readFileSync(defaultYamlPath, 'utf-8'),
-      ) as DefaultProviderParams;
+      ) as DefaultConfig;
     }
 
     const modelFiles = collectModelFiles(providerPath);
@@ -80,7 +67,7 @@ function main(): void {
       try {
         const modelData = yaml.load(
           fs.readFileSync(modelFilePath, 'utf-8'),
-        ) as ModelData;
+        ) as ModelConfig;
         if (!modelData.costs || modelData.costs.length === 0) continue;
         configs.push(
           buildUnifiedConfig(modelData, providerName, defaultProviderParams),

@@ -6,9 +6,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-COMMON_SCHEMA="$SCRIPT_DIR/common.cue"
 MODEL_SCHEMA="$SCRIPT_DIR/model.cue"
-DEFAULT_SCHEMA="$SCRIPT_DIR/default.cue"
 
 # Check if cue is installed
 if ! command -v cue &> /dev/null; then
@@ -29,8 +27,7 @@ validate_file() {
         definition="#ModelConfig"
     fi
 
-    # Load common.cue + model.cue + default.cue together (same package)
-    cat "$file" | cue vet "$COMMON_SCHEMA" "$MODEL_SCHEMA" "$DEFAULT_SCHEMA" yaml: - -d "$definition" 2>&1
+    cat "$file" | cue vet "$MODEL_SCHEMA" yaml: - -d "$definition" 2>&1
 }
 
 if [ -n "$1" ]; then

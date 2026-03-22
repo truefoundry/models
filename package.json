@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "validate": "./.github/test/validate.sh",
+    "generate:types": "ts-node --project .github/scripts/tsconfig.json .github/scripts/generate-types.ts",
     "build:json": "ts-node --project .github/scripts/tsconfig.json .github/scripts/build-unified-json.ts",
     "lint:yaml": "yamllint -c .yamllint.yml providers/",
     "sort:yaml": "ts-node --project .github/scripts/tsconfig.json .github/scripts/sort-yaml-keys.ts",
@@ -17,6 +18,7 @@
     "@types/node": "^22.15.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "openapi-typescript": "^7.13.0",
     "prettier": "^3.8.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
