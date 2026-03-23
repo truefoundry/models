@@ -1,19 +1,16 @@
 costs:
-    -
-        input_cost_per_character: 3.125e-7
-        input_cost_per_image: 0.00032875
-        input_cost_per_token: 0.00000125
-        output_cost_per_token: 0.000005
-        region: "*"
-        tiered_pricing:
-            input:
-                -
-                    cost_per_token: 0.0000025
-                    from: 128000
-            output:
-                -
-                    cost_per_token: 0.00001
-                    from: 128000
+    - input_cost_per_character: 3.125e-7
+      input_cost_per_image: 0.00032875
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.000005
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.0000025
+                from: 128000
+          output:
+              - cost_per_token: 0.00001
+                from: 128000
 features:
     - function_calling
     - parallel_function_calling
