@@ -10,7 +10,6 @@ features:
     - system_messages
 limits:
     context_window: 131072
-    max_tokens: 131072
 modalities:
     input:
         - text
@@ -18,6 +17,9 @@ modalities:
         - text
 mode: chat
 model: x-ai/grok-3-mini
+params:
+    - key: reasoning_effort
+      type: string
 sources:
     - https://openrouter.ai/x-ai/grok-3-mini/api
     - https://docs.x.ai/developers/models#models-and-pricing

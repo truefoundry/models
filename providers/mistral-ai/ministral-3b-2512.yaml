@@ -4,15 +4,23 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
-    context_window: 131072
+    context_window: 256000
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
+        - text
         - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: ministral-3b-2512
 sources:
     - https://docs.mistral.ai/models/ministral-3-3b-25-12
-    - https://docs.mistral.ai/capabilities/vision
+    - https://docs.mistral.ai/capabilities/vision/
+    - https://docs.mistral.ai/capabilities/function_calling/
 supportedModes:
     - chat

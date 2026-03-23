@@ -24,6 +24,13 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-5.1
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
+    - defaultValue: null
+      key: seed
+      type: number
 sources:
     - https://openrouter.ai/openai/gpt-5.1/api
 thinking: true

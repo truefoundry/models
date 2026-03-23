@@ -3,14 +3,19 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 features:
+    - function_calling
     - structured_output
     - tool_choice
     - tools
 limits:
-    context_window: 288000
-    max_input_tokens: 256000
+    context_window: 256000
     max_output_tokens: 8000
     max_tokens: 8000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: command-a-03-2025
 params:
@@ -18,6 +23,10 @@ params:
       key: max_tokens
       maxValue: 8000
       minValue: 1
+    - defaultValue: 0.3
+      key: temperature
+      maxValue: 1
+      minValue: 0
 sources:
     - https://docs.cohere.com/docs/command-a
     - https://docs.cohere.com/reference/chat

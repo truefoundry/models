@@ -21,6 +21,9 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3-coder-plus
+params:
+    - key: max_tokens
+      maxValue: 65536
 sources:
     - https://openrouter.ai/qwen/qwen3-coder-plus/api
 thinking: true

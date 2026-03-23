@@ -1,11 +1,21 @@
+features:
+    - function_calling
+    - system_messages
 limits:
     context_window: 131072
     max_output_tokens: 131072
     max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
+        - code
 mode: chat
 model: meta-llama/Llama-3.2-1B-Instruct
 sources:
     - https://www.together.ai/pricing
     - https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
+    - https://docs.together.ai/docs/dedicated-models
 supportedModes:
     - chat

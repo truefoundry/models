@@ -2,6 +2,7 @@ costs:
     - input_cost_per_token: 0
       output_cost_per_token: 0
       region: "*"
+deprecationDate: "2026-03-29"
 features:
     - tools
     - function_calling
@@ -9,6 +10,11 @@ features:
     - structured_output
 limits:
     context_window: 40960
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen3-4b:free
 sources:

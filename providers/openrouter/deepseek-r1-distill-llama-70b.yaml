@@ -4,10 +4,18 @@ costs:
       region: "*"
 features:
     - tools
+    - function_calling
+    - tool_choice
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek-r1-distill-llama-70b
 sources:

@@ -16,5 +16,10 @@ modalities:
         - text
 mode: chat
 model: deepseek/deepseek-chat
+params:
+    - key: max_tokens
+      maxValue: 163840
 sources:
     - https://openrouter.ai/deepseek/deepseek-chat/api
+supportedModes:
+    - completion

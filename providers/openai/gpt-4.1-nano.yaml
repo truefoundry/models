@@ -1,9 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 5.e-8
-      input_cost_per_token: 2.e-7
-      input_cost_per_token_batches: 1.e-7
-      output_cost_per_token: 8.e-7
-      output_cost_per_token_batches: 4.e-7
+    - cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 1.e-7
+      output_cost_per_token: 4.e-7
       region: "*"
 features:
     - function_calling
@@ -20,8 +18,10 @@ limits:
     max_tokens: 32768
 modalities:
     input:
+        - text
         - image
-        - pdf
+    output:
+        - text
 mode: chat
 model: gpt-4.1-nano
 params:
@@ -36,4 +36,3 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4.1-nano
-    - https://developers.openai.com/api/docs/pricing

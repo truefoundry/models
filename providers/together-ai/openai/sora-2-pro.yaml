@@ -1,6 +1,11 @@
 costs:
     - input_cost_per_request: 2.4
       region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - video
 mode: video
 model: openai/sora-2-pro
 sources:

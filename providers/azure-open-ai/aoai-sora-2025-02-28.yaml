@@ -1,2 +1,19 @@
-mode: unknown
+messages:
+    options: []
+modalities:
+    input:
+        - text
+    output:
+        - video
+mode: video
 model: aoai-sora-2025-02-28
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls

@@ -1,7 +1,9 @@
 costs:
     - cache_read_input_token_cost: 5.e-7
       input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000008
+      output_cost_per_token_batches: 0.000004
       region: "*"
 features:
     - system_messages
@@ -12,7 +14,10 @@ limits:
     max_tokens: 100000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: o4-mini-deep-research
 params:

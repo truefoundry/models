@@ -7,6 +7,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - structured_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -14,9 +15,8 @@ limits:
     max_tokens: 16384
 modalities:
     input:
-        - pdf
-        - image
         - text
+        - image
     output:
         - text
 mode: chat

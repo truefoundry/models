@@ -14,8 +14,16 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: pixtral-large-2411
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 sources:
     - https://docs.mistral.ai/models/pixtral-large-24-11

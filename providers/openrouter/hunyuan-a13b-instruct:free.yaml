@@ -5,11 +5,12 @@ costs:
 features:
     - structured_output
 limits:
-    context_window: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 32768
+    max_output_tokens: 32768
+    max_tokens: 32768
 mode: chat
 model: hunyuan-a13b-instruct:free
 sources:
     - https://openrouter.ai/tencent/hunyuan-a13b-instruct:free/api
+    - https://openrouter.ai/tencent/hunyuan-a13b-instruct/api
 thinking: true

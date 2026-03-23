@@ -9,8 +9,16 @@ features:
     - structured_output
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: grok-3-mini
+params:
+    - key: reasoning_effort
+      type: string
 sources:
     - https://openrouter.ai/x-ai/grok-3-mini/api
     - https://docs.x.ai/developers/models#models-and-pricing

@@ -2,9 +2,12 @@ limits:
     context_window: 131072
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
-model: llama-3.2-90b-vision-instruct
+model: meta-llama/llama-3.2-90b-vision-instruct
 params:
     - key: max_tokens
       maxValue: 2048

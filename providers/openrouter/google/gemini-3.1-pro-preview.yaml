@@ -11,6 +11,8 @@ features:
     - structured_output
     - system_messages
     - tools
+    - prompt_caching
+    - code_execution
 limits:
     context_window: 1048576
     max_output_tokens: 65536
@@ -26,6 +28,13 @@ modalities:
         - text
 mode: chat
 model: google/gemini-3.1-pro-preview
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
 sources:
     - https://openrouter.ai/google/gemini-3.1-pro-preview/api
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
+    - https://ai.google.dev/pricing
 thinking: true

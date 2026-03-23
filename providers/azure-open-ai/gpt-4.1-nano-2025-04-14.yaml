@@ -1,10 +1,11 @@
 costs:
     - cache_read_input_token_cost: 2.5e-8
-      input_cost_per_token: 1.1e-7
-      input_cost_per_token_batches: 6.e-8
-      output_cost_per_token: 4.4e-7
-      output_cost_per_token_batches: 2.2e-7
+      input_cost_per_token: 1.e-7
+      input_cost_per_token_batches: 5.e-8
+      output_cost_per_token: 4.e-7
+      output_cost_per_token_batches: 2.e-7
       region: "*"
+deprecationDate: "2026-10-14"
 features:
     - function_calling
     - parallel_function_calling
@@ -18,8 +19,18 @@ limits:
     max_tokens: 32768
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-4.1-nano-2025-04-14
+params:
+    - defaultValue: 32768
+      key: max_tokens
+      maxValue: 32768
+      minValue: 1
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 supportedModes:
     - chat

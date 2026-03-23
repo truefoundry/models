@@ -17,12 +17,14 @@ limits:
     max_tokens: 32768
 modalities:
     input:
-        - image
         - text
-        - pdf
+        - image
     output:
         - text
 mode: chat
 model: openai/gpt-4.1-mini
+params:
+    - key: max_tokens
+      maxValue: 32768
 sources:
     - https://openrouter.ai/openai/gpt-4.1-mini/api

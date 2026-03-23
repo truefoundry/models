@@ -25,12 +25,19 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
+    tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: anthropic/claude-opus-4-1@20250805
+params:
+    - key: max_tokens
+      maxValue: 32000
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing

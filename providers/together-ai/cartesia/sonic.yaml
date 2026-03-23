@@ -2,9 +2,13 @@ costs:
     - input_cost_per_character: 0.000065
       region: "*"
 modalities:
+    input:
+        - text
     output:
         - audio
 mode: text_to_speech
 model: cartesia/sonic
+sources:
+    - https://docs.together.ai/docs/text-to-speech
 supportedModes:
     - text_to_speech

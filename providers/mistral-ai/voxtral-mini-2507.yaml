@@ -13,9 +13,12 @@ limits:
     context_window: 32000
 modalities:
     input:
+        - text
         - audio
         - doc
         - pdf
+    output:
+        - text
 mode: chat
 model: voxtral-mini-2507
 sources:

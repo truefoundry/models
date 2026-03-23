@@ -59,10 +59,10 @@ costs:
       region: asia-east2
     - output_cost_per_image: 0.04
       region: asia-east1
-limits:
-    max_tokens: 4096
 modalities:
     input:
+        - text
+    output:
         - image
 mode: image
 model: imagen-3.0-generate-001

@@ -1,2 +1,13 @@
+limits:
+    context_window: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: completion
 model: meta-llama/Llama-3.2-3B
+sources:
+    - https://huggingface.co/meta-llama/Llama-3.2-3B

@@ -20,7 +20,10 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-5.2-chat-latest
 params:
@@ -39,5 +42,4 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.2
     - https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest
-    - https://developers.openai.com/api/docs/pricing
 thinking: true

@@ -23,8 +23,11 @@ messages:
         - developer
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: o1
 params:
@@ -36,10 +39,7 @@ removeParams:
     - temperature
     - top_p
     - "n"
-    - stream
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/o1
-    - https://developers.openai.com/api/docs/pricing
-    - https://developers.openai.com/api/docs/deprecations
 thinking: true

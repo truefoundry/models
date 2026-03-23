@@ -4,11 +4,18 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - structured_output
+    - assistant_prefill
 limits:
-    context_window: 262144
+    context_window: 256000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: ministral-8b-latest
 sources:

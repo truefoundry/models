@@ -17,7 +17,6 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
-    - structured_output
     - assistant_prefill
 limits:
     context_window: 200000
@@ -26,8 +25,11 @@ limits:
     max_tokens: 32000
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: anthropic/claude-opus-4
 params:

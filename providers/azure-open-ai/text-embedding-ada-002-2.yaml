@@ -1,4 +1,24 @@
+costs:
+    - input_cost_per_token: 1.e-7
+      output_cost_per_token: 0
+      region: "*"
+limits:
+    max_input_tokens: 8191
+    max_tokens: 8191
+modalities:
+    input:
+        - text
 mode: embedding
 model: text-embedding-ada-002-2
+removeParams:
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - max_tokens
 supportedModes:
     - embedding

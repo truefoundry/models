@@ -17,7 +17,10 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-5.3-codex
 params:
@@ -31,5 +34,5 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.3-codex
-    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/docs/pricing
 thinking: true

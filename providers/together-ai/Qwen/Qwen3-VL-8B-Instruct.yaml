@@ -6,7 +6,10 @@ limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3-VL-8B-Instruct
 sources:

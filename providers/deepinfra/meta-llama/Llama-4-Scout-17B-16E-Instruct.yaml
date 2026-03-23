@@ -13,7 +13,10 @@ limits:
     max_tokens: 327680
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: meta-llama/Llama-4-Scout-17B-16E-Instruct
 sources:

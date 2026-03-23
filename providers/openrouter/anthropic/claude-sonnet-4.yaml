@@ -9,6 +9,7 @@ features:
     - tool_choice
     - prompt_caching
     - assistant_prefill
+    - structured_output
 limits:
     context_window: 200000
     max_output_tokens: 64000
@@ -22,6 +23,11 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-sonnet-4
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 sources:
     - https://openrouter.ai/anthropic/claude-sonnet-4/api
 thinking: true

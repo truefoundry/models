@@ -1,2 +1,19 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - video
+mode: video
 model: aoai-sora
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

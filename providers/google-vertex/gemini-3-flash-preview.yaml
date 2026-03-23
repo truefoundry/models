@@ -242,11 +242,12 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - tools
     - system_messages
     - tool_choice
     - prompt_caching
     - structured_output
+    - tools
+    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -258,11 +259,19 @@ modalities:
         - doc
         - image
         - pdf
+        - text
+        - video
+    output:
+        - text
 mode: chat
 model: gemini-3-flash-preview
 params:
     - key: max_tokens
       maxValue: 65536
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
     - defaultValue: null
       key: response_format
       type: string

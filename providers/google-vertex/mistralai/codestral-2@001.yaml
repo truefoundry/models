@@ -13,7 +13,17 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
 mode: chat
 model: mistralai/codestral-2@001
+params:
+    - key: max_tokens
+      maxValue: 128000
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral/codestral-2
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral

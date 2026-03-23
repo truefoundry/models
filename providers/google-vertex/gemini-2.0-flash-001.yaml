@@ -4,6 +4,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: us-west4
@@ -12,6 +13,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: us-west1
@@ -20,6 +22,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: us-south1
@@ -28,6 +31,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: us-east5
@@ -36,6 +40,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: us-east4
@@ -44,6 +49,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: us-east1
@@ -52,6 +58,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: us-central1
@@ -60,6 +67,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: global
@@ -68,6 +76,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-west9
@@ -76,6 +85,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-west8
@@ -84,6 +94,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-west4
@@ -92,6 +103,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-west1
@@ -100,6 +112,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-southwest1
@@ -108,6 +121,7 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-north1
@@ -116,9 +130,11 @@ costs:
       input_cost_per_audio_token: 0.000001
       input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-central2
+deprecationDate: "2026-06-01"
 features:
     - function_calling
     - parallel_function_calling
@@ -127,6 +143,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -134,10 +151,13 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - audio
-        - doc
         - image
+        - video
         - pdf
+    output:
+        - text
 mode: chat
 model: gemini-2.0-flash-001
 params:
@@ -149,4 +169,3 @@ params:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview
-thinking: false

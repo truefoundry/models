@@ -4,10 +4,14 @@ costs:
       region: "*"
 limits:
     context_window: 16384
+    max_output_tokens: 16384
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: allenai/olmOCR-2-7B-1025
 sources:

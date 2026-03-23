@@ -16,7 +16,11 @@ limits:
     max_tokens: 128000
 modalities:
     input:
-        - image
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistralai/codestral-2
 sources:

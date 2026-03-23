@@ -4,11 +4,9 @@ costs:
       region: "*"
 features:
     - tool_choice
+    - function_calling
 limits:
     context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
 modalities:
     input:
         - text
@@ -16,6 +14,14 @@ modalities:
         - text
 mode: chat
 model: switchpoint/router
+params:
+    - key: top_k
+    - key: seed
+    - key: reasoning
+      type: boolean
+removeParams:
+    - "n"
+    - response_format
 sources:
     - https://openrouter.ai/switchpoint/router/api
 thinking: true

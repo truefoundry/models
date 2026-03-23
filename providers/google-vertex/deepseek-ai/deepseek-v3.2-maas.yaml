@@ -18,7 +18,10 @@ limits:
     max_tokens: 65536
 modalities:
     input:
+        - text
         - doc
+    output:
+        - text
 mode: chat
 model: deepseek-ai/deepseek-v3.2-maas
 params:

@@ -11,10 +11,13 @@ limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 16384
-    max_tokens: 131072
+    max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: google/gemma-3-12b-it
 sources:

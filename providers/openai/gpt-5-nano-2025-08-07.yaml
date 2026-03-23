@@ -19,8 +19,10 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - text
         - image
-        - pdf
+    output:
+        - text
 mode: chat
 model: gpt-5-nano-2025-08-07
 params:
@@ -42,5 +44,4 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-nano
-    - https://developers.openai.com/api/docs/deprecations/
 thinking: true

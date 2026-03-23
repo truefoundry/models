@@ -1,4 +1,12 @@
+limits:
+    context_window: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: completion
 model: Qwen/Qwen3-1.7B-Base
 sources:
     - https://www.together.ai/pricing
+    - https://huggingface.co/Qwen/Qwen3-1.7B-Base

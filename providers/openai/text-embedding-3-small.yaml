@@ -7,7 +7,20 @@ costs:
 limits:
     max_input_tokens: 8192
     output_vector_size: 1536
+modalities:
+    input:
+        - text
 mode: embedding
 model: text-embedding-3-small
+removeParams:
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - max_tokens
 sources:
     - https://developers.openai.com/docs/guides/embeddings
+    - https://developers.openai.com/api/docs/models/text-embedding-3-small

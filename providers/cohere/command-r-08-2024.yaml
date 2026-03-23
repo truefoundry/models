@@ -3,16 +3,24 @@ costs:
       output_cost_per_token: 6.e-7
       region: "*"
 features:
+    - function_calling
     - structured_output
     - tool_choice
     - tools
 limits:
-    context_window: 132096
-    max_input_tokens: 128000
+    context_window: 128000
     max_output_tokens: 4000
     max_tokens: 4000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: completion
 model: command-r-08-2024
+params:
+    - key: max_tokens
+      maxValue: 4000
 sources:
     - https://docs.cohere.com/docs/command-r
 supportedModes:

@@ -2,14 +2,20 @@ costs:
     - cache_read_input_token_cost: 0.00000125
       input_cost_per_image_token: 0.000008
       input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
       output_cost_per_image: 0.009
       output_cost_per_image_token: 0.000032
       output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
       region: "*"
 features:
     - prompt_caching
 modalities:
     input:
+        - text
+        - image
+    output:
+        - text
         - image
 mode: image
 model: gpt-image-1.5-2025-12-16
@@ -20,4 +26,4 @@ removeParams:
     - stop
 sources:
     - https://developers.openai.com/api/docs/models/gpt-image-1.5
-    - https://developers.openai.com/api/docs/deprecations
+    - https://developers.openai.com/docs/guides/image-generation

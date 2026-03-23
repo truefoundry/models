@@ -271,6 +271,7 @@ costs:
           output:
               - cost_per_token: 0.000015
                 from: 200000
+deprecationDate: "2026-06-17"
 features:
     - function_calling
     - tools
@@ -278,6 +279,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -285,10 +287,14 @@ limits:
     max_tokens: 65535
 modalities:
     input:
-        - audio
-        - doc
+        - text
         - image
+        - audio
+        - video
         - pdf
+        - doc
+    output:
+        - text
 mode: chat
 model: gemini-2.5-pro
 params:

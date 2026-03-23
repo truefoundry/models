@@ -1,4 +1,20 @@
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+limits:
+    context_window: 200000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: model-router-2025-05-19
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models
 supportedModes:
     - chat

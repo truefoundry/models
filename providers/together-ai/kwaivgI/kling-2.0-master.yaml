@@ -1,7 +1,15 @@
 costs:
     - input_cost_per_request: 0.92
       region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
 mode: video
 model: kwaivgI/kling-2.0-master
+sources:
+    - https://docs.together.ai/docs/serverless-models
 supportedModes:
     - video
