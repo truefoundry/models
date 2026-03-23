@@ -2,7 +2,6 @@ costs:
     - cache_read_input_token_cost: 2.e-7
       input_cost_per_token: 0.000002
       input_cost_per_token_batches: 0.000001
-      output_cost_per_image_token: 0.00012
       output_cost_per_token: 0.000012
       output_cost_per_token_batches: 0.000006
       region: global
@@ -23,6 +22,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -30,9 +30,13 @@ limits:
     max_tokens: 65536
 modalities:
     input:
-        - audio
+        - text
         - image
+        - audio
+        - video
         - pdf
+    output:
+        - text
 mode: chat
 model: gemini-3.1-pro-preview
 params:

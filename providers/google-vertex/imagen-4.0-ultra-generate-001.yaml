@@ -1,4 +1,13 @@
+model: imagen-4.0-ultra-generate-001
+mode: image
+modalities:
+    input:
+        - text
+    output:
+        - image
 costs:
+    - output_cost_per_image: 0.06
+      region: global
     - output_cost_per_image: 0.06
       region: us-west4
     - output_cost_per_image: 0.06
@@ -23,8 +32,6 @@ costs:
       region: me-central2
     - output_cost_per_image: 0.06
       region: me-central1
-    - output_cost_per_image: 0.06
-      region: global
     - output_cost_per_image: 0.06
       region: europe-west9
     - output_cost_per_image: 0.06
@@ -59,13 +66,14 @@ costs:
       region: asia-east2
     - output_cost_per_image: 0.06
       region: asia-east1
-limits:
-    max_tokens: 4096
-modalities:
-    input:
-        - image
-mode: image
-model: imagen-4.0-ultra-generate-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-ultra-generate-001

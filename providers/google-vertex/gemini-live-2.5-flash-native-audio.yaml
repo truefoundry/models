@@ -1,115 +1,119 @@
-costs:
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: us-west4
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: us-west1
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: us-south1
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: us-east5
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: us-east4
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: us-east1
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: us-central1
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: europe-west8
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: europe-west4
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: europe-west1
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: europe-southwest1
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: europe-north1
-    - input_cost_per_audio_token: 0.000003
-      input_cost_per_image_token: 0.000003
-      input_cost_per_token: 5.e-7
-      input_cost_per_video_token: 0.000003
-      output_cost_per_audio_token: 0.000012
-      output_cost_per_token: 0.000002
-      region: europe-central2
+model: gemini-live-2.5-flash-native-audio
+mode: realtime
+deprecationDate: "2026-12-13"
 features:
     - function_calling
     - system_messages
     - tool_choice
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+    output:
+        - text
+        - audio
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 64000
     max_tokens: 64000
-modalities:
-    input:
-        - audio
-        - image
-    output:
-        - audio
-mode: realtime
-model: gemini-live-2.5-flash-native-audio
 params:
     - key: max_tokens
       maxValue: 64000
+costs:
+    - region: us-central1
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: us-east1
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: us-east4
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: us-east5
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: us-south1
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: us-west1
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: us-west4
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: europe-central2
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: europe-north1
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: europe-southwest1
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: europe-west1
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: europe-west4
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
+    - region: europe-west8
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000002
+      input_cost_per_audio_token: 0.000003
+      output_cost_per_audio_token: 0.000012
+      input_cost_per_image_token: 0.000003
+      input_cost_per_video_token: 0.000003
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/live-api

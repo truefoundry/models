@@ -19,6 +19,11 @@ limits:
     context_window: 262144
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen/qwen3-235b-a22b-instruct-2507-maas
 sources:

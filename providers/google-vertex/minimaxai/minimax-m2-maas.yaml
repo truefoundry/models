@@ -15,9 +15,13 @@ limits:
     max_tokens: 196608
 modalities:
     input:
+        - text
         - doc
+    output:
+        - text
 mode: chat
 model: minimaxai/minimax-m2-maas
+thinking: true
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/minimax/minimax-m2
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/minimax

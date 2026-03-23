@@ -1,18 +1,23 @@
+model: mistralai/mistral-ocr-2505
+mode: chat
 costs:
-    - input_cost_per_token: 5.e-10
-      output_cost_per_token: 5.e-10
-      region: us-central1
-    - input_cost_per_token: 5.e-10
-      output_cost_per_token: 5.e-10
-      region: europe-west4
+    - region: us-central1
+      input_cost_per_token: 0.0000000005
+      output_cost_per_token: 0.0000000005
+    - region: europe-west4
+      input_cost_per_token: 0.0000000005
+      output_cost_per_token: 0.0000000005
 modalities:
     input:
-        - doc
         - image
         - pdf
-mode: chat
-model: mistralai/mistral-ocr-2505
+        - doc
+    output:
+        - text
+features:
+    - structured_output
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral/mistral-ocr
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral
     - https://mistral.ai/news/mistral-ocr
+    - https://docs.mistral.ai/getting-started/models/

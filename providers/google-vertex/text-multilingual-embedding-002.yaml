@@ -9,6 +9,9 @@ limits:
     output_vector_size: 768
 mode: embedding
 model: text-multilingual-embedding-002
+modalities:
+    input:
+        - text
 removeParams:
     - max_tokens
     - temperature
