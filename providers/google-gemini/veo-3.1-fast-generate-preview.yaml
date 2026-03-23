@@ -4,15 +4,25 @@ costs:
       output_cost_per_second_720p: 0.15
       region: "*"
 limits:
-    max_input_tokens: 480
-    max_output_tokens: 8192
+    max_input_tokens: 1024
 modalities:
     input:
+        - text
         - image
+        - video
     output:
+        - video
         - audio
 mode: video
 model: veo-3.1-fast-generate-preview
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - top_k
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://ai.google.dev/gemini-api/docs/video
     - https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview

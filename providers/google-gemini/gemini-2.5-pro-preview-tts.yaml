@@ -7,7 +7,10 @@ costs:
 limits:
     max_input_tokens: 8192
     max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
+    input:
+        - text
     output:
         - audio
 mode: text_to_speech
@@ -17,4 +20,3 @@ removeParams:
 sources:
     - https://ai.google.dev/gemini-api/docs/speech-generation
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts
-thinking: false

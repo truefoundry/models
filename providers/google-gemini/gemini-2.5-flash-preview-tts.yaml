@@ -5,12 +5,21 @@ costs:
       output_cost_per_token_batches: 0.000005
       region: "*"
 limits:
+    context_window: 32000
     max_input_tokens: 8192
     max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
+    input:
+        - text
     output:
         - audio
 mode: text_to_speech
 model: gemini-2.5-flash-preview-tts
+removeParams:
+    - stop
+    - tool_choice
+    - top_k
+    - top_p
 sources:
     - https://ai.google.dev/gemini-api/docs/speech-generation

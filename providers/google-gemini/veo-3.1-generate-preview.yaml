@@ -3,13 +3,12 @@ costs:
       output_cost_per_second_4k: 0.6
       output_cost_per_second_720p: 0.4
       region: "*"
-limits:
-    max_input_tokens: 480
-    max_output_tokens: 8192
 modalities:
     input:
+        - text
         - image
     output:
+        - video
         - audio
 mode: video
 model: veo-3.1-generate-preview

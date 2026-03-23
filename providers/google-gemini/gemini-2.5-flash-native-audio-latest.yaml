@@ -12,12 +12,15 @@ features:
 limits:
     max_input_tokens: 131072
     max_output_tokens: 8192
+    max_tokens: 8192
 modalities:
     input:
         - audio
-        - image
+        - text
+        - video
     output:
         - audio
+        - text
 mode: realtime
 model: gemini-2.5-flash-native-audio-latest
 params:
