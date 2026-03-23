@@ -21,6 +21,10 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-5-codex
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
 sources:
     - https://openrouter.ai/openai/gpt-5-codex/api
 thinking: true

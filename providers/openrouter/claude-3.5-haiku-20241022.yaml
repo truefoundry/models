@@ -16,12 +16,16 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: claude-3.5-haiku-20241022
 params:
     - key: max_tokens
       maxValue: 8192
+    - key: top_k
 sources:
     - https://openrouter.ai/anthropic/claude-3.5-haiku
     - https://openrouter.ai/anthropic/claude-3.5-haiku/api

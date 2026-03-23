@@ -18,10 +18,14 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
 model: openai/gpt-4o-2024-08-06
+params:
+    - defaultValue: 16384
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
 sources:
     - https://openrouter.ai/openai/gpt-4o-2024-08-06/api

@@ -1,13 +1,13 @@
 costs:
-    - input_cost_per_token: 5.1e-8
-      output_cost_per_token: 3.4e-7
+    - input_cost_per_token: 8.e-8
+      output_cost_per_token: 4.e-7
       region: "*"
 features:
     - function_calling
     - tool_choice
     - tools
 limits:
-    context_window: 32768
+    context_window: 131072
 modalities:
     input:
         - text

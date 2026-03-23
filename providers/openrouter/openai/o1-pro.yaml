@@ -12,11 +12,20 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
 model: openai/o1-pro
+params:
+    - defaultValue: 100000
+      key: max_tokens
+      maxValue: 100000
+      minValue: 1
+removeParams:
+    - temperature
+    - top_p
+    - stop
+    - "n"
 sources:
     - https://openrouter.ai/openai/o1-pro/api
 thinking: true

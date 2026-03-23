@@ -2,7 +2,10 @@ limits:
     context_window: 131072
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: kimi-vl-a3b-thinking
 sources:

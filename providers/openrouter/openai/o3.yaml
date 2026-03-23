@@ -22,6 +22,9 @@ modalities:
         - text
 mode: chat
 model: openai/o3
+params:
+    - key: max_tokens
+      maxValue: 100000
 sources:
     - https://openrouter.ai/openai/o3/api
 thinking: true

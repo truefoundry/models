@@ -21,8 +21,12 @@ limits:
     max_tokens: 65535
 modalities:
     input:
-        - audio
+        - text
         - image
+        - audio
+        - video
+    output:
+        - text
 mode: chat
 model: gemini-2.5-flash
 params:

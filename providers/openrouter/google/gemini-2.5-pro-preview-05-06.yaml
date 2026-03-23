@@ -1,10 +1,23 @@
 costs:
     - cache_creation_input_token_cost: 3.75e-7
       cache_read_input_token_cost: 1.25e-7
-      input_cost_per_image: 0.00000125
+      input_cost_per_audio_token: 0.00000125
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 7.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
 features:
     - function_calling
     - system_messages
@@ -14,7 +27,7 @@ features:
     - tools
 limits:
     context_window: 1048576
-    max_output_tokens: 65535
+    max_output_tokens: 65536
     max_tokens: 65536
 modalities:
     input:
@@ -27,6 +40,9 @@ modalities:
         - text
 mode: chat
 model: google/gemini-2.5-pro-preview-05-06
+params:
+    - key: max_tokens
+      maxValue: 65536
 sources:
     - https://openrouter.ai/google/gemini-2.5-pro-preview-05-06/api
 thinking: true

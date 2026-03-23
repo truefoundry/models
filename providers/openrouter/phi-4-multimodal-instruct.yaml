@@ -8,7 +8,10 @@ limits:
     max_tokens: 4096
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: microsoft/phi-4-multimodal-instruct
 sources:

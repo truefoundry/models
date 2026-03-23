@@ -12,7 +12,10 @@ limits:
     max_tokens: 5120
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: nova-lite-v1
 params:

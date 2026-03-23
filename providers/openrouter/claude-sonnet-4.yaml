@@ -31,8 +31,11 @@ limits:
     max_tokens: 64000
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: claude-sonnet-4
 params:

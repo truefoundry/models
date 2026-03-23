@@ -4,7 +4,11 @@ costs:
       region: "*"
 limits:
     context_window: 163840
-    max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mai-ds-r1
 sources:

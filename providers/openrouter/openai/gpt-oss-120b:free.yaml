@@ -19,6 +19,10 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-oss-120b:free
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
 sources:
     - https://openrouter.ai/openai/gpt-oss-120b:free/api
 thinking: true

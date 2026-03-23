@@ -1,26 +1,41 @@
 costs:
     - cache_creation_input_token_cost: 3.75e-7
       cache_read_input_token_cost: 1.25e-7
-      input_cost_per_image: 0.00000125
+      input_cost_per_audio_token: 0.00000125
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 7.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
 features:
     - function_calling
     - tool_choice
     - structured_output
     - system_messages
     - tools
+    - prompt_caching
 limits:
     context_window: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
 modalities:
     input:
-        - pdf
-        - image
         - text
+        - image
         - audio
+        - pdf
+        - video
     output:
         - text
 mode: chat

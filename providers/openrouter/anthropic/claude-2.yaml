@@ -11,6 +11,11 @@ limits:
     context_window: 200000
     max_output_tokens: 8191
     max_tokens: 8191
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: anthropic/claude-2
 sources:
