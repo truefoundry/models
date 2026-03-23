@@ -5,11 +5,15 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 32768
 modalities:
     input:
+        - text
         - audio
+    output:
+        - text
 mode: chat
 model: voxtral-small-latest
 sources:

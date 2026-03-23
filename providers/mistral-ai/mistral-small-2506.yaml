@@ -4,21 +4,26 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
+    - structured_output
+    - tool_choice
+    - assistant_prefill
 limits:
-    context_window: 131072
-    max_input_tokens: 128000
-    max_output_tokens: 128000
-    max_tokens: 128000
+    context_window: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral-small-2506
+params:
+    - key: reasoning_effort
 sources:
     - https://docs.mistral.ai/models/mistral-small-3-2-25-06
     - https://docs.mistral.ai/capabilities/vision
     - https://docs.mistral.ai/capabilities/function_calling
     - https://docs.mistral.ai/capabilities/structured_output
     - https://docs.mistral.ai/capabilities/reasoning
-supportedModes:
-    - chat
+thinking: true

@@ -12,8 +12,11 @@ limits:
     context_window: 128000
 modalities:
     input:
-        - doc
+        - text
         - image
+        - doc
+    output:
+        - text
 mode: chat
 model: mistral-small
 sources:

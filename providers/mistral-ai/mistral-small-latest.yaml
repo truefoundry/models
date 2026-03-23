@@ -1,22 +1,31 @@
 costs:
-    - input_cost_per_token: 1.e-7
-      output_cost_per_token: 3.e-7
+    - input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6.e-7
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
+    - structured_output
+    - tool_choice
 limits:
-    context_window: 262144
-    max_input_tokens: 128000
-    max_output_tokens: 128000
-    max_tokens: 128000
+    context_window: 256000
 modalities:
     input:
+        - text
         - image
+        - audio
+    output:
+        - text
 mode: chat
 model: mistral-small-latest
+params:
+    - key: reasoning_effort
+      type: string
 sources:
-    - https://docs.mistral.ai/models/mistral-small-3-2-25-06
+    - https://docs.mistral.ai/models/mistral-small-4-0-26-03
     - https://docs.mistral.ai/capabilities/vision/
     - https://docs.mistral.ai/capabilities/function_calling/
+    - https://docs.mistral.ai/capabilities/reasoning/
 supportedModes:
     - chat
+thinking: true
