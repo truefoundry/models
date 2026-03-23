@@ -11,6 +11,10 @@ jobs:
   trigger-updation:
     name: Trigger updation job
     runs-on: ubuntu-latest
+    env:
+      TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
+      TFY_HOST: ${{ secrets.TFY_HOST }}
+      TFY_JOB_FQN: ${{ secrets.TFY_JOB_FQN }}
 
     steps:
       - name: Set up Python
@@ -22,14 +26,9 @@ jobs:
         run: pipx install truefoundry
 
       - name: Login to TrueFoundry
-        env:
-          TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
-          TFY_HOST: ${{ secrets.TFY_HOST }}
         run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
 
       - name: Trigger updation job
-        env:
-          TFY_JOB_FQN: ${{ secrets.TFY_JOB_FQN }}
         run: |
           tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
           tfy trigger job \
