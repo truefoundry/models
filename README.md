@@ -18,7 +18,7 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 697 | Unified API for open source models |
+| OpenRouter | 695 | Unified API for open source models |
 | Together AI | 290 | Open source model hosting |
 | AWS Bedrock | 197 | Claude, Llama, Titan, Mistral on AWS |
 | Azure OpenAI | 182 | OpenAI models on Azure |
