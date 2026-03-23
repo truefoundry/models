@@ -5,10 +5,12 @@ limits:
     max_input_tokens: 32000
 modalities:
     input:
+        - text
+        - image
+    output:
         - image
 mode: image
 model: black-forest-labs/FLUX.2-flex
 sources:
     - https://docs.together.ai/docs/images-overview
-supportedModes:
-    - image
+    - https://together.ai/models

@@ -1,7 +1,12 @@
 costs:
     - input_cost_per_request: 0.8
       region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - video
 mode: video
 model: openai/sora-2
-supportedModes:
-    - video
+sources:
+    - https://docs.together.ai/docs/changelog
