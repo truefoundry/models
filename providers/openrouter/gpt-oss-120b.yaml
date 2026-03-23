@@ -9,11 +9,18 @@ features:
     - structured_output
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: gpt-oss-120b
 params:
     - key: max_tokens
       maxValue: 32768
+    - defaultValue: medium
+      key: reasoning_effort
 removeParams:
     - stream
 sources:

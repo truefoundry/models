@@ -13,6 +13,11 @@ limits:
     max_input_tokens: 131072
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: openai/gpt-oss-20b
 params:
@@ -21,4 +26,3 @@ params:
 sources:
     - https://console.groq.com/docs/tool-use
     - https://console.groq.com/docs/structured-outputs
-    - https://console.groq.com/docs/vision

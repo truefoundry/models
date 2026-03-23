@@ -7,10 +7,12 @@ features:
     - function_calling
     - parallel_function_calling
     - prompt_caching
+    - structured_output
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 65536
-    max_tokens: 4096
+    max_tokens: 65536
 messages:
     options:
         - user
@@ -18,7 +20,10 @@ messages:
         - developer
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: o1-mini
 params:
@@ -32,3 +37,7 @@ removeParams:
     - "n"
     - stream
     - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models
+thinking: true

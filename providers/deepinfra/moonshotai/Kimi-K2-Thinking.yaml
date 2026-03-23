@@ -4,12 +4,19 @@ costs:
       output_cost_per_token: 0.000002
       region: "*"
 features:
+    - function_calling
     - prompt_caching
+    - system_messages
 limits:
     context_window: 131072
     max_input_tokens: 262144
     max_output_tokens: 131072
     max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: moonshotai/Kimi-K2-Thinking
 sources:

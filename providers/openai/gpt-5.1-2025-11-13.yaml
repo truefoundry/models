@@ -19,8 +19,10 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - text
         - image
-        - pdf
+    output:
+        - text
 mode: chat
 model: gpt-5.1-2025-11-13
 params:
@@ -31,13 +33,14 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+    - defaultValue: medium
+      key: reasoning_effort
 removeParams:
     - temperature
     - top_p
     - "n"
     - max_tokens
 sources:
+    - https://developers.openai.com/docs/models/gpt-5.1
     - https://developers.openai.com/api/docs/models/gpt-5.1
-    - https://developers.openai.com/api/docs/pricing
-    - https://developers.openai.com/api/docs/deprecations
 thinking: true

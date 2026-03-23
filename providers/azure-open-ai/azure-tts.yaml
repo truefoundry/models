@@ -1,5 +1,20 @@
 costs:
     - input_cost_per_character: 0.000015
       region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - audio
 mode: text_to_speech
 model: azure-tts
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls

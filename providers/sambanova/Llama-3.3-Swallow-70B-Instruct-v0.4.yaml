@@ -5,7 +5,13 @@ costs:
 features:
     - function_calling
 limits:
-    context_window: 131072
+    context_window: 16000
     max_output_tokens: 3072
+    max_tokens: 3072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Llama-3.3-Swallow-70B-Instruct-v0.4

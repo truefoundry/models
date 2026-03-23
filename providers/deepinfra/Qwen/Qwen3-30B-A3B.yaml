@@ -6,9 +6,15 @@ features:
     - function_calling
     - tool_choice
     - structured_output
+    - prompt_caching
 limits:
     context_window: 40960
     max_tokens: 40960
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3-30B-A3B
 sources:

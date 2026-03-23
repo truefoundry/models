@@ -4,6 +4,8 @@ costs:
 modalities:
     input:
         - audio
+    output:
+        - text
 mode: audio_transcription
 model: whisper-1
 params:
@@ -21,4 +23,6 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/whisper-1
-    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/docs/pricing
+supportedModes:
+    - audio_translation

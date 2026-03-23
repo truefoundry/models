@@ -9,12 +9,13 @@ features:
     - structured_output
     - system_messages
 limits:
-    context_window: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral-small-3.2-24b-instruct:free
 sources:

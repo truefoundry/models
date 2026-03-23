@@ -9,6 +9,7 @@ features:
     - tools
     - structured_output
     - system_messages
+    - prompt_caching
 limits:
     context_window: 400000
     max_input_tokens: 300000
@@ -22,6 +23,12 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-5.1-codex-mini
+params:
+    - key: max_tokens
+      maxValue: 100000
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
 sources:
     - https://openrouter.ai/openai/gpt-5.1-codex-mini/api
     - https://developers.openai.com/docs/models/gpt-5.1-codex-mini

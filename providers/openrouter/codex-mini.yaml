@@ -7,7 +7,10 @@ limits:
     max_tokens: 100000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: codex-mini
 params:
@@ -15,4 +18,5 @@ params:
       maxValue: 100000
 sources:
     - https://openrouter.ai/openai/codex-mini/api
+    - https://developers.openai.com/docs/deprecations
 thinking: true

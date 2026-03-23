@@ -6,6 +6,12 @@ features:
     - function_calling
 limits:
     max_input_tokens: 32000
+    max_output_tokens: 32000
     max_tokens: 32000
 mode: chat
 model: mistral-large-latest
+params:
+    - key: max_tokens
+      maxValue: 32000
+sources:
+    - https://docs.mistral.ai/models/mistral-large-3-25-12

@@ -8,6 +8,13 @@ features:
     - tool_choice
 limits:
     context_window: 131072
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek-chat-v3-0324:free
 params:

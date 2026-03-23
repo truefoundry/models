@@ -6,13 +6,17 @@ features:
     - function_calling
     - tools
     - tool_choice
+    - structured_output
 limits:
     context_window: 300000
     max_output_tokens: 5120
     max_tokens: 5120
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: nova-pro-v1
 params:

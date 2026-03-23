@@ -1,8 +1,10 @@
 costs:
-    - input_cost_per_image: 0.03146
+    - input_cost_per_image: 0.03
       region: "*"
 modalities:
     input:
+        - text
+    output:
         - image
 mode: image
 model: Wan-AI/Wan2.6-image

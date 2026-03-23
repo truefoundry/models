@@ -1,17 +1,18 @@
 costs:
-    - cache_read_input_token_cost: 1.9e-7
-      input_cost_per_token: 3.8e-7
-      output_cost_per_token: 0.00000198
+    - cache_read_input_token_cost: 1.95e-7
+      input_cost_per_token: 3.9e-7
+      output_cost_per_token: 0.00000175
       region: "*"
 features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - structured_output
 limits:
     context_window: 202752
     max_input_tokens: 202752
-    max_output_tokens: 64000
-    max_tokens: 64000
+    max_output_tokens: 65535
+    max_tokens: 65535
 modalities:
     input:
         - text

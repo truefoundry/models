@@ -23,8 +23,11 @@ messages:
         - developer
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: o4-mini
 params:
@@ -45,5 +48,4 @@ removeParams:
     - stop
 sources:
     - https://developers.openai.com/api/docs/models/o4-mini
-    - https://developers.openai.com/api/docs/pricing
 thinking: true

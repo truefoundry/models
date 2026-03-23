@@ -4,10 +4,11 @@ costs:
       region: "*"
 features:
     - system_messages
+    - function_calling
+    - tool_choice
+    - structured_output
 limits:
-    context_window: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 262144
 modalities:
     input:
         - text

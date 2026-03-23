@@ -1,6 +1,6 @@
 costs:
     - input_cost_per_token: 3.e-8
-      output_cost_per_token: 1.4e-7
+      output_cost_per_token: 1.1e-7
       region: "*"
 features:
     - function_calling
@@ -8,11 +8,20 @@ features:
     - structured_output
 limits:
     context_window: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: gpt-oss-20b
 params:
     - key: max_tokens
-      maxValue: 32768
+      maxValue: 131072
+    - key: reasoning_effort
+      type: string
 removeParams:
     - stream
 sources:

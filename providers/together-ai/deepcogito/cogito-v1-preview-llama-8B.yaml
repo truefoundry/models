@@ -1,5 +1,21 @@
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tools
+messages:
+    options:
+        - system
+        - user
+        - assistant
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepcogito/cogito-v1-preview-llama-8B
 sources:
     - https://api.together.ai/models/deepcogito/cogito-v1-preview-llama-8B
+    - https://huggingface.co/deepcogito/cogito-v1-preview-llama-8B
 thinking: true

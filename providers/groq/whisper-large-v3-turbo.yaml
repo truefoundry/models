@@ -5,8 +5,16 @@ costs:
 limits:
     context_window: 448
     max_output_tokens: 448
+    max_tokens: 448
 modalities:
     input:
         - audio
+    output:
+        - text
 mode: audio_transcription
 model: whisper-large-v3-turbo
+removeParams:
+    - max_tokens
+    - top_p
+    - stop
+    - stream

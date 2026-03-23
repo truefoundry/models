@@ -10,7 +10,16 @@ features:
     - assistant_prefill
 limits:
     context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: devstral-small-latest
 sources:
     - https://docs.mistral.ai/models/devstral-small-2-25-12
+supportedModes:
+    - completion

@@ -12,8 +12,17 @@ features:
 limits:
     max_input_tokens: 128000
     max_output_tokens: 16384
-    max_tokens: 4096
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
 mode: chat
 model: gpt-audio-mini-2025-10-06
+sources:
+    - https://developers.openai.com/docs/models/gpt-audio-mini
 supportedModes:
     - chat

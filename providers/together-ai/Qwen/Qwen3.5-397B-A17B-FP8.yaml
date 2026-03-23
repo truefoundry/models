@@ -7,10 +7,11 @@ features:
     - structured_output
 limits:
     context_window: 262144
-    max_output_tokens: 262144
-    max_tokens: 262144
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3.5-397B-A17B-FP8

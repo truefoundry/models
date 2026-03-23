@@ -6,12 +6,21 @@ costs:
 features:
     - tools
     - function_calling
+    - structured_output
 limits:
     context_window: 163840
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek-r1-0528
+params:
+    - key: max_tokens
+      maxValue: 65536
 sources:
     - https://openrouter.ai/deepseek/deepseek-r1-0528/api
 thinking: true

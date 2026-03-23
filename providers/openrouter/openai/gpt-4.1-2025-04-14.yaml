@@ -7,6 +7,7 @@ features:
     - function_calling
     - parallel_function_calling
     - tool_choice
+    - structured_output
 limits:
     context_window: 1047576
     max_input_tokens: 1047576
@@ -14,8 +15,14 @@ limits:
     max_tokens: 32768
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: openai/gpt-4.1-2025-04-14
+params:
+    - key: max_tokens
+      maxValue: 32768
 sources:
     - https://openrouter.ai/openai/gpt-4.1-2025-04-14/api

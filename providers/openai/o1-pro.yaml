@@ -17,7 +17,10 @@ messages:
         - developer
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: o1-pro
 params:
@@ -28,7 +31,12 @@ params:
       key: max_tokens
       maxValue: 100000
       minValue: 1
+removeParams:
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/o1-pro
-    - https://developers.openai.com/api/docs/deprecations
 thinking: true

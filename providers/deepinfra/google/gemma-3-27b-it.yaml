@@ -12,7 +12,10 @@ limits:
     max_tokens: 131072
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: google/gemma-3-27b-it
 sources:

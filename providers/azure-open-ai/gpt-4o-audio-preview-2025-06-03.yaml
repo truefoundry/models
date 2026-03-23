@@ -1,4 +1,27 @@
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - tools
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
 mode: chat
 model: gpt-4o-audio-preview-2025-06-03
+params:
+    - key: max_tokens
+      maxValue: 16384
+sources:
+    - https://developers.openai.com/docs/models/gpt-4o-audio-preview
 supportedModes:
     - chat

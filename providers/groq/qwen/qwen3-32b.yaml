@@ -11,6 +11,11 @@ limits:
     context_window: 131072
     max_output_tokens: 40960
     max_tokens: 40960
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen/qwen3-32b
 params:
@@ -18,6 +23,8 @@ params:
       key: max_tokens
       maxValue: 40960
       minValue: 1
+    - defaultValue: default
+      key: reasoning_effort
 sources:
     - https://console.groq.com/docs/model/qwen/qwen3-32b
     - https://console.groq.com/docs/reasoning

@@ -14,8 +14,10 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - audio
     output:
+        - text
         - audio
 mode: chat
 model: gpt-4o-audio-preview-2025-06-03
@@ -28,4 +30,3 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-audio-preview
-    - https://developers.openai.com/api/docs/pricing

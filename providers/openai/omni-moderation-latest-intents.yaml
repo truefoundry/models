@@ -4,9 +4,18 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
         - image
 mode: moderation
 model: omni-moderation-latest-intents
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - stream
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/guides/moderation
-    - https://developers.openai.com/api/docs/pricing

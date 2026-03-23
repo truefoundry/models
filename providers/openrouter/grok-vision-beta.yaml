@@ -2,7 +2,10 @@ limits:
     context_window: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: grok-vision-beta
 sources:

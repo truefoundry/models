@@ -8,9 +8,9 @@ features:
     - system_messages
     - prompt_caching
     - structured_output
+    - code_execution
 limits:
     context_window: 131072
-    max_input_tokens: 65536
     max_output_tokens: 65536
     max_tokens: 65536
 mode: chat
@@ -22,5 +22,4 @@ params:
       minValue: 1
 sources:
     - https://console.groq.com/docs/model/openai/gpt-oss-safeguard-20b
-    - https://groq.com/pricing/
 thinking: true

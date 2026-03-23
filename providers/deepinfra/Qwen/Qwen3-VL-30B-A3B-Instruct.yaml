@@ -10,10 +10,14 @@ features:
 limits:
     context_window: 262144
     max_output_tokens: 16384
-    max_tokens: 262144
+    max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+        - video
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3-VL-30B-A3B-Instruct
 sources:

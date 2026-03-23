@@ -8,8 +8,19 @@ features:
     - structured_output
     - system_messages
 limits:
-    context_window: 32768
+    context_window: 128000
     max_output_tokens: 32768
+    max_tokens: 32768
+messages:
+    options:
+        - system
+        - user
+        - assistant
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: DeepSeek-V3.1-cb
 sources:

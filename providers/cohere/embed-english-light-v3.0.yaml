@@ -5,8 +5,10 @@ costs:
 limits:
     context_window: 512
     max_input_tokens: 512
+    output_vector_size: 384
 modalities:
     input:
+        - text
         - image
 mode: embedding
 model: embed-english-light-v3.0
