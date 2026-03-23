@@ -20,8 +20,11 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: gpt-4o
 params:
@@ -31,6 +34,5 @@ params:
       key: response_format
       type: string
 sources:
-    - https://platform.openai.com/docs/models/gpt-4o
     - https://developers.openai.com/api/docs/models/gpt-4o
-    - https://platform.openai.com/docs/guides/prompt-caching
+    - https://developers.openai.com/docs/guides/pdf-files

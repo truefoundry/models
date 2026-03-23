@@ -4,6 +4,7 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
         - image
 mode: moderation
 model: omni-moderation-latest
@@ -18,4 +19,4 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/docs/guides/moderation
-    - https://developers.openai.com/docs/models
+    - https://developers.openai.com/api/docs/models/omni-moderation-latest

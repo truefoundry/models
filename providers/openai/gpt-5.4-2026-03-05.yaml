@@ -6,6 +6,9 @@ costs:
       output_cost_per_token_batches: 0.0000075
       region: "*"
       tiered_pricing:
+          cache_read:
+              - cost_per_token: 5.e-7
+                from: 272000
           input:
               - cost_per_token: 0.000005
                 from: 272000
@@ -26,7 +29,10 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-5.4-2026-03-05
 params:
@@ -34,9 +40,10 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: none
+      key: reasoning_effort
 removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.4
-    - https://developers.openai.com/api/docs/pricing
 thinking: true

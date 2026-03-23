@@ -20,8 +20,11 @@ limits:
     max_tokens: 32768
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: gpt-4.1-mini-2025-04-14
 params:
@@ -35,5 +38,4 @@ params:
 removeParams:
     - max_tokens
 sources:
-    - https://developers.openai.com/api/docs/pricing
     - https://developers.openai.com/api/docs/models/gpt-4.1-mini

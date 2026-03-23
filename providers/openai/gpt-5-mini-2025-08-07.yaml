@@ -19,7 +19,10 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-5-mini-2025-08-07
 params:
@@ -40,6 +43,5 @@ removeParams:
     - "n"
     - max_tokens
 sources:
-    - https://developers.openai.com/api/docs/pricing
-    - https://developers.openai.com/api/docs/models/gpt-5-mini
+    - https://developers.openai.com/docs/models/gpt-5-mini
 thinking: true

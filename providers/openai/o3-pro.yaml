@@ -15,7 +15,10 @@ limits:
     max_tokens: 100000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: o3-pro
 params:
@@ -32,8 +35,8 @@ removeParams:
     - "n"
     - stream
     - stop
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/o3-pro
-    - https://developers.openai.com/api/docs/deprecations/
     - https://openrouter.ai/openai/o3-pro/api
 thinking: true
