@@ -24,11 +24,18 @@ function main(): void {
     const files = args.length > 0
         ? args.filter((f) => f.endsWith('.yaml')).map((f) => path.resolve(f))
         : collectYamlFiles(PROVIDERS_DIR);
+    const pendingWrites: Array<{ filePath: string; sorted: string; original: string }> = [];
     let sortedCount = 0;
 
     for (const filePath of files) {
         const content = fs.readFileSync(filePath, 'utf-8');
-        const data = yaml.load(content);
+        let data: unknown;
+        try {
+            data = yaml.load(content);
+        } catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            throw new Error(`Failed to parse YAML file ${filePath}: ${message}`);
+        }
 
         if (data == null || typeof data !== 'object') {
             continue;
@@ -53,7 +60,13 @@ function main(): void {
         });
 
         if (sorted !== content) {
-            fs.writeFileSync(filePath, sorted, 'utf-8');
+            pendingWrites.push({ filePath, sorted, original: content });
+        }
+    }
+
+    for (const pending of pendingWrites) {
+        if (pending.sorted !== pending.original) {
+            fs.writeFileSync(pending.filePath, pending.sorted, 'utf-8');
             sortedCount++;
         }
     }
