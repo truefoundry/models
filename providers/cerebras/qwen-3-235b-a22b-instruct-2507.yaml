@@ -15,11 +15,24 @@ limits:
     max_input_tokens: 131072
     max_output_tokens: 40960
     max_tokens: 40960
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen-3-235b-a22b-instruct-2507
+params:
+    - key: max_tokens
+      maxValue: 40960
+    - key: temperature
+      maxValue: 1.5
+    - key: seed
+      type: number
 sources:
     - https://inference-docs.cerebras.ai/models/qwen-3-235b-2507
     - https://inference-docs.cerebras.ai/capabilities/prompt-caching
     - https://inference-docs.cerebras.ai/capabilities/tool-use
     - https://inference-docs.cerebras.ai/capabilities/structured-outputs
     - https://www.cerebras.ai/pricing
+    - https://inference-docs.cerebras.ai/api-reference/chat-completions
