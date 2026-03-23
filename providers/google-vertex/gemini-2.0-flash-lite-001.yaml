@@ -179,6 +179,7 @@ costs:
       output_cost_per_token: 3.e-7
       output_cost_per_token_batches: 1.5e-7
       region: asia-east1
+deprecationDate: "2026-06-01"
 features:
     - function_calling
     - parallel_function_calling
@@ -193,12 +194,29 @@ limits:
     max_tokens: 8192
 modalities:
     input:
-        - audio
-        - doc
+        - text
         - image
+        - audio
+        - video
         - pdf
+        - doc
+    output:
+        - text
 mode: chat
 model: gemini-2.0-flash-lite-001
+params:
+    - key: max_tokens
+      maxValue: 8192
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+      maxValue: 64
+      minValue: 1
+    - key: "n"
+      maxValue: 8
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash-lite
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations

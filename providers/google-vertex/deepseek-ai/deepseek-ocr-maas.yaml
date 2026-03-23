@@ -4,8 +4,6 @@ costs:
       region: us-central1
 features:
     - function_calling
-    - tools
-    - tool_choice
     - structured_output
 limits:
     context_window: 8192
@@ -13,9 +11,11 @@ limits:
     max_tokens: 8192
 modalities:
     input:
-        - doc
+        - text
         - image
-        - pdf
+        - doc
+    output:
+        - text
 mode: chat
 model: deepseek-ai/deepseek-ocr-maas
 params:

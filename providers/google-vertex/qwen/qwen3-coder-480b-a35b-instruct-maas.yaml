@@ -16,12 +16,19 @@ features:
     - structured_output
     - system_messages
     - tool_choice
-    - tools
     - prompt_caching
+    - tools
 limits:
     context_window: 262144
     max_output_tokens: 65536
     max_tokens: 65536
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: qwen/qwen3-coder-480b-a35b-instruct-maas
 params:
@@ -31,3 +38,5 @@ params:
       minValue: 1
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-coder
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/use-open-models
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview

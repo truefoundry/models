@@ -18,12 +18,14 @@ limits:
     max_tokens: 32768
 modalities:
     input:
+        - text
         - doc
+    output:
+        - text
 mode: chat
 model: deepseek-ai/deepseek-v3.1-maas
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-v31
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/use-open-models
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
 thinking: true

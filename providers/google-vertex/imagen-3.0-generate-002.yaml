@@ -61,9 +61,23 @@ costs:
       region: asia-east1
 modalities:
     input:
+        - text
+    output:
         - image
 mode: image
 model: imagen-3.0-generate-002
+params:
+    - defaultValue: 1
+      key: "n"
+      maxValue: 4
+      minValue: 1
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-generate
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-generate-002

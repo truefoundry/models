@@ -16,7 +16,10 @@ limits:
     max_tokens: 262144
 modalities:
     input:
+        - text
         - doc
+    output:
+        - text
 mode: chat
 model: moonshotai/kimi-k2-thinking-maas
 params:

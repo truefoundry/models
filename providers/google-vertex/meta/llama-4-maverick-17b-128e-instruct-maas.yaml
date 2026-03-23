@@ -13,7 +13,10 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: meta/llama-4-maverick-17b-128e-instruct-maas
 params:

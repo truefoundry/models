@@ -51,11 +51,22 @@ costs:
       region: asia-northeast1
 limits:
     max_input_tokens: 2048
+    output_vector_size: 1408
 modalities:
     input:
+        - text
         - image
+        - video
 mode: embedding
 model: multimodalembedding@001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/multimodal-embeddings-api

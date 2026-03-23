@@ -119,6 +119,7 @@ costs:
       output_cost_per_token: 6.e-7
       output_cost_per_token_batches: 3.e-7
       region: europe-central2
+deprecationDate: "2026-06-01"
 features:
     - function_calling
     - parallel_function_calling
@@ -126,6 +127,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -133,12 +135,18 @@ limits:
     max_tokens: 8192
 modalities:
     input:
-        - audio
+        - text
         - image
+        - audio
+        - video
         - pdf
+    output:
+        - text
 mode: chat
 model: gemini-2.0-flash
+params:
+    - key: max_tokens
+      maxValue: 8192
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash
-    - https://ai.google.dev/gemini-api/docs/pricing
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview
