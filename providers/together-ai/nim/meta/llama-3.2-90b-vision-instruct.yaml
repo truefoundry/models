@@ -6,6 +6,9 @@ limits:
     max_tokens: 4096
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: nim/meta/llama-3.2-90b-vision-instruct

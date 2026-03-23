@@ -4,11 +4,15 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
-    context_window: 131072
+    context_window: 256000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral-vibe-cli-with-tools
 sources:
@@ -16,5 +20,3 @@ sources:
     - https://mistral.ai/news/devstral-2-vibe-cli
     - https://docs.mistral.ai/mistral-vibe/introduction
     - https://docs.mistral.ai/mistral-vibe/introduction/configuration
-supportedModes:
-    - chat

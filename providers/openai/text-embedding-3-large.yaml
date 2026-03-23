@@ -9,6 +9,15 @@ limits:
     output_vector_size: 3072
 mode: embedding
 model: text-embedding-3-large
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - stream
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/text-embedding-3-large
     - https://developers.openai.com/docs/guides/embeddings

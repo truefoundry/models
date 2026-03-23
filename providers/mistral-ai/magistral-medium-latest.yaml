@@ -4,17 +4,22 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - structured_output
 limits:
-    context_window: 131072
+    context_window: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: magistral-medium-latest
 sources:
     - https://docs.mistral.ai/models/magistral-medium-1-2-25-09
     - https://docs.mistral.ai/capabilities/reasoning/
-    - https://docs.mistral.ai/capabilities/vision/
     - https://docs.mistral.ai/capabilities/function_calling
 supportedModes:
     - chat

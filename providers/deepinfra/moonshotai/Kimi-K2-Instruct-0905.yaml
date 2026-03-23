@@ -5,11 +5,19 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - tool_choice
+    - system_messages
 limits:
     context_window: 131072
     max_input_tokens: 262144
     max_output_tokens: 131072
     max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: moonshotai/Kimi-K2-Instruct-0905
 sources:

@@ -1,21 +1,36 @@
 costs:
+    - cache_read_input_token_cost: 0.00000125
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.00001
+      region: global
     - cache_creation_input_token_cost: 0.00000138
       input_cost_per_token: 0.00000275
       output_cost_per_token: 0.000011
       region: "*"
+deprecationDate: "2026-10-01"
 features:
     - function_calling
     - parallel_function_calling
     - tool_choice
     - structured_output
+    - prompt_caching
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-4o-2024-11-20
+params:
+    - key: max_tokens
+      maxValue: 16384
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 supportedModes:
     - chat

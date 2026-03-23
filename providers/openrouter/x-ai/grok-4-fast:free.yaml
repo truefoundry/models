@@ -13,10 +13,14 @@ limits:
     max_tokens: 30000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: x-ai/grok-4-fast:free
 sources:
     - https://openrouter.ai/x-ai/grok-4-fast:free/api
     - https://docs.x.ai/developers/models#models-and-pricing
+    - https://openrouter.ai/x-ai/grok-4-fast/api
 thinking: true

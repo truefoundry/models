@@ -5,11 +5,18 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - structured_output
 limits:
     context_window: 163840
     max_input_tokens: 163840
     max_output_tokens: 16384
-    max_tokens: 163840
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek-ai/DeepSeek-V3.2
 sources:

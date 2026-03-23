@@ -12,10 +12,18 @@ limits:
 modalities:
     input:
         - audio
+        - text
+    output:
+        - text
 mode: audio_transcription
 model: gpt-4o-transcribe-diarize
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-transcribe-diarize
-    - https://developers.openai.com/api/docs/deprecations
     - https://developers.openai.com/api/docs/guides/speech-to-text
-    - https://developers.openai.com/api/docs/pricing

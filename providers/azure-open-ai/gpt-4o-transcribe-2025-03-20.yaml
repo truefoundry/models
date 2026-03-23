@@ -1,2 +1,20 @@
-mode: unknown
+deprecationDate: "2026-06-01"
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: gpt-4o-transcribe-2025-03-20
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/whisper-quickstart

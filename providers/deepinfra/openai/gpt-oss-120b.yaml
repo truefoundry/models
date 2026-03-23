@@ -11,9 +11,15 @@ limits:
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: openai/gpt-oss-120b
 sources:
     - https://developers.openai.com/api/docs/models/gpt-oss-120b
     - https://openrouter.ai/openai/gpt-oss-120b/api
+    - https://deepinfra.com/openai/gpt-oss-120b/api
 thinking: true

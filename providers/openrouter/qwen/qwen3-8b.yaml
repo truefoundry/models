@@ -1,6 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 5.e-8
-      input_cost_per_token: 5.e-8
+    - input_cost_per_token: 5.e-8
       output_cost_per_token: 4.e-7
       region: "*"
 features:
@@ -20,6 +19,13 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3-8b
+params:
+    - defaultValue: 0.6
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 20
+      key: top_k
 sources:
     - https://openrouter.ai/qwen/qwen3-8b/api
 thinking: true

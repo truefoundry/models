@@ -1,4 +1,24 @@
+deprecationDate: "2027-05-20"
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - structured_output
+    - tools
+limits:
+    context_window: 200000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: model-router
+params:
+    - key: reasoning_effort
+      type: string
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router
 supportedModes:
     - chat

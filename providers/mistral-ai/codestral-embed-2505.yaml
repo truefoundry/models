@@ -5,6 +5,11 @@ costs:
 limits:
     context_window: 8192
     max_input_tokens: 8192
+    output_vector_size: 1536
+modalities:
+    input:
+        - text
+        - code
 mode: embedding
 model: codestral-embed-2505
 removeParams:

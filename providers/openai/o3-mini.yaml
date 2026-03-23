@@ -21,6 +21,11 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: o3-mini
 params:
@@ -41,5 +46,4 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/o3-mini
-    - https://developers.openai.com/api/docs/pricing
 thinking: true

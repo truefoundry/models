@@ -17,6 +17,10 @@ modalities:
         - text
 mode: chat
 model: nousresearch/hermes-4-405b
+params:
+    - defaultValue: true
+      key: reasoning
+      type: boolean
 sources:
     - https://openrouter.ai/nousresearch/hermes-4-405b/api
 thinking: true

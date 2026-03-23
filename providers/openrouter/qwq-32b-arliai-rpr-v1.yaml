@@ -1,6 +1,10 @@
 limits:
     context_window: 32768
-    max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwq-32b-arliai-rpr-v1
 sources:

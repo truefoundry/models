@@ -4,6 +4,8 @@ costs:
 limits:
     max_input_tokens: 4096
 modalities:
+    input:
+        - text
     output:
         - audio
 mode: text_to_speech
@@ -19,6 +21,4 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/tts-1
-    - https://developers.openai.com/api/docs/guides/text-to-speech
-    - https://developers.openai.com/api/reference/resources/audio/subresources/speech/methods/create/
-    - https://developers.openai.com/api/docs/deprecations
+    - https://developers.openai.com/docs/guides/text-to-speech

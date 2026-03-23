@@ -18,10 +18,15 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - audio
     output:
+        - text
         - audio
 mode: chat
 model: gpt-audio-mini-2025-10-06
+params:
+    - key: max_tokens
+      maxValue: 16384
 sources:
     - https://developers.openai.com/docs/models/gpt-audio-mini

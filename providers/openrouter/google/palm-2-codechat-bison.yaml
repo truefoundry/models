@@ -6,6 +6,11 @@ limits:
     context_window: 7168
     max_output_tokens: 20070
     max_tokens: 20070
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: google/palm-2-codechat-bison
 sources:

@@ -21,6 +21,9 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-5-mini
+params:
+    - key: reasoning_effort
+      type: string
 sources:
     - https://openrouter.ai/openai/gpt-5-mini/api
 thinking: true

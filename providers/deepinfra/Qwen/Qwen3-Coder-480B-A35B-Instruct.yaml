@@ -10,8 +10,14 @@ limits:
     context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 65536
-    max_tokens: 262144
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3-Coder-480B-A35B-Instruct
 sources:
     - https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct
+    - https://deepinfra.com/Qwen/Qwen3-Coder-480B-A35B-Instruct/api

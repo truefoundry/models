@@ -11,15 +11,18 @@ limits:
     context_window: 200000
     max_input_tokens: 200000
     max_output_tokens: 32000
-    max_tokens: 200000
+    max_tokens: 32000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: anthropic/claude-4-opus
 sources:
     - https://deepinfra.com/anthropic/claude-4-opus/api
     - https://deepinfra.com/claude
-    - https://platform.claude.com/docs/en/about-claude/models
-    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/docs/about-claude/pricing
 thinking: true

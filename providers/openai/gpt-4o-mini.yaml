@@ -20,8 +20,11 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: gpt-4o-mini
 params:
@@ -32,4 +35,3 @@ params:
       type: string
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-mini
-    - https://developers.openai.com/api/docs/deprecations

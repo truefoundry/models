@@ -7,10 +7,15 @@ costs:
 limits:
     max_input_tokens: 2000
 modalities:
+    input:
+        - text
     output:
         - audio
 mode: text_to_speech
 model: gpt-4o-mini-tts-2025-12-15
+removeParams:
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-mini-tts
-    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/docs/guides/text-to-speech

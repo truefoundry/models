@@ -8,6 +8,7 @@ features:
     - function_calling
     - system_messages
     - tool_choice
+    - prompt_caching
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -15,8 +16,10 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - audio
     output:
+        - text
         - audio
 mode: chat
 model: gpt-audio-1.5
@@ -27,5 +30,4 @@ params:
       minValue: 1
 sources:
     - https://developers.openai.com/api/docs/models/gpt-audio-1.5
-    - https://developers.openai.com/api/docs/pricing
-    - https://developers.openai.com/api/docs/guides/prompt-caching
+    - https://developers.openai.com/docs/guides/prompt-caching

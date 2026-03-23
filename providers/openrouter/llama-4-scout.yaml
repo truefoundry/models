@@ -5,13 +5,17 @@ costs:
 features:
     - function_calling
     - tools
+    - structured_output
 limits:
     context_window: 327680
     max_output_tokens: 16384
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: llama-4-scout
 params:

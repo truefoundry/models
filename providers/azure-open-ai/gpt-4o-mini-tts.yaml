@@ -5,6 +5,25 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 limits:
-    max_tokens: 4096
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - audio
 mode: text_to_speech
 model: gpt-4o-mini-tts
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://developers.openai.com/api/docs/models/gpt-4o-mini-tts

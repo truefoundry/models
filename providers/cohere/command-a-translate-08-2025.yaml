@@ -6,10 +6,15 @@ features:
     - structured_output
     - tools
 limits:
-    context_window: 8992
+    context_window: 16000
     max_input_tokens: 8000
     max_output_tokens: 8000
     max_tokens: 8000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: command-a-translate-08-2025
 params:

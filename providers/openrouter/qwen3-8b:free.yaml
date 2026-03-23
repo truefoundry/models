@@ -11,11 +11,16 @@ limits:
     max_input_tokens: 40960
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen3-8b:free
 params:
     - key: max_tokens
-      maxValue: 40960
+      maxValue: 8192
 sources:
     - https://openrouter.ai/qwen/qwen3-8b:free/api
 thinking: true

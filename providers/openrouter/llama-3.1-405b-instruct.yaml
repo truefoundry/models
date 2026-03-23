@@ -6,11 +6,16 @@ features:
     - tools
     - function_calling
 limits:
-    context_window: 131000
+    context_window: 131072
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
-model: llama-3.1-405b-instruct
+model: meta-llama/llama-3.1-405b-instruct
 params:
     - key: max_tokens
       maxValue: 16384

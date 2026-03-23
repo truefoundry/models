@@ -4,8 +4,15 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 131072
+    max_input_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: llama-3.1-nemotron-ultra-253b-v1:free
 sources:

@@ -6,6 +6,9 @@ costs:
 limits:
     max_input_tokens: 8192
     output_vector_size: 1536
+modalities:
+    input:
+        - text
 mode: embedding
 model: text-embedding-ada-002
 removeParams:
@@ -18,3 +21,4 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/text-embedding-ada-002
+    - https://developers.openai.com/docs/guides/embeddings

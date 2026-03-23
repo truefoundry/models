@@ -12,7 +12,10 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gemini-flash-1.5-8b
 params:

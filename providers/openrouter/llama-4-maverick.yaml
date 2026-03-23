@@ -13,9 +13,12 @@ limits:
     max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
-model: llama-4-maverick
+model: meta-llama/llama-4-maverick
 params:
     - key: max_tokens
       maxValue: 16384

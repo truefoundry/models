@@ -1,10 +1,12 @@
 limits:
     context_window: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: llama-3-lumimaid-70b
-params:
-    - key: max_tokens
-      maxValue: 4096
 sources:
     - https://openrouter.ai/neversleep/llama-3-lumimaid-70b/api
     - https://openrouter.ai/neversleep/llama-3-lumimaid-70b

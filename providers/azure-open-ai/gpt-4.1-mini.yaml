@@ -5,6 +5,7 @@ costs:
       output_cost_per_token: 0.0000016
       output_cost_per_token_batches: 8.e-7
       region: "*"
+deprecationDate: "2026-10-14"
 features:
     - function_calling
     - parallel_function_calling
@@ -14,12 +15,16 @@ features:
     - prompt_caching
     - structured_output
 limits:
+    context_window: 1047576
     max_input_tokens: 1047576
     max_output_tokens: 32768
-    max_tokens: 4096
+    max_tokens: 32768
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-4.1-mini
 params:
@@ -27,10 +32,9 @@ params:
       key: max_completion_tokens
       maxValue: 32768
       minValue: 1
-    - defaultValue: null
-      key: response_format
-      type: string
 removeParams:
     - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 supportedModes:
     - chat

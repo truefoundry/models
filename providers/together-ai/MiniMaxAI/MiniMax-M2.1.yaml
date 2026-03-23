@@ -1,4 +1,27 @@
+features:
+    - function_calling
+    - tools
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 204800
+    max_output_tokens: 10240
+    max_tokens: 10240
+messages:
+    options:
+        - system
+        - user
+        - assistant
+        - developer
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: MiniMaxAI/MiniMax-M2.1
 sources:
-    - https://together.ai/models
+    - https://www.together.ai/models/minimax-m21
+    - https://platform.minimaxi.com/docs/guides/text-generation
+    - https://platform.minimaxi.com/docs/api-reference/text-post
+thinking: true

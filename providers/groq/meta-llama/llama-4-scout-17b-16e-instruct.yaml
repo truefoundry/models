@@ -16,7 +16,10 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: meta-llama/llama-4-scout-17b-16e-instruct
 params:

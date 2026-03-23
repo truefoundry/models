@@ -13,7 +13,10 @@ limits:
     max_tokens: 32768
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-4.1-mini
 params:

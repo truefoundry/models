@@ -7,7 +7,10 @@ limits:
     max_tokens: 4096
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: qwen2.5-vl-32b-instruct
 sources:
