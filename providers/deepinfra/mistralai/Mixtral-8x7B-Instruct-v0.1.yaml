@@ -5,11 +5,18 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - structured_output
+    - prompt_caching
 limits:
     context_window: 32768
     max_input_tokens: 32768
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mistralai/Mixtral-8x7B-Instruct-v0.1
 sources:
