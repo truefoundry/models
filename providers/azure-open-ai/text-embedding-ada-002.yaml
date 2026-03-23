@@ -4,8 +4,23 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 8191
-    max_tokens: 4096
+    output_vector_size: 1536
+modalities:
+    input:
+        - text
 mode: embedding
 model: text-embedding-ada-002
+removeParams:
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 supportedModes:
     - embedding
