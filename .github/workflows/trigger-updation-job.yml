@@ -25,9 +25,6 @@ jobs:
       - name: Install truefoundry
         run: pipx install truefoundry
 
-      - name: Login to TrueFoundry
-        run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
-
       - name: Trigger updation job
         run: |
           tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
