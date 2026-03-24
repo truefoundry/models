@@ -6,6 +6,11 @@ limits:
     context_window: 512
     max_output_tokens: 512
     max_tokens: 512
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: moderation
 model: meta-llama/llama-prompt-guard-2-22m
 params:
@@ -13,3 +18,4 @@ params:
       key: max_tokens
       maxValue: 512
       minValue: 1
+status: preview

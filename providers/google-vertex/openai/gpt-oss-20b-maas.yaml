@@ -17,6 +17,11 @@ limits:
     max_input_tokens: 131072
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: openai/gpt-oss-20b-maas
 sources:
@@ -24,3 +29,6 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/openai
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/capabilities/thinking
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/use-open-models
+status: active
+supportedModes:
+    - completion
