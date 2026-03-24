@@ -30,12 +30,17 @@ validate_file() {
     cat "$file" | cue vet "$MODEL_SCHEMA" yaml: - -d "$definition" 2>&1
 }
 
-if [ -n "$1" ]; then
-    # Validate specific file
-    if ! output=$(validate_file "$1"); then
-        echo "$output"
-        exit 1
-    fi
+if [ "$#" -gt 0 ]; then
+    # Validate specific file(s) passed as arguments
+    EXIT_CODE=0
+    for file in "$@"; do
+        if ! output=$(validate_file "$file"); then
+            echo "FAIL $file"
+            echo "$output"
+            EXIT_CODE=1
+        fi
+    done
+    exit $EXIT_CODE
 else
     # Validate all YAML files in providers/
     PROVIDERS_DIR="$SCRIPT_DIR/../../providers"
