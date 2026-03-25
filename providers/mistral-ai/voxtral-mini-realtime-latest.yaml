@@ -9,6 +9,8 @@ limits:
 modalities:
     input:
         - audio
+    output:
+        - text
 mode: audio_transcription
 model: voxtral-mini-realtime-latest
 params:
@@ -18,6 +20,7 @@ removeParams:
     - top_p
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02
+status: active
 supportedModes:
     - realtime
     - chat
