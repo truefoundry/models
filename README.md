@@ -23,7 +23,7 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 | AWS Bedrock | 198 | Claude, Llama, Titan, Mistral on AWS |
 | Azure OpenAI | 182 | OpenAI models on Azure |
 | DeepInfra | 158 | Open source model hosting |
-| Deepgram | 143 |  |
+| Deepgram | 143 | Speech-to-text and text-to-speech models |
 | Google Vertex AI | 137 | Gemini, PaLM on GCP |
 | OpenAI | 131 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Mistral AI | 76 | Mistral, Mixtral, Codestral |
@@ -37,7 +37,7 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 | Anthropic | 22 | Claude 3, Claude 3.5, Claude 4 |
 | Groq | 22 | Fast inference models |
 | AI21 | 12 | Jamba models |
-| Elevenlabs | 10 |  |
+| ElevenLabs | 10 | Voice synthesis and text-to-speech models |
 | Cerebras | 5 | Fast inference models |
 
 ## Installation

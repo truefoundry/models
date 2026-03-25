@@ -76,7 +76,7 @@ limits:
     output_vector_size: <number>            # For embedding models
     tool_use_system_prompt_tokens: <number>
 
-# Feature flags
+# Supported features/capabilities
 features:
     - <feature>
 # Valid features: assistant_prefill, cache_control, code_execution,
@@ -187,6 +187,7 @@ When updating a model:
 4. Submit a PR with a clear description of what changed and why
 
 Common updates include:
+
 - Pricing changes
 - New features
 - Token limit updates
@@ -195,33 +196,25 @@ Common updates include:
 ## Pull Request Process
 
 1. **Title**: Use a clear, descriptive title
-   - `Add: provider/model-name`
-   - `Update: provider/model-name pricing`
-   - `Fix: provider/model-name features`
-
+  - `Add: provider/model-name`
+  - `Update: provider/model-name pricing`
+  - `Fix: provider/model-name features`
 2. **Description**: Include
-   - What changes were made
-   - Source/reference for the changes (official docs, pricing pages)
-   - Any breaking changes
-
-3. **Review**: 
-   - All PRs require at least one review
-   - Maintainers may request changes or clarifications
-
+  - What changes were made
+  - Source/reference for the changes (official docs, pricing pages)
+  - Any breaking changes
+3. **Review**:
+  - All PRs require at least one review
+  - Maintainers may request changes or clarifications
 4. **Merge**:
-   - PRs are merged once approved
-   - Squash merge is preferred for clean history
+  - PRs are merged once approved
+  - Squash merge is preferred for clean history
 
 ## Style Guide
 
 ### YAML Formatting
 
-- Use 4 spaces for indentation
-- No trailing whitespace
-- End files with a newline
-- Use lowercase for boolean values (`true`/`false`)
-- Use single quotes for strings only when necessary
-- Keep fields in a consistent order (see examples above)
+Run `npm run validate` to check your YAML files before submitting.
 
 ### Commit Messages
 
@@ -233,12 +226,13 @@ Common updates include:
 ### Versioning for Dated Models
 
 For models with version dates:
+
 - Use the date format from the provider (e.g., `gpt-4-0613.yaml`)
-- Create aliases without dates that point to the latest version
 
 ## Questions?
 
 If you have questions about contributing, feel free to:
+
 - Open an issue with the `question` label
 - Reach out to the maintainers
 
