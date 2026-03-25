@@ -1,9 +1,14 @@
 modalities:
     input:
+        - text
+        - image
+    output:
         - image
 mode: image
 model: Qwen/Qwen-Image-2.0-Pro
 sources:
     - https://docs.together.ai/docs/images-overview
+    - https://docs.together.ai/docs/serverless-models#image-models
+status: active
 supportedModes:
     - image
