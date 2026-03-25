@@ -13,11 +13,15 @@ limits:
 modalities:
     input:
         - audio
+        - text
+    output:
+        - text
 mode: chat
 model: voxtral-mini-realtime-2602
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02
     - https://docs.mistral.ai/capabilities/audio_transcription
+status: active
 supportedModes:
     - realtime
     - chat
