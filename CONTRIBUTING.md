@@ -8,7 +8,6 @@ Thank you for your interest in contributing to the TrueFoundry Models Registry! 
 - [How to Contribute](#how-to-contribute)
 - [Adding a New Model](#adding-a-new-model)
 - [Updating an Existing Model](#updating-an-existing-model)
-- [Adding a New Provider](#adding-a-new-provider)
 - [Pull Request Process](#pull-request-process)
 - [Style Guide](#style-guide)
 
@@ -43,58 +42,139 @@ To add a new model, create a YAML file in the appropriate provider directory:
 providers/<provider-name>/<model-name>.yaml
 ```
 
-### 2. Required Field
+### 2. Required Fields
 
 ```yaml
-model: <model-identifier>
+model: <model-identifier>   # The model identifier used by the provider's API
+mode: <mode>                 # The model's primary capability (see values below)
 ```
+
+Valid `mode` values:
+
+`audio_transcription`, `audio_translation`, `chat`, `completion`, `embedding`, `image`, `moderation`, `realtime`, `rerank`, `text_to_speech`, `unknown`, `video`
 
 ### 3. Optional Fields
 
 ```yaml
-# Pricing
+# Pricing — an array of cost entries, each with a region ("*" for global pricing)
 costs:
-  input_cost_per_token: <number>
-  output_cost_per_token: <number>
-  input_cost_per_token_batches: <number>
-  cache_read_input_token_cost: <number>
-  # ... and more pricing fields
+    - region: "*"
+      input_cost_per_token: <number>
+      output_cost_per_token: <number>
+      input_cost_per_token_batches: <number>
+      output_cost_per_token_batches: <number>
+      cache_read_input_token_cost: <number>
+      # See the CUE schema for all supported cost fields (audio, image, video, etc.)
 
-# Limits
+# Token and context window limits
 limits:
-  max_input_tokens: <number>
-  max_output_tokens: <number>
+    context_window: <number>
+    max_input_tokens: <number>
+    max_output_tokens: <number>
+    max_tokens: <number>
+    max_query_tokens: <number>              # For embedding/rerank models
+    output_vector_size: <number>            # For embedding models
+    tool_use_system_prompt_tokens: <number>
 
-# Features
-features: [<feature1>, <feature2>, ...]  # e.g., [chat, vision, function_calling]
+# Supported features/capabilities
+features:
+    - <feature>
+# Valid features: assistant_prefill, cache_control, code_execution,
+#   function_calling, parallel_function_calling, prompt_caching,
+#   structured_output, system_messages, tool_choice, tools
 
-# Metadata
-mode: <chat|completion|embedding|image|audio>
-original_provider: <provider-name>
-is_deprecated: <boolean>
+# Input/output modalities
+modalities:
+    input: [text, image, audio, video, code, doc, pdf, embedding]
+    output: [text, image, audio, video, code, doc, pdf, embedding]
 
-# Parameters
-params: <array-of-configurable-parameters>
-removeParams: <array>
-requiredParams: <array>
-defaultRegion: <string>
+# Whether the model supports extended thinking / reasoning
+thinking: <boolean>
+
+# Additional modes this model can be accessed through
+supportedModes: [<mode>, ...]
+
+# Lifecycle status
+status: <active|preview|deprecated|retired>
+
+# Deprecation date (YYYY-MM-DD format)
+deprecationDate: <date-string>
+
+# Whether the model is deprecated (prefer using status instead)
+isDeprecated: <boolean>
+
+# Documentation or pricing source URLs
+sources:
+    - <url>
+
+# Message roles accepted by this model
+messages:
+    options: [system, user, assistant, developer]
+
+# Parameter overrides relative to the provider default
+params:
+    - key: <param-key>
+      defaultValue: <value>
+      minValue: <number>
+      maxValue: <number>
+      type: <number|string|boolean|json|array-of-strings>
+
+# Param keys to remove from the provider default
+removeParams: [<param-key>, ...]
+
+# Param keys that must always be provided by callers
+requiredParams: [<param-key>, ...]
 ```
 
-### 4. Example
+### 4. Examples
+
+A chat model with some details:
 
 ```yaml
-model: gpt-4o
-costs:
-  input_cost_per_token: 0.0000025
-  output_cost_per_token: 0.00001
-  cache_read_input_token_cost: 0.00000125
-limits:
-  max_input_tokens: 128000
-  max_output_tokens: 16384
-features: [chat, vision, function_calling, parallel_function_calling, tools, image]
+model: gpt-5.4-mini-2026-03-17
 mode: chat
-original_provider: openai
-is_deprecated: false
+costs:
+    - region: "*"
+      input_cost_per_token: 7.5e-7
+      output_cost_per_token: 0.0000045
+      cache_read_input_token_cost: 7.5e-8
+      input_cost_per_token_batches: 3.75e-7
+      output_cost_per_token_batches: 0.00000225
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - system_messages
+limits:
+    context_window: 400000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+thinking: true
+params:
+    - key: max_tokens
+      defaultValue: 128
+      maxValue: 128000
+      minValue: 1
+    - key: reasoning_effort
+      defaultValue: medium
+sources:
+    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/api/docs/deprecations
+```
+
+A minimal model definition (e.g., audio transcription or TTS):
+
+```yaml
+model: nova-3-general
+mode: audio_transcription
 ```
 
 ## Updating an Existing Model
@@ -103,61 +183,38 @@ When updating a model:
 
 1. Find the model file in `providers/<provider>/` (note: file names may not exactly match the `model` field)
 2. Update the relevant fields
-3. Add a `source` with a link to the official documentation/pricing page
+3. Add `sources` with links to the official documentation/pricing pages
 4. Submit a PR with a clear description of what changed and why
 
 Common updates include:
+
 - Pricing changes
 - New features
 - Token limit updates
 - Deprecation notices
 
-## Adding a New Provider
-
-To add a new provider:
-
-1. Create a new directory: `providers/<provider-name>/`
-2. Add a `default.yaml` with provider-level defaults
-3. Add individual model YAML files
-4. Update the README.md to include the new provider in the structure section
-
-### Naming Conventions
-
-- Provider directory names should be lowercase with hyphens (e.g., `azure-openai`, `google-vertex`)
-- Model file names should be descriptive and use lowercase with hyphens
-- **Note**: File names do not necessarily match the `model` field in the YAML. The `model` field contains the actual model identifier used by the provider's API, while the file name is for organization purposes. For example:
-
-
 ## Pull Request Process
 
 1. **Title**: Use a clear, descriptive title
-   - `Add: provider/model-name`
-   - `Update: provider/model-name pricing`
-   - `Fix: provider/model-name features`
-
+  - `Add: provider/model-name`
+  - `Update: provider/model-name pricing`
+  - `Fix: provider/model-name features`
 2. **Description**: Include
-   - What changes were made
-   - Source/reference for the changes (official docs, pricing pages)
-   - Any breaking changes
-
-3. **Review**: 
-   - All PRs require at least one review
-   - Maintainers may request changes or clarifications
-
+  - What changes were made
+  - Source/reference for the changes (official docs, pricing pages)
+  - Any breaking changes
+3. **Review**:
+  - All PRs require at least one review
+  - Maintainers may request changes or clarifications
 4. **Merge**:
-   - PRs are merged once approved
-   - Squash merge is preferred for clean history
+  - PRs are merged once approved
+  - Squash merge is preferred for clean history
 
 ## Style Guide
 
 ### YAML Formatting
 
-- Use 2 spaces for indentation
-- No trailing whitespace
-- End files with a newline
-- Use lowercase for boolean values (`true`/`false`)
-- Use single quotes for strings only when necessary
-- Keep fields in a consistent order (see examples above)
+Run `npm run lint:yaml:fix` to auto-format your YAML files before submitting.
 
 ### Commit Messages
 
@@ -169,12 +226,13 @@ To add a new provider:
 ### Versioning for Dated Models
 
 For models with version dates:
+
 - Use the date format from the provider (e.g., `gpt-4-0613.yaml`)
-- Create aliases without dates that point to the latest version
 
 ## Questions?
 
 If you have questions about contributing, feel free to:
+
 - Open an issue with the `question` label
 - Reach out to the maintainers
 
