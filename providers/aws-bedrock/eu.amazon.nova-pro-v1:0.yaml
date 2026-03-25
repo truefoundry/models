@@ -31,6 +31,7 @@ features:
     - function_calling
     - prompt_caching
     - system_messages
+    - tool_choice
 limits:
     context_window: 300000
     max_input_tokens: 300000
@@ -38,9 +39,13 @@ limits:
     max_tokens: 5000
 modalities:
     input:
-        - doc
+        - text
         - image
+        - video
+        - doc
         - pdf
+    output:
+        - text
 mode: chat
 model: eu.amazon.nova-pro-v1:0
 params:
@@ -48,10 +53,21 @@ params:
       key: max_tokens
       maxValue: 5000
       minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - key: top_k
+      maxValue: 128
+      minValue: 0
+    - key: reasoning_effort
+removeParams:
+    - "n"
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.html
+status: active
 thinking: true

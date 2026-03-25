@@ -36,6 +36,7 @@ costs:
       region: ca-central-1
 features:
     - function_calling
+    - cache_control
     - prompt_caching
     - system_messages
     - tool_choice
@@ -48,8 +49,11 @@ limits:
     max_tokens: 64000
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: us.anthropic.claude-opus-4-5-20251101-v1:0
 params:

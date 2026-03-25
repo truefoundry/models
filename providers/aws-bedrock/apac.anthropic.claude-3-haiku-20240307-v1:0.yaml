@@ -26,6 +26,7 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+    - system_messages
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -33,10 +34,20 @@ limits:
     max_tokens: 4096
 modalities:
     input:
+        - text
         - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: apac.anthropic.claude-3-haiku-20240307-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 4096
+      minValue: 1
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
+status: active

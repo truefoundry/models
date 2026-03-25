@@ -226,6 +226,11 @@ costs:
       region: af-south-1
 features:
     - function_calling
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - tool_choice
+    - assistant_prefill
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -234,7 +239,10 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: global.anthropic.claude-opus-4-6-v1
 params:
@@ -246,4 +254,5 @@ sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+status: active
 thinking: true

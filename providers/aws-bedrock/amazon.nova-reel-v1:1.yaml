@@ -1,12 +1,13 @@
 costs:
     - output_cost_per_second: 0.08
       region: us-east-1
-    - output_cost_per_second: 0.08
-      region: ap-northeast-1
 modalities:
     input:
         - text
         - image
+        - video
+    output:
+        - video
 mode: video
 model: amazon.nova-reel-v1:1
 removeParams:
@@ -18,3 +19,4 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/video-gen-access.html
+status: active

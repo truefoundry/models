@@ -45,7 +45,10 @@ limits:
     max_tokens: 64000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: us.anthropic.claude-haiku-4-5-20251001-v1:0
 params:
@@ -60,4 +63,5 @@ removeParams:
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 thinking: true

@@ -31,9 +31,13 @@ limits:
     max_tokens: 10000
 modalities:
     input:
-        - doc
+        - text
         - image
+        - video
+        - doc
         - pdf
+    output:
+        - text
 mode: chat
 model: us.amazon.nova-lite-v1:0
 params:
@@ -41,7 +45,13 @@ params:
       key: max_tokens
       maxValue: 10000
       minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0.00001
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/nova/latest/userguide/modalities.html
+status: active
+thinking: true

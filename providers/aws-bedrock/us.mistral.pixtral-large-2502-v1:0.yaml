@@ -14,14 +14,23 @@ features:
 limits:
     context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 4096
-    max_tokens: 4096
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: us.mistral.pixtral-large-2502-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-pixtral-large.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.mistral.ai/models/pixtral-large-24-11/
+status: active

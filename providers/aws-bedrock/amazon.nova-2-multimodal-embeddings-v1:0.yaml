@@ -5,12 +5,15 @@ costs:
       region: us-east-1
 limits:
     max_input_tokens: 8172
+    output_vector_size: 3072
 modalities:
     input:
         - text
         - image
+        - video
+        - audio
     output:
-        - text
+        - embedding
 mode: embedding
 model: amazon.nova-2-multimodal-embeddings-v1:0
 removeParams:
@@ -25,3 +28,4 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/embeddings.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
     - https://aws.amazon.com/nova/pricing/
+status: active

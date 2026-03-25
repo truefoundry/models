@@ -114,8 +114,11 @@ limits:
     max_tokens: 64000
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: us.anthropic.claude-sonnet-4-5-20250929-v1:0
 params:
@@ -132,4 +135,5 @@ removeParams:
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 thinking: true

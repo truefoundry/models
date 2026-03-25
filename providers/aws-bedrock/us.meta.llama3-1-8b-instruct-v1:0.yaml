@@ -18,9 +18,13 @@ limits:
     max_tokens: 2048
 modalities:
     input:
+        - text
         - doc
+    output:
+        - text
 mode: chat
 model: us.meta.llama3-1-8b-instruct-v1:0
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
+status: active

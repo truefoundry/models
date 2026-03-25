@@ -139,7 +139,6 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: ap-southeast-7
-    - region: ap-southeast-6
     - cache_creation_input_token_cost: 0.00000375
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
@@ -226,6 +225,12 @@ costs:
       region: af-south-1
 features:
     - function_calling
+    - tool_choice
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - assistant_prefill
+    - tools
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -234,7 +239,11 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: global.anthropic.claude-sonnet-4-6
 params:
@@ -245,4 +254,5 @@ params:
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 thinking: true

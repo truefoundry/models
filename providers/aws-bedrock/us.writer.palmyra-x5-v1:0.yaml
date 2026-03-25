@@ -19,6 +19,11 @@ limits:
     max_input_tokens: 1040000
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: us.writer.palmyra-x5-v1:0
 params:
@@ -45,3 +50,4 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-palmyra-x5.html
     - https://aws.amazon.com/marketplace/pp/prodview-aaysji6xh2mgi
     - https://aws.amazon.com/bedrock/writer/
+status: active

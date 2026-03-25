@@ -123,8 +123,11 @@ limits:
     max_tokens: 64000
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: eu.anthropic.claude-sonnet-4-20250514-v1:0
 params:
@@ -141,4 +144,5 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 thinking: true

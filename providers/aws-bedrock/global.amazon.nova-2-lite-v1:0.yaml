@@ -102,6 +102,8 @@ costs:
       region: ap-east-2
 features:
     - function_calling
+    - code_execution
+    - prompt_caching
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -109,8 +111,12 @@ limits:
     max_tokens: 65536
 modalities:
     input:
-        - doc
+        - text
         - image
+        - video
+        - doc
+    output:
+        - text
 mode: chat
 model: global.amazon.nova-2-lite-v1:0
 params:
@@ -125,4 +131,5 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
     - https://docs.aws.amazon.com/ai/responsible-ai/nova-2-lite/overview.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+status: active
 thinking: true

@@ -9,10 +9,13 @@ costs:
       region: us-east-1
 limits:
     max_input_tokens: 128000
-    max_tokens: 128000
+    output_vector_size: 1536
 modalities:
     input:
+        - text
         - image
+    output:
+        - embedding
 mode: embedding
 model: us.cohere.embed-v4:0
 params:
@@ -30,3 +33,4 @@ sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v4.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+status: active

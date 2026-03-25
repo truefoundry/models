@@ -32,9 +32,9 @@ costs:
 features:
     - function_calling
     - structured_output
+    - tool_choice
 limits:
     context_window: 256000
-    max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
 modalities:
@@ -45,5 +45,20 @@ modalities:
         - text
 mode: chat
 model: mistral.ministral-3-3b-instruct
+params:
+    - defaultValue: 8192
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 1
+      key: top_p
+      maxValue: 1
+      minValue: 0
 sources:
     - https://docs.mistral.ai/models/ministral-3-3b-25-12
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-chat-completion.html
+status: active

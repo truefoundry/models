@@ -20,6 +20,12 @@ mode: rerank
 model: cohere.rerank-v3-5:0
 removeParams:
     - stream
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - max_tokens
 sources:
     - https://docs.cohere.com/docs/rerank
     - https://docs.aws.amazon.com/bedrock/latest/userguide/rerank-supported.html
+status: active

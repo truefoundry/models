@@ -13,7 +13,11 @@ limits:
     max_tokens: 65536
 modalities:
     input:
+        - text
         - image
+        - video
+    output:
+        - text
 mode: chat
 model: jp.amazon.nova-2-lite-v1:0
 params:
@@ -28,4 +32,6 @@ sources:
     - https://aws.amazon.com/nova/models/
     - https://aws.amazon.com/about-aws/whats-new/2025/12/nova-2-foundation-models-amazon-bedrock/
     - https://cloudprice.net/models/global.amazon.nova-2-lite-v1:0
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html
+status: active
 thinking: true

@@ -1,12 +1,10 @@
 costs:
-    - output_cost_per_image: 0.08
+    - output_cost_per_image: 0.14
       region: us-west-2
-limits:
-    max_input_tokens: 77
-    max_tokens: 4096
 modalities:
     input:
         - text
+        - image
     output:
         - image
 mode: image
@@ -20,3 +18,4 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-stable-ultra-text-image-request-response.html
+status: active

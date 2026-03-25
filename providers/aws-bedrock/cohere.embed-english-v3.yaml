@@ -37,11 +37,13 @@ costs:
       region: ap-northeast-1
 limits:
     max_input_tokens: 512
+    output_vector_size: 1024
 modalities:
     input:
         - text
+        - image
     output:
-        - text
+        - embedding
 mode: embedding
 model: cohere.embed-english-v3
 removeParams:
@@ -52,3 +54,4 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html
+status: active

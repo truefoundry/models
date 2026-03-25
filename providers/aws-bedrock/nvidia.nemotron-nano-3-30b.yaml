@@ -43,8 +43,11 @@ modalities:
         - text
 mode: chat
 model: nvidia.nemotron-nano-3-30b
+params:
+    - key: max_tokens
+      maxValue: 8192
 sources:
     - https://aws.amazon.com/about-aws/whats-new/2025/12/nvidia-nemotron-3-nano-amazon-bedrock/
     - https://build.nvidia.com/nvidia/nemotron-3-nano-30b-a3b/modelcard
-    - https://pricepertoken.com/endpoints/bedrock
+status: active
 thinking: true

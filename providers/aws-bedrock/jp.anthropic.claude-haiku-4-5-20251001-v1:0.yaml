@@ -28,11 +28,20 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: jp.anthropic.claude-haiku-4-5-20251001-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 thinking: true

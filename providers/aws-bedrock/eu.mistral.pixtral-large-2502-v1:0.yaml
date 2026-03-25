@@ -21,8 +21,11 @@ limits:
     max_tokens: 4096
 modalities:
     input:
-        - doc
+        - text
         - image
+        - doc
+    output:
+        - text
 mode: chat
 model: eu.mistral.pixtral-large-2502-v1:0
 params:
@@ -35,3 +38,4 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
     - https://docs.mistral.ai/models/pixtral-large-24-11
+status: active

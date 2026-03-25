@@ -43,5 +43,11 @@ modalities:
         - text
 mode: chat
 model: openai.gpt-oss-safeguard-20b
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html
+status: active
