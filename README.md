@@ -23,7 +23,7 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 | AWS Bedrock | 198 | Claude, Llama, Titan, Mistral on AWS |
 | Azure OpenAI | 182 | OpenAI models on Azure |
 | DeepInfra | 158 | Open source model hosting |
-| Deepgram | 143 |  |
+| Deepgram | 143 | Speech-to-text and text-to-speech models |
 | Google Vertex AI | 137 | Gemini, PaLM on GCP |
 | OpenAI | 131 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Mistral AI | 76 | Mistral, Mixtral, Codestral |
@@ -37,7 +37,7 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 | Anthropic | 22 | Claude 3, Claude 3.5, Claude 4 |
 | Groq | 22 | Fast inference models |
 | AI21 | 12 | Jamba models |
-| Elevenlabs | 10 |  |
+| ElevenLabs | 10 | Voice synthesis and text-to-speech models |
 | Cerebras | 5 | Fast inference models |
 
 ## Installation
@@ -50,31 +50,42 @@ git clone https://github.com/truefoundry/models.git
 
 ## Model Configuration Schema
 
-Each model YAML file follows this schema:
+Each model YAML file follows this schema (validated by [CUE](.github/test/model.cue)):
 
 ```yaml
 # Required
-model: gpt-4o                          # Model identifier
+model: gpt-5.4-mini-2026-03-17        # Model identifier used by the provider's API
+mode: chat                             # Primary capability (chat, embedding, image, text_to_speech, etc.)
 
-# Pricing
+# Pricing — array of cost entries, each with a region ("*" for global)
 costs:
-  input_cost_per_token: 0.0000025
-  output_cost_per_token: 0.00001
-  cache_read_input_token_cost: 0.00000125
+    - region: "*"
+      input_cost_per_token: 7.5e-7
+      output_cost_per_token: 0.0000045
+      cache_read_input_token_cost: 7.5e-8
 
-# Token limits
+# Token and context window limits
 limits:
-  max_input_tokens: 128000
-  max_output_tokens: 16384
+    context_window: 400000
+    max_output_tokens: 128000
 
-# Features (array of strings)
-features: [chat, vision, function_calling, tools]
+# Feature flags
+features: [function_calling, prompt_caching, structured_output, system_messages]
 
-# Metadata
-mode: chat
-original_provider: openai
-is_deprecated: false
+# Input/output modalities
+modalities:
+    input: [text, image]
+    output: [text]
+
+# Extended thinking / reasoning support
+thinking: true
+
+# Documentation or pricing source URLs
+sources:
+    - https://developers.openai.com/api/docs/pricing
 ```
+
+See the [Contributing Guide](CONTRIBUTING.md) for the full list of fields, valid values, and more examples.
 
 ## Directory Structure
 
@@ -104,45 +115,7 @@ providers/
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Quick Start
-
-1. Clone the repository
-2. Create a new branch (`git checkout -b add-new-model`)
-3. Add or update model configurations
-4. Validate your YAML files
-5. Submit a pull request
-
-### Adding a New Model
-
-```bash
-# Copy an existing model as a template
-cp providers/openai/gpt-4o.yaml providers/openai/new-model.yaml
-
-# Edit with your model's configuration
-# Submit a PR!
-```
-
-## Updating Pricing
-
-Model pricing changes frequently. If you notice outdated pricing:
-
-1. Check the provider's official pricing page
-2. Update the relevant YAML file
-3. Submit a PR with a link to the source
-
-## Validation
-
-Validate your YAML files before submitting:
-
-```bash
-# Using Python
-python -c "import yaml; yaml.safe_load(open('providers/openai/gpt-4o.yaml'))"
-
-# Using yq
-yq eval '.' providers/openai/gpt-4o.yaml
-```
+We welcome contributions! Whether it's adding a new model, updating pricing, or fixing outdated information — see the [Contributing Guide](CONTRIBUTING.md) for details on the schema, examples, and PR process.
 
 ## License
 
