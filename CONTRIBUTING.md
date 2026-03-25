@@ -214,7 +214,7 @@ Common updates include:
 
 ### YAML Formatting
 
-Run `npm run validate` to check your YAML files before submitting.
+Run `npm run lint:yaml:fix` to auto-format your YAML files before submitting.
 
 ### Commit Messages
 
