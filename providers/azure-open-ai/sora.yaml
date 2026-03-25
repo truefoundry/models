@@ -1,9 +1,20 @@
+mode: video
+model: sora
 modalities:
     input:
         - text
     output:
         - video
-mode: video
-model: sora
+status: preview
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://azure.microsoft.com/en-us/products/ai-services/video-generation

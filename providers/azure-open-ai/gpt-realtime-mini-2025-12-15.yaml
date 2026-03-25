@@ -4,6 +4,7 @@ features:
     - parallel_function_calling
     - system_messages
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
@@ -21,3 +22,4 @@ removeParams:
     - response_format
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active

@@ -1,24 +1,25 @@
+model: gpt-5-chat-latest
+mode: chat
+status: preview
+deprecationDate: "2026-04-15"
 costs:
     - cache_read_input_token_cost: 1.25e-7
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
-deprecationDate: "2026-04-15"
-features:
-    - system_messages
 limits:
     context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
+features:
+    - system_messages
 modalities:
     input:
         - text
         - image
     output:
         - text
-mode: chat
-model: gpt-5-chat-latest
 params:
     - defaultValue: 16384
       key: max_completion_tokens

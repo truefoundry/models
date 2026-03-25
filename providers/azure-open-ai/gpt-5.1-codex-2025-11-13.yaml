@@ -3,6 +3,11 @@ costs:
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: global
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 0.00000138
+      output_cost_per_token: 0.000011
+      region: datazone_eu
+deprecationDate: "2026-11-13"
 features:
     - function_calling
     - parallel_function_calling
@@ -28,6 +33,9 @@ modalities:
         - text
 mode: chat
 model: gpt-5.1-codex-2025-11-13
+params:
+    - key: max_tokens
+      maxValue: 128000
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-thinking: true
+status: active

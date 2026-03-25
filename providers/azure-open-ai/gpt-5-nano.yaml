@@ -3,6 +3,15 @@ costs:
       input_cost_per_token: 5.e-8
       output_cost_per_token: 4.e-7
       region: "*"
+    - cache_read_input_token_cost: 5.5e-9
+      input_cost_per_token: 5.5e-8
+      output_cost_per_token: 4.4e-7
+      region: datazone_eu
+    - cache_read_input_token_cost: 5.5e-9
+      input_cost_per_token: 5.5e-8
+      output_cost_per_token: 4.4e-7
+      region: datazone_us
+deprecationDate: "2027-02-06"
 features:
     - function_calling
     - parallel_function_calling
@@ -42,4 +51,7 @@ removeParams:
     - top_p
     - "n"
     - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
 thinking: true

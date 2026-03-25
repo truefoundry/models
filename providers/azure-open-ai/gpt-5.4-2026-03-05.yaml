@@ -1,3 +1,18 @@
+costs:
+    - input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      cache_read_input_token_cost: 0.00000025
+      region: "*"
+      tiered_pricing:
+          input:
+              - from: 272000
+                cost_per_token: 0.000005
+          output:
+              - from: 272000
+                cost_per_token: 0.0000225
+          cache_read:
+              - from: 272000
+                cost_per_token: 0.0000005
 deprecationDate: "2027-09-05"
 features:
     - function_calling
@@ -28,6 +43,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+status: active
 supportedModes:
     - chat
 thinking: true

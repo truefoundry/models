@@ -12,6 +12,7 @@ features:
     - prompt_caching
     - structured_output
 limits:
+    context_window: 400000
     max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
@@ -28,7 +29,7 @@ model: gpt-5.2
 params:
     - defaultValue: 20000
       key: max_completion_tokens
-      maxValue: 272000
+      maxValue: 128000
       minValue: 1
     - defaultValue: null
       key: response_format
@@ -40,4 +41,5 @@ removeParams:
     - max_tokens
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+status: active
 thinking: true

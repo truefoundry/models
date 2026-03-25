@@ -10,6 +10,7 @@ features:
     - system_messages
     - tool_choice
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
@@ -22,7 +23,11 @@ modalities:
         - audio
 mode: chat
 model: gpt-audio-mini-2025-10-06
+params:
+    - key: max_tokens
+      maxValue: 16384
 sources:
     - https://developers.openai.com/docs/models/gpt-audio-mini
+status: active
 supportedModes:
     - chat

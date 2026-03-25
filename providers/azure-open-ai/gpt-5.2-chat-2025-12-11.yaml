@@ -18,6 +18,7 @@ limits:
 modalities:
     input:
         - text
+        - image
     output:
         - text
 mode: chat
@@ -27,5 +28,6 @@ params:
       maxValue: 16384
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: preview
 supportedModes:
     - chat

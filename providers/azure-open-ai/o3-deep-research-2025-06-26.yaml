@@ -5,12 +5,8 @@ costs:
       region: "*"
 deprecationDate: "2026-12-26"
 features:
-    - function_calling
-    - parallel_function_calling
     - prompt_caching
-    - structured_output
     - system_messages
-    - tool_choice
 limits:
     max_input_tokens: 200000
     max_output_tokens: 100000
@@ -19,7 +15,6 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
@@ -34,9 +29,13 @@ removeParams:
     - temperature
     - top_p
     - "n"
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/deep-research
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://developers.openai.com/api/docs/models/o3-deep-research
+status: active
 supportedModes:
     - chat
 thinking: true

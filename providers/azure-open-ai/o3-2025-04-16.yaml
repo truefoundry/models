@@ -1,11 +1,16 @@
 costs:
-    - cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000022
-      output_cost_per_token: 0.0000088
+    - input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000008
+      cache_read_input_token_cost: 5.0e-7
       region: "*"
+    - input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000088
+      cache_read_input_token_cost: 5.5e-7
+      region: datazone_us
 deprecationDate: "2026-10-16"
 features:
     - function_calling
+    - parallel_function_calling
     - tool_choice
     - prompt_caching
     - structured_output
@@ -35,6 +40,7 @@ removeParams:
     - top_p
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
 supportedModes:
     - chat
 thinking: true
