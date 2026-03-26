@@ -21,11 +21,16 @@ limits:
     max_tokens: 4096
 modalities:
     input:
-        - doc
+        - text
         - image
+        - doc
+    output:
+        - text
 mode: chat
 model: us.meta.llama4-scout-17b-instruct-v1:0
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
     - https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+status: active

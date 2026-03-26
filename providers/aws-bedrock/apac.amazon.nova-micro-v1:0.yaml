@@ -34,12 +34,23 @@ features:
 limits:
     context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: apac.amazon.nova-micro-v1:0
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 5000
+      minValue: 1
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-micro.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+status: active

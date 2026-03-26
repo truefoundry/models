@@ -21,7 +21,10 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - doc
+    output:
+        - text
 mode: chat
 model: us.writer.palmyra-x4-v1:0
 params:
@@ -44,3 +47,4 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-writer-palmyra.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+status: active

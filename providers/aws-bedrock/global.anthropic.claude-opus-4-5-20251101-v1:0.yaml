@@ -139,7 +139,6 @@ costs:
       output_cost_per_token: 0.000025
       output_cost_per_token_batches: 0.0000125
       region: ap-southeast-7
-    - region: ap-southeast-6
     - cache_creation_input_token_cost: 0.00000625
       cache_read_input_token_cost: 5.e-7
       input_cost_per_token: 0.000005
@@ -236,9 +235,13 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
+    tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: global.anthropic.claude-opus-4-5-20251101-v1:0
 params:

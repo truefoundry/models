@@ -71,8 +71,11 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: eu.anthropic.claude-opus-4-6-v1
 params:
@@ -84,4 +87,5 @@ sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+status: active
 thinking: true

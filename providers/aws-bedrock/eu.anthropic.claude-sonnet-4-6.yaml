@@ -69,7 +69,10 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: eu.anthropic.claude-sonnet-4-6
 params:
@@ -80,4 +83,5 @@ params:
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 thinking: true

@@ -19,4 +19,13 @@ modalities:
 mode: rerank
 model: amazon.rerank-v1:0
 removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
     - stream
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/rerank-supported.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html
+status: active

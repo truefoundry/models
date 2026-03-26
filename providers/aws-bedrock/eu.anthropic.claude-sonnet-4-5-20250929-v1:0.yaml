@@ -171,10 +171,14 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
+    tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: eu.anthropic.claude-sonnet-4-5-20250929-v1:0
 params:
@@ -193,4 +197,5 @@ sources:
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+status: active
 thinking: true
