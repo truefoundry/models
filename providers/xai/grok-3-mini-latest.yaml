@@ -22,6 +22,9 @@ modalities:
         - text
 mode: chat
 model: grok-3-mini-latest
+params:
+    - key: max_tokens
+      maxValue: 131072
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing
 thinking: true
