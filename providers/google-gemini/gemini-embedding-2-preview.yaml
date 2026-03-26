@@ -13,10 +13,12 @@ limits:
 modalities:
     input:
         - text
-        - audio
         - image
-        - pdf
+        - audio
         - video
+        - pdf
+    output:
+        - embedding
 mode: embedding
 model: gemini-embedding-2-preview
 removeParams:
@@ -29,3 +31,4 @@ removeParams:
     - tool_choice
 sources:
     - https://ai.google.dev/gemini-api/docs/embeddings
+status: preview
