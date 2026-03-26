@@ -20,14 +20,14 @@ costs:
     - input_cost_per_token: 4.8e-7
       output_cost_per_token: 0.0000024
       region: eu-south-1
-    - input_cost_per_token: 4.8e-7
-      output_cost_per_token: 0.0000024
+    - input_cost_per_token: 4.1e-7
+      output_cost_per_token: 0.00000206
       region: eu-north-1
-    - input_cost_per_token: 4.8e-7
-      output_cost_per_token: 0.0000024
+    - input_cost_per_token: 4.1e-7
+      output_cost_per_token: 0.00000206
       region: eu-central-1
-    - input_cost_per_token: 4.8e-7
-      output_cost_per_token: 0.0000024
+    - input_cost_per_token: 4.1e-7
+      output_cost_per_token: 0.00000206
       region: ap-southeast-3
     - input_cost_per_token: 4.1e-7
       output_cost_per_token: 0.00000206
@@ -43,7 +43,9 @@ features:
     - structured_output
     - tools
 limits:
-    context_window: 256000
+    context_window: 128000
+    max_output_tokens: 32000
+    max_tokens: 32000
 modalities:
     input:
         - text
@@ -51,5 +53,11 @@ modalities:
         - text
 mode: chat
 model: mistral.devstral-2-123b
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 32000
+      minValue: 1
 sources:
     - https://docs.mistral.ai/models/devstral-2-25-12
+status: active
