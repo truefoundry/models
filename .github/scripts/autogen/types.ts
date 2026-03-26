@@ -58,7 +58,7 @@ export interface components {
          * @description Supported feature flags a model can declare
          * @enum {string}
          */
-        Feature: "assistant_prefill" | "cache_control" | "code_execution" | "function_calling" | "parallel_function_calling" | "prompt_caching" | "json_output" | "structured_output" | "system_messages" | "tool_choice" | "tools";
+        Feature: "assistant_prefill" | "cache_control" | "code_execution" | "function_calling" | "json_output" | "parallel_function_calling" | "prompt_caching" | "structured_output" | "system_messages" | "tool_choice" | "tools";
         /**
          * @description GCP region identifiers
          * @enum {string}

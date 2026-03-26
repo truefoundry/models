@@ -148,9 +148,9 @@ package model
 	"cache_control" |              // Caller can apply fine-grained cache breakpoints on content blocks
 	"code_execution" |             // Model can execute code natively as part of its response
 	"function_calling" |           // Model supports tool/function calling
+	"json_output" |				   // Model can return output in JSON format
 	"parallel_function_calling" |  // Model can invoke multiple tools in a single turn
 	"prompt_caching" |			   // Provider caches repeated prompt prefixes to reduce cost and latency
-	"json_output" |				   // Model can return output in JSON format
 	"structured_output" |          // Model can return output conforming to a JSON schema
 	"system_messages" |            // Model accepts a system prompt
 	"tool_choice" |                // Caller can force or restrict which tool the model uses
