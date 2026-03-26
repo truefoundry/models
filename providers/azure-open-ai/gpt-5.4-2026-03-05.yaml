@@ -1,18 +1,18 @@
 costs:
-    - input_cost_per_token: 0.0000025
+    - cache_read_input_token_cost: 2.5e-7
+      input_cost_per_token: 0.0000025
       output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 0.00000025
       region: "*"
       tiered_pricing:
-          input:
-              - from: 272000
-                cost_per_token: 0.000005
-          output:
-              - from: 272000
-                cost_per_token: 0.0000225
           cache_read:
-              - from: 272000
-                cost_per_token: 0.0000005
+              - cost_per_token: 5.e-7
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
 deprecationDate: "2027-09-05"
 features:
     - function_calling

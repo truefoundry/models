@@ -1,6 +1,3 @@
-model: gpt-4o-mini-transcribe
-mode: audio_transcription
-status: active
 costs:
     - input_cost_per_audio_token: 0.000003
       input_cost_per_token: 0.00000125
@@ -17,6 +14,8 @@ modalities:
         - text
     output:
         - text
+mode: audio_transcription
+model: gpt-4o-mini-transcribe
 removeParams:
     - top_p
     - "n"
@@ -27,3 +26,4 @@ removeParams:
 sources:
     - https://developers.openai.com/docs/guides/speech-to-text
     - https://developers.openai.com/docs/models/gpt-4o-mini-transcribe
+status: active

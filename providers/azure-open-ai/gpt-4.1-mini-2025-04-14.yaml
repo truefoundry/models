@@ -1,16 +1,16 @@
 costs:
+    - cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 4.4e-7
+      input_cost_per_token_batches: 2.2e-7
+      output_cost_per_token: 0.00000176
+      output_cost_per_token_batches: 8.8e-7
+      region: datazone_us
     - cache_read_input_token_cost: 1.e-7
       input_cost_per_token: 4.e-7
       input_cost_per_token_batches: 2.e-7
       output_cost_per_token: 0.0000016
       output_cost_per_token_batches: 8.e-7
       region: "*"
-    - cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 4.4e-7
-      input_cost_per_token_batches: 2.2e-7
-      output_cost_per_token: 1.76e-6
-      output_cost_per_token_batches: 8.8e-7
-      region: datazone_us
 deprecationDate: "2026-10-14"
 features:
     - function_calling

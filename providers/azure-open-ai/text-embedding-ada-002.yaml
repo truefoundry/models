@@ -5,13 +5,13 @@ costs:
 limits:
     max_input_tokens: 8192
     output_vector_size: 1536
-mode: embedding
-model: text-embedding-ada-002
 modalities:
     input:
         - text
     output:
         - embedding
+mode: embedding
+model: text-embedding-ada-002
 removeParams:
     - temperature
     - top_p
@@ -21,8 +21,8 @@ removeParams:
     - stream
     - tool_choice
     - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
     - embedding
-sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

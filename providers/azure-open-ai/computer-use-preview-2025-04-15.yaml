@@ -1,30 +1,30 @@
-model: computer-use-preview-2025-04-15
-mode: chat
-status: preview
-thinking: true
+costs:
+    - input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000012
+      region: "*"
 features:
     - function_calling
     - parallel_function_calling
     - structured_output
     - system_messages
     - tool_choice
+limits:
+    context_window: 8192
+    max_input_tokens: 8192
+    max_output_tokens: 1024
+    max_tokens: 1024
 modalities:
     input:
         - text
         - image
     output:
         - text
-costs:
-    - region: "*"
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000012
-limits:
-    context_window: 8192
-    max_input_tokens: 8192
-    max_output_tokens: 1024
-    max_tokens: 1024
+mode: chat
+model: computer-use-preview-2025-04-15
 params:
-    - key: max_tokens
-      defaultValue: 128
-      minValue: 1
+    - defaultValue: 128
+      key: max_tokens
       maxValue: 1024
+      minValue: 1
+status: preview
+thinking: true

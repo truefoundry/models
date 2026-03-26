@@ -1,12 +1,9 @@
-model: gpt-4o-mini-transcribe-2025-03-20
-mode: audio_transcription
-status: preview
-deprecationDate: "2026-06-01"
 costs:
-    - region: "*"
+    - input_cost_per_audio_token: 0.000003
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.000005
-      input_cost_per_audio_token: 0.000003
+      region: "*"
+deprecationDate: "2026-06-01"
 limits:
     max_input_tokens: 16000
     max_output_tokens: 2000
@@ -16,6 +13,8 @@ modalities:
         - audio
     output:
         - text
+mode: audio_transcription
+model: gpt-4o-mini-transcribe-2025-03-20
 removeParams:
     - stop
     - top_p
@@ -25,3 +24,4 @@ removeParams:
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
+status: preview

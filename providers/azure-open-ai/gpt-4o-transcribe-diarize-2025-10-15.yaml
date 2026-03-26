@@ -1,11 +1,10 @@
-model: gpt-4o-transcribe-diarize-2025-10-15
-mode: audio_transcription
 modalities:
     input:
         - audio
     output:
         - text
-status: active
+mode: audio_transcription
+model: gpt-4o-transcribe-diarize-2025-10-15
 removeParams:
     - max_tokens
     - top_p
@@ -16,3 +15,4 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active

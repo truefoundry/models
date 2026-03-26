@@ -1,6 +1,3 @@
-model: gpt-5.3-codex-2026-02-20 # NOTE: docs list this as "gpt-5.3-codex" version "2026-02-24"
-mode: chat
-status: active
 features:
     - function_calling
     - parallel_function_calling
@@ -8,19 +5,19 @@ features:
     - tool_choice
     - structured_output
     - tools
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
         - image
     output:
         - text
-thinking: true
-limits:
-    context_window: 400000
-    max_input_tokens: 272000
-    max_output_tokens: 128000
-    max_tokens: 128000
-# costs: not found in official docs — neither Azure pricing page nor LiteLLM data includes gpt-5.3-codex yet
+mode: chat
+model: gpt-5.3-codex-2026-02-20
 params:
     - defaultValue: 128
       key: max_tokens
@@ -32,3 +29,5 @@ params:
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
+status: active
+thinking: true
