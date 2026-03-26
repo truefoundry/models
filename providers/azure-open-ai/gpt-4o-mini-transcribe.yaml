@@ -4,12 +4,14 @@ costs:
       output_cost_per_token: 0.000005
       region: "*"
 limits:
+    context_window: 16000
     max_input_tokens: 16000
     max_output_tokens: 2000
     max_tokens: 2000
 modalities:
     input:
         - audio
+        - text
     output:
         - text
 mode: audio_transcription
@@ -23,3 +25,5 @@ removeParams:
     - temperature
 sources:
     - https://developers.openai.com/docs/guides/speech-to-text
+    - https://developers.openai.com/docs/models/gpt-4o-mini-transcribe
+status: active

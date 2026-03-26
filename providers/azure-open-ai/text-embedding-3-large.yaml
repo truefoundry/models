@@ -8,6 +8,8 @@ limits:
 modalities:
     input:
         - text
+    output:
+        - embedding
 mode: embedding
 model: text-embedding-3-large
 removeParams:
@@ -20,3 +22,4 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
     - max_tokens
+status: active

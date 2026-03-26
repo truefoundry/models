@@ -4,10 +4,17 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
     max_input_tokens: 32000
     max_output_tokens: 32000
     max_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: mistral-large-latest
 params:
@@ -15,3 +22,4 @@ params:
       maxValue: 32000
 sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12
+status: active
