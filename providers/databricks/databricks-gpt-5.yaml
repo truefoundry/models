@@ -10,7 +10,6 @@ features:
     - tools
 limits:
     context_window: 400000
-    max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
 messages:
@@ -18,7 +17,6 @@ messages:
         - system
         - user
         - assistant
-        - developer
 modalities:
     input:
         - text
@@ -27,4 +25,7 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-5
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/api-reference
+status: active
 thinking: true
