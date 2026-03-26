@@ -4,8 +4,10 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - system_messages
     - structured_output
+    - tool_choice
 limits:
     context_window: 128000
 messages:
@@ -13,6 +15,11 @@ messages:
         - user
         - assistant
         - developer
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: openai/gpt-oss-20b
 sources:

@@ -7,8 +7,15 @@ features:
     - structured_output
 limits:
     context_window: 262144
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3.5-9B
+status: active
 supportedModes:
     - chat
 thinking: true
