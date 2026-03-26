@@ -3,8 +3,12 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
+        - image
+    output:
         - image
 mode: image
 model: ByteDance/Seedream-4
 sources:
     - https://deepinfra.com/ByteDance/Seedream-4/api
+status: active

@@ -2,9 +2,12 @@ costs:
     - input_cost_per_image: 0.01
       region: "*"
 modalities:
+    input:
+        - text
     output:
         - image
 mode: image
 model: black-forest-labs/FLUX-2-dev
 sources:
     - https://deepinfra.com/black-forest-labs/FLUX-2-dev/api
+status: active

@@ -9,6 +9,8 @@ features:
     - structured_output
 limits:
     context_window: 196608
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -18,3 +20,4 @@ mode: chat
 model: MiniMaxAI/MiniMax-M2.5
 sources:
     - https://deepinfra.com/MiniMaxAI/MiniMax-M2.5/api
+thinking: true
