@@ -2,12 +2,25 @@ costs:
     - input_cost_per_token: 2.e-8
       output_cost_per_token: 1.e-7
       region: "*"
+features:
+    - function_calling
+    - system_messages
+    - tools
+    - structured_output
+    - tool_choice
 limits:
     context_window: 262144
-    max_tokens: 262144
 modalities:
     input:
+        - text
         - image
-mode: unknown
+        - video
+    output:
+        - text
+mode: chat
 model: Qwen/Qwen3.5-2B
+sources:
+    - https://deepinfra.com/Qwen/Qwen3.5-2B/api
+    - https://huggingface.co/Qwen/Qwen3.5-2B
+status: active
 thinking: true
