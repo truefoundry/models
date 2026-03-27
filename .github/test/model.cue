@@ -153,8 +153,7 @@ package model
 	"prompt_caching" |			   // Provider caches repeated prompt prefixes to reduce cost and latency
 	"structured_output" |          // Model can return output conforming to a JSON schema
 	"system_messages" |            // Model accepts a system prompt
-	"tool_choice" |                // Caller can force or restrict which tool the model uses
-	"tools"                        // Model supports tool definitions in the request
+	"tool_choice"                  // Caller can force or restrict which tool the model uses
 
 // GCP region identifiers
 #GCPRegion:
