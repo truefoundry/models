@@ -2,13 +2,17 @@ costs:
     - input_cost_per_token: 1.e-8
       region: "*"
 limits:
+    context_window: 32768
     max_input_tokens: 32768
     output_vector_size: 2560
 modalities:
     input:
         - text
+    output:
+        - embedding
 mode: embedding
 model: Qwen/Qwen3-Embedding-4B-batch
 sources:
     - https://deepinfra.com/Qwen/Qwen3-Embedding-4B-batch/api
     - https://huggingface.co/Qwen/Qwen3-Embedding-4B
+status: active

@@ -8,6 +8,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - structured_output
 limits:
     max_input_tokens: 131072
     max_output_tokens: 131072
@@ -15,6 +16,7 @@ limits:
 modalities:
     input:
         - text
+        - image
     output:
         - text
 mode: chat

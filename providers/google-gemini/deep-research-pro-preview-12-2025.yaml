@@ -2,7 +2,9 @@ costs:
     - cache_read_input_token_cost: 2.e-7
       cache_storage_cost_per_token_per_hour: 0.0000045
       input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000012
+      output_cost_per_token_batches: 0.000006
       region: "*"
       tiered_pricing:
           cache_read:
@@ -32,9 +34,15 @@ modalities:
         - text
 mode: chat
 model: deep-research-pro-preview-12-2025
+params:
+    - defaultValue: 65536
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
 removeParams:
     - tool_choice
 sources:
     - https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025
     - https://ai.google.dev/gemini-api/docs/deep-research
+status: preview
 thinking: true

@@ -4,6 +4,11 @@ costs:
 limits:
     max_input_tokens: 512
     output_vector_size: 768
+modalities:
+    input:
+        - text
+    output:
+        - embedding
 mode: embedding
 model: sentence-transformers/multi-qa-mpnet-base-dot-v1
 sources:

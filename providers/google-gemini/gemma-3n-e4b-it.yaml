@@ -7,6 +7,8 @@ features:
 limits:
     context_window: 32000
     max_input_tokens: 32000
+    max_output_tokens: 32000
+    max_tokens: 32000
 modalities:
     input:
         - text
@@ -22,3 +24,4 @@ removeParams:
 sources:
     - https://ai.google.dev/gemma/docs/3n
     - https://ai.google.dev/gemma/docs/gemma-3n/model_card
+status: active

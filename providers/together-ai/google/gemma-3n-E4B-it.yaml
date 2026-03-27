@@ -11,6 +11,8 @@ modalities:
     input:
         - text
         - image
+        - audio
+        - video
     output:
         - text
 mode: chat
@@ -18,5 +20,6 @@ model: google/gemma-3n-E4B-it
 sources:
     - https://www.together.ai/models/gemma-3n-e4b-it
     - https://docs.together.ai/docs/serverless-models
+status: active
 supportedModes:
     - chat

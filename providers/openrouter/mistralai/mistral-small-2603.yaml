@@ -7,6 +7,7 @@ features:
     - function_calling
     - structured_output
     - tool_choice
+    - prompt_caching
 limits:
     context_window: 262144
 modalities:
@@ -19,11 +20,12 @@ mode: chat
 model: mistralai/mistral-small-2603
 params:
     - defaultValue: high
-      key: reasoning
+      key: reasoning_effort
       type: string
 removeParams:
     - "n"
 sources:
     - https://openrouter.ai/mistralai/mistral-small-2603/api
-    - https://docs.mistral.ai/models/
+    - https://docs.mistral.ai/getting-started/models/
+    - https://docs.mistral.ai/capabilities/reasoning/
 thinking: true

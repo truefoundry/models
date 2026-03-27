@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - structured_output
 limits:
     context_window: 256000
@@ -19,5 +20,6 @@ sources:
     - https://docs.together.ai/docs/serverless-models
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
+status: active
 supportedModes:
     - chat

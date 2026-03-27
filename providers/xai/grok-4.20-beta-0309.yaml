@@ -1,7 +1,9 @@
 costs:
     - cache_read_input_token_cost: 2.e-7
       input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000006
+      output_cost_per_token_batches: 0.000003
       region: "*"
 features:
     - function_calling
@@ -18,4 +20,7 @@ modalities:
         - text
 mode: chat
 model: grok-4.20-beta-0309
+sources:
+    - https://docs.x.ai/developers/models#models-and-pricing
+status: preview
 thinking: true

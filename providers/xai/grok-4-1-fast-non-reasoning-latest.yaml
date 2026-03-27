@@ -1,7 +1,9 @@
 costs:
     - cache_read_input_token_cost: 5.e-8
       input_cost_per_token: 2.e-7
+      input_cost_per_token_batches: 1.e-7
       output_cost_per_token: 5.e-7
+      output_cost_per_token_batches: 2.5e-7
       region: "*"
 features:
     - function_calling
@@ -18,3 +20,4 @@ modalities:
         - text
 mode: chat
 model: grok-4-1-fast-non-reasoning-latest
+status: active

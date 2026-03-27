@@ -5,12 +5,17 @@ costs:
 limits:
     max_input_tokens: 65536
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
+        - text
+        - image
+    output:
         - image
 mode: image
 model: google/gemini-3-pro-image
 sources:
     - https://docs.together.ai/docs/serverless-models
+status: active
 supportedModes:
     - image

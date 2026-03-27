@@ -3,10 +3,15 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 2048
+    output_vector_size: 768
 modalities:
     input:
         - text
+    output:
+        - embedding
 mode: embedding
 model: google/embeddinggemma-300m
 sources:
     - https://deepinfra.com/google/embeddinggemma-300m/api
+    - https://huggingface.co/google/embeddinggemma-300m
+status: active

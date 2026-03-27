@@ -1,6 +1,13 @@
-limits:
-    max_input_tokens: 1048576
-    max_output_tokens: 65536
+costs:
+    - input_cost_per_request: 0.08
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - audio
+        - text
 mode: unknown
 model: lyria-3-pro-preview
 params:
@@ -11,3 +18,8 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+removeParams:
+    - max_tokens
+sources:
+    - https://ai.google.dev/gemini-api/docs/music-generation
+status: preview

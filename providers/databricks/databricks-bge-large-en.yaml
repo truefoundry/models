@@ -6,5 +6,11 @@ limits:
     max_input_tokens: 512
     max_tokens: 512
     output_vector_size: 1024
+modalities:
+    input:
+        - text
+    output:
+        - embedding
 mode: embedding
 model: databricks-bge-large-en
+status: active
