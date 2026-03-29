@@ -1,0 +1,23 @@
+model: mistral-small-3.1-24b-instruct-2503
+mode: chat
+costs:
+  - region: us-central1
+    input_cost_per_token: 1.e-7
+    output_cost_per_token: 3.e-7
+  - region: europe-west4
+    input_cost_per_token: 1.1e-7
+    output_cost_per_token: 3.3e-7
+limits:
+  context_window: 128000
+features:
+  - function_calling
+  - tool_choice
+modalities:
+  input:
+    - text
+    - image
+  output:
+    - text
+sources:
+  - 'https://mistral.ai/news/mistral-small-3-1'
+  - 'https://mistral.ai/technology/#pricing'
