@@ -1,0 +1,11 @@
+model: test-delete-me
+mode: chat
+costs:
+  - region: '*'
+    input_cost_per_token: 0.000003
+    output_cost_per_token: 0.000015
+limits:
+  context_window: 128000
+  max_output_tokens: 16384
+features:
+  - function_calling
