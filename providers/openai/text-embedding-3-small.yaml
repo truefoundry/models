@@ -10,6 +10,8 @@ limits:
 modalities:
     input:
         - text
+    output:
+        - embedding
 mode: embedding
 model: text-embedding-3-small
 removeParams:
@@ -24,3 +26,4 @@ removeParams:
 sources:
     - https://developers.openai.com/docs/guides/embeddings
     - https://developers.openai.com/api/docs/models/text-embedding-3-small
+status: active

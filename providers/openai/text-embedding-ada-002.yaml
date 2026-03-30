@@ -9,6 +9,8 @@ limits:
 modalities:
     input:
         - text
+    output:
+        - embedding
 mode: embedding
 model: text-embedding-ada-002
 removeParams:
@@ -22,3 +24,4 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/text-embedding-ada-002
     - https://developers.openai.com/docs/guides/embeddings
+status: active

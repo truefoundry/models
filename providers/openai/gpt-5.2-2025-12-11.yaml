@@ -20,7 +20,6 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
@@ -33,6 +32,8 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+    - defaultValue: none
+      key: reasoning_effort
 removeParams:
     - temperature
     - top_p

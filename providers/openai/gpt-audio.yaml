@@ -23,5 +23,9 @@ modalities:
         - audio
 mode: chat
 model: gpt-audio
+params:
+    - key: max_tokens
+      maxValue: 16384
 sources:
     - https://developers.openai.com/api/docs/models/gpt-audio
+status: active
