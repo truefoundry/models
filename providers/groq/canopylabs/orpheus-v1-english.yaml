@@ -12,5 +12,12 @@ modalities:
         - audio
 mode: text_to_speech
 model: canopylabs/orpheus-v1-english
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - stream
 sources:
     - https://console.groq.com/docs/text-to-speech
+status: preview
