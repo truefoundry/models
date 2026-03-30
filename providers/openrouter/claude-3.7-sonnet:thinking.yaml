@@ -1,5 +1,5 @@
 costs:
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 0.000006
       cache_read_input_token_cost: 3.e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
@@ -9,6 +9,7 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - structured_output
 limits:
     context_window: 200000
     max_output_tokens: 64000

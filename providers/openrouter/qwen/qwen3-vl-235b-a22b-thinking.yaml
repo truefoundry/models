@@ -17,6 +17,19 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3-vl-235b-a22b-thinking
+params:
+    - defaultValue: 32768
+      key: max_tokens
+      maxValue: 32768
+      minValue: 1
+    - defaultValue: 0.95
+      key: top_p
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 20
+      key: top_k
+      minValue: 0
 sources:
     - https://openrouter.ai/qwen/qwen3-vl-235b-a22b-thinking/api
+status: active
 thinking: true

@@ -6,7 +6,8 @@ features:
     - function_calling
 limits:
     context_window: 131072
-    max_tokens: 4096
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -16,4 +17,5 @@ mode: chat
 model: qwq-32b:free
 sources:
     - https://openrouter.ai/qwen/qwq-32b:free/api
+    - https://openrouter.ai/qwen/qwq-32b/api
 thinking: true

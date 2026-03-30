@@ -1,11 +1,15 @@
 costs:
     - cache_creation_input_token_cost: 3.75e-7
       cache_read_input_token_cost: 2.e-7
+      cache_storage_cost_per_token_per_hour: 0.0000045
       input_cost_per_audio_token: 0.000002
       input_cost_per_token: 0.000002
       output_cost_per_token: 0.000012
       region: "*"
       tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.e-7
+                from: 200000
           input:
               - cost_per_token: 0.000004
                 from: 200000
@@ -18,6 +22,7 @@ features:
     - structured_output
     - system_messages
     - prompt_caching
+    - json_output
 limits:
     context_window: 1048576
     max_output_tokens: 65536
@@ -38,6 +43,9 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - key: reasoning_effort
+      type: string
 sources:
     - https://openrouter.ai/google/gemini-3.1-pro-preview-customtools/api
+status: active
 thinking: true

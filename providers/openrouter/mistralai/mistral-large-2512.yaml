@@ -8,6 +8,8 @@ features:
     - parallel_function_calling
     - tool_choice
     - structured_output
+    - prompt_caching
+    - json_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -24,3 +26,4 @@ model: mistralai/mistral-large-2512
 sources:
     - https://openrouter.ai/mistralai/mistral-large-2512/api
     - https://docs.mistral.ai/models/mistral-large-3-25-12
+status: active

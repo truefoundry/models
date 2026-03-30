@@ -7,6 +7,7 @@ features:
     - function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 65536
     max_output_tokens: 65536
@@ -18,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: allenai/olmo-3-32b-think
+params:
+    - defaultValue: 0.6
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
 sources:
     - https://openrouter.ai/allenai/olmo-3-32b-think/api
 thinking: true

@@ -18,6 +18,9 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: null
+      key: seed
+      type: number
 removeParams:
     - temperature
     - top_p
@@ -25,3 +28,4 @@ removeParams:
     - response_format
 sources:
     - https://openrouter.ai/relace/relace-apply-3/api
+status: active

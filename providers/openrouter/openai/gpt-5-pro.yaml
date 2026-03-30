@@ -14,8 +14,8 @@ limits:
     max_tokens: 128000
 modalities:
     input:
-        - image
         - text
+        - image
         - pdf
     output:
         - text
@@ -31,4 +31,5 @@ params:
       type: string
 sources:
     - https://openrouter.ai/openai/gpt-5-pro/api
+status: active
 thinking: true

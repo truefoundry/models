@@ -6,10 +6,11 @@ features:
     - function_calling
     - tool_choice
     - system_messages
+    - json_output
 limits:
     context_window: 32768
-    max_output_tokens: 8000
-    max_tokens: 8000
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -19,3 +20,4 @@ mode: chat
 model: qwen/qwen-2.5-7b-instruct
 sources:
     - https://openrouter.ai/qwen/qwen-2.5-7b-instruct/api
+status: active

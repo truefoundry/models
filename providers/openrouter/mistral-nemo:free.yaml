@@ -5,6 +5,8 @@ costs:
 features:
     - function_calling
     - system_messages
+    - structured_output
+    - json_output
 limits:
     context_window: 131072
     max_output_tokens: 128000
@@ -21,3 +23,4 @@ params:
       maxValue: 128000
 sources:
     - https://openrouter.ai/mistralai/mistral-nemo:free/api
+status: active

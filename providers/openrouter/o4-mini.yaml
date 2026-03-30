@@ -6,6 +6,8 @@ costs:
 features:
     - function_calling
     - structured_output
+    - tool_choice
+    - json_output
 limits:
     context_window: 200000
     max_output_tokens: 100000
@@ -23,4 +25,5 @@ params:
       maxValue: 100000
 sources:
     - https://openrouter.ai/openai/o4-mini/api
+status: active
 thinking: true
