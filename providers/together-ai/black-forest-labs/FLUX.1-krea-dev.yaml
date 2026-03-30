@@ -3,10 +3,11 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
+    output:
         - image
 mode: image
 model: black-forest-labs/FLUX.1-krea-dev
 sources:
     - https://docs.together.ai/docs/serverless-models
-supportedModes:
-    - image
+status: active

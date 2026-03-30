@@ -2,6 +2,8 @@ features:
     - function_calling
     - parallel_function_calling
     - system_messages
+limits:
+    context_window: 128000
 messages:
     options:
         - system
@@ -17,4 +19,5 @@ model: deepcogito/cogito-v1-preview-llama-8B
 sources:
     - https://api.together.ai/models/deepcogito/cogito-v1-preview-llama-8B
     - https://huggingface.co/deepcogito/cogito-v1-preview-llama-8B
+status: active
 thinking: true

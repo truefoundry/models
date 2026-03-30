@@ -3,10 +3,11 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
+    output:
         - image
 mode: image
 model: Lykon/DreamShaper
 sources:
     - https://docs.together.ai/docs/images-overview
-supportedModes:
-    - image
+status: active

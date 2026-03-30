@@ -4,9 +4,13 @@ costs:
 limits:
     context_window: 514
     output_vector_size: 1024
+modalities:
+    input:
+        - text
+    output:
+        - embedding
 mode: embedding
 model: intfloat/multilingual-e5-large-instruct
 sources:
     - https://docs.together.ai/docs/serverless-models
-supportedModes:
-    - embedding
+status: active
