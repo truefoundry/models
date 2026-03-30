@@ -6,9 +6,12 @@ features:
     - function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -20,4 +23,5 @@ model: google/gemini-2.5-flash
 sources:
     - https://deepinfra.com/google/gemini-2.5-flash
     - https://deepinfra.com/google/gemini-2.5-flash/api
+status: active
 thinking: true

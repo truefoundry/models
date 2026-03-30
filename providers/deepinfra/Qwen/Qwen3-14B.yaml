@@ -7,11 +7,18 @@ features:
     - tool_choice
     - system_messages
     - structured_output
+    - json_output
 limits:
     context_window: 40960
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3-14B
 sources:
     - https://deepinfra.com/Qwen/Qwen3-14B
     - https://deepinfra.com/Qwen/Qwen3-14B/api
+status: active
 thinking: true

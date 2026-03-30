@@ -9,8 +9,8 @@ features:
     - prompt_caching
 limits:
     context_window: 202752
-    max_output_tokens: 128000
-    max_tokens: 128000
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -21,6 +21,5 @@ model: zai-org/GLM-5
 sources:
     - https://deepinfra.com/zai-org/GLM-5/api
     - https://docs.z.ai/guides/llm/glm-5
-    - https://openrouter.ai/z-ai/glm-5/api
-    - https://artificialanalysis.ai/models/glm-5/providers
+status: active
 thinking: true

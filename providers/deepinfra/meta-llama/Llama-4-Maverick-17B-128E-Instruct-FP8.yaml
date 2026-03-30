@@ -5,6 +5,8 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - structured_output
+    - json_output
 limits:
     context_window: 1048576
     max_output_tokens: 16384
@@ -20,3 +22,4 @@ model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
 sources:
     - https://deepinfra.com/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8/api
     - https://deepinfra.com/docs/advanced/max_tokens_limit
+status: active

@@ -8,8 +8,8 @@ features:
 limits:
     context_window: 40960
     max_input_tokens: 40960
-    max_output_tokens: 40960
-    max_tokens: 40960
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - text
@@ -22,4 +22,5 @@ sources:
     - https://deepinfra.com/Qwen/Qwen3-32B/api
     - https://deepinfra.com/docs/advanced/max_tokens_limit
     - https://huggingface.co/Qwen/Qwen3-32B
+status: active
 thinking: true
