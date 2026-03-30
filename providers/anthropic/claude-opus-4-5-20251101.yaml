@@ -12,6 +12,7 @@ features:
     - prompt_caching
     - structured_output
     - assistant_prefill
+    - cache_control
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -20,8 +21,11 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: claude-opus-4-5-20251101
 params:
@@ -32,4 +36,5 @@ params:
 removeParams:
     - temperature
     - top_p
+status: active
 thinking: true
