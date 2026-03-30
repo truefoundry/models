@@ -15,9 +15,14 @@ modalities:
         - text
 mode: chat
 model: magistral-medium-2509
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      type: string
 sources:
     - https://docs.mistral.ai/models/magistral-medium-1-2-25-09
     - https://docs.mistral.ai/capabilities/reasoning
+status: active
 supportedModes:
     - chat
 thinking: true

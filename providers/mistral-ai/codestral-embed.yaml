@@ -5,10 +5,13 @@ costs:
 limits:
     context_window: 8000
     max_input_tokens: 8000
+    output_vector_size: 1536
 modalities:
     input:
         - text
         - code
+    output:
+        - embedding
 mode: embedding
 model: codestral-embed
 removeParams:
@@ -20,3 +23,5 @@ removeParams:
     - stream
 sources:
     - https://docs.mistral.ai/models/codestral-embed-25-05
+    - https://docs.mistral.ai/capabilities/embeddings/code_embeddings
+status: active

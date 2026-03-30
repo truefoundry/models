@@ -8,13 +8,13 @@ features:
     - tool_choice
     - structured_output
     - assistant_prefill
+    - json_output
 limits:
     context_window: 256000
 modalities:
     input:
         - text
         - image
-        - audio
         - pdf
     output:
         - text
@@ -24,4 +24,5 @@ sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12
     - https://docs.mistral.ai/capabilities/vision
     - https://docs.mistral.ai/capabilities/function_calling
-    - https://docs.mistral.ai/capabilities/audio
+    - https://docs.mistral.ai/capabilities/structured_output
+status: active

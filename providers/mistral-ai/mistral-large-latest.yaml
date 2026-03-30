@@ -5,6 +5,9 @@ costs:
 features:
     - function_calling
     - structured_output
+    - json_output
+    - assistant_prefill
+    - tool_choice
 limits:
     context_window: 256000
     max_input_tokens: 256000
@@ -28,3 +31,4 @@ sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12
 supportedModes:
     - chat
+thinking: true

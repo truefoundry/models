@@ -8,9 +8,6 @@ features:
     - assistant_prefill
 limits:
     context_window: 32000
-    max_input_tokens: 32000
-    max_output_tokens: 32000
-    max_tokens: 32000
 modalities:
     input:
         - text
@@ -22,5 +19,6 @@ mode: chat
 model: labs-mistral-small-creative
 sources:
     - https://docs.mistral.ai/models/mistral-small-creative-25-12
+status: preview
 supportedModes:
     - chat

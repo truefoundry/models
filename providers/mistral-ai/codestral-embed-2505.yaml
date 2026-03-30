@@ -10,6 +10,8 @@ modalities:
     input:
         - text
         - code
+    output:
+        - embedding
 mode: embedding
 model: codestral-embed-2505
 removeParams:
@@ -22,3 +24,5 @@ removeParams:
 sources:
     - https://mistral.ai/news/codestral-embed
     - https://docs.mistral.ai/capabilities/embeddings/code_embeddings
+    - https://docs.mistral.ai/models/codestral-embed-25-05
+status: active
