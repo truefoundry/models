@@ -6,11 +6,18 @@ features:
     - function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 32000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Qwen3-32B
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling
     - https://docs.sambanova.ai/docs/en/build/reasoning
+status: preview
 thinking: true
