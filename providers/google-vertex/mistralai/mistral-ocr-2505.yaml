@@ -7,8 +7,10 @@ costs:
       region: europe-west4
 features:
     - structured_output
+    - json_output
 modalities:
     input:
+        - text
         - image
         - pdf
         - doc
@@ -21,3 +23,4 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral
     - https://mistral.ai/news/mistral-ocr
     - https://docs.mistral.ai/getting-started/models/
+status: active

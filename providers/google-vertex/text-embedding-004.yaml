@@ -6,8 +6,12 @@ costs:
 deprecationDate: "2027-04-01"
 limits:
     max_input_tokens: 2048
-    max_tokens: 4096
     output_vector_size: 768
+modalities:
+    input:
+        - text
+    output:
+        - embedding
 mode: embedding
 model: text-embedding-004
 removeParams:
@@ -22,3 +26,4 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versioning
+status: active
