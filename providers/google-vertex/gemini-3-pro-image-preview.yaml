@@ -212,6 +212,7 @@ costs:
 features:
     - system_messages
 limits:
+    context_window: 65536
     max_input_tokens: 65536
     max_output_tokens: 32768
     max_tokens: 32768
@@ -230,4 +231,5 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
+status: preview
 thinking: true
