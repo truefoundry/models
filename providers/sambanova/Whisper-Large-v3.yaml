@@ -4,8 +4,11 @@ costs:
 modalities:
     input:
         - audio
+    output:
+        - text
 mode: audio_transcription
 model: Whisper-Large-v3
 sources:
     - https://docs.sambanova.ai/docs/en/features/audio
     - https://docs.sambanova.ai/docs/api-reference/audio/transcribes-audio-into-the-input-language
+status: preview

@@ -9,6 +9,10 @@ limits:
     context_window: 128000
 mode: chat
 model: gpt-oss-120b
+params:
+    - key: reasoning_effort
+      type: string
 sources:
     - https://sambanova.ai/blog/start-building-with-lightning-fast-gpt-oss-120b-on-sambacloud
+status: preview
 thinking: true
