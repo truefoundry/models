@@ -15,8 +15,13 @@ limits:
     context_window: 65536
     max_input_tokens: 65536
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
+        - text
+        - image
+    output:
+        - text
         - image
 mode: image
 model: gemini-3-pro-image-preview
@@ -29,4 +34,5 @@ sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview
     - https://ai.google.dev/gemini-api/docs/image-generation
     - https://ai.google.dev/gemini-api/docs/thinking
+status: preview
 thinking: true

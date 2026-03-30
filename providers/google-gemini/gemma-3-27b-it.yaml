@@ -13,15 +13,23 @@ features:
     - structured_output
     - prompt_caching
 limits:
-    context_window: 131072
-    max_input_tokens: 131072
+    context_window: 128000
+    max_input_tokens: 128000
     max_output_tokens: 8192
+    max_tokens: 8192
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gemma-3-27b-it
+params:
+    - key: max_tokens
+      maxValue: 8192
 sources:
     - https://ai.google.dev/gemma/docs/core
     - https://ai.google.dev/gemma/docs/core/model_card_3
     - https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api
+status: active

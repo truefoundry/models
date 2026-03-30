@@ -22,16 +22,21 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - audio
-        - doc
         - image
         - pdf
+        - text
+        - video
+    output:
+        - text
 mode: chat
 model: gemini-3.1-pro-preview-customtools
 params:
@@ -45,4 +50,5 @@ params:
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
     - https://ai.google.dev/gemini-api/docs/thinking
+status: preview
 thinking: true

@@ -3,7 +3,10 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
         - image
+    output:
+        - video
 mode: video
 model: veo-2.0-generate-001
 removeParams:
@@ -16,3 +19,4 @@ removeParams:
     - tool_choice
 sources:
     - https://ai.google.dev/gemini-api/docs/video
+status: active

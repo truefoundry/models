@@ -8,11 +8,22 @@ limits:
     max_input_tokens: 1024
 modalities:
     input:
+        - text
         - image
     output:
+        - video
         - audio
 mode: video
 model: veo-3.1-fast-generate-preview
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - top_k
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://ai.google.dev/gemini-api/docs/video
     - https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview
+status: preview
