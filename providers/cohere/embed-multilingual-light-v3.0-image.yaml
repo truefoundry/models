@@ -5,6 +5,8 @@ modalities:
     input:
         - text
         - image
+    output:
+        - embedding
 mode: embedding
 model: embed-multilingual-light-v3.0-image
 removeParams:
@@ -14,3 +16,4 @@ removeParams:
 sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.cohere.com/reference/embed
+status: active

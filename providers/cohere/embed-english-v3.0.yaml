@@ -11,6 +11,8 @@ modalities:
     input:
         - text
         - image
+    output:
+        - embedding
 mode: embedding
 model: embed-english-v3.0
 removeParams:
@@ -20,3 +22,4 @@ removeParams:
 sources:
     - https://docs.cohere.com/reference/embed
     - https://docs.cohere.com/docs/cohere-embed
+status: active

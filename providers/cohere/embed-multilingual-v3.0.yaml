@@ -10,6 +10,8 @@ modalities:
     input:
         - text
         - image
+    output:
+        - embedding
 mode: embedding
 model: embed-multilingual-v3.0
 removeParams:
@@ -20,3 +22,4 @@ sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.cohere.com/reference/embed
     - https://docs.cohere.com/docs/how-does-cohere-pricing-work
+status: active

@@ -6,6 +6,9 @@ costs:
 limits:
     context_window: 4096
     max_input_tokens: 4096
+modalities:
+    input:
+        - text
 mode: rerank
 model: rerank-v3.5
 removeParams:
@@ -16,3 +19,4 @@ sources:
     - https://docs.cohere.com/docs/rerank
     - https://docs.cohere.com/v2/reference/rerank
     - https://docs.cohere.com/docs/how-does-cohere-pricing-work
+status: active

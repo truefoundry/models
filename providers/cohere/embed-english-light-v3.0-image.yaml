@@ -3,7 +3,10 @@ limits:
     output_vector_size: 384
 modalities:
     input:
+        - text
         - image
+    output:
+        - embedding
 mode: embedding
 model: embed-english-light-v3.0-image
 removeParams:
@@ -13,3 +16,4 @@ removeParams:
 sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.cohere.com/reference/embed
+status: active
