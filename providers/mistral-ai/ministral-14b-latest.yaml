@@ -7,6 +7,7 @@ features:
     - parallel_function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 256000
 modalities:
@@ -21,6 +22,7 @@ sources:
     - https://docs.mistral.ai/models/ministral-3-14b-25-12
     - https://docs.mistral.ai/capabilities/function_calling
     - https://docs.mistral.ai/capabilities/vision
+    - https://docs.mistral.ai/capabilities/structured_output
 status: active
 supportedModes:
     - chat
