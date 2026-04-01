@@ -4,21 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
-    - structured_output
-    - json_output
 limits:
-    context_window: 128000
+    context_window: 131072
 modalities:
     input:
-        - text
         - image
-        - audio
-        - pdf
-    output:
-        - text
 mode: chat
 model: mistral-medium-2508
+params:
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/mistral-medium-3-1-25-08
     - https://docs.mistral.ai/capabilities/function_calling

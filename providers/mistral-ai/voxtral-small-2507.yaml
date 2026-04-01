@@ -5,18 +5,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
-    - assistant_prefill
 limits:
     context_window: 32768
 modalities:
     input:
-        - text
         - audio
-    output:
-        - text
 mode: chat
 model: voxtral-small-2507
+params:
+    - defaultValue: 0.2
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/voxtral-small-25-07
 status: active

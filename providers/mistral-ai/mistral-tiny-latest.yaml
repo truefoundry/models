@@ -3,7 +3,11 @@ features:
 isDeprecated: true
 limits:
     context_window: 131072
-mode: unknown
+mode: chat
 model: mistral-tiny-latest
+params:
+    - defaultValue: 0.3
+      key: temperature
+status: active
 supportedModes:
     - chat

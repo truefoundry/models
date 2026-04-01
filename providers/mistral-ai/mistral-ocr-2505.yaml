@@ -2,6 +2,19 @@ costs:
     - input_cost_per_annotated_page: 0.003
       input_cost_per_page: 0.001
       region: "*"
+deprecationDate: "2026-05-31"
+features:
+    - function_calling
 isDeprecated: true
-mode: chat
+limits:
+    context_window: 16384
+modalities:
+    input:
+        - image
+        - pdf
+mode: unknown
 model: mistral-ocr-2505
+params:
+    - defaultValue: 0
+      key: temperature
+status: active

@@ -1,3 +1,17 @@
+deprecationDate: "2026-05-31"
+features:
+    - function_calling
 isDeprecated: true
-mode: unknown
+limits:
+    context_window: 131072
+modalities:
+    input:
+        - image
+mode: chat
 model: mistral-large-pixtral-2411
+params:
+    - defaultValue: 0.7
+      key: temperature
+status: active
+supportedModes:
+    - chat
