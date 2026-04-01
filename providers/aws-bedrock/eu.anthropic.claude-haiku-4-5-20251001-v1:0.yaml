@@ -71,8 +71,11 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: eu.anthropic.claude-haiku-4-5-20251001-v1:0
 params:

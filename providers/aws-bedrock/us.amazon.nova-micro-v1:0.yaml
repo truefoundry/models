@@ -28,8 +28,8 @@ features:
 limits:
     context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
 modalities:
     input:
         - text
@@ -40,7 +40,7 @@ model: us.amazon.nova-micro-v1:0
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 10000
+      maxValue: 5000
       minValue: 1
 sources:
     - https://aws.amazon.com/nova/pricing/
@@ -48,4 +48,5 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
 status: active
