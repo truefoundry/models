@@ -5,10 +5,8 @@ costs:
 deprecationDate: "2027-04-07"
 features:
     - function_calling
-    - parallel_function_calling
     - system_messages
     - tool_choice
-    - prompt_caching
     - structured_output
 limits:
     context_window: 400000
@@ -19,7 +17,6 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
@@ -34,5 +31,6 @@ params:
       type: string
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai&tabs=global-standard-aoai%2Cstandard-chat-completions%2Cglobal-standard#gpt-5
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reasoning
 status: active
 thinking: true
