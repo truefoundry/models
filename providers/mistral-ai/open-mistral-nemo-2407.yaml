@@ -7,13 +7,14 @@ features:
 isDeprecated: true
 limits:
     context_window: 131072
-    max_input_tokens: 128000
-    max_output_tokens: 128000
-    max_tokens: 128000
 mode: chat
 model: open-mistral-nemo-2407
+params:
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/mistral-nemo-12b-24-07
     - https://docs.mistral.ai/getting-started/models/models_overview/
+status: active
 supportedModes:
     - chat

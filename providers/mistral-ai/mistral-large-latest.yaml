@@ -4,31 +4,19 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
-    - json_output
-    - assistant_prefill
-    - tool_choice
 limits:
-    context_window: 256000
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
+    context_window: 262144
 modalities:
     input:
-        - text
         - image
-        - audio
-    output:
-        - text
 mode: chat
 model: mistral-large-latest
 params:
-    - defaultValue: 256000
-      key: max_tokens
-      maxValue: 256000
-      minValue: 1
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12
+status: active
 supportedModes:
     - chat
 thinking: true

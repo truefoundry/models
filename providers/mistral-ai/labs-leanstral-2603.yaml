@@ -4,17 +4,18 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
-    context_window: 256000
+    context_window: 196608
 modalities:
     input:
-        - text
         - image
-    output:
-        - text
 mode: chat
 model: labs-leanstral-2603
+params:
+    - defaultValue: 1
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/leanstral-26-03
-status: preview
+status: active
+supportedModes:
+    - chat

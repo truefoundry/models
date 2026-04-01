@@ -1,26 +1,16 @@
 costs:
     - input_cost_per_second: 0.0001
       region: "*"
-features:
-    - function_calling
-    - structured_output
-    - assistant_prefill
-    - tool_choice
-    - system_messages
 limits:
-    context_window: 16384
-modalities:
-    input:
-        - audio
-        - text
-    output:
-        - text
-mode: chat
+    context_window: 32768
+mode: realtime
 model: voxtral-mini-realtime-2602
+params:
+    - defaultValue: 0
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02
     - https://docs.mistral.ai/capabilities/audio_transcription
 status: active
 supportedModes:
     - realtime
-    - chat
