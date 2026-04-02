@@ -1,29 +1,30 @@
 costs:
-    - input_cost_per_image: 0
-      input_cost_per_token: 0
-      output_cost_per_token: 0
-      region: "*"
+- input_cost_per_image: 0
+  input_cost_per_token: 0
+  output_cost_per_token: 0
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - system_messages
+- function_calling
+- tool_choice
+- system_messages
 limits:
-    context_window: 1048576
-    max_output_tokens: 32000
-    max_tokens: 32000
+  context_window: 1048576
+  max_output_tokens: 32000
+  max_tokens: 32000
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: openrouter/hunter-alpha
 params:
-    - defaultValue: 128
-      key: max_tokens
-      maxValue: 32000
-      minValue: 1
+- defaultValue: 128
+  key: max_tokens
+  maxValue: 32000
+  minValue: 1
 sources:
-    - https://openrouter.ai/openrouter/hunter-alpha/api
+- https://openrouter.ai/openrouter/hunter-alpha/api
 thinking: true
+status: deprecated

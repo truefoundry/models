@@ -1,26 +1,27 @@
 costs:
-    - input_cost_per_token: 4.55e-7
-      output_cost_per_token: 0.00000182
-      region: "*"
+- input_cost_per_token: 4.55e-07
+  output_cost_per_token: 1.82e-06
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+- function_calling
+- tool_choice
+- structured_output
 limits:
-    context_window: 131072
-    max_input_tokens: 98304
-    max_output_tokens: 8192
-    max_tokens: 8192
+  context_window: 131072
+  max_input_tokens: 98304
+  max_output_tokens: 8192
+  max_tokens: 8192
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: qwen3-235b-a22b
 params:
-    - key: max_tokens
-      maxValue: 8192
+- key: max_tokens
+  maxValue: 8192
 sources:
-    - https://openrouter.ai/qwen/qwen3-235b-a22b/api
+- https://openrouter.ai/qwen/qwen3-235b-a22b/api
 thinking: true
+status: deprecated

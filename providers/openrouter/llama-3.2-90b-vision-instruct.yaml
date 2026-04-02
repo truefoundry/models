@@ -1,16 +1,17 @@
 limits:
-    context_window: 131072
+  context_window: 131072
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: meta-llama/llama-3.2-90b-vision-instruct
 params:
-    - key: max_tokens
-      maxValue: 2048
+- key: max_tokens
+  maxValue: 2048
 sources:
-    - https://openrouter.ai/meta-llama/llama-3.2-90b-vision-instruct/api
-    - https://openrouter.ai/meta-llama/llama-3.2-90b-vision-instruct
+- https://openrouter.ai/meta-llama/llama-3.2-90b-vision-instruct/api
+- https://openrouter.ai/meta-llama/llama-3.2-90b-vision-instruct
+status: deprecated

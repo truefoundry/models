@@ -1,18 +1,19 @@
 costs:
-    - input_cost_per_token: 2.e-7
-      output_cost_per_token: 2.e-7
-      region: "*"
+- input_cost_per_token: 2.0e-07
+  output_cost_per_token: 2.0e-07
+  region: '*'
 limits:
-    context_window: 32768
-    max_output_tokens: 4096
-    max_tokens: 4096
+  context_window: 32768
+  max_output_tokens: 4096
+  max_tokens: 4096
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: qwen/qwen-2.5-vl-7b-instruct
 sources:
-    - https://openrouter.ai/qwen/qwen-2.5-vl-7b-instruct/api
+- https://openrouter.ai/qwen/qwen-2.5-vl-7b-instruct/api
+status: deprecated

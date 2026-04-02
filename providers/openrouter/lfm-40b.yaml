@@ -1,15 +1,15 @@
 limits:
-    context_window: 32768
+  context_window: 32768
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: lfm-40b
 params:
-    - key: max_tokens
-      maxValue: 65536
+- key: max_tokens
+  maxValue: 65536
 sources:
-    - https://openrouter.ai/liquid/lfm-40b/api
-status: active
+- https://openrouter.ai/liquid/lfm-40b/api
+status: deprecated

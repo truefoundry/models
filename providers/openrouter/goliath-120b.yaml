@@ -1,18 +1,18 @@
 costs:
-    - input_cost_per_token: 0.00000375
-      output_cost_per_token: 0.0000075
-      region: "*"
+- input_cost_per_token: 3.75e-06
+  output_cost_per_token: 7.5e-06
+  region: '*'
 limits:
-    context_window: 6144
-    max_output_tokens: 1024
-    max_tokens: 1024
+  context_window: 6144
+  max_output_tokens: 1024
+  max_tokens: 1024
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: goliath-120b
 sources:
-    - https://openrouter.ai/alpindale/goliath-120b/api
-status: active
+- https://openrouter.ai/alpindale/goliath-120b/api
+status: deprecated

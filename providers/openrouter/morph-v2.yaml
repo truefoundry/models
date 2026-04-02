@@ -1,19 +1,20 @@
 limits:
-    context_window: 32000
+  context_window: 32000
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: morph-v2
 params:
-    - key: max_tokens
-      maxValue: 16000
+- key: max_tokens
+  maxValue: 16000
 removeParams:
-    - top_p
-    - "n"
-    - response_format
+- top_p
+- n
+- response_format
 sources:
-    - https://openrouter.ai/morph/morph-v2/api
-    - https://docs.morphllm.com/
+- https://openrouter.ai/morph/morph-v2/api
+- https://docs.morphllm.com/
+status: deprecated

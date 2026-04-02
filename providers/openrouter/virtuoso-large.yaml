@@ -1,24 +1,25 @@
 costs:
-    - input_cost_per_token: 7.5e-7
-      output_cost_per_token: 0.0000012
-      region: "*"
+- input_cost_per_token: 7.5e-07
+  output_cost_per_token: 1.2e-06
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+- function_calling
+- tool_choice
+- structured_output
 limits:
-    context_window: 131072
-    max_output_tokens: 64000
-    max_tokens: 64000
+  context_window: 131072
+  max_output_tokens: 64000
+  max_tokens: 64000
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: virtuoso-large
 params:
-    - key: max_tokens
-      maxValue: 64000
+- key: max_tokens
+  maxValue: 64000
 sources:
-    - https://openrouter.ai/arcee-ai/virtuoso-large/api
+- https://openrouter.ai/arcee-ai/virtuoso-large/api
+status: deprecated

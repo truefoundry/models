@@ -1,33 +1,34 @@
 costs:
-    - cache_read_input_token_cost: 7.5e-7
-      input_cost_per_query: 0.005
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: "*"
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000006
-                from: 128000
-          output:
-              - cost_per_token: 0.00003
-                from: 128000
-features:
-    - function_calling
-    - parallel_function_calling
-    - tool_choice
-    - structured_output
-    - prompt_caching
-limits:
-    context_window: 256000
-modalities:
+- cache_read_input_token_cost: 7.5e-07
+  input_cost_per_query: 0.005
+  input_cost_per_token: 3.0e-06
+  output_cost_per_token: 1.5e-05
+  region: '*'
+  tiered_pricing:
     input:
-        - text
-        - image
+    - cost_per_token: 6.0e-06
+      from: 128000
     output:
-        - text
+    - cost_per_token: 3.0e-05
+      from: 128000
+features:
+- function_calling
+- parallel_function_calling
+- tool_choice
+- structured_output
+- prompt_caching
+limits:
+  context_window: 256000
+modalities:
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: grok-4
 sources:
-    - https://openrouter.ai/x-ai/grok-4/api
-    - https://docs.x.ai/developers/models#models-and-pricing
+- https://openrouter.ai/x-ai/grok-4/api
+- https://docs.x.ai/developers/models#models-and-pricing
 thinking: true
+status: deprecated

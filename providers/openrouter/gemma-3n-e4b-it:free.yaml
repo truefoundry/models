@@ -1,20 +1,21 @@
 costs:
-    - input_cost_per_token: 0
-      output_cost_per_token: 0
-      region: "*"
+- input_cost_per_token: 0
+  output_cost_per_token: 0
+  region: '*'
 limits:
-    context_window: 8192
-    max_output_tokens: 2048
-    max_tokens: 2048
+  context_window: 8192
+  max_output_tokens: 2048
+  max_tokens: 2048
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: gemma-3n-e4b-it:free
 params:
-    - key: max_tokens
-      maxValue: 2048
+- key: max_tokens
+  maxValue: 2048
 sources:
-    - https://openrouter.ai/google/gemma-3n-e4b-it:free/api
+- https://openrouter.ai/google/gemma-3n-e4b-it:free/api
+status: deprecated

@@ -1,16 +1,16 @@
 costs:
-    - input_cost_per_token: 0.000004
-      output_cost_per_token: 0.000004
-      region: "*"
+- input_cost_per_token: 4.0e-06
+  output_cost_per_token: 4.0e-06
+  region: '*'
 limits:
-    context_window: 131072
+  context_window: 131072
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: meta-llama/llama-3.1-405b
 sources:
-    - https://openrouter.ai/meta-llama/llama-3.1-405b/api
-status: active
+- https://openrouter.ai/meta-llama/llama-3.1-405b/api
+status: deprecated

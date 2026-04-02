@@ -1,16 +1,17 @@
 features:
-    - function_calling
+- function_calling
 limits:
-    context_window: 32768
+  context_window: 32768
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: mistral-7b-instruct-v0.3
 params:
-    - key: max_tokens
-      maxValue: 16384
+- key: max_tokens
+  maxValue: 16384
 sources:
-    - https://openrouter.ai/mistralai/mistral-7b-instruct-v0.3/api
+- https://openrouter.ai/mistralai/mistral-7b-instruct-v0.3/api
+status: deprecated

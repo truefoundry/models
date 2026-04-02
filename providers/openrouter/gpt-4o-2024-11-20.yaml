@@ -1,26 +1,27 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.00001
-      region: "*"
+- cache_read_input_token_cost: 1.25e-06
+  input_cost_per_token: 2.5e-06
+  output_cost_per_token: 1.0e-05
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+- function_calling
+- tool_choice
+- structured_output
 limits:
-    context_window: 128000
-    max_output_tokens: 16384
-    max_tokens: 16384
+  context_window: 128000
+  max_output_tokens: 16384
+  max_tokens: 16384
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: gpt-4o-2024-11-20
 params:
-    - key: max_tokens
-      maxValue: 16384
+- key: max_tokens
+  maxValue: 16384
 sources:
-    - https://openrouter.ai/openai/gpt-4o-2024-11-20/api
+- https://openrouter.ai/openai/gpt-4o-2024-11-20/api
+status: deprecated

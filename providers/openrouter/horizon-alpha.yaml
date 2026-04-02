@@ -1,15 +1,16 @@
 features:
-    - function_calling
+- function_calling
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: horizon-alpha
 params:
-    - key: max_tokens
-      maxValue: 128000
+- key: max_tokens
+  maxValue: 128000
 sources:
-    - https://openrouter.ai/horizon-alpha/api
+- https://openrouter.ai/horizon-alpha/api
+status: deprecated

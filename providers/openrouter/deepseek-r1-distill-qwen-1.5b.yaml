@@ -1,15 +1,16 @@
 limits:
-    context_window: 131072
+  context_window: 131072
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: deepseek/deepseek-r1-distill-qwen-1.5b
 params:
-    - key: max_tokens
-      maxValue: 32768
+- key: max_tokens
+  maxValue: 32768
 sources:
-    - https://openrouter.ai/deepseek/deepseek-r1-distill-qwen-1.5b/api
+- https://openrouter.ai/deepseek/deepseek-r1-distill-qwen-1.5b/api
 thinking: true
+status: deprecated

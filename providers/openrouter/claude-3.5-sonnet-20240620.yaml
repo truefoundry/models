@@ -1,23 +1,24 @@
 features:
-    - function_calling
-    - tool_choice
-    - system_messages
-    - prompt_caching
-    - assistant_prefill
+- function_calling
+- tool_choice
+- system_messages
+- prompt_caching
+- assistant_prefill
 limits:
-    context_window: 200000
-    max_output_tokens: 8192
-    max_tokens: 8192
+  context_window: 200000
+  max_output_tokens: 8192
+  max_tokens: 8192
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: claude-3.5-sonnet-20240620
 params:
-    - key: max_tokens
-      maxValue: 8192
+- key: max_tokens
+  maxValue: 8192
 sources:
-    - https://openrouter.ai/anthropic/claude-3.5-sonnet-20240620/api
+- https://openrouter.ai/anthropic/claude-3.5-sonnet-20240620/api
+status: deprecated

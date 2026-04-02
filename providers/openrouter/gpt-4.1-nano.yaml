@@ -1,28 +1,29 @@
 costs:
-    - cache_read_input_token_cost: 2.5e-8
-      input_cost_per_token: 1.e-7
-      output_cost_per_token: 4.e-7
-      region: "*"
+- cache_read_input_token_cost: 2.5e-08
+  input_cost_per_token: 1.0e-07
+  output_cost_per_token: 4.0e-07
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
-    - system_messages
-    - json_output
+- function_calling
+- tool_choice
+- structured_output
+- system_messages
+- json_output
 limits:
-    context_window: 1047576
-    max_output_tokens: 32768
-    max_tokens: 32768
+  context_window: 1047576
+  max_output_tokens: 32768
+  max_tokens: 32768
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: gpt-4.1-nano
 params:
-    - key: max_tokens
-      maxValue: 32768
+- key: max_tokens
+  maxValue: 32768
 sources:
-    - https://openrouter.ai/openai/gpt-4.1-nano/api
+- https://openrouter.ai/openai/gpt-4.1-nano/api
+status: deprecated

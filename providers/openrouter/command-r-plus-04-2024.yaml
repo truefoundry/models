@@ -1,26 +1,27 @@
 costs:
-    - input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: "*"
+- input_cost_per_token: 3.0e-06
+  output_cost_per_token: 1.5e-05
+  region: '*'
 features:
-    - function_calling
-    - system_messages
-    - structured_output
+- function_calling
+- system_messages
+- structured_output
 limits:
-    context_window: 128000
-    max_output_tokens: 4000
-    max_tokens: 4000
+  context_window: 128000
+  max_output_tokens: 4000
+  max_tokens: 4000
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: command-r-plus-04-2024
 params:
-    - key: max_tokens
-      maxValue: 4000
+- key: max_tokens
+  maxValue: 4000
 sources:
-    - https://openrouter.ai/cohere/command-r-plus-04-2024/api
-    - https://docs.cohere.com/docs/command-r-plus
-    - https://cohere.com/pricing
+- https://openrouter.ai/cohere/command-r-plus-04-2024/api
+- https://docs.cohere.com/docs/command-r-plus
+- https://cohere.com/pricing
+status: deprecated

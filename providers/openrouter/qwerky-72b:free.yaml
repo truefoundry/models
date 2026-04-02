@@ -1,11 +1,12 @@
 costs:
-    - input_cost_per_token: 0
-      output_cost_per_token: 0
-      region: "*"
+- input_cost_per_token: 0
+  output_cost_per_token: 0
+  region: '*'
 mode: chat
 model: qwerky-72b:free
 params:
-    - key: max_tokens
-      maxValue: 4096
+- key: max_tokens
+  maxValue: 4096
 sources:
-    - https://openrouter.ai/qwen/qwerky-72b:free/api
+- https://openrouter.ai/qwen/qwerky-72b:free/api
+status: deprecated

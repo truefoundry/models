@@ -1,16 +1,17 @@
 limits:
-    context_window: 65536
+  context_window: 65536
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: glm-4.1v-9b-thinking
 params:
-    - key: max_tokens
-      maxValue: 8000
+- key: max_tokens
+  maxValue: 8000
 sources:
-    - https://openrouter.ai/THUDM/glm-4.1v-9b-thinking/api
+- https://openrouter.ai/THUDM/glm-4.1v-9b-thinking/api
 thinking: true
+status: deprecated

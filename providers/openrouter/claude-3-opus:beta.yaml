@@ -1,24 +1,25 @@
 costs:
-    - cache_creation_input_token_cost: 0.00001875
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000075
-      region: "*"
-deprecationDate: "2026-01-05"
+- cache_creation_input_token_cost: 1.875e-05
+  cache_read_input_token_cost: 1.5e-06
+  input_cost_per_token: 1.5e-05
+  output_cost_per_token: 7.5e-05
+  region: '*'
+deprecationDate: '2026-01-05'
 features:
-    - function_calling
-    - tool_choice
-    - system_messages
-    - prompt_caching
+- function_calling
+- tool_choice
+- system_messages
+- prompt_caching
 isDeprecated: true
 limits:
-    context_window: 200000
-    max_output_tokens: 4096
-    max_tokens: 4096
+  context_window: 200000
+  max_output_tokens: 4096
+  max_tokens: 4096
 modalities:
-    input:
-        - image
+  input:
+  - image
 mode: chat
 model: claude-3-opus:beta
 sources:
-    - https://openrouter.ai/anthropic/claude-3-opus:beta/api
+- https://openrouter.ai/anthropic/claude-3-opus:beta/api
+status: deprecated

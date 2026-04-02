@@ -1,26 +1,27 @@
 costs:
-    - input_cost_per_token: 0.00002
-      output_cost_per_token: 0.00008
-      region: "*"
+- input_cost_per_token: 2.0e-05
+  output_cost_per_token: 8.0e-05
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+- function_calling
+- tool_choice
+- structured_output
 limits:
-    context_window: 200000
-    max_output_tokens: 100000
-    max_tokens: 100000
+  context_window: 200000
+  max_output_tokens: 100000
+  max_tokens: 100000
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: o3-pro
 params:
-    - key: max_tokens
-      maxValue: 100000
+- key: max_tokens
+  maxValue: 100000
 sources:
-    - https://openrouter.ai/openai/o3-pro/api
+- https://openrouter.ai/openai/o3-pro/api
 thinking: true
+status: deprecated

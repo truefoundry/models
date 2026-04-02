@@ -1,12 +1,13 @@
 limits:
-    context_window: 8192
+  context_window: 8192
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: grok-vision-beta
 sources:
-    - https://openrouter.ai/x-ai/grok-vision-beta/api
+- https://openrouter.ai/x-ai/grok-vision-beta/api
+status: deprecated

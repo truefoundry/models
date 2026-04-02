@@ -1,22 +1,23 @@
 costs:
-    - input_cost_per_token: 1.5e-7
-      output_cost_per_token: 5.e-7
-      region: "*"
-deprecationDate: "2026-04-06"
+- input_cost_per_token: 1.5e-07
+  output_cost_per_token: 5.0e-07
+  region: '*'
+deprecationDate: '2026-04-06'
 features:
-    - structured_output
-    - json_output
+- structured_output
+- json_output
 limits:
-    context_window: 65536
-    max_output_tokens: 65536
-    max_tokens: 65536
+  context_window: 65536
+  max_output_tokens: 65536
+  max_tokens: 65536
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: allenai/olmo-3.1-32b-think
 sources:
-    - https://openrouter.ai/allenai/olmo-3.1-32b-think/api
+- https://openrouter.ai/allenai/olmo-3.1-32b-think/api
 thinking: true
+status: deprecated

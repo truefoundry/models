@@ -1,21 +1,22 @@
 costs:
-    - input_cost_per_token: 0.00001102
-      output_cost_per_token: 0.00003268
-      region: "*"
+- input_cost_per_token: 1.102e-05
+  output_cost_per_token: 3.268e-05
+  region: '*'
 features:
-    - system_messages
-    - function_calling
-    - tool_choice
+- system_messages
+- function_calling
+- tool_choice
 limits:
-    context_window: 200000
-    max_output_tokens: 8191
-    max_tokens: 8191
+  context_window: 200000
+  max_output_tokens: 8191
+  max_tokens: 8191
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: anthropic/claude-2
 sources:
-    - https://openrouter.ai/anthropic/claude-2/api
+- https://openrouter.ai/anthropic/claude-2/api
+status: deprecated

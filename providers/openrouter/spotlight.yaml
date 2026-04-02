@@ -1,13 +1,14 @@
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: spotlight
 params:
-    - key: max_tokens
-      maxValue: 65537
+- key: max_tokens
+  maxValue: 65537
 sources:
-    - https://openrouter.ai/spotlight/api
+- https://openrouter.ai/spotlight/api
+status: deprecated

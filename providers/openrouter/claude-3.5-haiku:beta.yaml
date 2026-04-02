@@ -1,28 +1,29 @@
 costs:
-    - cache_creation_input_token_cost: 0.000001
-      cache_read_input_token_cost: 8.e-8
-      input_cost_per_token: 8.e-7
-      output_cost_per_token: 0.000004
-      region: "*"
+- cache_creation_input_token_cost: 1.0e-06
+  cache_read_input_token_cost: 8.0e-08
+  input_cost_per_token: 8.0e-07
+  output_cost_per_token: 4.0e-06
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - prompt_caching
-    - system_messages
+- function_calling
+- tool_choice
+- prompt_caching
+- system_messages
 limits:
-    context_window: 200000
-    max_output_tokens: 8192
-    max_tokens: 8192
+  context_window: 200000
+  max_output_tokens: 8192
+  max_tokens: 8192
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: claude-3.5-haiku:beta
 params:
-    - key: max_tokens
-      maxValue: 8192
+- key: max_tokens
+  maxValue: 8192
 sources:
-    - https://openrouter.ai/anthropic/claude-3.5-haiku:beta/api
+- https://openrouter.ai/anthropic/claude-3.5-haiku:beta/api
+status: deprecated

@@ -1,25 +1,26 @@
 costs:
-    - input_cost_per_token: 1.5e-7
-      output_cost_per_token: 6.e-7
-      region: "*"
+- input_cost_per_token: 1.5e-07
+  output_cost_per_token: 6.0e-07
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+- function_calling
+- tool_choice
+- structured_output
 limits:
-    context_window: 1048576
-    max_output_tokens: 16384
-    max_tokens: 16384
+  context_window: 1048576
+  max_output_tokens: 16384
+  max_tokens: 16384
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: meta-llama/llama-4-maverick
 params:
-    - key: max_tokens
-      maxValue: 16384
+- key: max_tokens
+  maxValue: 16384
 sources:
-    - https://openrouter.ai/meta-llama/llama-4-maverick/api
+- https://openrouter.ai/meta-llama/llama-4-maverick/api
+status: deprecated

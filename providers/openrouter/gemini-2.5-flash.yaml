@@ -1,36 +1,37 @@
 costs:
-    - cache_creation_input_token_cost: 8.33e-8
-      cache_read_input_token_cost: 3.e-8
-      input_cost_per_audio_token: 0.000001
-      input_cost_per_image_token: 3.e-7
-      input_cost_per_token: 3.e-7
-      input_cost_per_video_token: 3.e-7
-      output_cost_per_token: 0.0000025
-      region: "*"
+- cache_creation_input_token_cost: 8.33e-08
+  cache_read_input_token_cost: 3.0e-08
+  input_cost_per_audio_token: 1.0e-06
+  input_cost_per_image_token: 3.0e-07
+  input_cost_per_token: 3.0e-07
+  input_cost_per_video_token: 3.0e-07
+  output_cost_per_token: 2.5e-06
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
-    - system_messages
-    - prompt_caching
+- function_calling
+- tool_choice
+- structured_output
+- system_messages
+- prompt_caching
 limits:
-    context_window: 1048576
-    max_input_tokens: 1048576
-    max_output_tokens: 65535
-    max_tokens: 65535
+  context_window: 1048576
+  max_input_tokens: 1048576
+  max_output_tokens: 65535
+  max_tokens: 65535
 modalities:
-    input:
-        - text
-        - image
-        - audio
-        - video
-    output:
-        - text
+  input:
+  - text
+  - image
+  - audio
+  - video
+  output:
+  - text
 mode: chat
 model: gemini-2.5-flash
 params:
-    - key: max_tokens
-      maxValue: 65535
+- key: max_tokens
+  maxValue: 65535
 sources:
-    - https://openrouter.ai/google/gemini-2.5-flash/api
+- https://openrouter.ai/google/gemini-2.5-flash/api
 thinking: true
+status: deprecated

@@ -1,16 +1,16 @@
 costs:
-    - input_cost_per_token: 0.000001875
-      output_cost_per_token: 0.000001875
-      region: "*"
+- input_cost_per_token: 1.875e-06
+  output_cost_per_token: 1.875e-06
+  region: '*'
 limits:
-    context_window: 8192
+  context_window: 8192
 modalities:
-    input:
-        - text
-    output:
-        - text
+  input:
+  - text
+  output:
+  - text
 mode: chat
 model: pygmalionai/mythalion-13b
 sources:
-    - https://openrouter.ai/pygmalionai/mythalion-13b/api
-status: active
+- https://openrouter.ai/pygmalionai/mythalion-13b/api
+status: deprecated

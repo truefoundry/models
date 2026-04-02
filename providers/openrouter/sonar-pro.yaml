@@ -1,25 +1,26 @@
 costs:
-    - input_cost_per_query: 0.005
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      region: "*"
+- input_cost_per_query: 0.005
+  input_cost_per_token: 3.0e-06
+  output_cost_per_token: 1.5e-05
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
+- function_calling
+- tool_choice
 limits:
-    context_window: 200000
-    max_output_tokens: 8000
-    max_tokens: 8000
+  context_window: 200000
+  max_output_tokens: 8000
+  max_tokens: 8000
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: perplexity/sonar-pro
 params:
-    - key: max_tokens
-      maxValue: 8000
+- key: max_tokens
+  maxValue: 8000
 sources:
-    - https://openrouter.ai/perplexity/sonar-pro/api
+- https://openrouter.ai/perplexity/sonar-pro/api
+status: deprecated

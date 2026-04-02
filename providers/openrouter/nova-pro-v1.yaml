@@ -1,25 +1,26 @@
 costs:
-    - input_cost_per_token: 8.e-7
-      output_cost_per_token: 0.0000032
-      region: "*"
+- input_cost_per_token: 8.0e-07
+  output_cost_per_token: 3.2e-06
+  region: '*'
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+- function_calling
+- tool_choice
+- structured_output
 limits:
-    context_window: 300000
-    max_output_tokens: 5120
-    max_tokens: 5120
+  context_window: 300000
+  max_output_tokens: 5120
+  max_tokens: 5120
 modalities:
-    input:
-        - text
-        - image
-    output:
-        - text
+  input:
+  - text
+  - image
+  output:
+  - text
 mode: chat
 model: nova-pro-v1
 params:
-    - key: max_tokens
-      maxValue: 5120
+- key: max_tokens
+  maxValue: 5120
 sources:
-    - https://openrouter.ai/amazon/nova-pro-v1/api
+- https://openrouter.ai/amazon/nova-pro-v1/api
+status: deprecated
