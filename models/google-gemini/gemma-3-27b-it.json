@@ -1,0 +1,33 @@
+{
+  "model": "gemma-3-27b-it",
+  "mode": "chat",
+  "costs": [
+    {
+      "region": "*",
+      "input_cost_per_token": 8e-8,
+      "output_cost_per_token": 1.6e-7
+    }
+  ],
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 8192
+  },
+  "features": [
+    "function_calling",
+    "structured_output"
+  ],
+  "modalities": {
+    "input": [
+      "text",
+      "image"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "thinking": false,
+  "sources": [
+    "https://ai.google.dev/gemma/docs/gemma-3",
+    "https://artificialanalysis.ai/models/gemma-3-27b"
+  ]
+}
