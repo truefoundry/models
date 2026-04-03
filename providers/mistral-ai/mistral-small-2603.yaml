@@ -4,11 +4,20 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
+    - json_output
 limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
+        - audio
+        - pdf
+        - doc
+    output:
+        - text
+        - audio
 mode: chat
 model: mistral-small-2603
 params:
