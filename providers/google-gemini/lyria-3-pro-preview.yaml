@@ -8,7 +8,7 @@ modalities:
     output:
         - audio
         - text
-mode: unknown
+mode: text_to_speech
 model: lyria-3-pro-preview
 params:
     - defaultValue: 1
@@ -20,6 +20,8 @@ params:
       key: top_k
 removeParams:
     - max_tokens
+    - stop
+    - tool_choice
 sources:
     - https://ai.google.dev/gemini-api/docs/music-generation
 status: preview
