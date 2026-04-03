@@ -4,6 +4,9 @@ costs:
       region: "*"
 features:
     - system_messages
+    - function_calling
+    - structured_output
+    - json_output
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -17,5 +20,19 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-5-1
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+      minValue: 0
+    - defaultValue: 1
+      key: top_p
+      maxValue: 1
+      minValue: 0
+    - key: reasoning_effort
+      type: string
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/api-reference
+    - https://docs.databricks.com/aws/en/machine-learning/retired-models-policy
 status: active
 thinking: true
