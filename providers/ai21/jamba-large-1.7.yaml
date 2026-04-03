@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_token: 0.000002
+    - input_cost_per_token: 0.0000021
       output_cost_per_token: 0.000008
       region: "*"
 features:
@@ -9,9 +9,7 @@ features:
     - json_output
 limits:
     context_window: 256000
-    max_input_tokens: 256000
     max_output_tokens: 4096
-    max_tokens: 4096
 modalities:
     input:
         - text
@@ -29,7 +27,7 @@ params:
       maxValue: 2
       minValue: 0
     - defaultValue: 1
-      key: "n"
+      key: n
       maxValue: 16
       minValue: 1
 removeParams:
