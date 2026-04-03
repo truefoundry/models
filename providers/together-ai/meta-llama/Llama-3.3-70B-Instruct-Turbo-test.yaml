@@ -7,6 +7,7 @@ features:
     - parallel_function_calling
     - tool_choice
     - structured_output
+    - json_output
     - system_messages
 limits:
     context_window: 131072
@@ -20,5 +21,6 @@ model: meta-llama/Llama-3.3-70B-Instruct-Turbo-test
 sources:
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
+status: active
 supportedModes:
     - chat

@@ -4,10 +4,8 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
-    - tool_choice
     - structured_output
-    - system_messages
+    - json_output
 limits:
     context_window: 163839
     max_output_tokens: 64000
@@ -20,7 +18,6 @@ modalities:
 mode: chat
 model: deepseek-ai/DeepSeek-R1
 sources:
-    - https://docs.together.ai/docs/serverless-models
     - https://www.together.ai/pricing
     - https://www.together.ai/models/deepseek-r1
     - https://docs.together.ai/docs/deepseek-r1
