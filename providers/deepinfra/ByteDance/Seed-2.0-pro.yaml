@@ -1,0 +1,15 @@
+costs:
+    - cache_read_input_token_cost: 1.e-7
+      input_cost_per_token: 5.e-7
+      output_cost_per_token: 0.000003
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 256000
+    max_tokens: 256000
+modalities:
+    input:
+        - image
+mode: unknown
+model: ByteDance/Seed-2.0-pro
