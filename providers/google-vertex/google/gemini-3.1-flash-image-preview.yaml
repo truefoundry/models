@@ -190,11 +190,17 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
         - image
 mode: chat
 model: gemini-3.1-flash-image-preview
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
 removeParams:
     - tool_choice
 sources:
