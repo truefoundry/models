@@ -21,7 +21,7 @@ modalities:
     output:
         - text
         - audio
-mode: chat
+mode: audio_transcription
 model: gpt-audio-2025-08-28
 params:
     - defaultValue: 128
@@ -31,3 +31,5 @@ params:
 sources:
     - https://developers.openai.com/docs/models/gpt-audio
 status: active
+supportedModes:
+    - chat

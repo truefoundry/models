@@ -20,7 +20,7 @@ modalities:
     output:
         - text
         - audio
-mode: chat
+mode: audio_transcription
 model: gpt-4o-audio-preview-2025-06-03
 params:
     - defaultValue: 16384
@@ -32,3 +32,5 @@ removeParams:
 sources:
     - https://developers.openai.com/docs/models/gpt-4o-audio-preview
 status: preview
+supportedModes:
+    - chat

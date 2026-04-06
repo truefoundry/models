@@ -21,7 +21,7 @@ modalities:
     output:
         - text
         - audio
-mode: chat
+mode: audio_transcription
 model: gpt-audio
 params:
     - key: max_tokens
@@ -29,3 +29,5 @@ params:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-audio
 status: active
+supportedModes:
+    - chat

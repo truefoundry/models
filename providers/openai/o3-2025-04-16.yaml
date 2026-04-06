@@ -25,7 +25,7 @@ mode: chat
 model: o3-2025-04-16
 params:
     - defaultValue: 100000
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 100000
       minValue: 1
     - defaultValue: 1
@@ -35,6 +35,8 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+removeParams:
+    - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/o3
 thinking: true
