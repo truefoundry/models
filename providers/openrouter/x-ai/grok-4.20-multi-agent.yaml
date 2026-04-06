@@ -1,8 +1,22 @@
 costs:
     - cache_read_input_token_cost: 2.e-7
       input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000006
+      output_cost_per_token_batches: 0.000003
       region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+features:
+    - function_calling
+    - structured_output
+    - tool_choice
+    - json_output
 limits:
     context_window: 2000000
 modalities:
@@ -14,3 +28,12 @@ modalities:
         - text
 mode: chat
 model: x-ai/grok-4.20-multi-agent
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
+sources:
+    - https://openrouter.ai/x-ai/grok-4.20-multi-agent/api
+    - https://docs.x.ai/developers/models#models-and-pricing
+status: active
+thinking: true

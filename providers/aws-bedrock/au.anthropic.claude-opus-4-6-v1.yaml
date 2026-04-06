@@ -14,11 +14,11 @@ costs:
       output_cost_per_token_batches: 0.00001375
       region: ap-southeast-2
 features:
+    - assistant_prefill
     - cache_control
     - function_calling
     - prompt_caching
     - tool_choice
-    - assistant_prefill
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -27,9 +27,9 @@ limits:
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
-        - text
         - image
         - pdf
+        - text
     output:
         - text
 mode: chat

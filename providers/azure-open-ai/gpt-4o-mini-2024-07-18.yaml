@@ -21,6 +21,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -39,5 +40,6 @@ params:
       maxValue: 16384
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: deprecated
 supportedModes:
     - chat

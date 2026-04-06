@@ -8,14 +8,71 @@ costs:
       cache_read_input_token_cost: 3.e-8
       input_cost_per_token: 3.e-7
       output_cost_per_token: 0.0000012
+      region: us-east-2
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
       region: us-east-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: sa-east-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: eu-west-2
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: eu-west-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: eu-south-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: eu-north-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: eu-central-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: ap-southeast-3
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: ap-southeast-2
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: ap-south-1
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000012
+      region: ap-northeast-1
 features:
     - function_calling
     - system_messages
     - tool_choice
     - prompt_caching
 limits:
-    context_window: 204800
+    context_window: 1000000
+    max_output_tokens: 8000
+    max_tokens: 8000
 modalities:
     input:
         - text
@@ -23,12 +80,14 @@ modalities:
         - text
 mode: chat
 model: minimax.minimax-m2.5
+params:
+    - key: max_tokens
+      maxValue: 8000
 removeParams:
     - "n"
     - stop
 sources:
-    - https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-minimax-glm/
-    - https://platform.minimax.io/docs/api-reference/api-overview
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2-5.html
     - https://platform.minimax.io/docs/guides/pricing-paygo
     - https://platform.minimax.io/docs/api-reference/text-anthropic-api
     - https://www.minimax.io/news/minimax-m25

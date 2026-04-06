@@ -10,6 +10,10 @@ limits:
     max_input_tokens: 8000
     max_output_tokens: 8000
     max_tokens: 8000
+messages:
+    options:
+        - user
+        - assistant
 modalities:
     input:
         - text
@@ -24,6 +28,8 @@ params:
       minValue: 1
     - defaultValue: 0.7
       key: temperature
+removeParams:
+    - "n"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html

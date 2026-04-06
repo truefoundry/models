@@ -1,5 +1,14 @@
-limits:
-    context_window: 32768
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: cohere-transcribe-03-2026
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
+sources:
+    - https://docs.cohere.com/docs/transcribe
 status: active

@@ -44,6 +44,8 @@ features:
     - system_messages
     - structured_output
 limits:
+    context_window: 262144
+    max_input_tokens: 262144
     max_output_tokens: 32768
     max_tokens: 32768
 modalities:
@@ -59,7 +61,7 @@ params:
 removeParams:
     - "n"
 sources:
-    - https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard
+    - https://build.nvidia.com/nvidia/nemotron-3-super-120b/modelcard
     - https://aws.amazon.com/marketplace/pp/prodview-pb4o36dbo6dzi
     - https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16
 thinking: true
