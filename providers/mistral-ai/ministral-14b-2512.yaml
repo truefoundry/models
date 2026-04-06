@@ -4,11 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
+    - structured_output
 limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: ministral-14b-2512
 params:
