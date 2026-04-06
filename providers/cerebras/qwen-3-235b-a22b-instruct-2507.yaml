@@ -11,10 +11,16 @@ features:
     - system_messages
     - json_output
 limits:
-    context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 40960
-    max_tokens: 40960
+    context_window: 131000
+    max_input_tokens: 131000
+    max_output_tokens: 40000
+    max_tokens: 40000
+messages:
+    options:
+        - system
+        - user
+        - assistant
+        - developer
 modalities:
     input:
         - text
@@ -24,9 +30,7 @@ mode: chat
 model: qwen-3-235b-a22b-instruct-2507
 params:
     - key: max_tokens
-      maxValue: 40960
-    - key: temperature
-      maxValue: 1.5
+      maxValue: 40000
     - key: seed
       type: number
 sources:
