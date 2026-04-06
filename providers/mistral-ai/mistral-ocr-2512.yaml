@@ -4,19 +4,17 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
     context_window: 16384
 modalities:
     input:
-        - text
         - image
         - pdf
-        - doc
-    output:
-        - text
-mode: chat
+mode: unknown
 model: mistral-ocr-2512
+params:
+    - defaultValue: 0
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/ocr-3-25-12
     - https://docs.mistral.ai/capabilities/document_ai/basic_ocr

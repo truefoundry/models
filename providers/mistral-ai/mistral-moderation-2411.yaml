@@ -2,17 +2,10 @@ costs:
     - input_cost_per_token: 1.e-7
       output_cost_per_token: 1.e-7
       region: "*"
-features:
-    - function_calling
-    - structured_output
+deprecationDate: "2026-06-30"
 limits:
-    context_window: 8000
-modalities:
-    input:
-        - text
-    output:
-        - text
-mode: chat
+    context_window: 8192
+mode: moderation
 model: mistral-moderation-2411
 sources:
     - https://docs.mistral.ai/models/mistral-moderation-24-11

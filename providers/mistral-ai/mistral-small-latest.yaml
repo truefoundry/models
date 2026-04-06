@@ -4,24 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
-    - structured_output
-    - tool_choice
-    - json_output
 limits:
-    context_window: 256000
+    context_window: 262144
 modalities:
     input:
-        - text
         - image
-        - audio
-    output:
-        - text
 mode: chat
 model: mistral-small-latest
 params:
-    - key: reasoning_effort
-      type: string
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/mistral-small-4-0-26-03
     - https://docs.mistral.ai/capabilities/vision/

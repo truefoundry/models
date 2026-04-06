@@ -4,6 +4,9 @@ limits:
     context_window: 262144
 mode: chat
 model: mistral-vibe-cli-latest
+params:
+    - defaultValue: 0.2
+      key: temperature
 sources:
     - https://docs.mistral.ai/mistral-vibe/introduction
 status: active

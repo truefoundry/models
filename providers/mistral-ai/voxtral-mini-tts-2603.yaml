@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_character: 0.000016
       region: "*"
+features:
+    - function_calling
 limits:
     context_window: 4096
 modalities:
@@ -23,3 +25,5 @@ sources:
     - https://docs.mistral.ai/capabilities/audio/text_to_speech
     - https://docs.mistral.ai/capabilities/audio/text_to_speech/speech
 status: active
+supportedModes:
+    - text_to_speech
