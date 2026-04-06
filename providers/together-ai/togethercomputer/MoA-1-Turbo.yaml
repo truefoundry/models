@@ -1,9 +1,12 @@
 limits:
     context_window: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: togethercomputer/MoA-1-Turbo
 sources:
     - https://docs.together.ai/docs/dedicated-models
     - https://docs.together.ai/docs/mixture-of-agents
-supportedModes:
-    - chat

@@ -1,2 +1,16 @@
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: unknown
 model: meta/xlm-roberta-large
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+status: active

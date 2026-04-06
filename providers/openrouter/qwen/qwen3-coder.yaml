@@ -7,11 +7,10 @@ features:
     - function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
-    max_output_tokens: 262144
-    max_tokens: 262144
 modalities:
     input:
         - text
@@ -21,3 +20,4 @@ mode: chat
 model: qwen/qwen3-coder
 sources:
     - https://openrouter.ai/qwen/qwen3-coder/api
+status: active

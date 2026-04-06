@@ -9,8 +9,9 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
+    - prompt_caching
     - system_messages
+    - tool_choice
 limits:
     context_window: 32000
     max_output_tokens: 4096
@@ -27,3 +28,4 @@ mode: realtime
 model: gpt-realtime-mini-2025-12-15
 sources:
     - https://developers.openai.com/docs/models/gpt-realtime-mini
+status: active

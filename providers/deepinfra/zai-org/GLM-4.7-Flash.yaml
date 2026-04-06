@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 1.00000002e-8
+    - cache_read_input_token_cost: 1.e-8
       input_cost_per_token: 6.e-8
       output_cost_per_token: 4.e-7
       region: "*"
@@ -7,6 +7,7 @@ features:
     - prompt_caching
     - function_calling
     - structured_output
+    - json_output
 limits:
     context_window: 202752
     max_output_tokens: 16384
