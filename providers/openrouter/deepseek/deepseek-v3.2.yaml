@@ -16,6 +16,12 @@ modalities:
         - text
 mode: chat
 model: deepseek/deepseek-v3.2
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
 sources:
     - https://openrouter.ai/deepseek/deepseek-v3.2/api
+    - https://api-docs.deepseek.com/quick_start/pricing
 thinking: true
