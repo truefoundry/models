@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: z-ai/glm-4.5-air:free
+params:
+    - defaultValue: 96000
+      key: max_tokens
+      maxValue: 96000
+      minValue: 1
 sources:
     - https://openrouter.ai/z-ai/glm-4.5-air:free/api
 thinking: true
