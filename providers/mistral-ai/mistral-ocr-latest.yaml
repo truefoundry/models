@@ -4,12 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 16384
 modalities:
     input:
         - image
         - pdf
+        - doc
+    output:
+        - text
 mode: unknown
 model: mistral-ocr-latest
 params:

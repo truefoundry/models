@@ -5,14 +5,20 @@ costs:
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 3.6e-7
+              - cost_per_token: 2.34e-7
                 from: 32000
+              - cost_per_token: 3.9e-7
+                from: 128000
           input:
-              - cost_per_token: 0.0000018
+              - cost_per_token: 0.00000117
                 from: 32000
+              - cost_per_token: 0.00000195
+                from: 128000
           output:
-              - cost_per_token: 0.000009
+              - cost_per_token: 0.00000585
                 from: 32000
+              - cost_per_token: 0.00000975
+                from: 128000
 features:
     - function_calling
     - tool_choice

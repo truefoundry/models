@@ -4,11 +4,18 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
+    - structured_output
+    - json_output
+    - tool_choice
 limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral-large-2512
 params:

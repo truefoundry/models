@@ -7,9 +7,13 @@ costs:
           input:
               - cost_per_token: 3.25e-7
                 from: 32000
+              - cost_per_token: 5.2e-7
+                from: 128000
           output:
               - cost_per_token: 0.000001625
                 from: 32000
+              - cost_per_token: 0.0000026
+                from: 128000
 features:
     - function_calling
     - tool_choice
