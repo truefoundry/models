@@ -4,7 +4,13 @@ costs:
       region: "*"
 limits:
     context_window: 8192
-mode: unknown
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - embedding
+mode: embedding
 model: codestral-embed
 removeParams:
     - max_tokens
