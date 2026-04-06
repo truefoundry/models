@@ -1,5 +1,8 @@
 features:
     - function_calling
+    - parallel_function_calling
+limits:
+    context_window: 128000
 modalities:
     input:
         - text
@@ -9,4 +12,6 @@ mode: chat
 model: deepcogito/cogito-v1-preview-llama-3B
 sources:
     - https://docs.together.ai/docs/serverless-models
+    - https://huggingface.co/deepcogito/cogito-v1-preview-llama-3B
 status: preview
+thinking: true

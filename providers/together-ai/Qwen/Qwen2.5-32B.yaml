@@ -1,3 +1,7 @@
+limits:
+    context_window: 131072
+    max_output_tokens: 8000
+    max_tokens: 8000
 modalities:
     input:
         - text
@@ -5,3 +9,6 @@ modalities:
         - text
 mode: completion
 model: Qwen/Qwen2.5-32B
+sources:
+    - https://huggingface.co/Qwen/Qwen2.5-32B
+status: active

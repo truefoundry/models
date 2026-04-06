@@ -21,6 +21,11 @@ modalities:
         - text
 mode: chat
 model: openai/o4-mini-deep-research
+params:
+    - defaultValue: 100000
+      key: max_tokens
+      maxValue: 100000
+      minValue: 1
 sources:
     - https://openrouter.ai/openai/o4-mini-deep-research/api
 thinking: true
