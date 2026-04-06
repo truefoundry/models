@@ -1,2 +1,11 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: completion
 model: meta/nllb
+removeParams:
+    - tool_choice
+    - "n"
+    - stop

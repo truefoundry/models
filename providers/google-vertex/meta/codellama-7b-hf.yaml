@@ -1,2 +1,12 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
+mode: completion
 model: meta/codellama-7b-hf
+removeParams:
+    - tool_choice
+status: active

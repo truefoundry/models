@@ -1,2 +1,23 @@
-mode: unknown
+features:
+    - function_calling
+    - structured_output
+    - json_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 262144
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: qwen/qwen3-coder-next
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-coder
+    - https://openrouter.ai/qwen/qwen3-coder-next/api
+    - https://qwenlm.github.io/blog/qwen3-coder/
+status: active

@@ -1,2 +1,14 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: timbrooks/instruct-pix2pix
+removeParams:
+    - tool_choice
+    - stop
+    - "n"
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/timbrooks/model-garden/instruct-pix2pix

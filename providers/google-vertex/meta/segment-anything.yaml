@@ -1,2 +1,17 @@
-mode: unknown
+messages:
+    options: []
+modalities:
+    input:
+        - image
+    output:
+        - image
+mode: image
 model: meta/segment-anything
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

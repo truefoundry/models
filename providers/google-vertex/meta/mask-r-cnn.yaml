@@ -1,2 +1,16 @@
+modalities:
+    input:
+        - image
+    output:
+        - image
 mode: unknown
 model: meta/mask-r-cnn
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+status: active

@@ -1,2 +1,15 @@
-mode: unknown
-model: google/image-segmentation-001
+modalities:
+    input:
+        - image
+    output:
+        - image
+mode: image
+model: image-segmentation-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

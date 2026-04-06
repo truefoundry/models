@@ -1,2 +1,17 @@
+modalities:
+    input:
+        - image
+    output:
+        - text
 mode: unknown
 model: google/automl-vision-image-classification
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/train-model

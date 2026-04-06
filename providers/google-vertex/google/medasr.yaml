@@ -1,2 +1,21 @@
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: google/medasr
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://developers.google.com/health-ai-developer-foundations/medasr
+    - https://developers.google.com/health-ai-developer-foundations/medasr/model-card
+    - https://huggingface.co/google/medasr
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/medasr
+status: active

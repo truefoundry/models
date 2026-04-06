@@ -1,2 +1,24 @@
+costs:
+    - input_cost_per_page: 0.03
+      region: "*"
+modalities:
+    input:
+        - pdf
+        - image
+        - doc
+    output:
+        - text
 mode: unknown
 model: google/pretrained-form-parser
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://cloud.google.com/document-ai/pricing
+    - https://docs.cloud.google.com/document-ai/docs/processors-list
+status: active

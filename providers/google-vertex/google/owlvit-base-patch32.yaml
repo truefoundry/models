@@ -1,2 +1,16 @@
+modalities:
+    input:
+        - image
+        - text
 mode: unknown
 model: google/owlvit-base-patch32
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/owlvit-base-patch32

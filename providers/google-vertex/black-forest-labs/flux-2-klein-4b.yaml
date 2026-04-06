@@ -1,2 +1,18 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
 model: black-forest-labs/flux-2-klein-4b
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/black-forest-labs/model-garden/flux1-schnell
+status: active

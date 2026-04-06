@@ -1,2 +1,19 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: google/bert-base-uncased
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 512
+      minValue: 1
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

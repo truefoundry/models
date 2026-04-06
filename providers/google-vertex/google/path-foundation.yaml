@@ -1,2 +1,21 @@
-mode: unknown
+limits:
+    output_vector_size: 384
+modalities:
+    input:
+        - image
+    output:
+        - embedding
+mode: embedding
 model: google/path-foundation
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://developers.google.com/health-ai-developer-foundations/path-foundation
+    - https://developers.google.com/health-ai-developer-foundations/path-foundation/model-card
+    - https://developers.google.com/health-ai-developer-foundations/path-foundation/serving-api

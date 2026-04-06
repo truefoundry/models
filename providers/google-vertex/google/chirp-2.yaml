@@ -1,2 +1,19 @@
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: google/chirp-2
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/speech-to-text/v2/docs/transcription-model
+    - https://docs.cloud.google.com/speech-to-text/v2/docs/speech-to-text-supported-languages
+status: active

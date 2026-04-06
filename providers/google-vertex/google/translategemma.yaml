@@ -1,2 +1,12 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: google/translategemma
+removeParams:
+    - "n"
+    - stop
+    - tool_choice
+status: active

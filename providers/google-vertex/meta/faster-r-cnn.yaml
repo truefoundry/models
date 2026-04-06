@@ -1,2 +1,18 @@
+messages:
+    options:
+        - user
+modalities:
+    input:
+        - image
+    output:
+        - text
 mode: unknown
 model: meta/faster-r-cnn
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

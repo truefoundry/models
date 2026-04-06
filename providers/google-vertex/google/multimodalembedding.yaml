@@ -1,2 +1,22 @@
-mode: unknown
+limits:
+    output_vector_size: 1408
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - embedding
+mode: embedding
 model: google/multimodalembedding
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations-genai

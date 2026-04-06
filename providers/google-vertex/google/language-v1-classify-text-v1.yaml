@@ -1,2 +1,22 @@
+costs:
+    - input_cost_per_character: 0.000002
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: unknown
-model: google/language-v1-classify-text-v1
+model: language-v1-classify-text-v1
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://cloud.google.com/natural-language/pricing
+    - https://docs.cloud.google.com/natural-language/docs/classifying-text
+    - https://docs.cloud.google.com/natural-language/docs/reference/rest/v1/documents/classifyText

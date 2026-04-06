@@ -1,2 +1,16 @@
-mode: unknown
+modalities:
+    input:
+        - image
+    output:
+        - text
+mode: image
 model: google/imageobjectdetection-proprietary-yolo
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+status: active

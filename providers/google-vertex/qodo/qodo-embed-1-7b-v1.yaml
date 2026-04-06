@@ -1,2 +1,21 @@
-mode: unknown
+limits:
+    max_input_tokens: 32768
+    output_vector_size: 3584
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - embedding
+mode: embedding
 model: qodo/qodo-embed-1-7b-v1
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+    - max_tokens
+sources:
+    - https://huggingface.co/Qodo/Qodo-Embed-1-7B

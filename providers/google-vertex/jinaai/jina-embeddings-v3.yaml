@@ -1,2 +1,23 @@
-mode: unknown
+limits:
+    context_window: 8192
+    max_input_tokens: 8192
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: jinaai/jina-embeddings-v3
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://jina.ai/models/jina-embeddings-v3
+    - https://jina.ai/embeddings/
+status: active

@@ -1,2 +1,18 @@
-mode: unknown
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: google/medgemma
+sources:
+    - https://developers.google.com/health-ai-developer-foundations/medgemma
+    - https://developers.google.com/health-ai-developer-foundations/medgemma/model-card
+    - https://developers.google.com/health-ai-developer-foundations/medgemma/get-started
+status: active

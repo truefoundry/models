@@ -1,2 +1,16 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: moderation
 model: google/shieldgemma2
+removeParams:
+    - "n"
+    - stop
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemma/docs/shieldgemma
+    - https://ai.google.dev/gemma/docs/shieldgemma/model_card_2
+status: active

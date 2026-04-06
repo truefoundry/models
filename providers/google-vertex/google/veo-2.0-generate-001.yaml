@@ -1,2 +1,53 @@
-mode: unknown
-model: google/veo-2.0-generate-001
+costs:
+    - region: us-west4
+    - region: us-west1
+    - region: us-south1
+    - region: us-east5
+    - region: us-east4
+    - region: us-east1
+    - region: us-central1
+    - region: southamerica-east1
+    - region: northamerica-northeast1
+    - region: me-west1
+    - region: me-central2
+    - region: me-central1
+    - region: global
+    - region: europe-west9
+    - region: europe-west8
+    - region: europe-west6
+    - region: europe-west4
+    - region: europe-west3
+    - region: europe-west2
+    - region: europe-west1
+    - region: europe-southwest1
+    - region: europe-north1
+    - region: europe-central2
+    - region: australia-southeast1
+    - region: asia-southeast1
+    - region: asia-south1
+    - region: asia-northeast3
+    - region: asia-northeast1
+    - region: asia-east2
+    - region: asia-east1
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
+mode: video
+model: veo-2.0-generate-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/generate-videos-from-text
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/overview
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#available-regions
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/models
+status: active

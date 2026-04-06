@@ -1,2 +1,17 @@
-mode: unknown
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
 model: nvidia/nemotron-nano-12b-v2-vl
+sources:
+    - https://build.nvidia.com/nvidia/nemotron-nano-12b-v2-vl/modelcard
+status: active

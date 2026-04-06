@@ -1,2 +1,17 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: moderation
 model: meta/prompt-guard
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://huggingface.co/meta-llama/Prompt-Guard-86M

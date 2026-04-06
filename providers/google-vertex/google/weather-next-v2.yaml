@@ -1,2 +1,12 @@
 mode: unknown
-model: google/weather-next-v2
+model: weather-next-v2
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/weather-next-v2

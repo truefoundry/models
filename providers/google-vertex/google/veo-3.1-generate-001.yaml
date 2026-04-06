@@ -1,2 +1,24 @@
-mode: unknown
-model: google/veo-3.1-generate-001
+messages:
+    options: []
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
+        - audio
+mode: video
+model: veo-3.1-generate-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/generate-videos
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/overview
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
+status: active

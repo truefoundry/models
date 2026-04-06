@@ -1,2 +1,21 @@
-mode: unknown
+limits:
+    max_input_tokens: 512
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: intfloat/multilingual-e5-large-instruct-maas
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+status: active

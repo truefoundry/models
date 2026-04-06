@@ -1,2 +1,12 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - audio
+mode: text_to_speech
 model: sesame/csm
+removeParams:
+    - tool_choice
+sources:
+    - https://huggingface.co/sesame/csm-1b

@@ -1,2 +1,9 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: completion
 model: openlm-research/openllama
+removeParams:
+    - tool_choice

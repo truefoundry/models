@@ -1,2 +1,24 @@
-mode: unknown
-model: google/text-embedding-005
+deprecationDate: "2027-04-01"
+limits:
+    max_input_tokens: 2048
+    output_vector_size: 768
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
+model: text-embedding-005
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+status: active

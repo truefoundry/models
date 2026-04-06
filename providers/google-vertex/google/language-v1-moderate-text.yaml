@@ -1,2 +1,21 @@
-mode: unknown
-model: google/language-v1-moderate-text
+costs:
+    - input_cost_per_character: 0.000005
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: moderation
+model: language-v1-moderate-text
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://cloud.google.com/natural-language/pricing
+    - https://docs.cloud.google.com/natural-language/docs/moderating-text

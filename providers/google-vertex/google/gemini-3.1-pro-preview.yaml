@@ -1,2 +1,48 @@
-mode: unknown
-model: google/gemini-3.1-pro-preview
+costs:
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.000012
+      output_cost_per_token_batches: 0.000006
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000018
+                from: 200000
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - structured_output
+    - code_execution
+    - prompt_caching
+    - json_output
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+        - pdf
+    output:
+        - text
+mode: chat
+model: gemini-3.1-pro-preview
+params:
+    - key: max_tokens
+      maxValue: 65536
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-pro
+status: preview
+thinking: true

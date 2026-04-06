@@ -1,2 +1,38 @@
+costs:
+    - input_cost_per_page: 0.0015
+      region: us-central1
+    - input_cost_per_page: 0.0015
+      region: northamerica-northeast1
+    - input_cost_per_page: 0.0015
+      region: europe-west3
+    - input_cost_per_page: 0.0015
+      region: europe-west2
+    - input_cost_per_page: 0.0015
+      region: europe-west1
+    - input_cost_per_page: 0.0015
+      region: australia-southeast1
+    - input_cost_per_page: 0.0015
+      region: asia-southeast1
+    - input_cost_per_page: 0.0015
+      region: asia-south1
+modalities:
+    input:
+        - image
+        - pdf
+    output:
+        - text
 mode: unknown
-model: google/pretrained-ocr
+model: pretrained-ocr
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/document-ai/docs/enterprise-document-ocr
+    - https://cloud.google.com/document-ai/pricing
+    - https://docs.cloud.google.com/document-ai/docs/processors-list
+status: active

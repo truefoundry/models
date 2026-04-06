@@ -1,2 +1,20 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: rerank
 model: contextualai/rerank-v2-instruct
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.contextual.ai/api-reference/rerank/rerank
+    - https://docs.contextual.ai/how-to-guides/rerank
+    - https://docs.contextual.ai/integration/platforms
+status: active

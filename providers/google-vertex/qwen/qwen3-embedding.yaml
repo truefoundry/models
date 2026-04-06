@@ -1,2 +1,15 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: qwen/qwen3-embedding
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

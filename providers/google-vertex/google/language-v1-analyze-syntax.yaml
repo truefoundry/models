@@ -1,2 +1,22 @@
+costs:
+    - input_cost_per_character: 5.e-7
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: unknown
 model: google/language-v1-analyze-syntax
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSyntax
+    - https://cloud.google.com/natural-language/pricing
+status: active

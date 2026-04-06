@@ -1,2 +1,24 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 2.e-8
+      region: us-central1
+limits:
+    max_input_tokens: 32000
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: mongodb/voyage-3.5-lite
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+    - max_tokens
+sources:
+    - https://docs.voyageai.com/docs/embeddings
+    - https://docs.voyageai.com/docs/pricing

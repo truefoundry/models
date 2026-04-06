@@ -1,2 +1,15 @@
-mode: unknown
+features:
+    - function_calling
+    - system_messages
+    - json_output
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: meta/llama3_1
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama
+status: active

@@ -1,2 +1,23 @@
-mode: unknown
+limits:
+    context_window: 32000
+    max_input_tokens: 32000
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: mongodb/voyage-4
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.voyageai.com/docs/embeddings
+    - https://docs.voyageai.com/docs/pricing
+status: active

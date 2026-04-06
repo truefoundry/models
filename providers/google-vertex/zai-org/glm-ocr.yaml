@@ -1,2 +1,14 @@
-mode: unknown
+features:
+    - structured_output
+    - json_output
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
 model: zai-org/glm-ocr
+sources:
+    - https://huggingface.co/zai-org/glm-ocr

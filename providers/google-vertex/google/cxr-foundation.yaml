@@ -1,2 +1,20 @@
-mode: unknown
+messages:
+    options: []
+modalities:
+    input:
+        - image
+    output:
+        - embedding
+mode: embedding
 model: google/cxr-foundation
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://developers.google.com/health-ai-developer-foundations/cxr-foundation
+    - https://developers.google.com/health-ai-developer-foundations/cxr-foundation/model-card

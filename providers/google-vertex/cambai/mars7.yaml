@@ -1,2 +1,14 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
 model: cambai/mars7
+removeParams:
+    - tool_choice
+    - stop
+    - "n"
+sources:
+    - https://camb.ai
+    - https://docs.camb.ai

@@ -1,2 +1,18 @@
+modalities:
+    input:
+        - image
+    output:
+        - text
 mode: unknown
 model: google/imagewatermarkdetector
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/imagewatermarkdetector
+status: preview

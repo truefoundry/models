@@ -1,2 +1,27 @@
-mode: unknown
-model: google/gemini-3-pro-image-preview
+costs:
+    - input_cost_per_token: 0.000002
+      output_cost_per_image_token: 0.00012
+      output_cost_per_token: 0.000012
+      region: global
+features:
+    - system_messages
+limits:
+    context_window: 65536
+    max_input_tokens: 65536
+    max_output_tokens: 32768
+    max_tokens: 32768
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+        - image
+mode: chat
+model: gemini-3-pro-image-preview
+removeParams:
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image
+status: preview
+thinking: true

@@ -1,2 +1,18 @@
-mode: unknown
+messages:
+    options:
+        - user
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
 model: stability-ai/stable-diffusion-2-1
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

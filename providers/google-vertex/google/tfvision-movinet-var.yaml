@@ -1,2 +1,17 @@
-mode: unknown
+modalities:
+    input:
+        - video
+    output:
+        - text
+mode: video
 model: google/tfvision-movinet-var
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://github.com/tensorflow/models/tree/master/official/projects/movinet

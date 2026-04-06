@@ -1,2 +1,13 @@
-mode: unknown
-model: google/mammut
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+        - embedding
+mode: embedding
+model: mammut
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/mammut
+    - https://github.com/google-deepmind/mammut
+status: active

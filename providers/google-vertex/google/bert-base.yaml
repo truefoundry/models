@@ -1,2 +1,14 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: google/bert-base
+removeParams:
+    - "n"
+    - stop
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/bert-base
+status: active

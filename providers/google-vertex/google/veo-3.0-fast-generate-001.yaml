@@ -1,2 +1,24 @@
-mode: unknown
+deprecationDate: "2026-06-30"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
+        - audio
+mode: video
 model: google/veo-3.0-fast-generate-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-fast-generate-001
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/generate-videos
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
+status: active

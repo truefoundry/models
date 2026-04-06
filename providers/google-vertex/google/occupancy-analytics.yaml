@@ -1,2 +1,18 @@
-mode: unknown
+modalities:
+    input:
+        - video
+    output:
+        - text
+mode: video
 model: google/occupancy-analytics
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://cloud.google.com/vision-ai/pricing
+    - https://docs.cloud.google.com/vision-ai/docs/overview

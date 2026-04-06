@@ -1,2 +1,22 @@
+costs:
+    - input_cost_per_request: 0.06
+      region: us-central1
+modalities:
+    input:
+        - text
+    output:
+        - audio
 mode: unknown
-model: google/lyria-002
+model: lyria-002
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/music/generate-music
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/lyria-music-generation
+status: active

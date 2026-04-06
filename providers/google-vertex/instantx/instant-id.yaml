@@ -1,2 +1,16 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: instantx/instant-id
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

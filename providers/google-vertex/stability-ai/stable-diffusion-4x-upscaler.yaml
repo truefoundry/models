@@ -1,2 +1,18 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: stability-ai/stable-diffusion-4x-upscaler
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+    - max_tokens
+sources:
+    - https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler

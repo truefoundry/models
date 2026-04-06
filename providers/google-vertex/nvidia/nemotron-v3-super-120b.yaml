@@ -1,2 +1,26 @@
-mode: unknown
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 32768
+    max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: nvidia/nemotron-v3-super-120b
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 32768
+      key: max_tokens
+      maxValue: 32768
+sources:
+    - https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-super-120b-a12b
+    - https://research.nvidia.com/labs/nemotron/Nemotron-3-Super/
+    - https://console.cloud.google.com/vertex-ai/publishers/nvidia/model-garden/nemotron-3-super
+status: active
+thinking: true

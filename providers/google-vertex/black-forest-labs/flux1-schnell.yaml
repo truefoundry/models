@@ -1,2 +1,17 @@
-mode: unknown
+messages:
+    options: []
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
 model: black-forest-labs/flux1-schnell
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

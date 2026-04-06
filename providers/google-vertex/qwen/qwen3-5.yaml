@@ -1,2 +1,16 @@
-mode: unknown
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+    - json_output
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: qwen/qwen3-5
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen
+    - https://cloud.google.com/vertex-ai/generative-ai/pricing
+thinking: true

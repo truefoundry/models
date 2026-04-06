@@ -1,2 +1,19 @@
-mode: unknown
+messages:
+    options:
+        - user
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - embedding
+mode: embedding
 model: openai/openclip
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice

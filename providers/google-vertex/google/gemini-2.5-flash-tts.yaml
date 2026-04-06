@@ -1,2 +1,20 @@
-mode: unknown
-model: google/gemini-2.5-flash-tts
+limits:
+    context_window: 8192
+    max_input_tokens: 8192
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
+model: gemini-2.5-flash-tts
+removeParams:
+    - tool_choice
+    - "n"
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts
+    - https://ai.google.dev/gemini-api/docs/models
+    - https://ai.google.dev/pricing
+status: preview

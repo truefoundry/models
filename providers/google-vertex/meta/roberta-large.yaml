@@ -1,2 +1,13 @@
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: unknown
 model: meta/roberta-large
+removeParams:
+    - tool_choice
+    - "n"
+    - stop
+sources:
+    - https://huggingface.co/FacebookAI/roberta-large

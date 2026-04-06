@@ -1,2 +1,21 @@
-mode: unknown
+limits:
+    max_input_tokens: 512
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: intfloat/e5
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+    - max_tokens
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/e5/multilingual-e5-small
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/e5/multilingual-e5-large
+status: active

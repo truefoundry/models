@@ -1,2 +1,19 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - audio
+mode: text_to_speech
 model: nari-labs/dia-1.6b
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://huggingface.co/nari-labs/Dia-1.6B
+status: active

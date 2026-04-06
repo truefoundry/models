@@ -1,2 +1,19 @@
-mode: unknown
+messages:
+    options: []
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
 model: hidream-ai/hidream-i1
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://huggingface.co/HiDream-ai/HiDream-I1-Full

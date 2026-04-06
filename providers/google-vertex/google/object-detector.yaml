@@ -1,2 +1,21 @@
-mode: unknown
+costs:
+    - input_cost_per_second: 0.0016667
+      region: us-central1
+modalities:
+    input:
+        - video
+    output:
+        - text
+mode: video
 model: google/object-detector
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://cloud.google.com/vision-ai/pricing
+    - https://cloud.google.com/vision-ai/docs/object-detector-model

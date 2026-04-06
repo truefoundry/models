@@ -1,2 +1,21 @@
+costs:
+    - input_cost_per_character: 0.00002
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: unknown
 model: google/text-translation
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://cloud.google.com/translate/pricing
+    - https://docs.cloud.google.com/translate/docs/reference/rest/v3/projects/translateText

@@ -1,2 +1,34 @@
-mode: unknown
+features:
+    - function_calling
+    - structured_output
+    - json_output
+    - system_messages
+    - tool_choice
+    - prompt_caching
+limits:
+    context_window: 262144
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
 model: moonshotai/kimi-k2-5
+params:
+    - defaultValue: 0
+      key: temperature
+      maxValue: 0
+      minValue: 0
+    - defaultValue: 0.95
+      key: top_p
+      maxValue: 0.95
+      minValue: 0.95
+removeParams:
+    - "n"
+sources:
+    - https://platform.moonshot.ai/docs/api/chat
+    - https://platform.moonshot.ai/docs/pricing/chat
+status: active
+thinking: true

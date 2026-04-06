@@ -1,2 +1,22 @@
-mode: unknown
+limits:
+    max_input_tokens: 1024
+    output_vector_size: 768
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: google/embeddinggemma
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemma/docs/embeddinggemma
+    - https://huggingface.co/google/embeddinggemma-300m
+status: preview

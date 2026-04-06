@@ -1,2 +1,90 @@
-mode: unknown
-model: google/gemini-embedding-2-preview
+costs:
+    - input_cost_per_token: 2.e-7
+      region: us-west4
+    - input_cost_per_token: 2.e-7
+      region: us-west1
+    - input_cost_per_token: 2.e-7
+      region: us-south1
+    - input_cost_per_token: 2.e-7
+      region: us-east5
+    - input_cost_per_token: 2.e-7
+      region: us-east4
+    - input_cost_per_token: 2.e-7
+      region: us-east1
+    - input_cost_per_token: 2.e-7
+      region: us-central1
+    - input_cost_per_token: 2.e-7
+      region: southamerica-east1
+    - input_cost_per_token: 2.e-7
+      region: northamerica-northeast1
+    - input_cost_per_token: 2.e-7
+      region: me-west1
+    - input_cost_per_token: 2.e-7
+      region: me-central2
+    - input_cost_per_token: 2.e-7
+      region: me-central1
+    - input_cost_per_token: 2.e-7
+      region: global
+    - input_cost_per_token: 2.e-7
+      region: europe-west9
+    - input_cost_per_token: 2.e-7
+      region: europe-west8
+    - input_cost_per_token: 2.e-7
+      region: europe-west6
+    - input_cost_per_token: 2.e-7
+      region: europe-west4
+    - input_cost_per_token: 2.e-7
+      region: europe-west3
+    - input_cost_per_token: 2.e-7
+      region: europe-west2
+    - input_cost_per_token: 2.e-7
+      region: europe-west1
+    - input_cost_per_token: 2.e-7
+      region: europe-southwest1
+    - input_cost_per_token: 2.e-7
+      region: europe-north1
+    - input_cost_per_token: 2.e-7
+      region: europe-central2
+    - input_cost_per_token: 2.e-7
+      region: australia-southeast1
+    - input_cost_per_token: 2.e-7
+      region: asia-southeast1
+    - input_cost_per_token: 2.e-7
+      region: asia-south1
+    - input_cost_per_token: 2.e-7
+      region: asia-northeast3
+    - input_cost_per_token: 2.e-7
+      region: asia-northeast1
+    - input_cost_per_token: 2.e-7
+      region: asia-east2
+    - input_cost_per_token: 2.e-7
+      region: asia-east1
+limits:
+    max_input_tokens: 8192
+    output_vector_size: 3072
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+        - pdf
+    output:
+        - embedding
+mode: embedding
+model: gemini-embedding-2-preview
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/models#gemini-embedding
+    - https://ai.google.dev/gemini-api/docs/embeddings
+    - https://ai.google.dev/pricing
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
+status: preview

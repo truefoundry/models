@@ -1,2 +1,19 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: qwen/qwen-image
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen-image
+    - https://huggingface.co/Qwen/Qwen-Image

@@ -1,2 +1,22 @@
-mode: unknown
+features:
+    - function_calling
+    - structured_output
+limits:
+    context_window: 200000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - doc
+    output:
+        - text
+mode: chat
 model: zai-org/glm-5
+params:
+    - key: max_tokens
+      maxValue: 128000
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-5
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg
+status: active

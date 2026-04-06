@@ -1,2 +1,18 @@
-mode: unknown
-model: google/virtual-try-on-001
+modalities:
+    input:
+        - image
+    output:
+        - image
+mode: image
+model: virtual-try-on-001
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-virtual-try-on-images
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api

@@ -1,2 +1,15 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: google/paligemma
+removeParams:
+    - "n"
+    - stop
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemma/docs/paligemma
+status: active

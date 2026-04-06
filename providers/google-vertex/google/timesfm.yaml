@@ -1,2 +1,13 @@
 mode: unknown
 model: google/timesfm
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/
+status: active

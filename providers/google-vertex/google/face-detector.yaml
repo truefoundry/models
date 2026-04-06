@@ -1,2 +1,23 @@
+costs:
+    - input_cost_per_image: 0.0015
+      region: "*"
+messages:
+    options: []
+modalities:
+    input:
+        - image
+    output:
+        - text
 mode: unknown
 model: google/face-detector
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vision/docs/detecting-faces
+    - https://cloud.google.com/vision/pricing
