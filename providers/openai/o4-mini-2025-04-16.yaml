@@ -11,6 +11,7 @@ features:
     - prompt_caching
     - structured_output
     - system_messages
+    - json_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -23,8 +24,11 @@ messages:
         - developer
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: o4-mini-2025-04-16
 params:
@@ -45,6 +49,7 @@ removeParams:
     - stop
 sources:
     - https://developers.openai.com/api/docs/models/o4-mini
-    - https://developers.openai.com/api/docs/deprecations/
-    - https://developers.openai.com/api/docs/pricing
+    - https://developers.openai.com/docs/deprecations
+    - https://developers.openai.com/docs/pricing
+status: active
 thinking: true

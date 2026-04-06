@@ -12,6 +12,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -21,7 +22,6 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
@@ -34,3 +34,4 @@ params:
       type: string
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-mini
+status: active
