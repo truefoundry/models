@@ -4,11 +4,17 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
+    - json_output
+    - tool_choice
 limits:
     context_window: 131072
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: magistral-small-latest
 params:

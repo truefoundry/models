@@ -4,11 +4,15 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 131072
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral-vibe-cli-with-tools
 params:

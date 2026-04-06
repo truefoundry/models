@@ -1,3 +1,9 @@
+features:
+    - json_output
+limits:
+    context_window: 64000
+    max_output_tokens: 16000
+    max_tokens: 16000
 modalities:
     input:
         - text
@@ -7,6 +13,13 @@ modalities:
         - code
 mode: chat
 model: agentica-org/DeepCoder-14B-Preview
+params:
+    - defaultValue: 0.6
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 16000
+      key: max_tokens
 sources:
     - https://huggingface.co/agentica-org/DeepCoder-14B-Preview
 status: active

@@ -1,7 +1,27 @@
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
+features:
+    - function_calling
+    - system_messages
 limits:
+    context_window: 262144
     max_input_tokens: 262144
     max_output_tokens: 32768
-mode: unknown
+    max_tokens: 32768
+messages:
+    options:
+        - system
+        - user
+        - assistant
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: gemma-4-26b-a4b-it
 params:
     - defaultValue: 1
@@ -11,4 +31,10 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+sources:
+    - https://ai.google.dev/gemma/docs/core/model_card_4
+    - https://ai.google.dev/gemma/docs/core
+    - https://ai.google.dev/gemma/docs/capabilities/thinking
+    - https://ai.google.dev/gemma/docs/capabilities/text/function-calling-gemma4
+status: active
 thinking: true
