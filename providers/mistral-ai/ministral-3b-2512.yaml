@@ -4,11 +4,16 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
+    - json_output
 limits:
     context_window: 131072
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: ministral-3b-2512
 params:
@@ -18,6 +23,7 @@ sources:
     - https://docs.mistral.ai/models/ministral-3-3b-25-12
     - https://docs.mistral.ai/capabilities/vision/
     - https://docs.mistral.ai/capabilities/function_calling/
+    - https://docs.mistral.ai/capabilities/structured_output/
 status: active
 supportedModes:
     - chat

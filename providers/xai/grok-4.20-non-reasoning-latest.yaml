@@ -2,7 +2,9 @@ costs:
     - cache_read_input_token_cost: 2.e-7
       input_cost_per_image_token: 0.000002
       input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000006
+      output_cost_per_token_batches: 0.000003
       region: "*"
 features:
     - function_calling

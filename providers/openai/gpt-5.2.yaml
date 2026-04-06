@@ -5,16 +5,6 @@ costs:
       output_cost_per_token: 0.000014
       output_cost_per_token_batches: 0.000007
       region: "*"
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 3.5e-7
-                from: 272000
-          input:
-              - cost_per_token: 0.0000035
-                from: 272000
-          output:
-              - cost_per_token: 0.000021
-                from: 272000
 features:
     - function_calling
     - parallel_function_calling

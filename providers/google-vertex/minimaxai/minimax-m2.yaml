@@ -1,2 +1,22 @@
-mode: unknown
+features:
+    - function_calling
+    - structured_output
+limits:
+    context_window: 196608
+    max_output_tokens: 196608
+    max_tokens: 196608
+modalities:
+    input:
+        - text
+        - pdf
+    output:
+        - text
+mode: chat
 model: minimaxai/minimax-m2
+params:
+    - key: max_tokens
+      maxValue: 196608
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/minimax/minimax-m2
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/minimax
+status: active
