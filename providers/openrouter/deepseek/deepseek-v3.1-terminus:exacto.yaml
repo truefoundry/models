@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
 limits:
     context_window: 163840
     max_input_tokens: 163840
@@ -16,4 +17,5 @@ mode: chat
 model: deepseek/deepseek-v3.1-terminus:exacto
 sources:
     - https://openrouter.ai/deepseek/deepseek-v3.1-terminus:exacto/api
+status: deprecated
 thinking: true

@@ -6,6 +6,8 @@ features:
     - function_calling
     - tool_choice
     - system_messages
+    - structured_output
+    - json_output
 limits:
     context_window: 8192
     max_output_tokens: 16384
@@ -22,3 +24,4 @@ params:
       maxValue: 16384
 sources:
     - https://openrouter.ai/meta-llama/llama-3-8b-instruct/api
+status: deprecated

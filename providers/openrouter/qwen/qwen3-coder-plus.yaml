@@ -3,6 +3,16 @@ costs:
       input_cost_per_token: 6.5e-7
       output_cost_per_token: 0.00000325
       region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 3.6e-7
+                from: 32000
+          input:
+              - cost_per_token: 0.0000018
+                from: 32000
+          output:
+              - cost_per_token: 0.000009
+                from: 32000
 features:
     - function_calling
     - tool_choice

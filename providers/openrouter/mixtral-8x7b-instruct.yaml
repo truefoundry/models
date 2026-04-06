@@ -5,10 +5,17 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - structured_output
+    - json_output
 limits:
     context_window: 32768
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mixtral-8x7b-instruct
 params:
@@ -16,3 +23,4 @@ params:
       maxValue: 16384
 sources:
     - https://openrouter.ai/mistralai/mixtral-8x7b-instruct/api
+status: deprecated

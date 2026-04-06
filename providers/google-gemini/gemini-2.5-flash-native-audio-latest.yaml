@@ -13,11 +13,15 @@ limits:
     context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 8192
+    max_tokens: 8192
 modalities:
     input:
+        - text
         - audio
         - image
+        - video
     output:
+        - text
         - audio
 mode: realtime
 model: gemini-2.5-flash-native-audio-latest
@@ -29,4 +33,5 @@ params:
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025
     - https://ai.google.dev/gemini-api/docs/live-guide
+status: preview
 thinking: true

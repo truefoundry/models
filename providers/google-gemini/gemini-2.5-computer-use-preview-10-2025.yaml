@@ -12,16 +12,30 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - system_messages
 limits:
-    context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 65536
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 64000
+    max_tokens: 64000
+messages:
+    options:
+        - system
+        - user
+        - assistant
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gemini-2.5-computer-use-preview-10-2025
+params:
+    - key: max_tokens
+      maxValue: 64000
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/computer-use
+    - https://ai.google.dev/gemini-api/docs/computer-use
+status: preview
 thinking: true

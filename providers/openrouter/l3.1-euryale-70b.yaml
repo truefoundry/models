@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - json_output
 limits:
     context_window: 131072
     max_output_tokens: 16384
@@ -15,7 +16,10 @@ modalities:
     output:
         - text
 mode: chat
-model: l3.1-euryale-70b
+model: sao10k/l3.1-euryale-70b
+params:
+    - key: max_tokens
+      maxValue: 16384
 sources:
     - https://openrouter.ai/sao10k/l3.1-euryale-70b/api
-status: active
+status: deprecated

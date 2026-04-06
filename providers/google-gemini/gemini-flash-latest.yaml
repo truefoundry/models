@@ -15,18 +15,30 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
-        - audio
+        - text
         - image
+        - audio
+        - video
         - pdf
+    output:
+        - text
 mode: chat
 model: gemini-flash-latest
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
     - https://ai.google.dev/gemini-api/docs/gemini-3
+status: preview
 thinking: true

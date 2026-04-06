@@ -9,8 +9,9 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
+    - prompt_caching
     - system_messages
+    - tool_choice
 limits:
     context_window: 32000
     max_output_tokens: 4096
@@ -27,5 +28,6 @@ mode: realtime
 model: gpt-realtime-1.5
 sources:
     - https://developers.openai.com/api/docs/models/gpt-realtime-1.5
+status: active
 supportedModes:
     - chat

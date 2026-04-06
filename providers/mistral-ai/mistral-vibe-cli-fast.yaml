@@ -4,12 +4,12 @@ limits:
     context_window: 262144
 modalities:
     input:
-        - text
         - image
-    output:
-        - text
 mode: chat
 model: mistral-vibe-cli-fast
+params:
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/mistral-vibe/introduction
     - https://docs.mistral.ai/mistral-vibe/local

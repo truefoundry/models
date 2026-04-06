@@ -1,7 +1,9 @@
 costs:
     - cache_read_input_token_cost: 0.0000025
       input_cost_per_token: 0.00001
+      input_cost_per_token_batches: 0.000005
       output_cost_per_token: 0.00004
+      output_cost_per_token_batches: 0.00002
       region: "*"
 features:
     - system_messages
@@ -33,4 +35,5 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/o3-deep-research
     - https://developers.openai.com/api/docs/guides/deep-research
+status: active
 thinking: true

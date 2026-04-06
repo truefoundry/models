@@ -4,20 +4,20 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
-    context_window: 128000
+    context_window: 131072
 modalities:
     input:
-        - text
         - image
-    output:
-        - text
 mode: chat
 model: magistral-small-2509
+params:
+    - defaultValue: 0.7
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/magistral-small-1-2-25-09
     - https://docs.mistral.ai/capabilities/reasoning/native
+status: active
 supportedModes:
     - chat
 thinking: true

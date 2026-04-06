@@ -5,6 +5,7 @@ costs:
 limits:
     context_window: 1048576
     max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -14,3 +15,8 @@ modalities:
         - audio
 mode: chat
 model: google/lyria-3-clip-preview
+params:
+    - key: seed
+      type: number
+sources:
+    - https://openrouter.ai/google/lyria-3-clip-preview/api

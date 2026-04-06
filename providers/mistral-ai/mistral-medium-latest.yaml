@@ -4,20 +4,18 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
-    context_window: 128000
+    context_window: 131072
 modalities:
     input:
-        - text
         - image
-        - audio
-        - pdf
-    output:
-        - text
 mode: chat
 model: mistral-medium-latest
+params:
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/mistral-medium-3-1-25-08
+status: active
 supportedModes:
     - chat

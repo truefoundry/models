@@ -4,6 +4,7 @@ costs:
       output_cost_per_token: 0.000008
       region: "*"
 features:
+    - function_calling
     - tool_choice
 limits:
     context_window: 128000
@@ -17,4 +18,5 @@ mode: chat
 model: sonar-reasoning-pro
 sources:
     - https://openrouter.ai/perplexity/sonar-reasoning-pro/api
+status: deprecated
 thinking: true

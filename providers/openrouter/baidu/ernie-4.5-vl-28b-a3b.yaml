@@ -6,7 +6,7 @@ features:
     - function_calling
     - tool_choice
 limits:
-    context_window: 30000
+    context_window: 131072
     max_output_tokens: 8000
     max_tokens: 8000
 modalities:
@@ -19,3 +19,4 @@ mode: chat
 model: baidu/ernie-4.5-vl-28b-a3b
 sources:
     - https://openrouter.ai/baidu/ernie-4.5-vl-28b-a3b/api
+thinking: true

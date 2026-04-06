@@ -7,15 +7,14 @@ features:
 isDeprecated: true
 limits:
     context_window: 131072
-    max_input_tokens: 32000
-    max_output_tokens: 8191
 modalities:
     input:
         - image
 mode: chat
 model: mistral-medium
 params:
-    - key: max_tokens
-      maxValue: 32768
+    - defaultValue: 0.3
+      key: temperature
+status: active
 supportedModes:
     - chat

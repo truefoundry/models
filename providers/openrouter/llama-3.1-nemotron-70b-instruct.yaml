@@ -6,6 +6,7 @@ features:
     - function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 131072
     max_output_tokens: 16384
@@ -22,3 +23,4 @@ params:
       maxValue: 16384
 sources:
     - https://openrouter.ai/nvidia/llama-3.1-nemotron-70b-instruct/api
+status: deprecated

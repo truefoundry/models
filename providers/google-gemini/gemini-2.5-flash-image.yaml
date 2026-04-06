@@ -5,7 +5,10 @@ costs:
       input_cost_per_token_batches: 1.5e-7
       output_cost_per_image_1k: 0.039
       output_cost_per_image_token: 0.00003
+      output_cost_per_token: 0.0000025
+      output_cost_per_token_batches: 0.00000125
       region: "*"
+deprecationDate: "2026-10-02"
 features:
     - prompt_caching
     - structured_output
@@ -13,8 +16,13 @@ limits:
     context_window: 65536
     max_input_tokens: 65536
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
+        - text
+        - image
+    output:
+        - text
         - image
 mode: image
 model: gemini-2.5-flash-image
@@ -26,3 +34,4 @@ removeParams:
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image
     - https://ai.google.dev/gemini-api/docs/image-generation
+status: active

@@ -8,6 +8,7 @@ costs:
                 from: 200000
 features:
     - function_calling
+    - tool_choice
 limits:
     context_window: 1000000
     max_output_tokens: 40000
@@ -24,4 +25,5 @@ params:
       maxValue: 40000
 sources:
     - https://openrouter.ai/minimax/minimax-m1/api
+status: deprecated
 thinking: true

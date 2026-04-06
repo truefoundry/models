@@ -4,24 +4,21 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
-    - tool_choice
-    - structured_output
-    - assistant_prefill
 limits:
-    context_window: 256000
+    context_window: 262144
 modalities:
     input:
-        - text
         - image
-        - audio
-        - pdf
-    output:
-        - text
 mode: chat
 model: mistral-large-2512
+params:
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12
     - https://docs.mistral.ai/capabilities/vision
     - https://docs.mistral.ai/capabilities/function_calling
-    - https://docs.mistral.ai/capabilities/audio
+    - https://docs.mistral.ai/capabilities/structured_output
+status: active
+supportedModes:
+    - chat

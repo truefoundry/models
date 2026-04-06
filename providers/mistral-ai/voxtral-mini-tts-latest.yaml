@@ -1,3 +1,8 @@
+costs:
+    - input_cost_per_character: 0.000016
+      region: "*"
+features:
+    - function_calling
 limits:
     context_window: 4096
 modalities:
@@ -10,4 +15,13 @@ model: voxtral-mini-tts-latest
 params:
     - defaultValue: 0.3
       key: temperature
+removeParams:
+    - max_tokens
+    - top_p
+    - seed
+    - stop
+sources:
+    - https://docs.mistral.ai/models/voxtral-tts-26-03
 status: active
+supportedModes:
+    - text_to_speech

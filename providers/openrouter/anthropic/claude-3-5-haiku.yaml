@@ -7,6 +7,7 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - prompt_caching
 limits:
     context_window: 200000
     max_output_tokens: 8192
@@ -21,3 +22,4 @@ mode: chat
 model: anthropic/claude-3-5-haiku
 sources:
     - https://openrouter.ai/anthropic/claude-3-5-haiku/api
+status: deprecated

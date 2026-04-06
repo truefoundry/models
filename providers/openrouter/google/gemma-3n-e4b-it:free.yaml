@@ -3,7 +3,10 @@ costs:
       output_cost_per_token: 0
       region: "*"
 features:
+    - function_calling
     - system_messages
+    - tool_choice
+    - json_output
 limits:
     context_window: 8192
     max_output_tokens: 2048
@@ -20,8 +23,10 @@ params:
       key: max_tokens
       maxValue: 2048
       minValue: 1
+    - defaultValue: null
+      key: seed
 removeParams:
     - "n"
-    - response_format
+    - stop
 sources:
     - https://openrouter.ai/google/gemma-3n-e4b-it:free/api

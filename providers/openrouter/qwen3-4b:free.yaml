@@ -2,11 +2,11 @@ costs:
     - input_cost_per_token: 0
       output_cost_per_token: 0
       region: "*"
-deprecationDate: "2026-03-29"
 features:
     - function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 40960
 modalities:
@@ -18,4 +18,5 @@ mode: chat
 model: qwen3-4b:free
 sources:
     - https://openrouter.ai/qwen/qwen3-4b:free/api
+status: deprecated
 thinking: true

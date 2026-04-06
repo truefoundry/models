@@ -22,6 +22,11 @@ limits:
     max_input_tokens: 995904
     max_output_tokens: 32768
     max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen-plus
 params:
@@ -29,3 +34,4 @@ params:
       maxValue: 32768
 sources:
     - https://openrouter.ai/qwen/qwen-plus/api
+status: deprecated

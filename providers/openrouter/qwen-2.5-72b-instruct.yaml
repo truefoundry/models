@@ -8,8 +8,8 @@ features:
     - structured_output
 limits:
     context_window: 32768
-    max_output_tokens: 16384
-    max_tokens: 16384
+    max_output_tokens: 8000
+    max_tokens: 8000
 modalities:
     input:
         - text
@@ -19,3 +19,4 @@ mode: chat
 model: qwen-2.5-72b-instruct
 sources:
     - https://openrouter.ai/qwen/qwen-2.5-72b-instruct/api
+status: deprecated

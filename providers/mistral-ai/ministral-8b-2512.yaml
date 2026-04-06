@@ -4,26 +4,18 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
-    context_window: 256000
-    max_input_tokens: 256000
-    max_output_tokens: 256000
-    max_tokens: 256000
+    context_window: 262144
 modalities:
     input:
-        - text
         - image
-    output:
-        - text
 mode: chat
 model: ministral-8b-2512
 params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 256000
-      minValue: 1
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/ministral-3-8b-25-12
+status: active
 supportedModes:
     - chat

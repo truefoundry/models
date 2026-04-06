@@ -1,6 +1,6 @@
 features:
-    - function_calling
     - system_messages
+    - code_execution
 limits:
     context_window: 131072
     max_output_tokens: 8192
@@ -12,5 +12,9 @@ modalities:
         - text
 mode: chat
 model: groq/compound-mini
+params:
+    - key: max_tokens
+      maxValue: 8192
 sources:
     - https://console.groq.com/docs/compound
+status: active

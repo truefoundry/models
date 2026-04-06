@@ -16,8 +16,8 @@ limits:
     max_tokens: 32000
 modalities:
     input:
-        - image
         - text
+        - image
         - pdf
     output:
         - text
@@ -25,4 +25,5 @@ mode: chat
 model: anthropic/claude-opus-4
 sources:
     - https://openrouter.ai/anthropic/claude-opus-4/api
+status: active
 thinking: true

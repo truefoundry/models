@@ -75,8 +75,10 @@ costs:
                 from: 200000
 features:
     - function_calling
+    - system_messages
     - tool_choice
     - prompt_caching
+    - cache_control
     - structured_output
     - assistant_prefill
 limits:
@@ -84,6 +86,7 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 64000
     max_tokens: 64000
+    tool_use_system_prompt_tokens: 346
 modalities:
     input:
         - text
@@ -102,4 +105,5 @@ sources:
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4-5
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude
+status: active
 thinking: true

@@ -1,15 +1,14 @@
 costs:
     - input_cost_per_second: 0.0000333333
       region: "*"
+deprecationDate: "2026-05-31"
 limits:
-    context_window: 32000
-modalities:
-    input:
-        - audio
-    output:
-        - text
+    context_window: 16384
 mode: audio_transcription
 model: voxtral-mini-transcribe-2507
+params:
+    - defaultValue: 0
+      key: temperature
 removeParams:
     - max_tokens
     - top_p
@@ -17,4 +16,6 @@ removeParams:
     - stop
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-25-07
-    - https://docs.mistral.ai/capabilities/audio_transcription/offline_transcription
+status: active
+supportedModes:
+    - audio_transcription

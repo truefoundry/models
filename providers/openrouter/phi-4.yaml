@@ -10,6 +10,11 @@ limits:
     context_window: 16384
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: phi-4
 params:
@@ -19,3 +24,4 @@ params:
       minValue: 1
 sources:
     - https://openrouter.ai/microsoft/phi-4/api
+status: deprecated

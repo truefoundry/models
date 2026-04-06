@@ -1,10 +1,12 @@
 costs:
-    - input_cost_per_token: 3.e-8
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 3.e-8
       output_cost_per_token: 1.1e-7
       region: "*"
 features:
     - function_calling
     - structured_output
+    - prompt_caching
 limits:
     context_window: 131072
     max_output_tokens: 131072
@@ -22,3 +24,4 @@ params:
       maxValue: 131072
 sources:
     - https://openrouter.ai/mistralai/mistral-small-3.1-24b-instruct/api
+status: deprecated

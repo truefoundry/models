@@ -6,6 +6,8 @@ features:
     - function_calling
 limits:
     context_window: 32768
+    max_output_tokens: 4096
+    max_tokens: 4096
 modalities:
     input:
         - text
@@ -16,3 +18,4 @@ mode: chat
 model: pixtral-12b
 sources:
     - https://openrouter.ai/mistralai/pixtral-12b/api
+status: deprecated

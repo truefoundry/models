@@ -1,20 +1,12 @@
 costs:
     - input_cost_per_second: 0.0001
       region: "*"
-features:
-    - function_calling
-    - structured_output
 limits:
-    context_window: 16384
-modalities:
-    input:
-        - audio
-    output:
-        - text
-mode: audio_transcription
+    context_window: 32768
+mode: realtime
 model: voxtral-mini-realtime-latest
 params:
-    - defaultValue: null
+    - defaultValue: 0
       key: temperature
 removeParams:
     - top_p
@@ -23,4 +15,3 @@ sources:
 status: active
 supportedModes:
     - realtime
-    - chat

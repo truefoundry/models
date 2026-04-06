@@ -8,6 +8,7 @@ features:
     - parallel_function_calling
     - tool_choice
     - structured_output
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -22,5 +23,8 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-4o
+params:
+    - key: max_tokens
+      maxValue: 16384
 sources:
     - https://openrouter.ai/openai/gpt-4o/api

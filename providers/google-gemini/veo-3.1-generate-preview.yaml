@@ -3,13 +3,13 @@ costs:
       output_cost_per_second_4k: 0.6
       output_cost_per_second_720p: 0.4
       region: "*"
-limits:
-    context_window: 1024
-    max_input_tokens: 1024
 modalities:
     input:
+        - text
         - image
+        - video
     output:
+        - video
         - audio
 mode: video
 model: veo-3.1-generate-preview
@@ -23,3 +23,4 @@ removeParams:
     - tool_choice
 sources:
     - https://ai.google.dev/gemini-api/docs/video
+status: preview

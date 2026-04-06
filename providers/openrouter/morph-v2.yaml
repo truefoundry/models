@@ -10,6 +10,11 @@ model: morph-v2
 params:
     - key: max_tokens
       maxValue: 16000
+removeParams:
+    - top_p
+    - "n"
+    - response_format
 sources:
     - https://openrouter.ai/morph/morph-v2/api
     - https://docs.morphllm.com/
+status: deprecated

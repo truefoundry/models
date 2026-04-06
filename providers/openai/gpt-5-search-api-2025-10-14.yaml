@@ -17,7 +17,10 @@ limits:
     max_tokens: 128000
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: gpt-5-search-api-2025-10-14
 params:
@@ -25,9 +28,11 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
+    - key: reasoning_effort
+      type: string
 removeParams:
     - max_tokens
 sources:
-    - https://developers.openai.com/api/docs/pricing
     - https://developers.openai.com/api/docs/models/gpt-5
+status: active
 thinking: true

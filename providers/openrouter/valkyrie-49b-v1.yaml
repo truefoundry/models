@@ -1,5 +1,13 @@
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: valkyrie-49b-v1
 params:
     - key: max_tokens
       maxValue: 131072
+sources:
+    - https://openrouter.ai/valkyrie-49b-v1/api
+status: deprecated

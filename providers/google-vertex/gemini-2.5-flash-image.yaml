@@ -95,13 +95,22 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
         - image
 mode: image
 model: gemini-2.5-flash-image
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+      maxValue: 64
+      minValue: 1
 removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-image
+status: active

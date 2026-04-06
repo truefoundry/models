@@ -4,17 +4,15 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
-    context_window: 128000
-modalities:
-    input:
-        - text
-    output:
-        - text
+    context_window: 262144
 mode: chat
 model: devstral-medium-latest
+params:
+    - defaultValue: 0.2
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/devstral-medium-1-0-25-07
+status: active
 supportedModes:
     - chat

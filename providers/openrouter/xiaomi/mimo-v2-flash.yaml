@@ -19,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: xiaomi/mimo-v2-flash
+params:
+    - defaultValue: 65536
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
 sources:
     - https://openrouter.ai/xiaomi/mimo-v2-flash/api
 thinking: true

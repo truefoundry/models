@@ -4,10 +4,8 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
 limits:
     context_window: 131072
-    max_input_tokens: 131072
     max_output_tokens: 8192
     max_tokens: 8192
 modalities:
@@ -23,3 +21,4 @@ params:
       maxValue: 8192
 sources:
     - https://openrouter.ai/google/gemma-3-27b-it:free/api
+status: deprecated

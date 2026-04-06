@@ -4,23 +4,21 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
-    - tool_choice
-    - structured_output
 limits:
-    context_window: 256000
+    context_window: 262144
 modalities:
     input:
-        - text
         - image
-    output:
-        - text
 mode: chat
 model: ministral-14b-latest
+params:
+    - defaultValue: 0.3
+      key: temperature
 sources:
     - https://docs.mistral.ai/models/ministral-3-14b-25-12
     - https://docs.mistral.ai/capabilities/function_calling
     - https://docs.mistral.ai/capabilities/vision
+    - https://docs.mistral.ai/capabilities/structured_output
 status: active
 supportedModes:
     - chat
