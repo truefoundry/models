@@ -3,12 +3,9 @@ costs:
       output_cost_per_token: 6.e-7
       region: "*"
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+    - json_output
 limits:
     context_window: 128000
-    max_input_tokens: 128000
 modalities:
     input:
         - text
@@ -19,5 +16,4 @@ mode: chat
 model: Qwen/Qwen2.5-VL-32B-Instruct
 sources:
     - https://deepinfra.com/Qwen/Qwen2.5-VL-32B-Instruct/api
-    - https://deepinfra.com/docs/advanced/function_calling
 status: active

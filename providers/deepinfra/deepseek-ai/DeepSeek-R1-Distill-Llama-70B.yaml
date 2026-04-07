@@ -3,9 +3,7 @@ costs:
       output_cost_per_token: 8.e-7
       region: "*"
 features:
-    - function_calling
     - json_output
-    - structured_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -20,6 +18,4 @@ mode: chat
 model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/api
-    - https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B
-    - https://openrouter.ai/deepseek/deepseek-r1-distill-llama-70b/api
 thinking: true
