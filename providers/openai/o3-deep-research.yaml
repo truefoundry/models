@@ -18,7 +18,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: o3-deep-research
 params:
     - defaultValue: 100000
@@ -36,4 +36,6 @@ sources:
     - https://developers.openai.com/api/docs/models/o3-deep-research
     - https://developers.openai.com/api/docs/guides/deep-research
 status: active
+supportedModes:
+    - responses
 thinking: true

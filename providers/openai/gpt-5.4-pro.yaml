@@ -25,7 +25,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.4-pro
 params:
     - defaultValue: 128000
@@ -44,4 +44,6 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.4-pro
     - https://developers.openai.com/docs/pricing
+supportedModes:
+    - responses
 thinking: true

@@ -21,7 +21,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.2-pro
 params:
     - defaultValue: 128
@@ -31,4 +31,6 @@ params:
     - key: reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.2-pro
+supportedModes:
+    - responses
 thinking: true

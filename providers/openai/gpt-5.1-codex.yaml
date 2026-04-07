@@ -20,7 +20,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.1-codex
 params:
     - defaultValue: 128000
@@ -30,4 +30,6 @@ params:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.1-codex
 status: active
+supportedModes:
+    - responses
 thinking: true
