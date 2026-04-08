@@ -5,8 +5,10 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
+    - json_output
     - prompt_caching
+    - structured_output
+    - tool_choice
 limits:
     context_window: 163840
 modalities:
@@ -18,3 +20,4 @@ mode: chat
 model: deepseek/deepseek-chat-v3-0324
 sources:
     - https://openrouter.ai/deepseek/deepseek-chat-v3-0324/api
+thinking: true

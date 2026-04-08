@@ -16,9 +16,9 @@ costs:
                 from: 128000
 features:
     - function_calling
-    - tool_choice
+    - json_output
     - prompt_caching
-    - system_messages
+    - tool_choice
 limits:
     context_window: 262144
     max_input_tokens: 258048
@@ -33,4 +33,3 @@ mode: chat
 model: qwen/qwen3-max
 sources:
     - https://openrouter.ai/qwen/qwen3-max/api
-thinking: true

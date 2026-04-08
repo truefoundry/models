@@ -5,8 +5,10 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
     - tool_choice
-    - system_messages
 limits:
     context_window: 131072
     max_output_tokens: 98304
