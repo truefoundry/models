@@ -11,6 +11,8 @@ modalities:
         - embedding
 mode: embedding
 model: sentence-transformers/multi-qa-mpnet-base-dot-v1
+removeParams:
+    - max_tokens
 sources:
     - https://deepinfra.com/sentence-transformers/multi-qa-mpnet-base-dot-v1/api
     - https://huggingface.co/sentence-transformers/multi-qa-mpnet-base-dot-v1
