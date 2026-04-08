@@ -5,11 +5,6 @@ modalities:
         - embedding
 mode: embedding
 model: google/bert-base-uncased
-params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 512
-      minValue: 1
 removeParams:
     - max_tokens
     - temperature
