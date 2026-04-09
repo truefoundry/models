@@ -69,6 +69,8 @@ function main(): void {
           fs.readFileSync(modelFilePath, 'utf-8'),
         ) as ModelConfig;
         if (!modelData.costs || modelData.costs.length === 0) continue;
+        // TODO: revert — temporarily skipping google-vertex google/ models
+        if (providerName === 'google-vertex' && modelData.model.startsWith('google/')) continue;
         configs.push(
           buildUnifiedConfig(modelData, providerName, defaultProviderParams),
         );
