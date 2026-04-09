@@ -4,6 +4,8 @@ costs:
       output_cost_per_token: 3.5e-7
       region: "*"
 features:
+    - function_calling
+    - json_output
     - prompt_caching
 limits:
     context_window: 262144
@@ -11,5 +13,10 @@ limits:
 modalities:
     input:
         - image
-mode: unknown
+        - text
+    output:
+        - text
+mode: chat
 model: google/gemma-4-26B-A4B-it
+sources:
+    - https://deepinfra.com/google/gemma-4-26B-A4B-it
