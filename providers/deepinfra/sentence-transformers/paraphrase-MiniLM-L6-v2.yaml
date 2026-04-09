@@ -11,6 +11,8 @@ modalities:
         - embedding
 mode: embedding
 model: sentence-transformers/paraphrase-MiniLM-L6-v2
+removeParams:
+    - max_tokens
 sources:
     - https://deepinfra.com/sentence-transformers/paraphrase-MiniLM-L6-v2/api
 status: active

@@ -3,9 +3,7 @@ costs:
       output_cost_per_token: 8.e-7
       region: "*"
 features:
-    - function_calling
-    - tool_choice
-    - structured_output
+    - json_output
 limits:
     context_window: 131072
     max_output_tokens: 16384

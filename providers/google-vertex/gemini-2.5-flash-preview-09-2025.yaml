@@ -1,0 +1,39 @@
+costs:
+    - cache_read_input_token_cost: 3.e-8
+      cache_storage_cost_per_token_per_hour: 0.000001
+      input_cost_per_audio_token: 0.000001
+      input_cost_per_token: 3.e-7
+      output_cost_per_token: 0.0000025
+      region: global
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - code_execution
+    - json_output
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65535
+    max_tokens: 65535
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+        - pdf
+    output:
+        - text
+mode: chat
+model: gemini-2.5-flash-preview-09-2025
+params:
+    - key: max_tokens
+      maxValue: 65535
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
+    - https://ai.google.dev/pricing
+status: preview
+thinking: true

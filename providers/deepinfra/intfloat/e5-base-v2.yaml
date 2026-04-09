@@ -11,6 +11,8 @@ modalities:
         - embedding
 mode: embedding
 model: intfloat/e5-base-v2
+removeParams:
+    - max_tokens
 sources:
     - https://deepinfra.com/intfloat/e5-base-v2/api
 status: active

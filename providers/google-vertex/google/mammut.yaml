@@ -7,6 +7,8 @@ modalities:
         - embedding
 mode: embedding
 model: mammut
+removeParams:
+    - max_tokens
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/mammut
     - https://github.com/google-deepmind/mammut
