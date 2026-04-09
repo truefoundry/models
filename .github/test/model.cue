@@ -239,6 +239,7 @@ package model
 	"moderation" |
 	"realtime" |
 	"rerank" |
+	"responses" |
 	"text_to_speech" |
 	"unknown" |
 	"video"

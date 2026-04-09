@@ -21,7 +21,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: o1-pro
 params:
     - defaultValue: false
@@ -40,4 +40,6 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/o1-pro
 status: active
+supportedModes:
+    - responses
 thinking: true

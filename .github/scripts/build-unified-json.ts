@@ -69,6 +69,9 @@ function main(): void {
           fs.readFileSync(modelFilePath, 'utf-8'),
         ) as ModelConfig;
         if (!modelData.costs || modelData.costs.length === 0) continue;
+        // TODO: revert — temporarily skipping google-vertex google/ models with unsupported modes
+        const SKIPPED_VERTEX_MODES = new Set(['text_to_speech', 'audio_transcription', 'audio_translation', 'realtime']);
+        if (providerName === 'google-vertex' && modelData.model.startsWith('google/') && SKIPPED_VERTEX_MODES.has(modelData.mode)) continue;
         configs.push(
           buildUnifiedConfig(modelData, providerName, defaultProviderParams),
         );

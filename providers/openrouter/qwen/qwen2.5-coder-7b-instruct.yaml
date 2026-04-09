@@ -3,9 +3,8 @@ costs:
       output_cost_per_token: 9.e-8
       region: "*"
 features:
+    - json_output
     - structured_output
-    - function_calling
-    - tool_choice
 limits:
     context_window: 32768
 modalities:

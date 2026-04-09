@@ -4,9 +4,9 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
     - json_output
+    - structured_output
+    - tool_choice
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -20,3 +20,4 @@ model: qwen/qwen3-235b-a22b-2507
 sources:
     - https://openrouter.ai/qwen/qwen3-235b-a22b-2507/api
 status: active
+thinking: true

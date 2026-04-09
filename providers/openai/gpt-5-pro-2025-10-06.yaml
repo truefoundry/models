@@ -21,7 +21,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5-pro-2025-10-06
 params:
     - defaultValue: 128
@@ -32,4 +32,6 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-pro
+supportedModes:
+    - responses
 thinking: true

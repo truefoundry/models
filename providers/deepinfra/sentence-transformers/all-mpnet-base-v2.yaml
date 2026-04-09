@@ -11,6 +11,8 @@ modalities:
         - embedding
 mode: embedding
 model: sentence-transformers/all-mpnet-base-v2
+removeParams:
+    - max_tokens
 sources:
     - https://deepinfra.com/sentence-transformers/all-mpnet-base-v2
 status: active

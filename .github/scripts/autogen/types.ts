@@ -94,7 +94,7 @@ export interface components {
          * @description Canonical mode values for a model
          * @enum {string}
          */
-        Mode: "audio_transcription" | "audio_translation" | "chat" | "completion" | "embedding" | "image" | "moderation" | "realtime" | "rerank" | "text_to_speech" | "unknown" | "video";
+        Mode: "audio_transcription" | "audio_translation" | "chat" | "completion" | "embedding" | "image" | "moderation" | "realtime" | "rerank" | "responses" | "text_to_speech" | "unknown" | "video";
         ModelConfig: {
             /** @description Pricing entries per region; use "*" for global/uniform pricing */
             costs?: components["schemas"]["CostWithRegion"][];

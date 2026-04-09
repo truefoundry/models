@@ -13,10 +13,9 @@ costs:
               - cost_per_token: 0.000012
                 from: 200000
 features:
-    - function_calling
-    - structured_output
-    - tool_choice
     - json_output
+    - prompt_caching
+    - structured_output
 limits:
     context_window: 2000000
 modalities:

@@ -11,6 +11,8 @@ modalities:
         - embedding
 mode: embedding
 model: intfloat/multilingual-e5-large-instruct
+removeParams:
+    - max_tokens
 sources:
     - https://deepinfra.com/intfloat/multilingual-e5-large-instruct/api
     - https://huggingface.co/intfloat/multilingual-e5-large-instruct
