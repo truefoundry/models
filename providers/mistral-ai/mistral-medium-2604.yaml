@@ -5,7 +5,10 @@ limits:
 modalities:
     input:
         - image
-mode: unknown
+        - text
+    output:
+        - text
+mode: chat
 model: mistral-medium-2604
 params:
     - defaultValue: 0.7
