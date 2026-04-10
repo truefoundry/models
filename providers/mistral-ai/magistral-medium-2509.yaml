@@ -22,6 +22,8 @@ model: magistral-medium-2509
 params:
     - defaultValue: 0.7
       key: temperature
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.mistral.ai/models/magistral-medium-1-2-25-09
     - https://docs.mistral.ai/capabilities/reasoning
