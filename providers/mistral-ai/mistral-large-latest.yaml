@@ -23,6 +23,8 @@ model: mistral-large-latest
 params:
     - defaultValue: 0.3
       key: temperature
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12
 status: active
