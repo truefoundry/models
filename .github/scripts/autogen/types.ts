@@ -112,6 +112,7 @@ export interface components {
             model: string;
             /** @description Param overrides or additions relative to the provider default */
             params?: components["schemas"]["ModelParam"][];
+            provisioning?: components["schemas"]["Provisioning"];
             /** @description Param keys to remove from the provider default */
             removeParams?: components["schemas"]["ModelParamKey"][];
             /** @description Param keys that must always be provided by callers */
@@ -139,6 +140,11 @@ export interface components {
             cost_per_token: number;
             from: number;
         };
+        /**
+         * @description How the model is made available to callers
+         * @enum {string}
+         */
+        Provisioning: "serverless" | "provisioned";
         /**
          * @description Lifecycle status of a model
          * @enum {string}
@@ -178,5 +184,6 @@ export type ModelParam = components['schemas']['ModelParam'];
 export type ModelParamKey = components['schemas']['ModelParamKey'];
 export type ModelParamType = components['schemas']['ModelParamType'];
 export type PricingTier = components['schemas']['PricingTier'];
+export type Provisioning = components['schemas']['Provisioning'];
 export type Status = components['schemas']['Status'];
 export type TieredPricing = components['schemas']['TieredPricing'];
