@@ -49,6 +49,7 @@ model: cohere.embed-multilingual-v3
 removeParams:
     - stream
     - max_tokens
+    - temperature
 sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html
