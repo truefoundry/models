@@ -1,0 +1,31 @@
+costs:
+    - input_cost_per_token: 5.6e-7
+      output_cost_per_token: 0.00000168
+      region: global
+features:
+    - function_calling
+    - structured_output
+limits:
+    context_window: 163840
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - doc
+    output:
+        - text
+mode: chat
+model: deepseek-ai/deepseek-v3-2
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+provisioning: provisioned
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-v32
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek
+status: active
+supportedModes:
+    - chat

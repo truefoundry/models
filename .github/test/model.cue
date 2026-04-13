@@ -265,6 +265,8 @@ package model
 	model: string
 	// Param overrides or additions relative to the provider default
 	params?: [...#ModelParam]
+	// How the model is made available: serverless API or dedicated/deployed capacity
+	provisioning?: #Provisioning
 	// Param keys to remove from the provider default
 	removeParams?: [...#ModelParamKey]
 	// Param keys that must always be provided by callers
@@ -283,6 +285,11 @@ package model
 	cost_per_token: number & >= 0
 	from:           int & >= 0
 }
+
+// How the model is made available to callers
+#Provisioning:
+	"serverless" |   // Managed API, pay-per-token/request
+	"provisioned"    // Dedicated capacity or user-deployed instance
 
 // Lifecycle status of a model
 #Status:
