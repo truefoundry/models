@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - json_output
+    - prompt_caching
     - structured_output
     - tool_choice
 limits:
@@ -17,3 +18,9 @@ modalities:
         - text
 mode: chat
 model: openrouter/elephant-alpha
+provisioning: serverless
+sources:
+    - https://openrouter.ai/openrouter/elephant-alpha
+status: active
+supportedModes:
+    - chat
