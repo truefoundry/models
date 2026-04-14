@@ -2,6 +2,7 @@ costs:
     - input_cost_per_token: 5.e-8
       output_cost_per_token: 2.e-7
       region: "*"
+isDeprecated: true
 limits:
     context_window: 128000
 modalities:
@@ -13,5 +14,6 @@ mode: chat
 model: allenai/olmo-2-0325-32b-instruct
 sources:
     - https://openrouter.ai/allenai/olmo-2-0325-32b-instruct/api
+status: retired
 supportedModes:
     - chat

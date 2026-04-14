@@ -7,6 +7,7 @@ features:
     - json_output
     - structured_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 128000
     max_output_tokens: 4096
@@ -20,5 +21,6 @@ mode: chat
 model: openai/gpt-4-turbo-preview
 sources:
     - https://openrouter.ai/openai/gpt-4-turbo-preview/api
+status: retired
 supportedModes:
     - chat
