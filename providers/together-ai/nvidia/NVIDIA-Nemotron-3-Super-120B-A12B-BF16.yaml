@@ -4,7 +4,14 @@ costs:
       region: "*"
 limits:
     context_window: 262144
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16
+provisioning: provisioned
+status: active
 supportedModes:
     - chat
