@@ -6,6 +6,19 @@ costs:
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
       region: ap-southeast-4
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
     - cache_creation_input_token_cost: 0.000004125
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
@@ -13,6 +26,19 @@ costs:
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
       region: ap-southeast-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
 features:
     - function_calling
     - prompt_caching
