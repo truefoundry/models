@@ -19,8 +19,8 @@ features:
 limits:
     context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 4096
-    max_tokens: 4096
+    max_output_tokens: 2048
+    max_tokens: 2048
 modalities:
     input:
         - text
@@ -28,6 +28,7 @@ modalities:
         - text
 mode: chat
 model: us.meta.llama3-3-70b-instruct-v1:0
+provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
