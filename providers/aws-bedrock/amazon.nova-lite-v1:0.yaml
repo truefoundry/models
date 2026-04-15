@@ -118,7 +118,6 @@ modalities:
         - text
         - image
         - video
-        - audio
         - pdf
         - doc
     output:
@@ -138,6 +137,7 @@ params:
       key: top_k
       maxValue: 128
       minValue: 0
+provisioning: serverless
 removeParams:
     - "n"
 sources:

@@ -14,12 +14,12 @@ costs:
       output_cost_per_token_batches: 0.00000825
       region: ap-southeast-2
 features:
+    - assistant_prefill
+    - cache_control
     - function_calling
+    - prompt_caching
     - system_messages
     - tool_choice
-    - cache_control
-    - prompt_caching
-    - assistant_prefill
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -40,6 +40,7 @@ params:
       key: max_tokens
       maxValue: 64000
       minValue: 1
+provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
