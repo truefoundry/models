@@ -11,6 +11,7 @@ features:
     - structured_output
     - prompt_caching
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 2000000
 modalities:
@@ -22,8 +23,9 @@ modalities:
 mode: responses
 model: grok-4.20-multi-agent-beta-0309-exp-ma
 removeParams:
-    - reasoning_effort
-status: preview
+    - max_tokens
+    - max_completion_tokens
+status: retired
 supportedModes:
     - responses
 thinking: true

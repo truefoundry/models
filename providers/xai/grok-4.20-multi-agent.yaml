@@ -20,7 +20,8 @@ modalities:
 mode: responses
 model: grok-4.20-multi-agent
 removeParams:
-    - reasoning_effort
+    - max_tokens
+    - max_completion_tokens
 status: active
 supportedModes:
     - responses
