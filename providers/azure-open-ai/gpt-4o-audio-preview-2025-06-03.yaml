@@ -7,8 +7,8 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - tool_choice
     - system_messages
+    - tool_choice
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -26,6 +26,7 @@ model: gpt-4o-audio-preview-2025-06-03
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 sources:
     - https://developers.openai.com/docs/models/gpt-4o-audio-preview
 status: preview

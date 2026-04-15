@@ -11,10 +11,12 @@ limits:
 modalities:
     input:
         - audio
+        - text
     output:
         - text
 mode: audio_transcription
 model: gpt-4o-transcribe-2025-03-20
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature

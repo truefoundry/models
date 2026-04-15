@@ -19,10 +19,10 @@ deprecationDate: "2026-08-07"
 features:
     - function_calling
     - parallel_function_calling
-    - system_messages
-    - tool_choice
     - prompt_caching
     - structured_output
+    - system_messages
+    - tool_choice
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -42,6 +42,7 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active

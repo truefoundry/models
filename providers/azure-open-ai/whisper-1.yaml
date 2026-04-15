@@ -10,6 +10,7 @@ modalities:
         - text
 mode: audio_transcription
 model: whisper-1
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -24,5 +25,5 @@ sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
-    - audio_translation
     - audio_transcription
+    - audio_translation

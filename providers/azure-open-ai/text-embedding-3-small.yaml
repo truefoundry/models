@@ -1,7 +1,4 @@
 costs:
-    - input_cost_per_token: 2.2e-8
-      output_cost_per_token: 0
-      region: datazone_eu
     - input_cost_per_token: 2.e-8
       output_cost_per_token: 0
       region: "*"
@@ -15,6 +12,7 @@ modalities:
         - embedding
 mode: embedding
 model: text-embedding-3-small
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -25,6 +23,8 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
     - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
     - embedding

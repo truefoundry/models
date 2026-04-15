@@ -6,6 +6,7 @@ costs:
 deprecationDate: "2026-11-15"
 features:
     - function_calling
+    - parallel_function_calling
     - prompt_caching
     - structured_output
     - system_messages
@@ -21,7 +22,7 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: responses
 model: codex-mini-2025-05-16
 params:
     - defaultValue: 100000
@@ -31,6 +32,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -42,5 +44,5 @@ sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

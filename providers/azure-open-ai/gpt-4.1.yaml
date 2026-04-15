@@ -26,6 +26,7 @@ features:
     - prompt_caching
     - structured_output
 limits:
+    context_window: 1047576
     max_input_tokens: 1047576
     max_output_tokens: 32768
     max_tokens: 32768
@@ -42,9 +43,7 @@ params:
       key: max_completion_tokens
       maxValue: 32768
       minValue: 1
-    - defaultValue: null
-      key: response_format
-      type: string
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
@@ -52,3 +51,4 @@ sources:
 status: active
 supportedModes:
     - chat
+    - responses

@@ -1,8 +1,9 @@
 costs:
-    - input_cost_per_audio_token: 0.00000125
+    - input_cost_per_audio_token: 0.000003
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.000005
       region: "*"
+deprecationDate: "2026-12-15"
 limits:
     context_window: 16000
     max_input_tokens: 16000
@@ -16,6 +17,10 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-4o-mini-transcribe
+params:
+    - key: max_tokens
+      maxValue: 2000
+provisioning: serverless
 removeParams:
     - top_p
     - "n"

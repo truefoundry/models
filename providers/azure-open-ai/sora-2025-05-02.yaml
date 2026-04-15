@@ -5,6 +5,7 @@ modalities:
         - video
 mode: video
 model: sora-2025-05-02
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -17,6 +18,7 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/video-generation
 status: preview
 supportedModes:
     - video

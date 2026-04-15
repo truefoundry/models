@@ -4,6 +4,7 @@ features:
     - system_messages
     - tool_choice
     - structured_output
+    - prompt_caching
 limits:
     context_window: 200000
 modalities:
@@ -17,9 +18,11 @@ model: model-router
 params:
     - key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/quotas-limits
 status: active
 supportedModes:
     - chat

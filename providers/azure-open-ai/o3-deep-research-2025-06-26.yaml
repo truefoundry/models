@@ -5,7 +5,10 @@ costs:
       region: "*"
 deprecationDate: "2026-12-26"
 features:
+    - function_calling
+    - parallel_function_calling
     - prompt_caching
+    - structured_output
     - system_messages
 limits:
     context_window: 200000
@@ -25,6 +28,7 @@ params:
       key: max_completion_tokens
       maxValue: 100000
       minValue: 1
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -39,4 +43,5 @@ sources:
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

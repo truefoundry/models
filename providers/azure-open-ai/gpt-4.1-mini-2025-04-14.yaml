@@ -35,8 +35,10 @@ model: gpt-4.1-mini-2025-04-14
 params:
     - key: max_tokens
       maxValue: 32768
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
     - chat
+    - responses

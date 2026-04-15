@@ -25,7 +25,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.1-codex-max-2025-12-04
 params:
     - defaultValue: 128000
@@ -34,9 +34,10 @@ params:
       minValue: 1
     - key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

@@ -1,6 +1,7 @@
 costs:
     - input_cost_per_character: 0.000015
       region: "*"
+deprecationDate: "2026-06-18"
 modalities:
     input:
         - text
@@ -8,6 +9,7 @@ modalities:
         - audio
 mode: text_to_speech
 model: azure-tts
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -18,5 +20,6 @@ removeParams:
     - stream
     - tool_choice
     - parallel_tool_calls
+status: active
 supportedModes:
     - text_to_speech

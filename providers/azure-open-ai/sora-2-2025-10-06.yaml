@@ -8,6 +8,7 @@ modalities:
         - video
 mode: video
 model: sora-2-2025-10-06
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -20,6 +21,7 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://azure.microsoft.com/en-us/products/ai-services/video-generation
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: preview
 supportedModes:
     - video
