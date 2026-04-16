@@ -1,2 +1,46 @@
-mode: unknown
+costs:
+    - cache_creation_input_token_cost: 0.00000625
+      cache_read_input_token_cost: 5.e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - cache_control
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - assistant_prefill
+    - code_execution
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+    tool_use_system_prompt_tokens: 346
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
 model: claude-opus-4-7
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/build-with-claude/vision
+    - https://platform.claude.com/docs/en/build-with-claude/extended-thinking
+    - https://platform.claude.com/docs/en/build-with-claude/pdf-support
+status: active
+supportedModes:
+    - chat
+thinking: true
