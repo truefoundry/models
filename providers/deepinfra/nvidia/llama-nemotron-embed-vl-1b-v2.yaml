@@ -13,10 +13,11 @@ modalities:
         - embedding
 mode: embedding
 model: nvidia/llama-nemotron-embed-vl-1b-v2
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
-    - https://deepinfra.com/nvidia/llama-nemotron-embed-vl-1b-v2/api
-    - https://huggingface.co/nvidia/llama-nemotron-embed-vl-1b-v2
+    - https://deepinfra.com/nvidia/llama-nemotron-embed-vl-1b-v2
+status: active
 supportedModes:
     - embedding

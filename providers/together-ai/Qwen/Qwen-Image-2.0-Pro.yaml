@@ -1,3 +1,8 @@
+costs:
+    - output_cost_per_image: 0.08
+      region: "*"
+limits:
+    max_input_tokens: 1000
 modalities:
     input:
         - text
@@ -6,9 +11,12 @@ modalities:
         - image
 mode: image
 model: Qwen/Qwen-Image-2.0-Pro
+provisioning: serverless
 sources:
     - https://docs.together.ai/docs/images-overview
     - https://docs.together.ai/docs/serverless-models#image-models
+    - https://www.together.ai/models/qwen-image-20-pro
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - image

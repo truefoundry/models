@@ -46,10 +46,14 @@ modalities:
         - embedding
 mode: embedding
 model: cohere.embed-multilingual-v3
+provisioning: serverless
 removeParams:
     - stream
     - max_tokens
     - temperature
+    - top_p
+    - "n"
+    - stop
 sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html

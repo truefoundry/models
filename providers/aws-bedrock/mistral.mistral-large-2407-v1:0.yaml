@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - system_messages
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -22,6 +23,7 @@ params:
       key: max_tokens
       maxValue: 8192
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-large-2407.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
