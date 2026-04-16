@@ -7,7 +7,6 @@ features:
     - function_calling
     - json_output
     - prompt_caching
-    - structured_output
     - tool_choice
 limits:
     context_window: 200000
@@ -27,6 +26,8 @@ params:
       key: max_tokens
       maxValue: 100000
       minValue: 1
+removeParams:
+    - temperature
 sources:
     - https://openrouter.ai/openai/o4-mini-deep-research/api
 supportedModes:
