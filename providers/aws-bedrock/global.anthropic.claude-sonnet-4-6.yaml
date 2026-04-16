@@ -250,9 +250,11 @@ params:
       key: max_tokens
       maxValue: 64000
       minValue: 1
+provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
 status: active
 supportedModes:
     - chat

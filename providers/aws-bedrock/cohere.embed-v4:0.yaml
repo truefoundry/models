@@ -9,6 +9,7 @@ costs:
       output_cost_per_token: 0
       region: ap-northeast-1
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     output_vector_size: 1536
 modalities:
@@ -24,6 +25,7 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 removeParams:
     - temperature
     - top_p

@@ -14,6 +14,7 @@ costs:
 features:
     - function_calling
     - system_messages
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -33,11 +34,12 @@ params:
       key: max_tokens
       maxValue: 4096
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-pixtral-large.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
-    - https://docs.mistral.ai/models/pixtral-large-24-11
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
 status: active
 supportedModes:
     - chat

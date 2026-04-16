@@ -1,10 +1,17 @@
+costs:
+    - output_cost_per_image: 0.04
+      region: "*"
 modalities:
+    input:
+        - text
     output:
         - image
 mode: image
 model: Qwen/Qwen-Image-2.0
+provisioning: serverless
 sources:
     - https://docs.together.ai/docs/serverless-models#image-models
+    - https://together.ai/pricing
 status: active
 supportedModes:
     - image

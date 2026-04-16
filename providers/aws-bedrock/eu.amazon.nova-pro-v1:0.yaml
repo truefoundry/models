@@ -1,15 +1,21 @@
 costs:
     - cache_read_input_token_cost: 2.5e-7
       input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5.e-7
       output_cost_per_token: 0.000004
+      output_cost_per_token_batches: 0.000002
       region: il-central-1
     - cache_read_input_token_cost: 2.95e-7
       input_cost_per_token: 0.00000118
+      input_cost_per_token_batches: 5.9e-7
       output_cost_per_token: 0.00000472
+      output_cost_per_token_batches: 0.00000236
       region: eu-west-3
     - cache_read_input_token_cost: 2.3e-7
       input_cost_per_token: 9.2e-7
+      input_cost_per_token_batches: 4.6e-7
       output_cost_per_token: 0.00000368
+      output_cost_per_token_batches: 0.00000184
       region: eu-west-1
     - cache_read_input_token_cost: 2.2e-7
       input_cost_per_token: 8.8e-7
@@ -21,11 +27,15 @@ costs:
       region: eu-south-1
     - cache_read_input_token_cost: 2.175e-7
       input_cost_per_token: 8.7e-7
+      input_cost_per_token_batches: 4.35e-7
       output_cost_per_token: 0.00000348
+      output_cost_per_token_batches: 0.00000174
       region: eu-north-1
     - cache_read_input_token_cost: 2.625e-7
       input_cost_per_token: 0.00000105
+      input_cost_per_token_batches: 5.25e-7
       output_cost_per_token: 0.0000042
+      output_cost_per_token_batches: 0.0000021
       region: eu-central-1
 features:
     - function_calling
@@ -61,6 +71,7 @@ params:
       maxValue: 128
       minValue: 0
     - key: reasoning_effort
+provisioning: serverless
 removeParams:
     - "n"
 sources:
@@ -69,6 +80,7 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
 status: active
 supportedModes:
     - chat

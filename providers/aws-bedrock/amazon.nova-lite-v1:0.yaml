@@ -118,7 +118,6 @@ modalities:
         - text
         - image
         - video
-        - audio
         - pdf
         - doc
     output:
@@ -138,13 +137,11 @@ params:
       key: top_k
       maxValue: 128
       minValue: 0
+provisioning: serverless
 removeParams:
     - "n"
 sources:
-    - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
-    - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
-    - https://docs.aws.amazon.com/nova/latest/userguide/modalities-image.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html
 status: active
 supportedModes:
     - chat
