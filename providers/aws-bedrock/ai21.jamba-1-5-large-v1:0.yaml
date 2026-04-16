@@ -3,7 +3,9 @@ costs:
       output_cost_per_token: 0.000008
       region: us-east-1
 features:
+    - function_calling
     - system_messages
+    - json_output
 limits:
     context_window: 256000
     max_input_tokens: 256000
@@ -33,6 +35,7 @@ params:
       key: "n"
       maxValue: 16
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-jamba.html
     - https://www.ai21.com/jamba

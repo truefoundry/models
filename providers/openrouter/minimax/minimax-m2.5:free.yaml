@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - json_output
+    - system_messages
 limits:
     context_window: 196608
     max_output_tokens: 196608
@@ -16,8 +17,11 @@ modalities:
         - text
 mode: chat
 model: minimax/minimax-m2.5:free
+provisioning: serverless
 sources:
+    - https://openrouter.ai/minimax/minimax-m2.5:free
     - https://openrouter.ai/minimax/minimax-m2.5:free/api
+status: active
 supportedModes:
     - chat
 thinking: true

@@ -36,8 +36,12 @@ costs:
     - input_cost_per_token: 8.e-8
       output_cost_per_token: 3.6e-7
       region: ap-northeast-1
+features:
+    - system_messages
 limits:
     context_window: 128000
+    max_output_tokens: 16000
+    max_tokens: 16000
 messages:
     options:
         - system
@@ -58,11 +62,13 @@ params:
       minValue: 1
     - key: temperature
       maxValue: 2
+provisioning: serverless
 removeParams:
     - max_tokens
     - "n"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-20b.html
 status: active
 supportedModes:
     - chat

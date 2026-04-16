@@ -29,6 +29,7 @@ costs:
       region: eu-central-1
 features:
     - function_calling
+    - system_messages
     - tool_choice
     - prompt_caching
     - assistant_prefill
@@ -53,12 +54,15 @@ params:
       key: max_tokens
       maxValue: 10000
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
+    - https://docs.aws.amazon.com/nova/latest/userguide/tool-choice.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
 status: active
 supportedModes:
     - chat

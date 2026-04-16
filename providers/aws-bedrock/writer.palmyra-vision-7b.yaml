@@ -8,8 +8,10 @@ costs:
     - input_cost_per_image: 0.005
       output_cost_per_token: 0.0000075
       region: us-east-1
+deprecationDate: "2026-07-13"
 features:
     - system_messages
+isDeprecated: true
 limits:
     context_window: 8000
     max_output_tokens: 4096
@@ -28,7 +30,6 @@ params:
       maxValue: 4096
       minValue: 1
 sources:
-    - https://dev.writer.com/home/models
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-writer-palmyra.html
 status: active
 supportedModes:
