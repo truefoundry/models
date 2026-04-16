@@ -42,6 +42,14 @@ params:
       key: max_tokens
       maxValue: 5000
       minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - key: top_k
+      maxValue: 128
+      minValue: 0
+provisioning: serverless
 sources:
     - https://aws.amazon.com/nova/pricing/
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
@@ -49,6 +57,7 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
 status: active
 supportedModes:
     - chat

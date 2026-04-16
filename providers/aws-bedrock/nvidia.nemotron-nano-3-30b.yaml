@@ -32,8 +32,8 @@ costs:
 features:
     - function_calling
 limits:
-    context_window: 262144
-    max_input_tokens: 262144
+    context_window: 256000
+    max_input_tokens: 256000
     max_output_tokens: 8192
     max_tokens: 8192
 modalities:
@@ -46,6 +46,7 @@ model: nvidia.nemotron-nano-3-30b
 params:
     - key: max_tokens
       maxValue: 8192
+provisioning: serverless
 sources:
     - https://aws.amazon.com/about-aws/whats-new/2025/12/nvidia-nemotron-3-nano-amazon-bedrock/
     - https://build.nvidia.com/nvidia/nemotron-3-nano-30b-a3b/modelcard

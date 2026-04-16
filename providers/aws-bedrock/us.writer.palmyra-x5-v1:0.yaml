@@ -13,7 +13,6 @@ costs:
       region: us-east-1
 features:
     - function_calling
-    - structured_output
 limits:
     context_window: 1048192
     max_input_tokens: 1040000
@@ -44,12 +43,11 @@ params:
     - defaultValue: 0
       key: min_tokens
       minValue: 0
+provisioning: serverless
 removeParams:
     - "n"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-palmyra-x5.html
-    - https://aws.amazon.com/marketplace/pp/prodview-aaysji6xh2mgi
-    - https://aws.amazon.com/bedrock/writer/
 status: active
 supportedModes:
     - chat
