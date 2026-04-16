@@ -1,8 +1,6 @@
 costs:
     - output_cost_per_image: 0.08
       region: us-west-2
-    - output_cost_per_image: 0.08
-      region: us-east-1
 modalities:
     input:
         - text
@@ -21,7 +19,6 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html
-    - https://aws.amazon.com/marketplace/pp/prodview-y6br3in45efzu
 status: active
 supportedModes:
     - image
