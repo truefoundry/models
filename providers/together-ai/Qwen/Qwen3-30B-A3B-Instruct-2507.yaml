@@ -1,7 +1,7 @@
 features:
     - function_calling
-    - tool_choice
     - json_output
+    - tool_choice
 limits:
     context_window: 262144
     max_output_tokens: 16384
@@ -13,7 +13,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-30B-A3B-Instruct-2507
+provisioning: serverless
 sources:
     - https://huggingface.co/Qwen/Qwen3-30B-A3B-Instruct-2507
+status: active
 supportedModes:
     - chat

@@ -1,11 +1,11 @@
 costs:
-    - input_cost_per_query: 0.000001
+    - input_cost_per_query: 0.001
       region: us-west-2
-    - input_cost_per_query: 0.000001
+    - input_cost_per_query: 0.001
       region: eu-central-1
-    - input_cost_per_query: 0.000001
+    - input_cost_per_query: 0.001
       region: ca-central-1
-    - input_cost_per_query: 0.000001
+    - input_cost_per_query: 0.001
       region: ap-northeast-1
 modalities:
     input:
@@ -14,6 +14,7 @@ modalities:
         - text
 mode: rerank
 model: amazon.rerank-v1:0
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
