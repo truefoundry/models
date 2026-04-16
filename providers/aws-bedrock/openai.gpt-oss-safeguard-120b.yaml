@@ -29,11 +29,19 @@ costs:
     - input_cost_per_token: 1.8e-7
       output_cost_per_token: 7.1e-7
       region: ap-northeast-1
+features:
+    - function_calling
 limits:
     context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 8192
-    max_tokens: 8192
+    max_output_tokens: 16000
+    max_tokens: 16000
+messages:
+    options:
+        - system
+        - developer
+        - user
+        - assistant
 modalities:
     input:
         - text
@@ -44,10 +52,13 @@ model: openai.gpt-oss-safeguard-120b
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 8192
+      maxValue: 16000
       minValue: 1
+provisioning: serverless
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-safeguard-120b.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html
 status: active
 supportedModes:
     - chat
+    - responses

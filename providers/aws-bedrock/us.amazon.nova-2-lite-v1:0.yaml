@@ -29,8 +29,8 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 65535
-    max_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -43,10 +43,11 @@ modalities:
 mode: chat
 model: us.amazon.nova-2-lite-v1:0
 params:
-    - defaultValue: 65535
+    - defaultValue: 65536
       key: max_tokens
-      maxValue: 65535
+      maxValue: 65536
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
