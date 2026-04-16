@@ -11,12 +11,6 @@ costs:
     - input_cost_per_token: 6.1e-7
       output_cost_per_token: 0.00000182
       region: sa-east-1
-    - input_cost_per_token: 5.9e-7
-      output_cost_per_token: 0.00000176
-      region: eu-west-1
-    - input_cost_per_token: 5.9e-7
-      output_cost_per_token: 0.00000176
-      region: eu-south-1
     - input_cost_per_token: 5.15e-7
       output_cost_per_token: 0.000001545
       region: ap-southeast-2
@@ -49,10 +43,20 @@ params:
       key: max_tokens
       maxValue: 8192
       minValue: 1
+    - defaultValue: 0.7
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 1
+      key: top_p
+      maxValue: 1
+      minValue: 0
+provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/mistral-large-3-25-12
     - https://docs.mistral.ai/capabilities/vision/
     - https://docs.mistral.ai/capabilities/function_calling/
+    - https://docs.mistral.ai/capabilities/structured_output/
 status: active
 supportedModes:
     - chat

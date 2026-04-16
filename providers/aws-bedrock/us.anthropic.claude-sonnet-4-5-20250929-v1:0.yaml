@@ -65,11 +65,13 @@ params:
       type: number
     - key: tool_choice
       type: json
+provisioning: serverless
 removeParams:
     - top_p
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
 status: active
 supportedModes:
     - chat

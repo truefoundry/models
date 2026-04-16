@@ -25,10 +25,13 @@ params:
       key: temperature
       maxValue: 2
       minValue: 0
+    - key: top_p
+      minValue: 0.01
     - defaultValue: 1
       key: "n"
       maxValue: 16
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-jamba.html
 status: active
