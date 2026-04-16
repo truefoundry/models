@@ -240,6 +240,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -249,10 +250,12 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://platform.claude.com/docs/en/build-with-claude/pdf-support
 status: active
 supportedModes:
     - chat
