@@ -54,9 +54,13 @@ model: openai.gpt-oss-120b-1:0
 params:
     - key: max_tokens
       maxValue: 32768
+    - key: temperature
+      maxValue: 2
+provisioning: serverless
 removeParams:
     - stream
     - stop
+    - "n"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html
 status: active
