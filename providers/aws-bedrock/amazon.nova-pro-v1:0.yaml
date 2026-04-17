@@ -98,6 +98,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
+    - assistant_prefill
 limits:
     context_window: 300000
     max_output_tokens: 5000
@@ -125,6 +126,7 @@ params:
     - key: top_k
       maxValue: 128
       minValue: 0
+provisioning: serverless
 removeParams:
     - "n"
 sources:

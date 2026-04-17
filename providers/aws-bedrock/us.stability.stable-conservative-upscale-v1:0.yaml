@@ -1,9 +1,9 @@
 costs:
-    - input_cost_per_image: 0
+    - output_cost_per_image: 0.4
       region: us-west-2
-    - input_cost_per_image: 0
+    - output_cost_per_image: 0.4
       region: us-east-2
-    - input_cost_per_image: 0
+    - output_cost_per_image: 0.4
       region: us-east-1
 messages:
     options:
@@ -21,6 +21,7 @@ params:
       key: seed
       maxValue: 4294967294
       minValue: 0
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
