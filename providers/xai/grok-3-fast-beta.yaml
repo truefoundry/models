@@ -21,5 +21,10 @@ modalities:
         - text
 mode: chat
 model: grok-3-fast-beta
+params:
+    - key: max_tokens
+      maxValue: 131072
+provisioning: serverless
+status: active
 supportedModes:
     - chat
