@@ -37,7 +37,12 @@ params:
       maxValue: 128000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 sources:
+    - https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-7
     - https://platform.claude.com/docs/en/build-with-claude/vision
     - https://platform.claude.com/docs/en/build-with-claude/extended-thinking
     - https://platform.claude.com/docs/en/build-with-claude/pdf-support

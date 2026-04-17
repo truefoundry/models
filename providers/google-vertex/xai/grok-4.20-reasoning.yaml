@@ -1,2 +1,27 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2.e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: global
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 200000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: xai/grok-4.20-reasoning
+provisioning: serverless
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/grok/grok-4-20
+    - https://docs.x.ai/developers/models#models-and-pricing
+status: preview
+supportedModes:
+    - chat
+thinking: true
