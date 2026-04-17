@@ -22,6 +22,7 @@ costs:
 features:
     - function_calling
     - system_messages
+    - tool_choice
 limits:
     context_window: 1000000
     max_output_tokens: 65536
@@ -40,6 +41,7 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+provisioning: serverless
 sources:
     - https://aws.amazon.com/nova/models/
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html

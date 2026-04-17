@@ -14,6 +14,7 @@ modalities:
         - image
 mode: image
 model: us.stability.stable-fast-upscale-v1:0
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -23,6 +24,7 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-stability-ai-stable-image-fast-upscale.html
 status: active
 supportedModes:
     - image

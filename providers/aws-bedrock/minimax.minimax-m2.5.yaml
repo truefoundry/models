@@ -83,6 +83,7 @@ model: minimax.minimax-m2.5
 params:
     - key: max_tokens
       maxValue: 8000
+provisioning: serverless
 removeParams:
     - "n"
     - stop
@@ -90,7 +91,6 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2-5.html
     - https://platform.minimax.io/docs/guides/pricing-paygo
     - https://platform.minimax.io/docs/api-reference/text-anthropic-api
-    - https://www.minimax.io/news/minimax-m25
 status: active
 supportedModes:
     - chat

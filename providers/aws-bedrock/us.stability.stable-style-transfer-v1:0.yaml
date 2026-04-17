@@ -13,6 +13,7 @@ modalities:
         - image
 mode: image
 model: us.stability.stable-style-transfer-v1:0
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -22,7 +23,6 @@ removeParams:
     - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/stable-image-services.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-stability-ai-stable-image-style-transfer.html
 status: active
 supportedModes:
