@@ -24,8 +24,11 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m2.7/api
+    - https://openrouter.ai/minimax/minimax-m2.7
+status: active
 supportedModes:
     - chat
 thinking: true
