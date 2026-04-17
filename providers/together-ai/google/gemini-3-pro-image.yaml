@@ -1,11 +1,7 @@
 costs:
-    - input_cost_per_image: 0.134
+    - output_cost_per_image: 0.134
       output_cost_per_image_4k: 0.24
       region: "*"
-limits:
-    max_input_tokens: 65536
-    max_output_tokens: 32768
-    max_tokens: 32768
 modalities:
     input:
         - text
@@ -14,6 +10,7 @@ modalities:
         - image
 mode: image
 model: google/gemini-3-pro-image
+provisioning: serverless
 sources:
     - https://docs.together.ai/docs/serverless-models
 status: active

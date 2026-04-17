@@ -6,6 +6,7 @@ costs:
 features:
     - function_calling
     - structured_output
+    - json_output
 limits:
     context_window: 228700
 modalities:
@@ -15,7 +16,7 @@ modalities:
         - text
 mode: chat
 model: MiniMaxAI/MiniMax-M2.5-FP4
-provisioning: provisioned
+provisioning: serverless
 status: active
 supportedModes:
     - chat
