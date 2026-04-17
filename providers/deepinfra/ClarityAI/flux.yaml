@@ -4,13 +4,14 @@ costs:
 modalities:
     input:
         - image
+        - text
     output:
         - image
 mode: image
 model: ClarityAI/flux
+provisioning: serverless
 sources:
     - https://deepinfra.com/ClarityAI/flux
-    - https://deepinfra.com/ClarityAI/flux/api
 status: active
 supportedModes:
     - image

@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_token: 8.e-9
+    - input_cost_per_token: 5.e-9
       region: "*"
 limits:
     max_input_tokens: 512
@@ -11,11 +11,11 @@ modalities:
         - embedding
 mode: embedding
 model: thenlper/gte-base
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
     - https://deepinfra.com/thenlper/gte-base
-    - https://deepinfra.com/thenlper/gte-base/api
 status: active
 supportedModes:
     - embedding

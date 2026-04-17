@@ -3,13 +3,14 @@ costs:
       region: "*"
 modalities:
     input:
-        - image
+        - text
     output:
         - image
 mode: image
 model: Bria/Bria-3.2-vector
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Bria/Bria-3.2-vector/api
+    - https://deepinfra.com/Bria/Bria-3.2-vector
 status: active
 supportedModes:
     - image
