@@ -8,6 +8,7 @@ costs:
 features:
     - function_calling
     - structured_output
+    - prompt_caching
 limits:
     context_window: 2000000
 modalities:
@@ -18,10 +19,9 @@ modalities:
         - text
 mode: chat
 model: grok-4-fast-non-reasoning-latest
+provisioning: serverless
 removeParams:
     - reasoning_effort
-sources:
-    - https://docs.x.ai/developers/models#models-and-pricing
 status: active
 supportedModes:
     - chat

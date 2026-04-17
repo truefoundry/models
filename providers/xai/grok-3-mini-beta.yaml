@@ -5,9 +5,9 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
     - json_output
+    - structured_output
+    - tool_choice
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -26,6 +26,8 @@ params:
     - defaultValue: low
       key: reasoning_effort
       type: string
+provisioning: serverless
+status: preview
 supportedModes:
     - chat
 thinking: true

@@ -23,12 +23,12 @@ params:
     - defaultValue: high
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - "n"
 sources:
+    - https://openrouter.ai/mistralai/mistral-small-2603
     - https://openrouter.ai/mistralai/mistral-small-2603/api
-    - https://docs.mistral.ai/getting-started/models/
-    - https://docs.mistral.ai/capabilities/reasoning/
 supportedModes:
     - chat
 thinking: true

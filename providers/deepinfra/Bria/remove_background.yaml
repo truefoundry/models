@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_image: 0
+    - input_cost_per_image: 0.018
       region: "*"
 modalities:
     input:
@@ -8,8 +8,9 @@ modalities:
         - image
 mode: image
 model: Bria/remove_background
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Bria/remove_background/api
+    - https://deepinfra.com/Bria/remove_background
 status: active
 supportedModes:
     - image

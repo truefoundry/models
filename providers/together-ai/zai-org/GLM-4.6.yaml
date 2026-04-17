@@ -4,9 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - json_output
-    - structured_output
-    - tool_choice
 limits:
     context_window: 198000
     max_output_tokens: 128000
@@ -22,6 +19,8 @@ provisioning: provisioned
 sources:
     - https://www.together.ai/models/glm-4-6
     - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/json-mode
+    - https://docs.together.ai/docs/function-calling
 status: active
 supportedModes:
     - chat
