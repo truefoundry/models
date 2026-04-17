@@ -8,7 +8,6 @@ costs:
 features:
     - function_calling
     - structured_output
-    - prompt_caching
 limits:
     context_window: 200000
     max_output_tokens: 128000
@@ -25,6 +24,7 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 removeParams:
     - reasoning_effort
 sources:

@@ -3,12 +3,15 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
         - image
     output:
         - image
 mode: image
 model: Wan-AI/Wan2.6-Image-Edit
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Wan-AI/Wan2.6-Image-Edit/api
+    - https://deepinfra.com/Wan-AI/Wan2.6-Image-Edit
+status: active
 supportedModes:
     - image

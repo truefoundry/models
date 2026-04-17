@@ -4,17 +4,24 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
+    - parallel_function_calling
     - structured_output
+    - tool_choice
 limits:
     context_window: 262144
 modalities:
     input:
-        - text
         - image
+        - text
     output:
         - text
 mode: chat
 model: Qwen/Qwen3.5-9B
+provisioning: serverless
+sources:
+    - https://docs.together.ai/docs/function-calling
+    - https://docs.together.ai/docs/json-mode
 status: active
 supportedModes:
     - chat
