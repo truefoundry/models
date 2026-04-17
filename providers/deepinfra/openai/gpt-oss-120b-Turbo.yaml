@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
+    - json_output
     - prompt_caching
 limits:
     context_window: 131072
@@ -18,8 +18,8 @@ mode: chat
 model: openai/gpt-oss-120b-Turbo
 params:
     - key: reasoning_effort
+provisioning: serverless
 sources:
-    - https://deepinfra.com/openai/gpt-oss-120b-Turbo/api
     - https://deepinfra.com/openai/gpt-oss-120b-Turbo
 status: active
 supportedModes:
