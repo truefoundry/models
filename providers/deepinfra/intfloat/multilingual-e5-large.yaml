@@ -11,10 +11,11 @@ modalities:
         - embedding
 mode: embedding
 model: intfloat/multilingual-e5-large
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
-    - https://deepinfra.com/intfloat/multilingual-e5-large/api
+    - https://deepinfra.com/intfloat/multilingual-e5-large
 status: active
 supportedModes:
     - embedding
