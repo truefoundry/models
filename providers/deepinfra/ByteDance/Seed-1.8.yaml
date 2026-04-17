@@ -15,6 +15,7 @@ costs:
                 from: 128000
 features:
     - function_calling
+    - json_output
     - prompt_caching
 limits:
     context_window: 256000
@@ -28,8 +29,9 @@ modalities:
         - text
 mode: chat
 model: ByteDance/Seed-1.8
+provisioning: serverless
 sources:
-    - https://deepinfra.com/ByteDance/Seed-1.8/api
+    - https://deepinfra.com/ByteDance/Seed-1.8
 supportedModes:
     - chat
 thinking: true
