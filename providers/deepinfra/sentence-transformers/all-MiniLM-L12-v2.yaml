@@ -11,10 +11,11 @@ modalities:
         - embedding
 mode: embedding
 model: sentence-transformers/all-MiniLM-L12-v2
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
-    - https://deepinfra.com/sentence-transformers/all-MiniLM-L12-v2/api
+    - https://deepinfra.com/sentence-transformers/all-MiniLM-L12-v2
 status: active
 supportedModes:
     - embedding
