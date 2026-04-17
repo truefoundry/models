@@ -3,11 +3,13 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
         - image
     output:
         - image
 mode: image
 model: google/imagen-4.0-ultra
+provisioning: serverless
 sources:
     - https://www.together.ai/pricing
     - https://docs.together.ai/docs/images-overview
