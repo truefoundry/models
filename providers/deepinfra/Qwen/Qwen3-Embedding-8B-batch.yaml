@@ -8,15 +8,16 @@ limits:
 modalities:
     input:
         - text
+        - image
     output:
         - embedding
 mode: embedding
 model: Qwen/Qwen3-Embedding-8B-batch
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
-    - https://deepinfra.com/Qwen/Qwen3-Embedding-8B-batch/api
-    - https://huggingface.co/Qwen/Qwen3-Embedding-8B
+    - https://deepinfra.com/Qwen/Qwen3-Embedding-8B-batch
 status: active
 supportedModes:
     - embedding

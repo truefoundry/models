@@ -5,6 +5,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
     - prompt_caching
 limits:
     context_window: 196608
@@ -17,8 +18,10 @@ modalities:
         - text
 mode: chat
 model: MiniMaxAI/MiniMax-M2.5
+provisioning: serverless
 sources:
-    - https://deepinfra.com/MiniMaxAI/MiniMax-M2.5/api
+    - https://deepinfra.com/MiniMaxAI/MiniMax-M2.5
+status: active
 supportedModes:
     - chat
 thinking: true

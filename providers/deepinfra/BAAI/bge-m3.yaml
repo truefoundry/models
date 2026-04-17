@@ -8,13 +8,16 @@ limits:
 modalities:
     input:
         - text
+        - image
     output:
         - embedding
 mode: embedding
 model: BAAI/bge-m3
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
-    - https://deepinfra.com/BAAI/bge-m3/api
+    - https://deepinfra.com/BAAI/bge-m3
+status: active
 supportedModes:
     - embedding
