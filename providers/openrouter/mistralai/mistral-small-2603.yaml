@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 1.5e-8
+    - cache_read_input_token_cost: 1.5e-7
       input_cost_per_token: 1.5e-7
       output_cost_per_token: 6.e-7
       region: "*"
@@ -23,12 +23,12 @@ params:
     - defaultValue: high
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - "n"
 sources:
+    - https://openrouter.ai/mistralai/mistral-small-2603
     - https://openrouter.ai/mistralai/mistral-small-2603/api
-    - https://docs.mistral.ai/getting-started/models/
-    - https://docs.mistral.ai/capabilities/reasoning/
 supportedModes:
     - chat
 thinking: true
