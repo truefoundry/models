@@ -13,6 +13,7 @@ modalities:
         - text
 mode: audio_transcription
 model: whisper-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -28,3 +29,4 @@ sources:
 status: active
 supportedModes:
     - audio_transcription
+    - audio_translation

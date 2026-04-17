@@ -7,7 +7,6 @@ features:
     - function_calling
     - json_output
     - prompt_caching
-    - structured_output
     - tool_choice
 limits:
     context_window: 200000
@@ -22,6 +21,8 @@ modalities:
         - text
 mode: chat
 model: openai/o3-deep-research
+removeParams:
+    - temperature
 sources:
     - https://openrouter.ai/openai/o3-deep-research/api
 supportedModes:
