@@ -22,8 +22,10 @@ model: gemma-3-1b-it
 params:
     - key: max_tokens
       maxValue: 8192
+provisioning: serverless
 sources:
     - https://ai.google.dev/gemma/docs/core
     - https://ai.google.dev/gemma/docs/core/model_card_3
+status: active
 supportedModes:
     - chat
