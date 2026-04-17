@@ -7,15 +7,16 @@ limits:
 modalities:
     input:
         - text
+        - image
     output:
         - embedding
 mode: embedding
 model: sentence-transformers/multi-qa-mpnet-base-dot-v1
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
-    - https://deepinfra.com/sentence-transformers/multi-qa-mpnet-base-dot-v1/api
-    - https://huggingface.co/sentence-transformers/multi-qa-mpnet-base-dot-v1
+    - https://deepinfra.com/sentence-transformers/multi-qa-mpnet-base-dot-v1
 status: active
 supportedModes:
     - embedding

@@ -4,12 +4,14 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - image
 mode: image
 model: black-forest-labs/FLUX-2-klein-9b
+provisioning: serverless
 sources:
-    - https://deepinfra.com/black-forest-labs/FLUX-2-klein-9b/api
+    - https://deepinfra.com/black-forest-labs/FLUX-2-klein-9b
 status: active
 supportedModes:
     - image
