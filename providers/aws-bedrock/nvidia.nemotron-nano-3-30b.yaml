@@ -47,9 +47,10 @@ params:
     - key: max_tokens
       maxValue: 8192
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
-    - https://aws.amazon.com/about-aws/whats-new/2025/12/nvidia-nemotron-3-nano-amazon-bedrock/
-    - https://build.nvidia.com/nvidia/nemotron-3-nano-30b-a3b/modelcard
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-nano-3-30b.html
 status: active
 supportedModes:
     - chat

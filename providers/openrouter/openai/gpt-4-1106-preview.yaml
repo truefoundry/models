@@ -10,7 +10,6 @@ features:
 limits:
     context_window: 128000
     max_output_tokens: 4096
-    max_tokens: 4096
 modalities:
     input:
         - text
@@ -18,7 +17,3 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-4-1106-preview
-sources:
-    - https://openrouter.ai/openai/gpt-4-1106-preview/api
-supportedModes:
-    - chat

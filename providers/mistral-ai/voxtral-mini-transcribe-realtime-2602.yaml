@@ -3,11 +3,17 @@ costs:
       region: "*"
 limits:
     context_window: 32768
+modalities:
+    input:
+        - audio
+    output:
+        - text
 mode: realtime
 model: voxtral-mini-transcribe-realtime-2602
 params:
     - defaultValue: 0
       key: temperature
+provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02
 status: active
