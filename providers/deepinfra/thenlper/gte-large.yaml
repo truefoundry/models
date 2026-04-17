@@ -11,9 +11,11 @@ modalities:
         - embedding
 mode: embedding
 model: thenlper/gte-large
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
-    - https://deepinfra.com/thenlper/gte-large/api
+    - https://deepinfra.com/thenlper/gte-large
+status: active
 supportedModes:
     - embedding
