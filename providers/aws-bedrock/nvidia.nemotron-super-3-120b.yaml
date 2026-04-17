@@ -58,6 +58,7 @@ model: nvidia.nemotron-super-3-120b
 params:
     - key: max_tokens
       maxValue: 32768
+provisioning: serverless
 removeParams:
     - "n"
     - reasoning_effort
@@ -65,6 +66,8 @@ sources:
     - https://build.nvidia.com/nvidia/nemotron-3-super-120b/modelcard
     - https://aws.amazon.com/marketplace/pp/prodview-pb4o36dbo6dzi
     - https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-super-3-120b.html
+status: active
 supportedModes:
     - chat
 thinking: true

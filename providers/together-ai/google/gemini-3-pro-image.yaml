@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_image: 0.134
+    - output_cost_per_image: 0.134
       output_cost_per_image_4k: 0.24
       region: "*"
 limits:
@@ -14,8 +14,9 @@ modalities:
         - image
 mode: image
 model: google/gemini-3-pro-image
+provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/models/nano-banana-pro
 status: active
 supportedModes:
     - image

@@ -25,8 +25,11 @@ model: openai/gpt-5.4-nano
 params:
     - key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5.4-nano/api
+    - https://openrouter.ai/openai/gpt-5.4-nano
+status: active
 supportedModes:
     - chat
 thinking: true
