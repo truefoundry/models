@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - system_messages
-    - function_calling
-    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 8192
@@ -13,10 +11,14 @@ limits:
 modalities:
     input:
         - text
-        - image
     output:
         - text
 mode: chat
 model: gemma-3-12b-it
+provisioning: serverless
+sources:
+    - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://docs.sambanova.ai/docs/en/features/vision
+status: active
 supportedModes:
     - chat
