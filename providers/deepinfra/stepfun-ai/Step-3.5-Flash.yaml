@@ -5,6 +5,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
     - prompt_caching
 limits:
     context_window: 262144
@@ -17,8 +18,10 @@ modalities:
         - text
 mode: chat
 model: stepfun-ai/Step-3.5-Flash
+provisioning: serverless
 sources:
-    - https://deepinfra.com/stepfun-ai/Step-3.5-Flash/api
+    - https://deepinfra.com/stepfun-ai/Step-3.5-Flash
 status: active
 supportedModes:
     - chat
+thinking: true

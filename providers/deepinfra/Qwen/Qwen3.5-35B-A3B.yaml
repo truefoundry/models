@@ -1,12 +1,11 @@
 costs:
-    - input_cost_per_token: 2.2e-7
-      output_cost_per_token: 0.0000022
+    - cache_read_input_token_cost: 1.e-7
+      input_cost_per_token: 2.e-7
+      output_cost_per_token: 9.5e-7
       region: "*"
 features:
     - function_calling
-    - structured_output
     - json_output
-    - system_messages
 limits:
     context_window: 262144
     max_output_tokens: 81920
@@ -19,8 +18,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3.5-35B-A3B
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Qwen/Qwen3.5-35B-A3B/api
+    - https://deepinfra.com/Qwen/Qwen3.5-35B-A3B
 status: active
 supportedModes:
     - chat
