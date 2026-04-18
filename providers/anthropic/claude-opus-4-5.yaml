@@ -9,6 +9,7 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - cache_control
     - prompt_caching
     - structured_output
     - assistant_prefill
@@ -33,6 +34,7 @@ params:
       maxValue: 64000
     - defaultValue: null
       key: thinking
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
