@@ -4,8 +4,10 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - structured_output
     - json_output
+    - tool_choice
 limits:
     context_window: 131072
 modalities:
@@ -19,6 +21,7 @@ model: ministral-3b-latest
 params:
     - defaultValue: 0.3
       key: temperature
+provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/ministral-3-3b-25-12
 status: active
