@@ -14,13 +14,16 @@ modalities:
     input:
         - text
         - image
+        - video
     output:
         - text
 mode: chat
 model: moonshotai/Kimi-K2.5-fp4
+provisioning: serverless
 sources:
     - https://docs.together.ai/docs/vision-overview
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
+status: active
 supportedModes:
     - chat

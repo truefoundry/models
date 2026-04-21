@@ -2,13 +2,19 @@ costs:
     - input_cost_per_request: 1.2
       region: "*"
 modalities:
-    output:
+    input:
+        - text
+        - image
         - audio
+    output:
         - video
+        - audio
 mode: video
 model: google/veo-3.0-fast-audio
+provisioning: serverless
 sources:
-    - https://docs.together.ai/reference/create-video
+    - https://docs.together.ai/docs/videos-overview
+    - https://docs.together.ai/reference/create-videos
 status: active
 supportedModes:
     - video

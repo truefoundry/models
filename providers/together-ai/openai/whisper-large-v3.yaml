@@ -8,8 +8,11 @@ modalities:
         - text
 mode: audio_transcription
 model: openai/whisper-large-v3
+provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/changelog
+    - https://docs.together.ai/docs/speech-to-text
+    - https://docs.together.ai/reference/audio-transcriptions
+    - https://docs.together.ai/reference/audio-translations
 status: active
 supportedModes:
     - audio_transcription

@@ -3,11 +3,12 @@ costs:
       region: "*"
 modalities:
     input:
-        - image
+        - text
     output:
         - image
 mode: image
 model: stabilityai/stable-diffusion-3-medium
+provisioning: serverless
 sources:
     - https://docs.together.ai/docs/serverless-models
 status: active

@@ -3,7 +3,7 @@ costs:
       output_cost_per_token: 0.0000017
       region: "*"
 limits:
-    context_window: 128000
+    context_window: 131072
 modalities:
     input:
         - text
@@ -15,6 +15,7 @@ provisioning: provisioned
 sources:
     - https://together.ai/pricing
     - https://docs.together.ai/docs/deepseek-3-1-quickstart
+    - https://docs.together.ai/docs/fine-tuning-models
 status: active
 supportedModes:
     - completion
