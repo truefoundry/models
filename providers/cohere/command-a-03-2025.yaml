@@ -6,6 +6,7 @@ features:
     - function_calling
     - json_output
     - structured_output
+    - system_messages
     - tool_choice
 limits:
     context_window: 256000
@@ -27,6 +28,7 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0
+provisioning: serverless
 sources:
     - https://docs.cohere.com/docs/command-a
     - https://docs.cohere.com/reference/chat
