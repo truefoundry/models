@@ -8,6 +8,7 @@ features:
     - tool_choice
     - structured_output
     - system_messages
+    - json_output
 limits:
     context_window: 32000
     max_output_tokens: 8000
@@ -22,6 +23,7 @@ model: llama3.1-8b
 params:
     - key: max_tokens
       maxValue: 8000
+provisioning: serverless
 sources:
     - https://inference-docs.cerebras.ai/models/llama-31-8b
     - https://inference-docs.cerebras.ai/capabilities/tool-use
@@ -30,5 +32,5 @@ sources:
     - https://inference-docs.cerebras.ai/api-reference/chat-completions
 status: active
 supportedModes:
-    - completion
     - chat
+    - completion
