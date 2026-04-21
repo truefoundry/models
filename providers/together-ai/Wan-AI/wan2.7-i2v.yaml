@@ -2,7 +2,20 @@ costs:
     - input_cost_per_token: 0
       output_cost_per_token: 0
       region: "*"
-mode: unknown
+modalities:
+    input:
+        - image
+        - text
+        - audio
+    output:
+        - video
+mode: video
 model: Wan-AI/wan2.7-i2v
+provisioning: serverless
+sources:
+    - https://docs.together.ai/docs/wan2.7-quickstart
+    - https://docs.together.ai/docs/videos-overview
+    - https://www.together.ai/pricing
+status: active
 supportedModes:
     - video

@@ -2,7 +2,12 @@ costs:
     - input_cost_per_token: 0
       output_cost_per_token: 0
       region: "*"
-mode: unknown
+modalities:
+    output:
+        - video
+mode: video
 model: Wan-AI/wan2.7-r2v
+provisioning: serverless
+status: active
 supportedModes:
     - video
