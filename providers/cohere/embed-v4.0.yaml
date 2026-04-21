@@ -10,10 +10,12 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - embedding
 mode: embedding
 model: embed-v4.0
+provisioning: serverless
 removeParams:
     - temperature
     - stream
