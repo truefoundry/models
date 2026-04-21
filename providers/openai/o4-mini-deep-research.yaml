@@ -20,11 +20,7 @@ modalities:
         - text
 mode: responses
 model: o4-mini-deep-research
-params:
-    - defaultValue: 128
-      key: max_tokens
-      maxValue: 100000
-      minValue: 1
+provisioning: serverless
 removeParams:
     - tool_choice
     - parallel_tool_calls
@@ -33,7 +29,6 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/guides/deep-research
     - https://developers.openai.com/api/docs/models/o4-mini-deep-research
-    - https://openrouter.ai/openai/o4-mini-deep-research/api
 status: active
 supportedModes:
     - responses

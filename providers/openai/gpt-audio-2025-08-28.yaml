@@ -7,6 +7,7 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - prompt_caching
     - system_messages
     - tool_choice
 limits:
@@ -21,16 +22,16 @@ modalities:
     output:
         - text
         - audio
-mode: audio_transcription
+mode: chat
 model: gpt-audio-2025-08-28
 params:
     - defaultValue: 128
       key: max_tokens
       maxValue: 16384
       minValue: 1
+provisioning: serverless
 sources:
     - https://developers.openai.com/docs/models/gpt-audio
 status: active
 supportedModes:
     - chat
-    - audio_transcription

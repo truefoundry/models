@@ -23,14 +23,14 @@ modalities:
     output:
         - text
         - audio
-mode: audio_transcription
+mode: chat
 model: gpt-audio-mini-2025-10-06
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 sources:
     - https://developers.openai.com/docs/models/gpt-audio-mini
 status: active
 supportedModes:
     - chat
-    - audio_transcription

@@ -19,8 +19,12 @@ model: gpt-4
 params:
     - key: max_tokens
       maxValue: 8192
+provisioning: serverless
+removeParams:
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4
-    - https://developers.openai.com/docs/deprecations
+status: active
 supportedModes:
     - chat

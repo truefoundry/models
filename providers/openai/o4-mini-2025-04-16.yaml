@@ -42,6 +42,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - top_p
     - max_tokens
@@ -49,9 +50,8 @@ removeParams:
     - stop
 sources:
     - https://developers.openai.com/api/docs/models/o4-mini
-    - https://developers.openai.com/docs/deprecations
-    - https://developers.openai.com/docs/pricing
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true
