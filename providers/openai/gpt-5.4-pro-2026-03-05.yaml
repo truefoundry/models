@@ -35,11 +35,14 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - max_tokens
-    - max_completion_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.4-pro
+status: active
 supportedModes:
     - responses
+    - chat
+    - realtime
 thinking: true

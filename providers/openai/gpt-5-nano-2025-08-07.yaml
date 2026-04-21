@@ -36,6 +36,7 @@ params:
       key: verbosity
     - defaultValue: null
       key: reasoning
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -43,6 +44,8 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-nano
+status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

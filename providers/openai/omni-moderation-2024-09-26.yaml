@@ -8,6 +8,7 @@ modalities:
         - image
 mode: moderation
 model: omni-moderation-2024-09-26
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -19,6 +20,7 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/omni-moderation-latest
+    - https://developers.openai.com/docs/guides/moderation
 status: active
 supportedModes:
     - moderation

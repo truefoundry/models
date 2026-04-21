@@ -29,7 +29,7 @@ model: gpt-5.2-chat-latest
 params:
     - defaultValue: 16384
       key: max_completion_tokens
-      maxValue: 128000
+      maxValue: 16384
       minValue: 1
     - defaultValue: null
       key: response_format
@@ -37,6 +37,7 @@ params:
     - defaultValue: null
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -45,6 +46,7 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.2
     - https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest
+status: active
 supportedModes:
     - chat
 thinking: true

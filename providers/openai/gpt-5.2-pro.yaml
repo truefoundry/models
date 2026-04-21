@@ -1,16 +1,12 @@
 costs:
-    - cache_read_input_token_cost: 0.0000021
-      input_cost_per_token: 0.000021
-      input_cost_per_token_batches: 0.0000105
+    - input_cost_per_token: 0.000021
       output_cost_per_token: 0.000168
-      output_cost_per_token_batches: 0.000084
       region: "*"
 features:
     - function_calling
     - parallel_function_calling
     - system_messages
     - tool_choice
-    - prompt_caching
 limits:
     context_window: 400000
     max_output_tokens: 128000
@@ -29,11 +25,13 @@ params:
       maxValue: 128000
       minValue: 1
     - key: reasoning_effort
+provisioning: serverless
 removeParams:
     - max_tokens
     - max_completion_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.2-pro
+status: active
 supportedModes:
     - responses
 thinking: true

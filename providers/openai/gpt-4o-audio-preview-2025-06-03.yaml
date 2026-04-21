@@ -7,8 +7,8 @@ costs:
 deprecationDate: "2026-05-07"
 features:
     - function_calling
-    - tool_choice
     - system_messages
+    - tool_choice
 limits:
     context_window: 128000
     max_output_tokens: 16384
@@ -20,18 +20,19 @@ modalities:
     output:
         - text
         - audio
-mode: audio_transcription
+mode: chat
 model: gpt-4o-audio-preview-2025-06-03
 params:
     - defaultValue: 16384
       key: max_tokens
       maxValue: 16384
       minValue: 1
+provisioning: serverless
 removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/docs/models/gpt-4o-audio-preview
-status: preview
+status: deprecated
 supportedModes:
     - chat
     - audio_transcription

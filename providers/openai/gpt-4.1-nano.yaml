@@ -1,7 +1,9 @@
 costs:
     - cache_read_input_token_cost: 2.5e-8
       input_cost_per_token: 1.e-7
+      input_cost_per_token_batches: 5.e-8
       output_cost_per_token: 4.e-7
+      output_cost_per_token_batches: 2.e-7
       region: "*"
 features:
     - function_calling
@@ -32,6 +34,7 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
@@ -39,3 +42,4 @@ sources:
 status: active
 supportedModes:
     - chat
+    - responses
