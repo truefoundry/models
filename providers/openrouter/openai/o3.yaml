@@ -25,7 +25,9 @@ model: openai/o3
 params:
     - key: max_tokens
       maxValue: 100000
+provisioning: serverless
 sources:
+    - https://openrouter.ai/openai/o3
     - https://openrouter.ai/openai/o3/api
 supportedModes:
     - chat

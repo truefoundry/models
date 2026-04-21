@@ -1,6 +1,6 @@
 costs:
-    - cache_read_input_token_cost: 2.9e-8
-      input_cost_per_token: 2.7e-7
+    - cache_read_input_token_cost: 3.e-8
+      input_cost_per_token: 2.9e-7
       output_cost_per_token: 9.5e-7
       region: "*"
 features:
@@ -21,8 +21,10 @@ modalities:
         - text
 mode: chat
 model: minimax/minimax-m2.1
+provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m2.1/api
+status: active
 supportedModes:
     - chat
 thinking: true

@@ -22,7 +22,10 @@ model: meta-llama/llama-4-scout
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-4-scout/api
+    - https://openrouter.ai/meta-llama/llama-4-scout
+status: active
 supportedModes:
     - chat

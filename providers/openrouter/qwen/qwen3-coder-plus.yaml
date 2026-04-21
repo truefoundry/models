@@ -40,7 +40,10 @@ model: qwen/qwen3-coder-plus
 params:
     - key: max_tokens
       maxValue: 65536
+provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-coder-plus/api
+    - https://openrouter.ai/qwen/qwen3-coder-plus
+status: active
 supportedModes:
     - chat

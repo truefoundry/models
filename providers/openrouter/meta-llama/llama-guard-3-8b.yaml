@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 2.e-8
-      output_cost_per_token: 6.e-8
+    - input_cost_per_token: 4.8e-7
+      output_cost_per_token: 3.e-8
       region: "*"
 limits:
     context_window: 131072
@@ -11,7 +11,9 @@ modalities:
         - text
 mode: chat
 model: meta-llama/llama-guard-3-8b
+provisioning: serverless
 sources:
+    - https://openrouter.ai/meta-llama/llama-guard-3-8b
     - https://openrouter.ai/meta-llama/llama-guard-3-8b/api
 supportedModes:
     - chat

@@ -26,9 +26,11 @@ params:
       key: max_tokens
       maxValue: 100000
       minValue: 1
+provisioning: serverless
 removeParams:
     - temperature
 sources:
+    - https://openrouter.ai/openai/o4-mini-deep-research
     - https://openrouter.ai/openai/o4-mini-deep-research/api
 supportedModes:
     - chat

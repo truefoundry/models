@@ -20,8 +20,10 @@ model: x-ai/grok-3-mini-beta
 params:
     - key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
     - https://openrouter.ai/x-ai/grok-3-mini-beta/api
+    - https://openrouter.ai/x-ai/grok-3-mini-beta
     - https://docs.x.ai/developers/models#models-and-pricing
 status: preview
 supportedModes:

@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 5.e-9
+    - cache_read_input_token_cost: 1.e-8
       input_cost_per_token: 5.e-8
       output_cost_per_token: 4.e-7
       region: "*"
@@ -31,8 +31,11 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
+    - https://openrouter.ai/openai/gpt-5-nano
     - https://openrouter.ai/openai/gpt-5-nano/api
+status: active
 supportedModes:
     - chat
 thinking: true

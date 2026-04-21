@@ -24,7 +24,9 @@ model: openai/gpt-4.1-mini
 params:
     - key: max_tokens
       maxValue: 32768
+provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-4.1-mini/api
+status: active
 supportedModes:
     - chat
