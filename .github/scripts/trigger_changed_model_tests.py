@@ -5,6 +5,8 @@ and trigger the gateway-test-job-v2 TrueFoundry job once per provider.
 Required env vars:
     GATEWAY_TEST_JOB_V2_FQN  FQN of the deployed gateway-test-job-v2
     PR_NUMBER         GitHub PR number (passed through to run.py --pr-number)
+    GIT_REF           Commit SHA of the PR head; the job clones this exact
+                      commit of truefoundry/models to build its catalogue
 
 Optional env vars:
     GITHUB_OUTPUT     If set, writes "triggered=<count>" for the workflow step
@@ -15,10 +17,14 @@ Assumes `tfy` is installed and already logged in.
 from __future__ import annotations
 
 import os
+import re
 import subprocess
 import sys
 from collections import defaultdict
 from typing import Dict, List
+
+_SAFE_PROVIDER = re.compile(r"^[A-Za-z0-9._-]+$")
+_SAFE_MODEL = re.compile(r"^[A-Za-z0-9._@:/-]+$")
 
 
 def _require_env(name: str) -> str:
@@ -71,20 +77,25 @@ def _is_significant(_file: str) -> bool:
     return True
 
 
-def _parse_provider_model(path: str) -> tuple[str, str] | None:
+def _parse_provider_model(path: str) -> tuple[str, str]:
     """Parse providers/<provider>/<model...>.yaml into (provider, model).
 
-    Returns None for malformed paths.
+    Raises ValueError with a specific reason if the path is malformed or
+    contains unsafe characters.
     """
     if not path.startswith("providers/"):
-        return None
+        raise ValueError("not under providers/")
     rel = path[len("providers/"):]
     if "/" not in rel:
-        return None
+        raise ValueError("missing model segment")
     provider, _, model_with_ext = rel.partition("/")
     if not model_with_ext.endswith(".yaml"):
-        return None
+        raise ValueError("not a .yaml file")
     model = model_with_ext[: -len(".yaml")]
+    if not _SAFE_PROVIDER.match(provider):
+        raise ValueError(f"provider contains unsafe characters: {provider!r}")
+    if not _SAFE_MODEL.match(model):
+        raise ValueError(f"model contains unsafe characters: {model!r}")
     return provider, model
 
 
@@ -99,6 +110,7 @@ def _write_output(triggered: int) -> None:
 def main() -> None:
     job_fqn = _require_env("GATEWAY_TEST_JOB_V2_FQN")
     pr_number = _require_env("PR_NUMBER")
+    git_ref = _require_env("GIT_REF")
 
     base = _diff_base()
     changed = _changed_provider_files(base)
@@ -113,11 +125,11 @@ def main() -> None:
         if not _is_significant(path):
             print(f"Skipping non-significant change: {path}")
             continue
-        parsed = _parse_provider_model(path)
-        if parsed is None:
-            print(f"::warning::Skipping malformed path: {path}")
+        try:
+            provider, model = _parse_provider_model(path)
+        except ValueError as exc:
+            print(f"::warning::Skipping {path}: {exc}")
             continue
-        provider, model = parsed
         provider_to_models[provider].append(model)
 
     if not provider_to_models:
@@ -130,9 +142,9 @@ def main() -> None:
         models_arg = " ".join(models)
         command = (
             f"python run.py --provider {provider} --model {models_arg} "
-            f"--pr-mode --pr-number {pr_number}"
+            f"--pr-mode --pr-number {pr_number} --git-ref {git_ref}"
         )
-        print(f"Triggering tests for provider={provider} models={models_arg} pr={pr_number}")
+        print(f"Triggering tests for provider={provider} models={models_arg} pr={pr_number} ref={git_ref}")
         _run([
             "tfy", "trigger", "job",
             "--application-fqn", job_fqn,
