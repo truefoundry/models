@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 3.e-8
-      input_cost_per_token: 3.e-7
-      output_cost_per_token: 9.e-7
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 3e-7
+      output_cost_per_token: 9e-7
       region: "*"
 features:
     - function_calling
@@ -18,7 +18,9 @@ modalities:
         - text
 mode: chat
 model: mistralai/codestral-2508
+provisioning: serverless
 sources:
+    - https://openrouter.ai/mistralai/codestral-2508
     - https://openrouter.ai/mistralai/codestral-2508/api
     - https://docs.mistral.ai/models/codestral-25-08
 status: active

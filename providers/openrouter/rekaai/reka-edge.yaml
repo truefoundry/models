@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 1.e-7
-      output_cost_per_token: 1.e-7
+    - input_cost_per_token: 1e-7
+      output_cost_per_token: 1e-7
       region: "*"
 features:
     - function_calling
@@ -19,7 +19,9 @@ modalities:
         - text
 mode: chat
 model: rekaai/reka-edge
+provisioning: serverless
 sources:
     - https://openrouter.ai/rekaai/reka-edge/api
+status: active
 supportedModes:
     - chat

@@ -1,7 +1,7 @@
 costs:
-    - output_cost_per_second_1080p: 0.15
-      output_cost_per_second_4k: 0.35
-      output_cost_per_second_720p: 0.15
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
       region: "*"
 limits:
     context_window: 1024
@@ -15,6 +15,7 @@ modalities:
         - audio
 mode: video
 model: veo-3.1-fast-generate-preview
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature

@@ -1,8 +1,16 @@
 costs:
-    - input_cost_per_token: 2.6e-7
+    - cache_creation_input_token_cost: 3.25e-7
+      cache_read_input_token_cost: 2.6e-8
+      input_cost_per_token: 2.6e-7
       output_cost_per_token: 7.8e-7
       region: "*"
       tiered_pricing:
+          cache_read:
+              - cost_per_token: 7.8e-8
+                from: 256000
+          cache_write:
+              - cost_per_token: 9.75e-7
+                from: 256000
           input:
               - cost_per_token: 7.8e-7
                 from: 256000
@@ -12,6 +20,7 @@ costs:
 features:
     - function_calling
     - json_output
+    - prompt_caching
     - structured_output
     - tool_choice
 limits:
@@ -29,7 +38,9 @@ model: qwen/qwen-plus-2025-07-28:thinking
 params:
     - key: max_tokens
       maxValue: 32768
+provisioning: serverless
 sources:
+    - https://openrouter.ai/qwen/qwen-plus-2025-07-28:thinking
     - https://openrouter.ai/qwen/qwen-plus-2025-07-28:thinking/api
 supportedModes:
     - chat

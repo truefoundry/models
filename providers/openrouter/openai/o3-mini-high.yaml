@@ -23,8 +23,10 @@ model: openai/o3-mini-high
 params:
     - key: max_tokens
       maxValue: 100000
+provisioning: serverless
 sources:
     - https://openrouter.ai/openai/o3-mini-high/api
+status: active
 supportedModes:
     - chat
 thinking: true

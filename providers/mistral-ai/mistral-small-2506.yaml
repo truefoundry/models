@@ -1,11 +1,13 @@
 costs:
-    - input_cost_per_token: 1.e-7
-      output_cost_per_token: 3.e-7
+    - input_cost_per_token: 1e-7
+      output_cost_per_token: 3e-7
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - structured_output
     - json_output
+    - tool_choice
 limits:
     context_window: 131072
 modalities:
@@ -28,6 +30,7 @@ sources:
     - https://docs.mistral.ai/capabilities/structured_output
     - https://docs.mistral.ai/capabilities/reasoning
     - https://docs.mistral.ai/capabilities/structured_output/json_mode
+    - https://docs.mistral.ai/capabilities/batch
 status: active
 supportedModes:
     - chat

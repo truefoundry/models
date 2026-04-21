@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 5.e-7
+    - cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000002
       output_cost_per_token: 0.000008
       region: "*"
@@ -26,9 +26,10 @@ model: openai/gpt-4.1
 params:
     - key: max_tokens
       maxValue: 32768
+provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-4.1/api
-    - https://developers.openai.com/docs/pricing#gpt-4.1
+    - https://openrouter.ai/openai/gpt-4.1
 status: active
 supportedModes:
     - chat

@@ -1,8 +1,8 @@
 costs:
-    - input_cost_per_token: 4.e-7
+    - input_cost_per_token: 4e-7
       output_cost_per_token: 0.000002
       region: us-central1
-    - input_cost_per_token: 4.e-7
+    - input_cost_per_token: 4e-7
       output_cost_per_token: 0.000002
       region: europe-west4
 features:
@@ -21,6 +21,7 @@ modalities:
         - text
 mode: chat
 model: mistralai/mistral-medium-3
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral
     - https://docs.mistral.ai/models/mistral-medium-3-25-05

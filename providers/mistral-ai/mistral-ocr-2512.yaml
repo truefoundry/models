@@ -15,11 +15,12 @@ modalities:
         - doc
     output:
         - text
-mode: unknown
+mode: chat
 model: mistral-ocr-2512
 params:
     - defaultValue: 0
       key: temperature
+provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/ocr-3-25-12
     - https://docs.mistral.ai/capabilities/document_ai/basic_ocr

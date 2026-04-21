@@ -25,8 +25,11 @@ model: openai/o4-mini-high
 params:
     - key: max_tokens
       maxValue: 100000
+provisioning: serverless
 sources:
     - https://openrouter.ai/openai/o4-mini-high/api
+    - https://openrouter.ai/openai/o4-mini-high
+status: active
 supportedModes:
     - chat
 thinking: true
