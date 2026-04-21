@@ -5,6 +5,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - prompt_caching
     - structured_output
 limits:
     context_window: 2000000
@@ -16,6 +17,7 @@ modalities:
         - text
 mode: chat
 model: grok-4.20-reasoning-latest
+provisioning: serverless
 removeParams:
     - reasoning_effort
 status: active

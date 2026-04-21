@@ -12,6 +12,7 @@ modalities:
         - image
 mode: image
 model: grok-imagine-image-2026-03-02
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -19,8 +20,6 @@ removeParams:
     - "n"
     - stop
     - stream
-sources:
-    - https://docs.x.ai/developers/models#models-and-pricing
 status: active
 supportedModes:
     - image

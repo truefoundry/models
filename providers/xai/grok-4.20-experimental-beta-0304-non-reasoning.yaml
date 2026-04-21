@@ -10,6 +10,7 @@ features:
     - structured_output
     - system_messages
     - json_output
+    - prompt_caching
 limits:
     context_window: 2000000
 modalities:
@@ -20,6 +21,7 @@ modalities:
         - text
 mode: chat
 model: grok-4.20-experimental-beta-0304-non-reasoning
+provisioning: serverless
 removeParams:
     - reasoning_effort
 sources:
