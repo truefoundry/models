@@ -5,6 +5,7 @@ modalities:
         - text
 mode: unknown
 model: google/tfvision-yolov7
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -13,3 +14,8 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/tfvision-yolov7
+status: preview
+supportedModes:
+    - unknown

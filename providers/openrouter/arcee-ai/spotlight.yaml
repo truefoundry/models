@@ -17,8 +17,9 @@ model: arcee-ai/spotlight
 params:
     - key: max_tokens
       maxValue: 65537
-provisioning: provisioned
+provisioning: serverless
 sources:
     - https://openrouter.ai/arcee-ai/spotlight/api
+    - https://openrouter.ai/arcee-ai/spotlight
 supportedModes:
     - chat

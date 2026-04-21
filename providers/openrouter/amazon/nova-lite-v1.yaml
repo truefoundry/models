@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_token: 6.e-8
+    - input_cost_per_token: 6e-8
       output_cost_per_token: 2.4e-7
       region: "*"
 features:
@@ -19,6 +19,7 @@ mode: chat
 model: amazon/nova-lite-v1
 params:
     - key: top_k
+provisioning: serverless
 sources:
     - https://openrouter.ai/amazon/nova-lite-v1/api
 supportedModes:

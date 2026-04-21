@@ -21,6 +21,7 @@ params:
     - defaultValue: null
       key: seed
       type: number
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -28,6 +29,7 @@ removeParams:
     - response_format
 sources:
     - https://openrouter.ai/relace/relace-apply-3/api
+    - https://openrouter.ai/relace/relace-apply-3
 status: active
 supportedModes:
     - chat

@@ -1,17 +1,17 @@
 costs:
-    - cache_read_input_token_cost: 2.e-8
-      input_cost_per_token: 1.e-7
-      output_cost_per_token: 4.e-7
+    - cache_read_input_token_cost: 2e-8
+      input_cost_per_token: 1e-7
+      output_cost_per_token: 4e-7
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 2.e-7
+              - cost_per_token: 2e-7
                 from: 128000
           input:
-              - cost_per_token: 2.e-7
+              - cost_per_token: 2e-7
                 from: 128000
           output:
-              - cost_per_token: 8.e-7
+              - cost_per_token: 8e-7
                 from: 128000
 features:
     - function_calling
