@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 5.e-7
+    - cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000002
       output_cost_per_token: 0.000008
       region: "*"
@@ -25,7 +25,9 @@ model: openai/o3
 params:
     - key: max_tokens
       maxValue: 100000
+provisioning: serverless
 sources:
+    - https://openrouter.ai/openai/o3
     - https://openrouter.ai/openai/o3/api
 supportedModes:
     - chat

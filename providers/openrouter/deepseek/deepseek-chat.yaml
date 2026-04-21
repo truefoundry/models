@@ -20,7 +20,9 @@ model: deepseek/deepseek-chat
 params:
     - key: max_tokens
       maxValue: 163840
+provisioning: serverless
 sources:
+    - https://openrouter.ai/deepseek/deepseek-chat
     - https://openrouter.ai/deepseek/deepseek-chat/api
 supportedModes:
     - completion

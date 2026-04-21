@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_token: 6.e-7
+    - input_cost_per_token: 6e-7
       output_cost_per_token: 0.0000012
       region: "*"
 features:
@@ -15,12 +15,6 @@ limits:
     max_input_tokens: 131000
     max_output_tokens: 40000
     max_tokens: 40000
-messages:
-    options:
-        - system
-        - user
-        - assistant
-        - developer
 modalities:
     input:
         - text
@@ -33,6 +27,7 @@ params:
       maxValue: 40000
     - key: seed
       type: number
+provisioning: serverless
 sources:
     - https://inference-docs.cerebras.ai/models/qwen-3-235b-2507
     - https://inference-docs.cerebras.ai/capabilities/prompt-caching
@@ -43,3 +38,4 @@ sources:
 status: preview
 supportedModes:
     - chat
+    - completion

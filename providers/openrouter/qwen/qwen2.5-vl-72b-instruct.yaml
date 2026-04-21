@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 8.e-7
-      output_cost_per_token: 8.e-7
+    - input_cost_per_token: 2.5e-7
+      output_cost_per_token: 7.5e-7
       region: "*"
 features:
     - json_output
@@ -22,6 +22,7 @@ params:
       minValue: 0
     - key: seed
       type: number
+provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen2.5-vl-72b-instruct/api
 status: active

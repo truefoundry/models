@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_token: 7.e-7
+    - input_cost_per_token: 7e-7
       output_cost_per_token: 0.0000025
       region: "*"
 features:
@@ -21,8 +21,10 @@ params:
       key: max_tokens
       maxValue: 16000
       minValue: 1
+provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-r1/api
+    - https://openrouter.ai/deepseek/deepseek-r1
 supportedModes:
     - chat
 thinking: true

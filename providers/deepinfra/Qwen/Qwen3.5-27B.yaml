@@ -4,9 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - system_messages
-    - tool_choice
-    - structured_output
     - json_output
 limits:
     context_window: 262144
@@ -21,9 +18,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3.5-27B
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Qwen/Qwen3.5-27B/api
-    - https://huggingface.co/Qwen/Qwen3.5-27B
+    - https://deepinfra.com/Qwen/Qwen3.5-27B
 status: active
 supportedModes:
     - chat

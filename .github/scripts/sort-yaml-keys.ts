@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import yaml from 'js-yaml';
+import { parseDocument, isMap, isSeq, isScalar, YAMLMap, YAMLSeq, Pair, Scalar } from 'yaml';
 
 const PROVIDERS_DIR = path.resolve(__dirname, '..', '..', 'providers');
 
@@ -19,6 +19,51 @@ function collectYamlFiles(dir: string): string[] {
     return results;
 }
 
+function keyOf(pair: Pair): string {
+    const k = pair.key;
+    if (isScalar(k)) return String((k as Scalar).value ?? '');
+    return String(k ?? '');
+}
+
+function sortMapKeys(node: YAMLMap): void {
+    // Sort the map's pairs by key. Comments (commentBefore/comment) are
+    // attached to the Pair / its key / its value nodes, so reordering the
+    // items array preserves them automatically.
+    node.items.sort((a, b) => keyOf(a).localeCompare(keyOf(b)));
+
+    for (const pair of node.items) {
+        const value = pair.value;
+        if (isMap(value)) {
+            sortMapKeys(value as YAMLMap);
+        } else if (isSeq(value)) {
+            sortSeqMapsRecursively(value as YAMLSeq);
+        }
+    }
+}
+
+function sortSeqMapsRecursively(seq: YAMLSeq): void {
+    for (const item of seq.items) {
+        if (isMap(item)) {
+            sortMapKeys(item as YAMLMap);
+        } else if (isSeq(item)) {
+            sortSeqMapsRecursively(item as YAMLSeq);
+        }
+    }
+}
+
+function sortCostsByRegionDesc(root: YAMLMap): void {
+    const costsPair = root.items.find((p) => keyOf(p) === 'costs');
+    if (!costsPair) return;
+    const costs = costsPair.value;
+    if (!isSeq(costs)) return;
+
+    (costs as YAMLSeq).items.sort((a, b) => {
+        const ra = isMap(a) ? String(((a as YAMLMap).get('region') as unknown) ?? '') : '';
+        const rb = isMap(b) ? String(((b as YAMLMap).get('region') as unknown) ?? '') : '';
+        return rb.localeCompare(ra);
+    });
+}
+
 function main(): void {
     const args = process.argv.slice(2);
     const files = args.length > 0
@@ -29,35 +74,28 @@ function main(): void {
 
     for (const filePath of files) {
         const content = fs.readFileSync(filePath, 'utf-8');
-        let data: unknown;
+        let doc;
         try {
-            data = yaml.load(content);
+            doc = parseDocument(content, { keepSourceTokens: true });
         } catch (error) {
             const message = error instanceof Error ? error.message : String(error);
             throw new Error(`Failed to parse YAML file ${filePath}: ${message}`);
         }
 
-        if (data == null || typeof data !== 'object') {
+        if (doc.errors.length > 0) {
+            const message = doc.errors.map((e) => e.message).join('; ');
+            throw new Error(`Failed to parse YAML file ${filePath}: ${message}`);
+        }
+
+        const root = doc.contents;
+        if (!isMap(root)) {
             continue;
         }
 
-        const record = data as Record<string, unknown>;
-        if (Array.isArray(record.costs)) {
-            record.costs = [...record.costs].sort((a, b) => {
-                const ra = String((a as Record<string, unknown>).region ?? '');
-                const rb = String((b as Record<string, unknown>).region ?? '');
-                return rb.localeCompare(ra);
-            });
-        }
+        sortCostsByRegionDesc(root as YAMLMap);
+        sortMapKeys(root as YAMLMap);
 
-        const sorted = yaml.dump(data, {
-            sortKeys: true,
-            indent: 4,
-            lineWidth: 256,
-            noRefs: true,
-            quotingType: '"',
-            forceQuotes: false,
-        });
+        const sorted = doc.toString({ indent: 4, lineWidth: 256, doubleQuotedAsJSON: false });
 
         if (sorted !== content) {
             pendingWrites.push({ filePath, sorted, original: content });

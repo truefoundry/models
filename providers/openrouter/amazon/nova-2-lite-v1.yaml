@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_token: 3.e-7
+    - input_cost_per_token: 3e-7
       output_cost_per_token: 0.0000025
       region: "*"
 features:
@@ -23,8 +23,11 @@ params:
       key: max_tokens
       maxValue: 65535
       minValue: 1
+provisioning: serverless
 sources:
+    - https://openrouter.ai/amazon/nova-2-lite-v1
     - https://openrouter.ai/amazon/nova-2-lite-v1/api
+status: active
 supportedModes:
     - chat
 thinking: true

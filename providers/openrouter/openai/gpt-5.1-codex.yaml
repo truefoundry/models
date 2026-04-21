@@ -27,9 +27,12 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 sources:
+    - https://openrouter.ai/openai/gpt-5.1-codex
     - https://openrouter.ai/openai/gpt-5.1-codex/api
     - https://developers.openai.com/api/docs/models/gpt-5.1-codex
+status: active
 supportedModes:
     - chat
 thinking: true

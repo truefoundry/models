@@ -1,6 +1,7 @@
 costs:
-    - input_cost_per_token: 5.5e-7
-      output_cost_per_token: 8.e-7
+    - cache_read_input_token_cost: 2.5e-7
+      input_cost_per_token: 5.5e-7
+      output_cost_per_token: 8e-7
       region: "*"
 limits:
     context_window: 32768
@@ -13,7 +14,10 @@ modalities:
         - text
 mode: chat
 model: thedrummer/skyfall-36b-v2
+provisioning: serverless
 sources:
+    - https://openrouter.ai/thedrummer/skyfall-36b-v2
     - https://openrouter.ai/thedrummer/skyfall-36b-v2/api
+status: active
 supportedModes:
     - chat

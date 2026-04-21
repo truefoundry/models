@@ -27,13 +27,13 @@ params:
       maxValue: 40000
     - defaultValue: medium
       key: reasoning_effort
+provisioning: serverless
 removeParams:
     - stream
 sources:
     - https://inference-docs.cerebras.ai/models/openai-oss
     - https://inference-docs.cerebras.ai/capabilities/reasoning
     - https://inference-docs.cerebras.ai/capabilities/prompt-caching
-    - https://inference-docs.cerebras.ai/support/deprecation
 status: active
 supportedModes:
     - chat

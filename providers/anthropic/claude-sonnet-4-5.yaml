@@ -1,6 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
+      cache_read_input_token_cost: 3e-7
       input_cost_per_token: 0.000003
       input_cost_per_token_batches: 0.0000015
       output_cost_per_token: 0.000015
@@ -32,6 +32,7 @@ params:
       maxValue: 64000
     - defaultValue: null
       key: thinking
+provisioning: serverless
 removeParams:
     - temperature
     - top_p

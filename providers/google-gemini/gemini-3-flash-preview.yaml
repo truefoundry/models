@@ -1,9 +1,9 @@
 costs:
-    - cache_read_input_audio_token_cost: 1.e-7
-      cache_read_input_token_cost: 5.e-8
+    - cache_read_input_audio_token_cost: 1e-7
+      cache_read_input_token_cost: 5e-8
       cache_storage_cost_per_token_per_hour: 0.000001
       input_cost_per_audio_token: 0.000001
-      input_cost_per_token: 5.e-7
+      input_cost_per_token: 5e-7
       input_cost_per_token_batches: 2.5e-7
       output_cost_per_token: 0.000003
       output_cost_per_token_batches: 0.0000015
@@ -40,6 +40,7 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
     - https://ai.google.dev/gemini-api/docs/thinking

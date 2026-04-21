@@ -7,7 +7,7 @@ costs:
           cache_read:
               - cost_per_token: 4.8e-7
                 from: 32000
-              - cost_per_token: 6.e-7
+              - cost_per_token: 6e-7
                 from: 128000
           input:
               - cost_per_token: 0.0000024
@@ -27,11 +27,16 @@ limits:
     context_window: 256000
     max_output_tokens: 16384
     max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3-Max-Thinking
+provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3-Max-Thinking
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
 supportedModes:
     - chat
 thinking: true
