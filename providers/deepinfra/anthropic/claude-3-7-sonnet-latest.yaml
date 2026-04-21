@@ -5,8 +5,8 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
     - prompt_caching
-    - structured_output
 limits:
     context_window: 200000
 modalities:
@@ -17,8 +17,9 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-3-7-sonnet-latest
+provisioning: serverless
 sources:
-    - https://deepinfra.com/anthropic/claude-3-7-sonnet-latest/api
+    - https://deepinfra.com/anthropic/claude-3-7-sonnet-latest
 supportedModes:
     - chat
 thinking: true

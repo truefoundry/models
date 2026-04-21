@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
+    - json_output
 limits:
     context_window: 163840
     max_input_tokens: 163840
@@ -17,9 +17,9 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V3.1-Terminus
+provisioning: serverless
 sources:
-    - https://deepinfra.com/deepseek-ai/DeepSeek-V3.1-Terminus/api
-    - https://openrouter.ai/deepseek/deepseek-v3.1-terminus/api
+    - https://deepinfra.com/deepseek-ai/DeepSeek-V3.1-Terminus
 status: active
 supportedModes:
     - chat

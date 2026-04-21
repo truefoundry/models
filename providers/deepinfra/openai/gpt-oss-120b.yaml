@@ -4,8 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
+    - json_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -18,10 +17,10 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-oss-120b
+provisioning: serverless
 sources:
-    - https://developers.openai.com/api/docs/models/gpt-oss-120b
-    - https://openrouter.ai/openai/gpt-oss-120b/api
-    - https://deepinfra.com/openai/gpt-oss-120b/api
+    - https://deepinfra.com/openai/gpt-oss-120b
+status: active
 supportedModes:
     - chat
 thinking: true

@@ -16,11 +16,14 @@ params:
     - key: seed
     - key: reasoning
       type: boolean
+provisioning: serverless
 removeParams:
     - "n"
     - response_format
 sources:
+    - https://openrouter.ai/switchpoint/router
     - https://openrouter.ai/switchpoint/router/api
+status: active
 supportedModes:
     - chat
 thinking: true

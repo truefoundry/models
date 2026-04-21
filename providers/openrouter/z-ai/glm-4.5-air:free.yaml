@@ -21,8 +21,11 @@ params:
       key: max_tokens
       maxValue: 96000
       minValue: 1
+provisioning: serverless
 sources:
+    - https://openrouter.ai/z-ai/glm-4.5-air:free
     - https://openrouter.ai/z-ai/glm-4.5-air:free/api
+status: active
 supportedModes:
     - chat
 thinking: true

@@ -1,10 +1,11 @@
 costs:
-    - cache_read_input_token_cost: 2.e-7
+    - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
       region: "*"
 features:
     - function_calling
+    - prompt_caching
     - structured_output
 limits:
     context_window: 2000000
@@ -16,6 +17,7 @@ modalities:
         - text
 mode: chat
 model: grok-4.20-reasoning-latest
+provisioning: serverless
 removeParams:
     - reasoning_effort
 status: active

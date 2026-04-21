@@ -1,6 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 0.00000375
-      cache_read_input_token_cost: 3.e-7
+      cache_read_input_token_cost: 3e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: "*"
@@ -27,8 +27,10 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 sources:
-    - https://openrouter.ai/anthropic/claude-sonnet-4.6/api
+    - https://openrouter.ai/anthropic/claude-sonnet-4.6
+status: active
 supportedModes:
     - chat
 thinking: true

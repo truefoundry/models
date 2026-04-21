@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - system_messages
     - tool_choice
     - structured_output
@@ -24,6 +25,7 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-5
+provisioning: serverless
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/api-reference
 status: active

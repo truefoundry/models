@@ -1,2 +1,30 @@
-mode: unknown
+costs:
+    - output_cost_per_second: 0.1
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - video
+        - audio
+mode: video
 model: sora-2-2025-12-08
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/video-generation
+    - https://azure.microsoft.com/en-us/products/ai-services/video-generation
+status: preview
+supportedModes:
+    - video
