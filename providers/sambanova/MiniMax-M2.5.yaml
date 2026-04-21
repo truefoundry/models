@@ -7,6 +7,7 @@ features:
     - tool_choice
     - system_messages
     - json_output
+    - structured_output
 limits:
     context_window: 160000
 modalities:
@@ -16,9 +17,11 @@ modalities:
         - text
 mode: chat
 model: MiniMax-M2.5
+provisioning: serverless
 sources:
     - https://cloud.sambanova.ai/playground?model=MiniMax-M2.5
     - https://docs.sambanova.ai/docs/en/features/function-calling
+    - https://sambanova-systems.mintlify.dev/docs/api-reference/chat-completions/create-chat-based-completion.md
 status: active
 supportedModes:
     - chat
