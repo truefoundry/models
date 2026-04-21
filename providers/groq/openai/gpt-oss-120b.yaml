@@ -5,7 +5,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
     - tool_choice
     - structured_output
     - prompt_caching
@@ -29,8 +28,10 @@ params:
       maxValue: 65536
       minValue: 1
     - key: reasoning_effort
+provisioning: serverless
 sources:
     - https://console.groq.com/docs/model/openai/gpt-oss-120b
+status: active
 supportedModes:
     - chat
 thinking: true

@@ -24,9 +24,11 @@ model: openai/gpt-oss-20b
 params:
     - key: max_tokens
       maxValue: 65536
+provisioning: serverless
 sources:
     - https://console.groq.com/docs/tool-use
     - https://console.groq.com/docs/structured-outputs
+    - https://console.groq.com/docs/prompt-caching
 status: active
 supportedModes:
     - chat
