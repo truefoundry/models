@@ -5,9 +5,8 @@ costs:
       region: "*"
 features:
     - function_calling
-    - prompt_caching
-    - structured_output
     - json_output
+    - prompt_caching
 limits:
     context_window: 163840
     max_input_tokens: 163840
@@ -20,9 +19,9 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V3.1
+provisioning: serverless
 sources:
-    - https://deepinfra.com/deepseek-ai/DeepSeek-V3.1/api
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
+    - https://deepinfra.com/deepseek-ai/DeepSeek-V3.1
 status: active
 supportedModes:
     - chat

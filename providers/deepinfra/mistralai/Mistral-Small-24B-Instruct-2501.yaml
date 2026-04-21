@@ -3,7 +3,6 @@ costs:
       output_cost_per_token: 8.e-8
       region: "*"
 features:
-    - structured_output
     - json_output
 limits:
     context_window: 32768
@@ -15,10 +14,9 @@ modalities:
         - text
 mode: chat
 model: mistralai/Mistral-Small-24B-Instruct-2501
+provisioning: serverless
 sources:
     - https://deepinfra.com/mistralai/Mistral-Small-24B-Instruct-2501
-    - https://deepinfra.com/mistralai/Mistral-Small-24B-Instruct-2501/api
-    - https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501
 status: active
 supportedModes:
     - chat

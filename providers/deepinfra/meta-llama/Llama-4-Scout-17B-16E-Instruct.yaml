@@ -4,8 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - system_messages
+    - json_output
 limits:
     context_window: 327680
     max_input_tokens: 327680
@@ -19,8 +18,8 @@ modalities:
         - text
 mode: chat
 model: meta-llama/Llama-4-Scout-17B-16E-Instruct
+provisioning: serverless
 sources:
-    - https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct/api
     - https://deepinfra.com/meta-llama/Llama-4-Scout-17B-16E-Instruct
 status: active
 supportedModes:

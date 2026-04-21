@@ -6,7 +6,6 @@ costs:
 features:
     - prompt_caching
     - function_calling
-    - structured_output
     - json_output
 limits:
     context_window: 163840
@@ -20,9 +19,9 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-R1-0528
+provisioning: serverless
 sources:
-    - https://deepinfra.com/deepseek-ai/DeepSeek-R1-0528/api
-    - https://huggingface.co/deepseek-ai/DeepSeek-R1-0528/raw/main/config.json
+    - https://deepinfra.com/deepseek-ai/DeepSeek-R1-0528
 status: active
 supportedModes:
     - chat

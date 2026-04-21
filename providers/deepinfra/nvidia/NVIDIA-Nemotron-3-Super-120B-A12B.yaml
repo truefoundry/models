@@ -6,6 +6,7 @@ costs:
 features:
     - prompt_caching
     - function_calling
+    - json_output
 limits:
     context_window: 262144
 modalities:
@@ -15,8 +16,9 @@ modalities:
         - text
 mode: chat
 model: nvidia/NVIDIA-Nemotron-3-Super-120B-A12B
+provisioning: serverless
 sources:
-    - https://deepinfra.com/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B/api
+    - https://deepinfra.com/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B
 status: active
 supportedModes:
     - chat

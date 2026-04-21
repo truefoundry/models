@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
+    - json_output
 limits:
     context_window: 40960
     max_input_tokens: 40960
@@ -17,11 +17,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-32B
+provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3-32B
-    - https://deepinfra.com/Qwen/Qwen3-32B/api
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
-    - https://huggingface.co/Qwen/Qwen3-32B
 status: active
 supportedModes:
     - chat

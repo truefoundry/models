@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 4.9e-8
-      output_cost_per_token: 4.9e-8
+    - input_cost_per_token: 2.45e-7
+      output_cost_per_token: 2.45e-7
       region: "*"
 features:
     - json_output
@@ -15,7 +15,9 @@ modalities:
         - text
 mode: chat
 model: meta-llama/Llama-3.2-11B-Vision-Instruct
+provisioning: serverless
 sources:
-    - https://deepinfra.com/meta-llama/Llama-3.2-11B-Vision-Instruct/api
+    - https://deepinfra.com/meta-llama/Llama-3.2-11B-Vision-Instruct
+status: active
 supportedModes:
     - chat

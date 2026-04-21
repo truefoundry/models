@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - system_messages
     - json_output
 limits:
     context_window: 131072
@@ -19,9 +17,9 @@ modalities:
         - text
 mode: chat
 model: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+provisioning: serverless
 sources:
-    - https://deepinfra.com/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo/api
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
+    - https://deepinfra.com/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
 status: active
 supportedModes:
     - chat
