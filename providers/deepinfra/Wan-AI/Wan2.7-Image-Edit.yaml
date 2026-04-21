@@ -1,3 +1,6 @@
+costs:
+    - output_cost_per_image: 0.03
+      region: "*"
 modalities:
     input:
         - image
@@ -6,7 +9,9 @@ modalities:
         - image
 mode: image
 model: Wan-AI/Wan2.7-Image-Edit
+provisioning: serverless
 sources:
     - https://deepinfra.com/Wan-AI/Wan2.7-Image-Edit
+status: active
 supportedModes:
     - image

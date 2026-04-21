@@ -1,7 +1,9 @@
 costs:
-    - input_cost_per_token: 3.e-8
-      output_cost_per_token: 1.e-7
+    - input_cost_per_token: 3e-8
+      output_cost_per_token: 1e-7
       region: "*"
+features:
+    - json_output
 limits:
     context_window: 8192
     max_input_tokens: 8192
@@ -15,10 +17,9 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-OCR
+provisioning: serverless
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-OCR
-    - https://huggingface.co/deepseek-ai/DeepSeek-OCR
-    - https://github.com/deepseek-ai/DeepSeek-OCR
 status: active
 supportedModes:
     - chat

@@ -25,8 +25,10 @@ model: anthropic/claude-opus-4
 params:
     - key: max_tokens
       maxValue: 32000
+provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-opus-4/api
+    - https://openrouter.ai/anthropic/claude-opus-4
 status: active
 supportedModes:
     - chat

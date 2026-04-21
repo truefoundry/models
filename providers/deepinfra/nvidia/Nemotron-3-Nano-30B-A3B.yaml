@@ -1,10 +1,10 @@
 costs:
-    - input_cost_per_token: 5.e-8
-      output_cost_per_token: 2.e-7
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 2e-7
       region: "*"
 features:
     - function_calling
-    - tool_choice
+    - json_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -17,10 +17,10 @@ modalities:
         - text
 mode: chat
 model: nvidia/Nemotron-3-Nano-30B-A3B
+provisioning: serverless
 sources:
-    - https://deepinfra.com/nvidia/Nemotron-3-Nano-30B-A3B/api
     - https://deepinfra.com/nvidia/Nemotron-3-Nano-30B-A3B
-    - https://build.nvidia.com/nvidia/nemotron-3-nano-30b-a3b
+status: active
 supportedModes:
     - chat
 thinking: true

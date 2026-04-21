@@ -2,6 +2,11 @@ features:
     - system_messages
     - function_calling
     - json_output
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -9,9 +14,12 @@ modalities:
         - text
 mode: chat
 model: qwen/qwq
+provisioning: serverless
 sources:
     - https://huggingface.co/Qwen/QwQ-32B
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-235b
 supportedModes:
     - chat
 thinking: true
+
+# costs not found in official docs — QwQ-32B is not listed on the current Vertex AI pricing page or model documentation

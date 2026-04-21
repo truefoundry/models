@@ -1,6 +1,7 @@
 costs:
-    - input_cost_per_token: 2.6e-7
-      output_cost_per_token: 3.8e-7
+    - cache_read_input_token_cost: 2.52e-8
+      input_cost_per_token: 2.52e-7
+      output_cost_per_token: 3.78e-7
       region: "*"
 features:
     - function_calling
@@ -23,8 +24,10 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-v3.2/api
+    - https://openrouter.ai/deepseek/deepseek-v3.2
     - https://api-docs.deepseek.com/quick_start/pricing
 supportedModes:
     - chat

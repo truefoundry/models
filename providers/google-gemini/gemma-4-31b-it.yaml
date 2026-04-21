@@ -4,15 +4,13 @@ costs:
       region: "*"
 features:
     - function_calling
-    - system_messages
-    - structured_output
     - json_output
+    - structured_output
+    - system_messages
     - tool_choice
 limits:
-    context_window: 262144
-    max_input_tokens: 262144
-    max_output_tokens: 32768
-    max_tokens: 32768
+    context_window: 256000
+    max_input_tokens: 256000
 messages:
     options:
         - system
@@ -35,6 +33,7 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+provisioning: serverless
 sources:
     - https://ai.google.dev/gemma/docs/core/model_card_4
     - https://ai.google.dev/gemma/docs/core/prompt-formatting-gemma4

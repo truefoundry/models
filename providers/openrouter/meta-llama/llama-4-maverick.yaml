@@ -1,6 +1,6 @@
 costs:
     - input_cost_per_token: 1.5e-7
-      output_cost_per_token: 6.e-7
+      output_cost_per_token: 6e-7
       region: "*"
 features:
     - function_calling
@@ -19,7 +19,9 @@ modalities:
         - text
 mode: chat
 model: meta-llama/llama-4-maverick
+provisioning: serverless
 sources:
+    - https://openrouter.ai/meta-llama/llama-4-maverick
     - https://openrouter.ai/meta-llama/llama-4-maverick/api
 supportedModes:
     - chat

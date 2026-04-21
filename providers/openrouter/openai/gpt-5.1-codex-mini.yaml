@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 2.5e-8
+    - cache_read_input_token_cost: 3e-8
       input_cost_per_token: 2.5e-7
       output_cost_per_token: 0.000002
       region: "*"
@@ -28,9 +28,12 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
+    - https://openrouter.ai/openai/gpt-5.1-codex-mini
     - https://openrouter.ai/openai/gpt-5.1-codex-mini/api
     - https://developers.openai.com/docs/models/gpt-5.1-codex-mini
+status: active
 supportedModes:
     - chat
 thinking: true

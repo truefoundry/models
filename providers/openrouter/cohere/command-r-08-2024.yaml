@@ -1,6 +1,6 @@
 costs:
     - input_cost_per_token: 1.5e-7
-      output_cost_per_token: 6.e-7
+      output_cost_per_token: 6e-7
       region: "*"
 features:
     - function_calling
@@ -18,9 +18,9 @@ modalities:
         - text
 mode: chat
 model: cohere/command-r-08-2024
+provisioning: serverless
 sources:
-    - https://openrouter.ai/cohere/command-r-08-2024/api
-    - https://docs.cohere.com/docs/command-r
+    - https://openrouter.ai/cohere/command-r-08-2024
 status: active
 supportedModes:
     - chat
