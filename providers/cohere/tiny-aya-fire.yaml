@@ -9,13 +9,14 @@ modalities:
         - text
     output:
         - text
-mode: completion
+mode: chat
 model: tiny-aya-fire
 params:
     - key: max_tokens
       maxValue: 8000
 provisioning: serverless
+sources: 
+    - https://docs.cohere.com/docs/tiny-aya
 status: active
 supportedModes:
     - chat
-    - completion
