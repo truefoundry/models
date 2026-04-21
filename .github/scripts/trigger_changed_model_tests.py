@@ -4,9 +4,8 @@ and trigger the gateway-test-job-v2 TrueFoundry job once per provider.
 
 Required env vars:
     GATEWAY_TEST_JOB_V2_FQN  FQN of the deployed gateway-test-job-v2
-    PR_NUMBER         GitHub PR number (passed through to run.py --pr-number)
-    GIT_REF           Commit SHA of the PR head; the job clones this exact
-                      commit of truefoundry/models to build its catalogue
+    PR_NUMBER         GitHub PR number (passed through to run.py --pr-number;
+                      the job resolves the head commit itself at run time)
 
 Optional env vars:
     GITHUB_OUTPUT     If set, writes "triggered=<count>" for the workflow step
@@ -110,7 +109,6 @@ def _write_output(triggered: int) -> None:
 def main() -> None:
     job_fqn = _require_env("GATEWAY_TEST_JOB_V2_FQN")
     pr_number = _require_env("PR_NUMBER")
-    git_ref = _require_env("GIT_REF")
 
     base = _diff_base()
     changed = _changed_provider_files(base)
@@ -142,9 +140,9 @@ def main() -> None:
         models_arg = " ".join(models)
         command = (
             f"python run.py --provider {provider} --model {models_arg} "
-            f"--pr-mode --pr-number {pr_number} --git-ref {git_ref}"
+            f"--pr-mode --pr-number {pr_number}"
         )
-        print(f"Triggering tests for provider={provider} models={models_arg} pr={pr_number} ref={git_ref}")
+        print(f"Triggering tests for provider={provider} models={models_arg} pr={pr_number}")
         _run([
             "tfy", "trigger", "job",
             "--application-fqn", job_fqn,

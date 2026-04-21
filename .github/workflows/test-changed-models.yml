@@ -66,8 +66,6 @@ jobs:
 
       - name: Diff changed models and trigger tests
         id: trigger
-        env:
-          GIT_REF: ${{ steps.resolve_pr.outputs.head_sha }}
         run: python ./.github/scripts/trigger_changed_model_tests.py
 
       - name: Comment - no models to test
