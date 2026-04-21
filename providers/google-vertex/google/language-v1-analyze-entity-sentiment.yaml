@@ -8,6 +8,7 @@ modalities:
         - text
 mode: unknown
 model: google/language-v1-analyze-entity-sentiment
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -19,3 +20,6 @@ removeParams:
 sources:
     - https://cloud.google.com/natural-language/pricing
     - https://docs.cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeEntitySentiment
+status: active
+supportedModes:
+    - unknown

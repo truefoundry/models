@@ -1,10 +1,10 @@
 features:
     - function_calling
-    - structured_output
     - json_output
+    - prompt_caching
+    - structured_output
     - system_messages
     - tool_choice
-    - prompt_caching
 limits:
     context_window: 262144
 modalities:
@@ -25,11 +25,14 @@ params:
       key: top_p
       maxValue: 0.95
       minValue: 0.95
+provisioning: serverless
 removeParams:
     - "n"
 sources:
-    - https://platform.moonshot.ai/docs/api/chat
-    - https://platform.moonshot.ai/docs/pricing/chat
+    - https://platform.kimi.ai/docs/api/chat
+    - https://platform.kimi.ai/docs/pricing/chat-k25
+    - https://platform.kimi.ai/docs/models
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/kimi/kimi-k2-thinking
 status: active
 supportedModes:
     - chat

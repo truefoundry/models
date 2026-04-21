@@ -1,14 +1,27 @@
+limits:
+    context_window: 2048
+    max_input_tokens: 2048
+messages:
+    options:
+        - user
+        - assistant
 modalities:
     input:
         - text
+        - image
     output:
         - text
 mode: chat
 model: google/translategemma
+provisioning: provisioned
 removeParams:
     - "n"
     - stop
     - tool_choice
+sources:
+    - https://huggingface.co/google/translategemma-27b-it
+    - https://huggingface.co/google/translategemma-12b-it
+    - https://huggingface.co/google/translategemma-4b-it/discussions/2
 status: active
 supportedModes:
     - chat

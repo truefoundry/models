@@ -6,8 +6,15 @@ modalities:
         - embedding
 mode: embedding
 model: google/earth-ai-imagery-mammut-eap-10-2025
+provisioning: serverless
 removeParams:
     - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://ai.google/earth-ai/
     - https://arxiv.org/html/2510.18318v2

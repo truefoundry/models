@@ -12,6 +12,7 @@ modalities:
         - embedding
 mode: embedding
 model: mongodb/voyage-4-large
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -23,6 +24,7 @@ removeParams:
 sources:
     - https://docs.voyageai.com/docs/embeddings
     - https://docs.voyageai.com/docs/pricing
+    - https://www.mongodb.com/docs/voyageai/management/gcp-marketplace/
 status: active
 supportedModes:
     - embedding

@@ -1,7 +1,12 @@
 costs:
-    - input_cost_per_token: 2.e-7
+    - input_cost_per_audio_token: 0.0000065
+      input_cost_per_image: 0.00012
+      input_cost_per_image_token: 4.5e-7
+      input_cost_per_token: 2.e-7
+      input_cost_per_video_token: 0.000012
       region: us-central1
 limits:
+    context_window: 8192
     max_input_tokens: 8192
     output_vector_size: 3072
 modalities:
@@ -15,6 +20,7 @@ modalities:
         - embedding
 mode: embedding
 model: gemini-embedding-2-preview
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -25,6 +31,7 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/embedding-2
+    - https://ai.google.dev/pricing
 status: preview
 supportedModes:
     - embedding

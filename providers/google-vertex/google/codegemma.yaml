@@ -12,6 +12,9 @@ modalities:
         - code
 mode: completion
 model: google/codegemma
+provisioning: provisioned
+removeParams:
+    - tool_choice
 sources:
     - https://ai.google.dev/gemma/docs/codegemma
 status: active

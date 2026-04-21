@@ -1,7 +1,7 @@
 costs:
     - input_cost_per_token: 3.e-7
       output_cost_per_token: 0.0000012
-      region: global # docs specify us-central1 but the model is only available via global inference
+      region: us-central1
 features:
     - function_calling
     - structured_output
@@ -23,6 +23,7 @@ params:
       key: max_tokens
       maxValue: 8192
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-ocr
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek

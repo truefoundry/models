@@ -6,4 +6,17 @@ modalities:
         - text
 mode: unknown
 model: google/jax-owl-vit-v2
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/jax-owl-vit-v2
 status: active
+supportedModes:
+    - unknown

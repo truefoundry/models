@@ -10,6 +10,7 @@ modalities:
         - text
 mode: unknown
 model: google/pretrained-form-parser
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -22,3 +23,5 @@ sources:
     - https://cloud.google.com/document-ai/pricing
     - https://docs.cloud.google.com/document-ai/docs/processors-list
 status: active
+supportedModes:
+    - unknown

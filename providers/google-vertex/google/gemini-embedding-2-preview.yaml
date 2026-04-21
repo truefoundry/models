@@ -2,6 +2,7 @@ costs:
     - input_cost_per_token: 2.e-7
       region: us-central1
 limits:
+    context_window: 8192
     max_input_tokens: 8192
     output_vector_size: 3072
 modalities:
@@ -15,6 +16,7 @@ modalities:
         - embedding
 mode: embedding
 model: google/gemini-embedding-2-preview
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -25,6 +27,7 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/embedding-2
+    - https://ai.google.dev/pricing
 status: preview
 supportedModes:
     - embedding

@@ -7,6 +7,15 @@ modalities:
         - video
 mode: video
 model: nvidia/cosmos
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://www.nvidia.com/en-us/ai/cosmos/
     - https://console.cloud.google.com/vertex-ai/publishers/nvidia/model-garden/cosmos

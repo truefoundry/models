@@ -1,3 +1,5 @@
+limits:
+    context_window: 4096
 modalities:
     input:
         - text
@@ -5,7 +7,11 @@ modalities:
         - text
 mode: chat
 model: meta/llama-2-quantized
+provisioning: provisioned
 removeParams:
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/llama-2-quantized
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama
 supportedModes:
     - chat

@@ -5,6 +5,7 @@ modalities:
         - image
 mode: image
 model: virtual-try-on-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -16,5 +17,6 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-virtual-try-on-images
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api
+status: active
 supportedModes:
     - image

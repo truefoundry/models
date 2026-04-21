@@ -5,6 +5,7 @@ modalities:
         - text
 mode: audio_transcription
 model: openai/whisper-large
+provisioning: provisioned
 removeParams:
     - temperature
     - top_p
@@ -13,5 +14,6 @@ removeParams:
     - stream
     - tool_choice
     - max_tokens
+status: active
 supportedModes:
     - audio_transcription

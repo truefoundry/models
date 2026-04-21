@@ -5,6 +5,7 @@ modalities:
         - image
 mode: image
 model: black-forest-labs/flux-2-klein-4b
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -14,7 +15,10 @@ removeParams:
     - stream
     - tool_choice
 sources:
-    - https://console.cloud.google.com/vertex-ai/publishers/black-forest-labs/model-garden/flux1-schnell
+    - https://console.cloud.google.com/vertex-ai/publishers/black-forest-labs/model-garden/flux-2-klein-4b
+    - https://bfl.ai/pricing/
+    - https://bfl.ai/models/flux-2-klein
+    - https://docs.bfl.ai/flux_2/flux2_overview
 status: active
 supportedModes:
     - image

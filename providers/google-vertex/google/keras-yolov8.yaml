@@ -5,6 +5,15 @@ modalities:
         - text
 mode: image
 model: google/keras-yolov8
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/keras-yolov8
 status: active

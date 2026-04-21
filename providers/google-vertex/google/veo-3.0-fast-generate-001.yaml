@@ -1,3 +1,124 @@
+costs:
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: us-west4
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: us-west1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: us-south1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: us-east5
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: us-east4
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: us-east1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: us-central1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: southamerica-east1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: northamerica-northeast1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: me-west1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: me-central2
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: me-central1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: global
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-west9
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-west8
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-west6
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-west4
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-west3
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-west2
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-west1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-southwest1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-north1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: europe-central2
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: australia-southeast1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: asia-southeast1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: asia-south1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: asia-northeast3
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: asia-northeast1
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: asia-east2
+    - output_cost_per_second_1080p: 0.12
+      output_cost_per_second_4k: 0.3
+      output_cost_per_second_720p: 0.1
+      region: asia-east1
 deprecationDate: "2026-06-30"
 modalities:
     input:
@@ -8,6 +129,7 @@ modalities:
         - audio
 mode: video
 model: google/veo-3.0-fast-generate-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -20,7 +142,7 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-fast-generate-001
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/generate-videos
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
+    - https://ai.google.dev/pricing
 status: active
 supportedModes:
     - video

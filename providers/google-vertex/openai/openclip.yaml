@@ -9,6 +9,7 @@ modalities:
         - embedding
 mode: embedding
 model: openai/openclip
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -17,5 +18,6 @@ removeParams:
     - stop
     - stream
     - tool_choice
+status: preview
 supportedModes:
     - embedding

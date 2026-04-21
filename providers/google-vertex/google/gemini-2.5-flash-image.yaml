@@ -89,6 +89,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
         - image
@@ -97,6 +98,7 @@ model: google/gemini-2.5-flash-image
 params:
     - key: max_tokens
       maxValue: 32768
+provisioning: serverless
 removeParams:
     - tool_choice
 sources:

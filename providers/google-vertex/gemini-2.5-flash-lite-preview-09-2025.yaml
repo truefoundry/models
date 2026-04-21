@@ -4,9 +4,7 @@ costs:
       cache_storage_cost_per_token_per_hour: 0.000001
       input_cost_per_audio_token: 3.e-7
       input_cost_per_token: 1.e-7
-      input_cost_per_token_batches: 5.e-8
       output_cost_per_token: 4.e-7
-      output_cost_per_token_batches: 2.e-7
       region: global
 features:
     - function_calling
@@ -37,6 +35,7 @@ params:
       maxValue: 65535
     - defaultValue: 1
       key: temperature
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite
     - https://ai.google.dev/pricing

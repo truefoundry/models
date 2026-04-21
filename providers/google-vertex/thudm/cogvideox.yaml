@@ -5,6 +5,15 @@ modalities:
         - video
 mode: video
 model: thudm/cogvideox
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 status: active
 supportedModes:
     - video

@@ -5,6 +5,7 @@ modalities:
         - text
 mode: unknown
 model: google/automl-vision-image-classification
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -15,3 +16,6 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/train-model
+status: active
+supportedModes:
+    - unknown

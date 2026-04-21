@@ -38,8 +38,8 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 64000
-    max_tokens: 64000
+    max_output_tokens: 128000
+    max_tokens: 128000
     tool_use_system_prompt_tokens: 346
 modalities:
     input:
@@ -52,9 +52,10 @@ mode: chat
 model: anthropic/claude-sonnet-4-6@default
 params:
     - key: max_tokens
-      maxValue: 64000
+      maxValue: 128000
     - key: temperature
       maxValue: 1
+provisioning: serverless
 removeParams:
     - "n"
 sources:

@@ -1,34 +1,64 @@
 costs:
-    - region: us-west4
-    - region: us-west1
-    - region: us-south1
-    - region: us-east5
-    - region: us-east4
-    - region: us-east1
-    - region: us-central1
-    - region: southamerica-east1
-    - region: northamerica-northeast1
-    - region: me-west1
-    - region: me-central2
-    - region: me-central1
-    - region: global
-    - region: europe-west9
-    - region: europe-west8
-    - region: europe-west6
-    - region: europe-west4
-    - region: europe-west3
-    - region: europe-west2
-    - region: europe-west1
-    - region: europe-southwest1
-    - region: europe-north1
-    - region: europe-central2
-    - region: australia-southeast1
-    - region: asia-southeast1
-    - region: asia-south1
-    - region: asia-northeast3
-    - region: asia-northeast1
-    - region: asia-east2
-    - region: asia-east1
+    - output_cost_per_second: 0.35
+      region: us-west4
+    - output_cost_per_second: 0.35
+      region: us-west1
+    - output_cost_per_second: 0.35
+      region: us-south1
+    - output_cost_per_second: 0.35
+      region: us-east5
+    - output_cost_per_second: 0.35
+      region: us-east4
+    - output_cost_per_second: 0.35
+      region: us-east1
+    - output_cost_per_second: 0.35
+      region: us-central1
+    - output_cost_per_second: 0.35
+      region: southamerica-east1
+    - output_cost_per_second: 0.35
+      region: northamerica-northeast1
+    - output_cost_per_second: 0.35
+      region: me-west1
+    - output_cost_per_second: 0.35
+      region: me-central2
+    - output_cost_per_second: 0.35
+      region: me-central1
+    - output_cost_per_second: 0.35
+      region: global
+    - output_cost_per_second: 0.35
+      region: europe-west9
+    - output_cost_per_second: 0.35
+      region: europe-west8
+    - output_cost_per_second: 0.35
+      region: europe-west6
+    - output_cost_per_second: 0.35
+      region: europe-west4
+    - output_cost_per_second: 0.35
+      region: europe-west3
+    - output_cost_per_second: 0.35
+      region: europe-west2
+    - output_cost_per_second: 0.35
+      region: europe-west1
+    - output_cost_per_second: 0.35
+      region: europe-southwest1
+    - output_cost_per_second: 0.35
+      region: europe-north1
+    - output_cost_per_second: 0.35
+      region: europe-central2
+    - output_cost_per_second: 0.35
+      region: australia-southeast1
+    - output_cost_per_second: 0.35
+      region: asia-southeast1
+    - output_cost_per_second: 0.35
+      region: asia-south1
+    - output_cost_per_second: 0.35
+      region: asia-northeast3
+    - output_cost_per_second: 0.35
+      region: asia-northeast1
+    - output_cost_per_second: 0.35
+      region: asia-east2
+    - output_cost_per_second: 0.35
+      region: asia-east1
 modalities:
     input:
         - text
@@ -37,6 +67,7 @@ modalities:
         - video
 mode: video
 model: veo-2.0-generate-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -50,6 +81,7 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/overview
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#available-regions
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/models
+    - https://ai.google.dev/pricing
 status: active
 supportedModes:
     - video

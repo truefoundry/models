@@ -8,6 +8,7 @@ modalities:
         - text
 mode: unknown
 model: google/language-v1-analyze-syntax
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -20,3 +21,5 @@ sources:
     - https://docs.cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSyntax
     - https://cloud.google.com/natural-language/pricing
 status: active
+supportedModes:
+    - unknown

@@ -5,5 +5,17 @@ modalities:
         - image
 mode: unknown
 model: cloudnerf-pytorch-zipnerf
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/cloudnerf-pytorch-zipnerf
+status: active
+supportedModes:
+    - unknown

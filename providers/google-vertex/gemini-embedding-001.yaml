@@ -90,6 +90,7 @@ costs:
       output_cost_per_token: 0
       region: asia-east1
 limits:
+    context_window: 2048
     max_input_tokens: 2048
     output_vector_size: 3072
 modalities:
@@ -99,6 +100,7 @@ modalities:
         - embedding
 mode: embedding
 model: gemini-embedding-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -109,8 +111,8 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+    - https://ai.google.dev/pricing
 status: active
 supportedModes:
     - embedding

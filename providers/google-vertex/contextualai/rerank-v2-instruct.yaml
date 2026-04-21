@@ -1,3 +1,8 @@
+costs:
+    - input_cost_per_token: 5.e-8
+      region: global
+limits:
+    max_input_tokens: 400000
 modalities:
     input:
         - text
@@ -5,6 +10,7 @@ modalities:
         - text
 mode: rerank
 model: contextualai/rerank-v2-instruct
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -17,6 +23,7 @@ sources:
     - https://docs.contextual.ai/api-reference/rerank/rerank
     - https://docs.contextual.ai/how-to-guides/rerank
     - https://docs.contextual.ai/integration/platforms
+    - https://contextual.ai/pricing
 status: active
 supportedModes:
     - rerank

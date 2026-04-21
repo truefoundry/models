@@ -1,5 +1,6 @@
 mode: unknown
 model: google/timesfm
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -11,3 +12,5 @@ removeParams:
 sources:
     - https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/
 status: active
+supportedModes:
+    - unknown

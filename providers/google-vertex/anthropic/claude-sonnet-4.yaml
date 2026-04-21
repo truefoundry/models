@@ -59,6 +59,7 @@ costs:
           output:
               - cost_per_token: 0.0000225
                 from: 200000
+deprecationDate: "2026-06-15"
 features:
     - function_calling
     - tool_choice
@@ -75,13 +76,18 @@ modalities:
         - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: anthropic/claude-sonnet-4
 params:
     - key: max_tokens
       maxValue: 64000
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4
+    - https://platform.claude.com/docs/en/docs/about-claude/models/all-models
+    - https://platform.claude.com/docs/en/docs/about-claude/pricing
 supportedModes:
     - chat
 thinking: true

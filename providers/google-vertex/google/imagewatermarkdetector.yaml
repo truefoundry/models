@@ -5,6 +5,7 @@ modalities:
         - text
 mode: unknown
 model: google/imagewatermarkdetector
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -16,3 +17,5 @@ removeParams:
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/imagewatermarkdetector
 status: preview
+supportedModes:
+    - unknown

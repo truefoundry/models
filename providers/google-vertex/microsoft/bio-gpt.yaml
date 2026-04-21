@@ -5,6 +5,9 @@ modalities:
         - text
 mode: completion
 model: microsoft/bio-gpt
+provisioning: provisioned
+removeParams:
+    - tool_choice
 sources:
     - https://huggingface.co/microsoft/biogpt
 supportedModes:

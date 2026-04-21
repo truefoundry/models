@@ -5,5 +5,15 @@ modalities:
         - image
 mode: image
 model: zai-org/glm-image
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg
 supportedModes:
     - image

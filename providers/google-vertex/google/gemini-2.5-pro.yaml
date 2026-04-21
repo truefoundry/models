@@ -116,7 +116,71 @@ costs:
       input_cost_per_token_batches: 6.25e-7
       output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
+      region: southamerica-east1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
       region: northamerica-northeast1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: me-west1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: me-central2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: me-central1
       tiered_pricing:
           cache_read:
               - cost_per_token: 2.5e-7
@@ -180,7 +244,55 @@ costs:
       input_cost_per_token_batches: 6.25e-7
       output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
+      region: europe-west6
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
       region: europe-west4
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: europe-west3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: europe-west2
       tiered_pricing:
           cache_read:
               - cost_per_token: 2.5e-7
@@ -260,7 +372,103 @@ costs:
       input_cost_per_token_batches: 6.25e-7
       output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
+      region: australia-southeast1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: asia-southeast1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: asia-south1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: asia-northeast3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
       region: asia-northeast1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: asia-east2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000015
+                from: 200000
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 0.00000125
+      input_cost_per_token_batches: 6.25e-7
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: asia-east1
       tiered_pricing:
           cache_read:
               - cost_per_token: 2.5e-7
@@ -302,10 +510,13 @@ params:
       minValue: 1
     - defaultValue: 1
       key: temperature
-    - defaultValue: 40
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
       key: top_k
       maxValue: 100
       minValue: 1
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro
 status: active

@@ -2,6 +2,8 @@ features:
     - function_calling
     - system_messages
     - json_output
+limits:
+    context_window: 128000
 modalities:
     input:
         - text
@@ -9,9 +11,11 @@ modalities:
         - text
 mode: chat
 model: meta/llama3_1
+provisioning: provisioned
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama
+    - https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct
 status: active
 supportedModes:
     - chat

@@ -1,8 +1,12 @@
+costs:
+    - input_cost_per_image: 0.0015
+      region: global
 modalities:
     input:
         - image
 mode: moderation
 model: google/content-moderation
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature

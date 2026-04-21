@@ -1,5 +1,8 @@
 features:
     - function_calling
+limits:
+    context_window: 32000
+    max_input_tokens: 32000
 modalities:
     input:
         - text
@@ -7,7 +10,10 @@ modalities:
         - text
 mode: chat
 model: google/functiongemma
+provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/functiongemma
+    - https://ai.google.dev/gemma/docs/functiongemma/model_card
+status: active
 supportedModes:
     - chat

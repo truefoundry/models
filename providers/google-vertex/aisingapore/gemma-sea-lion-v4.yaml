@@ -1,10 +1,23 @@
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+limits:
+    context_window: 128000
 modalities:
     input:
         - text
+        - image
     output:
         - text
 mode: chat
 model: aisingapore/gemma-sea-lion-v4
+provisioning: provisioned
+sources:
+    - https://docs.sea-lion.ai/models/sea-lion-v4/gemma-sea-lion-v4-27b
+    - https://sea-lion.ai/models/
+    - https://deepmind.google/models/gemma/gemmaverse/sea-lion-v4/
+    - https://docs.sea-lion.ai/guides/inferencing/vertex_ai
 status: active
 supportedModes:
     - chat

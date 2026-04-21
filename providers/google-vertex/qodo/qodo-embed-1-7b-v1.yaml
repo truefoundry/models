@@ -9,6 +9,7 @@ modalities:
         - embedding
 mode: embedding
 model: qodo/qodo-embed-1-7b-v1
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -19,5 +20,6 @@ removeParams:
     - max_tokens
 sources:
     - https://huggingface.co/Qodo/Qodo-Embed-1-7B
+status: active
 supportedModes:
     - embedding

@@ -11,6 +11,12 @@ modalities:
         - text
 mode: chat
 model: google/medgemma
+params:
+    - key: max_tokens
+      maxValue: 8192
+provisioning: provisioned
+removeParams:
+    - tool_choice
 sources:
     - https://developers.google.com/health-ai-developer-foundations/medgemma
     - https://developers.google.com/health-ai-developer-foundations/medgemma/model-card

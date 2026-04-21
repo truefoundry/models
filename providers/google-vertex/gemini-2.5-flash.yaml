@@ -224,6 +224,7 @@ features:
     - prompt_caching
     - structured_output
     - code_execution
+    - json_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -252,6 +253,7 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
     - https://ai.google.dev/pricing

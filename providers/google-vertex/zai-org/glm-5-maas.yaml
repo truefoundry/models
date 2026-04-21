@@ -5,6 +5,7 @@ costs:
       region: global
 features:
     - function_calling
+    - json_output
     - prompt_caching
     - structured_output
     - system_messages
@@ -24,10 +25,12 @@ model: zai-org/glm-5-maas
 params:
     - key: max_tokens
       maxValue: 128000
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-5
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/capabilities/thinking
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/capabilities/structured-output
 status: active
 supportedModes:
     - chat

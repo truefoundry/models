@@ -6,6 +6,10 @@ modalities:
         - text
 mode: chat
 model: salesforce/blip-vqa-base
+provisioning: provisioned
+removeParams:
+    - tool_choice
+    - "n"
 sources:
     - https://huggingface.co/Salesforce/blip-vqa-base
 status: active

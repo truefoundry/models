@@ -1,3 +1,6 @@
+limits:
+    context_window: 512
+    max_input_tokens: 512
 modalities:
     input:
         - text
@@ -5,9 +8,13 @@ modalities:
         - text
 mode: unknown
 model: meta/roberta-large
+provisioning: provisioned
 removeParams:
     - tool_choice
     - "n"
     - stop
 sources:
     - https://huggingface.co/FacebookAI/roberta-large
+status: active
+supportedModes:
+    - unknown

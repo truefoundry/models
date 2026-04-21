@@ -1,9 +1,23 @@
 modalities:
     input:
+        - text
         - image
+        - video
     output:
         - image
 mode: image
 model: meta/sam3
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://github.com/facebookresearch/sam3
+status: active
 supportedModes:
     - image

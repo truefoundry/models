@@ -1,10 +1,12 @@
 modalities:
     input:
         - text
+        - image
     output:
         - video
 mode: video
 model: wan-ai/wan2-1
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature

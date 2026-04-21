@@ -5,11 +5,15 @@ modalities:
         - audio
 mode: text_to_speech
 model: cambai/mars8
+provisioning: serverless
 removeParams:
     - "n"
     - tool_choice
+    - max_tokens
+    - stop
 sources:
     - https://docs.camb.ai/models.md
     - https://docs.camb.ai/choosing-a-model.md
+status: active
 supportedModes:
     - text_to_speech

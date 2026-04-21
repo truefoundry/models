@@ -37,6 +37,9 @@ costs:
       region: me-central1
     - output_cost_per_second: 0.15
       output_cost_per_second_4k: 0.35
+      region: global
+    - output_cost_per_second: 0.15
+      output_cost_per_second_4k: 0.35
       region: europe-west9
     - output_cost_per_second: 0.15
       output_cost_per_second_4k: 0.35
@@ -98,6 +101,7 @@ modalities:
         - audio
 mode: video
 model: veo-3.1-fast-generate-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature

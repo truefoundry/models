@@ -1,2 +1,25 @@
+costs:
+    - input_cost_per_image: 0.000025
+      region: us-central1
+modalities:
+    input:
+        - image
+    output:
+        - text
 mode: unknown
 model: google/tag-recognizer
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vision-ai/docs/tag-recognizer
+    - https://cloud.google.com/vision-ai/pricing
+status: active
+supportedModes:
+    - unknown

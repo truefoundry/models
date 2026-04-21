@@ -6,6 +6,7 @@ modalities:
         - audio
 mode: unknown
 model: lyria-3-clip-preview
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -18,3 +19,5 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/music/generate-music
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
 status: preview
+supportedModes:
+    - unknown
