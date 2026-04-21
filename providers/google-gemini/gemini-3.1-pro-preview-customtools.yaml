@@ -28,6 +28,11 @@ limits:
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+messages:
+    options:
+        - system
+        - user
+        - assistant
 modalities:
     input:
         - audio
@@ -47,6 +52,7 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
     - https://ai.google.dev/gemini-api/docs/thinking

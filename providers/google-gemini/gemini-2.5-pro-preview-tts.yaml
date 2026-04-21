@@ -16,6 +16,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: gemini-2.5-pro-preview-tts
+params:
+    - key: max_tokens
+      maxValue: 16384
+provisioning: serverless
 removeParams:
     - tool_choice
 sources:
@@ -24,4 +28,3 @@ sources:
 status: preview
 supportedModes:
     - text_to_speech
-thinking: false

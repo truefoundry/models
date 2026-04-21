@@ -16,6 +16,7 @@ features:
     - prompt_caching
     - structured_output
     - code_execution
+    - json_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -37,6 +38,11 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+      minValue: 0
+provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
     - https://ai.google.dev/gemini-api/docs/gemini-3
