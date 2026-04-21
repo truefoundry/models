@@ -3,7 +3,7 @@ costs:
       output_cost_per_token: 4e-7
       region: "*"
 features:
-    - structured_output
+    - json_output
 limits:
     context_window: 4096
     max_output_tokens: 4096
@@ -15,8 +15,9 @@ modalities:
         - text
 mode: chat
 model: Gryphe/MythoMax-L2-13b
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Gryphe/MythoMax-L2-13b/api
-    - https://deepinfra.com/models/text-generation/2
+    - https://deepinfra.com/Gryphe/MythoMax-L2-13b
+status: active
 supportedModes:
     - chat

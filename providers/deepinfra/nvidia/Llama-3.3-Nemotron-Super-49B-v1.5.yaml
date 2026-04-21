@@ -4,8 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - system_messages
+    - json_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -18,9 +17,10 @@ modalities:
         - text
 mode: chat
 model: nvidia/Llama-3.3-Nemotron-Super-49B-v1.5
+provisioning: serverless
 sources:
     - https://deepinfra.com/nvidia/Llama-3.3-Nemotron-Super-49B-v1.5
-    - https://huggingface.co/nvidia/Llama-3_3-Nemotron-Super-49B-v1_5
+status: active
 supportedModes:
     - chat
 thinking: true

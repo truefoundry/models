@@ -4,7 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
+    - json_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -17,8 +17,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-Next-80B-A3B-Instruct
+provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3-Next-80B-A3B-Instruct
-    - https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct
+status: active
 supportedModes:
     - chat

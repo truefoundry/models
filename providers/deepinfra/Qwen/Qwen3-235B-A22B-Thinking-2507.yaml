@@ -6,7 +6,7 @@ costs:
 features:
     - prompt_caching
     - function_calling
-    - structured_output
+    - json_output
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -19,9 +19,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-235B-A22B-Thinking-2507
+provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3-235B-A22B-Thinking-2507
-    - https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507
 status: active
 supportedModes:
     - chat

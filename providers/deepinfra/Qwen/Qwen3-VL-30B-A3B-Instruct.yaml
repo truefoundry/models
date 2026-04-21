@@ -4,9 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - system_messages
-    - tool_choice
-    - structured_output
+    - json_output
 limits:
     context_window: 262144
     max_output_tokens: 16384
@@ -20,10 +18,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-VL-30B-A3B-Instruct
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Qwen/Qwen3-VL-30B-A3B-Instruct/api
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
-    - https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct
+    - https://deepinfra.com/Qwen/Qwen3-VL-30B-A3B-Instruct
 status: active
 supportedModes:
     - chat

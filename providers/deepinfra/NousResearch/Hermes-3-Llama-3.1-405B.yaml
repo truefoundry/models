@@ -3,6 +3,7 @@ costs:
       output_cost_per_token: 0.000001
       region: "*"
 features:
+    - function_calling
     - json_output
 limits:
     context_window: 131072
@@ -13,7 +14,9 @@ modalities:
         - text
 mode: chat
 model: NousResearch/Hermes-3-Llama-3.1-405B
+provisioning: serverless
 sources:
-    - https://deepinfra.com/NousResearch/Hermes-3-Llama-3.1-405B/api
+    - https://deepinfra.com/NousResearch/Hermes-3-Llama-3.1-405B
+status: active
 supportedModes:
     - chat

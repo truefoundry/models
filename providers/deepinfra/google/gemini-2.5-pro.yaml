@@ -18,9 +18,7 @@ costs:
                 from: 200000
 features:
     - function_calling
-    - tool_choice
-    - structured_output
-    - code_execution
+    - json_output
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -37,10 +35,10 @@ modalities:
         - text
 mode: chat
 model: google/gemini-2.5-pro
+provisioning: serverless
 sources:
-    - https://deepinfra.com/google/gemini-2.5-pro/api
-    - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro
-    - https://ai.google.dev/gemini-api/docs/pricing
+    - https://deepinfra.com/google/gemini-2.5-pro
+status: active
 supportedModes:
     - chat
 thinking: true

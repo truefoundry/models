@@ -4,7 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
     - json_output
 limits:
     context_window: 131072
@@ -18,9 +17,9 @@ modalities:
         - text
 mode: chat
 model: zai-org/GLM-4.6V
+provisioning: serverless
 sources:
-    - https://deepinfra.com/zai-org/GLM-4.6V/api
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
+    - https://deepinfra.com/zai-org/GLM-4.6V
 status: active
 supportedModes:
     - chat

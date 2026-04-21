@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
     - json_output
     - prompt_caching
 limits:
@@ -20,10 +18,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-235B-A22B-Instruct-2507
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Qwen/Qwen3-235B-A22B-Instruct-2507/api
-    - https://api.deepinfra.com/models/Qwen/Qwen3-235B-A22B-Instruct-2507
-    - https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
+    - https://deepinfra.com/Qwen/Qwen3-235B-A22B-Instruct-2507
 status: active
 supportedModes:
     - chat

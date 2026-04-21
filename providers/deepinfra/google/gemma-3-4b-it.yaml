@@ -4,8 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
+    - json_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -19,10 +18,9 @@ modalities:
         - text
 mode: chat
 model: google/gemma-3-4b-it
+provisioning: serverless
 sources:
-    - https://deepinfra.com/google/gemma-3-4b-it/api
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
-    - https://ai.google.dev/gemma/docs/core
+    - https://deepinfra.com/google/gemma-3-4b-it
 status: active
 supportedModes:
     - chat

@@ -4,7 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
 limits:
     context_window: 8192
     max_input_tokens: 8192
@@ -17,8 +16,8 @@ modalities:
         - text
 mode: chat
 model: meta-llama/Meta-Llama-3-8B-Instruct
+provisioning: serverless
 sources:
     - https://deepinfra.com/meta-llama/Meta-Llama-3-8B-Instruct
-    - https://deepinfra.com/meta-llama/Meta-Llama-3-8B-Instruct/api
 supportedModes:
     - chat

@@ -23,7 +23,6 @@ features:
     - function_calling
     - json_output
     - prompt_caching
-    - tool_choice
 limits:
     context_window: 262144
     max_input_tokens: 258048
@@ -36,10 +35,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-Max
+provisioning: serverless
 sources:
-    - https://www.alibabacloud.com/help/en/model-studio/models
-    - https://www.alibabacloud.com/help/en/model-studio/billing-for-model-studio
-    - https://openrouter.ai/qwen/qwen3-max/api
+    - https://deepinfra.com/Qwen/Qwen3-Max
 status: active
 supportedModes:
     - chat

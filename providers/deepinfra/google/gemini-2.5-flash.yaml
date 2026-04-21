@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
     - json_output
 limits:
     context_window: 1000000
@@ -20,9 +18,9 @@ modalities:
         - text
 mode: chat
 model: google/gemini-2.5-flash
+provisioning: serverless
 sources:
     - https://deepinfra.com/google/gemini-2.5-flash
-    - https://deepinfra.com/google/gemini-2.5-flash/api
 status: active
 supportedModes:
     - chat
