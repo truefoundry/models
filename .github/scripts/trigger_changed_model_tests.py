@@ -87,7 +87,6 @@ def _changed_provider_files(pr_dir: Path, base: str) -> List[str]:
     raw = _git(
         pr_dir,
         "diff", "--name-only", base, "HEAD", "--", "providers/**/*.yaml",
-        check=False,
     )
     return [line for line in raw.splitlines() if line]
 
