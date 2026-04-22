@@ -26,7 +26,7 @@ jobs:
       COMMENT_ID: ${{ github.event.comment.id }}
 
     steps:
-      - name: React eyes to comment
+      - name: React eyes to commentg
         run: |
           gh api \
             --method POST \
@@ -47,11 +47,18 @@ jobs:
           echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
           echo "Resolved PR #$PR_NUMBER head SHA: $head_sha"
 
-      - name: Checkout PR head
+      - name: Checkout trusted base (default branch)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Checkout PR head into ./pr (untrusted, data only)
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.resolve_pr.outputs.head_sha }}
+          path: pr
           fetch-depth: 2
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -66,6 +73,8 @@ jobs:
 
       - name: Diff changed models and trigger tests
         id: trigger
+        env:
+          PR_CHECKOUT_DIR: ${{ github.workspace }}/pr
         run: python ./.github/scripts/trigger_changed_model_tests.py
 
       - name: Comment - no models to test

@@ -2,10 +2,16 @@
 """Diff the tip commit for changed provider yaml files, group by provider,
 and trigger the gateway-test-job-v2 TrueFoundry job once per provider.
 
+This script is intentionally executed from a TRUSTED checkout (the default
+branch), while the PR's contents are exposed read-only via PR_CHECKOUT_DIR.
+We never import or execute anything from the PR tree; we only run `git diff`
+inside it to discover which provider yamls changed.
+
 Required env vars:
     GATEWAY_TEST_JOB_V2_FQN  FQN of the deployed gateway-test-job-v2
     PR_NUMBER         GitHub PR number (passed through to run.py --pr-number;
                       the job resolves the head commit itself at run time)
+    PR_CHECKOUT_DIR   Absolute path to the PR head checkout (untrusted data)
 
 Optional env vars:
     GITHUB_OUTPUT     If set, writes "triggered=<count>" for the workflow step
@@ -20,6 +26,7 @@ import re
 import subprocess
 import sys
 from collections import defaultdict
+from pathlib import Path
 from typing import Dict, List
 
 _SAFE_PROVIDER = re.compile(r"^[A-Za-z0-9._-]+$")
@@ -33,6 +40,18 @@ def _require_env(name: str) -> str:
     return value
 
 
+def _resolve_pr_dir() -> Path:
+    """Return the PR checkout directory, validated to be an existing git repo.
+
+    Refuses to fall back to CWD: this script must never operate on the trusted
+    checkout, otherwise it would diff the wrong tree.
+    """
+    pr_dir = Path(_require_env("PR_CHECKOUT_DIR")).resolve()
+    if not (pr_dir / ".git").exists():
+        sys.exit(f"::error::PR_CHECKOUT_DIR is not a git checkout: {pr_dir}")
+    return pr_dir
+
+
 def _run(cmd: List[str], check: bool = True) -> str:
     """Run a command and return its stdout, stripped."""
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -44,24 +63,30 @@ def _run(cmd: List[str], check: bool = True) -> str:
     return result.stdout.strip()
 
 
-def _diff_base() -> str:
+def _git(pr_dir: Path, *args: str, check: bool = True) -> str:
+    """Run a git subcommand inside the PR checkout."""
+    return _run(["git", "-C", str(pr_dir), *args], check=check)
+
+
+def _diff_base(pr_dir: Path) -> str:
     """Return HEAD^ when it exists, else git's empty-tree SHA.
 
     On a brand-new branch with a single commit there is no parent. The empty
     tree makes git diff treat every file in HEAD as newly added.
     """
     has_parent = subprocess.run(
-        ["git", "rev-parse", "--verify", "--quiet", "HEAD^"],
+        ["git", "-C", str(pr_dir), "rev-parse", "--verify", "--quiet", "HEAD^"],
         capture_output=True,
     ).returncode == 0
     if has_parent:
         return "HEAD^"
-    return _run(["git", "hash-object", "-t", "tree", "/dev/null"])
+    return _git(pr_dir, "hash-object", "-t", "tree", "/dev/null")
 
 
-def _changed_provider_files(base: str) -> List[str]:
-    raw = _run(
-        ["git", "diff", "--name-only", base, "HEAD", "--", "providers/**/*.yaml"],
+def _changed_provider_files(pr_dir: Path, base: str) -> List[str]:
+    raw = _git(
+        pr_dir,
+        "diff", "--name-only", base, "HEAD", "--", "providers/**/*.yaml",
         check=False,
     )
     return [line for line in raw.splitlines() if line]
@@ -109,9 +134,10 @@ def _write_output(triggered: int) -> None:
 def main() -> None:
     job_fqn = _require_env("GATEWAY_TEST_JOB_V2_FQN")
     pr_number = _require_env("PR_NUMBER")
+    pr_dir = _resolve_pr_dir()
 
-    base = _diff_base()
-    changed = _changed_provider_files(base)
+    base = _diff_base(pr_dir)
+    changed = _changed_provider_files(pr_dir, base)
 
     if not changed:
         print("No provider yaml files changed in tip commit")
