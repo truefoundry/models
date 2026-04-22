@@ -1,2 +1,21 @@
-mode: unknown
+costs:
+    - input_cost_per_request: 0.014
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      region: "*"
+features:
+    - system_messages
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: sonar-pro-search
+provisioning: serverless
+sources:
+    - https://docs.perplexity.ai/guides/pricing
+    - https://docs.perplexity.ai/api-reference/chat-completions-post
+status: active
+supportedModes:
+    - chat
