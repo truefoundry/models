@@ -29,8 +29,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List
 
-_SAFE_PROVIDER = re.compile(r"^[A-Za-z0-9._-]+$")
-_SAFE_MODEL = re.compile(r"^[A-Za-z0-9._@:/-]+$")
+_SAFE_PROVIDER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+_SAFE_MODEL = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._@:/-]*$")
 
 
 def _require_env(name: str) -> str:
