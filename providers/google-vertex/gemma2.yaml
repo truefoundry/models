@@ -1,3 +1,5 @@
+limits:
+    context_window: 8192
 modalities:
     input:
         - text
@@ -5,10 +7,13 @@ modalities:
         - text
 mode: chat
 model: gemma2
+provisioning: provisioned
 removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-gemma
     - https://ai.google.dev/gemma/docs/core/model_card_2
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/deploy-and-inference-tutorial
+status: active
 supportedModes:
     - chat

@@ -1,3 +1,5 @@
+limits:
+    max_query_tokens: 256
 modalities:
     input:
         - text
@@ -6,6 +8,7 @@ modalities:
         - embedding
 mode: embedding
 model: microsoft/microsoft-biomedclip
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature

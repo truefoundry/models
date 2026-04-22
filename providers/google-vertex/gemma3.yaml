@@ -2,6 +2,8 @@ features:
     - system_messages
 limits:
     context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
 modalities:
     input:
         - text
@@ -10,6 +12,7 @@ modalities:
         - text
 mode: chat
 model: gemma3
+provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/core/model_card_3
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-gemma

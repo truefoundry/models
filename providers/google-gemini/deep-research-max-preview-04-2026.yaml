@@ -1,0 +1,56 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      cache_storage_cost_per_token_per_hour: 0.0000045
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.000012
+      output_cost_per_token_batches: 0.000006
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000018
+                from: 200000
+features:
+    - function_calling
+    - system_messages
+    - prompt_caching
+    - code_execution
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+        - audio
+        - video
+    output:
+        - text
+        - image
+mode: chat
+model: deep-research-max-preview-04-2026
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026
+    - https://ai.google.dev/gemini-api/docs/deep-research
+status: preview
+supportedModes:
+    - chat
+thinking: true
