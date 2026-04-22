@@ -78,7 +78,7 @@ jobs:
             -f body="No provider yaml changes detected in the latest commit. Nothing to test."
 
       - name: React rocket on success
-        if: success()
+        if: success() && steps.trigger.outputs.triggered != '0'
         run: |
           gh api \
             --method POST \
