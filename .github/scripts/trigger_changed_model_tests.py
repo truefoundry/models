@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import os
 import re
+import shlex
 import subprocess
 import sys
 from collections import defaultdict
@@ -162,12 +163,22 @@ def main() -> None:
 
     triggered = 0
     for provider, models in provider_to_models.items():
-        models_arg = " ".join(models)
-        command = (
-            f"python run.py --provider {provider} --model {models_arg} "
-            f"--pr-mode --pr-number {pr_number}"
+        # Build the command as an argv list and shell-quote each token. Keep
+        # --model last so its nargs='+' consumer in run.py can't accidentally
+        # swallow other flags. The leading-alphanumeric regex above already
+        # rejects model names that would parse as argparse flags.
+        argv = [
+            "python", "run.py",
+            "--pr-mode",
+            "--pr-number", pr_number,
+            "--provider", provider,
+            "--model", *models,
+        ]
+        command = " ".join(shlex.quote(tok) for tok in argv)
+        print(
+            f"Triggering tests for provider={provider} "
+            f"models={' '.join(models)} pr={pr_number}"
         )
-        print(f"Triggering tests for provider={provider} models={models_arg} pr={pr_number}")
         _run([
             "tfy", "trigger", "job",
             "--application-fqn", job_fqn,
