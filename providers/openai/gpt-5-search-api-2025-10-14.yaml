@@ -27,11 +27,10 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
-    - key: reasoning_effort
-      type: string
 provisioning: serverless
 removeParams:
     - max_tokens
+    - reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5
 status: active
