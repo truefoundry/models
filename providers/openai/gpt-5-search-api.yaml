@@ -25,9 +25,9 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: medium
-      key: reasoning_effort
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/guides/tools-web-search/
     - https://developers.openai.com/api/docs/models/gpt-5
