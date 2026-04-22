@@ -138,7 +138,7 @@ package model
 
 // Pricing entry; "*" applies to all regions
 #CostWithRegion: {
-	region: "*" | #AWSRegion | #GCPRegion | #AzureRegion
+	region: "*" | #AWSRegion | #GCPRegion | #AzureRegion | #VertexRegion
 	#Cost
 }
 
@@ -194,6 +194,11 @@ package model
 	"us-west2" |
 	"us-west3" |
 	"us-west4"
+
+// Vertex region identifiers
+#VertexRegion: 
+	"us" |
+	"eu"
 
 #Limits: {
 	context_window?:                int & >= 0   // Maximum number of tokens the model can hold in its context at once
