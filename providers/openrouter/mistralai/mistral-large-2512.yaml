@@ -1,6 +1,6 @@
 costs:
-    - cache_read_input_token_cost: 5.e-8
-      input_cost_per_token: 5.e-7
+    - cache_read_input_token_cost: 5e-8
+      input_cost_per_token: 5e-7
       output_cost_per_token: 0.0000015
       region: "*"
 features:
@@ -22,9 +22,10 @@ modalities:
         - text
 mode: chat
 model: mistralai/mistral-large-2512
+provisioning: serverless
 sources:
+    - https://openrouter.ai/mistralai/mistral-large-2512
     - https://openrouter.ai/mistralai/mistral-large-2512/api
-    - https://docs.mistral.ai/models/mistral-large-3-25-12
 status: active
 supportedModes:
     - chat

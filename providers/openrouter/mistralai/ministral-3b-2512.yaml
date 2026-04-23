@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 1.e-8
-      input_cost_per_token: 1.e-7
-      output_cost_per_token: 1.e-7
+    - cache_read_input_token_cost: 1e-8
+      input_cost_per_token: 1e-7
+      output_cost_per_token: 1e-7
       region: "*"
 features:
     - function_calling
@@ -19,7 +19,9 @@ modalities:
         - text
 mode: chat
 model: mistralai/ministral-3b-2512
+provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/ministral-3b-2512/api
+status: active
 supportedModes:
     - chat

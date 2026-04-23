@@ -12,6 +12,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -31,8 +32,10 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o
 status: active
 supportedModes:
     - chat
+    - responses

@@ -1,6 +1,6 @@
 costs:
-    - cache_read_input_token_cost: 6.e-8
-      input_cost_per_token: 3.e-7
+    - cache_read_input_token_cost: 6e-8
+      input_cost_per_token: 3e-7
       output_cost_per_token: 0.0000012
       region: "*"
 features:
@@ -16,11 +16,6 @@ modalities:
         - text
 mode: chat
 model: MiniMaxAI/MiniMax-M2
-provisioning: provisioned
-sources:
-    - https://together.ai/models
-    - https://docs.together.ai/docs/serverless-models
-    - https://docs.together.ai/docs/deprecations
-    - https://docs.together.ai/docs/changelog
+provisioning: serverless
 supportedModes:
     - chat

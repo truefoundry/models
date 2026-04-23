@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 2.e-7
+    - cache_read_input_token_cost: 2e-7
       cache_storage_cost_per_token_per_hour: 0.0000045
       input_cost_per_token: 0.000002
       input_cost_per_token_batches: 0.000001
@@ -8,7 +8,7 @@ costs:
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 4.e-7
+              - cost_per_token: 4e-7
                 from: 200000
           input:
               - cost_per_token: 0.000004
@@ -28,6 +28,11 @@ limits:
     max_input_tokens: 1048576
     max_output_tokens: 65536
     max_tokens: 65536
+messages:
+    options:
+        - system
+        - user
+        - assistant
 modalities:
     input:
         - audio
@@ -47,6 +52,7 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
     - https://ai.google.dev/gemini-api/docs/thinking

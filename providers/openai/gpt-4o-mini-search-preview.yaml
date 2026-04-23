@@ -1,7 +1,7 @@
 costs:
     - input_cost_per_query: 0.025
       input_cost_per_token: 1.5e-7
-      output_cost_per_token: 6.e-7
+      output_cost_per_token: 6e-7
       region: "*"
 features:
     - system_messages
@@ -22,6 +22,7 @@ params:
       key: max_tokens
       maxValue: 16384
       minValue: 1
+provisioning: serverless
 removeParams:
     - tool_choice
     - parallel_tool_calls

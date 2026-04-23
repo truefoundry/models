@@ -4,6 +4,8 @@ features:
     - tool_choice
     - json_output
     - structured_output
+limits:
+    context_window: 262144
 messages:
     options:
         - system
@@ -18,9 +20,12 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-VL-235B-A22B-Instruct
+provisioning: serverless
 sources:
     - https://together.ai/pricing
     - https://docs.together.ai/docs/vision-overview
+    - https://docs.together.ai/docs/function-calling
+    - https://docs.together.ai/docs/json-mode
     - https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Instruct
 status: active
 supportedModes:

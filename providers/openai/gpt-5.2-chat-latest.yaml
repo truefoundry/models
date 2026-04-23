@@ -37,14 +37,15 @@ params:
     - defaultValue: null
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
     - "n"
     - max_tokens
 sources:
-    - https://developers.openai.com/api/docs/models/gpt-5.2
     - https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest
+status: active
 supportedModes:
     - chat
 thinking: true

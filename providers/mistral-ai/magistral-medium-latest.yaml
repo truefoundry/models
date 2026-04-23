@@ -4,22 +4,32 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
+    - parallel_function_calling
+    - structured_output
+    - tool_choice
 limits:
     context_window: 131072
 modalities:
     input:
         - image
+        - pdf
+        - text
+    output:
+        - text
 mode: chat
 model: magistral-medium-latest
 params:
     - defaultValue: 0.7
       key: temperature
+provisioning: serverless
 removeParams:
     - reasoning_effort
 sources:
     - https://docs.mistral.ai/models/magistral-medium-1-2-25-09
     - https://docs.mistral.ai/capabilities/reasoning/
     - https://docs.mistral.ai/capabilities/function_calling
+    - https://docs.mistral.ai/capabilities/structured_output/
 status: active
 supportedModes:
     - chat

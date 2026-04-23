@@ -9,12 +9,13 @@ limits:
     context_window: 16384
 modalities:
     input:
+        - text
         - image
         - pdf
         - doc
     output:
         - text
-mode: unknown
+mode: chat
 model: mistral-ocr-latest
 params:
     - defaultValue: 0

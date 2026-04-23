@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 2.e-7
-      output_cost_per_token: 2.e-7
+    - input_cost_per_token: 2e-7
+      output_cost_per_token: 2e-7
       region: "*"
 limits:
     context_window: 32768
@@ -14,6 +14,7 @@ modalities:
         - text
 mode: moderation
 model: Virtue-AI/VirtueGuard-Text-Lite
+provisioning: serverless
 status: active
 supportedModes:
     - moderation

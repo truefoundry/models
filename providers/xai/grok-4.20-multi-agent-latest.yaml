@@ -1,7 +1,9 @@
 costs:
-    - cache_read_input_token_cost: 2.e-7
+    - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000006
+      output_cost_per_token_batches: 0.000003
       region: "*"
 features:
     - function_calling
@@ -16,9 +18,11 @@ modalities:
         - text
 mode: responses
 model: grok-4.20-multi-agent-latest
+provisioning: serverless
 removeParams:
     - max_tokens
     - max_completion_tokens
+status: active
 supportedModes:
     - responses
 thinking: true

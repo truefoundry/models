@@ -5,6 +5,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
     - prompt_caching
 limits:
     context_window: 262144
@@ -17,11 +18,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo
+provisioning: serverless
 sources:
-    - https://deepinfra.com/Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo/api
-    - https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct
-    - https://deepinfra.com/docs/advanced/max_tokens_limit
-    - https://artificialanalysis.ai/models/qwen3-coder-480b-a35b-instruct/providers
+    - https://deepinfra.com/Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo
 status: active
 supportedModes:
     - chat

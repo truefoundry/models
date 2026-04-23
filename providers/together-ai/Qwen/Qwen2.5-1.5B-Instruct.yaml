@@ -2,7 +2,6 @@ features:
     - function_calling
 limits:
     context_window: 32768
-    max_input_tokens: 24576
     max_output_tokens: 8192
     max_tokens: 8192
 modalities:
@@ -12,8 +11,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen2.5-1.5B-Instruct
+provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/changelog
     - https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
+status: active
 supportedModes:
     - chat

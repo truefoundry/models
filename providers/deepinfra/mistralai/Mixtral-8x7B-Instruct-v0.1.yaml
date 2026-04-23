@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
-    - structured_output
     - json_output
     - prompt_caching
 limits:
@@ -20,8 +18,9 @@ modalities:
         - text
 mode: chat
 model: mistralai/Mixtral-8x7B-Instruct-v0.1
+provisioning: serverless
 sources:
-    - https://deepinfra.com/mistralai/Mixtral-8x7B-Instruct-v0.1/api
+    - https://deepinfra.com/mistralai/Mixtral-8x7B-Instruct-v0.1
 status: active
 supportedModes:
     - chat

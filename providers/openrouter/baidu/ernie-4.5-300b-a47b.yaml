@@ -21,9 +21,12 @@ params:
       key: max_tokens
       maxValue: 12000
       minValue: 1
+provisioning: serverless
 removeParams:
     - "n"
 sources:
+    - https://openrouter.ai/baidu/ernie-4.5-300b-a47b
     - https://openrouter.ai/baidu/ernie-4.5-300b-a47b/api
+status: active
 supportedModes:
     - chat

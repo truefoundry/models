@@ -1,0 +1,15 @@
+features:
+    - function_calling
+limits:
+    context_window: 262144
+modalities:
+    input:
+        - image
+mode: chat
+model: mistral-medium-3-5
+params:
+    - defaultValue: 0.7
+      key: temperature
+status: active
+supportedModes:
+    - chat

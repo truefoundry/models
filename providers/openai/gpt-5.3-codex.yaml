@@ -29,12 +29,14 @@ params:
       minValue: 1
     - defaultValue: medium
       key: reasoning_effort
+provisioning: serverless
 removeParams:
     - max_tokens
     - max_completion_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.3-codex
-    - https://developers.openai.com/docs/pricing
+status: active
 supportedModes:
     - responses
+    - chat
 thinking: true

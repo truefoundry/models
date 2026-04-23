@@ -1,6 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 0.00000625
-      cache_read_input_token_cost: 5.e-7
+      cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
       input_cost_per_token_batches: 0.0000025
       output_cost_per_token: 0.000025
@@ -31,11 +31,10 @@ model: anthropic/claude-opus-4-7
 params:
     - key: max_tokens
       maxValue: 128000
-    - key: temperature
-      maxValue: 1
 provisioning: serverless
 removeParams:
     - "n"
+    - temperature
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-7
     - https://platform.claude.com/docs/en/docs/about-claude/models

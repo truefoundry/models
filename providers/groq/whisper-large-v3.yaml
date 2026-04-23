@@ -18,6 +18,7 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0
+provisioning: serverless
 removeParams:
     - max_tokens
     - top_p
@@ -27,5 +28,5 @@ sources:
     - https://console.groq.com/docs/speech-to-text
 status: active
 supportedModes:
-    - audio_translation
     - audio_transcription
+    - audio_translation

@@ -1,0 +1,26 @@
+costs:
+    - cache_read_input_token_cost: 1.499999985e-7
+      input_cost_per_token: 5.5e-7
+      output_cost_per_token: 2.5e-6
+      region: "*"
+features:
+    - prompt_caching
+    - function_calling
+    - json_output
+limits:
+    context_window: 262144
+    max_tokens: 262144
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: moonshotai/Kimi-K2.6
+provisioning: serverless
+sources:
+    - https://deepinfra.com/moonshotai/Kimi-K2.6
+status: active
+supportedModes:
+    - chat
