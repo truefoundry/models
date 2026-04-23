@@ -1,5 +1,12 @@
 limits:
     context_window: 8192
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: mistral-embed-dim256-2510
 status: active
+
+# costs: not found in official docs
