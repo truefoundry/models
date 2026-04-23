@@ -18,23 +18,23 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 716 | Unified API for open source models |
+| OpenRouter | 722 | Unified API for open source models |
 | Google Vertex AI | 392 | Gemini, PaLM on GCP |
-| Together AI | 306 | Open source model hosting |
-| AWS Bedrock | 201 | Claude, Llama, Titan, Mistral on AWS |
+| Together AI | 310 | Open source model hosting |
+| AWS Bedrock | 202 | Claude, Llama, Titan, Mistral on AWS |
 | Azure OpenAI | 186 | OpenAI models on Azure |
-| DeepInfra | 173 | Open source model hosting |
+| DeepInfra | 174 | Open source model hosting |
 | Deepgram | 143 | Speech-to-text and text-to-speech models |
-| OpenAI | 131 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
-| Mistral AI | 82 | Mistral, Mixtral, Codestral |
+| OpenAI | 133 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
+| Mistral AI | 85 | Mistral, Mixtral, Codestral |
 | xAI | 73 | Grok models |
 | Azure AI Foundry | 68 | Azure AI models |
-| Google Gemini | 62 | Gemini Pro, Ultra, Flash |
+| Google Gemini | 65 | Gemini Pro, Ultra, Flash |
 | Cohere | 36 | Command, Embed models |
 | Databricks | 28 | Databricks-hosted models |
 | SambaNova | 28 | Enterprise AI models |
+| Perplexity | 24 | Search-augmented models |
 | Anthropic | 23 | Claude 3, Claude 3.5, Claude 4 |
-| Perplexity | 23 | Search-augmented models |
 | Groq | 22 | Fast inference models |
 | AI21 | 12 | Jamba models |
 | ElevenLabs | 10 | Voice synthesis and text-to-speech models |
