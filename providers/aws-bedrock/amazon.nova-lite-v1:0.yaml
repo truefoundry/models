@@ -108,6 +108,7 @@ features:
     - function_calling
     - prompt_caching
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 300000
     max_input_tokens: 300000
@@ -142,6 +143,6 @@ removeParams:
     - "n"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html
-status: active
+status: retired
 supportedModes:
     - chat
