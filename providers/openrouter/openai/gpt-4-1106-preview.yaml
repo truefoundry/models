@@ -7,6 +7,7 @@ features:
     - json_output
     - structured_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 128000
     max_output_tokens: 4096
@@ -21,6 +22,6 @@ model: openai/gpt-4-1106-preview
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-4-1106-preview
-status: active
+status: retired
 supportedModes:
     - chat
