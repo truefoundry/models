@@ -20,7 +20,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.5-pro
 params:
     - defaultValue: 128
@@ -36,10 +36,7 @@ removeParams:
     - stream
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.5-pro
-    - https://developers.openai.com/api/docs/pricing
 status: active
 supportedModes:
-    - chat
     - responses
-    - realtime
 thinking: true

@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - system_messages
     - tool_choice
     - structured_output
@@ -30,6 +31,7 @@ params:
 provisioning: serverless
 removeParams:
     - max_tokens
+    - max_completion_tokens
     - temperature
     - top_p
     - "n"
