@@ -6,6 +6,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - structured_output
     - system_messages
     - tool_choice
@@ -23,10 +24,6 @@ modalities:
 mode: responses
 model: gpt-5.5-pro
 params:
-    - defaultValue: 128
-      key: max_tokens
-      maxValue: 128000
-      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
     - defaultValue: medium
