@@ -1,0 +1,41 @@
+name: Auto Test on Models Bot Push
+
+on:
+  pull_request:
+    types: [synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  comment:
+    name: Comment /test-models
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.title, 'add new models [bot]')
+    outputs:
+      comment_id: ${{ steps.post.outputs.comment_id }}
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Post status comment
+        id: post
+        run: |
+          comment_id=$(gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
+            -f body='/test-models' \
+            --jq '.id')
+          echo "comment_id=$comment_id" >> "$GITHUB_OUTPUT"
+          echo "Posted status comment id=$comment_id"
+
+  test:
+    needs: comment
+    uses: ./.github/workflows/test-changed-models-impl.yml
+    with:
+      pr_number: ${{ github.event.pull_request.number }}
+      comment_id: ${{ needs.comment.outputs.comment_id }}
+    secrets: inherit

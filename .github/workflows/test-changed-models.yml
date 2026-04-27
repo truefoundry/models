@@ -4,105 +4,14 @@ on:
   issue_comment:
     types: [created]
 
-permissions:
-  contents: read
-  pull-requests: write
-  issues: write
-
 jobs:
-  test-changed-models:
-    name: Trigger gateway tests for changed models
-    runs-on: ubuntu-latest
+  test:
     if: >-
       github.event.issue.pull_request != null &&
       startsWith(github.event.comment.body, '/test-models') &&
-      (
-        contains(fromJson('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association) ||
-        github.event.comment.user.login == 'github-actions[bot]'
-      )
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
-      TFY_HOST: ${{ secrets.TFY_HOST }}
-      GATEWAY_TEST_JOB_V2_FQN: ${{ secrets.GATEWAY_TEST_JOB_V2_FQN }}
-      PR_NUMBER: ${{ github.event.issue.number }}
-      COMMENT_ID: ${{ github.event.comment.id }}
-
-    steps:
-      - name: React eyes to commentg
-        run: |
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/${{ github.repository }}/issues/comments/${COMMENT_ID}/reactions" \
-            -f content='eyes'
-
-      - name: Resolve PR head SHA
-        id: resolve_pr
-        run: |
-          head_sha=$(gh pr view "$PR_NUMBER" \
-            --repo "${{ github.repository }}" \
-            --json headRefOid -q .headRefOid)
-          if [ -z "$head_sha" ]; then
-            echo "::error::Could not resolve head SHA for PR #$PR_NUMBER"
-            exit 1
-          fi
-          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
-          echo "Resolved PR #$PR_NUMBER head SHA: $head_sha"
-
-      - name: Checkout trusted base (default branch)
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - name: Checkout PR head into ./pr (untrusted, data only)
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ steps.resolve_pr.outputs.head_sha }}
-          path: pr
-          fetch-depth: 2
-          persist-credentials: false
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install truefoundry
-        run: pipx install truefoundry
-
-      - name: Login to TrueFoundry
-        run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
-
-      - name: Diff changed models and trigger tests
-        id: trigger
-        env:
-          PR_CHECKOUT_DIR: ${{ github.workspace }}/pr
-        run: python ./.github/scripts/trigger_changed_model_tests.py
-
-      - name: Comment - no models to test
-        if: success() && steps.trigger.outputs.triggered == '0'
-        run: |
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
-            -f body="No provider yaml changes detected in the latest commit. Nothing to test."
-
-      - name: React rocket on success
-        if: success() && steps.trigger.outputs.triggered != '0'
-        run: |
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/${{ github.repository }}/issues/comments/${COMMENT_ID}/reactions" \
-            -f content='rocket' || true
-
-      - name: React confused on failure
-        if: failure()
-        run: |
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/${{ github.repository }}/issues/comments/${COMMENT_ID}/reactions" \
-            -f content='confused' || true
+      contains(fromJson('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+    uses: ./.github/workflows/test-changed-models-impl.yml
+    with:
+      pr_number: ${{ github.event.issue.number }}
+      comment_id: ${{ github.event.comment.id }}
+    secrets: inherit
