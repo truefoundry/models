@@ -2,7 +2,7 @@ costs:
     - input_cost_per_character: 0.000015
       region: "*"
 limits:
-    max_tokens: 4096
+    max_input_tokens: 4096
 modalities:
     input:
         - text
@@ -21,8 +21,8 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
 sources:
-    - https://developers.openai.com/api/docs/guides/text-to-speech/
     - https://developers.openai.com/api/docs/models/tts-1
+    - https://developers.openai.com/api/docs/guides/text-to-speech/
 status: active
 supportedModes:
     - text_to_speech

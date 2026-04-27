@@ -1,5 +1,6 @@
 costs:
     - cache_read_input_audio_token_cost: 3e-7
+      cache_read_input_token_cost: 6e-8
       input_cost_per_audio_token: 0.00001
       input_cost_per_token: 6e-7
       output_cost_per_audio_token: 0.00002
@@ -10,6 +11,7 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
+    - prompt_caching
 limits:
     context_window: 128000
     max_input_tokens: 128000

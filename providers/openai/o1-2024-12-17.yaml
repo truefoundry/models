@@ -1,10 +1,11 @@
 costs:
-    - cache_read_input_token_cost: 0.0000075
-      input_cost_per_token: 0.000015
-      input_cost_per_token_batches: 0.0000075
-      output_cost_per_token: 0.00006
-      output_cost_per_token_batches: 0.00003
+    - cache_read_input_token_cost: 7.5e-6
+      input_cost_per_token: 1.5e-5
+      input_cost_per_token_batches: 7.5e-6
+      output_cost_per_token: 6e-5
+      output_cost_per_token_batches: 3e-5
       region: "*"
+deprecationDate: "2026-04-22"
 features:
     - function_calling
     - parallel_function_calling
@@ -12,6 +13,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -39,11 +41,11 @@ provisioning: serverless
 removeParams:
     - temperature
     - top_p
-    - "n"
+    - n
     - max_tokens
 sources:
     - https://developers.openai.com/docs/models/o1
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses
