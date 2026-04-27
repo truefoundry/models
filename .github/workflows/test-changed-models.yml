@@ -16,7 +16,10 @@ jobs:
     if: >-
       github.event.issue.pull_request != null &&
       startsWith(github.event.comment.body, '/test-models') &&
-      contains(fromJson('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+      (
+        contains(fromJson('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association) ||
+        github.event.comment.user.login == 'github-actions[bot]'
+      )
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
