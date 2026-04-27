@@ -1,0 +1,36 @@
+name: Trigger Updation Job on Addition Bot PR
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  trigger-updation-from-pr:
+    name: Trigger updation job for PR changes
+    runs-on: ubuntu-latest
+    # Only run for the bot's "add new models" PRs, and only when the PR is from
+    # this repo (not a fork) so we never expose secrets to untrusted code.
+    if: >-
+      contains(github.event.pull_request.title, 'add new models [bot]') &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    env:
+      TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
+      TFY_HOST: ${{ secrets.TFY_HOST }}
+      TFY_JOB_FQN: ${{ secrets.TFY_JOB_FQN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install truefoundry
+        run: pipx install truefoundry
+
+      - name: Trigger updation job
+        run: |
+          tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
+          tfy trigger job \
+            --application-fqn "$TFY_JOB_FQN" \
+            --command "python job.py --pr-number $PR_NUMBER"
