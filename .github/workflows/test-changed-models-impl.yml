@@ -45,31 +45,10 @@ jobs:
             "/repos/${{ github.repository }}/issues/comments/${COMMENT_ID}/reactions" \
             -f content='eyes'
 
-      - name: Resolve PR head SHA
-        id: resolve_pr
-        run: |
-          head_sha=$(gh pr view "$PR_NUMBER" \
-            --repo "${{ github.repository }}" \
-            --json headRefOid -q .headRefOid)
-          if [ -z "$head_sha" ]; then
-            echo "::error::Could not resolve head SHA for PR #$PR_NUMBER"
-            exit 1
-          fi
-          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
-          echo "Resolved PR #$PR_NUMBER head SHA: $head_sha"
-
       - name: Checkout trusted base (default branch)
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.repository.default_branch }}
-          persist-credentials: false
-
-      - name: Checkout PR head into ./pr (untrusted, data only)
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ steps.resolve_pr.outputs.head_sha }}
-          path: pr
-          fetch-depth: 2
           persist-credentials: false
 
       - name: Set up Python
@@ -83,10 +62,8 @@ jobs:
       - name: Login to TrueFoundry
         run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
 
-      - name: Diff changed models and trigger tests
+      - name: Trigger gateway tests for changed PR files
         id: trigger
-        env:
-          PR_CHECKOUT_DIR: ${{ github.workspace }}/pr
         run: python ./.github/scripts/trigger_changed_model_tests.py
 
       - name: Comment - no models to test
@@ -96,7 +73,7 @@ jobs:
             --method POST \
             -H "Accept: application/vnd.github+json" \
             "/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
-            -f body="No provider yaml changes detected in the latest commit. Nothing to test."
+            -f body="No provider yaml changes detected in this PR. Nothing to test."
 
       - name: React rocket on success
         if: success() && inputs.comment_id != '' && steps.trigger.outputs.triggered != '0'

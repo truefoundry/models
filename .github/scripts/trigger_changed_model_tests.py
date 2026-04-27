@@ -1,33 +1,35 @@
 #!/usr/bin/env python3
-"""Diff the tip commit for changed provider yaml files, group by provider,
-and trigger the gateway-test-job-v2 TrueFoundry job once per provider.
+"""Fetch every provider yaml file changed in a PR (cumulative diff vs base),
+group by provider, and trigger the gateway-test-job-v2 TrueFoundry job once
+per affected provider.
 
-This script is intentionally executed from a TRUSTED checkout (the default
-branch), while the PR's contents are exposed read-only via PR_CHECKOUT_DIR.
-We never import or execute anything from the PR tree; we only run `git diff`
-inside it to discover which provider yamls changed.
+The PR's content is never checked out or executed locally; we only ask the
+GitHub API for the list of changed file paths. This means the script picks up
+every change introduced by the PR regardless of how many commits made it, and
+it cannot be tricked into running attacker-controlled code.
 
 Required env vars:
     GATEWAY_TEST_JOB_V2_FQN  FQN of the deployed gateway-test-job-v2
-    PR_NUMBER         GitHub PR number (passed through to run.py --pr-number;
-                      the job resolves the head commit itself at run time)
-    PR_CHECKOUT_DIR   Absolute path to the PR head checkout (untrusted data)
+    PR_NUMBER                GitHub PR number (passed through to run.py --pr-number;
+                             the job resolves the head commit itself at run time)
+    GITHUB_REPOSITORY        owner/repo (auto-set by GitHub Actions)
+    GH_TOKEN or GITHUB_TOKEN Token used by `gh api`
 
 Optional env vars:
-    GITHUB_OUTPUT     If set, writes "triggered=<count>" for the workflow step
+    GITHUB_OUTPUT            If set, writes "triggered=<count>" for the workflow step
 
-Assumes `tfy` is installed and already logged in.
+Assumes `gh` and `tfy` are installed; `tfy` is already logged in.
 """
 
 from __future__ import annotations
 
+import json
 import os
 import re
 import shlex
 import subprocess
 import sys
 from collections import defaultdict
-from pathlib import Path
 from typing import Dict, List
 
 _SAFE_PROVIDER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
@@ -41,18 +43,6 @@ def _require_env(name: str) -> str:
     return value
 
 
-def _resolve_pr_dir() -> Path:
-    """Return the PR checkout directory, validated to be an existing git repo.
-
-    Refuses to fall back to CWD: this script must never operate on the trusted
-    checkout, otherwise it would diff the wrong tree.
-    """
-    pr_dir = Path(_require_env("PR_CHECKOUT_DIR")).resolve()
-    if not (pr_dir / ".git").exists():
-        sys.exit(f"::error::PR_CHECKOUT_DIR is not a git checkout: {pr_dir}")
-    return pr_dir
-
-
 def _run(cmd: List[str], check: bool = True) -> str:
     """Run a command and return its stdout, stripped."""
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -64,32 +54,38 @@ def _run(cmd: List[str], check: bool = True) -> str:
     return result.stdout.strip()
 
 
-def _git(pr_dir: Path, *args: str, check: bool = True) -> str:
-    """Run a git subcommand inside the PR checkout."""
-    return _run(["git", "-C", str(pr_dir), *args], check=check)
+def _fetch_pr_files(repo: str, pr_number: str) -> List[dict]:
+    """Fetch all files changed in a PR via the GitHub REST API.
 
-
-def _diff_base(pr_dir: Path) -> str:
-    """Return HEAD^ when it exists, else git's empty-tree SHA.
-
-    On a brand-new branch with a single commit there is no parent. The empty
-    tree makes git diff treat every file in HEAD as newly added.
+    The /pulls/{n}/files endpoint returns the cumulative diff between the PR
+    head and its merge base — i.e. one entry per file regardless of how many
+    commits in the PR touched it. We pass --paginate so `gh` walks past the
+    100-entry per-page cap automatically and returns a single merged JSON
+    array.
     """
-    has_parent = subprocess.run(
-        ["git", "-C", str(pr_dir), "rev-parse", "--verify", "--quiet", "HEAD^"],
-        capture_output=True,
-    ).returncode == 0
-    if has_parent:
-        return "HEAD^"
-    return _git(pr_dir, "hash-object", "-t", "tree", "/dev/null")
+    raw = _run([
+        "gh", "api",
+        "--paginate",
+        f"/repos/{repo}/pulls/{pr_number}/files",
+    ])
+    return json.loads(raw)
 
 
-def _changed_provider_files(pr_dir: Path, base: str) -> List[str]:
-    raw = _git(
-        pr_dir,
-        "diff", "--name-only", base, "HEAD", "--", "providers/**/*.yaml",
-    )
-    return [line for line in raw.splitlines() if line]
+def _changed_provider_yaml_paths(files: List[dict]) -> List[str]:
+    """Filter the PR file list to provider yamls that still exist post-PR.
+
+    Removed files are skipped — there's nothing to test for a model the PR
+    deletes. Non-yaml and non-providers paths are dropped entirely.
+    """
+    paths: List[str] = []
+    for entry in files:
+        if entry.get("status") == "removed":
+            continue
+        path = entry.get("filename", "")
+        if not path.startswith("providers/") or not path.endswith(".yaml"):
+            continue
+        paths.append(path)
+    return paths
 
 
 def _is_significant(_file: str) -> bool:
@@ -134,13 +130,13 @@ def _write_output(triggered: int) -> None:
 def main() -> None:
     job_fqn = _require_env("GATEWAY_TEST_JOB_V2_FQN")
     pr_number = _require_env("PR_NUMBER")
-    pr_dir = _resolve_pr_dir()
+    repo = _require_env("GITHUB_REPOSITORY")
 
-    base = _diff_base(pr_dir)
-    changed = _changed_provider_files(pr_dir, base)
+    files = _fetch_pr_files(repo, pr_number)
+    changed = _changed_provider_yaml_paths(files)
 
     if not changed:
-        print("No provider yaml files changed in tip commit")
+        print(f"No provider yaml files changed in PR #{pr_number}")
         _write_output(0)
         return
 
