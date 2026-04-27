@@ -1,2 +1,9 @@
 mode: unknown
 model: deepseek-ai/deepseek-v4
+# DeepSeek-V4 is not listed as an available model on Google Vertex AI Model Garden
+# as of 2026-04-27. Official Vertex AI documentation only lists DeepSeek-V3.2,
+# DeepSeek-V3.1, DeepSeek-R1-0528, and DeepSeek-OCR. No pricing, limits, regions,
+# features, modalities, provisioning, or deprecation information are documented
+# in official Google Vertex AI sources for this model.
+supportedModes:
+    - unknown
