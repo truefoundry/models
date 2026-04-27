@@ -3,9 +3,23 @@ costs:
       input_cost_per_token: 2.1e-6
       output_cost_per_token: 4.4e-6
       region: "*"
+features:
+    - function_calling
+    - json_output
 limits:
     context_window: 512000
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: deepseek-ai/DeepSeek-V4-Pro
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/deepseek-v4-pro
+    - https://www.together.ai/pricing
+status: active
 supportedModes:
     - chat
+thinking: true
