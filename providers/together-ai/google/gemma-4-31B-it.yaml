@@ -6,6 +6,7 @@ features:
     - function_calling
     - structured_output
     - json_output
+    - system_messages
 limits:
     context_window: 262144
 modalities:
@@ -16,6 +17,9 @@ modalities:
         - text
 mode: chat
 model: google/gemma-4-31B-it
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/gemma-4-31b
 status: active
 supportedModes:
     - chat
