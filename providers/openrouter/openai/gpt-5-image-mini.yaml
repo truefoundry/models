@@ -5,7 +5,6 @@ costs:
       output_cost_per_token: 0.000002
       region: "*"
 features:
-    - function_calling
     - json_output
     - prompt_caching
     - structured_output
@@ -27,7 +26,6 @@ mode: chat
 model: openai/gpt-5-image-mini
 provisioning: serverless
 sources:
-    - https://openrouter.ai/openai/gpt-5-image-mini/api
     - https://openrouter.ai/openai/gpt-5-image-mini
 supportedModes:
     - chat

@@ -5,9 +5,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - json_output
     - prompt_caching
-    - structured_output
     - tool_choice
 limits:
     context_window: 131072
@@ -22,7 +20,6 @@ mode: chat
 model: z-ai/glm-4.5-air
 provisioning: serverless
 sources:
-    - https://openrouter.ai/z-ai/glm-4.5-air/api
     - https://openrouter.ai/z-ai/glm-4.5-air
 supportedModes:
     - chat
