@@ -80,8 +80,10 @@ model: anthropic/claude-sonnet-4
 params:
     - key: max_tokens
       maxValue: 64000
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4
+status: active
 supportedModes:
     - chat
 thinking: true
