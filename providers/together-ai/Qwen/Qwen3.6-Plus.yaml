@@ -4,7 +4,13 @@ costs:
       region: "*"
 limits:
     context_window: 1000000
-mode: unknown
+mode: chat
 model: Qwen/Qwen3.6-Plus
+provisioning: serverless
 supportedModes:
     - chat
+
+# Model not listed on Together AI's official documentation pages
+# (https://together.ai/models, https://docs.together.ai/docs/serverless-models).
+# Costs, limits, and provisioning preserved from input; features/modalities/params/thinking
+# omitted because they cannot be confirmed from official Together AI documentation.
