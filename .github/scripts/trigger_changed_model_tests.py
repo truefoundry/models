@@ -33,7 +33,7 @@ from collections import defaultdict
 from typing import Dict, List
 
 _SAFE_PROVIDER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
-_SAFE_MODEL = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._@:/-]*$")
+_SAFE_MODEL = re.compile(r"^[A-Za-z0-9~][A-Za-z0-9._@:/~-]*$")
 
 
 def _require_env(name: str) -> str:
@@ -148,8 +148,7 @@ def main() -> None:
         try:
             provider, model = _parse_provider_model(path)
         except ValueError as exc:
-            print(f"::warning::Skipping {path}: {exc}")
-            continue
+            sys.exit(f"::error::Cannot parse provider/model from {path}: {exc}")
         provider_to_models[provider].append(model)
 
     if not provider_to_models:
