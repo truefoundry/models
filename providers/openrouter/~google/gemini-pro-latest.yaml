@@ -1,0 +1,28 @@
+costs:
+    - cache_creation_input_token_cost: 3.75e-7
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_image: 2e-6
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 1.2e-5
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 65536
+modalities:
+    input:
+        - audio
+        - pdf
+        - image
+        - text
+        - video
+    output:
+        - text
+mode: chat
+model: ~google/gemini-pro-latest
+thinking: true
