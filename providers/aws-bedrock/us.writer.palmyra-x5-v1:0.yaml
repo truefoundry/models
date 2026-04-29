@@ -13,6 +13,7 @@ costs:
       region: us-east-1
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 1048192
     max_input_tokens: 1040000
@@ -48,6 +49,7 @@ removeParams:
     - "n"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-palmyra-x5.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-writer-palmyra-x5.html
 status: active
 supportedModes:
     - chat

@@ -40,6 +40,7 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 128000
     max_output_tokens: 16000
@@ -59,7 +60,6 @@ params:
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-30b-a3b-instruct.html
-    - https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct
 status: active
 supportedModes:
     - chat

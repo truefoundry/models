@@ -5,6 +5,8 @@ costs:
 features:
     - function_calling
     - system_messages
+    - structured_output
+    - json_output
 limits:
     context_window: 256000
     max_input_tokens: 256000
@@ -36,7 +38,9 @@ params:
       minValue: 1
 provisioning: serverless
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-ai21-labs-jamba-1-5-large.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-jamba.html
+    - https://aws.amazon.com/blogs/aws/jamba-1-5-family-of-models-by-ai21-labs-is-now-available-in-amazon-bedrock/
     - https://www.ai21.com/jamba
 status: active
 supportedModes:

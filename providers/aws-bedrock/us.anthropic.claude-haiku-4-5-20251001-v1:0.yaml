@@ -38,6 +38,9 @@ features:
     - function_calling
     - prompt_caching
     - cache_control
+    - structured_output
+    - system_messages
+    - tool_choice
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -63,9 +66,8 @@ provisioning: serverless
 removeParams:
     - top_p
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html
     - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
 status: active
 supportedModes:
     - chat

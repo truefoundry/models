@@ -20,6 +20,15 @@ costs:
     - input_cost_per_token: 3.5e-7
       output_cost_per_token: 0.00000141
       region: eu-south-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: eu-north-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: eu-central-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: ap-southeast-3
     - input_cost_per_token: 3.09e-7
       output_cost_per_token: 0.000001236
       region: ap-southeast-2
@@ -33,6 +42,7 @@ features:
     - function_calling
     - tool_choice
     - system_messages
+    - structured_output
 limits:
     context_window: 1000000
     max_output_tokens: 8000

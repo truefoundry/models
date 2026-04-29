@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 0.0000015
-      output_cost_per_second: 1.5
+    - output_cost_per_second_540p: 0.75
+      output_cost_per_second_720p: 1.5
       region: us-west-2
 modalities:
     input:
@@ -21,6 +21,8 @@ removeParams:
 sources:
     - https://lumalabs.ai/learning-hub
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-luma.html
+    - https://aws.amazon.com/blogs/aws/luma-ai-ray-2-video-model-is-now-available-in-amazon-bedrock/
+    - https://aws.amazon.com/marketplace/pp/prodview-blcobuhjtb6h2
 status: active
 supportedModes:
     - video

@@ -31,6 +31,7 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 256000
     max_input_tokens: 256000
@@ -47,10 +48,9 @@ params:
     - key: max_tokens
       maxValue: 8192
 provisioning: serverless
-removeParams:
-    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-nano-3-30b.html
+    - https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-3-nano-as-a-fully-managed-serverless-model-on-amazon-bedrock/
 status: active
 supportedModes:
     - chat

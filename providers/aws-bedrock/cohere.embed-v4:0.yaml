@@ -20,11 +20,6 @@ modalities:
         - embedding
 mode: embedding
 model: cohere.embed-v4:0
-params:
-    - defaultValue: 128000
-      key: max_tokens
-      maxValue: 128000
-      minValue: 1
 provisioning: serverless
 removeParams:
     - temperature
@@ -35,6 +30,7 @@ removeParams:
     - max_tokens
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v4.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-cohere-embed-v4.html
 status: active
 supportedModes:
     - embedding

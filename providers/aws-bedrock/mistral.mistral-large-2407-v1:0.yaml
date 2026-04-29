@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - system_messages
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -25,7 +26,7 @@ params:
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-large-2407.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
+    - https://aws.amazon.com/blogs/machine-learning/mistral-large-2-is-now-available-in-amazon-bedrock/
     - https://docs.mistral.ai/getting-started/models/
 status: active
 supportedModes:

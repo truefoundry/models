@@ -29,6 +29,7 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - system_messages
 limits:
     context_window: 32000
     max_input_tokens: 32000
@@ -60,7 +61,7 @@ removeParams:
 sources:
     - https://docs.mistral.ai/models/
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-chat-completion.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mistral-large.html
 status: active
 supportedModes:
     - chat

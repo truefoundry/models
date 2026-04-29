@@ -19,6 +19,7 @@ features:
     - tool_choice
     - system_messages
     - assistant_prefill
+    - structured_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -40,9 +41,8 @@ params:
       minValue: 1
 provisioning: serverless
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
-    - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html
+    - https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-cross-region-inference-for-claude-sonnet-4-5-and-haiku-4-5-in-japan-and-australia/
 status: active
 supportedModes:
     - chat

@@ -60,6 +60,7 @@ features:
     - cache_control
     - function_calling
     - prompt_caching
+    - structured_output
     - system_messages
     - tool_choice
 limits:
@@ -82,8 +83,7 @@ params:
       minValue: 1
 provisioning: serverless
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
-    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-4-6.html
 status: active
 supportedModes:
     - chat
