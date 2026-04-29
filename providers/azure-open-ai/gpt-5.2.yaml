@@ -33,14 +33,14 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
     - "n"
     - max_tokens
-sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

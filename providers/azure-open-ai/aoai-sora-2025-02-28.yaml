@@ -1,6 +1,8 @@
 costs:
     - output_cost_per_second: 0.1
       region: "*"
+deprecationDate: "2026-02-28"
+isDeprecated: true
 messages:
     options: []
 modalities:
@@ -15,13 +17,13 @@ removeParams:
     - temperature
     - stop
     - top_p
-    - "n"
+    - n
     - response_format
     - stream
     - tool_choice
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-status: preview
+status: retired
 supportedModes:
     - video

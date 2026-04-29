@@ -17,7 +17,7 @@ costs:
       output_cost_per_token: 0.0000088
       output_cost_per_token_batches: 0.0000044
       region: datazone_eu
-deprecationDate: "2026-10-14"
+deprecationDate: "2026-11-04"
 features:
     - function_calling
     - parallel_function_calling
@@ -45,6 +45,7 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
@@ -52,3 +53,4 @@ sources:
 status: active
 supportedModes:
     - chat
+    - responses

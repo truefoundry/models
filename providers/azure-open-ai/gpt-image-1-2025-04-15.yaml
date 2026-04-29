@@ -13,6 +13,7 @@ modalities:
         - image
 mode: image
 model: gpt-image-1-2025-04-15
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -26,6 +27,7 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-image-1
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/model-lifecycle-retirement
 status: preview
 supportedModes:
     - image

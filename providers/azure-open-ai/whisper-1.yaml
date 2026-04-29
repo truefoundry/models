@@ -10,6 +10,7 @@ modalities:
         - text
 mode: audio_transcription
 model: whisper-1
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -22,6 +23,8 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/whisper-quickstart
 status: active
 supportedModes:
     - audio_translation

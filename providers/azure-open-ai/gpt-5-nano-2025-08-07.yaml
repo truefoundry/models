@@ -2,7 +2,15 @@ costs:
     - cache_read_input_token_cost: 5.5e-9
       input_cost_per_token: 5.5e-8
       output_cost_per_token: 4.4e-7
+      region: datazone_us
+    - cache_read_input_token_cost: 5.5e-9
+      input_cost_per_token: 5.5e-8
+      output_cost_per_token: 4.4e-7
       region: datazone_eu
+    - cache_read_input_token_cost: 5e-9
+      input_cost_per_token: 5e-8
+      output_cost_per_token: 4e-7
+      region: "*"
 deprecationDate: "2027-02-06"
 features:
     - function_calling
@@ -33,6 +41,7 @@ params:
     - defaultValue: none
       key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active

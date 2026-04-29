@@ -10,6 +10,7 @@ features:
     - structured_output
     - tool_choice
     - prompt_caching
+    - system_messages
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -22,16 +23,18 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5-codex-2025-09-15
 params:
     - defaultValue: 128
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

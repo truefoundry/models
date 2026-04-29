@@ -1,5 +1,15 @@
 mode: chat
 model: container
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses
 status: active
 supportedModes:
     - chat
+
+# Note: "container" is not an LLM but the Azure OpenAI Code Interpreter sandbox
+# session SKU (used by the Assistants/Agents/Responses APIs). The LiteLLM
+# entry only exposes `code_interpreter_cost_per_session` which has no
+# corresponding field in the #Cost schema, so cost data is omitted.
+# Pricing reference: ~$0.033 per session in US/AU regions
+# (see https://azure.microsoft.com/en-us/pricing/details/azure-openai/).

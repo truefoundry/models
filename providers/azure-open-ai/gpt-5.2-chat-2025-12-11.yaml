@@ -19,6 +19,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -26,8 +27,11 @@ model: gpt-5.2-chat-2025-12-11
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: preview
 supportedModes:
     - chat
+    - responses
+thinking: true

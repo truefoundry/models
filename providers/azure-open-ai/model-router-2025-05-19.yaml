@@ -4,9 +4,12 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - tool_choice
     - system_messages
     - structured_output
+    - prompt_caching
+    - json_output
 limits:
     context_window: 200000
 modalities:
@@ -17,6 +20,7 @@ modalities:
         - text
 mode: chat
 model: model-router-2025-05-19
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router

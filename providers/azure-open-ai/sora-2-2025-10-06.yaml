@@ -1,13 +1,18 @@
 costs:
     - output_cost_per_second: 0.1
       region: "*"
+deprecationDate: "2026-06-03"
 modalities:
     input:
         - text
+        - image
+        - video
     output:
         - video
+        - audio
 mode: video
 model: sora-2-2025-10-06
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -20,6 +25,8 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://azure.microsoft.com/en-us/products/ai-services/video-generation
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: preview
 supportedModes:
     - video

@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_audio_token: 0.00000125
+    - input_cost_per_audio_token: 0.000003
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.000005
       region: "*"
@@ -16,6 +16,7 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-4o-mini-transcribe
+provisioning: serverless
 removeParams:
     - top_p
     - "n"
@@ -27,6 +28,6 @@ sources:
     - https://developers.openai.com/docs/guides/speech-to-text
     - https://developers.openai.com/docs/models/gpt-4o-mini-transcribe
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-status: active
+status: preview
 supportedModes:
     - audio_transcription

@@ -1,8 +1,8 @@
 costs:
-    - cache_read_input_audio_token_cost: 3e-7
+    - cache_creation_input_audio_token_cost: 3e-7
       cache_read_input_token_cost: 6e-8
       input_cost_per_audio_token: 0.00001
-      input_cost_per_image_token: 8e-7
+      input_cost_per_image: 8e-7
       input_cost_per_token: 6e-7
       output_cost_per_audio_token: 0.00002
       output_cost_per_token: 0.0000024
@@ -29,8 +29,10 @@ modalities:
         - audio
 mode: realtime
 model: gpt-realtime-mini
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
     - realtime

@@ -1,3 +1,5 @@
+# costs: not found in official docs (model not listed in Azure OpenAI pricing,
+# model retirement schedule, or LiteLLM model_prices_and_context_window.json)
 features:
     - function_calling
     - parallel_function_calling
@@ -22,5 +24,6 @@ params:
       key: max_tokens
       maxValue: 16384
       minValue: 1
+provisioning: serverless
 supportedModes:
     - chat

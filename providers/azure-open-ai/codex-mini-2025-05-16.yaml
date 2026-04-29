@@ -21,7 +21,7 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: responses
 model: codex-mini-2025-05-16
 params:
     - defaultValue: 100000
@@ -31,6 +31,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -39,8 +40,10 @@ removeParams:
     - stop
     - parallel_tool_calls
 sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/codex
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

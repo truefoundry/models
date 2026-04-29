@@ -23,17 +23,18 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.2-codex-2026-01-14
 params:
     - defaultValue: 128
       key: max_tokens
       maxValue: 128000
       minValue: 1
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

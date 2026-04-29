@@ -25,9 +25,11 @@ model: gpt-5.2-chat-2026-02-10
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
 status: preview
 supportedModes:
     - chat
+    - responses

@@ -3,7 +3,7 @@ costs:
       output_cost_per_token: 0
       region: "*"
 limits:
-    max_input_tokens: 8191
+    max_input_tokens: 8192
     output_vector_size: 3072
 modalities:
     input:
@@ -12,6 +12,7 @@ modalities:
         - embedding
 mode: embedding
 model: text-embedding-3-large
+provisioning: serverless
 removeParams:
     - temperature
     - top_p

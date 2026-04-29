@@ -5,8 +5,9 @@ costs:
     - input_cost_per_token: 2e-8
       output_cost_per_token: 0
       region: "*"
+deprecationDate: "2026-04-30"
 limits:
-    max_input_tokens: 8192
+    max_input_tokens: 8191
     output_vector_size: 1536
 modalities:
     input:
@@ -15,6 +16,7 @@ modalities:
         - embedding
 mode: embedding
 model: text-embedding-3-small
+provisioning: serverless
 removeParams:
     - temperature
     - top_p

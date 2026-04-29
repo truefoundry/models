@@ -16,6 +16,7 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-4o-mini-transcribe-2025-12-15
+provisioning: serverless
 removeParams:
     - top_p
     - "n"
@@ -24,6 +25,6 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-status: active
+status: preview
 supportedModes:
     - audio_transcription

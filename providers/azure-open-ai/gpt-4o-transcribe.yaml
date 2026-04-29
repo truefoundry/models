@@ -17,14 +17,13 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-4o-transcribe
+provisioning: serverless
 removeParams:
     - tool_choice
     - parallel_tool_calls
     - "n"
     - response_format
     - stop
-sources:
-    - https://developers.openai.com/api/docs/models/gpt-4o-transcribe
 status: preview
 supportedModes:
     - audio_transcription

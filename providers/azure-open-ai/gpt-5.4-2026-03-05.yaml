@@ -17,9 +17,9 @@ deprecationDate: "2027-09-05"
 features:
     - function_calling
     - parallel_function_calling
+    - prompt_caching
     - structured_output
     - system_messages
-    - prompt_caching
     - tool_choice
 limits:
     context_window: 1050000
@@ -43,6 +43,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 status: active
 supportedModes:
     - chat

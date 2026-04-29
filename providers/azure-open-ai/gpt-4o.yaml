@@ -7,7 +7,7 @@ costs:
       input_cost_per_token: 0.00000275
       output_cost_per_token: 0.000011
       region: datazone_eu
-deprecationDate: "2026-03-31"
+deprecationDate: "2026-10-01"
 features:
     - function_calling
     - parallel_function_calling
@@ -31,9 +31,9 @@ model: gpt-4o
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/concepts/model-lifecycle-retirement
 status: active
 supportedModes:
     - chat

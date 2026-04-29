@@ -1,3 +1,24 @@
+costs:
+    - cache_read_input_audio_token_cost: 2.5e-6
+      cache_read_input_token_cost: 2.75e-6
+      input_cost_per_audio_token: 4.4e-5
+      input_cost_per_token: 5.5e-6
+      output_cost_per_audio_token: 8e-5
+      output_cost_per_token: 2.2e-5
+      region: datazone_us
+    - cache_read_input_audio_token_cost: 2.5e-6
+      cache_read_input_token_cost: 2.75e-6
+      input_cost_per_audio_token: 4.4e-5
+      input_cost_per_token: 5.5e-6
+      output_cost_per_audio_token: 8e-5
+      output_cost_per_token: 2.2e-5
+      region: datazone_eu
+    - cache_read_input_token_cost: 2.5e-6
+      input_cost_per_audio_token: 4e-5
+      input_cost_per_token: 5e-6
+      output_cost_per_audio_token: 8e-5
+      output_cost_per_token: 2e-5
+      region: "*"
 features:
     - function_calling
     - parallel_function_calling
@@ -16,12 +37,14 @@ modalities:
         - audio
 mode: realtime
 model: gpt-4o-realtime-preview-2025-06-03
+provisioning: serverless
 removeParams:
     - response_format
     - "n"
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: preview
 supportedModes:
     - realtime

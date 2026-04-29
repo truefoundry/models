@@ -15,7 +15,6 @@ costs:
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
-deprecationDate: "2027-05-15"
 features:
     - function_calling
     - parallel_function_calling
@@ -45,6 +44,7 @@ params:
     - defaultValue: none
       key: reasoning_effort
       type: string
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active

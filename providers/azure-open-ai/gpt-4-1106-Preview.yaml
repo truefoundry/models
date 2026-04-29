@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - tool_choice
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -17,8 +18,11 @@ modalities:
         - text
 mode: chat
 model: gpt-4-1106-Preview
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/retired-models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
     - chat

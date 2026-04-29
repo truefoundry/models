@@ -52,14 +52,13 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - top_p
     - max_tokens
     - temperature
 sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
-    - https://azure.microsoft.com/en-us/pricing/details/azure-openai/
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
     - chat

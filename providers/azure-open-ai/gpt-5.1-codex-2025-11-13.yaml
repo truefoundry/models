@@ -35,14 +35,13 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.1-codex-2025-11-13
 params:
     - key: max_tokens
       maxValue: 128000
-sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+provisioning: serverless
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

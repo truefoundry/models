@@ -1,8 +1,11 @@
 features:
     - function_calling
+    - parallel_function_calling
     - system_messages
-    - structured_output
     - tool_choice
+    - structured_output
+    - json_output
+    - prompt_caching
 limits:
     context_window: 200000
 modalities:
@@ -13,9 +16,12 @@ modalities:
         - text
 mode: chat
 model: model-router-2025-08-07
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-router
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/model-router/
 status: active
 supportedModes:
     - chat
+    - responses

@@ -1,11 +1,17 @@
 costs:
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      input_cost_per_token_batches: 0.0000011
+      output_cost_per_token: 0.0000088
+      output_cost_per_token_batches: 0.0000044
+      region: datazone_us
     - cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000002
       input_cost_per_token_batches: 0.000001
       output_cost_per_token: 0.000008
       output_cost_per_token_batches: 0.000004
       region: "*"
-deprecationDate: "2026-10-14"
+deprecationDate: "2026-11-04"
 features:
     - function_calling
     - parallel_function_calling
@@ -30,8 +36,10 @@ params:
       maxValue: 32768
     - key: max_completion_tokens
       maxValue: 32768
+provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/retired-models
 status: active
 supportedModes:
     - chat
