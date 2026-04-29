@@ -1,4 +1,4 @@
-name: Auto Test on Models Bot Push
+name: Auto Test on Model Add PR
 
 on:
   pull_request_target:
@@ -13,10 +13,9 @@ jobs:
   comment:
     name: Comment /test-models
     runs-on: ubuntu-latest
-    # Only run for the bot's "add new models" PRs, and only when the PR is from
-    # this repo (not a fork) so we never expose secrets to untrusted code.
     if: >-
-      contains(github.event.pull_request.title, 'add new models [bot]') &&
+      (contains(github.event.pull_request.title, 'add new models [bot]') ||
+       contains(github.event.pull_request.title, '[Community] Add model:')) &&
       github.event.pull_request.head.repo.full_name == github.repository
     outputs:
       comment_id: ${{ steps.post.outputs.comment_id }}
@@ -39,7 +38,8 @@ jobs:
   test:
     needs: comment
     if: >-
-      contains(github.event.pull_request.title, 'add new models [bot]') &&
+      (contains(github.event.pull_request.title, 'add new models [bot]') ||
+       contains(github.event.pull_request.title, '[Community] Add model:')) &&
       github.event.pull_request.head.repo.full_name == github.repository
     uses: ./.github/workflows/test-changed-models-impl.yml
     with:
