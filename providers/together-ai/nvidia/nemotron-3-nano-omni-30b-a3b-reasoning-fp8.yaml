@@ -3,8 +3,23 @@ costs:
       output_cost_per_token: 0.0
       region: "*"
 limits:
-    context_window: 131072
-mode: unknown
+    context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+        - pdf
+        - doc
+    output:
+        - text
+mode: chat
 model: nvidia/nemotron-3-nano-omni-30b-a3b-reasoning-fp8
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/nvidia-nemotron-3-nano-omni
+status: active
 supportedModes:
     - chat
+thinking: true
