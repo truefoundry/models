@@ -1,2 +1,12 @@
-mode: unknown
+mode: chat
 model: moonshotai/kimi-k2-6
+# costs: not found in official Vertex AI docs (Kimi K2.6 is not listed on
+# https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/kimi or the
+# Vertex AI pricing page as of 2026-04-30; only kimi-k2-thinking-maas is documented)
+# limits: not found in official Vertex AI docs
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/kimi
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/kimi/kimi-k2-thinking
+status: preview
+supportedModes:
+    - chat
