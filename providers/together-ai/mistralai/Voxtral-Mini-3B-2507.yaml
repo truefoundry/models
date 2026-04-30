@@ -2,7 +2,19 @@ costs:
     - input_cost_per_token: 2.7e-7
       output_cost_per_token: 8.5e-7
       region: "*"
-mode: unknown
+limits:
+    context_window: 32000
+modalities:
+    input:
+        - audio
+        - text
+    output:
+        - text
+mode: audio_transcription
 model: mistralai/Voxtral-Mini-3B-2507
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/voxtral-mini-3b-2507
+status: active
 supportedModes:
     - audio_transcription
