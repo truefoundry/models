@@ -32,9 +32,12 @@ costs:
 features:
     - cache_control
     - function_calling
+    - parallel_function_calling
     - prompt_caching
     - system_messages
     - tool_choice
+    - structured_output
+    - assistant_prefill
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -57,13 +60,13 @@ provisioning: serverless
 removeParams:
     - "n"
     - temperature
+    - top_p
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html
+    - https://platform.claude.com/docs/en/about-claude/models/overview
     - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-claude.html
-status: preview
+    - https://aws.amazon.com/blogs/aws/introducing-anthropics-claude-opus-4-7-model-in-amazon-bedrock/
+status: active
 supportedModes:
     - chat
 thinking: true

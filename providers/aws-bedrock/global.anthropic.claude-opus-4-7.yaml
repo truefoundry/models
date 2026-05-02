@@ -28,7 +28,7 @@ costs:
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
-      region: mx-central-1
+      region: me-central-1
     - cache_creation_input_token_cost: 0.00000625
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
@@ -88,21 +88,6 @@ costs:
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
-      region: ap-southeast-7
-    - cache_creation_input_token_cost: 0.00000625
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 0.000005
-      output_cost_per_token: 0.000025
-      region: ap-southeast-6
-    - cache_creation_input_token_cost: 0.00000625
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 0.000005
-      output_cost_per_token: 0.000025
-      region: ap-southeast-5
-    - cache_creation_input_token_cost: 0.00000625
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 0.000005
-      output_cost_per_token: 0.000025
       region: ap-southeast-4
     - cache_creation_input_token_cost: 0.00000625
       cache_read_input_token_cost: 5e-7
@@ -148,11 +133,6 @@ costs:
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
-      region: ap-east-2
-    - cache_creation_input_token_cost: 0.00000625
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 0.000005
-      output_cost_per_token: 0.000025
       region: af-south-1
 features:
     - function_calling
@@ -170,7 +150,6 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
@@ -188,7 +167,7 @@ sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock-research-preview
-status: preview
+status: active
 supportedModes:
     - chat
 thinking: true

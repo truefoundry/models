@@ -34,7 +34,7 @@ modalities:
     output:
         - text
         - audio
-mode: audio_transcription
+mode: realtime
 model: amazon.nova-2-sonic-v1:0
 params:
     - defaultValue: 65536
@@ -51,4 +51,4 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-sonic.html
 status: active
 supportedModes:
-    - audio_transcription
+    - realtime

@@ -37,16 +37,15 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - key: top_k
-      minValue: 0
 provisioning: serverless
 removeParams:
     - "n"
     - temperature
+    - top_p
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
-    - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock-research-preview
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html
 status: active
 supportedModes:
     - chat
