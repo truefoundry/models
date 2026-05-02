@@ -5,14 +5,17 @@ costs:
 features:
     - function_calling
     - structured_output
+    - assistant_prefill
 limits:
     context_window: 196608
 modalities:
     input:
         - image
         - text
+        - code
     output:
         - text
+        - code
 mode: chat
 model: labs-leanstral-2603
 params:
