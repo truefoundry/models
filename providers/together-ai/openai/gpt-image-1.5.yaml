@@ -4,11 +4,15 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - image
 mode: image
 model: openai/gpt-image-1.5
 provisioning: serverless
+sources:
+    - https://www.together.ai/models/gpt-image-1-5
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - image

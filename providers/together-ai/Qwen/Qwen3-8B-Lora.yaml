@@ -2,6 +2,9 @@ costs:
     - input_cost_per_token: 0
       output_cost_per_token: 0
       region: "*"
+limits:
+    context_window: 40960
+    max_input_tokens: 40960
 modalities:
     input:
         - text
@@ -12,6 +15,8 @@ model: Qwen/Qwen3-8B-Lora
 provisioning: provisioned
 sources:
     - https://docs.together.ai/docs/fine-tuning-models
+    - https://www.together.ai/models/qwen3-8b
 status: active
 supportedModes:
     - chat
+thinking: true
