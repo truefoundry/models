@@ -10,9 +10,8 @@ features:
     - json_output
 limits:
     context_window: 128000
-    max_input_tokens: 128000
-    max_output_tokens: 128000
-    max_tokens: 128000
+    max_output_tokens: 25000
+    max_tokens: 25000
 modalities:
     input:
         - text
@@ -20,9 +19,14 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-oss-120b
+params:
+    - key: reasoning_effort
+      type: string
 provisioning: serverless
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/api-reference
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://www.databricks.com/product/pricing/foundation-model-serving
 status: active
 supportedModes:
     - chat
