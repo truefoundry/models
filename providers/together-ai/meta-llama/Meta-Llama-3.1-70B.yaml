@@ -2,6 +2,8 @@ costs:
     - input_cost_per_token: 8.8e-7
       output_cost_per_token: 8.8e-7
       region: "*"
+limits:
+    context_window: 131072
 modalities:
     input:
         - text
@@ -12,5 +14,7 @@ model: meta-llama/Meta-Llama-3.1-70B
 provisioning: provisioned
 sources:
     - https://www.together.ai/pricing
+    - https://www.together.ai/models/llama-3-1-70b
+status: active
 supportedModes:
     - completion

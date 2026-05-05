@@ -4,7 +4,7 @@ features:
     - system_messages
     - json_output
 limits:
-    context_window: 8192
+    context_window: 24576
 modalities:
     input:
         - text
@@ -15,5 +15,7 @@ model: meta-llama/Meta-Llama-3.1-70B-Instruct-Reference
 provisioning: provisioned
 sources:
     - https://docs.together.ai/docs/dedicated-models
+    - https://docs.together.ai/docs/fine-tuning-models
+status: active
 supportedModes:
     - chat

@@ -1,7 +1,5 @@
 limits:
     context_window: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
 modalities:
     input:
         - text
@@ -12,5 +10,7 @@ model: meta-llama/Llama-3.2-3B
 provisioning: serverless
 sources:
     - https://huggingface.co/meta-llama/Llama-3.2-3B
+    - https://docs.together.ai/docs/fine-tuning-models
+status: active
 supportedModes:
     - completion

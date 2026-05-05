@@ -1,3 +1,5 @@
+limits:
+    context_window: 131072
 modalities:
     input:
         - text
@@ -7,7 +9,7 @@ mode: completion
 model: Qwen/Qwen2.5-7B
 provisioning: serverless
 sources:
-    - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/fine-tuning-models
 status: active
 supportedModes:
     - completion

@@ -1,6 +1,8 @@
 features:
     - function_calling
     - system_messages
+limits:
+    context_window: 128000
 modalities:
     input:
         - text
@@ -8,6 +10,9 @@ modalities:
         - text
 mode: chat
 model: nim/meta/llama-3.1-8b-instruct
-provisioning: serverless
+provisioning: provisioned
+sources:
+    - https://www.together.ai/models/nim-llama-3-1-8b-instruct
+status: active
 supportedModes:
     - chat
