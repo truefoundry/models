@@ -1,6 +1,7 @@
 features:
     - system_messages
     - code_execution
+    - json_output
 limits:
     context_window: 131072
     max_output_tokens: 8192
@@ -22,6 +23,12 @@ removeParams:
     - stop
 sources:
     - https://console.groq.com/docs/compound
+    - https://console.groq.com/docs/compound/systems/compound
 status: active
 supportedModes:
     - chat
+
+# Note: groq/compound pricing is passed through to the underlying models
+# (e.g. GPT-OSS 120B, Llama 4 Scout) and tool usage (web search, code
+# execution, etc.); there is no unified per-token cost for the compound
+# system itself, so no `costs` block is emitted.

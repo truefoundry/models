@@ -9,6 +9,8 @@ features:
     - structured_output
     - prompt_caching
     - json_output
+    - system_messages
+    - code_execution
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -26,9 +28,13 @@ params:
       maxValue: 65536
 provisioning: serverless
 sources:
+    - https://console.groq.com/docs/model/openai/gpt-oss-20b
     - https://console.groq.com/docs/tool-use
     - https://console.groq.com/docs/structured-outputs
     - https://console.groq.com/docs/prompt-caching
+    - https://console.groq.com/docs/reasoning
+    - https://console.groq.com/docs/code-execution
 status: active
 supportedModes:
     - chat
+thinking: true
