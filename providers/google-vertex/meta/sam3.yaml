@@ -1,9 +1,19 @@
 modalities:
     input:
         - image
+        - text
     output:
         - image
 mode: image
 model: meta/sam3
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 supportedModes:
     - image

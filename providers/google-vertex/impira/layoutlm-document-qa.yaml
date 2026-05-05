@@ -6,5 +6,10 @@ modalities:
         - text
 mode: chat
 model: impira/layoutlm-document-qa
+provisioning: provisioned
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/impira/model-garden/layoutlm-document-qa
+    - https://huggingface.co/impira/layoutlm-document-qa
+status: preview
 supportedModes:
     - chat

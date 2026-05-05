@@ -4,6 +4,7 @@ modalities:
         - text
 mode: unknown
 model: google/owlvit-base-patch32
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -14,3 +15,7 @@ removeParams:
     - tool_choice
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/owlvit-base-patch32
+    - https://huggingface.co/google/owlvit-base-patch32
+status: active
+supportedModes:
+    - unknown

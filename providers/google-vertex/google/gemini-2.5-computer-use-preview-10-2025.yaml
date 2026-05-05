@@ -30,9 +30,10 @@ model: google/gemini-2.5-computer-use-preview-10-2025
 params:
     - key: max_tokens
       maxValue: 64000
+provisioning: serverless
 sources:
-    - https://ai.google.dev/gemini-api/docs/models
     - https://ai.google.dev/gemini-api/docs/computer-use
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/computer-use
 status: preview
 supportedModes:
     - chat

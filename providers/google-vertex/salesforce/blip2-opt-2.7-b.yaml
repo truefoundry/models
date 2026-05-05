@@ -6,8 +6,12 @@ modalities:
         - text
 mode: chat
 model: salesforce/blip2-opt-2.7-b
+provisioning: provisioned
 removeParams:
     - "n"
     - tool_choice
+sources:
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_blip2.ipynb
+status: active
 supportedModes:
     - chat

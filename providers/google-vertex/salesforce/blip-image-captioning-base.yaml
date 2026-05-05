@@ -6,12 +6,20 @@ modalities:
         - text
 mode: chat
 model: salesforce/blip-image-captioning-base
+provisioning: provisioned
 removeParams:
     - tool_choice
     - "n"
     - stop
 sources:
     - https://huggingface.co/Salesforce/blip-image-captioning-base
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_blip_image_captioning.ipynb
 status: active
 supportedModes:
     - chat
+
+# costs: not found in official docs — BLIP on Vertex AI Model Garden is a
+# self-deploy model billed via underlying Vertex AI compute (e.g. n1-standard-8
+# with NVIDIA T4 GPU), not per-token. No per-token pricing is published.
+# limits: not found in official docs — Vertex AI Model Garden does not publish
+# token-level context_window / max_output_tokens for this self-deploy model.

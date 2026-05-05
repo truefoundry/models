@@ -1,3 +1,132 @@
+costs:
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us-west4
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us-west1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us-south1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us-east5
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us-east4
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us-east1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us-central1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: us
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: southamerica-east1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: northamerica-northeast1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: me-west1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: me-central2
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: me-central1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: global
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-west9
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-west8
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-west6
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-west4
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-west3
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-west2
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-west1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-southwest1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-north1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: europe-central2
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: eu
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: australia-southeast1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: asia-southeast1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: asia-south1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: asia-northeast3
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: asia-northeast1
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: asia-east2
+    - input_cost_per_character: 2e-7
+      input_cost_per_image: 0.0001
+      input_cost_per_second: 0.0005
+      region: asia-east1
 limits:
     output_vector_size: 1408
 modalities:
@@ -9,6 +138,7 @@ modalities:
         - embedding
 mode: embedding
 model: google/multimodalembedding
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -20,5 +150,7 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations-genai
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/multimodal-embeddings-api
+status: active
 supportedModes:
     - embedding

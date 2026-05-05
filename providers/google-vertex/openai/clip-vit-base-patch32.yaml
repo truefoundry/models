@@ -6,6 +6,7 @@ modalities:
         - embedding
 mode: embedding
 model: openai/clip-vit-base-patch32
+provisioning: provisioned
 removeParams:
     - temperature
     - top_p
@@ -14,6 +15,8 @@ removeParams:
     - stream
     - tool_choice
     - max_tokens
+sources:
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_clip.ipynb
 status: active
 supportedModes:
     - embedding

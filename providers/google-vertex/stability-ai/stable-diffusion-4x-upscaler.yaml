@@ -6,6 +6,7 @@ modalities:
         - image
 mode: image
 model: stability-ai/stable-diffusion-4x-upscaler
+provisioning: provisioned
 removeParams:
     - temperature
     - top_p
@@ -16,5 +17,8 @@ removeParams:
     - max_tokens
 sources:
     - https://huggingface.co/stabilityai/stable-diffusion-x4-upscaler
+    - https://console.cloud.google.com/vertex-ai/publishers/stability-ai/model-garden/stable-diffusion-4x-upscaler
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_stable_diffusion_upscaler.ipynb
+status: active
 supportedModes:
     - image

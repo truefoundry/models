@@ -1,10 +1,12 @@
 modalities:
     input:
         - image
+        - text
     output:
         - image
 mode: image
 model: image-segmentation-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -13,5 +15,11 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/image_segmentation.ipynb
+status: preview
 supportedModes:
     - image
+
+# costs: not found in official docs (pricing not publicly listed on Vertex AI pricing page)
+# limits: not found in official docs

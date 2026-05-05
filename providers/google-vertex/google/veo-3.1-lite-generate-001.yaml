@@ -6,6 +6,7 @@ costs:
     - region: us-east4
     - region: us-east1
     - region: us-central1
+    - region: us
     - region: southamerica-east1
     - region: northamerica-northeast1
     - region: me-west1
@@ -22,6 +23,7 @@ costs:
     - region: europe-southwest1
     - region: europe-north1
     - region: europe-central2
+    - region: eu
     - region: australia-southeast1
     - region: asia-southeast1
     - region: asia-south1
@@ -39,6 +41,7 @@ modalities:
         - video
 mode: video
 model: veo-3.1-lite-generate-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -49,8 +52,8 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/generate-videos
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/models
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations-genai
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate
 status: preview
 supportedModes:
     - video

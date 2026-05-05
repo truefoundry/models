@@ -14,9 +14,6 @@ costs:
 features:
     - function_calling
     - structured_output
-    - system_messages
-    - tool_choice
-    - prompt_caching
 limits:
     context_window: 262144
     max_output_tokens: 65536
@@ -39,7 +36,6 @@ provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-coder
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/use-open-models
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview
 status: active
 supportedModes:
     - chat

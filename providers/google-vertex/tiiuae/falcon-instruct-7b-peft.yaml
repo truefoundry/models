@@ -5,5 +5,10 @@ modalities:
         - text
 mode: chat
 model: tiiuae/falcon-instruct-7b-peft
+provisioning: provisioned
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/tiiuae/model-garden/falcon-instruct-7b-peft
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_falcon_instruct_peft.ipynb
+status: active
 supportedModes:
     - chat

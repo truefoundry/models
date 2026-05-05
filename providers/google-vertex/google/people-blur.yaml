@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_second: 0.0016666666666666668
+      region: global
 modalities:
     input:
         - video
@@ -5,6 +8,7 @@ modalities:
         - video
 mode: video
 model: google/people-blur
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -14,8 +18,8 @@ removeParams:
     - stream
     - tool_choice
 sources:
-    - https://cloud.google.com/video-intelligence/pricing
-    - https://docs.cloud.google.com/video-intelligence/docs/people-detection
+    - https://cloud.google.com/vision-ai/docs/person-blur-model
+    - https://cloud.google.com/vision-ai/pricing
 status: active
 supportedModes:
     - video

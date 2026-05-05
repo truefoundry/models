@@ -4,7 +4,20 @@ modalities:
         - text
     output:
         - image
-mode: unknown
+mode: image
 model: google/pic2word
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_pic2word.ipynb
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/pic2word
+status: active
+supportedModes:
+    - image

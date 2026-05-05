@@ -1,3 +1,4 @@
+isDeprecated: true
 modalities:
     input:
         - image
@@ -8,8 +9,9 @@ model: google/imageobjectdetection-yolo
 removeParams:
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
     - max_tokens
+status: deprecated

@@ -22,6 +22,9 @@ costs:
       region: us-central1
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 0
+      region: us
+    - input_cost_per_token: 1.5e-7
+      output_cost_per_token: 0
       region: southamerica-east1
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 0
@@ -70,6 +73,9 @@ costs:
       region: europe-central2
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 0
+      region: eu
+    - input_cost_per_token: 1.5e-7
+      output_cost_per_token: 0
       region: australia-southeast1
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 0
@@ -90,6 +96,7 @@ costs:
       output_cost_per_token: 0
       region: asia-east1
 limits:
+    context_window: 2048
     max_input_tokens: 2048
     output_vector_size: 3072
 modalities:
@@ -110,7 +117,6 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
 status: active
 supportedModes:

@@ -3,8 +3,9 @@ modalities:
         - video
     output:
         - text
-mode: unknown
+mode: video
 model: google/tfvision-movinet-vcn
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -15,3 +16,7 @@ removeParams:
     - tool_choice
 sources:
     - https://github.com/tensorflow/models/tree/master/official/projects/movinet
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_movinet_clip_classification.ipynb
+status: active
+supportedModes:
+    - video

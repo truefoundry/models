@@ -8,6 +8,7 @@ modalities:
         - text
 mode: unknown
 model: language-v1-classify-text-v1
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -21,3 +22,5 @@ sources:
     - https://docs.cloud.google.com/natural-language/docs/classifying-text
     - https://docs.cloud.google.com/natural-language/docs/reference/rest/v1/documents/classifyText
 status: active
+supportedModes:
+    - unknown

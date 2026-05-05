@@ -5,6 +5,7 @@ modalities:
         - video
 mode: video
 model: ifzhang/bytetrack-multi-object-tracking
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -13,5 +14,10 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/ifzhang/model-garden/bytetrack-multi-object-tracking
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_video_object_tracking_serve.ipynb
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/self-deployed-models
+status: active
 supportedModes:
     - video

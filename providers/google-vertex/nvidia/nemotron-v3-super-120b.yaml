@@ -1,3 +1,9 @@
+features:
+    - function_calling
+    - system_messages
+    - structured_output
+    - json_output
+    - tool_choice
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -18,6 +24,7 @@ params:
     - defaultValue: 32768
       key: max_tokens
       maxValue: 32768
+provisioning: provisioned
 sources:
     - https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-super-120b-a12b
     - https://research.nvidia.com/labs/nemotron/Nemotron-3-Super/

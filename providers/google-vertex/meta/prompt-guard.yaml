@@ -1,3 +1,5 @@
+limits:
+    max_input_tokens: 512
 modalities:
     input:
         - text
@@ -5,6 +7,7 @@ modalities:
         - text
 mode: moderation
 model: meta/prompt-guard
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -15,5 +18,7 @@ removeParams:
     - tool_choice
 sources:
     - https://huggingface.co/meta-llama/Prompt-Guard-86M
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_prompt_guard_deployment.ipynb
+status: active
 supportedModes:
     - moderation
