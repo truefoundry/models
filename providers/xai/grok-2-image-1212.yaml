@@ -11,6 +11,12 @@ modalities:
 mode: image
 model: grok-2-image-1212
 provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - stream
 status: active
 supportedModes:
     - image
