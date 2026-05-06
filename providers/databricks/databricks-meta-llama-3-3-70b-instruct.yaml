@@ -7,8 +7,11 @@ features:
     - function_calling
     - structured_output
     - json_output
+    - system_messages
 limits:
     context_window: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
 modalities:
     input:
         - text
@@ -17,6 +20,9 @@ modalities:
 mode: chat
 model: databricks-meta-llama-3-3-70b-instruct
 provisioning: serverless
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling
 status: active
 supportedModes:
     - chat
