@@ -1,2 +1,37 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.00003
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+    - json_output
+    - prompt_caching
+limits:
+    context_window: 400000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: chat-latest
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/chat-latest
+status: active
+supportedModes:
+    - chat
+    - responses
