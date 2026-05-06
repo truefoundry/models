@@ -23,12 +23,10 @@ modalities:
         - text
 mode: chat
 model: chat-latest
-params:
-    - defaultValue: 128
-      key: max_tokens
-      maxValue: 128000
-      minValue: 1
 provisioning: serverless
+removeParams: 
+    - max_tokens
+    - max_output_tokens
 sources:
     - https://developers.openai.com/api/docs/models/chat-latest
 status: active
