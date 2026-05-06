@@ -4,6 +4,10 @@ costs:
       region: "*"
 features:
     - system_messages
+    - function_calling
+    - tool_choice
+    - structured_output
+    - json_output
 limits:
     context_window: 32768
 messages:
@@ -20,6 +24,7 @@ mode: chat
 model: LiquidAI/LFM2-24B-A2B
 provisioning: serverless
 sources:
+    - https://www.together.ai/models/lfm2-24b-a2b
     - https://huggingface.co/LiquidAI/LFM2-24B-A2B
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode

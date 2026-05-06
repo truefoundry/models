@@ -1,5 +1,4 @@
 features:
-    - function_calling
     - system_messages
 limits:
     context_window: 32768
@@ -12,8 +11,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-0.6B
-provisioning: serverless
+provisioning: provisioned
 sources:
+    - https://www.together.ai/models/qwen3-0-6b
     - https://huggingface.co/Qwen/Qwen3-0.6B
 status: active
 supportedModes:

@@ -10,6 +10,7 @@ costs:
           output:
               - cost_per_token: 0.000001
                 from: 128000
+deprecationDate: "2026-06-01"
 features:
     - function_calling
     - json_output
@@ -30,6 +31,7 @@ mode: chat
 model: x-ai/grok-4-fast
 provisioning: serverless
 sources:
+    - https://openrouter.ai/x-ai/grok-4-fast
     - https://openrouter.ai/x-ai/grok-4-fast/api
     - https://docs.x.ai/developers/models#models-and-pricing
 status: active

@@ -4,14 +4,15 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - video
+        - audio
 mode: video
 model: openai/sora-2
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/changelog
-    - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/models/sora-2
     - https://together.ai/pricing
 status: active
 supportedModes:

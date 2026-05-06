@@ -10,6 +10,12 @@ modalities:
         - text
 mode: chat
 model: aqa
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 1024
+      minValue: 1
 provisioning: serverless
+status: active
 supportedModes:
     - chat

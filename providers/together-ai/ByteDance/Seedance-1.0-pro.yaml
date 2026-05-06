@@ -4,6 +4,7 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - video
 mode: video
@@ -11,6 +12,7 @@ model: ByteDance/Seedance-1.0-pro
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/videos-overview
+    - https://www.together.ai/models/bytedance-seedance-1-0-pro
 status: active
 supportedModes:
     - video

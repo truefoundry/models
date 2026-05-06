@@ -1,7 +1,5 @@
 limits:
     context_window: 32768
-    max_output_tokens: 32768
-    max_tokens: 32768
 modalities:
     input:
         - text
@@ -12,6 +10,7 @@ model: Qwen/Qwen3-8B-Base
 provisioning: serverless
 sources:
     - https://huggingface.co/Qwen/Qwen3-8B-Base
+    - https://docs.together.ai/docs/fine-tuning-models
 status: active
 supportedModes:
     - completion
