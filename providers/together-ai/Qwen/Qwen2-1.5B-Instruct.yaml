@@ -1,3 +1,7 @@
+limits:
+    context_window: 32768
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -8,6 +12,9 @@ model: Qwen/Qwen2-1.5B-Instruct
 provisioning: serverless
 sources:
     - https://docs.together.ai/llms.txt
+    - https://docs.together.ai/llms-full.txt
 status: active
 supportedModes:
     - chat
+
+# costs: not found in official docs (model is not listed in Together AI's serverless pricing tables; documented only in fine-tuning / dedicated-endpoint model lists)

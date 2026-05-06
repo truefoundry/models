@@ -1,6 +1,18 @@
-mode: unknown
+features:
+    - system_messages
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
+mode: chat
 model: facebook/cwm
 provisioning: serverless
+sources:
+    - https://huggingface.co/facebook/cwm
 status: active
 supportedModes:
-    - unknown
+    - chat
+thinking: true

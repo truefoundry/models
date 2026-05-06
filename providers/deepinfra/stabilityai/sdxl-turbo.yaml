@@ -1,10 +1,9 @@
 costs:
-    - output_cost_per_image: 0.001
+    - output_cost_per_image: 0.0002
       region: "*"
 modalities:
     input:
         - text
-        - image
     output:
         - image
 mode: image
@@ -12,5 +11,6 @@ model: stabilityai/sdxl-turbo
 provisioning: serverless
 sources:
     - https://deepinfra.com/stabilityai/sdxl-turbo
+status: active
 supportedModes:
     - image

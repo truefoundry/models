@@ -2,7 +2,7 @@ features:
     - function_calling
     - system_messages
 limits:
-    context_window: 32768
+    context_window: 128000
     max_output_tokens: 32768
     max_tokens: 32768
 modalities:
@@ -12,9 +12,9 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-32B
-provisioning: serverless
+provisioning: provisioned
 sources:
-    - https://together.ai/pricing
+    - https://www.together.ai/models/qwen3-32b
     - https://huggingface.co/Qwen/Qwen3-32B
 status: active
 supportedModes:

@@ -2,6 +2,7 @@ costs:
     - input_cost_per_token: 5e-7
       output_cost_per_token: 0.0000012
       region: "*"
+deprecationDate: "2026-05-14"
 features:
     - function_calling
     - structured_output
@@ -19,7 +20,8 @@ mode: chat
 model: Qwen/Qwen3-Coder-Next-FP8
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/models/qwen3-coder-next
+    - https://www.together.ai/pricing
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
     - https://huggingface.co/Qwen/Qwen3-Coder-Next

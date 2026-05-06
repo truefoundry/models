@@ -9,7 +9,7 @@ features:
     - prompt_caching
     - json_output
 limits:
-    context_window: 228700
+    context_window: 192000
 modalities:
     input:
         - text
@@ -17,9 +17,10 @@ modalities:
         - text
 mode: chat
 model: MiniMaxAI/MiniMax-M2.5
-provisioning: serverless
+provisioning: provisioned
 sources:
     - https://www.together.ai/models/minimax-m2-5
 status: active
 supportedModes:
     - chat
+thinking: true

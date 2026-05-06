@@ -2,6 +2,7 @@ features:
     - function_calling
     - parallel_function_calling
     - system_messages
+    - json_output
 modalities:
     input:
         - text
@@ -10,10 +11,11 @@ modalities:
         - text
 mode: chat
 model: togethercomputer/deepcogito-cogito-v2-preview-llama-109B-MoE
-provisioning: serverless
+provisioning: provisioned
 sources:
     - https://huggingface.co/deepcogito/cogito-v2-preview-llama-109B-MoE
     - https://together.ai/models-providers/deep-cogito
+    - https://www.together.ai/models/cogito-109b-moe
 status: preview
 supportedModes:
     - chat

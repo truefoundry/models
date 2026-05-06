@@ -2,8 +2,6 @@ features:
     - function_calling
 limits:
     context_window: 128000
-    max_output_tokens: 4096
-    max_tokens: 4096
 modalities:
     input:
         - text
@@ -12,6 +10,9 @@ modalities:
         - text
 mode: chat
 model: nim/meta/llama-3.2-90b-vision-instruct
-provisioning: serverless
+provisioning: provisioned
+sources:
+    - https://www.together.ai/models/nim-llama-3-2-90b-vision-instruct
+status: active
 supportedModes:
     - chat

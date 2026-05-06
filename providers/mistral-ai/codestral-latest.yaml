@@ -8,6 +8,13 @@ features:
     - json_output
 limits:
     context_window: 256000
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: codestral-latest
 params:

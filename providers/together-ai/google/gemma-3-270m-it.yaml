@@ -1,5 +1,8 @@
 features:
     - system_messages
+limits:
+    context_window: 32768
+    max_input_tokens: 32768
 modalities:
     input:
         - text
@@ -8,5 +11,8 @@ modalities:
 mode: chat
 model: google/gemma-3-270m-it
 provisioning: serverless
+sources:
+    - https://docs.together.ai/docs/fine-tuning-models
+status: active
 supportedModes:
     - chat

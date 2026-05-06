@@ -4,11 +4,14 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - image
 mode: image
 model: Qwen/Qwen-Image
 provisioning: serverless
+sources:
+    - https://www.together.ai/models/qwen-image
 status: active
 supportedModes:
     - image
