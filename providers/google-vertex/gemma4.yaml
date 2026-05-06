@@ -16,7 +16,7 @@ modalities:
     input:
         - text
         - image
-        - doc
+        - audio
     output:
         - text
 mode: chat
@@ -26,11 +26,8 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-provisioning: serverless
+provisioning: provisioned
 sources:
-    - https://ai.google.dev/gemma/docs/core
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-gemma
-    - https://deepmind.google/models/gemma
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/google/gemma-4-26b-a4b-it
     - https://cloud.google.com/blog/products/ai-machine-learning/gemma-4-available-on-google-cloud
 status: preview
