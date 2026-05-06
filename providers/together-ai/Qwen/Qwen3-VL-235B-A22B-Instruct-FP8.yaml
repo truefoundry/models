@@ -1,16 +1,18 @@
 features:
     - system_messages
+limits:
+    context_window: 262144
 modalities:
     input:
         - text
         - image
+        - video
     output:
         - text
 mode: chat
 model: Qwen/Qwen3-VL-235B-A22B-Instruct-FP8
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/serverless-models
     - https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Instruct-FP8
 supportedModes:
     - chat

@@ -4,6 +4,7 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - video
         - audio
@@ -11,7 +12,7 @@ mode: video
 model: google/veo-3.0-audio
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/models/google-veo-3-0-audio
 status: active
 supportedModes:
     - video

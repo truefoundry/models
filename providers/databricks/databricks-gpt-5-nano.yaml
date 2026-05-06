@@ -4,6 +4,10 @@ costs:
       region: "*"
 features:
     - system_messages
+    - function_calling
+    - tool_choice
+    - structured_output
+    - prompt_caching
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -17,7 +21,15 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-5-nano
+params:
+    - defaultValue: minimal
+      key: reasoning_effort
+      type: string
 provisioning: serverless
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
+    - https://developers.openai.com/api/docs/models/gpt-5-nano
 status: active
 supportedModes:
     - chat
+thinking: true

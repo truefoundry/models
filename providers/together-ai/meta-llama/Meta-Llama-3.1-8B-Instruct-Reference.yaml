@@ -2,7 +2,7 @@ features:
     - function_calling
     - system_messages
 limits:
-    context_window: 16384
+    context_window: 131072
 modalities:
     input:
         - text
@@ -12,8 +12,9 @@ mode: chat
 model: meta-llama/Meta-Llama-3.1-8B-Instruct-Reference
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/changelog
     - https://docs.together.ai/docs/fine-tuning-models
+    - https://www.together.ai/pricing
+    - https://www.together.ai/models/llama-3-1
 status: active
 supportedModes:
     - chat

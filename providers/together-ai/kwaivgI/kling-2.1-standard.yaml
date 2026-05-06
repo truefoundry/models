@@ -4,11 +4,14 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - video
 mode: video
 model: kwaivgI/kling-2.1-standard
 provisioning: serverless
+sources:
+    - https://www.together.ai/models/kling-2-1-standard
 status: active
 supportedModes:
     - video
