@@ -1,0 +1,12 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 1e-6
+      output_cost_per_token: 3e-6
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 1048576
+    max_tokens: 1048576
+mode: unknown
+model: XiaomiMiMo/MiMo-V2.5-Pro
