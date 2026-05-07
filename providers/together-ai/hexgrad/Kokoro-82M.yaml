@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_character: 0.000004
+    - input_cost_per_character: 0.00001
       region: "*"
 modalities:
     input:
@@ -11,6 +11,8 @@ model: hexgrad/Kokoro-82M
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/text-to-speech
+    - https://www.together.ai/models/kokoro-82m
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - text_to_speech

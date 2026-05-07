@@ -6,6 +6,8 @@ costs:
       region: "*"
 features:
     - function_calling
+limits:
+    context_window: 131000
 modalities:
     input:
         - text
@@ -15,6 +17,8 @@ mode: chat
 model: meta-llama/Llama-3.1-405B
 provisioning: provisioned
 sources:
-    - https://together.ai/pricing
+    - https://www.together.ai/models/llama-3-1-405b
+    - https://www.together.ai/pricing
+status: active
 supportedModes:
     - chat

@@ -1,3 +1,7 @@
+costs:
+    - input_cost_per_token: 1e-7
+      output_cost_per_token: 3e-7
+      region: "*"
 features:
     - function_calling
 limits:
@@ -17,6 +21,7 @@ provisioning: serverless
 sources:
     - https://docs.mistral.ai/mistral-vibe/introduction
     - https://docs.mistral.ai/mistral-vibe/local
+    - https://mistral.ai/news/devstral-2-vibe-cli
 status: active
 supportedModes:
     - chat

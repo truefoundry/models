@@ -2,6 +2,8 @@ costs:
     - input_cost_per_token: 3e-8
       output_cost_per_token: 1e-7
       region: "*"
+deprecationDate: "2026-04-30"
+isDeprecated: true
 limits:
     context_window: 8192
     max_input_tokens: 8192
@@ -18,6 +20,6 @@ model: deepseek-ai/DeepSeek-OCR
 provisioning: serverless
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-OCR
-status: active
+status: deprecated
 supportedModes:
     - chat

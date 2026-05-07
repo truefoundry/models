@@ -5,13 +5,15 @@ limits:
 modalities:
     input:
         - text
+        - code
     output:
         - text
+        - code
 mode: chat
 model: togethercomputer/DeepCoder-14B-Preview
 provisioning: serverless
 sources:
-    - https://www.together.ai/pricing
+    - https://www.together.ai/blog/deepcoder
     - https://huggingface.co/agentica-org/DeepCoder-14B-Preview
 status: preview
 supportedModes:

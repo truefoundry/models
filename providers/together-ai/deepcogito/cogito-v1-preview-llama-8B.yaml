@@ -16,9 +16,10 @@ modalities:
         - text
 mode: chat
 model: deepcogito/cogito-v1-preview-llama-8B
-provisioning: serverless
+provisioning: provisioned
 sources:
-    - https://api.together.ai/models/deepcogito/cogito-v1-preview-llama-8B
+    - https://www.together.ai/models/cogito-v1-preview-llama-70b
+    - https://www.together.ai/models/cogito-v1-preview-llama-3b
     - https://huggingface.co/deepcogito/cogito-v1-preview-llama-8B
 status: active
 supportedModes:

@@ -8,12 +8,15 @@ features:
     - function_calling
     - json_output
     - structured_output
+    - system_messages
+    - tool_choice
 limits:
     context_window: 262144
 modalities:
     input:
         - text
         - image
+        - doc
     output:
         - text
 mode: chat

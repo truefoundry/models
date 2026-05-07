@@ -14,14 +14,15 @@ modalities:
     input:
         - image
         - text
+        - video
     output:
         - text
 mode: chat
 model: Qwen/Qwen3.5-9B
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/function-calling
-    - https://docs.together.ai/docs/json-mode
+    - https://www.together.ai/models/qwen3-5-9b
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - chat

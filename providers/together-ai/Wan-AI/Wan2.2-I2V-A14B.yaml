@@ -3,6 +3,7 @@ costs:
       region: "*"
 modalities:
     input:
+        - text
         - image
     output:
         - video
@@ -12,6 +13,7 @@ provisioning: serverless
 sources:
     - https://docs.together.ai/docs/videos-overview
     - https://docs.together.ai/reference/create-videos
+    - https://www.together.ai/models/wan-2-2-i2v
 status: active
 supportedModes:
     - video
