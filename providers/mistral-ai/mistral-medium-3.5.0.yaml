@@ -1,5 +1,10 @@
+costs:
+    - input_cost_per_token: 0.0000015
+      output_cost_per_token: 0.0000075
+      region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 262144
 modalities:
@@ -14,8 +19,7 @@ params:
     - defaultValue: 0.7
       key: temperature
 sources:
-    - https://docs.mistral.ai/models/mistral-medium-3-1-25-08
-    - https://docs.mistral.ai/models/mistral-medium-3-25-05
+    - https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
 status: active
 supportedModes:
     - chat
