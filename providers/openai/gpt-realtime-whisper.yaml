@@ -11,7 +11,7 @@ modalities:
         - audio
     output:
         - text
-mode: audio_transcription
+mode: realtime
 model: gpt-realtime-whisper
 provisioning: serverless
 removeParams:
@@ -23,5 +23,3 @@ status: active
 supportedModes:
     - audio_transcription
     - realtime
-    - chat
-    - responses
