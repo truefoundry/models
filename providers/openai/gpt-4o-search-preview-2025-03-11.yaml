@@ -1,13 +1,15 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
+    - cache_read_input_token_cost: 1.25e-6
       input_cost_per_query: 0.025
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.00001
+      input_cost_per_token: 2.5e-6
+      output_cost_per_token: 1e-5
       region: "*"
+deprecationDate: "2026-07-23"
 features:
     - system_messages
     - structured_output
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -32,6 +34,6 @@ removeParams:
     - temperature
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-search-preview
-status: preview
+status: deprecated
 supportedModes:
     - chat
