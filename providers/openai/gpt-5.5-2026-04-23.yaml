@@ -41,7 +41,7 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: none
+    - defaultValue: medium
       key: reasoning_effort
       type: string
 provisioning: serverless
@@ -49,6 +49,7 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.5
+    - https://developers.openai.com/docs/pricing
 status: active
 supportedModes:
     - chat
