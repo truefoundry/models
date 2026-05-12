@@ -1,7 +1,7 @@
 costs:
     - cache_read_input_token_cost: 1.612e-7
-      input_cost_per_token: 1.612e-7
-      output_cost_per_token: 9.6525e-7
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 1e-6
       region: "*"
 features:
     - json_output
@@ -26,4 +26,9 @@ params:
       key: top_p
     - defaultValue: 20
       key: top_k
+sources:
+    - https://openrouter.ai/qwen/qwen3.6-35b-a3b
+status: active
+supportedModes:
+    - chat
 thinking: true

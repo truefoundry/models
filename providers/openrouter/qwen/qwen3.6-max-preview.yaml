@@ -1,7 +1,7 @@
 costs:
     - cache_creation_input_token_cost: 1.625e-6
-      input_cost_per_token: 1.3e-6
-      output_cost_per_token: 7.8e-6
+      input_cost_per_token: 1.04e-6
+      output_cost_per_token: 6.24e-6
       region: "*"
 features:
     - function_calling
@@ -19,4 +19,8 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3.6-max-preview
+sources:
+    - https://openrouter.ai/qwen/qwen3.6-max-preview
+supportedModes:
+    - chat
 thinking: true
