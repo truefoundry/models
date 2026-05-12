@@ -1,2 +1,12 @@
-mode: unknown
+mode: chat
 model: deepseek-ai/deepseek-v4
+supportedModes:
+    - chat
+
+# DeepSeek-V4 is not listed on Google Vertex AI Model Garden as of the latest
+# official documentation (https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek).
+# Currently available DeepSeek models on Vertex AI: DeepSeek-V3.2, DeepSeek-V3.1,
+# DeepSeek R1 (0528), and DeepSeek-OCR. No costs, limits, features, modalities,
+# provisioning details, or regional availability could be confirmed from official
+# Vertex AI docs.
+# CUE validation skipped — cue binary not available in environment.
