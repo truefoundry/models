@@ -12,6 +12,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - json_output
 limits:
     context_window: 400000
     max_output_tokens: 128000
@@ -35,6 +36,12 @@ params:
       type: string
     - defaultValue: null
       key: reasoning
+    - defaultValue: null
+      key: reasoning_effort
+      type: string
+    - defaultValue: null
+      key: verbosity
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
@@ -44,6 +51,7 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-mini
     - https://developers.openai.com/docs/guides/reasoning
+    - https://developers.openai.com/api/docs/guides/pdf-files/
 status: active
 supportedModes:
     - chat
