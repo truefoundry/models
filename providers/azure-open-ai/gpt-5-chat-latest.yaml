@@ -3,7 +3,6 @@ costs:
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
-deprecationDate: "2026-04-15"
 features:
     - function_calling
     - parallel_function_calling
@@ -28,6 +27,7 @@ params:
       key: max_completion_tokens
       maxValue: 16384
       minValue: 1
+provisioning: serverless
 removeParams:
     - max_tokens
     - tool_choice
@@ -37,3 +37,4 @@ sources:
 status: preview
 supportedModes:
     - chat
+    - responses
