@@ -17,9 +17,9 @@ export interface components {
         Cost: {
             cache_creation_input_audio_token_cost?: number;
             cache_creation_input_token_cost?: number;
+            cache_creation_input_token_cost_per_hour?: number;
             cache_read_input_audio_token_cost?: number;
             cache_read_input_token_cost?: number;
-            cache_storage_cost_per_token_per_hour?: number;
             input_cost_per_annotated_page?: number;
             input_cost_per_audio_token?: number;
             input_cost_per_character?: number;
@@ -136,6 +136,14 @@ export interface components {
         ModelParamKey: "json_schema" | "max_completion_tokens" | "max_tokens" | "min_tokens" | "n" | "parallel_tool_calls" | "reasoning" | "reasoning_effort" | "response_format" | "seed" | "stop" | "stream" | "temperature" | "thinking" | "tool_choice" | "top_k" | "top_p" | "verbosity";
         /** @enum {string} */
         ModelParamType: "array-of-strings" | "boolean" | "json" | "number" | "string";
+        /**
+         * @description How the model prices long context tokens
+         *     marginal: remaining tokens after long context are priced under long context pricing
+         *     cumulative: all input tokens are priced under long context pricing
+         * @default marginal
+         * @enum {string}
+         */
+        PricingMode: "marginal" | "cumulative";
         PricingTier: {
             cost_per_token: number;
             from: number;
@@ -155,6 +163,7 @@ export interface components {
             cache_write?: components["schemas"]["PricingTier"][];
             input?: components["schemas"]["PricingTier"][];
             output?: components["schemas"]["PricingTier"][];
+            pricing_mode?: components["schemas"]["PricingMode"];
         };
         /**
          * @description Vertex region identifiers
@@ -188,6 +197,7 @@ export type ModelConfig = components['schemas']['ModelConfig'];
 export type ModelParam = components['schemas']['ModelParam'];
 export type ModelParamKey = components['schemas']['ModelParamKey'];
 export type ModelParamType = components['schemas']['ModelParamType'];
+export type PricingMode = components['schemas']['PricingMode'];
 export type PricingTier = components['schemas']['PricingTier'];
 export type Provisioning = components['schemas']['Provisioning'];
 export type Status = components['schemas']['Status'];
