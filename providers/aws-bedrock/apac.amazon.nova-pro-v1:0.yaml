@@ -3,14 +3,14 @@ costs:
       input_cost_per_token: 8e-7
       output_cost_per_token: 0.0000032
       region: me-central-1
-    - region: ap-southeast-7
+    - region: ap-southeast-7 # not found in official docs
     - input_cost_per_token: 9.6e-7
       region: ap-southeast-5
     - cache_read_input_token_cost: 2.175e-7
       input_cost_per_token: 8.7e-7
       output_cost_per_token: 0.00000348
       region: ap-southeast-4
-    - region: ap-southeast-3
+    - region: ap-southeast-3 # not found in official docs
     - cache_read_input_token_cost: 2.1e-7
       input_cost_per_token: 8.4e-7
       output_cost_per_token: 0.00000336
@@ -31,16 +31,17 @@ costs:
       input_cost_per_token: 9.6e-7
       output_cost_per_token: 0.00000384
       region: ap-northeast-1
-    - region: ap-east-2
+    - region: ap-east-2 # not found in official docs
 features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - system_messages
 limits:
     context_window: 300000
     max_input_tokens: 300000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
 modalities:
     input:
         - text
@@ -55,7 +56,7 @@ model: apac.amazon.nova-pro-v1:0
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 10000
+      maxValue: 5000
       minValue: 1
 provisioning: serverless
 sources:
@@ -63,9 +64,9 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
     - https://docs.aws.amazon.com/nova/latest/userguide/modalities.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-choice.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.html
 status: active
 supportedModes:
     - chat

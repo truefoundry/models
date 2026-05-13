@@ -8,12 +8,6 @@ costs:
     - input_cost_per_token: 7.7e-8
       output_cost_per_token: 3.08e-7
       region: us-west-1
-    - cache_read_input_token_cost: 1.8e-8
-      input_cost_per_token: 7.2e-8
-      input_cost_per_token_batches: 3.6e-8
-      output_cost_per_token: 2.88e-7
-      output_cost_per_token_batches: 1.44e-7
-      region: us-gov-west-1
     - cache_read_input_token_cost: 1.5e-8
       input_cost_per_token: 6e-8
       input_cost_per_token_batches: 3e-8
@@ -30,11 +24,13 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - system_messages
+    - assistant_prefill
 limits:
     context_window: 300000
     max_input_tokens: 300000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
 modalities:
     input:
         - text
@@ -49,7 +45,7 @@ model: us.amazon.nova-lite-v1:0
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 10000
+      maxValue: 5000
       minValue: 1
     - defaultValue: 0.7
       key: temperature
@@ -60,8 +56,8 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/nova/latest/userguide/modalities.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html
 status: active
 supportedModes:
     - chat
+thinking: true

@@ -3,15 +3,12 @@ costs:
       region: us-west-2
     - input_cost_per_token: 1e-7
       region: us-east-1
-    - input_cost_per_token: 1e-7
-      region: eu-west-1
     - input_cost_per_token: 2e-7
       region: eu-central-1
-    - input_cost_per_token: 1.2e-7
-      region: ap-south-1
     - input_cost_per_token: 2e-7
       region: ap-northeast-1
 limits:
+    context_window: 8192
     max_input_tokens: 8192
     output_vector_size: 1536
 modalities:
@@ -30,6 +27,7 @@ removeParams:
     - stop
     - stream
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-titan-embeddings-g1---text.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-embed-text.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html
 status: active
