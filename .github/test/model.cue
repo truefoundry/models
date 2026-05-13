@@ -104,11 +104,11 @@ package model
 	"global"
 
 #Cost: {
-	cache_creation_input_audio_token_cost?: number & >= 0
-	cache_creation_input_token_cost?:       number & >= 0
-	cache_read_input_audio_token_cost?:     number & >= 0
-	cache_read_input_token_cost?:           number & >= 0
-	cache_storage_cost_per_token_per_hour?: number & >= 0
+	cache_creation_input_audio_token_cost?:    number & >= 0
+	cache_creation_input_token_cost?:          number & >= 0
+	cache_creation_input_token_cost_per_hour?: number & >= 0
+	cache_read_input_audio_token_cost?:        number & >= 0
+	cache_read_input_token_cost?:              number & >= 0
 	input_cost_per_annotated_page?:         number & >= 0
 	input_cost_per_audio_token?:            number & >= 0
 	input_cost_per_character?:              number & >= 0
@@ -291,6 +291,13 @@ package model
 	from:           int & >= 0
 }
 
+// How the model prices long context tokens
+// marginal: remaining tokens after long context are priced under long context pricing
+// cumulative: all input tokens are priced under long context pricing
+#PricingMode:
+	*"marginal" | "cumulative"
+	// defaults to "marginal"
+
 // How the model is made available to callers
 #Provisioning:
 	"serverless" |   // Managed API, pay-per-token/request
@@ -308,4 +315,5 @@ package model
 	cache_write?: [...#PricingTier]
 	input?:       [...#PricingTier]
 	output?:      [...#PricingTier]
+	pricing_mode?: #PricingMode
 }
