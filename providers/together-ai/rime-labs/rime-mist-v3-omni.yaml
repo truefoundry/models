@@ -4,7 +4,19 @@ costs:
       region: "*"
 limits:
     context_window: 448
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
 model: rime-labs/rime-mist-v3-omni
+provisioning: provisioned
+sources:
+    - https://docs.together.ai/docs/dedicated-endpoints/models
+    - https://docs.together.ai/docs/text-to-speech
+    - https://www.together.ai/blog/rime-voice-models-now-available-on-together-ai
+    - https://rime.ai/resources/introducing-mist-v3-enterprise-tts
+status: active
 supportedModes:
     - text_to_speech
