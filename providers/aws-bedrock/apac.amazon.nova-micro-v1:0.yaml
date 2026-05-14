@@ -31,6 +31,7 @@ costs:
 features:
     - function_calling
     - prompt_caching
+    - system_messages
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -53,7 +54,6 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-micro.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
 status: active
 supportedModes:
     - chat

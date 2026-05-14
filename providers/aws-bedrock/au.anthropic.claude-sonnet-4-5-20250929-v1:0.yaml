@@ -5,6 +5,26 @@ costs:
       input_cost_per_token_batches: 0.00000165
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
+      region: ap-southeast-6
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+    - cache_creation_input_token_cost: 0.000004125
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
       region: ap-southeast-4
       tiered_pricing:
           cache_read:
@@ -70,9 +90,10 @@ provisioning: serverless
 removeParams:
     - "n"
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-4-5.html
 status: active
 supportedModes:
     - chat
