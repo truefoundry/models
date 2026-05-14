@@ -1,2 +1,11 @@
-mode: unknown
+mode: chat
 model: moonshotai/kimi-k2-6
+provisioning: serverless
+# Kimi K2.6 is not yet documented on Vertex AI's official Kimi MaaS pages
+# (https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/kimi only
+# lists `kimi-k2-thinking-maas`). It is also not present in the Vertex AI
+# pricing page, release notes, locations page, or partner-model deprecations
+# page. Pricing, limits, supported regions, and features are therefore
+# omitted per the documentation-first rule — no inference or estimation.
+supportedModes:
+    - chat
