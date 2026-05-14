@@ -26,6 +26,8 @@ costs:
 features:
     - function_calling
     - prompt_caching
+    - system_messages
+    - tool_choice
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -53,6 +55,8 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/using-multimodal-models.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.html
 status: active
 supportedModes:
     - chat
+thinking: true

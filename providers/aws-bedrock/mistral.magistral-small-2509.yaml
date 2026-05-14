@@ -20,8 +20,8 @@ costs:
     - input_cost_per_token: 5.9e-7
       output_cost_per_token: 0.00000176
       region: eu-south-1
-    - input_cost_per_token: 5.9e-7
-      output_cost_per_token: 0.00000176
+    - input_cost_per_token: 5.15e-7
+      output_cost_per_token: 0.000001545
       region: ap-southeast-2
     - input_cost_per_token: 5.9e-7
       output_cost_per_token: 0.00000176
@@ -35,8 +35,8 @@ features:
 limits:
     context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 8192
-    max_tokens: 8192
+    max_output_tokens: 40000
+    max_tokens: 40000
 modalities:
     input:
         - text
@@ -48,7 +48,7 @@ model: mistral.magistral-small-2509
 params:
     - defaultValue: 8192
       key: max_tokens
-      maxValue: 8192
+      maxValue: 40000
       minValue: 1
 provisioning: serverless
 sources:
