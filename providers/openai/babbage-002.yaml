@@ -1,2 +1,28 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 4e-7
+      input_cost_per_token_batches: 4e-7
+      output_cost_per_token: 4e-7
+      output_cost_per_token_batches: 4e-7
+      region: "*"
+deprecationDate: "2026-10-23"
+limits:
+    context_window: 16384
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: completion
 model: babbage-002
+provisioning: serverless
+removeParams:
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://developers.openai.com/api/docs/models/babbage-002
+status: active
+supportedModes:
+    - completion
