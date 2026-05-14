@@ -4,7 +4,7 @@ modalities:
         - image
     output:
         - audio
-mode: text_to_speech
+mode: unknown # correct mode is music, but that is not supported yet
 model: lyria-3-pro-preview
 provisioning: serverless
 removeParams:
@@ -20,8 +20,3 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/lyria/lyria-3
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/music/generate-music
 status: preview
-supportedModes:
-    - text_to_speech
-
-# costs: not found in official docs (Vertex AI pricing page does not list Lyria 3 Pro pricing)
-# limits: not applicable — Lyria 3 Pro is a music generation model with audio output (max 184s clips); no token-based context window or output limits documented

@@ -4,7 +4,7 @@ modalities:
         - image
     output:
         - audio
-mode: text_to_speech
+mode: unknown # correct mode is music, but that is not supported yet
 model: lyria-3-clip-preview
 provisioning: serverless
 removeParams:
@@ -21,5 +21,3 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/lyria/lyria-3
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/lyria-music-generation
 status: preview
-supportedModes:
-    - text_to_speech
