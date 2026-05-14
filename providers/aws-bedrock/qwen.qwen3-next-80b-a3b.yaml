@@ -21,7 +21,7 @@ costs:
       output_cost_per_token: 0.00000141
       region: eu-south-1
     - input_cost_per_token: 1.545e-7
-      output_cost_per_token: 1.236e-7
+      output_cost_per_token: 0.000001236
       region: ap-southeast-2
     - input_cost_per_token: 1.8e-7
       output_cost_per_token: 0.00000141
@@ -32,8 +32,7 @@ costs:
 features:
     - function_calling
 limits:
-    context_window: 128000
-    max_input_tokens: 128000
+    context_window: 256000
     max_output_tokens: 8192
     max_tokens: 8192
 modalities:
@@ -48,7 +47,6 @@ params:
       maxValue: 8192
 provisioning: serverless
 sources:
-    - https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-next-80b-a3b.html
 status: active
 supportedModes:
