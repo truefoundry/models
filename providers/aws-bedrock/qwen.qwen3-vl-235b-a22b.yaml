@@ -20,8 +20,8 @@ costs:
     - input_cost_per_token: 6.2e-7
       output_cost_per_token: 0.00000313
       region: eu-south-1
-    - input_cost_per_token: 5.46e-7
-      output_cost_per_token: 0.000001236
+    - input_cost_per_token: 5.459e-7
+      output_cost_per_token: 0.0000027398
       region: ap-southeast-2
     - input_cost_per_token: 6.2e-7
       output_cost_per_token: 0.00000313
@@ -32,10 +32,9 @@ costs:
 features:
     - function_calling
 limits:
-    context_window: 128000
-    max_input_tokens: 128000
-    max_output_tokens: 8192
-    max_tokens: 8192
+    context_window: 256000
+    max_output_tokens: 8000
+    max_tokens: 8000
 modalities:
     input:
         - text
@@ -45,15 +44,13 @@ modalities:
 mode: chat
 model: qwen.qwen3-vl-235b-a22b
 params:
-    - defaultValue: 8192
+    - defaultValue: 8000
       key: max_tokens
-      maxValue: 8192
+      maxValue: 8000
       minValue: 1
 provisioning: serverless
 sources:
-    - https://github.com/QwenLM/Qwen3-VL
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-vl-235b-a22b.html
 status: active
 supportedModes:
     - chat
-    - responses

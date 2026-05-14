@@ -25,11 +25,12 @@ features:
     - parallel_function_calling
     - tool_choice
     - structured_output
+    - system_messages
+    - prompt_caching
 limits:
     context_window: 256000
-    max_input_tokens: 128000
-    max_output_tokens: 8192
-    max_tokens: 8192
+    max_output_tokens: 32000
+    max_tokens: 32000
 modalities:
     input:
         - text
@@ -39,9 +40,9 @@ modalities:
 mode: chat
 model: mistral.mistral-large-3-675b-instruct
 params:
-    - defaultValue: 8192
+    - defaultValue: 32000
       key: max_tokens
-      maxValue: 8192
+      maxValue: 32000
       minValue: 1
     - defaultValue: 0.7
       key: temperature
@@ -53,6 +54,7 @@ params:
       minValue: 0
 provisioning: serverless
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mistral-large-3.html
     - https://docs.mistral.ai/models/mistral-large-3-25-12
     - https://docs.mistral.ai/capabilities/vision/
     - https://docs.mistral.ai/capabilities/function_calling/
