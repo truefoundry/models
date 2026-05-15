@@ -3,7 +3,72 @@ costs:
       input_cost_per_token_batches: 5e-7
       output_cost_per_audio_token: 0.00002
       output_cost_per_token_batches: 0.00001
+      region: us-west4
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: us-west1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: us-south1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: us-east5
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: us-east4
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: us-east1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: us-central1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: northamerica-northeast1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
       region: global
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: europe-west4
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: europe-west1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: europe-southwest1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: europe-north1
+    - input_cost_per_token: 0.000001
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: europe-central2
 limits:
     context_window: 8192
     max_input_tokens: 8192
@@ -33,6 +98,7 @@ sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview
     - https://ai.google.dev/gemini-api/docs/speech-generation
     - https://ai.google.dev/pricing
+    - https://docs.cloud.google.com/text-to-speech/docs/gemini-tts
 status: preview
 supportedModes:
     - text_to_speech
