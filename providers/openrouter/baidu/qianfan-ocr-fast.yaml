@@ -1,0 +1,16 @@
+costs:
+    - input_cost_per_token: 6.8e-7
+      output_cost_per_token: 2.81e-6
+      region: "*"
+limits:
+    context_window: 65536
+    max_output_tokens: 28672
+modalities:
+    input:
+        - image
+        - text
+    output:
+        - text
+mode: unknown # ocr is not supported yet
+model: baidu/qianfan-ocr-fast
+thinking: true
