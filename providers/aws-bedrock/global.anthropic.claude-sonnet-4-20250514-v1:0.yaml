@@ -1,38 +1,38 @@
 costs:
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: us-west-2
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: us-east-2
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: us-east-1
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: eu-west-1
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: ap-northeast-1
-deprecationDate: "2026-06-15"
+deprecationDate: "2026-04-14"
 features:
     - function_calling
     - prompt_caching
@@ -40,6 +40,7 @@ features:
     - system_messages
     - tool_choice
     - assistant_prefill
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -60,7 +61,7 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

@@ -14,6 +14,7 @@ modalities:
         - image
 mode: image
 model: amazon.nova-canvas-v1:0
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -25,6 +26,7 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/image-gen-req-resp-structure.html
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/image-gen-access.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-canvas.html
 status: active
 supportedModes:
     - image
