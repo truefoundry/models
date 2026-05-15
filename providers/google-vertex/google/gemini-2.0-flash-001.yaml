@@ -1,3 +1,47 @@
+costs:
+    - input_cost_per_audio_token: 0.000001
+      input_cost_per_token: 1.5e-7
+      input_cost_per_token_batches: 7.5e-8
+      input_cost_per_video_token: 0.000003
+      output_cost_per_token: 6e-7
+      output_cost_per_token_batches: 3e-7
+      region: global
 deprecationDate: "2026-06-01"
-mode: unknown
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - structured_output
+    - json_output
+    - code_execution
+    - prompt_caching
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+        - pdf
+    output:
+        - text
+        - audio
+mode: chat
 model: google/gemini-2.0-flash-001
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://firebase.google.com/docs/ai-logic/models
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash
+status: active
+supportedModes:
+    - chat

@@ -72,6 +72,7 @@ params:
       key: "n"
       maxValue: 4
       minValue: 1
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -82,5 +83,7 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-generate
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-generate-002
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images
+status: active
+supportedModes:
+    - image

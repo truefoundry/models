@@ -1,3 +1,25 @@
 deprecationDate: "2026-06-30"
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
 model: google/imagen-3.0-generate-002
+provisioning: serverless
+# costs: not found in official docs — Imagen 3 pricing has been removed from
+# the current Vertex AI Generative AI pricing page in favor of Gemini 2.5 Flash Image.
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-generate-002
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images
+status: active
+supportedModes:
+    - image

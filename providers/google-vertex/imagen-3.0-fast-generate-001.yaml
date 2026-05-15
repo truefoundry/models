@@ -67,6 +67,7 @@ modalities:
         - image
 mode: image
 model: imagen-3.0-fast-generate-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -76,7 +77,10 @@ removeParams:
     - stream
     - tool_choice
 sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-fast-generate-001
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-generate
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
 status: active
+supportedModes:
+    - image
