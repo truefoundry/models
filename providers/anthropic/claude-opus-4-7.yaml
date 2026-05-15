@@ -1,5 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
       input_cost_per_token_batches: 0.0000025
@@ -41,11 +42,6 @@ removeParams:
     - temperature
     - top_p
     - top_k
-sources:
-    - https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-7
-    - https://platform.claude.com/docs/en/build-with-claude/vision
-    - https://platform.claude.com/docs/en/build-with-claude/extended-thinking
-    - https://platform.claude.com/docs/en/build-with-claude/pdf-support
 status: active
 supportedModes:
     - chat
