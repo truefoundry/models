@@ -22,7 +22,6 @@ limits:
 modalities:
     input:
         - text
-        - doc
     output:
         - text
 mode: chat
@@ -40,14 +39,16 @@ params:
       key: top_p
       maxValue: 1
       minValue: 0
+    - defaultValue: 0
+      key: min_tokens
+      maxValue: 8192
+      minValue: 0
 provisioning: serverless
 removeParams:
     - "n"
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-writer-palmyra-x4.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-palmyra-x4.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-writer-palmyra.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
 status: active
 supportedModes:
     - chat

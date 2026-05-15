@@ -36,11 +36,12 @@ features:
     - function_calling
     - tool_choice
     - prompt_caching
+    - system_messages
 limits:
     context_window: 300000
     max_input_tokens: 300000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
 modalities:
     input:
         - text
@@ -55,7 +56,7 @@ model: apac.amazon.nova-pro-v1:0
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 10000
+      maxValue: 5000
       minValue: 1
 provisioning: serverless
 sources:
@@ -63,9 +64,9 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
     - https://docs.aws.amazon.com/nova/latest/userguide/modalities.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-choice.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.html
 status: active
 supportedModes:
     - chat
