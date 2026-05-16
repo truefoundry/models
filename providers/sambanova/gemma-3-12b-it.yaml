@@ -1,16 +1,15 @@
 costs:
-    - input_cost_per_token: 2e-7
-      output_cost_per_token: 3.5e-7
+    - input_cost_per_token: 3.5e-7
+      output_cost_per_token: 5.9e-7
       region: "*"
 features:
     - system_messages
 limits:
-    context_window: 131072
-    max_output_tokens: 8192
-    max_tokens: 8192
+    context_window: 128000
 modalities:
     input:
         - text
+        - image
     output:
         - text
 mode: chat
@@ -19,6 +18,6 @@ provisioning: serverless
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling
     - https://docs.sambanova.ai/docs/en/features/vision
-status: active
+status: preview
 supportedModes:
     - chat
