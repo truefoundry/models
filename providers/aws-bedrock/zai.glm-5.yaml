@@ -4,10 +4,35 @@ costs:
       region: us-west-2
     - input_cost_per_token: 0.000001
       output_cost_per_token: 0.0000032
+      region: us-east-2
+    - input_cost_per_token: 0.000001
+      output_cost_per_token: 0.0000032
       region: us-east-1
+    - input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.00000384
+      region: sa-east-1
+    - input_cost_per_token: 0.00000155
+      output_cost_per_token: 0.00000496
+      region: eu-west-2
+    - input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.00000384
+      region: eu-north-1
+    - input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.00000384
+      region: ap-southeast-3
+    - input_cost_per_token: 0.00000103
+      output_cost_per_token: 0.0000033
+      region: ap-southeast-2
+    - input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.00000384
+      region: ap-south-1
+    - input_cost_per_token: 0.0000012
+      output_cost_per_token: 0.00000384
+      region: ap-northeast-1
 features:
     - function_calling
     - structured_output
+    - system_messages
 limits:
     context_window: 200000
     max_output_tokens: 128000
@@ -28,6 +53,7 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-5.html
     - https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-minimax-glm/
     - https://docs.z.ai/guides/llm/glm-5
 status: active
