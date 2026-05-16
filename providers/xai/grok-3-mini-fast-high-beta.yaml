@@ -1,0 +1,14 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_image_token: 1.25e-6
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 2.5e-6
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: grok-3-mini-fast-high-beta
