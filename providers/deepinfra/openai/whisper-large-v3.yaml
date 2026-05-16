@@ -1,2 +1,15 @@
-mode: unknown
+costs:
+    - input_cost_per_second: 7.5e-6
+      region: "*"
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: openai/whisper-large-v3
+sources:
+    - https://deepinfra.com/openai/whisper-large-v3
+status: active
+supportedModes:
+    - audio_transcription
