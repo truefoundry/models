@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 4e-7
-      output_cost_per_token: 0.0000012
+    - cache_read_input_token_cost: 5.8e-8
+      input_cost_per_token: 2.87e-7
+      output_cost_per_token: 4.31e-7
       region: "*"
 features:
     - json_output
@@ -20,7 +20,7 @@ mode: chat
 model: deepseek/deepseek-v3.2-speciale
 provisioning: serverless
 sources:
-    - https://openrouter.ai/deepseek/deepseek-v3.2-speciale/api
+    - https://openrouter.ai/deepseek/deepseek-v3.2-speciale
 status: active
 supportedModes:
     - chat
