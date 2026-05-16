@@ -4,7 +4,16 @@ costs:
       region: "*"
 limits:
     context_window: 32000
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: pearl-ai/gemma-4-31b-it
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/gemma-4-31b-it-pearl
+status: active
 supportedModes:
     - chat
