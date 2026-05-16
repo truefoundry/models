@@ -11,12 +11,14 @@ features:
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
-    max_output_tokens: 65535
-    max_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
         - image
+        - video
+        - audio
     output:
         - text
 mode: chat
@@ -24,6 +26,8 @@ model: databricks-gemini-2-5-flash
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
+    - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-gemini-api
 status: active
 supportedModes:
     - chat
