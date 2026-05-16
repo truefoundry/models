@@ -1,0 +1,21 @@
+costs:
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 7.5e-8
+      output_cost_per_token: 6.25e-7
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - tool_choice
+limits:
+    context_window: 262144
+    max_output_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: inclusionai/ring-2.6-1t
+thinking: true
