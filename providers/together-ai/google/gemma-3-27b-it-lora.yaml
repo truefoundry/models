@@ -2,7 +2,20 @@ costs:
     - input_cost_per_token: 0.0
       output_cost_per_token: 0.0
       region: "*"
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: google/gemma-3-27b-it-lora
+provisioning: provisioned
+# Limits, features, and explicit pricing are not documented for this LoRA-inference
+# variant. The base model google/gemma-3-27b-it is documented at 64K context and
+# $0.28 / $0.86 per 1M tokens, but those values are not confirmed for the -lora
+# endpoint variant in any official Together AI documentation page.
+sources:
+    - https://www.together.ai/models/gemma-3-27b
 supportedModes:
     - chat
