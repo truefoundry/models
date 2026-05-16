@@ -4,7 +4,14 @@ costs:
       region: "*"
 limits:
     context_window: 4096
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: allenai/Molmo-7B-D-0924
+provisioning: provisioned
 supportedModes:
     - chat
