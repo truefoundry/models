@@ -4,6 +4,9 @@ costs:
       input_cost_per_token: 1.25e-6
       output_cost_per_token: 2.5e-6
       region: "*"
+features: 
+    - function_calling
+    - structured_output
 modalities:
     input:
         - text
@@ -13,5 +16,7 @@ modalities:
 mode: chat
 model: grok-3-mini-fast-high-beta
 provisioning: serverless
+sources:
+    - https://docs.x.ai/developers/models/grok-3-mini-fast
 supportedModes:
     - chat
