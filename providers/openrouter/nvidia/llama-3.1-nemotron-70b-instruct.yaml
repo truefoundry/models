@@ -6,6 +6,7 @@ features:
     - function_calling
     - json_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 16384
@@ -20,6 +21,6 @@ model: nvidia/llama-3.1-nemotron-70b-instruct
 provisioning: serverless
 sources:
     - https://openrouter.ai/nvidia/llama-3.1-nemotron-70b-instruct
-status: active
+status: retired
 supportedModes:
     - chat

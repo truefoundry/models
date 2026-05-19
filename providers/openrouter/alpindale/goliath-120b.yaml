@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - json_output
+isDeprecated: true
 limits:
     context_window: 6144
     max_output_tokens: 1024
@@ -17,8 +18,7 @@ mode: chat
 model: alpindale/goliath-120b
 provisioning: serverless
 sources:
-    - https://openrouter.ai/alpindale/goliath-120b/api
     - https://openrouter.ai/alpindale/goliath-120b
-status: active
+status: retired
 supportedModes:
     - chat

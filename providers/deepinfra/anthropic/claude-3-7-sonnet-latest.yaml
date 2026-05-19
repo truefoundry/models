@@ -3,10 +3,12 @@ costs:
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
       region: "*"
+deprecationDate: "2026-05-21"
 features:
     - function_calling
     - json_output
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 200000
 modalities:
@@ -20,7 +22,7 @@ model: anthropic/claude-3-7-sonnet-latest
 provisioning: serverless
 sources:
     - https://deepinfra.com/anthropic/claude-3-7-sonnet-latest
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

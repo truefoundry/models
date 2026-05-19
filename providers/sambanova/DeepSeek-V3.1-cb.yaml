@@ -8,6 +8,7 @@ features:
     - structured_output
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_output_tokens: 32768
@@ -27,6 +28,6 @@ model: DeepSeek-V3.1-cb
 provisioning: serverless
 sources:
     - https://docs.sambanova.ai/docs/api-reference/chat-completions/create-chat-based-completion
-status: active
+status: retired
 supportedModes:
     - chat

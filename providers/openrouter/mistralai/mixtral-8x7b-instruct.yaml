@@ -7,6 +7,7 @@ features:
     - function_calling
     - json_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 32768
     max_output_tokens: 16384
@@ -22,6 +23,6 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/mixtral-8x7b-instruct
     - https://openrouter.ai/mistralai/mixtral-8x7b-instruct/api
-status: active
+status: retired
 supportedModes:
     - chat
