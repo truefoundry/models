@@ -14,22 +14,26 @@ costs:
       input_cost_per_token: 8e-7
       output_cost_per_token: 0.0000032
       region: us-east-1
-deprecationDate: "2026-09-14"
 features:
     - function_calling
     - prompt_caching
     - system_messages
-isDeprecated: true
+    - tool_choice
+    - structured_output
 limits:
     context_window: 300000
     max_input_tokens: 300000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
 modalities:
     input:
-        - doc
+        - text
         - image
+        - video
+        - doc
         - pdf
+    output:
+        - text
 mode: chat
 model: us.amazon.nova-pro-v1:0
 params:
@@ -41,12 +45,15 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0.00001
+provisioning: serverless
 removeParams:
     - "n"
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.html
+status: active
+supportedModes:
+    - chat
 thinking: true

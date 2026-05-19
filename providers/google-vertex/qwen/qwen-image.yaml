@@ -6,6 +6,7 @@ modalities:
         - image
 mode: image
 model: qwen/qwen-image
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -17,5 +18,6 @@ removeParams:
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen-image
     - https://huggingface.co/Qwen/Qwen-Image
+status: active
 supportedModes:
     - image

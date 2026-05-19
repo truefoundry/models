@@ -6,6 +6,7 @@ modalities:
         - audio
 mode: text_to_speech
 model: nari-labs/dia-1.6b
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -16,6 +17,7 @@ removeParams:
     - tool_choice
 sources:
     - https://huggingface.co/nari-labs/Dia-1.6B
+    - https://console.cloud.google.com/vertex-ai/publishers/nari-labs/model-garden/dia-1.6b
 status: active
 supportedModes:
     - text_to_speech

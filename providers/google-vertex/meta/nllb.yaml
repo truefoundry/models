@@ -5,9 +5,13 @@ modalities:
         - text
 mode: completion
 model: meta/nllb
+provisioning: provisioned
 removeParams:
     - tool_choice
     - "n"
     - stop
+sources:
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_nllb.ipynb
+status: active
 supportedModes:
     - completion

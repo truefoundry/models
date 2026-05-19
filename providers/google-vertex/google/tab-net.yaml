@@ -1,6 +1,17 @@
 mode: unknown
 model: tab-net
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/tabnet
     - https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing
 status: preview
+supportedModes:
+    - unknown

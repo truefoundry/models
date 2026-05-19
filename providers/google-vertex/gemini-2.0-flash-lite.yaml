@@ -97,7 +97,6 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
-isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -105,11 +104,20 @@ limits:
     max_tokens: 8192
 modalities:
     input:
+        - text
         - audio
         - doc
         - image
         - pdf
+        - video
+    output:
+        - text
 mode: chat
 model: gemini-2.0-flash-lite
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash-lite
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash-lite
+status: active
+supportedModes:
+    - chat

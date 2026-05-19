@@ -1,2 +1,18 @@
 mode: unknown
 model: autogluon-ai/autogluon
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/autogluon-ai/model-garden/autogluon
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_autogluon.ipynb
+    - https://auto.gluon.ai/
+status: active
+supportedModes:
+    - unknown

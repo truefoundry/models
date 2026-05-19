@@ -41,7 +41,7 @@ model: gpt-5.1-2025-11-13
 params:
     - defaultValue: 20000
       key: max_completion_tokens
-      maxValue: 272000
+      maxValue: 128000
       minValue: 1
     - defaultValue: null
       key: response_format
@@ -49,6 +49,7 @@ params:
     - defaultValue: none
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -56,7 +57,9 @@ removeParams:
     - max_tokens
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

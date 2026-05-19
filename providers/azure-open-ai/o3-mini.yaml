@@ -21,7 +21,6 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
-isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -50,6 +49,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -57,7 +57,7 @@ removeParams:
     - stream
     - max_tokens
 sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
     - chat

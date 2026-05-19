@@ -1,3 +1,8 @@
+features:
+    - system_messages
+limits:
+    context_window: 16000
+    max_input_tokens: 16000
 modalities:
     input:
         - text
@@ -5,7 +10,11 @@ modalities:
         - text
 mode: chat
 model: microsoft/phi4
+provisioning: provisioned
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/microsoft/model-garden/phi4
+    - https://huggingface.co/microsoft/phi-4
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_phi4_deployment.ipynb
+status: active
 supportedModes:
     - chat

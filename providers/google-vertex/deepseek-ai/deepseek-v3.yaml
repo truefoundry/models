@@ -1,6 +1,8 @@
 features:
     - function_calling
     - system_messages
+limits:
+    context_window: 163840
 modalities:
     input:
         - text
@@ -8,8 +10,11 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/deepseek-v3
+provisioning: provisioned
 sources:
+    - https://docs.cloud.google.com/vertex-ai/docs/predictions/use-multihost-gpu
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes
+status: active
 supportedModes:
     - chat

@@ -5,6 +5,7 @@ modalities:
         - image
 mode: image
 model: stability-ai/stable-diffusion-xl-base
+provisioning: provisioned
 removeParams:
     - temperature
     - top_p
@@ -13,5 +14,8 @@ removeParams:
     - stream
     - tool_choice
     - max_tokens
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/stability-ai/model-garden/stable-diffusion-xl-base
+status: preview
 supportedModes:
     - image

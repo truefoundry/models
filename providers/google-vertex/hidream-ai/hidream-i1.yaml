@@ -7,6 +7,7 @@ modalities:
         - image
 mode: image
 model: hidream-ai/hidream-i1
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -17,5 +18,7 @@ removeParams:
     - tool_choice
 sources:
     - https://huggingface.co/HiDream-ai/HiDream-I1-Full
+    - https://console.cloud.google.com/vertex-ai/publishers/hidream-ai/model-garden/hidream-i1
+status: active
 supportedModes:
     - image

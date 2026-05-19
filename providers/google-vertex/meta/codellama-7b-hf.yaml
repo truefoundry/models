@@ -7,8 +7,12 @@ modalities:
         - code
 mode: completion
 model: meta/codellama-7b-hf
+provisioning: provisioned
 removeParams:
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/codellama-7b-hf
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_codellama.ipynb
 status: active
 supportedModes:
     - completion

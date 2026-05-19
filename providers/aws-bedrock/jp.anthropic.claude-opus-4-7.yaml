@@ -1,10 +1,12 @@
 costs:
     - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
       region: ap-northeast-3
     - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
@@ -37,16 +39,16 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - key: top_k
-      minValue: 0
 provisioning: serverless
 removeParams:
     - "n"
     - temperature
+    - top_p
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock-research-preview
+    - https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html
 status: active
 supportedModes:
     - chat

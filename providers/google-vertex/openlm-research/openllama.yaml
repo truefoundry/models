@@ -5,7 +5,18 @@ modalities:
         - text
 mode: completion
 model: openlm-research/openllama
+provisioning: provisioned
 removeParams:
     - tool_choice
+# costs: not applicable — OpenLLaMA on Vertex AI is a self-deployed open-source
+# model in Model Garden; pricing is based on Vertex AI compute infrastructure
+# (per node-hour), not per-token. See:
+# https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/self-deployed-models
+# limits: not found in official Vertex AI Model Garden docs for this entry
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/openlm-research/model-garden/openllama
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_openllama_peft.ipynb
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/self-deployed-models
+status: active
 supportedModes:
     - completion

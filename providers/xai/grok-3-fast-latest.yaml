@@ -1,7 +1,7 @@
 costs:
     - cache_read_input_token_cost: 7.5e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: "*"
 features:
     - function_calling
@@ -9,6 +9,7 @@ features:
     - system_messages
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -25,6 +26,6 @@ params:
     - key: max_tokens
       maxValue: 131072
 provisioning: serverless
-status: active
+status: retired
 supportedModes:
     - chat

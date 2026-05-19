@@ -1,6 +1,20 @@
 costs:
     - input_cost_per_page: 0.03
-      region: "*"
+      region: us
+    - input_cost_per_page: 0.03
+      region: northamerica-northeast1
+    - input_cost_per_page: 0.03
+      region: europe-west3
+    - input_cost_per_page: 0.03
+      region: europe-west2
+    - input_cost_per_page: 0.03
+      region: eu
+    - input_cost_per_page: 0.03
+      region: australia-southeast1
+    - input_cost_per_page: 0.03
+      region: asia-southeast1
+    - input_cost_per_page: 0.03
+      region: asia-south1
 modalities:
     input:
         - pdf
@@ -10,6 +24,7 @@ modalities:
         - text
 mode: unknown
 model: google/pretrained-form-parser
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -21,4 +36,7 @@ removeParams:
 sources:
     - https://cloud.google.com/document-ai/pricing
     - https://docs.cloud.google.com/document-ai/docs/processors-list
+    - https://docs.cloud.google.com/document-ai/docs/regions
 status: active
+supportedModes:
+    - unknown

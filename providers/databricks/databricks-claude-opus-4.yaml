@@ -1,13 +1,20 @@
 costs:
-    - input_cost_per_token: 1.5e-5
+    - cache_creation_input_token_cost: 1.875e-5
+      cache_creation_input_token_cost_per_hour: 3e-5
+      cache_read_input_token_cost: 1.5e-6
+      input_cost_per_token: 1.5e-5
+      input_cost_per_token_batches: 7.5e-6
       output_cost_per_token: 7.5e-5
+      output_cost_per_token_batches: 3.75e-5
       region: "*"
 deprecationDate: "2026-06-15"
 features:
     - function_calling
     - tool_choice
     - assistant_prefill
-isDeprecated: true
+    - system_messages
+    - prompt_caching
+    - cache_control
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -25,7 +32,9 @@ provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
-status: deprecated
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://platform.claude.com/docs/en/about-claude/model-deprecations
+status: active
 supportedModes:
     - chat
 thinking: true

@@ -6,9 +6,12 @@ modalities:
         - audio
 mode: text_to_speech
 model: sesame/csm
+provisioning: provisioned
 removeParams:
     - tool_choice
 sources:
     - https://huggingface.co/sesame/csm-1b
+    - https://console.cloud.google.com/vertex-ai/publishers/sesame/model-garden/csm
+status: active
 supportedModes:
     - text_to_speech

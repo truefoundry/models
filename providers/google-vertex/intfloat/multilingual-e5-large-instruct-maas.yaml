@@ -8,6 +8,7 @@ modalities:
         - embedding
 mode: embedding
 model: intfloat/multilingual-e5-large-instruct-maas
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -18,6 +19,7 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/e5/multilingual-e5-large
 status: active
 supportedModes:
     - embedding

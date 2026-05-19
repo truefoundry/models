@@ -9,6 +9,7 @@ modalities:
         - embedding
 mode: embedding
 model: openai/openclip
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -17,5 +18,9 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/openclip
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_open_clip.ipynb
+status: preview
 supportedModes:
     - embedding

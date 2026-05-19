@@ -4,8 +4,9 @@ modalities:
         - image
     output:
         - audio
-mode: unknown
+mode: unknown # correct mode is music, but that is not supported yet
 model: lyria-3-pro-preview
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
