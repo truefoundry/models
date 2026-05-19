@@ -6,11 +6,13 @@ modalities:
         - image
 mode: image
 model: timbrooks/instruct-pix2pix
+provisioning: provisioned
 removeParams:
     - tool_choice
     - stop
     - "n"
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/timbrooks/model-garden/instruct-pix2pix
+status: active
 supportedModes:
     - image

@@ -7,6 +7,7 @@ modalities:
         - embedding
 mode: embedding
 model: intfloat/e5
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -21,3 +22,5 @@ sources:
 status: active
 supportedModes:
     - embedding
+
+# costs: not found in official docs

@@ -6,8 +6,13 @@ modalities:
         - text
 mode: chat
 model: salesforce/blip-vqa-base
+provisioning: provisioned
+removeParams:
+    - tool_choice
 sources:
     - https://huggingface.co/Salesforce/blip-vqa-base
+    - https://console.cloud.google.com/vertex-ai/publishers/salesforce/model-garden/blip-vqa-base
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_blip_vqa.ipynb
 status: active
 supportedModes:
     - chat

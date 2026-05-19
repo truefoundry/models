@@ -3,7 +3,6 @@ costs:
       output_cost_per_token: 0.000002
       region: "*"
 deprecationDate: "2026-09-28"
-isDeprecated: true
 limits:
     context_window: 4096
     max_output_tokens: 4096
@@ -15,10 +14,14 @@ modalities:
         - text
     output:
         - text
-mode: completion
+mode: responses
 model: gpt-3.5-turbo-instruct
+provisioning: serverless
 removeParams:
-    - tool_choice
-    - parallel_tool_calls
+    - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-3.5-turbo-instruct
+status: active
+supportedModes:
+    - chat
+    - responses

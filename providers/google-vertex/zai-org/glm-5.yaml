@@ -1,3 +1,4 @@
+# costs: not found in official docs — Vertex AI pricing page does not list zai-org/glm-5
 features:
     - function_calling
     - structured_output
@@ -16,10 +17,11 @@ model: zai-org/glm-5
 params:
     - key: max_tokens
       maxValue: 128000
-provisioning: provisioned
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-5
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/provisioned-throughput/supported-models
 status: active
 supportedModes:
     - chat

@@ -1,6 +1,6 @@
 costs:
     - input_cost_per_second: 0.0008
-      region: "*"
+      region: global
 modalities:
     input:
         - video
@@ -9,6 +9,7 @@ modalities:
         - text
 mode: audio_transcription
 model: google/video-speech-transcription
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -19,5 +20,6 @@ removeParams:
     - tool_choice
 sources:
     - https://cloud.google.com/video-intelligence/pricing
+status: active
 supportedModes:
     - audio_transcription

@@ -20,13 +20,14 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: o3-pro
 params:
     - defaultValue: 128
       key: max_tokens
       maxValue: 100000
       minValue: 1
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -35,7 +36,8 @@ removeParams:
     - stream
 sources:
     - https://developers.openai.com/api/docs/models/o3-pro
+    - https://github.com/MicrosoftDocs/azure-ai-docs/blob/main/articles/foundry/openai/includes/retirement/models.md
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

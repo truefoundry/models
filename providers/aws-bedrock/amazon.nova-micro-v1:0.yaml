@@ -41,6 +41,10 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0.00001
+    - defaultValue: 0.9
+      key: top_p
+      maxValue: 1
+      minValue: 0
     - key: top_k
       maxValue: 128
       minValue: 0
@@ -50,9 +54,7 @@ removeParams:
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-micro.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
     - https://aws.amazon.com/nova/pricing/
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
 status: active
 supportedModes:

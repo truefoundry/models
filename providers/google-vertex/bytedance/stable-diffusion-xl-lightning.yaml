@@ -5,6 +5,7 @@ modalities:
         - image
 mode: image
 model: bytedance/stable-diffusion-xl-lightning
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -13,5 +14,10 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/bytedance/model-garden/stable-diffusion-xl-lightning
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_stable_diffusion_xl_lightning.ipynb
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/self-deployed-models
+status: active
 supportedModes:
     - image

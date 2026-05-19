@@ -5,6 +5,7 @@ modalities:
         - text
 mode: audio_transcription
 model: openai/whisper-large
+provisioning: provisioned
 removeParams:
     - temperature
     - top_p
@@ -13,5 +14,14 @@ removeParams:
     - stream
     - tool_choice
     - max_tokens
+sources:
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_whisper_large_v3_deployment.ipynb
+status: active
 supportedModes:
     - audio_transcription
+
+# costs: not found in official docs — Whisper Large on Vertex AI is a self-deployed Model Garden
+# model. Pricing is based on the underlying Vertex AI prediction compute (e.g. g2-standard-8 with
+# NVIDIA L4, or a2-ultragpu-1g with NVIDIA A100 80GB), not per-token, and varies by machine type
+# and region.
+# limits: not found in official docs — token limits are not published for self-deployed Whisper.

@@ -2,6 +2,8 @@ features:
     - function_calling
     - system_messages
     - tool_choice
+limits:
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -9,9 +11,11 @@ modalities:
         - text
 mode: chat
 model: nvidia/nemotron-v3
+provisioning: provisioned
 sources:
     - https://developer.nvidia.com/nemotron
     - https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/
+status: active
 supportedModes:
     - chat
 thinking: true

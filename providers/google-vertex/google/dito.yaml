@@ -1,2 +1,23 @@
+modalities:
+    input:
+        - image
+        - text
+    output:
+        - text
 mode: unknown
 model: dito
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_jax_dito.ipynb
+    - https://arxiv.org/html/2310.00161v2
+status: active
+supportedModes:
+    - unknown

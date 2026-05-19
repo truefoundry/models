@@ -10,6 +10,8 @@ limits:
 modalities:
     input:
         - text
+    output:
+        - embedding
 mode: embedding
 model: text-multilingual-embedding-002
 provisioning: serverless
@@ -24,7 +26,6 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
 status: active
 supportedModes:
     - embedding

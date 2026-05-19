@@ -10,7 +10,6 @@ costs:
 deprecationDate: "2026-10-16"
 features:
     - function_calling
-    - parallel_function_calling
     - tool_choice
     - prompt_caching
     - structured_output
@@ -35,10 +34,12 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
 sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:

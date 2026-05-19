@@ -21,8 +21,10 @@ costs:
       region: asia-southeast1
 features:
     - function_calling
+    - parallel_function_calling
     - tool_choice
     - prompt_caching
+    - cache_control
     - structured_output
     - assistant_prefill
     - system_messages
@@ -51,9 +53,6 @@ removeParams:
     - "n"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4-6
-    - https://platform.claude.com/docs/en/about-claude/models/overview
-    - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
 status: active
 supportedModes:
     - chat

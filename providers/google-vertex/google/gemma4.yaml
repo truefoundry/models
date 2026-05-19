@@ -1,19 +1,33 @@
+costs:
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6e-7
+      region: global
 features:
     - function_calling
     - system_messages
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 262144
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
         - image
-        - audio
+        - pdf
     output:
         - text
 mode: chat
 model: google/gemma4
+provisioning: serverless
 sources:
     - https://ai.google.dev/gemma/docs/core
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-gemma
     - https://deepmind.google/models/gemma
+    - https://deepmind.google/models/gemma/gemma-4/
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/google/gemma-4-26b-a4b-it
 status: active
 supportedModes:
     - chat

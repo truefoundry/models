@@ -1,23 +1,25 @@
 costs:
     - cache_read_input_token_cost: 7.5e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: "*"
       tiered_pricing:
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 128000
           output:
-              - cost_per_token: 0.00003
+              - cost_per_token: 3e-5
                 from: 128000
           pricing_mode: marginal
+deprecationDate: "2026-05-15"
 features:
     - function_calling
     - structured_output
     - tool_choice
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 256000
 modalities:
@@ -31,7 +33,7 @@ model: grok-4
 provisioning: serverless
 removeParams:
     - reasoning_effort
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true

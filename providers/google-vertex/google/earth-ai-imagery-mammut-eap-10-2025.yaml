@@ -8,10 +8,24 @@ mode: embedding
 model: google/earth-ai-imagery-mammut-eap-10-2025
 removeParams:
     - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - tool_choice
+    - stream
 sources:
     - https://ai.google/earth-ai/
     - https://arxiv.org/html/2510.18318v2
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/mammut
+    - https://research.google/blog/google-earth-ai-unlocking-geospatial-insights-with-foundation-models-and-cross-modal-reasoning/
+    - https://research.google/blog/geospatial-reasoning-unlocking-insights-with-generative-ai-and-multiple-foundation-models/
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_mammut.ipynb
+    - https://mapsplatform.google.com/resources/blog/three-new-ways-to-build-with-real-world-imagery-and-ai/
 status: preview
 supportedModes:
     - embedding
+
+# costs: not found in official docs (EAP / preview model — public pricing not published)
+# limits: not found in official docs (EAP / preview model — public input/output specs not published)
+# provisioning: not found in official docs

@@ -1,3 +1,5 @@
+features:
+    - system_messages
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -12,8 +14,12 @@ modalities:
         - text
 mode: chat
 model: nvidia/nemotron-nano-12b-v2-vl
+provisioning: provisioned
 sources:
     - https://build.nvidia.com/nvidia/nemotron-nano-12b-v2-vl/modelcard
+    - https://huggingface.co/nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16
+    - https://docs.vllm.ai/projects/recipes/en/latest/NVIDIA/Nemotron-Nano-12B-v2-VL.html
 status: active
 supportedModes:
     - chat
+thinking: true

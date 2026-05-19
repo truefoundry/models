@@ -1,30 +1,32 @@
 costs:
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: us-east5
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: global
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: europe-west1
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: asia-east1
+deprecationDate: "2026-04-14"
 features:
     - function_calling
     - cache_control
     - tool_choice
     - prompt_caching
     - assistant_prefill
+isDeprecated: true
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -51,7 +53,7 @@ sources:
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

@@ -9,6 +9,7 @@ modalities:
         - embedding
 mode: embedding
 model: jinaai/jina-embeddings-v3
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -20,6 +21,7 @@ removeParams:
 sources:
     - https://jina.ai/models/jina-embeddings-v3
     - https://jina.ai/embeddings/
+    - https://www.elastic.co/search-labs/blog/jina-embeddings-v3-gemini-enterprise-model-garden
 status: active
 supportedModes:
     - embedding

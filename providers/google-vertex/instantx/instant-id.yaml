@@ -6,6 +6,7 @@ modalities:
         - image
 mode: image
 model: instantx/instant-id
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -14,5 +15,9 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/instantx/model-garden/instant-id
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_instant_id.ipynb
+status: active
 supportedModes:
     - image

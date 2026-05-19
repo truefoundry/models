@@ -165,7 +165,10 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview
-status: deprecated
+status: active
+supportedModes:
+    - chat

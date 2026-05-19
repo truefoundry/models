@@ -3,6 +3,7 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     max_input_tokens: 32000
     max_output_tokens: 4096
@@ -18,10 +19,10 @@ mode: realtime
 model: gpt-4o-realtime-preview-2025-06-03
 removeParams:
     - response_format
-    - "n"
+    - n
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-status: preview
+status: retired
 supportedModes:
     - realtime

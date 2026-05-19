@@ -3,7 +3,20 @@ modalities:
         - image
     output:
         - image
-mode: unknown
+mode: image
 model: cloudnerf-pytorch-zipnerf
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
-    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/cloudnerf-pytorch-zipnerf
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_zipnerf.ipynb
+    - https://radiancefields.com/google-cloudnerf-zip-nerf-and-camp-in-the-cloud
+status: active
+supportedModes:
+    - image

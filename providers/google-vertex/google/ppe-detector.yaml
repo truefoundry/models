@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_second: 0.00166667
-      region: "*"
+      region: us-central1
+    - input_cost_per_second: 0.00166667
+      region: europe-west4
 modalities:
     input:
         - video
@@ -8,6 +10,7 @@ modalities:
         - text
 mode: video
 model: google/ppe-detector
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -19,5 +22,7 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vision-ai/docs/ppe-detector-model
     - https://cloud.google.com/vision-ai/pricing
+    - https://docs.cloud.google.com/vision-ai/docs/app-supported-regions
+status: active
 supportedModes:
     - video

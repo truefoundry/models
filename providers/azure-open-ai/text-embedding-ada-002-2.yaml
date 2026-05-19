@@ -13,6 +13,7 @@ modalities:
         - embedding
 mode: embedding
 model: text-embedding-ada-002-2
+provisioning: serverless
 removeParams:
     - temperature
     - stop
@@ -23,8 +24,6 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
     - max_tokens
-sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
 status: active
 supportedModes:
     - embedding

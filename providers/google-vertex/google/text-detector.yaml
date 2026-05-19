@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_image: 0.0015 # $1.50 per 1,000 images for 1,001–5,000,000 images/month tier; first 1,000 images/month free; $0.60 per 1,000 above 5,000,000
+      region: global
 modalities:
     input:
         - image
@@ -5,6 +8,7 @@ modalities:
         - text
 mode: unknown
 model: google/text-detector
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -13,3 +17,9 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://cloud.google.com/vision/pricing
+    - https://docs.cloud.google.com/vision/docs/ocr
+status: active
+supportedModes:
+    - unknown

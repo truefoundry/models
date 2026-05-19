@@ -11,6 +11,7 @@ features:
     - function_calling
     - parallel_function_calling
     - system_messages
+    - tool_choice
 limits:
     max_input_tokens: 32000
     max_output_tokens: 4096
@@ -25,6 +26,7 @@ modalities:
         - audio
 mode: realtime
 model: gpt-realtime-1.5-2026-02-23
+provisioning: serverless
 status: active
 supportedModes:
     - realtime

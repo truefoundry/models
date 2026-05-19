@@ -5,6 +5,7 @@ modalities:
         - image
 mode: image
 model: stability-ai/stable-diffusion-xl-lcm
+provisioning: provisioned
 removeParams:
     - temperature
     - top_p
@@ -13,5 +14,11 @@ removeParams:
     - stream
     - tool_choice
     - max_tokens
+sources:
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_stable_diffusion_xl_lcm.ipynb
+status: active
 supportedModes:
     - image
+
+# costs not found in official docs — pricing is based on the underlying Vertex AI Prediction
+# compute (machine type + GPU accelerator), not on per-token or per-image rates

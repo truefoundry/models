@@ -5,7 +5,11 @@ modalities:
         - text
 mode: completion
 model: microsoft/bio-gpt
+provisioning: provisioned
 sources:
     - https://huggingface.co/microsoft/biogpt
+    - https://console.cloud.google.com/vertex-ai/publishers/microsoft/model-garden/bio-gpt
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_biogpt_serve.ipynb
+status: active
 supportedModes:
     - completion

@@ -1,3 +1,4 @@
+# costs: not found in official Vertex AI docs for this model
 features:
     - function_calling
     - structured_output
@@ -11,15 +12,17 @@ limits:
 modalities:
     input:
         - text
+        - code
     output:
         - text
+        - code
 mode: chat
 model: qwen/qwen3-coder-next
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-coder
     - https://openrouter.ai/qwen/qwen3-coder-next/api
-    - https://qwenlm.github.io/blog/qwen3-coder/
 status: active
 supportedModes:
     - chat

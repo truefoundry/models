@@ -9,11 +9,14 @@ modalities:
         - text
 mode: chat
 model: meta/llama-guard
+provisioning: provisioned
 removeParams:
     - tool_choice
     - "n"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_llama_guard_deployment.ipynb
+status: active
 supportedModes:
     - chat

@@ -6,8 +6,9 @@ modalities:
         - text
     output:
         - audio
-mode: unknown
+mode: unknown # correct mode is music, but that is not supported yet
 model: lyria-002
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
