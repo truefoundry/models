@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.00000125
+    - input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1.25e-6
       region: "*"
 deprecationDate: "2026-05-14"
 features:
@@ -8,6 +8,7 @@ features:
     - parallel_function_calling
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 131000
 modalities:
@@ -25,6 +26,6 @@ sources:
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
     - https://docs.together.ai/docs/deepseek-faqs
-status: active
+status: deprecated
 supportedModes:
     - chat

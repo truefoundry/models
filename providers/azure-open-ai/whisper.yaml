@@ -18,6 +18,7 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0
+provisioning: serverless
 removeParams:
     - max_tokens
     - stop
@@ -28,7 +29,8 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/whisper-quickstart
 status: active
 supportedModes:
-    - audio_translation
     - audio_transcription
+    - audio_translation

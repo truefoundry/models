@@ -40,10 +40,13 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+provisioning: serverless
 removeParams:
     - max_tokens
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
     - chat
+    - responses

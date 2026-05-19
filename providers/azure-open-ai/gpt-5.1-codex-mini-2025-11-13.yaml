@@ -6,6 +6,10 @@ costs:
     - cache_read_input_token_cost: 2.8e-8
       input_cost_per_token: 2.75e-7
       output_cost_per_token: 0.0000022
+      region: datazone_us
+    - cache_read_input_token_cost: 2.8e-8
+      input_cost_per_token: 2.75e-7
+      output_cost_per_token: 0.0000022
       region: datazone_eu
 deprecationDate: "2027-05-15"
 features:
@@ -31,7 +35,7 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5.1-codex-mini-2025-11-13
 params:
     - defaultValue: 128
@@ -41,9 +45,10 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+provisioning: serverless
 removeParams:
     - "n"
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

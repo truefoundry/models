@@ -1,10 +1,12 @@
 costs:
     - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
       region: ap-southeast-4
     - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.0000275
@@ -41,7 +43,6 @@ removeParams:
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html
     - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://platform.claude.com/docs/en/about-claude/models/overview
 status: active
 supportedModes:
     - chat

@@ -1,5 +1,7 @@
 costs:
-    - input_cost_per_token: 0.00000125
+    - cache_creation_input_token_cost: 0.00000125
+      cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
 features:
@@ -7,6 +9,8 @@ features:
     - function_calling
     - structured_output
     - json_output
+    - tool_choice
+    - prompt_caching
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -35,6 +39,8 @@ provisioning: serverless
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/api-reference
     - https://docs.databricks.com/aws/en/machine-learning/retired-models-policy
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving-1
 status: active
 supportedModes:
     - chat

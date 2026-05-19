@@ -1,9 +1,9 @@
 costs:
     - cache_read_input_token_cost: 7.5e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: "*"
 features:
     - function_calling
@@ -12,6 +12,7 @@ features:
     - json_output
     - structured_output
     - system_messages
+isDeprecated: true
 limits:
     context_window: 131072
 modalities:
@@ -25,6 +26,6 @@ params:
     - key: max_tokens
       maxValue: 131072
 provisioning: serverless
-status: active
+status: deprecated
 supportedModes:
     - chat

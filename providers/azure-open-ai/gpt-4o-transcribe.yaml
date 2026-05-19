@@ -17,6 +17,7 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-4o-transcribe
+provisioning: serverless
 removeParams:
     - tool_choice
     - parallel_tool_calls
@@ -25,6 +26,7 @@ removeParams:
     - stop
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-transcribe
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: preview
 supportedModes:
     - audio_transcription
