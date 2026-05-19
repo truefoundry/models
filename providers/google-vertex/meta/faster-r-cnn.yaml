@@ -8,6 +8,7 @@ modalities:
         - text
 mode: unknown
 model: meta/faster-r-cnn
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -16,3 +17,8 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/faster-r-cnn
+status: active
+supportedModes:
+    - unknown

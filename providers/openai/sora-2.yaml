@@ -13,6 +13,7 @@ modalities:
         - audio
 mode: video
 model: sora-2
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -24,3 +25,6 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/models/sora-2
+status: active
+supportedModes:
+    - video

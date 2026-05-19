@@ -1,6 +1,8 @@
 features:
     - function_calling
     - tool_choice
+    - system_messages
+    - structured_output
 limits:
     context_window: 128000
     max_output_tokens: 4096
@@ -12,8 +14,12 @@ modalities:
         - text
 mode: chat
 model: writer/palmyra-x4
+provisioning: provisioned
 sources:
     - https://dev.writer.com/home/models
     - https://dev.writer.com/api-guides/models
+    - https://console.cloud.google.com/vertex-ai/publishers/writer/model-garden/palmyra-x4
+    - https://cloud.google.com/blog/products/ai-machine-learning/new-proprietary-models-vertex-model-garden
+status: active
 supportedModes:
     - chat

@@ -1,3 +1,20 @@
 mode: unknown
 model: google/weathernext
-status: active
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://developers.google.com/weathernext
+    - https://developers.google.com/weathernext/guides/models
+    - https://developers.google.com/weathernext/guides/access-vmg
+    - https://developers.google.com/weathernext/guides/working-vmg
+    - https://developers.google.com/weathernext/guides/model-specs-vmg
+status: preview
+supportedModes:
+    - unknown

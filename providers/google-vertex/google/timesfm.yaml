@@ -1,5 +1,6 @@
 mode: unknown
 model: google/timesfm
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -10,4 +11,8 @@ removeParams:
     - tool_choice
 sources:
     - https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/
+    - https://googlecloudplatform.github.io/applied-ai-engineering-samples/research-operationalization/timesfm/operationalizing_timesfm_on_vertexai/
+    - https://github.com/google-research/timesfm
 status: active
+supportedModes:
+    - unknown

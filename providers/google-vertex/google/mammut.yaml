@@ -7,11 +7,13 @@ modalities:
         - embedding
 mode: embedding
 model: mammut
+provisioning: provisioned
 removeParams:
     - max_tokens
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/mammut
     - https://github.com/google-deepmind/mammut
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_mammut.ipynb
 status: active
 supportedModes:
     - embedding

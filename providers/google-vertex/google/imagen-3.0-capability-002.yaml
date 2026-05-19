@@ -1,3 +1,4 @@
+deprecationDate: "2026-06-30"
 modalities:
     input:
         - text
@@ -6,6 +7,7 @@ modalities:
         - image
 mode: image
 model: google/imagen-3.0-capability-002
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -21,5 +23,6 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/subject-customization
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/model-versioning
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/models
+status: active
 supportedModes:
     - image

@@ -8,6 +8,7 @@ modalities:
         - audio
 mode: text_to_speech
 model: azure-tts
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -18,5 +19,6 @@ removeParams:
     - stream
     - tool_choice
     - parallel_tool_calls
+status: active
 supportedModes:
     - text_to_speech

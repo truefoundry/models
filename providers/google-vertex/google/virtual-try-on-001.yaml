@@ -1,3 +1,4 @@
+deprecationDate: "2027-01-20"
 modalities:
     input:
         - image
@@ -5,6 +6,7 @@ modalities:
         - image
 mode: image
 model: virtual-try-on-001
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -16,5 +18,10 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-virtual-try-on-images
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/virtual-try-on-001
+status: active
 supportedModes:
     - image
+
+# costs: not found in official docs (Imagen virtual-try-on pricing not listed on the public Vertex AI pricing page)
+# limits: not applicable — image-only model with no documented token limits

@@ -8,6 +8,7 @@ modalities:
         - text
 mode: video
 model: google/object-detector
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -19,5 +20,6 @@ removeParams:
 sources:
     - https://cloud.google.com/vision-ai/pricing
     - https://cloud.google.com/vision-ai/docs/object-detector-model
+status: active
 supportedModes:
     - video

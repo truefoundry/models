@@ -19,6 +19,7 @@ model: qwen/qwen3
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-235b
@@ -26,3 +27,5 @@ status: active
 supportedModes:
     - chat
 thinking: true
+
+# costs not found in official Vertex AI pricing docs for Qwen3 models

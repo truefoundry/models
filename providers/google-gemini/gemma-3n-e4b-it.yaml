@@ -19,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: gemma-3n-e4b-it
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 32000
+      minValue: 1
 provisioning: serverless
 removeParams:
     - tool_choice

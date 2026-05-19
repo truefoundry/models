@@ -1,0 +1,17 @@
+costs:
+    - input_cost_per_character: 0.000007
+      region: "*"
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - audio
+mode: text_to_speech
+model: sesame/csm-1b
+provisioning: serverless
+sources:
+    - https://deepinfra.com/sesame/csm-1b
+status: active
+supportedModes:
+    - text_to_speech

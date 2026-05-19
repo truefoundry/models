@@ -1,16 +1,22 @@
 costs:
     - cache_read_input_token_cost: 0.00000125
+      input_cost_per_image_token: 0.000008
       input_cost_per_token: 0.000005
+      output_cost_per_image_token: 0.000032
       region: "*"
+features:
+    - prompt_caching
 limits:
     max_tokens: 4096
 modalities:
     input:
         - text
+        - image
     output:
         - image
 mode: image
 model: gpt-image-1.5
+provisioning: serverless
 removeParams:
     - temperature
     - top_p

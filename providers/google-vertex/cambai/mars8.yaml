@@ -5,11 +5,19 @@ modalities:
         - audio
 mode: text_to_speech
 model: cambai/mars8
+provisioning: provisioned
 removeParams:
+    - max_tokens
+    - temperature
+    - top_p
     - "n"
+    - stop
     - tool_choice
 sources:
     - https://docs.camb.ai/models.md
     - https://docs.camb.ai/choosing-a-model.md
+    - https://www.camb.ai/blog-post/camb-ai-unveils-mars8-the-first-family-of-tts-models
+    - https://cloud.google.com/blog/products/ai-machine-learning/new-proprietary-models-vertex-model-garden
+status: active
 supportedModes:
     - text_to_speech

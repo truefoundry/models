@@ -9,6 +9,7 @@ modalities:
         - embedding
 mode: embedding
 model: google/multimodalembedding
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -20,5 +21,7 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations-genai
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/multimodal-embeddings-api
+status: active
 supportedModes:
     - embedding

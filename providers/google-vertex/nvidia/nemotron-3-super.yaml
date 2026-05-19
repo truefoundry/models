@@ -1,3 +1,7 @@
+features:
+    - function_calling
+limits:
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -5,6 +9,7 @@ modalities:
         - text
 mode: chat
 model: nvidia/nemotron-3-super
+provisioning: provisioned
 sources:
     - https://research.nvidia.com/labs/nemotron/Nemotron-3-Super/
     - https://console.cloud.google.com/vertex-ai/publishers/nvidia/model-garden/nemotron-3-super

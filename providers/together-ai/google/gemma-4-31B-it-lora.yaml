@@ -1,0 +1,27 @@
+costs:
+    - input_cost_per_token: 0.0
+      output_cost_per_token: 0.0
+      region: "*"
+features:
+    - function_calling
+    - system_messages
+    - json_output
+limits:
+    context_window: 262144
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: google/gemma-4-31B-it-lora
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/gemma-4-31b
+    - https://docs.together.ai/docs/lora-inference
+    - https://docs.together.ai/docs/fine-tuning-models
+status: active
+supportedModes:
+    - chat
+thinking: true

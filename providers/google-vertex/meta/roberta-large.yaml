@@ -1,13 +1,26 @@
+limits:
+    context_window: 512
+    max_input_tokens: 512
 modalities:
     input:
         - text
     output:
         - text
-mode: unknown
+        - embedding
+mode: embedding
 model: meta/roberta-large
+provisioning: provisioned
 removeParams:
     - tool_choice
     - "n"
     - stop
+    - max_tokens
+    - temperature
+    - top_p
+    - stream
 sources:
     - https://huggingface.co/FacebookAI/roberta-large
+    - https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/roberta-large
+status: active
+supportedModes:
+    - embedding

@@ -7,9 +7,10 @@ deprecationDate: "2027-03-17"
 features:
     - function_calling
     - parallel_function_calling
-    - structured_output
-    - tool_choice
     - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -22,7 +23,7 @@ modalities:
         - pdf
     output:
         - text
-mode: chat
+mode: responses
 model: gpt-5-codex-2025-09-15
 params:
     - defaultValue: 128
@@ -33,5 +34,5 @@ sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
-    - chat
+    - responses
 thinking: true

@@ -6,12 +6,14 @@ modalities:
         - text
 mode: chat
 model: google/paligemma
+provisioning: provisioned
 removeParams:
     - "n"
     - stop
     - tool_choice
 sources:
     - https://ai.google.dev/gemma/docs/paligemma
+    - https://ai.google.dev/gemma/docs/paligemma/model-card
 status: active
 supportedModes:
     - chat

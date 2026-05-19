@@ -8,6 +8,7 @@ modalities:
         - text
 mode: audio_transcription
 model: google/chirp-3
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -18,6 +19,8 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/speech-to-text/v2/docs/chirp-model
+    - https://docs.cloud.google.com/speech-to-text/docs/models/chirp-3
+    - https://cloud.google.com/speech-to-text/pricing
 status: active
 supportedModes:
     - audio_transcription

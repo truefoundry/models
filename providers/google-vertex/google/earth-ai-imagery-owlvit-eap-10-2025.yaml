@@ -1,2 +1,15 @@
-mode: unknown
+modalities:
+    input:
+        - image
+        - text
+    output:
+        - text
+mode: image
 model: google/earth-ai-imagery-owlvit-eap-10-2025
+provisioning: serverless
+status: preview
+supportedModes:
+    - image
+
+# costs not found in official docs (EAP — pricing not publicly documented)
+# limits not found in official docs (EAP — context/input limits not publicly documented)

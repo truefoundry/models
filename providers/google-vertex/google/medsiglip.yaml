@@ -1,3 +1,5 @@
+limits:
+    max_input_tokens: 64
 messages:
     options: []
 modalities:
@@ -8,6 +10,7 @@ modalities:
         - embedding
 mode: embedding
 model: google/medsiglip
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -19,5 +22,7 @@ removeParams:
 sources:
     - https://developers.google.com/health-ai-developer-foundations/medsiglip
     - https://developers.google.com/health-ai-developer-foundations/medsiglip/model-card
+    - https://developers.google.com/health-ai-developer-foundations/medsiglip/get-started
+status: active
 supportedModes:
     - embedding

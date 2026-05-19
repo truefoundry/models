@@ -1,0 +1,16 @@
+costs:
+    - input_cost_per_character: 0.00002
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
+model: Qwen/Qwen3-TTS-VoiceDesign
+provisioning: serverless
+sources:
+    - https://deepinfra.com/Qwen/Qwen3-TTS-VoiceDesign
+status: active
+supportedModes:
+    - text_to_speech

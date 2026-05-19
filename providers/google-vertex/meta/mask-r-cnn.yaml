@@ -3,8 +3,9 @@ modalities:
         - image
     output:
         - image
-mode: unknown
+mode: image
 model: meta/mask-r-cnn
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -14,3 +15,5 @@ removeParams:
     - stream
     - tool_choice
 status: active
+supportedModes:
+    - image

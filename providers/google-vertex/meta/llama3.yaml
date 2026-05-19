@@ -1,5 +1,7 @@
 features:
     - system_messages
+limits:
+    context_window: 8192
 modalities:
     input:
         - text
@@ -7,8 +9,10 @@ modalities:
         - text
 mode: chat
 model: meta/llama3
+provisioning: provisioned
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations/partner-models
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama
+status: active
 supportedModes:
     - chat

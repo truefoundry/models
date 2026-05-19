@@ -5,6 +5,8 @@ costs:
     - input_cost_per_token: 2e-8
       output_cost_per_token: 0
       region: "*"
+deprecationDate: "2026-04-30"
+isDeprecated: true
 limits:
     max_input_tokens: 8192
     output_vector_size: 1536
@@ -19,12 +21,12 @@ removeParams:
     - temperature
     - top_p
     - stop
-    - "n"
+    - n
     - response_format
     - stream
     - tool_choice
     - parallel_tool_calls
     - max_tokens
-status: active
+status: deprecated
 supportedModes:
     - embedding

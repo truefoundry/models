@@ -1,7 +1,5 @@
 features:
     - system_messages
-    - function_calling
-    - json_output
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -14,12 +12,13 @@ modalities:
         - text
 mode: chat
 model: qwen/qwq
-provisioning: serverless
+provisioning: provisioned
 sources:
     - https://huggingface.co/Qwen/QwQ-32B
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-235b
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_qwq_deployment.ipynb
 supportedModes:
     - chat
 thinking: true
 
-# costs not found in official docs — QwQ-32B is not listed on the current Vertex AI pricing page or model documentation
+# costs not found in official docs — QwQ-32B on Vertex AI is a self-deployed model from Model Garden / Hugging Face;
+# pricing is based on the underlying compute resources (GPU node-hours) provisioned by the user, not a per-token rate.
