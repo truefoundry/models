@@ -3,6 +3,7 @@ costs:
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: "*"
+deprecationDate: "2026-05-15"
 features:
     - function_calling
     - json_output
@@ -19,8 +20,7 @@ mode: chat
 model: x-ai/grok-3-beta
 provisioning: serverless
 sources:
-    - https://openrouter.ai/x-ai/grok-3-beta/api
-    - https://docs.x.ai/developers/models#models-and-pricing
+    - https://openrouter.ai/x-ai/grok-3-beta
 status: active
 supportedModes:
     - chat

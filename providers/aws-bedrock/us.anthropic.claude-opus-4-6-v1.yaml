@@ -45,6 +45,8 @@ features:
     - function_calling
     - prompt_caching
     - tool_choice
+    - structured_output
+    - system_messages
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -69,6 +71,7 @@ sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-6.html
 status: active
 supportedModes:
     - chat

@@ -1,6 +1,5 @@
 costs:
-    - input_cost_per_token: 0.0 # not found in official docs
-      output_cost_per_token: 0.0 # not found in official docs
+    - input_cost_per_request: 0.09
       region: "*"
 modalities:
     input:
@@ -8,7 +7,6 @@ modalities:
         - image
     output:
         - video
-        - audio
 mode: video
 model: pixverse/pixverse-v6
 provisioning: serverless

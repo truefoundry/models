@@ -7,7 +7,6 @@ features:
     - function_calling
     - tool_choice
     - assistant_prefill
-isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -21,8 +20,9 @@ modalities:
         - text
 mode: chat
 model: databricks-claude-sonnet-4-1
+provisioning: serverless
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/models
 status: active
 supportedModes:
     - chat

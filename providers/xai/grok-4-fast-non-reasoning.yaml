@@ -12,11 +12,14 @@ costs:
           output:
               - cost_per_token: 1e-6
                 from: 128000
+          pricing_mode: marginal
+deprecationDate: "2026-05-15"
 features:
     - function_calling
     - tool_choice
     - structured_output
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 2000000
 modalities:
@@ -32,6 +35,6 @@ removeParams:
     - reasoning_effort
 sources:
     - https://docs.x.ai/developers/models/grok-4-fast-non-reasoning
-status: active
+status: retired
 supportedModes:
     - chat
