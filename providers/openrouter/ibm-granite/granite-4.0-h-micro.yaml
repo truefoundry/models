@@ -1,6 +1,6 @@
 costs:
     - input_cost_per_token: 1.7e-8
-      output_cost_per_token: 1.1e-7
+      output_cost_per_token: 1.12e-7
       region: "*"
 limits:
     context_window: 131000
@@ -13,7 +13,7 @@ mode: chat
 model: ibm-granite/granite-4.0-h-micro
 provisioning: serverless
 sources:
-    - https://openrouter.ai/ibm-granite/granite-4.0-h-micro/api
+    - https://openrouter.ai/ibm-granite/granite-4.0-h-micro
 status: active
 supportedModes:
     - chat
