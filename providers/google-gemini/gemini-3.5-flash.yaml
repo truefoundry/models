@@ -1,0 +1,49 @@
+costs:
+    - cache_creation_input_token_cost_per_hour: 0.000001
+      cache_read_input_token_cost: 1.5e-7
+      input_cost_per_token: 0.0000015
+      input_cost_per_token_batches: 7.5e-7
+      output_cost_per_token: 0.000009
+      output_cost_per_token_batches: 0.0000045
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - cache_control
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - code_execution
+    - json_output
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+        - pdf
+    output:
+        - text
+mode: chat
+model: gemini-3.5-flash
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash
+status: active
+supportedModes:
+    - chat
+thinking: true
