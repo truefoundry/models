@@ -2,6 +2,7 @@ modalities:
     input:
         - image
         - text
+        - video
     output:
         - image
 mode: image
@@ -15,5 +16,10 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/segment-anything
+    - https://github.com/facebookresearch/sam3
+    - https://ai.meta.com/sam3/
+status: preview
 supportedModes:
     - image

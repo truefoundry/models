@@ -1,5 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 0.00001875
+      cache_creation_input_token_cost_per_hour: 0.00003
       cache_read_input_token_cost: 0.0000015
       input_cost_per_token: 0.000015
       input_cost_per_token_batches: 0.0000075
@@ -7,6 +8,7 @@ costs:
       output_cost_per_token_batches: 0.0000375
       region: us-east5
     - cache_creation_input_token_cost: 0.00001875
+      cache_creation_input_token_cost_per_hour: 0.00003
       cache_read_input_token_cost: 0.0000015
       input_cost_per_token: 0.000015
       input_cost_per_token_batches: 0.0000075
@@ -18,6 +20,7 @@ features:
     - tool_choice
     - prompt_caching
     - assistant_prefill
+    - system_messages
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -42,8 +45,8 @@ provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude
-    - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/about-claude/model-deprecations
 status: active
 supportedModes:
     - chat

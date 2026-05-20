@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_second: 0.0016667
       region: us-central1
+    - input_cost_per_second: 0.0016667
+      region: europe-west4
 modalities:
     input:
         - video
@@ -19,7 +21,8 @@ removeParams:
     - tool_choice
 sources:
     - https://cloud.google.com/vision-ai/pricing
-    - https://cloud.google.com/vision-ai/docs/object-detector-model
+    - https://docs.cloud.google.com/vision-ai/docs/object-detector-model
+    - https://docs.cloud.google.com/vision-ai/docs/app-supported-regions
 status: active
 supportedModes:
     - video

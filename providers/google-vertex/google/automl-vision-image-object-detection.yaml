@@ -1,3 +1,6 @@
+costs:
+    - output_cost_per_second: 0.000556111 # $2.002 per node-hour deployment & online prediction
+      region: global
 modalities:
     input:
         - image
@@ -14,6 +17,8 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://cloud.google.com/vision/automl/pricing
 status: active
 supportedModes:
     - image

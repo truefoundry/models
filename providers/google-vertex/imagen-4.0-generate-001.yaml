@@ -67,6 +67,7 @@ modalities:
         - image
 mode: image
 model: imagen-4.0-generate-001
+provisioning: serverless
 removeParams:
     - max_tokens
     - temperature
@@ -82,3 +83,5 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/overview
 status: active
+supportedModes:
+    - image
