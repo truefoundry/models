@@ -4,9 +4,9 @@ costs:
       region: "*"
 deprecationDate: "2026-05-08"
 features:
-    # - function_calling // model does not support function calling
     - json_output
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 32768
     max_input_tokens: 32768
@@ -22,6 +22,6 @@ model: mistralai/Mixtral-8x7B-Instruct-v0.1
 provisioning: serverless
 sources:
     - https://deepinfra.com/mistralai/Mixtral-8x7B-Instruct-v0.1
-status: active
+status: retired
 supportedModes:
     - chat
