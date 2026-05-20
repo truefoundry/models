@@ -1,5 +1,35 @@
+costs:
+    - cache_creation_input_token_cost_per_hour: 0.000001
+      cache_read_input_token_cost: 1.5e-7
+      input_cost_per_token: 0.0000015
+      input_cost_per_token_batches: 7.5e-7
+      output_cost_per_token: 0.000009
+      output_cost_per_token_batches: 0.0000045
+      region: "*"
+features:
+    - code_execution
 limits:
-    max_input_tokens: 131072
+    context_window: 1048576
+    max_input_tokens: 1048576
     max_output_tokens: 65536
-mode: unknown
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: antigravity-preview-05-2026
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026
+    - https://ai.google.dev/gemini-api/docs/antigravity-agent
+status: preview
+supportedModes:
+    - chat
