@@ -4,9 +4,9 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
     - tool_choice
     - json_output
+    - system_messages
 limits:
     context_window: 256000
     max_output_tokens: 32000
@@ -31,6 +31,7 @@ sources:
     - https://docs.cohere.com/docs/command-a-reasoning
     - https://docs.cohere.com/docs/reasoning
     - https://docs.cohere.com/docs/rate-limits
+    - https://docs.cohere.com/reference/chat
 status: active
 supportedModes:
     - chat
