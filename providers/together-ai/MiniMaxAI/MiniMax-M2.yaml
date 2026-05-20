@@ -8,7 +8,7 @@ features:
     - structured_output
     - json_output
 limits:
-    context_window: 228700
+    context_window: 196608
 modalities:
     input:
         - text
@@ -17,6 +17,9 @@ modalities:
 mode: chat
 model: MiniMaxAI/MiniMax-M2
 provisioning: provisioned
+sources:
+    - https://docs.together.ai/docs/dedicated-models
 status: active
 supportedModes:
     - chat
+thinking: true

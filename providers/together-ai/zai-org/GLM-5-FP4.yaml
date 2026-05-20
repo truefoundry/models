@@ -8,6 +8,8 @@ features:
     - json_output
 limits:
     context_window: 202752
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -16,6 +18,9 @@ modalities:
 mode: chat
 model: zai-org/GLM-5-FP4
 provisioning: provisioned
+sources:
+    - https://www.together.ai/models/glm-5
+    - https://docs.together.ai/docs/glm-5-quickstart
 status: active
 supportedModes:
     - chat

@@ -1,6 +1,8 @@
 features:
     - function_calling
     - system_messages
+limits:
+    context_window: 32768 # from fine-tuning supported models page (SFT context length)
 modalities:
     input:
         - text
@@ -11,7 +13,7 @@ model: Qwen/Qwen2.5-32B-Instruct
 provisioning: serverless
 sources:
     - https://www.together.ai/pricing
-    - https://docs.together.ai/docs/changelog
+    - https://docs.together.ai/docs/fine-tuning-models
 status: active
 supportedModes:
     - chat

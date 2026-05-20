@@ -8,11 +8,21 @@ modalities:
         - text
 mode: audio_transcription
 model: openai/whisper-large-v3
+params:
+    - defaultValue: 0
+      key: temperature
+      maxValue: 1
+      minValue: 0
+      type: number
+    - defaultValue: json
+      key: response_format
+      type: string
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/speech-to-text
     - https://docs.together.ai/reference/audio-transcriptions
     - https://docs.together.ai/reference/audio-translations
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - audio_transcription
