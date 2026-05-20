@@ -4,6 +4,7 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - video
 mode: video
@@ -11,6 +12,7 @@ model: pixverse/pixverse-v5.6
 provisioning: serverless
 sources:
     - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/serverless-models
 status: active
 supportedModes:
     - video
