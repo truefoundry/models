@@ -4,8 +4,17 @@ costs:
       region: "*"
 limits:
     context_window: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: meta-llama/Llama-3.3-70B-Instruct-FP8-Lora
 provisioning: provisioned
+sources:
+    - https://docs.together.ai/docs/dedicated-models
+    - https://docs.together.ai/docs/lora-inference
+status: active
 supportedModes:
     - chat

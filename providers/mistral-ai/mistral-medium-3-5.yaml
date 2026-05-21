@@ -4,6 +4,10 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+    - json_output
 limits:
     context_window: 262144
 modalities:
@@ -17,9 +21,11 @@ model: mistral-medium-3-5
 params:
     - defaultValue: 0.7
       key: temperature
+    - key: reasoning_effort
 sources:
     - https://docs.mistral.ai/capabilities/reasoning/
     - https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5
+    - https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
 status: active
 supportedModes:
     - chat
