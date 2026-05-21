@@ -10,9 +10,12 @@ modalities:
         - text
 mode: chat
 model: google/gemma-3-270m-it
-provisioning: serverless
+provisioning: provisioned
 sources:
     - https://docs.together.ai/docs/fine-tuning-models
+    - https://docs.together.ai/docs/dedicated-endpoints/models
 status: active
 supportedModes:
     - chat
+
+# costs: not found in official docs — model is offered as a dedicated endpoint / fine-tuning base on Together AI, billed by GPU-hour rather than per-token

@@ -7,6 +7,7 @@ features:
     - function_calling
     - tool_choice
     - assistant_prefill
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -23,7 +24,7 @@ model: databricks-claude-sonnet-4-1
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/about-claude/models
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

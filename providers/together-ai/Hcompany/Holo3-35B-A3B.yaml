@@ -3,8 +3,10 @@ costs:
       output_cost_per_token: 0
       region: "*"
 features:
+    - function_calling
     - structured_output
     - system_messages
+    - tool_choice
 limits:
     context_window: 262144
 modalities:
@@ -19,6 +21,7 @@ provisioning: provisioned
 sources:
     - https://huggingface.co/Hcompany/Holo3-35B-A3B
     - https://hub.hcompany.ai/quickstart
+    - https://hcompany.ai/holo-models-api
 status: active
 supportedModes:
     - chat

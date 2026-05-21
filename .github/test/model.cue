@@ -247,6 +247,7 @@ package model
 	"responses" |
 	"text_to_speech" |
 	"unknown" |
+	"unsupported" | // Model is not supported by the gateway
 	"video"
 
 #ModelConfig: {

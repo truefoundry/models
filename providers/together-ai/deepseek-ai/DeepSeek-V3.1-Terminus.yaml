@@ -5,6 +5,8 @@ costs:
 features:
     - function_calling
     - structured_output
+limits:
+    context_window: 128000
 modalities:
     input:
         - text
@@ -16,7 +18,7 @@ provisioning: provisioned
 sources:
     - https://huggingface.co/deepseek-ai/DeepSeek-V3.1-Terminus
     - https://www.together.ai/models/deepseek-v3-1
-    - https://api-docs.deepseek.com/news/news250922
+status: active
 supportedModes:
     - chat
 thinking: true

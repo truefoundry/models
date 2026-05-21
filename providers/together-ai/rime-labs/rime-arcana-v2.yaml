@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_character: 0.00001
+      region: "*"
 modalities:
     input:
         - text
@@ -8,6 +11,8 @@ model: rime-labs/rime-arcana-v2
 provisioning: provisioned
 sources:
     - https://docs.together.ai/docs/text-to-speech
+    - https://www.together.ai/models/arcana-v2
+    - https://www.together.ai/blog/rime-voice-models-now-available-on-together-ai
 status: active
 supportedModes:
     - text_to_speech

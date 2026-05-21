@@ -1,6 +1,7 @@
 features:
     - function_calling
     - system_messages
+    - json_output
 limits:
     context_window: 32768
     max_output_tokens: 32768
@@ -10,12 +11,12 @@ modalities:
         - text
     output:
         - text
-mode: completion
+mode: chat
 model: Qwen/Qwen3-14B
 provisioning: provisioned
 sources:
     - https://huggingface.co/Qwen/Qwen3-14B
 status: active
 supportedModes:
-    - completion
+    - chat
 thinking: true
