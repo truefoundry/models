@@ -1,2 +1,25 @@
-mode: unknown
+limits:
+    output_vector_size: 512
+modalities:
+    input:
+        - audio
+    output:
+        - embedding
+mode: embedding
 model: hear
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - n
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://developers.google.com/health-ai-developer-foundations/hear/model-card
+    - https://developers.google.com/health-ai-developer-foundations/hear/get-started
+    - https://developers.google.com/health-ai-developer-foundations/hear/serving-api
+status: active
+supportedModes:
+    - embedding

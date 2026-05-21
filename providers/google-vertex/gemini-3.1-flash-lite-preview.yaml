@@ -1,6 +1,6 @@
 costs:
     - cache_read_input_audio_token_cost: 5e-8
-      cache_read_input_token_cost: 3e-8
+      cache_read_input_token_cost: 2.5e-8
       input_cost_per_audio_token: 5e-7
       input_cost_per_token: 2.5e-7
       input_cost_per_token_batches: 1.25e-7
@@ -18,8 +18,8 @@ features:
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
-    max_output_tokens: 65535
-    max_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -33,10 +33,12 @@ mode: chat
 model: gemini-3.1-flash-lite-preview
 params:
     - key: max_tokens
-      maxValue: 65535
+      maxValue: 65536
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-lite
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview
+    - https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/
 status: preview
 supportedModes:
     - chat

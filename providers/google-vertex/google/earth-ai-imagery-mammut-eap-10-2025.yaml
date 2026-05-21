@@ -6,6 +6,7 @@ modalities:
         - embedding
 mode: embedding
 model: google/earth-ai-imagery-mammut-eap-10-2025
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -26,6 +27,5 @@ status: preview
 supportedModes:
     - embedding
 
-# costs: not found in official docs (EAP / preview model — public pricing not published)
-# limits: not found in official docs (EAP / preview model — public input/output specs not published)
-# provisioning: not found in official docs
+# costs: not found in official docs (EAP / preview model — user-deployed to a Vertex AI Endpoint; billed via underlying GPU compute, no published per-token pricing)
+# limits: not found in official docs (EAP / preview model — public input/output token specs not published)

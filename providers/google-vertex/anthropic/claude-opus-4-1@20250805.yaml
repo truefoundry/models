@@ -1,5 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 0.00001875
+      cache_creation_input_token_cost_per_hour: 0.00003
       cache_read_input_token_cost: 0.0000015
       input_cost_per_token: 0.000015
       input_cost_per_token_batches: 0.0000075
@@ -7,12 +8,14 @@ costs:
       output_cost_per_token_batches: 0.0000375
       region: us-east5
     - cache_creation_input_token_cost: 0.00001875
+      cache_creation_input_token_cost_per_hour: 0.00003
       cache_read_input_token_cost: 0.0000015
       input_cost_per_token: 0.000015
       input_cost_per_token_batches: 0.0000075
       output_cost_per_token: 0.000075
       output_cost_per_token_batches: 0.0000375
       region: global
+deprecationDate: "2026-08-05"
 features:
     - function_calling
     - tool_choice

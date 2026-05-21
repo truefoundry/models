@@ -4,6 +4,7 @@ messages:
 modalities:
     input:
         - text
+        - image
     output:
         - image
 mode: image
@@ -17,6 +18,9 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/stability-ai/model-garden/stable-diffusion-2-1
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_sd_2_1_deployment.ipynb
 status: active
 supportedModes:
     - image

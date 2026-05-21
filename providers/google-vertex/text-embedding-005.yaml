@@ -5,7 +5,6 @@ costs:
       region: us-central1
 limits:
     max_input_tokens: 2048
-    max_tokens: 2048
     output_vector_size: 768
 modalities:
     input:
@@ -23,9 +22,6 @@ removeParams:
     - stream
     - tool_choice
     - max_tokens
-sources:
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api
 status: active
 supportedModes:
     - embedding
