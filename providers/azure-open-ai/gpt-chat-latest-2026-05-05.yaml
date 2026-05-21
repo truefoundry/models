@@ -1,3 +1,8 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1e-5
+      region: "*"
 features:
     - function_calling
     - parallel_function_calling
@@ -7,19 +12,19 @@ features:
     - tool_choice
 limits:
     context_window: 128000
-    max_input_tokens: 111616
+    max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
 modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
 model: gpt-chat-latest-2026-05-05
 provisioning: serverless
-# costs not found in official docs (Azure pricing page does not yet list this preview model)
 sources:
     - https://ai.azure.com/catalog/models/gpt-chat-latest
     - https://developers.openai.com/api/docs/models/chat-latest
