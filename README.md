@@ -18,9 +18,9 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 763 | Unified API for open source models |
+| OpenRouter | 764 | Unified API for open source models |
 | Google Vertex AI | 398 | Gemini, PaLM on GCP |
-| Together AI | 335 | Open source model hosting |
+| Together AI | 336 | Open source model hosting |
 | AWS Bedrock | 203 | Claude, Llama, Titan, Mistral on AWS |
 | DeepInfra | 197 | Open source model hosting |
 | Azure OpenAI | 188 | OpenAI models on Azure |
