@@ -4,11 +4,9 @@ costs:
       region: "*"
 features:
     - function_calling
-    - parallel_function_calling
     - system_messages
     - tool_choice
     - structured_output
-    - prompt_caching
 limits:
     context_window: 200000
     max_output_tokens: 100000
@@ -43,4 +41,5 @@ sources:
 status: active
 supportedModes:
     - responses
+    - chat
 thinking: true
