@@ -252,7 +252,11 @@ package model
 
 #ModelConfig: {
 	// Pricing entries per region; use "*" for global/uniform pricing
+	// Deprecated: prefer `pricing` (kept for backward compatibility)
 	costs?: [...#CostWithRegion]
+	// Pricing entries keyed by service tier; each entry holds an array of
+	// region-scoped cost entries (same shape as the legacy `costs` field)
+	pricing?: [...#Pricing]
 	// Date after which the model is considered deprecated (YYYY-MM-DD)
 	deprecationDate?: string & =~"^\\d{4}-\\d{2}-\\d{2}$"
 	// Feature flags for capabilities like function calling, prompt caching, etc.
@@ -287,6 +291,13 @@ package model
 	thinking?: bool
 }
 
+// Keys enumerated explicitly because cue def --out openapi drops typed key constraints.
+#Pricing: {
+	for tier in #ServiceTiers {
+		"\(tier)"?: [...#CostWithRegion]
+	}
+}
+
 #PricingTier: {
 	cost_per_token: number & >= 0
 	from:           int & >= 0
@@ -303,6 +314,8 @@ package model
 #Provisioning:
 	"serverless" |   // Managed API, pay-per-token/request
 	"provisioned"    // Dedicated capacity or user-deployed instance
+
+#ServiceTiers: ["priority", "standard"]
 
 // Lifecycle status of a model
 #Status:

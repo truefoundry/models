@@ -96,7 +96,10 @@ export interface components {
          */
         Mode: "audio_transcription" | "audio_translation" | "chat" | "completion" | "embedding" | "image" | "moderation" | "realtime" | "rerank" | "responses" | "text_to_speech" | "unknown" | "unsupported" | "video";
         ModelConfig: {
-            /** @description Pricing entries per region; use "*" for global/uniform pricing */
+            /**
+             * @description Pricing entries per region; use "*" for global/uniform pricing
+             *     Deprecated: prefer `pricing` (kept for backward compatibility)
+             */
             costs?: components["schemas"]["CostWithRegion"][];
             /** @description Date after which the model is considered deprecated (YYYY-MM-DD) */
             deprecationDate?: string;
@@ -112,6 +115,11 @@ export interface components {
             model: string;
             /** @description Param overrides or additions relative to the provider default */
             params?: components["schemas"]["ModelParam"][];
+            /**
+             * @description Pricing entries keyed by service tier; each entry holds an array of
+             *     region-scoped cost entries (same shape as the legacy `costs` field)
+             */
+            pricing?: components["schemas"]["Pricing"][];
             provisioning?: components["schemas"]["Provisioning"];
             /** @description Param keys to remove from the provider default */
             removeParams?: components["schemas"]["ModelParamKey"][];
@@ -137,6 +145,15 @@ export interface components {
         /** @enum {string} */
         ModelParamType: "array-of-strings" | "boolean" | "json" | "number" | "string";
         /**
+         * @description Pricing entry keyed by service tier; one optional field per #ServiceTiers value.
+         *     Comprehension is used so the property set stays in sync with #ServiceTiers
+         *     (cue def --out openapi drops typed pattern constraints, so we materialize the keys here).
+         */
+        Pricing: {
+            priority?: components["schemas"]["CostWithRegion"][];
+            standard?: components["schemas"]["CostWithRegion"][];
+        };
+        /**
          * @description How the model prices long context tokens
          *     marginal: remaining tokens after long context are priced under long context pricing
          *     cumulative: all input tokens are priced under long context pricing
@@ -153,6 +170,17 @@ export interface components {
          * @enum {string}
          */
         Provisioning: "serverless" | "provisioned";
+        /**
+         * @description Allowed service tier keys for #Pricing entries; single source of truth.
+         * @default [
+         *       "priority",
+         *       "standard"
+         *     ]
+         */
+        ServiceTiers: [
+            "priority",
+            "standard"
+        ];
         /**
          * @description Lifecycle status of a model
          * @enum {string}
@@ -197,9 +225,11 @@ export type ModelConfig = components['schemas']['ModelConfig'];
 export type ModelParam = components['schemas']['ModelParam'];
 export type ModelParamKey = components['schemas']['ModelParamKey'];
 export type ModelParamType = components['schemas']['ModelParamType'];
+export type Pricing = components['schemas']['Pricing'];
 export type PricingMode = components['schemas']['PricingMode'];
 export type PricingTier = components['schemas']['PricingTier'];
 export type Provisioning = components['schemas']['Provisioning'];
+export type ServiceTiers = components['schemas']['ServiceTiers'];
 export type Status = components['schemas']['Status'];
 export type TieredPricing = components['schemas']['TieredPricing'];
 export type VertexRegion = components['schemas']['VertexRegion'];
