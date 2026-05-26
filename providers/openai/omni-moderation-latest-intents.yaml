@@ -6,6 +6,8 @@ modalities:
     input:
         - text
         - image
+    output:
+        - text
 mode: moderation
 model: omni-moderation-latest-intents
 provisioning: serverless
@@ -20,6 +22,7 @@ removeParams:
     - parallel_tool_calls
 sources:
     - https://developers.openai.com/api/docs/guides/moderation
+    - https://developers.openai.com/api/docs/models/omni-moderation-latest
 status: active
 supportedModes:
     - moderation
