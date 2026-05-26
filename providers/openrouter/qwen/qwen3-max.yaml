@@ -33,6 +33,25 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3-max
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 9.75e-7
+            cache_read_input_token_cost: 1.56e-7
+            input_cost_per_token: 7.8e-7
+            output_cost_per_token: 0.0000039
+            region: "*"
+            tiered_pricing:
+                input:
+                    - cost_per_token: 0.00000156
+                      from: 32000
+                    - cost_per_token: 0.00000195
+                      from: 128000
+                output:
+                    - cost_per_token: 0.0000078
+                      from: 32000
+                    - cost_per_token: 0.00000975
+                      from: 128000
+                pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-max

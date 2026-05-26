@@ -8,6 +8,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: canopylabs/orpheus-v1-english
+pricing:
+    - standard:
+          - input_cost_per_character: 0.000022
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

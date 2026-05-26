@@ -20,6 +20,11 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+pricing:
+    - standard:
+          - input_cost_per_token: 3.9e-8
+            output_cost_per_token: 1.9e-7
+            region: "*"
 sources:
     - https://openrouter.ai/openai/gpt-oss-120b:exacto/api
 status: deprecated

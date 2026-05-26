@@ -28,6 +28,19 @@ modalities:
         - text
 mode: chat
 model: bytedance-seed/seed-1.6-flash
+pricing:
+    - standard:
+          - input_cost_per_token: 7.5e-8
+            output_cost_per_token: 3e-7
+            region: "*"
+            tiered_pricing:
+                input:
+                    - cost_per_token: 1e-7
+                      from: 128000
+                output:
+                    - cost_per_token: 8e-7
+                      from: 128000
+                pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/bytedance-seed/seed-1.6-flash/api

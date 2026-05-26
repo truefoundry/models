@@ -18,6 +18,11 @@ model: inflection-3-pi
 params:
     - key: max_tokens
       maxValue: 1024
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0000025
+            output_cost_per_token: 0.00001
+            region: "*"
 sources:
     - https://openrouter.ai/inflection/inflection-3-pi/api
 status: deprecated

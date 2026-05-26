@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: arcee-ai/virtuoso-large
+pricing:
+    - standard:
+          - input_cost_per_token: 7.5e-7
+            output_cost_per_token: 0.0000012
+            region: "*"
 provisioning: provisioned
 sources:
     - https://openrouter.ai/arcee-ai/virtuoso-large

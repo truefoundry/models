@@ -19,6 +19,11 @@ model: l3-euryale-70b
 params:
     - key: max_tokens
       maxValue: 8192
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00000148
+            output_cost_per_token: 0.00000148
+            region: "*"
 sources:
     - https://openrouter.ai/sao10k/l3-euryale-70b/api
 status: deprecated

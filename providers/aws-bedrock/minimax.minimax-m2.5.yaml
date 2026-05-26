@@ -83,6 +83,73 @@ model: minimax.minimax-m2.5
 params:
     - key: max_tokens
       maxValue: 8000
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3e-7
+            output_cost_per_token: 1.2e-6
+            region: us-west-2
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3e-7
+            output_cost_per_token: 1.2e-6
+            region: us-east-2
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3e-7
+            output_cost_per_token: 1.2e-6
+            region: us-east-1
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: sa-east-1
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 4.7e-7
+            output_cost_per_token: 1.86e-6
+            region: eu-west-2
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: eu-west-1
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: eu-south-1
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: eu-north-1
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: eu-central-1
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: ap-southeast-3
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.1e-7
+            output_cost_per_token: 1.24e-6
+            region: ap-southeast-2
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: ap-south-1
+          - cache_creation_input_token_cost: 3.75e-7
+            cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 3.6e-7
+            output_cost_per_token: 1.44e-6
+            region: ap-northeast-1
 provisioning: serverless
 removeParams:
     - "n"

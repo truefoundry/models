@@ -14,6 +14,11 @@ modalities:
         - text
 mode: chat
 model: qwen2.5-vl-72b-instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 8e-7
+            output_cost_per_token: 8e-7
+            region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen2.5-vl-72b-instruct/api
 status: deprecated

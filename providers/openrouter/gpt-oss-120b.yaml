@@ -20,6 +20,11 @@ params:
       maxValue: 32768
     - defaultValue: medium
       key: reasoning_effort
+pricing:
+    - standard:
+          - input_cost_per_token: 3.9e-8
+            output_cost_per_token: 1.9e-7
+            region: "*"
 removeParams:
     - stream
 sources:

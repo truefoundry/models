@@ -21,6 +21,11 @@ model: cohere/command-r-plus
 params:
     - key: max_tokens
       maxValue: 4000
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000003
+            output_cost_per_token: 0.000015
+            region: "*"
 sources:
     - https://openrouter.ai/cohere/command-r-plus/api
     - https://docs.cohere.com/docs/command-r-plus

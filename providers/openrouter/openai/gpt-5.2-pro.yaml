@@ -29,6 +29,11 @@ params:
     - defaultValue: high
       key: reasoning_effort
       type: string
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000021
+            output_cost_per_token: 0.000168
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5.2-pro

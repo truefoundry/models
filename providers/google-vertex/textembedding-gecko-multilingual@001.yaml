@@ -10,5 +10,11 @@ limits:
     output_vector_size: 768
 mode: embedding
 model: textembedding-gecko-multilingual@001
+pricing:
+    - standard:
+          - input_cost_per_character: 2.5e-8
+            input_cost_per_token: 1e-7
+            output_cost_per_token: 0
+            region: "*"
 removeParams:
     - max_tokens

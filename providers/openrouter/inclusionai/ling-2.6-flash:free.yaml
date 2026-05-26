@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: inclusionai/ling-2.6-flash:free
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0
+            output_cost_per_token: 0.0
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/inclusionai/ling-2.6-flash:free

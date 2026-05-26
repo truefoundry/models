@@ -13,6 +13,10 @@ model: voxtral-mini-2602
 params:
     - defaultValue: 0
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_second: 0.00005
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/voxtral-mini-transcribe-26-02

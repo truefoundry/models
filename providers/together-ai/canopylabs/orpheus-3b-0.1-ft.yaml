@@ -8,6 +8,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: canopylabs/orpheus-3b-0.1-ft
+pricing:
+    - standard:
+          - input_cost_per_character: 0.000015
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/text-to-speech

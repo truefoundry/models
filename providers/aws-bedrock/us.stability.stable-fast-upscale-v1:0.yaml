@@ -15,6 +15,14 @@ modalities:
         - image
 mode: image
 model: us.stability.stable-fast-upscale-v1:0
+pricing:
+    - standard:
+          - input_cost_per_image: 0.03
+            region: us-west-2
+          - input_cost_per_image: 0.03
+            region: us-east-2
+          - input_cost_per_image: 0.03
+            region: us-east-1
 provisioning: serverless
 removeParams:
     - max_tokens

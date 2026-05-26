@@ -13,6 +13,12 @@ modalities:
         - text
 mode: audio_transcription
 model: google/chirp-3
+pricing:
+    - standard:
+          - input_cost_per_second: 0.000266666666666667
+            region: us
+          - input_cost_per_second: 0.000266666666666667
+            region: eu
 provisioning: serverless
 removeParams:
     - max_tokens

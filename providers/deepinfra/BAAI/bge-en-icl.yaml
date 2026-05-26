@@ -8,6 +8,10 @@ modalities:
         - embedding
 mode: embedding
 model: BAAI/bge-en-icl
+pricing:
+    - standard:
+          - input_cost_per_token: 1e-8
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

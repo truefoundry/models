@@ -11,3 +11,8 @@ limits:
     max_tokens: 128000
 mode: chat
 model: databricks-meta-llama-3-70b-instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000001
+            output_cost_per_token: 0.000003
+            region: "*"

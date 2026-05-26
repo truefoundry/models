@@ -16,6 +16,11 @@ model: mistral-7b-instruct:free
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/mistralai/mistral-7b-instruct:free/api
 status: deprecated

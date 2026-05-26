@@ -20,6 +20,13 @@ modalities:
         - image
 mode: chat
 model: claude-3-opus:beta
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 0.00001875
+            cache_read_input_token_cost: 0.0000015
+            input_cost_per_token: 0.000015
+            output_cost_per_token: 0.000075
+            region: "*"
 sources:
     - https://openrouter.ai/anthropic/claude-3-opus:beta/api
 status: deprecated

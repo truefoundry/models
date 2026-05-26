@@ -46,6 +46,29 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 0.000006875
+            cache_read_input_token_cost: 5.5e-7
+            input_cost_per_token: 0.0000055
+            input_cost_per_token_batches: 0.00000275
+            output_cost_per_token: 0.0000275
+            output_cost_per_token_batches: 0.00001375
+            region: ap-southeast-6
+          - cache_creation_input_token_cost: 0.000006875
+            cache_read_input_token_cost: 5.5e-7
+            input_cost_per_token: 0.0000055
+            input_cost_per_token_batches: 0.00000275
+            output_cost_per_token: 0.0000275
+            output_cost_per_token_batches: 0.00001375
+            region: ap-southeast-4
+          - cache_creation_input_token_cost: 0.000006875
+            cache_read_input_token_cost: 5.5e-7
+            input_cost_per_token: 0.0000055
+            input_cost_per_token_batches: 0.00000275
+            output_cost_per_token: 0.0000275
+            output_cost_per_token_batches: 0.00001375
+            region: ap-southeast-2
 provisioning: serverless
 removeParams:
     - "n"

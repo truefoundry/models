@@ -23,6 +23,13 @@ model: mistral-medium-latest
 params:
     - defaultValue: 0.3
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_token: 4e-7
+            input_cost_per_token_batches: 2e-7
+            output_cost_per_token: 0.000002
+            output_cost_per_token_batches: 0.000001
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/mistral-medium-3-1-25-08

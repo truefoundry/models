@@ -18,6 +18,11 @@ model: deepseek-r1-distill-llama-70b:free
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/deepseek/deepseek-r1-distill-llama-70b:free/api
 status: deprecated

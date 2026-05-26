@@ -16,3 +16,10 @@ modalities:
         - image
 mode: chat
 model: us-gov.anthropic.claude-3-5-sonnet-20240620-v1:0
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000003
+            input_cost_per_token_batches: 0.0000018
+            output_cost_per_token: 0.000018
+            output_cost_per_token_batches: 0.000009
+            region: us-gov-east-1

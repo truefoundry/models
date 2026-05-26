@@ -21,6 +21,11 @@ model: mistral-nemo
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-8
+            output_cost_per_token: 4e-8
+            region: "*"
 sources:
     - https://openrouter.ai/mistralai/mistral-nemo/api
 status: deprecated

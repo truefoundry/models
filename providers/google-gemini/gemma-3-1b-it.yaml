@@ -22,6 +22,13 @@ model: gemma-3-1b-it
 params:
     - key: max_tokens
       maxValue: 8192
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 0
+            cache_read_input_token_cost: 0
+            input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/core

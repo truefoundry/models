@@ -20,6 +20,12 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-5.4-image-2
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 2e-6
+            input_cost_per_token: 8e-6
+            output_cost_per_token: 1.5e-5
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5.4-image-2

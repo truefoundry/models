@@ -9,6 +9,12 @@ limits:
     output_vector_size: 3072
 mode: embedding
 model: gemini-embedding-001
+pricing:
+    - standard:
+          - input_cost_per_token: 1.5e-7
+            input_cost_per_token_batches: 7.5e-8
+            output_cost_per_token: 0
+            region: "*"
 removeParams:
     - temperature
     - top_p

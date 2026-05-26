@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: zai-org/GLM-4.5-Air-FP8
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-7
+            output_cost_per_token: 0.0000011
+            region: "*"
 sources:
     - https://www.together.ai/models/glm-4-5-air
     - https://docs.together.ai/docs/function-calling

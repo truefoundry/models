@@ -11,6 +11,10 @@ modalities:
         - embedding
 mode: embedding
 model: BAAI/bge-large-en-v1.5
+pricing:
+    - standard:
+          - input_cost_per_token: 1e-8
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

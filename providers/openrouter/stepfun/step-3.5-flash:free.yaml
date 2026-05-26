@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: stepfun/step-3.5-flash:free
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/stepfun/step-3.5-flash:free/api
     - https://openrouter.ai/stepfun/step-3.5-flash/api

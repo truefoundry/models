@@ -104,6 +104,92 @@ model: google/gemini-2.5-flash-image
 params:
     - key: max_tokens
       maxValue: 32768
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: us-west4
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: us-west1
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: us-south1
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: us-east5
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: us-east4
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: us-east1
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: us-central1
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: global
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: europe-west8
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: europe-west4
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: europe-west1
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: europe-southwest1
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: europe-north1
+          - input_cost_per_token: 3e-7
+            input_cost_per_token_batches: 1.5e-7
+            output_cost_per_image_token: 0.00003
+            output_cost_per_token: 0.0000025
+            output_cost_per_token_batches: 0.00000125
+            region: europe-central2
 provisioning: serverless
 removeParams:
     - tool_choice

@@ -16,6 +16,11 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-sonnet-4-6
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-6
+            output_cost_per_token: 1.5e-5
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/anthropic/claude-sonnet-4-6

@@ -8,6 +8,10 @@ modalities:
         - text
 mode: moderation
 model: google/content-moderation
+pricing:
+    - standard:
+          - input_cost_per_image: 0.0015
+            region: global
 provisioning: serverless
 removeParams:
     - max_tokens

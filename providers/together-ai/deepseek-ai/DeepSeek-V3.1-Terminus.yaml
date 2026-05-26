@@ -14,6 +14,11 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V3.1-Terminus
+pricing:
+    - standard:
+          - input_cost_per_token: 6e-7
+            output_cost_per_token: 0.0000017
+            region: "*"
 provisioning: provisioned
 sources:
     - https://huggingface.co/deepseek-ai/DeepSeek-V3.1-Terminus

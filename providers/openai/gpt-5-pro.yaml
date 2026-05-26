@@ -25,6 +25,13 @@ params:
       key: max_completion_tokens
       maxValue: 272000
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000015
+            input_cost_per_token_batches: 0.000015
+            output_cost_per_token: 0.00012
+            output_cost_per_token_batches: 0.00012
+            region: "*"
 provisioning: serverless
 removeParams:
     - temperature

@@ -14,6 +14,11 @@ modalities:
         - text
 mode: chat
 model: microsoft/phi-4-multimodal-instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/microsoft/phi-4-multimodal-instruct/api
 status: deprecated

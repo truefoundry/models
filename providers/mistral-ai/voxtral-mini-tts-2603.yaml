@@ -15,6 +15,10 @@ model: voxtral-mini-tts-2603
 params:
     - defaultValue: 0.3
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_character: 0.000016
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

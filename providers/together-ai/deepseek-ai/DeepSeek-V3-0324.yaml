@@ -18,6 +18,11 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V3-0324
+pricing:
+    - standard:
+          - input_cost_per_token: 1.25e-6
+            output_cost_per_token: 1.25e-6
+            region: "*"
 provisioning: provisioned
 sources:
     - https://www.together.ai/models/deepseek-v3

@@ -12,6 +12,10 @@ modalities:
         - image
 mode: image
 model: grok-imagine-image-2026-03-02
+pricing:
+    - standard:
+          - input_cost_per_image: 0.02
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

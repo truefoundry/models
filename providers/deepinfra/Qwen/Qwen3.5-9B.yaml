@@ -20,6 +20,11 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3.5-9B
+pricing:
+    - standard:
+          - input_cost_per_token: 4e-8
+            output_cost_per_token: 2e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3.5-9B

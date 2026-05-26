@@ -9,5 +9,10 @@ limits:
     max_tokens: 4096
 mode: completion
 model: j2-ultra
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000015
+            output_cost_per_token: 0.000015
+            region: "*"
 removeParams:
     - stream

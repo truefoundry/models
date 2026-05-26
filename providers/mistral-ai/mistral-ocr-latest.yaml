@@ -20,6 +20,11 @@ model: mistral-ocr-latest
 params:
     - defaultValue: 0
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_annotated_page: 0.003
+            input_cost_per_page: 0.002
+            region: "*"
 sources:
     - https://docs.mistral.ai/models/ocr-3-25-12
     - https://docs.mistral.ai/capabilities/document_ai/basic_ocr

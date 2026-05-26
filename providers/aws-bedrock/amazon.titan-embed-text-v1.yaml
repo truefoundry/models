@@ -22,6 +22,20 @@ modalities:
         - embedding
 mode: embedding
 model: amazon.titan-embed-text-v1
+pricing:
+    - standard:
+          - input_cost_per_token: 1e-7
+            region: us-west-2
+          - input_cost_per_token: 1e-7
+            region: us-east-1
+          - input_cost_per_token: 1e-7
+            region: eu-west-1
+          - input_cost_per_token: 2e-7
+            region: eu-central-1
+          - input_cost_per_token: 1.2e-7
+            region: ap-south-1
+          - input_cost_per_token: 2e-7
+            region: ap-northeast-1
 provisioning: serverless
 removeParams:
     - max_tokens

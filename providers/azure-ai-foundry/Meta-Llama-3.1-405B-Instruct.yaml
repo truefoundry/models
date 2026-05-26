@@ -10,5 +10,10 @@ limits:
     max_tokens: 4096
 mode: chat
 model: Meta-Llama-3.1-405B-Instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00000533
+            output_cost_per_token: 0.000016
+            region: "*"
 supportedModes:
     - chat

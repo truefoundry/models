@@ -16,6 +16,12 @@ model: voxtral-small-2507
 params:
     - defaultValue: 0.2
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_second: 0.0000666667
+            input_cost_per_token: 1e-7
+            output_cost_per_token: 3e-7
+            region: "*"
 sources:
     - https://docs.mistral.ai/models/voxtral-small-25-07
 status: active

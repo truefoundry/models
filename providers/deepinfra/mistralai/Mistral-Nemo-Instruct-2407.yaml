@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: mistralai/Mistral-Nemo-Instruct-2407
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-8
+            output_cost_per_token: 4e-8
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/mistralai/Mistral-Nemo-Instruct-2407

@@ -8,6 +8,10 @@ modalities:
         - text
 mode: audio_transcription
 model: deepgram/flux
+pricing:
+    - standard:
+          - input_cost_per_second: 0.00012833333333333333
+            region: "*"
 provisioning: provisioned
 sources:
     - https://docs.together.ai/docs/speech-to-text

@@ -22,6 +22,12 @@ model: gpt-4o-mini
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 7.5e-8
+            input_cost_per_token: 1.5e-7
+            output_cost_per_token: 6e-7
+            region: "*"
 sources:
     - https://openrouter.ai/openai/gpt-4o-mini/api
 status: deprecated

@@ -40,6 +40,30 @@ params:
       key: max_tokens
       maxValue: 16000
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_token: 4.5e-7
+            output_cost_per_token: 0.0000018
+            region: us-west-2
+          - input_cost_per_token: 4.5e-7
+            output_cost_per_token: 0.0000018
+            region: us-east-2
+          - input_cost_per_token: 7e-7
+            output_cost_per_token: 0.00000279
+            region: eu-west-2
+          - input_cost_per_token: 4.5e-7
+            output_cost_per_token: 0.0000018
+            region: eu-north-1
+          - input_cost_per_token: 4.7e-7
+            output_cost_per_token: 0.00000187
+            region: ap-southeast-3
+          - region: ap-southeast-2
+          - input_cost_per_token: 5.3e-7
+            output_cost_per_token: 0.00000212
+            region: ap-south-1
+          - input_cost_per_token: 5.4e-7
+            output_cost_per_token: 0.00000218
+            region: ap-northeast-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-480b-a35b-instruct.html

@@ -27,6 +27,12 @@ params:
       key: max_completion_tokens
       maxValue: 65536
       minValue: 1
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 0.0000015
+            input_cost_per_token: 0.000003
+            output_cost_per_token: 0.000012
+            region: "*"
 removeParams:
     - temperature
     - top_p

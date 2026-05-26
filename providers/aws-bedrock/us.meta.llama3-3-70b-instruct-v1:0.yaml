@@ -28,6 +28,23 @@ modalities:
         - text
 mode: chat
 model: us.meta.llama3-3-70b-instruct-v1:0
+pricing:
+    - standard:
+          - input_cost_per_token: 7.2e-7
+            input_cost_per_token_batches: 3.6e-7
+            output_cost_per_token: 7.2e-7
+            output_cost_per_token_batches: 3.6e-7
+            region: us-west-2
+          - input_cost_per_token: 7.2e-7
+            input_cost_per_token_batches: 3.6e-7
+            output_cost_per_token: 7.2e-7
+            output_cost_per_token_batches: 3.6e-7
+            region: us-east-2
+          - input_cost_per_token: 7.2e-7
+            input_cost_per_token_batches: 3.6e-7
+            output_cost_per_token: 7.2e-7
+            output_cost_per_token_batches: 3.6e-7
+            region: us-east-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-3-70b-instruct.html

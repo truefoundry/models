@@ -9,6 +9,11 @@ modalities:
         - video
 mode: video
 model: google/veo-3.1
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0 # not found in official docs
+            output_cost_per_token: 0.0 # not found in official docs
+            region: "*"
 provisioning: serverless
 supportedModes:
     - video

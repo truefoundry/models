@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: google/gemma-4-31B-it-turbo
+pricing:
+    - standard:
+          - input_cost_per_token: 1.2e-7
+            output_cost_per_token: 3.7e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/google/gemma-4-31B-it-turbo

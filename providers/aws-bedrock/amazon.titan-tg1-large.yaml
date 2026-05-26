@@ -29,6 +29,14 @@ params:
       minValue: 1
     - defaultValue: 0.7
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-7
+            output_cost_per_token: 4e-7
+            region: us-west-2
+          - input_cost_per_token: 3e-7
+            output_cost_per_token: 4e-7
+            region: us-east-1
 provisioning: serverless
 removeParams:
     - "n"

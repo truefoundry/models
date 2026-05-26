@@ -41,6 +41,26 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_token: 4.84e-7
+            output_cost_per_token: 0.000004059
+            region: eu-west-3
+          - input_cost_per_token: 3.74e-7
+            output_cost_per_token: 0.000003157
+            region: eu-west-1
+          - input_cost_per_token: 3.63e-7
+            output_cost_per_token: 0.000003205
+            region: eu-south-2
+          - input_cost_per_token: 5.28e-7
+            output_cost_per_token: 0.000004411
+            region: eu-south-1
+          - input_cost_per_token: 3.63e-7
+            output_cost_per_token: 0.000002992
+            region: eu-north-1
+          - input_cost_per_token: 4.29e-7
+            output_cost_per_token: 0.000003597
+            region: eu-central-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html

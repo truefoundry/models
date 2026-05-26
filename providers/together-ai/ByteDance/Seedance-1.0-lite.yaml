@@ -9,6 +9,10 @@ modalities:
         - video
 mode: video
 model: ByteDance/Seedance-1.0-lite
+pricing:
+    - standard:
+          - input_cost_per_request: 0.14
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/serverless-models

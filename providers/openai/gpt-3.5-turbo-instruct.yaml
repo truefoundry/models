@@ -16,6 +16,11 @@ modalities:
         - text
 mode: responses
 model: gpt-3.5-turbo-instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0000015
+            output_cost_per_token: 0.000002
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -25,3 +25,12 @@ model: claude-3-opus-20240229
 params:
     - key: max_tokens
       maxValue: 4096
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 0.00001875
+            cache_read_input_token_cost: 0.0000015
+            input_cost_per_token: 0.000015
+            input_cost_per_token_batches: 0.0000075
+            output_cost_per_token: 0.000075
+            output_cost_per_token_batches: 0.0000375
+            region: "*"

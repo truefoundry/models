@@ -8,6 +8,10 @@ modalities:
         - text
 mode: image
 model: google/product-recognizer
+pricing:
+    - standard:
+          - input_cost_per_image: 0.000025
+            region: us-central1
 removeParams:
     - max_tokens
     - temperature

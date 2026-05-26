@@ -20,6 +20,11 @@ model: llama-4-scout
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - input_cost_per_token: 8e-8
+            output_cost_per_token: 3e-7
+            region: "*"
 sources:
     - https://openrouter.ai/meta-llama/llama-4-scout/api
 status: deprecated

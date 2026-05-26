@@ -18,6 +18,11 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3.5-122B-A10B
+pricing:
+    - standard:
+          - input_cost_per_token: 2.9e-7
+            output_cost_per_token: 0.0000024
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3.5-122B-A10B

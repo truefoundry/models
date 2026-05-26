@@ -8,6 +8,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: Qwen/Qwen3-TTS-VoiceDesign
+pricing:
+    - standard:
+          - input_cost_per_character: 0.00002
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3-TTS-VoiceDesign

@@ -15,6 +15,13 @@ modalities:
         - text
 mode: chat
 model: grok-3-mini-fast-high
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 2e-7
+            input_cost_per_image_token: 1.25e-6
+            input_cost_per_token: 1.25e-6
+            output_cost_per_token: 2.5e-6
+            region: "*"
 sources:
     - https://docs.x.ai/developers/models/grok-3-mini-fast
 status: active

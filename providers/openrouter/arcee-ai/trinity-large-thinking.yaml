@@ -24,6 +24,12 @@ params:
       key: temperature
     - defaultValue: 0.8
       key: top_p
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 6e-8
+            input_cost_per_token: 2.2e-7
+            output_cost_per_token: 8.5e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/arcee-ai/trinity-large-thinking/api

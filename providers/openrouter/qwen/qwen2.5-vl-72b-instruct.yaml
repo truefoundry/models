@@ -22,6 +22,11 @@ params:
       minValue: 0
     - key: seed
       type: number
+pricing:
+    - standard:
+          - input_cost_per_token: 2.5e-7
+            output_cost_per_token: 7.5e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen2.5-vl-72b-instruct/api

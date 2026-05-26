@@ -15,6 +15,10 @@ model: voxtral-mini-realtime-latest
 params:
     - defaultValue: 0
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_second: 0.0001
+            region: "*"
 provisioning: serverless
 removeParams:
     - top_p

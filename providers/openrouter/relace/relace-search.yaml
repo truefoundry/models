@@ -20,6 +20,11 @@ params:
     - defaultValue: 128
       key: max_tokens
       maxValue: 128000
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000001
+            output_cost_per_token: 0.000003
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/relace/relace-search/api

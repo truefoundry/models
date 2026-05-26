@@ -12,6 +12,11 @@ modalities:
         - video
 mode: video
 model: Wan-AI/wan2.7-i2v
+pricing:
+    - standard:
+          - input_cost_per_token: 0 # not found in official docs — Together AI pricing page does not list Wan 2.7 I2V
+            output_cost_per_token: 0 # not found in official docs
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/wan2.7-quickstart

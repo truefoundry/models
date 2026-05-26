@@ -10,6 +10,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: tts-1-1106
+pricing:
+    - standard:
+          - input_cost_per_character: 0.000015
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

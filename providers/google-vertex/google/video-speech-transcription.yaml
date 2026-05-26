@@ -9,6 +9,10 @@ modalities:
         - text
 mode: audio_transcription
 model: google/video-speech-transcription
+pricing:
+    - standard:
+          - input_cost_per_second: 0.0008
+            region: global
 provisioning: serverless
 removeParams:
     - max_tokens

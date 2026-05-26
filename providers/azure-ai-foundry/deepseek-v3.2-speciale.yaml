@@ -13,5 +13,10 @@ limits:
     max_tokens: 163840
 mode: chat
 model: deepseek-v3.2-speciale
+pricing:
+    - standard:
+          - input_cost_per_token: 5.8e-7
+            output_cost_per_token: 0.00000168
+            region: "*"
 supportedModes:
     - chat

@@ -53,6 +53,28 @@ params:
       key: verbosity
     - defaultValue: null
       key: reasoning
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 2.5e-7
+            output_cost_per_token: 0.000002
+            region: global
+          - cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 2.8e-7
+            output_cost_per_token: 0.0000022
+            region: datazone_us
+          - cache_read_input_token_cost: 3e-8
+            input_cost_per_token: 2.8e-7
+            output_cost_per_token: 0.0000022
+            region: datazone_us
+          - cache_read_input_token_cost: 2.75e-8
+            input_cost_per_token: 2.75e-7
+            output_cost_per_token: 0.0000022
+            region: datazone_eu
+          - cache_read_input_token_cost: 2.5e-8
+            input_cost_per_token: 2.5e-7
+            output_cost_per_token: 0.000002
+            region: "*"
 provisioning: serverless
 removeParams:
     - temperature

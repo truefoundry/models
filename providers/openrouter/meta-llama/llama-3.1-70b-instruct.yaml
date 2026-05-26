@@ -16,6 +16,11 @@ modalities:
         - text
 mode: chat
 model: meta-llama/llama-3.1-70b-instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 4e-7
+            output_cost_per_token: 4e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-3.1-70b-instruct

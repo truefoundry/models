@@ -23,6 +23,11 @@ model: gpt-4-turbo
 params:
     - key: max_tokens
       maxValue: 4096
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00001
+            output_cost_per_token: 0.00003
+            region: "*"
 sources:
     - https://openrouter.ai/openai/gpt-4-turbo/api
 status: deprecated

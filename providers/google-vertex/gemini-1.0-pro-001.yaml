@@ -15,3 +15,10 @@ limits:
     max_tokens: 8192
 mode: chat
 model: gemini-1.0-pro-001
+pricing:
+    - standard:
+          - input_cost_per_character: 1.25e-7
+            input_cost_per_image: 0.0025
+            input_cost_per_token: 5e-7
+            output_cost_per_token: 0.0000015
+            region: "*"

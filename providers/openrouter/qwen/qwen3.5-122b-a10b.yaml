@@ -21,6 +21,11 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3.5-122b-a10b
+pricing:
+    - standard:
+          - input_cost_per_token: 2.6e-7
+            output_cost_per_token: 0.00000208
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.5-122b-a10b

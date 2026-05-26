@@ -13,5 +13,10 @@ limits:
     max_tokens: 4096
 mode: chat
 model: gpt-35-turbo-16k-0613
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000003
+            output_cost_per_token: 0.000004
+            region: "*"
 supportedModes:
     - chat

@@ -3,6 +3,10 @@ costs:
       region: "*"
 mode: chat
 model: container
+pricing:
+    - standard:
+          - input_cost_per_request: 0.03
+            region: "*"
 provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/code-interpreter

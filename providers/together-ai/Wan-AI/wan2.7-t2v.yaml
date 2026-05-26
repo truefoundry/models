@@ -9,6 +9,10 @@ modalities:
         - video
 mode: video
 model: Wan-AI/wan2.7-t2v
+pricing:
+    - standard:
+          - input_cost_per_request: 0.1
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/wan-27

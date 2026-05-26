@@ -20,6 +20,11 @@ params:
       key: temperature
     - defaultValue: 0.9
       key: top_p
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0
+            output_cost_per_token: 0.0
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/poolside/laguna-xs.2:free

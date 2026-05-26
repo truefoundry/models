@@ -20,6 +20,11 @@ model: claude-3-sonnet
 params:
     - key: max_tokens
       maxValue: 4096
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000003
+            output_cost_per_token: 0.000015
+            region: "*"
 sources:
     - https://openrouter.ai/anthropic/claude-3-sonnet/api
 status: deprecated

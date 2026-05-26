@@ -15,3 +15,10 @@ modalities:
         - image
 mode: chat
 model: us-gov.anthropic.claude-3-7-sonnet-20250219-v1:0
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 0.0000045
+            cache_read_input_token_cost: 3.6e-7
+            input_cost_per_token: 0.0000036
+            output_cost_per_token: 0.000018
+            region: us-gov-east-1

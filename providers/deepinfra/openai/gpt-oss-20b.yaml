@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-oss-20b
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-8
+            output_cost_per_token: 1.4e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/openai/gpt-oss-20b

@@ -15,6 +15,12 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-4o-transcribe-2025-03-20
+pricing:
+    - standard:
+          - input_cost_per_audio_token: 0.000006
+            input_cost_per_token: 0.0000025
+            output_cost_per_token: 0.00001
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

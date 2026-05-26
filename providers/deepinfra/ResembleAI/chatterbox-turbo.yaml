@@ -8,6 +8,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: ResembleAI/chatterbox-turbo
+pricing:
+    - standard:
+          - input_cost_per_character: 0.000001
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/ResembleAI/chatterbox-turbo

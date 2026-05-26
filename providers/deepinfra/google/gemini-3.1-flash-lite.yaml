@@ -16,6 +16,11 @@ modalities:
         - text
 mode: chat
 model: google/gemini-3.1-flash-lite
+pricing:
+    - standard:
+          - input_cost_per_token: 2.5e-7
+            output_cost_per_token: 1.5e-6
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/google/gemini-3.1-flash-lite

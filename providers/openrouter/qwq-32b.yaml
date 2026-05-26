@@ -16,6 +16,11 @@ modalities:
         - text
 mode: chat
 model: qwq-32b
+pricing:
+    - standard:
+          - input_cost_per_token: 1.5e-7
+            output_cost_per_token: 5.8e-7
+            region: "*"
 sources:
     - https://openrouter.ai/qwen/qwq-32b/api
 status: deprecated

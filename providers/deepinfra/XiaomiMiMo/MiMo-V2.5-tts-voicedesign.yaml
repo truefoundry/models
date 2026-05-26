@@ -8,6 +8,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: XiaomiMiMo/MiMo-V2.5-tts-voicedesign
+pricing:
+    - standard:
+          - input_cost_per_character: 0
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/XiaomiMiMo/MiMo-V2.5-tts-voicedesign

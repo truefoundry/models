@@ -8,6 +8,10 @@ modalities:
         - text
 mode: unknown
 model: google/language-v1-analyze-entity-sentiment
+pricing:
+    - standard:
+          - input_cost_per_character: 0.000002
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

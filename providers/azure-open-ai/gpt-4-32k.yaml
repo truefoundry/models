@@ -14,5 +14,10 @@ model: gpt-4-32k
 params:
     - key: max_tokens
       maxValue: 32768
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00006
+            output_cost_per_token: 0.00012
+            region: "*"
 supportedModes:
     - chat

@@ -9,6 +9,10 @@ modalities:
         - image
 mode: image
 model: google/imagen-4.0-ultra
+pricing:
+    - standard:
+          - output_cost_per_image: 0.06
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/pricing

@@ -38,6 +38,15 @@ params:
       key: max_tokens
       maxValue: 8192
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_audio_token: 0.000001
+            input_cost_per_token: 1.5e-7
+            input_cost_per_token_batches: 7.5e-8
+            input_cost_per_video_token: 0.000003
+            output_cost_per_token: 6e-7
+            output_cost_per_token_batches: 3e-7
+            region: global
 provisioning: serverless
 sources:
     - https://firebase.google.com/docs/ai-logic/models

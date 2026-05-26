@@ -35,6 +35,19 @@ params:
       minValue: 1
     - key: reasoning_effort
       type: string
+pricing:
+    - standard:
+          - input_cost_per_token: 1e-7
+            output_cost_per_token: 4e-7
+            region: "*"
+            tiered_pricing:
+                input:
+                    - cost_per_token: 2e-7
+                      from: 128000
+                output:
+                    - cost_per_token: 8e-7
+                      from: 128000
+                pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/bytedance-seed/seed-2.0-mini/api

@@ -21,6 +21,12 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3.6-flash
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 3.125e-7
+            input_cost_per_token: 2.5e-7
+            output_cost_per_token: 1.5e-6
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.6-flash

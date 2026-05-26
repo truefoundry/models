@@ -36,6 +36,29 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3-Max
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 2.4e-7
+            input_cost_per_token: 0.0000012
+            output_cost_per_token: 0.000006
+            region: "*"
+            tiered_pricing:
+                cache_read:
+                    - cost_per_token: 4.8e-7
+                      from: 32000
+                    - cost_per_token: 6e-7
+                      from: 128000
+                input:
+                    - cost_per_token: 0.0000024
+                      from: 32000
+                    - cost_per_token: 0.000003
+                      from: 128000
+                output:
+                    - cost_per_token: 0.000012
+                      from: 32000
+                    - cost_per_token: 0.000015
+                      from: 128000
+                pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3-Max

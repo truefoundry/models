@@ -9,6 +9,10 @@ modalities:
         - video
 mode: video
 model: openai/sora-2-pro
+pricing:
+    - standard:
+          - input_cost_per_request: 3.0
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/sora-2-pro

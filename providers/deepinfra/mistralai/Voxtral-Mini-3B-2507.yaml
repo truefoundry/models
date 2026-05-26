@@ -11,6 +11,10 @@ modalities:
         - text
 mode: audio_transcription
 model: mistralai/Voxtral-Mini-3B-2507
+pricing:
+    - standard:
+          - input_cost_per_second: 0.0000166666666666667
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/mistralai/Voxtral-Mini-3B-2507

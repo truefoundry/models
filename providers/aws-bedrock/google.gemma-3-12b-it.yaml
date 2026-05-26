@@ -50,6 +50,38 @@ params:
       key: max_tokens
       maxValue: 8192
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_token: 9e-8
+            output_cost_per_token: 2.9e-7
+            region: us-west-2
+          - input_cost_per_token: 9e-8
+            output_cost_per_token: 2.9e-7
+            region: us-east-2
+          - input_cost_per_token: 9e-8
+            output_cost_per_token: 2.9e-7
+            region: us-east-1
+          - input_cost_per_token: 1.1e-7
+            output_cost_per_token: 3.5e-7
+            region: sa-east-1
+          - input_cost_per_token: 1.4e-7
+            output_cost_per_token: 4.5e-7
+            region: eu-west-2
+          - input_cost_per_token: 1.1e-7
+            output_cost_per_token: 3.4e-7
+            region: eu-west-1
+          - input_cost_per_token: 1.1e-7
+            output_cost_per_token: 3.4e-7
+            region: eu-south-1
+          - input_cost_per_token: 9.27e-8
+            output_cost_per_token: 2.987e-7
+            region: ap-southeast-2
+          - input_cost_per_token: 1.1e-7
+            output_cost_per_token: 3.4e-7
+            region: ap-south-1
+          - input_cost_per_token: 1.1e-7
+            output_cost_per_token: 3.5e-7
+            region: ap-northeast-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-google-gemma-3-12b-it.html

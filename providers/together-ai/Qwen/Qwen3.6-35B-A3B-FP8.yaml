@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen3.6-35B-A3B-FP8
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0 # not found in official docs
+            output_cost_per_token: 0.0 # not found in official docs
+            region: "*"
 provisioning: provisioned
 sources:
     - https://huggingface.co/Qwen/Qwen3.6-35B-A3B-FP8

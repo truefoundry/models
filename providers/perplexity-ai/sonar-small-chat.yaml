@@ -9,3 +9,8 @@ limits:
     max_tokens: 16384
 mode: chat
 model: sonar-small-chat
+pricing:
+    - standard:
+          - input_cost_per_token: 7e-8
+            output_cost_per_token: 2.8e-7
+            region: "*"

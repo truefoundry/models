@@ -22,6 +22,12 @@ model: o1
 params:
     - key: max_tokens
       maxValue: 100000
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 0.0000075
+            input_cost_per_token: 0.000015
+            output_cost_per_token: 0.00006
+            region: "*"
 sources:
     - https://openrouter.ai/openai/o1/api
 status: deprecated

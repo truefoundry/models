@@ -36,6 +36,21 @@ params:
     - defaultValue: high
       key: reasoning_effort
       type: string
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00003
+            input_cost_per_token_batches: 0.000015
+            output_cost_per_token: 0.00018
+            output_cost_per_token_batches: 0.00009
+            region: "*"
+            tiered_pricing:
+                input:
+                    - cost_per_token: 0.00006
+                      from: 272000
+                output:
+                    - cost_per_token: 0.00027
+                      from: 272000
+                pricing_mode: cumulative
 provisioning: serverless
 removeParams:
     - temperature

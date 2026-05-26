@@ -13,6 +13,11 @@ modalities:
         - text
 mode: chat
 model: alfredpros/codellama-7b-instruct-solidity
+pricing:
+    - standard:
+          - input_cost_per_token: 8e-7
+            output_cost_per_token: 0.0000012
+            region: "*"
 provisioning: provisioned
 sources:
     - https://openrouter.ai/alfredpros/codellama-7b-instruct-solidity

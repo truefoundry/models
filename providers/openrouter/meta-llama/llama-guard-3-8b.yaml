@@ -11,6 +11,11 @@ modalities:
         - text
 mode: moderation
 model: meta-llama/llama-guard-3-8b
+pricing:
+    - standard:
+          - input_cost_per_token: 4.8e-7
+            output_cost_per_token: 3e-8
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-guard-3-8b

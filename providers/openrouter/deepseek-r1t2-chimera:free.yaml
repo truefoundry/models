@@ -19,6 +19,12 @@ modalities:
         - text
 mode: chat
 model: deepseek-r1t2-chimera:free
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 0
+            input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/tngtech/deepseek-r1t2-chimera/api
     - https://openrouter.ai/tngtech/deepseek-r1t2-chimera:free/api

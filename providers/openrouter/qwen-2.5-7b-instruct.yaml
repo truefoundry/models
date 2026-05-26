@@ -18,6 +18,11 @@ model: qwen-2.5-7b-instruct
 params:
     - key: max_tokens
       maxValue: 32768
+pricing:
+    - standard:
+          - input_cost_per_token: 4e-8
+            output_cost_per_token: 1e-7
+            region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen-2.5-7b-instruct/api
 status: deprecated

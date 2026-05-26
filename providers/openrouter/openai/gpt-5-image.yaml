@@ -23,6 +23,13 @@ modalities:
         - image
 mode: chat
 model: openai/gpt-5-image
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 0.00000125
+            input_cost_per_token: 0.00001
+            output_cost_per_image_token: 0.00004
+            output_cost_per_token: 0.00001
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5-image/api

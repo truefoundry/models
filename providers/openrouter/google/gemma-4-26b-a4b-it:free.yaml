@@ -27,6 +27,11 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemma-4-26b-a4b-it:free

@@ -17,4 +17,9 @@ model: mistral-ocr-2505
 params:
     - defaultValue: 0
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_annotated_page: 0.003
+            input_cost_per_page: 0.001
+            region: "*"
 status: deprecated

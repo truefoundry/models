@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: nousresearch/hermes-3-llama-3.1-405b
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000001
+            output_cost_per_token: 0.000001
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/nousresearch/hermes-3-llama-3.1-405b/api

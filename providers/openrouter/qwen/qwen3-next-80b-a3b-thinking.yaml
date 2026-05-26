@@ -19,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3-next-80b-a3b-thinking
+pricing:
+    - standard:
+          - input_cost_per_token: 9.75e-8
+            output_cost_per_token: 7.8e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-next-80b-a3b-thinking/api

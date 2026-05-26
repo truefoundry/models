@@ -10,6 +10,10 @@ modalities:
         - text
 mode: rerank
 model: rerank-v4.0-pro
+pricing:
+    - standard:
+          - input_cost_per_query: 0.0025
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

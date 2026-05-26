@@ -8,6 +8,10 @@ modalities:
         - video
 mode: video
 model: aoai-sora
+pricing:
+    - standard:
+          - output_cost_per_second: 0.1
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

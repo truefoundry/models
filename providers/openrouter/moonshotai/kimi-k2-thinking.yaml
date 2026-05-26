@@ -20,6 +20,12 @@ model: moonshotai/kimi-k2-thinking
 params:
     - defaultValue: null
       key: reasoning
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 1.5e-7
+            input_cost_per_token: 6e-7
+            output_cost_per_token: 0.0000025
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/moonshotai/kimi-k2-thinking

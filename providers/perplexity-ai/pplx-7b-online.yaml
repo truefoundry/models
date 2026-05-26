@@ -12,3 +12,9 @@ model: pplx-7b-online
 params:
     - key: max_tokens
       maxValue: 4096
+pricing:
+    - standard:
+          - input_cost_per_request: 0.005
+            input_cost_per_token: 0
+            output_cost_per_token: 2.8e-7
+            region: "*"

@@ -17,6 +17,14 @@ modalities:
         - embedding
 mode: embedding
 model: text-embedding-3-small
+pricing:
+    - standard:
+          - input_cost_per_token: 2.2e-8
+            output_cost_per_token: 0
+            region: datazone_eu
+          - input_cost_per_token: 2e-8
+            output_cost_per_token: 0
+            region: "*"
 removeParams:
     - temperature
     - top_p

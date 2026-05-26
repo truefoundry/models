@@ -14,5 +14,10 @@ modalities:
         - image
 mode: chat
 model: mistral-small-2503
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000001
+            output_cost_per_token: 0.000003
+            region: "*"
 supportedModes:
     - chat

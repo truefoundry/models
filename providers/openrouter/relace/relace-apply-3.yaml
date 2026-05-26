@@ -21,6 +21,11 @@ params:
     - defaultValue: null
       key: seed
       type: number
+pricing:
+    - standard:
+          - input_cost_per_token: 8.5e-7
+            output_cost_per_token: 0.00000125
+            region: "*"
 provisioning: serverless
 removeParams:
     - temperature

@@ -19,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: meta-llama/Meta-Llama-3-8B-Instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-8
+            output_cost_per_token: 4e-8
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/meta-llama/Meta-Llama-3-8B-Instruct

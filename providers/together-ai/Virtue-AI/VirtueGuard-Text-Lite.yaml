@@ -12,6 +12,11 @@ modalities:
         - text
 mode: moderation
 model: Virtue-AI/VirtueGuard-Text-Lite
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-7
+            output_cost_per_token: 2e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/virtueguard-text-lite

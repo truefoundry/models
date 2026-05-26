@@ -12,6 +12,10 @@ modalities:
         - embedding
 mode: embedding
 model: intfloat/e5-large-v2
+pricing:
+    - standard:
+          - input_cost_per_token: 1e-8
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

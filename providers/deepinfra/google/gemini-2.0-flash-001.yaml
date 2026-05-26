@@ -11,3 +11,8 @@ limits:
     max_tokens: 1000000
 mode: chat
 model: google/gemini-2.0-flash-001
+pricing:
+    - standard:
+          - input_cost_per_token: 1e-7
+            output_cost_per_token: 4e-7
+            region: "*"

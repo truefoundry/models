@@ -12,6 +12,11 @@ modalities:
         - text
 mode: chat
 model: allenai/olmo-2-0325-32b-instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 5e-8
+            output_cost_per_token: 2e-7
+            region: "*"
 sources:
     - https://openrouter.ai/allenai/olmo-2-0325-32b-instruct/api
 status: retired

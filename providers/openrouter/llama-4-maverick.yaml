@@ -21,6 +21,11 @@ model: meta-llama/llama-4-maverick
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - input_cost_per_token: 1.5e-7
+            output_cost_per_token: 6e-7
+            region: "*"
 sources:
     - https://openrouter.ai/meta-llama/llama-4-maverick/api
 status: deprecated

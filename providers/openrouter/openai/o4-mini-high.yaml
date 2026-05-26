@@ -25,6 +25,12 @@ model: openai/o4-mini-high
 params:
     - key: max_tokens
       maxValue: 100000
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 2.75e-7
+            input_cost_per_token: 0.0000011
+            output_cost_per_token: 0.0000044
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/o4-mini-high/api

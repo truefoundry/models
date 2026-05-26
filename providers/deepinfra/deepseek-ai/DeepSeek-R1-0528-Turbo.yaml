@@ -16,6 +16,11 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-R1-0528-Turbo
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000001
+            output_cost_per_token: 0.000003
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-R1-0528-Turbo

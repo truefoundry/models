@@ -10,6 +10,12 @@ modalities:
         - text
 mode: video
 model: google/ppe-detector
+pricing:
+    - standard:
+          - input_cost_per_second: 0.00166667
+            region: us-central1
+          - input_cost_per_second: 0.00166667
+            region: europe-west4
 provisioning: serverless
 removeParams:
     - max_tokens

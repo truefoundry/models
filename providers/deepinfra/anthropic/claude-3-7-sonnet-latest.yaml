@@ -19,6 +19,12 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-3-7-sonnet-latest
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 3.3e-7
+            input_cost_per_token: 0.0000033
+            output_cost_per_token: 0.0000165
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/anthropic/claude-3-7-sonnet-latest

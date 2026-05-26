@@ -56,6 +56,47 @@ params:
       key: max_tokens
       maxValue: 8000
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_token: 1.5e-7
+            output_cost_per_token: 6e-7
+            region: us-west-2
+          - input_cost_per_token: 1.5e-7
+            output_cost_per_token: 6e-7
+            region: us-east-2
+          - input_cost_per_token: 1.5e-7
+            output_cost_per_token: 6e-7
+            region: us-east-1
+          - input_cost_per_token: 1.8e-7
+            output_cost_per_token: 7.3e-7
+            region: sa-east-1
+          - input_cost_per_token: 2.3e-7
+            output_cost_per_token: 9.3e-7
+            region: eu-west-2
+          - input_cost_per_token: 1.8e-7
+            output_cost_per_token: 7e-7
+            region: eu-west-1
+          - input_cost_per_token: 2e-7
+            output_cost_per_token: 7.9e-7
+            region: eu-south-1
+          - input_cost_per_token: 1.5e-7
+            output_cost_per_token: 6e-7
+            region: eu-north-1
+          - input_cost_per_token: 2e-7
+            output_cost_per_token: 7.9e-7
+            region: eu-central-1
+          - input_cost_per_token: 1.6e-7
+            output_cost_per_token: 6.2e-7
+            region: ap-southeast-3
+          - input_cost_per_token: 1.545e-7
+            output_cost_per_token: 6.18e-7
+            region: ap-southeast-2
+          - input_cost_per_token: 1.8e-7
+            output_cost_per_token: 7.1e-7
+            region: ap-south-1
+          - input_cost_per_token: 1.8e-7
+            output_cost_per_token: 7.3e-7
+            region: ap-northeast-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-32b.html

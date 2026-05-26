@@ -20,6 +20,13 @@ modalities:
         - audio
 mode: chat
 model: openai/gpt-audio
+pricing:
+    - standard:
+          - input_cost_per_audio_token: 0.000032
+            input_cost_per_token: 0.0000025
+            output_cost_per_audio_token: 0.000064
+            output_cost_per_token: 0.00001
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-audio

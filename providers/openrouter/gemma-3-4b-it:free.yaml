@@ -20,6 +20,11 @@ model: gemma-3-4b-it:free
 params:
     - key: max_tokens
       maxValue: 8192
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/google/gemma-3-4b-it:free/api
 status: deprecated

@@ -46,6 +46,26 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+pricing:
+    - standard:
+          - cache_creation_input_token_cost_per_hour: 0.0000045
+            cache_read_input_token_cost: 2e-7
+            input_cost_per_token: 0.000002
+            input_cost_per_token_batches: 0.000001
+            output_cost_per_token: 0.000012
+            output_cost_per_token_batches: 0.000006
+            region: "*"
+            tiered_pricing:
+                cache_read:
+                    - cost_per_token: 4e-7
+                      from: 200000
+                input:
+                    - cost_per_token: 0.000004
+                      from: 200000
+                output:
+                    - cost_per_token: 0.000018
+                      from: 200000
+                pricing_mode: cumulative
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026

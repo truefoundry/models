@@ -38,3 +38,33 @@ modalities:
         - image
 mode: chat
 model: eu.anthropic.claude-3-7-sonnet-20250219-v1:0
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 0.00000375
+            cache_read_input_token_cost: 3e-7
+            input_cost_per_token: 0.000003
+            input_cost_per_token_batches: 0.0000015
+            output_cost_per_token: 0.000015
+            output_cost_per_token_batches: 0.0000075
+            region: eu-west-3
+          - cache_creation_input_token_cost: 0.00000375
+            cache_read_input_token_cost: 3e-7
+            input_cost_per_token: 0.000003
+            input_cost_per_token_batches: 0.0000015
+            output_cost_per_token: 0.000015
+            output_cost_per_token_batches: 0.0000075
+            region: eu-west-1
+          - cache_creation_input_token_cost: 0.00000375
+            cache_read_input_token_cost: 3e-7
+            input_cost_per_token: 0.000003
+            input_cost_per_token_batches: 0.0000015
+            output_cost_per_token: 0.000015
+            output_cost_per_token_batches: 0.0000075
+            region: eu-north-1
+          - cache_creation_input_token_cost: 0.00000375
+            cache_read_input_token_cost: 3e-7
+            input_cost_per_token: 0.000003
+            input_cost_per_token_batches: 0.0000015
+            output_cost_per_token: 0.000015
+            output_cost_per_token_batches: 0.0000075
+            region: eu-central-1

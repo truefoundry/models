@@ -20,6 +20,11 @@ model: gemma-2-9b-it
 params:
     - key: max_tokens
       maxValue: 8192
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-8
+            output_cost_per_token: 9e-8
+            region: "*"
 sources:
     - https://openrouter.ai/google/gemma-2-9b-it/api
 status: deprecated

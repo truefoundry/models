@@ -10,6 +10,10 @@ modalities:
         - video
 mode: video
 model: grok-imagine-video
+pricing:
+    - standard:
+          - output_cost_per_second: 0.05
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

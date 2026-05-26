@@ -26,6 +26,12 @@ model: gpt-5.2-chat
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 1.75e-7
+            input_cost_per_token: 0.00000175
+            output_cost_per_token: 0.000014
+            region: "*"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: preview

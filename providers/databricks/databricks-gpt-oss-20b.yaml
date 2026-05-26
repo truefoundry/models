@@ -19,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-oss-20b
+pricing:
+    - standard:
+          - input_cost_per_token: 7e-8
+            output_cost_per_token: 3e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.databricks.com/product/pricing/foundation-model-serving

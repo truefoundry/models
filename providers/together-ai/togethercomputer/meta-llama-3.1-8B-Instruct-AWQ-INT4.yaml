@@ -16,6 +16,11 @@ modalities:
         - text
 mode: chat
 model: togethercomputer/meta-llama-3.1-8B-Instruct-AWQ-INT4
+pricing:
+    - standard:
+          - input_cost_per_token: 1.8e-7
+            output_cost_per_token: 1.8e-7
+            region: "*"
 provisioning: provisioned
 sources:
     - https://www.together.ai/pricing

@@ -13,3 +13,10 @@ limits:
     max_tokens: 4096
 mode: chat
 model: us.meta.llama3-1-405b-instruct-v1:0
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0000024
+            input_cost_per_token_batches: 0.0000012
+            output_cost_per_token: 0.0000024
+            output_cost_per_token_batches: 0.0000012
+            region: us-east-2

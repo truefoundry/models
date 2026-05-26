@@ -11,6 +11,10 @@ modalities:
         - audio
 mode: video
 model: google/veo-3.0-fast-generate-001
+pricing:
+    - standard:
+          - output_cost_per_second: 0.15
+            region: global
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -22,6 +22,13 @@ model: meta/llama-4-maverick-17b-128e-instruct-maas
 params:
     - key: max_tokens
       maxValue: 8192
+pricing:
+    - standard:
+          - input_cost_per_token: 3.5e-7
+            input_cost_per_token_batches: 1.75e-7
+            output_cost_per_token: 0.00000115
+            output_cost_per_token_batches: 5.75e-7
+            region: us-east5
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama/llama4-maverick

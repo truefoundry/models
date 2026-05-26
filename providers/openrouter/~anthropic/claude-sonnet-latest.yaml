@@ -21,6 +21,13 @@ modalities:
         - text
 mode: chat
 model: ~anthropic/claude-sonnet-latest
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 3.75e-6
+            cache_read_input_token_cost: 3e-7
+            input_cost_per_token: 3e-6
+            output_cost_per_token: 1.5e-5
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/~anthropic/claude-sonnet-latest

@@ -23,6 +23,11 @@ params:
       key: max_tokens
       maxValue: 131072
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-7
+            output_cost_per_token: 0.0000011
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/prime-intellect/intellect-3/api

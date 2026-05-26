@@ -28,6 +28,13 @@ params:
       key: reasoning_effort
     - defaultValue: medium
       key: verbosity
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00003
+            input_cost_per_token_batches: 0.000015
+            output_cost_per_token: 0.00018
+            output_cost_per_token_batches: 0.00009
+            region: "*"
 provisioning: serverless
 removeParams:
     - stream

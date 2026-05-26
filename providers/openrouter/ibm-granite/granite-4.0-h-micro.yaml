@@ -11,6 +11,11 @@ modalities:
         - text
 mode: chat
 model: ibm-granite/granite-4.0-h-micro
+pricing:
+    - standard:
+          - input_cost_per_token: 1.7e-8
+            output_cost_per_token: 1.1e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/ibm-granite/granite-4.0-h-micro/api

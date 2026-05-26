@@ -16,6 +16,11 @@ model: pixtral-large-latest
 params:
     - defaultValue: 0.7
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-6
+            output_cost_per_token: 6e-6
+            region: "*"
 status: deprecated
 supportedModes:
     - chat

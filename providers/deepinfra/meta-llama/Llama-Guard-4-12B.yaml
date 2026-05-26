@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: meta-llama/Llama-Guard-4-12B
+pricing:
+    - standard:
+          - input_cost_per_token: 1.8e-7
+            output_cost_per_token: 1.8e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/meta-llama/Llama-Guard-4-12B

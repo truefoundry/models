@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: gemma-2-27b-it
+pricing:
+    - standard:
+          - input_cost_per_token: 6.5e-7
+            output_cost_per_token: 6.5e-7
+            region: "*"
 sources:
     - https://openrouter.ai/google/gemma-2-27b-it/api
 status: deprecated

@@ -20,6 +20,11 @@ model: zai-org/glm-4.7
 params:
     - key: max_tokens
       maxValue: 128000
+pricing:
+    - standard:
+          - input_cost_per_token: 6e-7
+            output_cost_per_token: 0.0000022
+            region: global
 provisioning: provisioned
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-47

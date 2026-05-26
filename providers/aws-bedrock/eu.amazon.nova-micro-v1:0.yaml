@@ -58,6 +58,46 @@ params:
       key: max_tokens
       maxValue: 5000
       minValue: 1
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 1.1e-8
+            input_cost_per_token: 4.4e-8
+            input_cost_per_token_batches: 2.2e-8
+            output_cost_per_token: 1.76e-7
+            output_cost_per_token_batches: 8.8e-8
+            region: il-central-1
+          - cache_read_input_token_cost: 1.3e-8
+            input_cost_per_token: 5.2e-8
+            input_cost_per_token_batches: 2.6e-8
+            output_cost_per_token: 2.08e-7
+            output_cost_per_token_batches: 1.04e-7
+            region: eu-west-3
+          - cache_read_input_token_cost: 1e-8
+            input_cost_per_token: 4e-8
+            input_cost_per_token_batches: 2e-8
+            output_cost_per_token: 1.6e-7
+            output_cost_per_token_batches: 8e-8
+            region: eu-west-1
+          - cache_read_input_token_cost: 9.7e-9
+            input_cost_per_token: 3.9e-8
+            output_cost_per_token: 1.56e-7
+            region: eu-south-2
+          - cache_read_input_token_cost: 1.4e-8
+            input_cost_per_token: 5.6e-8
+            output_cost_per_token: 2.24e-7
+            region: eu-south-1
+          - cache_read_input_token_cost: 9.5e-9
+            input_cost_per_token: 3.8e-8
+            input_cost_per_token_batches: 1.9e-8
+            output_cost_per_token: 1.52e-7
+            output_cost_per_token_batches: 7.6e-8
+            region: eu-north-1
+          - cache_read_input_token_cost: 1.15e-8
+            input_cost_per_token: 4.6e-8
+            input_cost_per_token_batches: 2.3e-8
+            output_cost_per_token: 1.84e-7
+            output_cost_per_token_batches: 9.2e-8
+            region: eu-central-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html

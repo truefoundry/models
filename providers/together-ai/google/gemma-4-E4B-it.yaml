@@ -17,6 +17,12 @@ modalities:
         - text
 mode: chat
 model: google/gemma-4-E4B-it
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 0.0
+            input_cost_per_token: 0.0
+            output_cost_per_token: 0.0
+            region: "*"
 provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/core/model_card_4

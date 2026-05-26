@@ -10,3 +10,9 @@ limits:
     max_tokens: 12000
 mode: chat
 model: sonar-medium-online
+pricing:
+    - standard:
+          - input_cost_per_request: 0.005
+            input_cost_per_token: 0
+            output_cost_per_token: 0.0000018
+            region: "*"

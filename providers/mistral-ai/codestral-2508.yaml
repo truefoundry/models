@@ -23,6 +23,11 @@ model: codestral-2508
 params:
     - defaultValue: 0.3
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-7
+            output_cost_per_token: 9e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/codestral-25-08

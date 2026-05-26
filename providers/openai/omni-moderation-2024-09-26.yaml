@@ -10,6 +10,11 @@ modalities:
         - text
 mode: moderation
 model: omni-moderation-2024-09-26
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

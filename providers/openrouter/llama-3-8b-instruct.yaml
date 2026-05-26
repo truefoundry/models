@@ -22,6 +22,11 @@ model: llama-3-8b-instruct
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - input_cost_per_token: 3e-8
+            output_cost_per_token: 4e-8
+            region: "*"
 sources:
     - https://openrouter.ai/meta-llama/llama-3-8b-instruct/api
 status: deprecated

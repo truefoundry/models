@@ -20,6 +20,11 @@ model: mistral-vibe-cli-latest
 params:
     - defaultValue: 0.2
       key: temperature
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0000015
+            output_cost_per_token: 0.0000075
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/mistral-vibe/introduction

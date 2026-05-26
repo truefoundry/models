@@ -10,5 +10,10 @@ limits:
     max_tokens: 4096
 mode: chat
 model: Phi-4-mini-instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 7.5e-8
+            output_cost_per_token: 3e-7
+            region: "*"
 supportedModes:
     - chat

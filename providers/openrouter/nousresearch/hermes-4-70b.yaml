@@ -16,6 +16,11 @@ model: nousresearch/hermes-4-70b
 params:
     - key: reasoning
       type: json
+pricing:
+    - standard:
+          - input_cost_per_token: 1.3e-7
+            output_cost_per_token: 4e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/nousresearch/hermes-4-70b/api

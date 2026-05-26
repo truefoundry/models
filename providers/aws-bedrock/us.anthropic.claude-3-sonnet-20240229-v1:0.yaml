@@ -24,3 +24,15 @@ model: us.anthropic.claude-3-sonnet-20240229-v1:0
 params:
     - defaultValue: null
       key: tool_choice
+pricing:
+    - standard:
+          - input_cost_per_token: 0.000003
+            input_cost_per_token_batches: 0.0000015
+            output_cost_per_token: 0.000015
+            output_cost_per_token_batches: 0.0000075
+            region: us-west-2
+          - input_cost_per_token: 0.000003
+            input_cost_per_token_batches: 0.0000015
+            output_cost_per_token: 0.000015
+            output_cost_per_token_batches: 0.0000075
+            region: us-east-1

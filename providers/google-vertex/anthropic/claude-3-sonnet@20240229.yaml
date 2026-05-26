@@ -18,3 +18,10 @@ modalities:
         - image
 mode: chat
 model: anthropic/claude-3-sonnet@20240229
+pricing:
+    - standard:
+          - cache_creation_input_token_cost: 0.00000375
+            cache_read_input_token_cost: 3e-7
+            input_cost_per_token: 0.000003
+            output_cost_per_token: 0.000015
+            region: "*"

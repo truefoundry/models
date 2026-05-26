@@ -22,6 +22,12 @@ model: mistral-small-3.1-24b-instruct
 params:
     - key: max_tokens
       maxValue: 131072
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 1.5e-8
+            input_cost_per_token: 3e-8
+            output_cost_per_token: 1.1e-7
+            region: "*"
 sources:
     - https://openrouter.ai/mistralai/mistral-small-3.1-24b-instruct/api
 status: deprecated

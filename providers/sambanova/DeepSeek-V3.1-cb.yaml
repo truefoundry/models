@@ -25,6 +25,11 @@ modalities:
         - text
 mode: chat
 model: DeepSeek-V3.1-cb
+pricing:
+    - standard:
+          - input_cost_per_token: 1.5e-7
+            output_cost_per_token: 7.5e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.sambanova.ai/docs/api-reference/chat-completions/create-chat-based-completion

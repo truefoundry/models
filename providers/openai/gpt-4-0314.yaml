@@ -15,3 +15,8 @@ model: gpt-4-0314
 params:
     - key: max_tokens
       maxValue: 8192
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00003
+            output_cost_per_token: 0.00006
+            region: "*"

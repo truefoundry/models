@@ -22,6 +22,12 @@ params:
       key: max_tokens
       maxValue: 8000
       minValue: 1
+pricing:
+    - standard:
+          - input_cost_per_request: 0.018
+            input_cost_per_token: 0.000003
+            output_cost_per_token: 0.000015
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/perplexity/sonar-pro-search/api

@@ -19,6 +19,12 @@ modalities:
         - text
 mode: chat
 model: moonshotai/Kimi-K2.6
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 2e-7
+            input_cost_per_token: 1.2e-6
+            output_cost_per_token: 4.5e-6
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/kimi-k26

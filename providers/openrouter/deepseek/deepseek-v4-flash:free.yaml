@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: deepseek/deepseek-v4-flash:free
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0
+            output_cost_per_token: 0.0
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-v4-flash:free

@@ -16,6 +16,11 @@ modalities:
         - text
 mode: chat
 model: qwen3-14b
+pricing:
+    - standard:
+          - input_cost_per_token: 6e-8
+            output_cost_per_token: 2.4e-7
+            region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen3-14b/api
 status: deprecated

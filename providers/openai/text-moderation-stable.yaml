@@ -9,3 +9,8 @@ limits:
     max_tokens: 4096
 mode: moderation
 model: text-moderation-stable
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"

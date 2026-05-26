@@ -24,6 +24,12 @@ model: zai-org/glm-5-maas
 params:
     - key: max_tokens
       maxValue: 128000
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 1e-7
+            input_cost_per_token: 0.000001
+            output_cost_per_token: 0.0000032
+            region: global
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-5

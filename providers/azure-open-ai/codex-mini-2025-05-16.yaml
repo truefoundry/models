@@ -31,6 +31,12 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 3.75e-7
+            input_cost_per_token: 0.0000015
+            output_cost_per_token: 0.000006
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

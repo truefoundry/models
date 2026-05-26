@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: qwen3-235b-a22b-2507
+pricing:
+    - standard:
+          - input_cost_per_token: 7.1e-8
+            output_cost_per_token: 1e-7
+            region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen3-235b-a22b-2507/api
 status: deprecated

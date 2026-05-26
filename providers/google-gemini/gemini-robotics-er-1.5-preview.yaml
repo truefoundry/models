@@ -27,6 +27,12 @@ model: gemini-robotics-er-1.5-preview
 params:
     - key: max_tokens
       maxValue: 65536
+pricing:
+    - standard:
+          - input_cost_per_audio_token: 1e-6
+            input_cost_per_token: 3e-7
+            output_cost_per_token: 2.5e-6
+            region: "*"
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/robotics-overview

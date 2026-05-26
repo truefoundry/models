@@ -29,6 +29,13 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+pricing:
+    - standard:
+          - input_cost_per_token: 0.00001
+            input_cost_per_token_batches: 0.000005
+            output_cost_per_token: 0.00003
+            output_cost_per_token_batches: 0.000015
+            region: "*"
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4-turbo

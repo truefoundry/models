@@ -8,6 +8,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: cartesia/sonic-2
+pricing:
+    - standard:
+          - input_cost_per_character: 0.000065
+            region: "*"
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/text-to-speech

@@ -22,6 +22,12 @@ model: gpt-5-chat-2025-10-03
 params:
     - key: max_tokens
       maxValue: 16384
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 1.25e-7
+            input_cost_per_token: 1.25e-6
+            output_cost_per_token: 1e-5
+            region: "*"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
     - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule

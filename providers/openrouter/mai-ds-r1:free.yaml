@@ -13,6 +13,11 @@ modalities:
         - text
 mode: chat
 model: mai-ds-r1:free
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/microsoft/mai-ds-r1:free/api
 status: deprecated

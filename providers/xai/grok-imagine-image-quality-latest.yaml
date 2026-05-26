@@ -10,6 +10,11 @@ modalities:
         - image
 mode: image
 model: grok-imagine-image-quality-latest
+pricing:
+    - standard:
+          - input_cost_per_image: 0.01
+            output_cost_per_image: 0.05
+            region: "*"
 provisioning: serverless
 status: active
 supportedModes:

@@ -11,6 +11,10 @@ modalities:
         - embedding
 mode: embedding
 model: google/embeddinggemma-300m
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-9
+            region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -9,6 +9,11 @@ modalities:
         - image
 mode: image
 model: ByteDance/Seedream-5.0-lite
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0
+            output_cost_per_token: 0.0
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/seedream-50-lite

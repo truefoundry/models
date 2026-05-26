@@ -17,6 +17,12 @@ model: qwen-turbo
 params:
     - key: max_tokens
       maxValue: 8192
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 6.5e-9
+            input_cost_per_token: 3.25e-8
+            output_cost_per_token: 1.3e-7
+            region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen-turbo/api
 status: deprecated

@@ -18,6 +18,11 @@ model: command-r-03-2024
 params:
     - key: max_tokens
       maxValue: 4000
+pricing:
+    - standard:
+          - input_cost_per_token: 5e-7
+            output_cost_per_token: 0.0000015
+            region: "*"
 sources:
     - https://openrouter.ai/cohere/command-r-03-2024/api
     - https://docs.cohere.com/docs/command-r

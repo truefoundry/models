@@ -33,6 +33,16 @@ params:
       key: max_tokens
       maxValue: 16384
       minValue: 1
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 0.00000125
+            input_cost_per_token: 0.0000025
+            output_cost_per_token: 0.00001
+            region: global
+          - cache_read_input_token_cost: 0.000001375
+            input_cost_per_token: 0.00000275
+            output_cost_per_token: 0.000011
+            region: datazone_eu
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: deprecated

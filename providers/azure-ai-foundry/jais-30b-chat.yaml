@@ -8,5 +8,10 @@ limits:
     max_tokens: 8192
 mode: chat
 model: jais-30b-chat
+pricing:
+    - standard:
+          - input_cost_per_token: 0.0032
+            output_cost_per_token: 0.00971
+            region: "*"
 supportedModes:
     - chat

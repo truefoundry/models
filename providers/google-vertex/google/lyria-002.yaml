@@ -8,6 +8,10 @@ modalities:
         - audio
 mode: unknown # correct mode is music, but that is not supported yet
 model: lyria-002
+pricing:
+    - standard:
+          - input_cost_per_request: 0.06
+            region: us-central1
 provisioning: serverless
 removeParams:
     - max_tokens

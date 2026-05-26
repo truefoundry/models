@@ -11,6 +11,11 @@ modalities:
         - text
 mode: chat
 model: deepseek-v3-base
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/deepseek/deepseek-v3-base/api
 status: deprecated

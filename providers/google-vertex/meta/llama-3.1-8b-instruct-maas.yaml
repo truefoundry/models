@@ -18,6 +18,11 @@ modalities:
         - text
 mode: chat
 model: meta/llama-3.1-8b-instruct-maas
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: us-central1
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama/use-llama

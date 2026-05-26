@@ -23,6 +23,11 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-oss-20b
+pricing:
+    - standard:
+          - input_cost_per_token: 5e-8
+            output_cost_per_token: 2e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/gpt-oss-20b

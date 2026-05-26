@@ -28,6 +28,12 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 8e-8
+            input_cost_per_token: 4e-7
+            output_cost_per_token: 0.000002
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/xiaomi/mimo-v2-omni

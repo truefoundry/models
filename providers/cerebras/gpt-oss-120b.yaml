@@ -27,6 +27,12 @@ params:
       maxValue: 40000
     - defaultValue: medium
       key: reasoning_effort
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 3.5e-7
+            input_cost_per_token: 3.5e-7
+            output_cost_per_token: 7.5e-7
+            region: "*"
 provisioning: serverless
 removeParams:
     - stream

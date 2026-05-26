@@ -9,6 +9,10 @@ modalities:
         - audio
 mode: text_to_speech
 model: azure-tts-hd
+pricing:
+    - standard:
+          - input_cost_per_character: 0.00003
+            region: "*"
 provisioning: serverless
 status: active
 supportedModes:

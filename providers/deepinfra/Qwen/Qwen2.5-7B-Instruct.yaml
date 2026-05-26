@@ -16,6 +16,11 @@ limits:
     max_tokens: 8192
 mode: chat
 model: Qwen/Qwen2.5-7B-Instruct
+pricing:
+    - standard:
+          - input_cost_per_token: 4e-8
+            output_cost_per_token: 1e-7
+            region: "*"
 sources:
     - https://deepinfra.com/Qwen/Qwen2.5-7B-Instruct
     - https://huggingface.co/Qwen/Qwen2.5-7B-Instruct

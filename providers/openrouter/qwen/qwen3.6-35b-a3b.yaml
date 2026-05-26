@@ -26,6 +26,12 @@ params:
       key: top_p
     - defaultValue: 20
       key: top_k
+pricing:
+    - standard:
+          - cache_read_input_token_cost: 1.612e-7
+            input_cost_per_token: 1.612e-7
+            output_cost_per_token: 9.6525e-7
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.6-35b-a3b

@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3.6-plus:free
+pricing:
+    - standard:
+          - input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen3.6-plus:free/api
 status: retired

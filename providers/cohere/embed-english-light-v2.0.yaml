@@ -8,3 +8,8 @@ limits:
     max_tokens: 4096
 mode: embedding
 model: embed-english-light-v2.0
+pricing:
+    - standard:
+          - input_cost_per_token: 1e-7
+            output_cost_per_token: 0
+            region: "*"

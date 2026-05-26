@@ -19,6 +19,12 @@ model: google/lyria-3-clip-preview
 params:
     - key: seed
       type: number
+pricing:
+    - standard:
+          - input_cost_per_request: 0.04
+            input_cost_per_token: 0
+            output_cost_per_token: 0
+            region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/lyria-3-clip-preview

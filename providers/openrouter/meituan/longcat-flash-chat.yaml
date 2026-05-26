@@ -20,6 +20,11 @@ modalities:
         - text
 mode: chat
 model: meituan/longcat-flash-chat
+pricing:
+    - standard:
+          - input_cost_per_token: 2e-7
+            output_cost_per_token: 8e-7
+            region: "*"
 sources:
     - https://openrouter.ai/meituan/longcat-flash-chat/api
 status: retired

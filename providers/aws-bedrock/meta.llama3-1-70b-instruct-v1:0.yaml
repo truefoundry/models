@@ -24,6 +24,17 @@ modalities:
         - text
 mode: chat
 model: meta.llama3-1-70b-instruct-v1:0
+pricing:
+    - standard:
+          - input_cost_per_token: 9.9e-7
+            output_cost_per_token: 9.9e-7
+            region: us-west-2
+          - input_cost_per_token: 9.9e-7
+            output_cost_per_token: 9.9e-7
+            region: us-east-2
+          - input_cost_per_token: 9.9e-7
+            output_cost_per_token: 9.9e-7
+            region: us-east-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
