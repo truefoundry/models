@@ -1,9 +1,9 @@
 costs:
     - cache_read_input_token_cost: 1.25e-7
-      input_cost_per_token: 0.00000125
+      input_cost_per_token: 1.25e-6
       input_cost_per_token_batches: 6.25e-7
-      output_cost_per_token: 0.00001
-      output_cost_per_token_batches: 0.000005
+      output_cost_per_token: 1e-5
+      output_cost_per_token_batches: 5e-6
       region: "*"
 deprecationDate: "2026-07-23"
 features:
@@ -38,7 +38,7 @@ provisioning: serverless
 removeParams:
     - temperature
     - top_p
-    - "n"
+    - n
     - max_tokens
     - reasoning_effort
 sources:
