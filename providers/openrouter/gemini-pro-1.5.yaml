@@ -21,10 +21,10 @@ params:
     - key: max_tokens
       maxValue: 8192
 pricing:
-    - standard:
-          - input_cost_per_token: 0.0000025
-            output_cost_per_token: 0.000005
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.0000025
+          output_cost_per_token: 0.000005
+          region: "*"
 sources:
     - https://openrouter.ai/google/gemini-pro-1.5/api
 status: deprecated

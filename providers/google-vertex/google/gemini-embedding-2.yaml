@@ -20,13 +20,13 @@ modalities:
 mode: embedding
 model: google/gemini-embedding-2
 pricing:
-    - standard:
-          - input_cost_per_audio_token: 0.0000065
-            input_cost_per_image_token: 4.5e-7
-            input_cost_per_token: 2e-7
-            input_cost_per_token_batches: 1e-7
-            input_cost_per_video_token: 0.000012
-            region: global
+    standard:
+        - input_cost_per_audio_token: 0.0000065
+          input_cost_per_image_token: 4.5e-7
+          input_cost_per_token: 2e-7
+          input_cost_per_token_batches: 1e-7
+          input_cost_per_video_token: 0.000012
+          region: global
 provisioning: serverless
 removeParams:
     - max_tokens

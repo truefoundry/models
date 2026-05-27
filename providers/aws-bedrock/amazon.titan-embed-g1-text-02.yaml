@@ -12,11 +12,11 @@ modalities:
 mode: embedding
 model: amazon.titan-embed-g1-text-02
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-7
-            region: us-west-2
-          - input_cost_per_token: 1e-7
-            region: us-east-1
+    standard:
+        - input_cost_per_token: 1e-7
+          region: us-west-2
+        - input_cost_per_token: 1e-7
+          region: us-east-1
 removeParams:
     - max_tokens
     - temperature

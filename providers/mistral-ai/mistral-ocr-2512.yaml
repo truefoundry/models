@@ -21,10 +21,10 @@ params:
     - defaultValue: 0
       key: temperature
 pricing:
-    - standard:
-          - input_cost_per_annotated_page: 0.003
-            input_cost_per_page: 0.002
-            region: "*"
+    standard:
+        - input_cost_per_annotated_page: 0.003
+          input_cost_per_page: 0.002
+          region: "*"
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/ocr-3-25-12

@@ -15,15 +15,15 @@ modalities:
 mode: video
 model: google/video-text-detection
 pricing:
-    - standard:
-          - input_cost_per_second: 0.0025
-            region: us-west1
-          - input_cost_per_second: 0.0025
-            region: us-east1
-          - input_cost_per_second: 0.0025
-            region: europe-west1
-          - input_cost_per_second: 0.0025
-            region: asia-east1
+    standard:
+        - input_cost_per_second: 0.0025
+          region: us-west1
+        - input_cost_per_second: 0.0025
+          region: us-east1
+        - input_cost_per_second: 0.0025
+          region: europe-west1
+        - input_cost_per_second: 0.0025
+          region: asia-east1
 provisioning: serverless
 removeParams:
     - max_tokens

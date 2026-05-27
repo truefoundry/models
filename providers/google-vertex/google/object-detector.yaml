@@ -11,11 +11,11 @@ modalities:
 mode: video
 model: google/object-detector
 pricing:
-    - standard:
-          - input_cost_per_second: 0.0016667
-            region: us-central1
-          - input_cost_per_second: 0.0016667
-            region: europe-west4
+    standard:
+        - input_cost_per_second: 0.0016667
+          region: us-central1
+        - input_cost_per_second: 0.0016667
+          region: europe-west4
 provisioning: serverless
 removeParams:
     - max_tokens

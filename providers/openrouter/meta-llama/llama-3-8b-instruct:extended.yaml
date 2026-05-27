@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: meta-llama/llama-3-8b-instruct:extended
 pricing:
-    - standard:
-          - input_cost_per_token: 2.25e-7
-            output_cost_per_token: 0.00000225
-            region: "*"
+    standard:
+        - input_cost_per_token: 2.25e-7
+          output_cost_per_token: 0.00000225
+          region: "*"
 sources:
     - https://openrouter.ai/meta-llama/llama-3-8b-instruct:extended/api
 status: deprecated

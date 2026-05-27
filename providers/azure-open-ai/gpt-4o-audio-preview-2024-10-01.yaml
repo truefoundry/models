@@ -34,21 +34,21 @@ modalities:
 mode: chat
 model: gpt-4o-audio-preview-2024-10-01
 pricing:
-    - standard:
-          - cache_creation_input_audio_token_cost: 2.2e-5
-            cache_read_input_token_cost: 2.75e-6
-            input_cost_per_audio_token: 0.00011
-            input_cost_per_token: 5.5e-6
-            output_cost_per_audio_token: 0.00022
-            output_cost_per_token: 2.2e-5
-            region: datazone_eu
-          - cache_creation_input_audio_token_cost: 2.2e-5
-            cache_read_input_token_cost: 2.75e-6
-            input_cost_per_audio_token: 0.00011
-            input_cost_per_token: 5.5e-6
-            output_cost_per_audio_token: 0.00022
-            output_cost_per_token: 2.2e-5
-            region: "*"
+    standard:
+        - cache_creation_input_audio_token_cost: 2.2e-5
+          cache_read_input_token_cost: 2.75e-6
+          input_cost_per_audio_token: 0.00011
+          input_cost_per_token: 5.5e-6
+          output_cost_per_audio_token: 0.00022
+          output_cost_per_token: 2.2e-5
+          region: datazone_eu
+        - cache_creation_input_audio_token_cost: 2.2e-5
+          cache_read_input_token_cost: 2.75e-6
+          input_cost_per_audio_token: 0.00011
+          input_cost_per_token: 5.5e-6
+          output_cost_per_audio_token: 0.00022
+          output_cost_per_token: 2.2e-5
+          region: "*"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models

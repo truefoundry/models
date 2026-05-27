@@ -19,10 +19,10 @@ modalities:
 mode: chat
 model: nvidia/llama-3.1-nemotron-70b-instruct
 pricing:
-    - standard:
-          - input_cost_per_token: 0.0000012
-            output_cost_per_token: 0.0000012
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.0000012
+          output_cost_per_token: 0.0000012
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/nvidia/llama-3.1-nemotron-70b-instruct

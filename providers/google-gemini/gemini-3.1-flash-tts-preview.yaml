@@ -29,12 +29,12 @@ params:
     - defaultValue: 64
       key: top_k
 pricing:
-    - standard:
-          - input_cost_per_token: 0.000001
-            input_cost_per_token_batches: 5e-7
-            output_cost_per_audio_token: 0.00002
-            output_cost_per_token_batches: 0.00001
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.000001
+          input_cost_per_token_batches: 5e-7
+          output_cost_per_audio_token: 0.00002
+          output_cost_per_token_batches: 0.00001
+          region: "*"
 provisioning: serverless
 removeParams:
     - tool_choice

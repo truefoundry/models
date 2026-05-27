@@ -12,9 +12,9 @@ modalities:
 mode: embedding
 model: shibing624/text2vec-base-chinese
 pricing:
-    - standard:
-          - input_cost_per_token: 5e-9
-            region: "*"
+    standard:
+        - input_cost_per_token: 5e-9
+          region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -45,24 +45,24 @@ params:
       key: reasoning_effort
       type: string
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 5e-7
-            input_cost_per_token: 0.000005
-            input_cost_per_token_batches: 0.0000025
-            output_cost_per_token: 0.00003
-            output_cost_per_token_batches: 0.000015
-            region: "*"
-            tiered_pricing:
-                cache_read:
-                    - cost_per_token: 0.000001
-                      from: 272000
-                input:
-                    - cost_per_token: 0.00001
-                      from: 272000
-                output:
-                    - cost_per_token: 0.000045
-                      from: 272000
-                pricing_mode: cumulative
+    standard:
+        - cache_read_input_token_cost: 5e-7
+          input_cost_per_token: 0.000005
+          input_cost_per_token_batches: 0.0000025
+          output_cost_per_token: 0.00003
+          output_cost_per_token_batches: 0.000015
+          region: "*"
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 0.000001
+                    from: 272000
+              input:
+                  - cost_per_token: 0.00001
+                    from: 272000
+              output:
+                  - cost_per_token: 0.000045
+                    from: 272000
+              pricing_mode: cumulative
 provisioning: serverless
 removeParams:
     - max_tokens

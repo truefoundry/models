@@ -37,22 +37,22 @@ params:
       maxValue: 4096
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_token: 2.5e-7
-            input_cost_per_token_batches: 1.25e-7
-            output_cost_per_token: 1.25e-6
-            output_cost_per_token_batches: 6.25e-7
-            region: eu-west-3
-          - input_cost_per_token: 2.5e-7
-            input_cost_per_token_batches: 1.25e-7
-            output_cost_per_token: 1.25e-6
-            output_cost_per_token_batches: 6.25e-7
-            region: eu-west-1
-          - input_cost_per_token: 2.5e-7
-            input_cost_per_token_batches: 1.25e-7
-            output_cost_per_token: 1.25e-6
-            output_cost_per_token_batches: 6.25e-7
-            region: eu-central-1
+    standard:
+        - input_cost_per_token: 2.5e-7
+          input_cost_per_token_batches: 1.25e-7
+          output_cost_per_token: 1.25e-6
+          output_cost_per_token_batches: 6.25e-7
+          region: eu-west-3
+        - input_cost_per_token: 2.5e-7
+          input_cost_per_token_batches: 1.25e-7
+          output_cost_per_token: 1.25e-6
+          output_cost_per_token_batches: 6.25e-7
+          region: eu-west-1
+        - input_cost_per_token: 2.5e-7
+          input_cost_per_token_batches: 1.25e-7
+          output_cost_per_token: 1.25e-6
+          output_cost_per_token_batches: 6.25e-7
+          region: eu-central-1
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/docs/about-claude/pricing

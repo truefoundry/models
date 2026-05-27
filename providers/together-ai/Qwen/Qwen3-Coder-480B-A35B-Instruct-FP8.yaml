@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
 pricing:
-    - standard:
-          - input_cost_per_token: 0.000002
-            output_cost_per_token: 0.000002
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.000002
+          output_cost_per_token: 0.000002
+          region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/qwen3-coder-480b-a35b-instruct

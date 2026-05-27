@@ -35,21 +35,21 @@ modalities:
 mode: chat
 model: gpt-5.5-2026-04-24
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 5e-7
-            input_cost_per_token: 5e-6
-            output_cost_per_token: 3e-5
-            region: "*"
-            tiered_pricing:
-                cache_read:
-                    - cost_per_token: 1e-6
-                      from: 272000
-                input:
-                    - cost_per_token: 1e-5
-                      from: 272000
-                output:
-                    - cost_per_token: 4.5e-5
-                      from: 272000
+    standard:
+        - cache_read_input_token_cost: 5e-7
+          input_cost_per_token: 5e-6
+          output_cost_per_token: 3e-5
+          region: "*"
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 1e-6
+                    from: 272000
+              input:
+                  - cost_per_token: 1e-5
+                    from: 272000
+              output:
+                  - cost_per_token: 4.5e-5
+                    from: 272000
 provisioning: serverless
 status: active
 supportedModes:

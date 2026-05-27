@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: meta-llama/llama-3.2-11b-vision-instruct
 pricing:
-    - standard:
-          - input_cost_per_token: 2.45e-7
-            output_cost_per_token: 2.45e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 2.45e-7
+          output_cost_per_token: 2.45e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-3.2-11b-vision-instruct/api

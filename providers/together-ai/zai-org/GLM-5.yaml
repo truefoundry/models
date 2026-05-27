@@ -16,10 +16,10 @@ modalities:
 mode: chat
 model: zai-org/GLM-5
 pricing:
-    - standard:
-          - input_cost_per_token: 0.000001
-            output_cost_per_token: 0.0000032
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.000001
+          output_cost_per_token: 0.0000032
+          region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/glm-5

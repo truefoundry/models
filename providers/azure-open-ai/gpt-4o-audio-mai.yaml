@@ -29,12 +29,12 @@ params:
       maxValue: 16384
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_audio_token: 0.00004
-            input_cost_per_token: 0.0000025
-            output_cost_per_audio_token: 0.00008
-            output_cost_per_token: 0.00001
-            region: "*"
+    standard:
+        - input_cost_per_audio_token: 0.00004
+          input_cost_per_token: 0.0000025
+          output_cost_per_audio_token: 0.00008
+          output_cost_per_token: 0.00001
+          region: "*"
 provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

@@ -10,9 +10,9 @@ modalities:
 mode: text_to_speech
 model: sesame/csm-1b
 pricing:
-    - standard:
-          - input_cost_per_character: 0.000007
-            region: "*"
+    standard:
+        - input_cost_per_character: 0.000007
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/sesame/csm-1b

@@ -23,10 +23,10 @@ params:
     - key: max_tokens
       maxValue: 8192
 pricing:
-    - standard:
-          - input_cost_per_token: 3e-7
-            output_cost_per_token: 0.0000012
-            region: us-central1
+    standard:
+        - input_cost_per_token: 3e-7
+          output_cost_per_token: 0.0000012
+          region: us-central1
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-ocr
 status: retired

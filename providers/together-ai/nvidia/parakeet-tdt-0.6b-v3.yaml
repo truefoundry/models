@@ -9,9 +9,9 @@ modalities:
 mode: audio_transcription
 model: nvidia/parakeet-tdt-0.6b-v3
 pricing:
-    - standard:
-          - input_cost_per_second: 0.000025
-            region: "*"
+    standard:
+        - input_cost_per_second: 0.000025
+          region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/pricing

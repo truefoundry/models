@@ -19,11 +19,11 @@ modalities:
 mode: chat
 model: mistralai/mixtral-8x22b-instruct
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2e-7
-            input_cost_per_token: 0.000002
-            output_cost_per_token: 0.000006
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 2e-7
+          input_cost_per_token: 0.000002
+          output_cost_per_token: 0.000006
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/mixtral-8x22b-instruct

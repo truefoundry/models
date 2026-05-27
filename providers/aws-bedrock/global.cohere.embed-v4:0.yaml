@@ -58,53 +58,53 @@ modalities:
 mode: embedding
 model: global.cohere.embed-v4:0
 pricing:
-    - standard:
-          - input_cost_per_token: 1.2e-7
-            region: us-west-2
-          - input_cost_per_token: 1.2e-7
-            region: us-west-1
-          - input_cost_per_token: 1.2e-7
-            region: us-east-2
-          - input_cost_per_token: 1.2e-7
-            region: us-east-1
-          - input_cost_per_token: 1.2e-7
-            region: sa-east-1
-          - input_cost_per_token: 1.2e-7
-            region: eu-west-3
-          - input_cost_per_token: 1.2e-7
-            region: eu-west-2
-          - input_cost_per_token: 1.2e-7
-            region: eu-west-1
-          - input_cost_per_token: 1.2e-7
-            region: eu-south-2
-          - input_cost_per_token: 1.2e-7
-            region: eu-south-1
-          - input_cost_per_token: 1.2e-7
-            region: eu-north-1
-          - input_cost_per_token: 1.2e-7
-            region: eu-central-2
-          - input_cost_per_token: 1.2e-7
-            region: eu-central-1
-          - input_cost_per_token: 1.2e-7
-            region: ca-central-1
-          - input_cost_per_token: 1.2e-7
-            region: ap-southeast-4
-          - input_cost_per_token: 1.2e-7
-            region: ap-southeast-3
-          - input_cost_per_token: 1.2e-7
-            region: ap-southeast-2
-          - input_cost_per_token: 1.2e-7
-            region: ap-southeast-1
-          - input_cost_per_token: 1.2e-7
-            region: ap-south-2
-          - input_cost_per_token: 1.2e-7
-            region: ap-south-1
-          - input_cost_per_token: 1.2e-7
-            region: ap-northeast-3
-          - input_cost_per_token: 1.2e-7
-            region: ap-northeast-2
-          - input_cost_per_token: 1.2e-7
-            region: ap-northeast-1
+    standard:
+        - input_cost_per_token: 1.2e-7
+          region: us-west-2
+        - input_cost_per_token: 1.2e-7
+          region: us-west-1
+        - input_cost_per_token: 1.2e-7
+          region: us-east-2
+        - input_cost_per_token: 1.2e-7
+          region: us-east-1
+        - input_cost_per_token: 1.2e-7
+          region: sa-east-1
+        - input_cost_per_token: 1.2e-7
+          region: eu-west-3
+        - input_cost_per_token: 1.2e-7
+          region: eu-west-2
+        - input_cost_per_token: 1.2e-7
+          region: eu-west-1
+        - input_cost_per_token: 1.2e-7
+          region: eu-south-2
+        - input_cost_per_token: 1.2e-7
+          region: eu-south-1
+        - input_cost_per_token: 1.2e-7
+          region: eu-north-1
+        - input_cost_per_token: 1.2e-7
+          region: eu-central-2
+        - input_cost_per_token: 1.2e-7
+          region: eu-central-1
+        - input_cost_per_token: 1.2e-7
+          region: ca-central-1
+        - input_cost_per_token: 1.2e-7
+          region: ap-southeast-4
+        - input_cost_per_token: 1.2e-7
+          region: ap-southeast-3
+        - input_cost_per_token: 1.2e-7
+          region: ap-southeast-2
+        - input_cost_per_token: 1.2e-7
+          region: ap-southeast-1
+        - input_cost_per_token: 1.2e-7
+          region: ap-south-2
+        - input_cost_per_token: 1.2e-7
+          region: ap-south-1
+        - input_cost_per_token: 1.2e-7
+          region: ap-northeast-3
+        - input_cost_per_token: 1.2e-7
+          region: ap-northeast-2
+        - input_cost_per_token: 1.2e-7
+          region: ap-northeast-1
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -55,39 +55,39 @@ params:
     - key: max_tokens
       maxValue: 64000
 pricing:
-    - standard:
-          - cache_creation_input_token_cost: 0.000001375
-            cache_creation_input_token_cost_per_hour: 0.0000022
-            cache_read_input_token_cost: 1.1e-7
-            input_cost_per_token: 0.0000011
-            input_cost_per_token_batches: 5.5e-7
-            output_cost_per_token: 0.0000055
-            output_cost_per_token_batches: 0.00000275
-            region: us-east5
-          - cache_creation_input_token_cost: 0.00000125
-            cache_creation_input_token_cost_per_hour: 0.000002
-            cache_read_input_token_cost: 1e-7
-            input_cost_per_token: 0.000001
-            input_cost_per_token_batches: 5e-7
-            output_cost_per_token: 0.000005
-            output_cost_per_token_batches: 0.0000025
-            region: global
-          - cache_creation_input_token_cost: 0.000001375
-            cache_creation_input_token_cost_per_hour: 0.0000022
-            cache_read_input_token_cost: 1.1e-7
-            input_cost_per_token: 0.0000011
-            input_cost_per_token_batches: 5.5e-7
-            output_cost_per_token: 0.0000055
-            output_cost_per_token_batches: 0.00000275
-            region: europe-west1
-          - cache_creation_input_token_cost: 0.000001375
-            cache_creation_input_token_cost_per_hour: 0.0000022
-            cache_read_input_token_cost: 1.1e-7
-            input_cost_per_token: 0.0000011
-            input_cost_per_token_batches: 5.5e-7
-            output_cost_per_token: 0.0000055
-            output_cost_per_token_batches: 0.00000275
-            region: asia-east1
+    standard:
+        - cache_creation_input_token_cost: 0.000001375
+          cache_creation_input_token_cost_per_hour: 0.0000022
+          cache_read_input_token_cost: 1.1e-7
+          input_cost_per_token: 0.0000011
+          input_cost_per_token_batches: 5.5e-7
+          output_cost_per_token: 0.0000055
+          output_cost_per_token_batches: 0.00000275
+          region: us-east5
+        - cache_creation_input_token_cost: 0.00000125
+          cache_creation_input_token_cost_per_hour: 0.000002
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 0.000001
+          input_cost_per_token_batches: 5e-7
+          output_cost_per_token: 0.000005
+          output_cost_per_token_batches: 0.0000025
+          region: global
+        - cache_creation_input_token_cost: 0.000001375
+          cache_creation_input_token_cost_per_hour: 0.0000022
+          cache_read_input_token_cost: 1.1e-7
+          input_cost_per_token: 0.0000011
+          input_cost_per_token_batches: 5.5e-7
+          output_cost_per_token: 0.0000055
+          output_cost_per_token_batches: 0.00000275
+          region: europe-west1
+        - cache_creation_input_token_cost: 0.000001375
+          cache_creation_input_token_cost_per_hour: 0.0000022
+          cache_read_input_token_cost: 1.1e-7
+          input_cost_per_token: 0.0000011
+          input_cost_per_token_batches: 5.5e-7
+          output_cost_per_token: 0.0000055
+          output_cost_per_token_batches: 0.00000275
+          region: asia-east1
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/haiku-4-5

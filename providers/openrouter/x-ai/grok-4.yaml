@@ -30,19 +30,19 @@ modalities:
 mode: chat
 model: x-ai/grok-4
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 7.5e-7
-            input_cost_per_token: 0.000003
-            output_cost_per_token: 0.000015
-            region: "*"
-            tiered_pricing:
-                input:
-                    - cost_per_token: 0.000006
-                      from: 128000
-                output:
-                    - cost_per_token: 0.00003
-                      from: 128000
-                pricing_mode: marginal
+    standard:
+        - cache_read_input_token_cost: 7.5e-7
+          input_cost_per_token: 0.000003
+          output_cost_per_token: 0.000015
+          region: "*"
+          tiered_pricing:
+              input:
+                  - cost_per_token: 0.000006
+                    from: 128000
+              output:
+                  - cost_per_token: 0.00003
+                    from: 128000
+              pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/x-ai/grok-4

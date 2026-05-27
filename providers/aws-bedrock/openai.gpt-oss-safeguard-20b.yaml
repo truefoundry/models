@@ -50,37 +50,37 @@ params:
       maxValue: 16000
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_token: 7e-8
-            output_cost_per_token: 2e-7
-            region: us-west-2
-          - input_cost_per_token: 7e-8
-            output_cost_per_token: 2e-7
-            region: us-east-2
-          - input_cost_per_token: 7e-8
-            output_cost_per_token: 2e-7
-            region: us-east-1
-          - input_cost_per_token: 8e-8
-            output_cost_per_token: 2.4e-7
-            region: sa-east-1
-          - input_cost_per_token: 1.1e-7
-            output_cost_per_token: 3.1e-7
-            region: eu-west-2
-          - input_cost_per_token: 8e-8
-            output_cost_per_token: 2.3e-7
-            region: eu-west-1
-          - input_cost_per_token: 8e-8
-            output_cost_per_token: 2.3e-7
-            region: eu-south-1
-          - input_cost_per_token: 7.21e-8
-            output_cost_per_token: 2.06e-7
-            region: ap-southeast-2
-          - input_cost_per_token: 8e-8
-            output_cost_per_token: 2.4e-7
-            region: ap-south-1
-          - input_cost_per_token: 8e-8
-            output_cost_per_token: 2.4e-7
-            region: ap-northeast-1
+    standard:
+        - input_cost_per_token: 7e-8
+          output_cost_per_token: 2e-7
+          region: us-west-2
+        - input_cost_per_token: 7e-8
+          output_cost_per_token: 2e-7
+          region: us-east-2
+        - input_cost_per_token: 7e-8
+          output_cost_per_token: 2e-7
+          region: us-east-1
+        - input_cost_per_token: 8e-8
+          output_cost_per_token: 2.4e-7
+          region: sa-east-1
+        - input_cost_per_token: 1.1e-7
+          output_cost_per_token: 3.1e-7
+          region: eu-west-2
+        - input_cost_per_token: 8e-8
+          output_cost_per_token: 2.3e-7
+          region: eu-west-1
+        - input_cost_per_token: 8e-8
+          output_cost_per_token: 2.3e-7
+          region: eu-south-1
+        - input_cost_per_token: 7.21e-8
+          output_cost_per_token: 2.06e-7
+          region: ap-southeast-2
+        - input_cost_per_token: 8e-8
+          output_cost_per_token: 2.4e-7
+          region: ap-south-1
+        - input_cost_per_token: 8e-8
+          output_cost_per_token: 2.4e-7
+          region: ap-northeast-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-openai.html

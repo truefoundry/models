@@ -46,28 +46,28 @@ modalities:
 mode: chat
 model: google/gemini-3.1-flash-lite
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2.75e-8
-            input_cost_per_audio_token: 5.5e-7
-            input_cost_per_token: 2.75e-7
-            input_cost_per_token_batches: 1.375e-7
-            output_cost_per_token: 0.00000165
-            output_cost_per_token_batches: 8.25e-7
-            region: us
-          - cache_read_input_token_cost: 2.5e-8
-            input_cost_per_audio_token: 5e-7
-            input_cost_per_token: 2.5e-7
-            input_cost_per_token_batches: 1.25e-7
-            output_cost_per_token: 0.0000015
-            output_cost_per_token_batches: 7.5e-7
-            region: global
-          - cache_read_input_token_cost: 2.75e-8
-            input_cost_per_audio_token: 5.5e-7
-            input_cost_per_token: 2.75e-7
-            input_cost_per_token_batches: 1.375e-7
-            output_cost_per_token: 0.00000165
-            output_cost_per_token_batches: 8.25e-7
-            region: eu
+    standard:
+        - cache_read_input_token_cost: 2.75e-8
+          input_cost_per_audio_token: 5.5e-7
+          input_cost_per_token: 2.75e-7
+          input_cost_per_token_batches: 1.375e-7
+          output_cost_per_token: 0.00000165
+          output_cost_per_token_batches: 8.25e-7
+          region: us
+        - cache_read_input_token_cost: 2.5e-8
+          input_cost_per_audio_token: 5e-7
+          input_cost_per_token: 2.5e-7
+          input_cost_per_token_batches: 1.25e-7
+          output_cost_per_token: 0.0000015
+          output_cost_per_token_batches: 7.5e-7
+          region: global
+        - cache_read_input_token_cost: 2.75e-8
+          input_cost_per_audio_token: 5.5e-7
+          input_cost_per_token: 2.75e-7
+          input_cost_per_token_batches: 1.375e-7
+          output_cost_per_token: 0.00000165
+          output_cost_per_token_batches: 8.25e-7
+          region: eu
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-lite

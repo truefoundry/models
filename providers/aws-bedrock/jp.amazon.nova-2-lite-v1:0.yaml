@@ -29,11 +29,11 @@ params:
       maxValue: 65536
       minValue: 1
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 8.25e-8
-            input_cost_per_token: 3.3e-7
-            output_cost_per_token: 0.00000275
-            region: ap-northeast-1
+    standard:
+        - cache_read_input_token_cost: 8.25e-8
+          input_cost_per_token: 3.3e-7
+          output_cost_per_token: 0.00000275
+          region: ap-northeast-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html

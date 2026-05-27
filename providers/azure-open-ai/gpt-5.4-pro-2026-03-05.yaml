@@ -44,22 +44,22 @@ params:
       key: reasoning_effort
       type: string
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 0.000003
-            input_cost_per_token: 0.00003
-            output_cost_per_token: 0.00018
-            region: "*"
-            tiered_pricing:
-                cache_read:
-                    - cost_per_token: 0.000006
-                      from: 272000
-                input:
-                    - cost_per_token: 0.00006
-                      from: 272000
-                output:
-                    - cost_per_token: 0.00027
-                      from: 272000
-                pricing_mode: cumulative
+    standard:
+        - cache_read_input_token_cost: 0.000003
+          input_cost_per_token: 0.00003
+          output_cost_per_token: 0.00018
+          region: "*"
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 0.000006
+                    from: 272000
+              input:
+                  - cost_per_token: 0.00006
+                    from: 272000
+              output:
+                  - cost_per_token: 0.00027
+                    from: 272000
+              pricing_mode: cumulative
 removeParams:
     - parallel_tool_calls
 status: active

@@ -11,11 +11,11 @@ modalities:
 mode: video
 model: vidu/vidu-q3-turbo
 pricing:
-    - standard:
-          - input_cost_per_request: 0.195
-            input_cost_per_token: 0
-            output_cost_per_token: 0
-            region: "*"
+    standard:
+        - input_cost_per_request: 0.195
+          input_cost_per_token: 0
+          output_cost_per_token: 0
+          region: "*"
 provisioning: serverless
 sources:
     - https://docs.together.ai/docs/serverless-models

@@ -21,11 +21,11 @@ params:
       maxValue: 8000
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_query: 0.005
-            input_cost_per_token: 0.000003
-            output_cost_per_token: 0.000015
-            region: "*"
+    standard:
+        - input_cost_per_query: 0.005
+          input_cost_per_token: 0.000003
+          output_cost_per_token: 0.000015
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/perplexity/sonar-pro

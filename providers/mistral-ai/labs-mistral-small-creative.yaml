@@ -14,10 +14,10 @@ params:
     - defaultValue: 0.3
       key: temperature
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-7
-            output_cost_per_token: 3e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-7
+          output_cost_per_token: 3e-7
+          region: "*"
 sources:
     - https://docs.mistral.ai/models/mistral-small-creative-25-12
 status: active

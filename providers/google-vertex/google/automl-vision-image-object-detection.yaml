@@ -9,9 +9,9 @@ modalities:
 mode: image
 model: google/automl-vision-image-object-detection
 pricing:
-    - standard:
-          - output_cost_per_second: 0.000556111 # $2.002 per node-hour deployment & online prediction
-            region: global
+    standard:
+        - output_cost_per_second: 0.000556111 # $2.002 per node-hour deployment & online prediction
+          region: global
 provisioning: provisioned
 removeParams:
     - max_tokens

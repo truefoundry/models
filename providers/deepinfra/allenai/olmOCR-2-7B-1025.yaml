@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: allenai/olmOCR-2-7B-1025
 pricing:
-    - standard:
-          - input_cost_per_token: 9e-8
-            output_cost_per_token: 1.9e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 9e-8
+          output_cost_per_token: 1.9e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/allenai/olmOCR-2-7B-1025

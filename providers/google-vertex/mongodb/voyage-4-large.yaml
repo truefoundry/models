@@ -13,9 +13,9 @@ modalities:
 mode: embedding
 model: mongodb/voyage-4-large
 pricing:
-    - standard:
-          - input_cost_per_token: 1.2e-7
-            region: us-central1
+    standard:
+        - input_cost_per_token: 1.2e-7
+          region: us-central1
 provisioning: provisioned
 removeParams:
     - max_tokens

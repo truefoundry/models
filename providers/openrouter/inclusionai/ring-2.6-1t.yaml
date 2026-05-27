@@ -19,11 +19,11 @@ modalities:
 mode: chat
 model: inclusionai/ring-2.6-1t
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 1.5e-8
-            input_cost_per_token: 7.5e-8
-            output_cost_per_token: 6.25e-7
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 1.5e-8
+          input_cost_per_token: 7.5e-8
+          output_cost_per_token: 6.25e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/inclusionai/ring-2.6-1t

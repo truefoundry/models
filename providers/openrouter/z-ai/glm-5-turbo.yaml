@@ -20,11 +20,11 @@ modalities:
 mode: chat
 model: z-ai/glm-5-turbo
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2.4e-7
-            input_cost_per_token: 0.0000012
-            output_cost_per_token: 0.000004
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 2.4e-7
+          input_cost_per_token: 0.0000012
+          output_cost_per_token: 0.000004
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/z-ai/glm-5-turbo

@@ -30,11 +30,11 @@ params:
       maxValue: 100000
       minValue: 1
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 0.0000075
-            input_cost_per_token: 0.000015
-            output_cost_per_token: 0.00006
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 0.0000075
+          input_cost_per_token: 0.000015
+          output_cost_per_token: 0.00006
+          region: "*"
 removeParams:
     - temperature
     - top_p

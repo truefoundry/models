@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: alpindale/goliath-120b
 pricing:
-    - standard:
-          - input_cost_per_token: 0.00000375
-            output_cost_per_token: 0.0000075
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.00000375
+          output_cost_per_token: 0.0000075
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/alpindale/goliath-120b

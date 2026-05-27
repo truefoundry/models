@@ -18,11 +18,11 @@ modalities:
 mode: chat
 model: XiaomiMiMo/MiMo-V2.5-Pro
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2e-7
-            input_cost_per_token: 1e-6
-            output_cost_per_token: 3e-6
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 2e-7
+          input_cost_per_token: 1e-6
+          output_cost_per_token: 3e-6
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/XiaomiMiMo/MiMo-V2.5-Pro

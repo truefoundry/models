@@ -12,10 +12,10 @@ modalities:
 mode: chat
 model: liquid/lfm-2.5-1.2b-instruct:free
 pricing:
-    - standard:
-          - input_cost_per_token: 0
-            output_cost_per_token: 0
-            region: "*"
+    standard:
+        - input_cost_per_token: 0
+          output_cost_per_token: 0
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/liquid/lfm-2.5-1.2b-instruct:free

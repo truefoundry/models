@@ -14,13 +14,13 @@ modalities:
 mode: image
 model: us.stability.stable-outpaint-v1:0
 pricing:
-    - standard:
-          - input_cost_per_image: 0.06
-            region: us-west-2
-          - input_cost_per_image: 0.06
-            region: us-east-2
-          - input_cost_per_image: 0.06
-            region: us-east-1
+    standard:
+        - input_cost_per_image: 0.06
+          region: us-west-2
+        - input_cost_per_image: 0.06
+          region: us-east-2
+        - input_cost_per_image: 0.06
+          region: us-east-1
 provisioning: serverless
 removeParams:
     - max_tokens

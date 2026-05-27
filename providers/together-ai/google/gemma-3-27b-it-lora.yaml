@@ -11,10 +11,10 @@ modalities:
 mode: chat
 model: google/gemma-3-27b-it-lora
 pricing:
-    - standard:
-          - input_cost_per_token: 0.0
-            output_cost_per_token: 0.0
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.0
+          output_cost_per_token: 0.0
+          region: "*"
 provisioning: provisioned
 # Limits, features, and explicit pricing are not documented for this LoRA-inference
 # variant. The base model google/gemma-3-27b-it is documented at 64K context and

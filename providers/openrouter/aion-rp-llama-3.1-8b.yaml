@@ -20,10 +20,10 @@ params:
     - key: max_tokens
       maxValue: 32768
 pricing:
-    - standard:
-          - input_cost_per_token: 8e-7
-            output_cost_per_token: 0.0000016
-            region: "*"
+    standard:
+        - input_cost_per_token: 8e-7
+          output_cost_per_token: 0.0000016
+          region: "*"
 sources:
     - https://openrouter.ai/aion-labs/aion-rp-llama-3.1-8b/api
 status: deprecated

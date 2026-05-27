@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: baidu/ernie-4.5-21b-a3b
 pricing:
-    - standard:
-          - input_cost_per_token: 7e-8
-            output_cost_per_token: 2.8e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 7e-8
+          output_cost_per_token: 2.8e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/baidu/ernie-4.5-21b-a3b

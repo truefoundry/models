@@ -30,10 +30,10 @@ params:
       key: reasoning_effort
       type: string
 pricing:
-    - standard:
-          - input_cost_per_token: 0.000015
-            output_cost_per_token: 0.00012
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.000015
+          output_cost_per_token: 0.00012
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5-pro/api

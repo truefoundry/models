@@ -33,14 +33,14 @@ params:
       key: response_format
       type: string
 pricing:
-    - standard:
-          - input_cost_per_token: 0
-            output_cost_per_token: 0
-            region: "*"
-            tiered_pricing:
-                input:
-                    - cost_per_token: 0
-                      from: 128000
-                output:
-                    - cost_per_token: 0
-                      from: 128000
+    standard:
+        - input_cost_per_token: 0
+          output_cost_per_token: 0
+          region: "*"
+          tiered_pricing:
+              input:
+                  - cost_per_token: 0
+                    from: 128000
+              output:
+                  - cost_per_token: 0
+                    from: 128000

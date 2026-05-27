@@ -19,10 +19,10 @@ modalities:
 mode: chat
 model: qwen/qwen3-30b-a3b-instruct-2507
 pricing:
-    - standard:
-          - input_cost_per_token: 9e-8
-            output_cost_per_token: 3e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 9e-8
+          output_cost_per_token: 3e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-30b-a3b-instruct-2507

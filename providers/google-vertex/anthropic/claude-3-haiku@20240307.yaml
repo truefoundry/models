@@ -19,11 +19,11 @@ modalities:
 mode: chat
 model: anthropic/claude-3-haiku@20240307
 pricing:
-    - standard:
-          - cache_creation_input_token_cost: 3e-7
-            cache_read_input_token_cost: 3e-8
-            input_cost_per_token: 2.5e-7
-            output_cost_per_token: 0.00000125
-            region: "*"
+    standard:
+        - cache_creation_input_token_cost: 3e-7
+          cache_read_input_token_cost: 3e-8
+          input_cost_per_token: 2.5e-7
+          output_cost_per_token: 0.00000125
+          region: "*"
 requiredParams:
     - max_tokens

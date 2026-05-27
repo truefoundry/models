@@ -18,10 +18,10 @@ modalities:
 mode: chat
 model: mistralai/mistral-medium-3-5
 pricing:
-    - standard:
-          - input_cost_per_token: 1.5e-6
-            output_cost_per_token: 7.5e-6
-            region: "*"
+    standard:
+        - input_cost_per_token: 1.5e-6
+          output_cost_per_token: 7.5e-6
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/mistral-medium-3-5

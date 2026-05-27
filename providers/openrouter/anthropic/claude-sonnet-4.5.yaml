@@ -38,26 +38,26 @@ modalities:
 mode: chat
 model: anthropic/claude-sonnet-4.5
 pricing:
-    - standard:
-          - cache_creation_input_token_cost: 0.00000375
-            cache_read_input_token_cost: 3e-7
-            input_cost_per_token: 0.000003
-            output_cost_per_token: 0.000015
-            region: "*"
-            tiered_pricing:
-                cache_read:
-                    - cost_per_token: 6e-7
-                      from: 200000
-                cache_write:
-                    - cost_per_token: 0.0000075
-                      from: 200000
-                input:
-                    - cost_per_token: 0.000006
-                      from: 200000
-                output:
-                    - cost_per_token: 0.0000225
-                      from: 200000
-                pricing_mode: marginal
+    standard:
+        - cache_creation_input_token_cost: 0.00000375
+          cache_read_input_token_cost: 3e-7
+          input_cost_per_token: 0.000003
+          output_cost_per_token: 0.000015
+          region: "*"
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 6e-7
+                    from: 200000
+              cache_write:
+                  - cost_per_token: 0.0000075
+                    from: 200000
+              input:
+                  - cost_per_token: 0.000006
+                    from: 200000
+              output:
+                  - cost_per_token: 0.0000225
+                    from: 200000
+              pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-sonnet-4.5/api

@@ -36,24 +36,24 @@ params:
       key: reasoning_effort
       type: string
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2e-7
-            input_cost_per_token: 0.000002
-            input_cost_per_token_batches: 0.000001
-            output_cost_per_token: 0.000006
-            output_cost_per_token_batches: 0.000003
-            region: "*"
-            tiered_pricing:
-                cache_read:
-                    - cost_per_token: 4e-7
-                      from: 200000
-                input:
-                    - cost_per_token: 0.000004
-                      from: 200000
-                output:
-                    - cost_per_token: 0.000012
-                      from: 200000
-                pricing_mode: marginal
+    standard:
+        - cache_read_input_token_cost: 2e-7
+          input_cost_per_token: 0.000002
+          input_cost_per_token_batches: 0.000001
+          output_cost_per_token: 0.000006
+          output_cost_per_token_batches: 0.000003
+          region: "*"
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 4e-7
+                    from: 200000
+              input:
+                  - cost_per_token: 0.000004
+                    from: 200000
+              output:
+                  - cost_per_token: 0.000012
+                    from: 200000
+              pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/x-ai/grok-4.20-multi-agent

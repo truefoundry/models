@@ -29,22 +29,22 @@ modalities:
 mode: chat
 model: ByteDance/Seed-2.0-mini
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2e-8
-            input_cost_per_token: 1e-7
-            output_cost_per_token: 4e-7
-            region: "*"
-            tiered_pricing:
-                cache_read:
-                    - cost_per_token: 2e-7
-                      from: 128000
-                input:
-                    - cost_per_token: 2e-7
-                      from: 128000
-                output:
-                    - cost_per_token: 8e-7
-                      from: 128000
-                pricing_mode: marginal
+    standard:
+        - cache_read_input_token_cost: 2e-8
+          input_cost_per_token: 1e-7
+          output_cost_per_token: 4e-7
+          region: "*"
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 2e-7
+                    from: 128000
+              input:
+                  - cost_per_token: 2e-7
+                    from: 128000
+              output:
+                  - cost_per_token: 8e-7
+                    from: 128000
+              pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://deepinfra.com/ByteDance/Seed-2.0-mini

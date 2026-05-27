@@ -22,15 +22,15 @@ modalities:
 mode: chat
 model: minimax/minimax-m1
 pricing:
-    - standard:
-          - input_cost_per_token: 4e-7
-            output_cost_per_token: 0.0000022
-            region: "*"
-            tiered_pricing:
-                input:
-                    - cost_per_token: 0.0000013
-                      from: 200000
-                pricing_mode: marginal
+    standard:
+        - input_cost_per_token: 4e-7
+          output_cost_per_token: 0.0000022
+          region: "*"
+          tiered_pricing:
+              input:
+                  - cost_per_token: 0.0000013
+                    from: 200000
+              pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m1/api

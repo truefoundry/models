@@ -12,9 +12,9 @@ modalities:
 mode: embedding
 model: intfloat/multilingual-e5-large-instruct
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-8
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-8
+          region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

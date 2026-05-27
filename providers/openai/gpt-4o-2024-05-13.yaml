@@ -32,11 +32,11 @@ params:
       key: response_format
       type: string
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 0.00000125
-            input_cost_per_token: 0.0000025
-            output_cost_per_token: 0.00001
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 0.00000125
+          input_cost_per_token: 0.0000025
+          output_cost_per_token: 0.00001
+          region: "*"
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o

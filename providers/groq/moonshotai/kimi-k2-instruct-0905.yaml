@@ -20,11 +20,11 @@ params:
     - key: max_tokens
       maxValue: 16384
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 5e-7
-            input_cost_per_token: 0.000001
-            output_cost_per_token: 0.000003
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 5e-7
+          input_cost_per_token: 0.000001
+          output_cost_per_token: 0.000003
+          region: "*"
 sources:
     - https://console.groq.com/docs/tool-use
     - https://console.groq.com/docs/structured-outputs

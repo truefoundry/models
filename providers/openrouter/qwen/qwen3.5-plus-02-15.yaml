@@ -35,18 +35,18 @@ params:
       maxValue: 65536
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_token: 2.6e-7
-            output_cost_per_token: 0.00000156
-            region: "*"
-            tiered_pricing:
-                input:
-                    - cost_per_token: 3.25e-7
-                      from: 256000
-                output:
-                    - cost_per_token: 0.00000195
-                      from: 256000
-                pricing_mode: marginal
+    standard:
+        - input_cost_per_token: 2.6e-7
+          output_cost_per_token: 0.00000156
+          region: "*"
+          tiered_pricing:
+              input:
+                  - cost_per_token: 3.25e-7
+                    from: 256000
+              output:
+                  - cost_per_token: 0.00000195
+                    from: 256000
+              pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.5-plus-02-15

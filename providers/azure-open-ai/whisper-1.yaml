@@ -11,10 +11,10 @@ modalities:
 mode: audio_transcription
 model: whisper-1
 pricing:
-    - standard:
-          - input_cost_per_second: 0.0001
-            output_cost_per_second: 0.0001
-            region: "*"
+    standard:
+        - input_cost_per_second: 0.0001
+          output_cost_per_second: 0.0001
+          region: "*"
 removeParams:
     - max_tokens
     - temperature

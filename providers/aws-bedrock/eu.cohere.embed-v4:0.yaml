@@ -24,19 +24,19 @@ modalities:
 mode: embedding
 model: eu.cohere.embed-v4:0
 pricing:
-    - standard:
-          - input_cost_per_token: 1.2e-7
-            region: eu-west-3
-          - input_cost_per_token: 1.2e-7
-            region: eu-west-1
-          - input_cost_per_token: 1.2e-7
-            region: eu-south-2
-          - input_cost_per_token: 1.2e-7
-            region: eu-south-1
-          - input_cost_per_token: 1.2e-7
-            region: eu-north-1
-          - input_cost_per_token: 1.2e-7
-            region: eu-central-1
+    standard:
+        - input_cost_per_token: 1.2e-7
+          region: eu-west-3
+        - input_cost_per_token: 1.2e-7
+          region: eu-west-1
+        - input_cost_per_token: 1.2e-7
+          region: eu-south-2
+        - input_cost_per_token: 1.2e-7
+          region: eu-south-1
+        - input_cost_per_token: 1.2e-7
+          region: eu-north-1
+        - input_cost_per_token: 1.2e-7
+          region: eu-central-1
 provisioning: serverless
 removeParams:
     - temperature

@@ -29,11 +29,11 @@ params:
       minValue: 1
     - key: reasoning_effort
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 7.5e-8
-            input_cost_per_token: 1.5e-7
-            output_cost_per_token: 6e-7
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 7.5e-8
+          input_cost_per_token: 1.5e-7
+          output_cost_per_token: 6e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://console.groq.com/docs/model/openai/gpt-oss-120b

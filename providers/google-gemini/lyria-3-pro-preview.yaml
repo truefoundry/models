@@ -19,9 +19,9 @@ params:
     - defaultValue: 64
       key: top_k
 pricing:
-    - standard:
-          - input_cost_per_request: 0.08
-            region: "*"
+    standard:
+        - input_cost_per_request: 0.08
+          region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

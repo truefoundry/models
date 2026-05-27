@@ -21,10 +21,10 @@ params:
     - key: max_tokens
       maxValue: 5120
 pricing:
-    - standard:
-          - input_cost_per_token: 6e-8
-            output_cost_per_token: 2.4e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 6e-8
+          output_cost_per_token: 2.4e-7
+          region: "*"
 sources:
     - https://openrouter.ai/amazon/nova-lite-v1/api
 status: deprecated

@@ -17,10 +17,10 @@ params:
     - key: max_tokens
       maxValue: 131072
 pricing:
-    - standard:
-          - input_cost_per_token: 9e-7
-            output_cost_per_token: 0.0000019
-            region: "*"
+    standard:
+        - input_cost_per_token: 9e-7
+          output_cost_per_token: 0.0000019
+          region: "*"
 sources:
     - https://openrouter.ai/morph/morph-v3-large/api
 status: deprecated

@@ -16,11 +16,11 @@ modalities:
 mode: video
 model: veo-3.1-fast-generate-preview
 pricing:
-    - standard:
-          - output_cost_per_second_1080p: 0.12
-            output_cost_per_second_4k: 0.3
-            output_cost_per_second_720p: 0.1
-            region: "*"
+    standard:
+        - output_cost_per_second_1080p: 0.12
+          output_cost_per_second_4k: 0.3
+          output_cost_per_second_720p: 0.1
+          region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

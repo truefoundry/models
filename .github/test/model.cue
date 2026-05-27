@@ -256,7 +256,7 @@ package model
 	costs?: [...#CostWithRegion]
 	// Pricing entries keyed by service tier; each entry holds an array of
 	// region-scoped cost entries (same shape as the legacy `costs` field)
-	pricing?: [...#Pricing]
+	pricing?: #Pricing
 	// Date after which the model is considered deprecated (YYYY-MM-DD)
 	deprecationDate?: string & =~"^\\d{4}-\\d{2}-\\d{2}$"
 	// Feature flags for capabilities like function calling, prompt caching, etc.

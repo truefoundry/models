@@ -16,10 +16,10 @@ modalities:
 mode: chat
 model: qwen/qwen2.5-vl-32b-instruct
 pricing:
-    - standard:
-          - input_cost_per_token: 2e-7
-            output_cost_per_token: 6e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 2e-7
+          output_cost_per_token: 6e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen2.5-vl-32b-instruct

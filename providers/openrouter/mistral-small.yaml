@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: mistral-small
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-7
-            output_cost_per_token: 3e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-7
+          output_cost_per_token: 3e-7
+          region: "*"
 sources:
     - https://openrouter.ai/mistralai/mistral-small/api
     - https://docs.mistral.ai/getting-started/models/

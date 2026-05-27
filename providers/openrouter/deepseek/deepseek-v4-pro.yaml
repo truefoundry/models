@@ -24,11 +24,11 @@ params:
     - defaultValue: 1
       key: top_p
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 3.625e-9
-            input_cost_per_token: 4.35e-7
-            output_cost_per_token: 8.7e-7
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 3.625e-9
+          input_cost_per_token: 4.35e-7
+          output_cost_per_token: 8.7e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-v4-pro

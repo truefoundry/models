@@ -29,18 +29,18 @@ modalities:
 mode: chat
 model: bytedance-seed/seed-1.6
 pricing:
-    - standard:
-          - input_cost_per_token: 2.5e-7
-            output_cost_per_token: 0.000002
-            region: "*"
-            tiered_pricing:
-                input:
-                    - cost_per_token: 5e-7
-                      from: 128000
-                output:
-                    - cost_per_token: 0.000004
-                      from: 128000
-                pricing_mode: marginal
+    standard:
+        - input_cost_per_token: 2.5e-7
+          output_cost_per_token: 0.000002
+          region: "*"
+          tiered_pricing:
+              input:
+                  - cost_per_token: 5e-7
+                    from: 128000
+              output:
+                  - cost_per_token: 0.000004
+                    from: 128000
+              pricing_mode: marginal
 provisioning: serverless
 sources:
     - https://openrouter.ai/bytedance-seed/seed-1.6/api

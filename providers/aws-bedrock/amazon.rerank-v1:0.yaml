@@ -15,15 +15,15 @@ modalities:
 mode: rerank
 model: amazon.rerank-v1:0
 pricing:
-    - standard:
-          - input_cost_per_query: 0.001
-            region: us-west-2
-          - input_cost_per_query: 0.001
-            region: eu-central-1
-          - input_cost_per_query: 0.001
-            region: ca-central-1
-          - input_cost_per_query: 0.001
-            region: ap-northeast-1
+    standard:
+        - input_cost_per_query: 0.001
+          region: us-west-2
+        - input_cost_per_query: 0.001
+          region: eu-central-1
+        - input_cost_per_query: 0.001
+          region: ca-central-1
+        - input_cost_per_query: 0.001
+          region: ap-northeast-1
 provisioning: serverless
 removeParams:
     - max_tokens

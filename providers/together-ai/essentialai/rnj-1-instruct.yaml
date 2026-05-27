@@ -15,10 +15,10 @@ modalities:
 mode: chat
 model: essentialai/rnj-1-instruct
 pricing:
-    - standard:
-          - input_cost_per_token: 1.5e-7
-            output_cost_per_token: 1.5e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 1.5e-7
+          output_cost_per_token: 1.5e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/rnj-1-instruct

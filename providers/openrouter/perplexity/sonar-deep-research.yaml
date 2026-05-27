@@ -13,11 +13,11 @@ modalities:
 mode: chat
 model: perplexity/sonar-deep-research
 pricing:
-    - standard:
-          - input_cost_per_query: 0.005
-            input_cost_per_token: 0.000002
-            output_cost_per_token: 0.000008
-            region: "*"
+    standard:
+        - input_cost_per_query: 0.005
+          input_cost_per_token: 0.000002
+          output_cost_per_token: 0.000008
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/perplexity/sonar-deep-research/api

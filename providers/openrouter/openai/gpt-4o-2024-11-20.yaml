@@ -22,11 +22,11 @@ modalities:
 mode: chat
 model: openai/gpt-4o-2024-11-20
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 0.00000125
-            input_cost_per_token: 0.0000025
-            output_cost_per_token: 0.00001
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 0.00000125
+          input_cost_per_token: 0.0000025
+          output_cost_per_token: 0.00001
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-4o-2024-11-20/api

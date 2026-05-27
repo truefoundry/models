@@ -23,13 +23,13 @@ modalities:
 mode: responses
 model: grok-4.20-multi-agent-beta-0309-exp-ma
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2e-7
-            input_cost_per_token: 0.000002
-            input_cost_per_token_batches: 0.000001
-            output_cost_per_token: 0.000006
-            output_cost_per_token_batches: 0.000003
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 2e-7
+          input_cost_per_token: 0.000002
+          input_cost_per_token_batches: 0.000001
+          output_cost_per_token: 0.000006
+          output_cost_per_token_batches: 0.000003
+          region: "*"
 removeParams:
     - max_tokens
     - max_completion_tokens

@@ -11,10 +11,10 @@ modalities:
 mode: video
 model: alibaba/happyhorse-1.0-r2v
 pricing:
-    - standard:
-          - input_cost_per_token: 0.0 # not found in official docs (Together AI lists alibaba/happyhorse-1.0-t2v but not the -r2v variant)
-            output_cost_per_token: 0.0 # not found in official docs
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.0 # not found in official docs (Together AI lists alibaba/happyhorse-1.0-t2v but not the -r2v variant)
+          output_cost_per_token: 0.0 # not found in official docs
+          region: "*"
 provisioning: serverless
 supportedModes:
     - video

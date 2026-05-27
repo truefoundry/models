@@ -14,9 +14,9 @@ modalities:
 mode: unsupported # realtime/audio_transcription not supported
 model: gpt-realtime-whisper
 pricing:
-    - standard:
-          - input_cost_per_second: 0.0002833333
-            region: "*"
+    standard:
+        - input_cost_per_second: 0.0002833333
+          region: "*"
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-realtime-whisper

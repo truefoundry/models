@@ -16,10 +16,10 @@ modalities:
 mode: chat
 model: anthracite-org/magnum-v4-72b
 pricing:
-    - standard:
-          - input_cost_per_token: 0.000003
-            output_cost_per_token: 0.000005
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.000003
+          output_cost_per_token: 0.000005
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthracite-org/magnum-v4-72b/api

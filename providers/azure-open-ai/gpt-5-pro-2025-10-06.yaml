@@ -31,10 +31,10 @@ params:
       key: reasoning_effort
       type: string
 pricing:
-    - standard:
-          - input_cost_per_token: 0.000015
-            output_cost_per_token: 0.00012
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.000015
+          output_cost_per_token: 0.00012
+          region: "*"
 provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai&tabs=global-standard-aoai%2Cstandard-chat-completions%2Cglobal-standard#gpt-5

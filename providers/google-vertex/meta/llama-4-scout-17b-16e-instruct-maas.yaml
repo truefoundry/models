@@ -27,12 +27,12 @@ params:
       maxValue: 8192
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_token: 2.5e-7
-            input_cost_per_token_batches: 1.25e-7
-            output_cost_per_token: 7e-7
-            output_cost_per_token_batches: 3.5e-7
-            region: us-east5
+    standard:
+        - input_cost_per_token: 2.5e-7
+          input_cost_per_token_batches: 1.25e-7
+          output_cost_per_token: 7e-7
+          output_cost_per_token_batches: 3.5e-7
+          region: us-east5
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama/llama4-scout

@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: anthropic/claude-haiku-4-5
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-6
-            output_cost_per_token: 5e-6
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-6
+          output_cost_per_token: 5e-6
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/anthropic/claude-haiku-4-5

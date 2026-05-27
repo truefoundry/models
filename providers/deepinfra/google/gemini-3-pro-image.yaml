@@ -11,10 +11,10 @@ modalities:
 mode: image
 model: google/gemini-3-pro-image
 pricing:
-    - standard:
-          - input_cost_per_token: 0.00012
-            output_cost_per_token: 0.00012
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.00012
+          output_cost_per_token: 0.00012
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/google/gemini-3-pro-image

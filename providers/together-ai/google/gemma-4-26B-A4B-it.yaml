@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: google/gemma-4-26B-A4B-it
 pricing:
-    - standard:
-          - input_cost_per_token: 0
-            output_cost_per_token: 0
-            region: "*"
+    standard:
+        - input_cost_per_token: 0
+          output_cost_per_token: 0
+          region: "*"
 provisioning: provisioned
 sources:
     - https://huggingface.co/google/gemma-4-26B-A4B-it

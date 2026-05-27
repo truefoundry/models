@@ -31,11 +31,11 @@ params:
       maxValue: 16384
       minValue: 1
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 1.25e-7
-            input_cost_per_token: 1.25e-6
-            output_cost_per_token: 1e-5
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 1.25e-7
+          input_cost_per_token: 1.25e-6
+          output_cost_per_token: 1e-5
+          region: "*"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: retired

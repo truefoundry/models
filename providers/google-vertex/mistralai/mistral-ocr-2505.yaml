@@ -21,13 +21,13 @@ modalities:
 mode: chat
 model: mistralai/mistral-ocr-2505
 pricing:
-    - standard:
-          - input_cost_per_token: 5e-10
-            output_cost_per_token: 5e-10
-            region: us-central1
-          - input_cost_per_token: 5e-10
-            output_cost_per_token: 5e-10
-            region: europe-west4
+    standard:
+        - input_cost_per_token: 5e-10
+          output_cost_per_token: 5e-10
+          region: us-central1
+        - input_cost_per_token: 5e-10
+          output_cost_per_token: 5e-10
+          region: europe-west4
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral/mistral-ocr
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral

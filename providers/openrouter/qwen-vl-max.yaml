@@ -22,10 +22,10 @@ params:
     - key: max_tokens
       maxValue: 32768
 pricing:
-    - standard:
-          - input_cost_per_token: 5.2e-7
-            output_cost_per_token: 0.00000208
-            region: "*"
+    standard:
+        - input_cost_per_token: 5.2e-7
+          output_cost_per_token: 0.00000208
+          region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen-vl-max/api
 status: deprecated

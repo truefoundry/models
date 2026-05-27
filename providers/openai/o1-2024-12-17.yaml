@@ -38,13 +38,13 @@ params:
       maxValue: 100000
       minValue: 1
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 7.5e-6
-            input_cost_per_token: 1.5e-5
-            input_cost_per_token_batches: 7.5e-6
-            output_cost_per_token: 6e-5
-            output_cost_per_token_batches: 3e-5
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 7.5e-6
+          input_cost_per_token: 1.5e-5
+          input_cost_per_token_batches: 7.5e-6
+          output_cost_per_token: 6e-5
+          output_cost_per_token_batches: 3e-5
+          region: "*"
 provisioning: serverless
 removeParams:
     - temperature

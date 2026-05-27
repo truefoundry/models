@@ -9,9 +9,9 @@ modalities:
 mode: audio_transcription
 model: openai/whisper-large-v3-turbo
 pricing:
-    - standard:
-          - input_cost_per_second: 0.0000033333333333
-            region: "*"
+    standard:
+        - input_cost_per_second: 0.0000033333333333
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/openai/whisper-large-v3-turbo

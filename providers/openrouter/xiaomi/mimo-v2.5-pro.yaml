@@ -24,11 +24,11 @@ params:
     - defaultValue: 0.95
       key: top_p
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2e-7
-            input_cost_per_token: 1e-6
-            output_cost_per_token: 3e-6
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 2e-7
+          input_cost_per_token: 1e-6
+          output_cost_per_token: 3e-6
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/xiaomi/mimo-v2.5-pro

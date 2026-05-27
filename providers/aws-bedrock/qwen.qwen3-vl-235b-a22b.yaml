@@ -49,37 +49,37 @@ params:
       maxValue: 8000
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_token: 5.3e-7
-            output_cost_per_token: 0.00000266
-            region: us-west-2
-          - input_cost_per_token: 5.3e-7
-            output_cost_per_token: 0.00000266
-            region: us-east-2
-          - input_cost_per_token: 5.3e-7
-            output_cost_per_token: 0.00000266
-            region: us-east-1
-          - input_cost_per_token: 6.4e-7
-            output_cost_per_token: 0.00000322
-            region: sa-east-1
-          - input_cost_per_token: 8.2e-7
-            output_cost_per_token: 0.00000412
-            region: eu-west-2
-          - input_cost_per_token: 6.2e-7
-            output_cost_per_token: 0.00000313
-            region: eu-west-1
-          - input_cost_per_token: 6.2e-7
-            output_cost_per_token: 0.00000313
-            region: eu-south-1
-          - input_cost_per_token: 5.459e-7
-            output_cost_per_token: 0.0000027398
-            region: ap-southeast-2
-          - input_cost_per_token: 6.2e-7
-            output_cost_per_token: 0.00000313
-            region: ap-south-1
-          - input_cost_per_token: 6.4e-7
-            output_cost_per_token: 0.00000322
-            region: ap-northeast-1
+    standard:
+        - input_cost_per_token: 5.3e-7
+          output_cost_per_token: 0.00000266
+          region: us-west-2
+        - input_cost_per_token: 5.3e-7
+          output_cost_per_token: 0.00000266
+          region: us-east-2
+        - input_cost_per_token: 5.3e-7
+          output_cost_per_token: 0.00000266
+          region: us-east-1
+        - input_cost_per_token: 6.4e-7
+          output_cost_per_token: 0.00000322
+          region: sa-east-1
+        - input_cost_per_token: 8.2e-7
+          output_cost_per_token: 0.00000412
+          region: eu-west-2
+        - input_cost_per_token: 6.2e-7
+          output_cost_per_token: 0.00000313
+          region: eu-west-1
+        - input_cost_per_token: 6.2e-7
+          output_cost_per_token: 0.00000313
+          region: eu-south-1
+        - input_cost_per_token: 5.459e-7
+          output_cost_per_token: 0.0000027398
+          region: ap-southeast-2
+        - input_cost_per_token: 6.2e-7
+          output_cost_per_token: 0.00000313
+          region: ap-south-1
+        - input_cost_per_token: 6.4e-7
+          output_cost_per_token: 0.00000322
+          region: ap-northeast-1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-vl-235b-a22b.html

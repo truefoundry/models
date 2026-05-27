@@ -8,10 +8,10 @@ params:
     - key: max_tokens
       maxValue: 4096
 pricing:
-    - standard:
-          - input_cost_per_token: 0
-            output_cost_per_token: 0
-            region: "*"
+    standard:
+        - input_cost_per_token: 0
+          output_cost_per_token: 0
+          region: "*"
 sources:
     - https://openrouter.ai/qwen/qwerky-72b:free/api
 status: deprecated

@@ -21,10 +21,10 @@ params:
     - key: max_tokens
       maxValue: 262144
 pricing:
-    - standard:
-          - input_cost_per_token: 9e-8
-            output_cost_per_token: 3e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 9e-8
+          output_cost_per_token: 3e-7
+          region: "*"
 sources:
     - https://openrouter.ai/qwen/qwen3-30b-a3b-instruct-2507/api
 status: deprecated

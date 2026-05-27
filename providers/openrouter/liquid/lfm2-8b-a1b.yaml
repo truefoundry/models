@@ -12,10 +12,10 @@ modalities:
 mode: chat
 model: liquid/lfm2-8b-a1b
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-8
-            output_cost_per_token: 2e-8
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-8
+          output_cost_per_token: 2e-8
+          region: "*"
 sources:
     - https://openrouter.ai/liquid/lfm2-8b-a1b/api
 status: retired

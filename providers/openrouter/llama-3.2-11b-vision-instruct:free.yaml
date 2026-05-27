@@ -18,10 +18,10 @@ params:
     - key: max_tokens
       maxValue: 2048
 pricing:
-    - standard:
-          - input_cost_per_token: 0
-            output_cost_per_token: 0
-            region: "*"
+    standard:
+        - input_cost_per_token: 0
+          output_cost_per_token: 0
+          region: "*"
 sources:
     - https://openrouter.ai/meta-llama/llama-3.2-11b-vision-instruct:free/api
 status: deprecated

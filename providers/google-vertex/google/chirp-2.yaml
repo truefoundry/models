@@ -13,13 +13,13 @@ modalities:
 mode: audio_transcription
 model: google/chirp-2
 pricing:
-    - standard:
-          - input_cost_per_second: 0.0002666666666666667
-            region: us-central1
-          - input_cost_per_second: 0.0002666666666666667
-            region: europe-west4
-          - input_cost_per_second: 0.0002666666666666667
-            region: asia-southeast1
+    standard:
+        - input_cost_per_second: 0.0002666666666666667
+          region: us-central1
+        - input_cost_per_second: 0.0002666666666666667
+          region: europe-west4
+        - input_cost_per_second: 0.0002666666666666667
+          region: asia-southeast1
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -21,11 +21,11 @@ params:
     - key: max_tokens
       maxValue: 65536
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 2.25e-7
-            input_cost_per_token: 4.5e-7
-            output_cost_per_token: 0.00000215
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 2.25e-7
+          input_cost_per_token: 4.5e-7
+          output_cost_per_token: 0.00000215
+          region: "*"
 sources:
     - https://openrouter.ai/deepseek/deepseek-r1-0528/api
 status: deprecated

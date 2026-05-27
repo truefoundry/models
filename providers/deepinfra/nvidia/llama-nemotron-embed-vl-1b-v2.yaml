@@ -14,9 +14,9 @@ modalities:
 mode: embedding
 model: nvidia/llama-nemotron-embed-vl-1b-v2
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-8
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-8
+          region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

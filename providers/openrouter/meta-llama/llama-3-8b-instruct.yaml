@@ -19,10 +19,10 @@ modalities:
 mode: chat
 model: meta-llama/llama-3-8b-instruct
 pricing:
-    - standard:
-          - input_cost_per_token: 3e-8
-            output_cost_per_token: 4e-8
-            region: "*"
+    standard:
+        - input_cost_per_token: 3e-8
+          output_cost_per_token: 4e-8
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-3-8b-instruct

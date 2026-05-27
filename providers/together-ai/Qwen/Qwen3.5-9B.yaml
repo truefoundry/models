@@ -20,10 +20,10 @@ modalities:
 mode: chat
 model: Qwen/Qwen3.5-9B
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-7
-            output_cost_per_token: 1.5e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-7
+          output_cost_per_token: 1.5e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/qwen3-5-9b

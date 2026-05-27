@@ -18,11 +18,11 @@ modalities:
 mode: chat
 model: openai/gpt-4o-search-preview
 pricing:
-    - standard:
-          - input_cost_per_query: 0.035
-            input_cost_per_token: 0.0000025
-            output_cost_per_token: 0.00001
-            region: "*"
+    standard:
+        - input_cost_per_query: 0.035
+          input_cost_per_token: 0.0000025
+          output_cost_per_token: 0.00001
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-4o-search-preview/api

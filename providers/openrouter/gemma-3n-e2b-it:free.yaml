@@ -17,10 +17,10 @@ params:
     - key: max_tokens
       maxValue: 2048
 pricing:
-    - standard:
-          - input_cost_per_token: 0
-            output_cost_per_token: 0
-            region: "*"
+    standard:
+        - input_cost_per_token: 0
+          output_cost_per_token: 0
+          region: "*"
 sources:
     - https://openrouter.ai/google/gemma-3n-e2b-it:free/api
 status: deprecated

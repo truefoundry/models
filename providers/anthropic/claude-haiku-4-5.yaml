@@ -37,15 +37,15 @@ params:
       maxValue: 64000
       minValue: 1
 pricing:
-    - standard:
-          - cache_creation_input_token_cost: 0.00000125
-            cache_creation_input_token_cost_per_hour: 0.000002
-            cache_read_input_token_cost: 1e-7
-            input_cost_per_token: 0.000001
-            input_cost_per_token_batches: 5e-7
-            output_cost_per_token: 0.000005
-            output_cost_per_token_batches: 0.0000025
-            region: "*"
+    standard:
+        - cache_creation_input_token_cost: 0.00000125
+          cache_creation_input_token_cost_per_hour: 0.000002
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 0.000001
+          input_cost_per_token_batches: 5e-7
+          output_cost_per_token: 0.000005
+          output_cost_per_token_batches: 0.0000025
+          region: "*"
 provisioning: serverless
 status: active
 supportedModes:

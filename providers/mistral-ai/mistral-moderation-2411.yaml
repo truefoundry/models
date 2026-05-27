@@ -9,10 +9,10 @@ limits:
 mode: moderation
 model: mistral-moderation-2411
 pricing:
-    - standard:
-          - input_cost_per_token: 1e-7
-            output_cost_per_token: 1e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 1e-7
+          output_cost_per_token: 1e-7
+          region: "*"
 sources:
     - https://docs.mistral.ai/models/mistral-moderation-24-11
     - https://docs.mistral.ai/capabilities/guardrailing

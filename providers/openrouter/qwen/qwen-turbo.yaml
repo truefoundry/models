@@ -21,11 +21,11 @@ modalities:
 mode: chat
 model: qwen/qwen-turbo
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 6.5e-9
-            input_cost_per_token: 3.25e-8
-            output_cost_per_token: 1.3e-7
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 6.5e-9
+          input_cost_per_token: 3.25e-8
+          output_cost_per_token: 1.3e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen-turbo/api

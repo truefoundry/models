@@ -17,10 +17,10 @@ params:
     - key: reasoning
       type: boolean
 pricing:
-    - standard:
-          - input_cost_per_token: 8.5e-7
-            output_cost_per_token: 0.0000034
-            region: "*"
+    standard:
+        - input_cost_per_token: 8.5e-7
+          output_cost_per_token: 0.0000034
+          region: "*"
 provisioning: serverless
 removeParams:
     - "n"

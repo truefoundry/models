@@ -13,9 +13,9 @@ modalities:
 mode: embedding
 model: Qwen/Qwen3-Embedding-8B-batch
 pricing:
-    - standard:
-          - input_cost_per_token: 4e-8
-            region: "*"
+    standard:
+        - input_cost_per_token: 4e-8
+          region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -18,10 +18,10 @@ modalities:
 mode: chat
 model: google/gemma-4-E2B-it
 pricing:
-    - standard:
-          - input_cost_per_token: 0.0 # not found in official Together AI docs
-            output_cost_per_token: 0.0 # not found in official Together AI docs
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.0 # not found in official Together AI docs
+          output_cost_per_token: 0.0 # not found in official Together AI docs
+          region: "*"
 provisioning: provisioned
 sources:
     - https://huggingface.co/google/gemma-4-E2B-it

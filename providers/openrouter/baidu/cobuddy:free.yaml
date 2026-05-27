@@ -15,10 +15,10 @@ modalities:
 mode: chat
 model: baidu/cobuddy:free
 pricing:
-    - standard:
-          - input_cost_per_token: 0.0
-            output_cost_per_token: 0.0
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.0
+          output_cost_per_token: 0.0
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/baidu/cobuddy:free

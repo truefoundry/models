@@ -42,27 +42,27 @@ params:
       maxValue: 65536
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_audio_token: 0.000003
-            input_cost_per_token: 3.19e-7
-            output_cost_per_audio_token: 0.000012
-            output_cost_per_token: 0.000002651
-            region: us-west-2
-          - input_cost_per_audio_token: 0.000003
-            input_cost_per_token: 3.3e-7
-            output_cost_per_audio_token: 0.000012
-            output_cost_per_token: 0.00000275
-            region: us-east-1
-          - input_cost_per_audio_token: 0.00000291
-            input_cost_per_token: 3.63e-7
-            output_cost_per_audio_token: 0.00001165
-            output_cost_per_token: 0.00000292
-            region: eu-north-1
-          - input_cost_per_audio_token: 0.00000363
-            input_cost_per_token: 3.96e-7
-            output_cost_per_audio_token: 0.00001452
-            output_cost_per_token: 0.000003311
-            region: ap-northeast-1
+    standard:
+        - input_cost_per_audio_token: 0.000003
+          input_cost_per_token: 3.19e-7
+          output_cost_per_audio_token: 0.000012
+          output_cost_per_token: 0.000002651
+          region: us-west-2
+        - input_cost_per_audio_token: 0.000003
+          input_cost_per_token: 3.3e-7
+          output_cost_per_audio_token: 0.000012
+          output_cost_per_token: 0.00000275
+          region: us-east-1
+        - input_cost_per_audio_token: 0.00000291
+          input_cost_per_token: 3.63e-7
+          output_cost_per_audio_token: 0.00001165
+          output_cost_per_token: 0.00000292
+          region: eu-north-1
+        - input_cost_per_audio_token: 0.00000363
+          input_cost_per_token: 3.96e-7
+          output_cost_per_audio_token: 0.00001452
+          output_cost_per_token: 0.000003311
+          region: ap-northeast-1
 provisioning: serverless
 sources:
     - https://aws.amazon.com/nova/pricing/

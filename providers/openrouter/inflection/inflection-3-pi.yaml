@@ -14,10 +14,10 @@ modalities:
 mode: chat
 model: inflection/inflection-3-pi
 pricing:
-    - standard:
-          - input_cost_per_token: 0.0000025
-            output_cost_per_token: 0.00001
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.0000025
+          output_cost_per_token: 0.00001
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/inflection/inflection-3-pi

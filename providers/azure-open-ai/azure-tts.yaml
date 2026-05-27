@@ -9,9 +9,9 @@ modalities:
 mode: text_to_speech
 model: azure-tts
 pricing:
-    - standard:
-          - input_cost_per_character: 0.000015
-            region: "*"
+    standard:
+        - input_cost_per_character: 0.000015
+          region: "*"
 provisioning: serverless
 removeParams:
     - max_tokens

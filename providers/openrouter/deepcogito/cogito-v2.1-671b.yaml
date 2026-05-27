@@ -15,10 +15,10 @@ modalities:
 mode: chat
 model: deepcogito/cogito-v2.1-671b
 pricing:
-    - standard:
-          - input_cost_per_token: 0.00000125
-            output_cost_per_token: 0.00000125
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.00000125
+          output_cost_per_token: 0.00000125
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepcogito/cogito-v2.1-671b/api

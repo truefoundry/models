@@ -30,11 +30,11 @@ params:
       maxValue: 16384
       minValue: 1
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 1.25e-7
-            input_cost_per_token: 0.00000125
-            output_cost_per_token: 0.00001
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 1.25e-7
+          input_cost_per_token: 0.00000125
+          output_cost_per_token: 0.00001
+          region: "*"
 provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

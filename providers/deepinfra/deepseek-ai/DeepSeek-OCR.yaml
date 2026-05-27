@@ -18,10 +18,10 @@ modalities:
 mode: chat
 model: deepseek-ai/DeepSeek-OCR
 pricing:
-    - standard:
-          - input_cost_per_token: 3e-8
-            output_cost_per_token: 1e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 3e-8
+          output_cost_per_token: 1e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-OCR

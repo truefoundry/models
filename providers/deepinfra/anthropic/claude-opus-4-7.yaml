@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: anthropic/claude-opus-4-7
 pricing:
-    - standard:
-          - input_cost_per_token: 5e-6
-            output_cost_per_token: 2.5e-5
-            region: "*"
+    standard:
+        - input_cost_per_token: 5e-6
+          output_cost_per_token: 2.5e-5
+          region: "*"
 provisioning: serverless
 sources:
     - https://deepinfra.com/anthropic/claude-opus-4-7

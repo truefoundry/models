@@ -14,10 +14,10 @@ modalities:
 mode: unknown # ocr is not supported yet
 model: baidu/qianfan-ocr-fast
 pricing:
-    - standard:
-          - input_cost_per_token: 6.8e-7
-            output_cost_per_token: 2.81e-6
-            region: "*"
+    standard:
+        - input_cost_per_token: 6.8e-7
+          output_cost_per_token: 2.81e-6
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/baidu/qianfan-ocr-fast

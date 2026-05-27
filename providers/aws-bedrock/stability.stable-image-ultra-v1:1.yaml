@@ -12,11 +12,11 @@ modalities:
 mode: image
 model: stability.stable-image-ultra-v1:1
 pricing:
-    - standard:
-          - output_cost_per_image: 0.14
-            region: us-west-2
-          - output_cost_per_image: 0.14
-            region: us-east-1
+    standard:
+        - output_cost_per_image: 0.14
+          region: us-west-2
+        - output_cost_per_image: 0.14
+          region: us-east-1
 provisioning: serverless
 removeParams:
     - max_tokens

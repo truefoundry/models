@@ -21,11 +21,11 @@ modalities:
 mode: chat
 model: deepseek/deepseek-r1-0528
 pricing:
-    - standard:
-          - cache_read_input_token_cost: 3.5e-7
-            input_cost_per_token: 5e-7
-            output_cost_per_token: 0.00000215
-            region: "*"
+    standard:
+        - cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 5e-7
+          output_cost_per_token: 0.00000215
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-r1-0528/api

@@ -17,10 +17,10 @@ modalities:
 mode: chat
 model: Qwen/Qwen3.5-397B-A17B-FP4
 pricing:
-    - standard:
-          - input_cost_per_token: 6e-7
-            output_cost_per_token: 0.0000036
-            region: "*"
+    standard:
+        - input_cost_per_token: 6e-7
+          output_cost_per_token: 0.0000036
+          region: "*"
 provisioning: serverless
 sources:
     - https://www.together.ai/models/qwen3-5-397b-a17b

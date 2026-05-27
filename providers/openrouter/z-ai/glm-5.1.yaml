@@ -22,10 +22,10 @@ params:
     - defaultValue: 0.95
       key: top_p
 pricing:
-    - standard:
-          - input_cost_per_token: 0.00000105
-            output_cost_per_token: 0.0000035
-            region: "*"
+    standard:
+        - input_cost_per_token: 0.00000105
+          output_cost_per_token: 0.0000035
+          region: "*"
 provisioning: serverless
 sources:
     - https://openrouter.ai/z-ai/glm-5.1

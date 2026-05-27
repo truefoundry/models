@@ -41,22 +41,22 @@ params:
       maxValue: 16384
       minValue: 1
 pricing:
-    - standard:
-          - input_cost_per_token: 1.5e-7
-            output_cost_per_token: 6e-7
-            region: global
-          - cache_read_input_token_cost: 8.3e-8
-            input_cost_per_token: 1.65e-7
-            output_cost_per_token: 6.6e-7
-            region: datazone_us
-          - cache_read_input_token_cost: 8.3e-8
-            input_cost_per_token: 1.65e-7
-            output_cost_per_token: 6.6e-7
-            region: datazone_eu
-          - cache_read_input_token_cost: 7.5e-8
-            input_cost_per_token: 1.65e-7
-            output_cost_per_token: 6.6e-7
-            region: "*"
+    standard:
+        - input_cost_per_token: 1.5e-7
+          output_cost_per_token: 6e-7
+          region: global
+        - cache_read_input_token_cost: 8.3e-8
+          input_cost_per_token: 1.65e-7
+          output_cost_per_token: 6.6e-7
+          region: datazone_us
+        - cache_read_input_token_cost: 8.3e-8
+          input_cost_per_token: 1.65e-7
+          output_cost_per_token: 6.6e-7
+          region: datazone_eu
+        - cache_read_input_token_cost: 7.5e-8
+          input_cost_per_token: 1.65e-7
+          output_cost_per_token: 6.6e-7
+          region: "*"
 provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
