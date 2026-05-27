@@ -115,11 +115,7 @@ export interface components {
             model: string;
             /** @description Param overrides or additions relative to the provider default */
             params?: components["schemas"]["ModelParam"][];
-            /**
-             * @description Pricing entries keyed by service tier; each entry holds an array of
-             *     region-scoped cost entries (same shape as the legacy `costs` field)
-             */
-            pricing?: components["schemas"]["Pricing"][];
+            pricing?: components["schemas"]["Pricing"];
             provisioning?: components["schemas"]["Provisioning"];
             /** @description Param keys to remove from the provider default */
             removeParams?: components["schemas"]["ModelParamKey"][];
@@ -144,11 +140,7 @@ export interface components {
         ModelParamKey: "json_schema" | "max_completion_tokens" | "max_tokens" | "min_tokens" | "n" | "parallel_tool_calls" | "reasoning" | "reasoning_effort" | "response_format" | "seed" | "stop" | "stream" | "temperature" | "thinking" | "tool_choice" | "top_k" | "top_p" | "verbosity";
         /** @enum {string} */
         ModelParamType: "array-of-strings" | "boolean" | "json" | "number" | "string";
-        /**
-         * @description Pricing entry keyed by service tier; one optional field per #ServiceTiers value.
-         *     Comprehension is used so the property set stays in sync with #ServiceTiers
-         *     (cue def --out openapi drops typed pattern constraints, so we materialize the keys here).
-         */
+        /** @description Keys enumerated explicitly because cue def --out openapi drops typed key constraints. */
         Pricing: {
             priority?: components["schemas"]["CostWithRegion"][];
             standard?: components["schemas"]["CostWithRegion"][];
@@ -171,7 +163,6 @@ export interface components {
          */
         Provisioning: "serverless" | "provisioned";
         /**
-         * @description Allowed service tier keys for #Pricing entries; single source of truth.
          * @default [
          *       "priority",
          *       "standard"
