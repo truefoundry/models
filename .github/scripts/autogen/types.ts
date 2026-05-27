@@ -39,6 +39,7 @@ export interface components {
             output_cost_per_token?: number;
             output_cost_per_token_batches?: number;
             output_cost_per_video_token?: number;
+            priority_pricing?: components["schemas"]["Cost"];
             tiered_pricing?: components["schemas"]["TieredPricing"];
         };
         /** @description Pricing entry; "*" applies to all regions */

@@ -128,6 +128,7 @@ package model
 	output_cost_per_token?:                	number & >= 0
 	output_cost_per_token_batches?:      	number & >= 0
 	output_cost_per_video_token?:          	number & >= 0
+	priority_pricing?:                     	#Cost
 	tiered_pricing?:                       	#TieredPricing
 
 	// Resolution-based image pricing: matches fields like output_cost_per_image_1k, output_cost_per_image_4k, etc.
