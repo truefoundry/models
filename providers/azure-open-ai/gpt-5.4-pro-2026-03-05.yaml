@@ -14,7 +14,7 @@ costs:
               - cost_per_token: 0.00027
                 from: 272000
           pricing_mode: cumulative
-deprecationDate: "2027-09-05"
+deprecationDate: "2027-03-06"
 features:
     - function_calling
     - parallel_function_calling
@@ -45,6 +45,8 @@ params:
       type: string
 removeParams:
     - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
     - responses
