@@ -1,2 +1,27 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.0000025
+      region: global
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: xai/grok-4.3
+provisioning: serverless
+sources:
+    - https://docs.x.ai/developers/models
+status: active
+supportedModes:
+    - chat
+thinking: true
