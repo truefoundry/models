@@ -5,9 +5,22 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - json_output
 limits:
     context_window: 256000
     max_tokens: 256000
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: Qwen/Qwen3.7-Max
+provisioning: serverless
+sources:
+    - https://deepinfra.com/Qwen/Qwen3.7-Max
+status: active
+supportedModes:
+    - chat
 thinking: true
