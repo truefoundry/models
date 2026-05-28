@@ -1,0 +1,45 @@
+costs:
+    - cache_creation_input_token_cost_per_hour: 1e-6
+      cache_read_input_token_cost: 5e-8
+      input_cost_per_token: 5e-7
+      input_cost_per_token_batches: 2.5e-7
+      output_cost_per_image_token: 6e-5
+      output_cost_per_token: 3e-6
+      output_cost_per_token_batches: 1.5e-6
+      region: "*"
+features:
+    - system_messages
+    - prompt_caching
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+        - image
+mode: image
+model: gemini-3.1-flash-image
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 1
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+sources:
+    - https://deepmind.google/models/model-cards/gemini-3-1-flash-image/
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-image
+    - https://aistudio.google.com/models/gemini-3-1-flash-image
+    - https://ai.google.dev/gemini-api/docs/image-generation
+status: active
+supportedModes:
+    - image
+    - chat
+thinking: true

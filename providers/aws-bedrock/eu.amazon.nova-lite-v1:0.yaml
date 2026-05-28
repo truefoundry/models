@@ -33,11 +33,12 @@ features:
     - tool_choice
     - prompt_caching
     - assistant_prefill
+    - structured_output
 limits:
     context_window: 300000
     max_input_tokens: 300000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
 modalities:
     input:
         - text
@@ -52,8 +53,11 @@ model: eu.amazon.nova-lite-v1:0
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 10000
+      maxValue: 5000
       minValue: 1
+    - key: top_k
+      maxValue: 128
+      minValue: 0
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
@@ -68,3 +72,4 @@ sources:
 status: active
 supportedModes:
     - chat
+thinking: true
