@@ -6,6 +6,7 @@ costs:
     - output_cost_per_image: 0.06
       region: ap-northeast-1
 deprecationDate: "2026-09-30"
+isDeprecated: true
 modalities:
     input:
         - text
@@ -19,7 +20,7 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
 sources:
@@ -27,6 +28,6 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/image-gen-access.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-canvas.html
-status: active
+status: deprecated
 supportedModes:
     - image
