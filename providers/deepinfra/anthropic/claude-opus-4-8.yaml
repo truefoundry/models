@@ -1,22 +1,23 @@
 costs:
-    - input_cost_per_token: 3.9e-7
-      output_cost_per_token: 9.7e-7
+    - input_cost_per_token: 5e-6
+      output_cost_per_token: 2.5e-5
       region: "*"
 features:
     - function_calling
     - json_output
 limits:
-    context_window: 32000
+    context_window: 1000000
+    max_tokens: 1000000
 modalities:
     input:
         - text
+        - image
     output:
         - text
 mode: chat
-model: pearl-ai/gemma-4-31b-it
-provisioning: serverless
+model: anthropic/claude-opus-4-8
 sources:
-    - https://www.together.ai/models/gemma-4-31b-it-pearl
+    - https://deepinfra.com/anthropic/claude-opus-4-8
 status: active
 supportedModes:
     - chat
