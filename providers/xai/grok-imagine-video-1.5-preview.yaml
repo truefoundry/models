@@ -1,0 +1,22 @@
+costs:
+    - output_cost_per_second: 0.08
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
+mode: video
+model: grok-imagine-video-1.5-preview
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+status: preview
+supportedModes:
+    - video
