@@ -5,6 +5,8 @@ costs:
       output_cost_per_token: 2.5e-6
       region: "*"
 features:
+    - function_calling
+    - structured_output
     - prompt_caching
 limits:
     context_window: 1000000
