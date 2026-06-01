@@ -1,11 +1,11 @@
 costs:
-    - cache_creation_input_token_cost_per_hour: 0.000001
+    - cache_creation_input_token_cost_per_hour: 1e-6
       cache_read_input_audio_token_cost: 5e-8
       cache_read_input_token_cost: 2.5e-8
       input_cost_per_audio_token: 5e-7
       input_cost_per_token: 2.5e-7
       input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.0000015
+      output_cost_per_token: 1.5e-6
       output_cost_per_token_batches: 7.5e-7
       region: "*"
 deprecationDate: "2026-05-25"
@@ -16,6 +16,7 @@ features:
     - prompt_caching
     - structured_output
     - code_execution
+isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -45,7 +46,7 @@ params:
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true
