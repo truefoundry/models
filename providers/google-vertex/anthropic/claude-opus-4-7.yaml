@@ -29,6 +29,7 @@ features:
     - cache_control
     - function_calling
     - prompt_caching
+    - structured_output
     - system_messages
     - tool_choice
 limits:
@@ -36,7 +37,7 @@ limits:
     max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
-    tool_use_system_prompt_tokens: 346
+    tool_use_system_prompt_tokens: 675
 modalities:
     input:
         - text
@@ -56,6 +57,7 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-7
     - https://platform.claude.com/docs/en/docs/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
 status: active
 supportedModes:
     - chat
