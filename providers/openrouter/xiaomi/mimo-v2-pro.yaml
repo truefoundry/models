@@ -1,24 +1,26 @@
 costs:
     - cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000003
+      input_cost_per_token: 1e-6
+      output_cost_per_token: 3e-6
       region: "*"
       tiered_pricing:
           cache_read:
               - cost_per_token: 4e-7
                 from: 256000
           input:
-              - cost_per_token: 0.000002
+              - cost_per_token: 2e-6
                 from: 256000
           output:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 256000
           pricing_mode: marginal
+deprecationDate: "2026-05-31"
 features:
     - function_calling
     - json_output
     - prompt_caching
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 1048576
     max_output_tokens: 131072
@@ -39,7 +41,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/xiaomi/mimo-v2-pro/api
     - https://openrouter.ai/xiaomi/mimo-v2-pro
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
