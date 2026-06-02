@@ -34,3 +34,11 @@ params:
       type: boolean
     - defaultValue: null
       key: tool_choice
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
