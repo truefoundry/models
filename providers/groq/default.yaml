@@ -3,6 +3,7 @@ documentation:
     - https://groq.com/pricing/
     - https://console.groq.com/docs/models
     - https://console.groq.com/docs/deprecations
+    - https://console.groq.com/docs/reasoning
 messages:
     options:
         - system
@@ -27,3 +28,12 @@ params:
     - defaultValue: true
       key: stream
       type: boolean
+    - defaultValue: default
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - default
+          - low
+          - medium
+          - high
+      type: string
