@@ -4,6 +4,7 @@ documentation:
     - https://cerebras.ai/pricing
     - https://inference-docs.cerebras.ai/models/overview
     - https://inference-docs.cerebras.ai/api-reference/versions
+    - https://inference-docs.cerebras.ai/capabilities/reasoning
 messages:
     options:
         - system
@@ -28,3 +29,11 @@ params:
     - defaultValue: true
       key: stream
       type: boolean
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string

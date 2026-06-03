@@ -4,6 +4,7 @@ documentation:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
     - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reasoning
 messages:
     options:
         - system
@@ -41,3 +42,13 @@ params:
     - defaultValue: true
       key: parallel_tool_calls
       type: boolean
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string

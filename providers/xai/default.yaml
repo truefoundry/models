@@ -2,6 +2,7 @@ documentation:
     - https://docs.x.ai
     - https://docs.x.ai/developers/models#models-and-pricing
     - https://docs.x.ai/developers/models
+    - https://docs.x.ai/developers/model-capabilities/text/reasoning
 messages:
     options:
         - system
@@ -30,3 +31,11 @@ params:
     - defaultValue: true
       key: stream
       type: boolean
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string

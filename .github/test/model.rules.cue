@@ -1,6 +1,7 @@
 package model
 
 #ReasoningEffortValue:
+	"default" |
 	"high" |
 	"low" |
 	"max" |
