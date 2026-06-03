@@ -1,15 +1,31 @@
+costs:
+    - input_cost_per_token: 0.0000015
+      output_cost_per_token: 0.0000075
+      region: "*"
 features:
     - function_calling
+    - structured_output
+    - assistant_prefill
 limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
-mode: unknown
+        - doc
+    output:
+        - text
+mode: chat
 model: mistral-medium-3-5-0
 params:
     - defaultValue: 1.0
       key: temperature
+    - key: reasoning_effort
+      type: string
+sources:
+    - https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
+    - https://docs.mistral.ai/capabilities/reasoning
 status: active
 supportedModes:
     - chat
+thinking: true
