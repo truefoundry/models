@@ -14,16 +14,14 @@ modalities:
         - text
     output:
         - text
-mode: completion
+mode: responses
 model: gpt-3.5-turbo-instruct
 provisioning: serverless
 removeParams:
     - max_tokens
-    - tool_choice
-    - parallel_tool_calls
-    - reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/models/gpt-3.5-turbo-instruct
 status: active
 supportedModes:
-    - completion
+    - chat
+    - responses
