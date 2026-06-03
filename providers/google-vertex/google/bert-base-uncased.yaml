@@ -1,3 +1,5 @@
+limits:
+    max_input_tokens: 512
 modalities:
     input:
         - text
@@ -14,6 +16,8 @@ removeParams:
     - stop
     - stream
     - tool_choice
+sources:
+    - https://huggingface.co/google-bert/bert-base-uncased
 status: active
 supportedModes:
     - embedding

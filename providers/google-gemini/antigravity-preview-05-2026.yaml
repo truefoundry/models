@@ -8,6 +8,7 @@ costs:
       region: "*"
 features:
     - code_execution
+    - prompt_caching
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -27,6 +28,8 @@ removeParams:
     - top_p
     - top_k
     - tool_choice
+    - max_tokens
+    - stop
 sources:
     - https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026
     - https://ai.google.dev/gemini-api/docs/antigravity-agent

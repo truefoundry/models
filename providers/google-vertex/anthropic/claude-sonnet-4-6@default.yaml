@@ -7,6 +7,14 @@ costs:
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
       region: us-east5
+    - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: us
     - cache_creation_input_token_cost: 0.00000375
       cache_creation_input_token_cost_per_hour: 0.000006
       cache_read_input_token_cost: 3e-7
@@ -24,6 +32,15 @@ costs:
       output_cost_per_token_batches: 0.00000825
       region: europe-west1
     - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: eu
+    - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       input_cost_per_token_batches: 0.00000165
@@ -44,7 +61,7 @@ limits:
     max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
-    tool_use_system_prompt_tokens: 346
+    tool_use_system_prompt_tokens: 497
 modalities:
     input:
         - text
