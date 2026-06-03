@@ -4,7 +4,12 @@ costs:
       region: "*"
 limits:
     context_window: 1048576
-mode: unknown
+mode: chat
 model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP4
 supportedModes:
     - chat
+
+# FP4 quantization variant not found in official Together AI docs;
+# only the FP8 variant (meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8) is
+# documented (and was deprecated 2026-03-31). Pricing, exact limits, and
+# feature support for the FP4 variant are not confirmed by official sources.
