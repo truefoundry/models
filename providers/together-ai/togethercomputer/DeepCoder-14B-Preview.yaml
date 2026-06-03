@@ -1,7 +1,5 @@
 limits:
-    context_window: 64000
-    max_output_tokens: 64000
-    max_tokens: 64000
+    context_window: 131072
 modalities:
     input:
         - text
@@ -11,10 +9,11 @@ modalities:
         - code
 mode: chat
 model: togethercomputer/DeepCoder-14B-Preview
-provisioning: serverless
+provisioning: provisioned
 sources:
     - https://www.together.ai/blog/deepcoder
     - https://huggingface.co/agentica-org/DeepCoder-14B-Preview
+    - https://docs.together.ai/docs/dedicated-endpoints/models
 status: preview
 supportedModes:
     - chat

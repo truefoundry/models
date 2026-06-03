@@ -1,8 +1,11 @@
 limits:
     context_window: 131072
+    max_output_tokens: 8192
+    max_tokens: 8192
 modalities:
     input:
         - text
+        - image
     output:
         - text
 mode: completion
@@ -10,6 +13,7 @@ model: google/gemma-3-4b-pt
 provisioning: provisioned
 sources:
     - https://www.together.ai/models/gemma-3-4b
+    - https://huggingface.co/google/gemma-3-4b-pt
 status: active
 supportedModes:
     - completion
