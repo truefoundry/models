@@ -7,6 +7,8 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODEL_SCHEMA="$SCRIPT_DIR/model.cue"
+# Validation-only constraints; not used by type generation (see model.rules.cue)
+MODEL_RULES="$SCRIPT_DIR/model.rules.cue"
 
 # Check if cue is installed
 if ! command -v cue &> /dev/null; then
@@ -27,7 +29,7 @@ validate_file() {
         definition="#ModelConfig"
     fi
 
-    cat "$file" | cue vet "$MODEL_SCHEMA" yaml: - -d "$definition" 2>&1
+    cat "$file" | cue vet "$MODEL_SCHEMA" "$MODEL_RULES" yaml: - -d "$definition" 2>&1
 }
 
 if [ "$#" -gt 0 ]; then
