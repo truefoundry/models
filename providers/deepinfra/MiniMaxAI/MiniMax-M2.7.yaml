@@ -5,8 +5,21 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - json_output
 limits:
     context_window: 196608
     max_tokens: 196608
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: MiniMaxAI/MiniMax-M2.7
+provisioning: serverless
+sources:
+    - https://deepinfra.com/MiniMaxAI/MiniMax-M2.7
+status: active
+supportedModes:
+    - chat
