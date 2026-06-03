@@ -3,3 +3,13 @@ documentation:
     - https://docs.together.ai/docs/deprecations
     - https://docs.together.ai/docs/changelog
     - https://docs.together.ai/docs/serverless-models
+    - https://docs.together.ai/docs/inference/chat/reasoning
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string

@@ -7,6 +7,7 @@ costs:
       output_cost_per_token: 0.0000015
       output_cost_per_token_batches: 7.5e-7
       region: global
+deprecationDate: "2026-07-09"
 features:
     - function_calling
     - system_messages
@@ -18,8 +19,8 @@ features:
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
-    max_output_tokens: 65535
-    max_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -34,11 +35,12 @@ mode: chat
 model: google/gemini-3.1-flash-lite-preview
 params:
     - key: max_tokens
-      maxValue: 65535
+      maxValue: 65536
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-lite
     - https://deepmind.google/models/gemini/flash-lite/
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview
 status: preview
 supportedModes:
     - chat

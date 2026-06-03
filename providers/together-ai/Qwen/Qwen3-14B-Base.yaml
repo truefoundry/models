@@ -1,5 +1,5 @@
 limits:
-    context_window: 128000
+    context_window: 32768
 modalities:
     input:
         - text
@@ -11,6 +11,7 @@ provisioning: provisioned
 sources:
     - https://www.together.ai/models/qwen3-14b-base
     - https://huggingface.co/Qwen/Qwen3-14B-Base
+    - https://docs.together.ai/docs/dedicated-models
 status: active
 supportedModes:
     - completion
