@@ -131,6 +131,7 @@ export interface components {
             key: components["schemas"]["ModelParamKey"];
             maxValue?: number;
             minValue?: number;
+            supportedValues?: string[];
             type?: components["schemas"]["ModelParamType"];
         };
         /** @enum {string} */
