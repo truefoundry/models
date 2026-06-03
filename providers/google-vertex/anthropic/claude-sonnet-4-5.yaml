@@ -5,12 +5,40 @@ costs:
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
       region: us-east5
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+          pricing_mode: marginal
     - cache_creation_input_token_cost: 0.000004125
       cache_creation_input_token_cost_per_hour: 0.0000066
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
       region: us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+          pricing_mode: marginal
     - cache_creation_input_token_cost: 0.00000375
       cache_creation_input_token_cost_per_hour: 0.000006
       cache_read_input_token_cost: 3e-7
@@ -19,24 +47,80 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.0000075
+                from: 200000
+          input:
+              - cost_per_token: 0.000006
+                from: 200000
+          output:
+              - cost_per_token: 0.0000225
+                from: 200000
+          pricing_mode: marginal
     - cache_creation_input_token_cost: 0.000004125
       cache_creation_input_token_cost_per_hour: 0.0000066
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
       region: europe-west1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+          pricing_mode: marginal
     - cache_creation_input_token_cost: 0.000004125
       cache_creation_input_token_cost_per_hour: 0.0000066
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
       region: eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+          pricing_mode: marginal
     - cache_creation_input_token_cost: 0.000004125
       cache_creation_input_token_cost_per_hour: 0.0000066
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
       region: asia-southeast1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 6.6e-7
+                from: 200000
+          cache_write:
+              - cost_per_token: 0.00000825
+                from: 200000
+          input:
+              - cost_per_token: 0.0000066
+                from: 200000
+          output:
+              - cost_per_token: 0.00002475
+                from: 200000
+          pricing_mode: marginal
 features:
     - function_calling
     - cache_control
