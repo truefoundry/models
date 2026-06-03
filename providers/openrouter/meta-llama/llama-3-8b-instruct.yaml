@@ -3,6 +3,7 @@ costs:
       output_cost_per_token: 4e-8
       region: "*"
 features:
+    # - function_calling // model does not support function calling
     - json_output
     - tool_choice
 limits:
