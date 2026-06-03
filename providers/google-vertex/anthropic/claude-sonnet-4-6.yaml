@@ -43,9 +43,9 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 128000
-    max_tokens: 128000
-    tool_use_system_prompt_tokens: 346
+    max_output_tokens: 64000
+    max_tokens: 64000
+    tool_use_system_prompt_tokens: 497
 modalities:
     input:
         - text
@@ -57,7 +57,7 @@ mode: chat
 model: anthropic/claude-sonnet-4-6
 params:
     - key: max_tokens
-      maxValue: 128000
+      maxValue: 64000
     - key: temperature
       maxValue: 1
 provisioning: serverless
@@ -66,6 +66,8 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4-6
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/about-claude/models/overview
+    - https://cloud.google.com/blog/products/ai-machine-learning/multi-region-endpoints-for-claude-available-on-vertex-ai
 status: active
 supportedModes:
     - chat

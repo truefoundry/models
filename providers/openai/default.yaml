@@ -40,3 +40,13 @@ params:
     - defaultValue: true
       key: parallel_tool_calls
       type: boolean
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
