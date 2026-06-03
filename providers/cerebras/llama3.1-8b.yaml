@@ -10,6 +10,7 @@ features:
     - structured_output
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 32000
     max_output_tokens: 8000
@@ -31,7 +32,7 @@ sources:
     - https://inference-docs.cerebras.ai/capabilities/structured-outputs
     - https://inference-docs.cerebras.ai/capabilities/prompt-caching
     - https://inference-docs.cerebras.ai/api-reference/chat-completions
-status: active
+status: deprecated
 supportedModes:
     - chat
     - completion
