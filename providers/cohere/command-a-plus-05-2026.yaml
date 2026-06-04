@@ -6,6 +6,8 @@ features:
     - structured_output
     - tool_choice
     - function_calling
+    - json_output
+    - system_messages
 limits:
     context_window: 128000
     max_output_tokens: 64000
@@ -17,8 +19,10 @@ modalities:
         - text
 mode: chat
 model: command-a-plus-05-2026
+provisioning: serverless
 sources:
     - https://docs.cohere.com/docs/command-a-plus
+    - https://docs.cohere.com/reference/chat
 status: active
 supportedModes:
     - chat
