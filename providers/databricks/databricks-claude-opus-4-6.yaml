@@ -33,7 +33,18 @@ model: databricks-claude-opus-4-6
 params:
     - key: max_tokens
       maxValue: 128000
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
+sources:
+    - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
 status: active
 supportedModes:
     - chat
