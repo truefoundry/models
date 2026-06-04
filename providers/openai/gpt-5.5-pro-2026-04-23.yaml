@@ -24,9 +24,6 @@ modalities:
         - text
 mode: responses
 model: gpt-5.5-pro-2026-04-23
-params:
-    - key: reasoning_effort
-      type: string
 provisioning: serverless
 removeParams:
     - stream
@@ -38,4 +35,5 @@ sources:
 status: active
 supportedModes:
     - responses
+    - chat
 thinking: true
