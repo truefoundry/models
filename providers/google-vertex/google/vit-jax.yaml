@@ -3,7 +3,7 @@ modalities:
         - image
     output:
         - text
-mode: unknown
+mode: image
 model: google/vit-jax
 provisioning: provisioned
 removeParams:
@@ -17,6 +17,7 @@ removeParams:
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/vit-jax
     - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/community-content/vertex_model_garden/benchmarking_reports/jax_vit_benchmarking_report.md
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_jax_vision_transformer.ipynb
 status: preview
 supportedModes:
-    - unknown
+    - image

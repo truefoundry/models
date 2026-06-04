@@ -86,9 +86,10 @@ costs:
 deprecationDate: "2026-10-02"
 features:
     - system_messages
+    - structured_output
 limits:
-    context_window: 32768
-    max_input_tokens: 32768
+    context_window: 65536
+    max_input_tokens: 65536
     max_output_tokens: 32768
     max_tokens: 32768
 modalities:
@@ -109,6 +110,7 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-image
+    - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image
 status: active
 supportedModes:
     - chat
