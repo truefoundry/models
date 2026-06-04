@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_token: 1e-7
+      region: "*"
 limits:
     context_window: 8192
 modalities:
@@ -8,5 +11,3 @@ modalities:
 mode: embedding
 model: mistral-embed-dim256-2510
 status: active
-
-# costs: not found in official docs
