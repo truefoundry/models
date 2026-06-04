@@ -8,6 +8,8 @@ modalities:
 mode: completion
 model: Qwen/Qwen3-8B-Base
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://huggingface.co/Qwen/Qwen3-8B-Base
     - https://docs.together.ai/docs/fine-tuning-models
