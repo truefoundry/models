@@ -18,6 +18,15 @@ modalities:
         - text
 mode: responses
 model: grok-4.20-multi-agent
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens

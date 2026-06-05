@@ -22,6 +22,9 @@ params:
     - defaultValue: 0.7
       key: temperature
     - key: reasoning_effort
+      supportedValues:
+          - none
+          - high
 sources:
     - https://docs.mistral.ai/capabilities/reasoning/
     - https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5
