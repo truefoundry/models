@@ -7,6 +7,15 @@ limits:
     max_tokens: 131072
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: moderation
 model: nvidia/Nemotron-Content-Safety-3.5
+provisioning: serverless
+sources:
+    - https://deepinfra.com/nvidia/Nemotron-Content-Safety-3.5
+status: active
+supportedModes:
+    - moderation
