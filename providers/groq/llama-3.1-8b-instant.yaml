@@ -28,9 +28,12 @@ params:
       key: response_format
       type: string
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://console.groq.com/docs/tool-use
     - https://console.groq.com/docs/api-reference#chat-create
+    - https://console.groq.com/docs/model/llama-3.1-8b-instant
 status: active
 supportedModes:
     - chat

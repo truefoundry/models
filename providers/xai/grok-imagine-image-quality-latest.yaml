@@ -11,6 +11,12 @@ modalities:
 mode: image
 model: grok-imagine-image-quality-latest
 provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - reasoning_effort
 status: active
 supportedModes:
     - image
