@@ -8,6 +8,7 @@ costs:
       output_cost_per_token: 0.000012
       output_cost_per_token_batches: 0.000006
       region: "*"
+deprecationDate: "2026-06-25"
 features:
     - system_messages
     - structured_output
@@ -32,9 +33,7 @@ provisioning: serverless
 removeParams:
     - tool_choice
 sources:
-    - https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview
     - https://ai.google.dev/gemini-api/docs/image-generation
-    - https://ai.google.dev/gemini-api/docs/thinking
 status: preview
 supportedModes:
     - image

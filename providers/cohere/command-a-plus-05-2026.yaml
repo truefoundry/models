@@ -19,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: command-a-plus-05-2026
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 provisioning: serverless
 sources:
     - https://docs.cohere.com/docs/command-a-plus

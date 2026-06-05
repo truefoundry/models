@@ -1,0 +1,16 @@
+costs:
+    - input_cost_per_second: 3.3333333333e-6
+      region: "*"
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: unsupported
+model: nvidia/Nemotron-3.5-ASR-Streaming-Multilingual-0.6b
+provisioning: serverless
+sources:
+    - https://deepinfra.com/nvidia/Nemotron-3.5-ASR-Streaming-Multilingual-0.6b
+status: active
+supportedModes:
+    - audio_transcription
