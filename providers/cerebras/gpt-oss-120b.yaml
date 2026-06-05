@@ -27,6 +27,11 @@ params:
       maxValue: 40000
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - stream

@@ -1,28 +1,24 @@
 costs:
     - cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 2e-6
+      input_cost_per_token: 6e-7
+      output_cost_per_token: 3.6e-6
       region: "*"
 features:
     - function_calling
-    - json_output
-    - prompt_caching
     - structured_output
-    - tool_choice
+    - json_output
 limits:
-    context_window: 256000
+    context_window: 512300
 modalities:
     input:
         - text
-        - image
     output:
         - text
 mode: chat
-model: x-ai/grok-build-0.1
+model: nvidia/nemotron-3-ultra-550b-a55b
 provisioning: serverless
 sources:
-    - https://openrouter.ai/x-ai/grok-build-0.1
-status: preview
+    - https://www.together.ai/models/nvidia-nemotron-3-ultra
 supportedModes:
     - chat
 thinking: true
