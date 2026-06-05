@@ -1,27 +1,24 @@
 costs:
-    - cache_read_input_token_cost: 1e-8
-      input_cost_per_token: 7e-8
-      output_cost_per_token: 3.4e-7
+    - cache_read_input_token_cost: 1.5e-7
+      input_cost_per_token: 5e-7
+      output_cost_per_token: 2.5e-6
       region: "*"
 features:
+    - prompt_caching
     - function_calling
     - json_output
-    - prompt_caching
 limits:
     context_window: 262144
     max_tokens: 262144
 modalities:
     input:
-        - image
         - text
-        - video
     output:
         - text
 mode: chat
-model: google/gemma-4-26B-A4B-it
-provisioning: serverless
+model: nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B
 sources:
-    - https://deepinfra.com/google/gemma-4-26B-A4B-it
+    - https://deepinfra.com/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B
 status: active
 supportedModes:
     - chat
