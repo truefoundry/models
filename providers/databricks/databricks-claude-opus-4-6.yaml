@@ -33,6 +33,14 @@ model: databricks-claude-opus-4-6
 params:
     - key: max_tokens
       maxValue: 128000
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/about-claude/pricing
