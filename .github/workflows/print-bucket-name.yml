@@ -1,0 +1,13 @@
+name: Print Bucket Name
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-bucket-name:
+    name: Print bucket name
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print bucket name
+        run: echo "Bucket name is ${{ secrets.BUCKET_NAME }}"
