@@ -6,12 +6,16 @@ features:
     - function_calling
     - structured_output
     - system_messages
+    - assistant_prefill
+    - tool_choice
 limits:
     context_window: 262144
 modalities:
     input:
         - text
         - image
+        - pdf
+        - audio
     output:
         - text
 mode: chat
