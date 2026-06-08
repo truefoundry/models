@@ -9,7 +9,8 @@ package model
 	key:           #ModelParamKey
 	maxValue?:     number
 	minValue?:     number
-	type?:         #ModelParamType
+	supportedValues?: [...string]
+	type?: #ModelParamType
 }
 
 #ModelParamKey:

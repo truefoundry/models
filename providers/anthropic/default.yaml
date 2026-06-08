@@ -3,6 +3,7 @@ documentation:
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/about-claude/models/overview
     - https://platform.claude.com/docs/en/about-claude/model-deprecations
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 messages:
     options:
         - system
@@ -33,3 +34,12 @@ params:
       type: boolean
     - defaultValue: null
       key: tool_choice
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string

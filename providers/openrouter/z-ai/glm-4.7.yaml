@@ -9,6 +9,7 @@ features:
     - prompt_caching
     - structured_output
     - tool_choice
+    - system_messages
 limits:
     context_window: 202752
     max_input_tokens: 202752
@@ -23,6 +24,7 @@ mode: chat
 model: z-ai/glm-4.7
 provisioning: serverless
 sources:
+    - https://openrouter.ai/z-ai/glm-4.7
     - https://openrouter.ai/z-ai/glm-4.7/api
 status: active
 supportedModes:

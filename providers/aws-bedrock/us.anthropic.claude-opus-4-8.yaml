@@ -1,0 +1,82 @@
+costs:
+    - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
+      region: us-west-2
+    - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
+      region: us-west-1
+    - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
+      region: us-east-1
+    - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
+      region: ca-west-1
+    - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
+      region: ca-central-1
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - prompt_caching
+    - cache_control
+    - structured_output
+    - assistant_prefill
+    - json_output
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+    tool_use_system_prompt_tokens: 290
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: us.anthropic.claude-opus-4-8
+params:
+    - defaultValue: 4096
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - key: thinking
+      type: json
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-8.html
+    - https://platform.claude.com/docs/en/about-claude/models/overview
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://www.anthropic.com/news/claude-opus-4-8
+status: active
+supportedModes:
+    - chat
+thinking: true

@@ -5,8 +5,12 @@ costs:
       region: "*"
 deprecationDate: "2026-12-26"
 features:
-    - system_messages
+    - function_calling
+    - parallel_function_calling
     - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -16,6 +20,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat

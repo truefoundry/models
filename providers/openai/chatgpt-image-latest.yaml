@@ -1,13 +1,15 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_image_token: 0.000008
-      input_cost_per_token: 0.000005
-      output_cost_per_image_token: 0.000032
-      output_cost_per_token: 0.00001
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_image_token: 8e-6
+      input_cost_per_token: 5e-6
+      output_cost_per_image_token: 3.2e-5
+      output_cost_per_token: 1e-5
       region: "*"
+deprecationDate: "2026-06-02"
 features:
     - prompt_caching
     - system_messages
+isDeprecated: true
 modalities:
     input:
         - text
@@ -25,6 +27,6 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/chatgpt-image-latest
     - https://developers.openai.com/api/docs/guides/images-vision
-status: active
+status: deprecated
 supportedModes:
     - image

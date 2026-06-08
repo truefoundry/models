@@ -1,0 +1,39 @@
+costs:
+    - input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_image_token: 0.00012
+      output_cost_per_token: 0.000012
+      output_cost_per_token_batches: 0.000006
+      region: "*"
+features:
+    - structured_output
+limits:
+    context_window: 65536
+    max_input_tokens: 65536
+    max_output_tokens: 32768
+    max_tokens: 32768
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+        - image
+mode: image
+model: gemini-3-pro-image
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 1
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image
+    - https://ai.google.dev/gemini-api/docs/image-generation
+status: active
+supportedModes:
+    - image
+thinking: true
