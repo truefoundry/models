@@ -5,11 +5,13 @@ costs:
     - input_cost_per_token: 1e-7
       output_cost_per_token: 3e-7
       region: europe-west4
+deprecationDate: "2025-11-06"
 features:
     - function_calling
     - system_messages
     - tool_choice
     - structured_output
+isDeprecated: true
 limits:
     context_window: 128000
 modalities:
@@ -26,6 +28,6 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/mistral/mistral-small-3-1
     - https://docs.mistral.ai/models/
-status: active
+status: retired
 supportedModes:
     - chat
