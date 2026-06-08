@@ -5,12 +5,16 @@ costs:
 modalities:
     input:
         - text
+        - image
     output:
         - image
 mode: image
 model: ByteDance/Seedream-5.0-lite
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/seedream-50-lite
+status: active
 supportedModes:
     - image
