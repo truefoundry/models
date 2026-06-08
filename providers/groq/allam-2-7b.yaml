@@ -1,5 +1,4 @@
 features:
-    - structured_output
     - json_output
 limits:
     context_window: 4096
@@ -13,6 +12,11 @@ modalities:
 mode: chat
 model: allam-2-7b
 provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://console.groq.com/docs/model/allam-2-7b
+    - https://console.groq.com/docs/structured-outputs
 status: active
 supportedModes:
     - chat

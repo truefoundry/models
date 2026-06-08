@@ -18,11 +18,11 @@ params:
       key: response_format
       type: string
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
-    - https://docs.together.ai/docs/speech-to-text
     - https://docs.together.ai/reference/audio-transcriptions
     - https://docs.together.ai/reference/audio-translations
-    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - audio_transcription

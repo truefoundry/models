@@ -43,10 +43,17 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+    - key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
+    - https://ai.google.dev/gemini-api/docs/gemini-3
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
 status: preview
 supportedModes:
     - chat
