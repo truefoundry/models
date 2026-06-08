@@ -17,6 +17,14 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-oss-20b
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/openai/gpt-oss-20b
