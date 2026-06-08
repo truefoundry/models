@@ -19,6 +19,9 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-oss
+params:
+    - key: reasoning_effort
+      type: string
 provisioning: provisioned
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/openai/gpt-oss-120b

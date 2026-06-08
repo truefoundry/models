@@ -7,6 +7,9 @@ costs:
       region: global
 features:
     - system_messages
+    - function_calling
+    - structured_output
+    - tool_choice
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -16,6 +19,7 @@ modalities:
     input:
         - text
         - image
+        - video
     output:
         - text
         - image
@@ -31,6 +35,7 @@ removeParams:
     - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-image
+    - https://ai.google.dev/gemini-api/docs/image-generation
 status: preview
 supportedModes:
     - chat

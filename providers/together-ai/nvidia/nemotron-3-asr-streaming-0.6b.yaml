@@ -1,0 +1,18 @@
+costs:
+    - input_cost_per_second: 7.5e-5
+      region: "*"
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: unsupported
+model: nvidia/nemotron-3-asr-streaming-0.6b
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/models/nvidia-nemotron-35-asr
+status: active
+supportedModes:
+    - audio_transcription

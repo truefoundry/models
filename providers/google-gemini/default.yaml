@@ -5,6 +5,7 @@ documentation:
     - https://ai.google.dev/gemini-api/docs/pricing#batch
     - https://ai.google.dev/gemini-api/docs/models
     - https://ai.google.dev/gemini-api/docs/changelog
+    - https://ai.google.dev/gemini-api/docs/thinking#thinking-levels
 messages:
     options:
         - user
@@ -34,3 +35,11 @@ params:
       type: boolean
     - defaultValue: null
       key: tool_choice
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string

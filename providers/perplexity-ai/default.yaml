@@ -2,6 +2,7 @@ documentation:
     - https://docs.perplexity.ai/docs/sonar/models
     - https://docs.perplexity.ai/docs/agent-api/models
     - https://docs.perplexity.ai/docs/getting-started/pricing
+    - https://docs.perplexity.ai/api-reference/sonar-post
 messages:
     options:
         - system
@@ -34,3 +35,10 @@ params:
     - defaultValue: true
       key: stream
       type: boolean
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
