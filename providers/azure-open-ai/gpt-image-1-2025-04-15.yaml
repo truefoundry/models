@@ -1,10 +1,11 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_image_token: 0.00001
-      input_cost_per_token: 0.000005
-      output_cost_per_image_token: 0.00004
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_image_token: 1e-5
+      input_cost_per_token: 5e-6
+      output_cost_per_image_token: 4e-5
       region: "*"
 deprecationDate: "2026-05-15"
+isDeprecated: true
 modalities:
     input:
         - text
@@ -19,7 +20,7 @@ removeParams:
     - temperature
     - stop
     - top_p
-    - "n"
+    - n
     - response_format
     - stream
     - tool_choice
@@ -27,6 +28,6 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-image-1
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-status: preview
+status: deprecated
 supportedModes:
     - image

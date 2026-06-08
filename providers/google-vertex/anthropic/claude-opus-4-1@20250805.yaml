@@ -28,7 +28,7 @@ limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
     max_tokens: 32000
-    tool_use_system_prompt_tokens: 346
+    tool_use_system_prompt_tokens: 313
 modalities:
     input:
         - text
@@ -43,8 +43,9 @@ params:
       maxValue: 32000
 provisioning: serverless
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
+    - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/about-claude/model-deprecations
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-1
 status: active
 supportedModes:

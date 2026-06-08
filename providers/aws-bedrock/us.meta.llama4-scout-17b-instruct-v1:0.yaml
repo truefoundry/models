@@ -23,7 +23,6 @@ modalities:
     input:
         - text
         - image
-        - doc
     output:
         - text
 mode: chat
@@ -34,6 +33,8 @@ params:
       maxValue: 8000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - stream
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-4-scout-17b-instruct.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html

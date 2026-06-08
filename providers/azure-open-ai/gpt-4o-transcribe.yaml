@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_audio_token: 0.000006
+    - input_cost_per_audio_token: 0.0000025
       input_cost_per_token: 0.0000025
       output_cost_per_token: 0.00001
       region: "*"
@@ -26,7 +26,6 @@ removeParams:
     - stop
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-transcribe
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: preview
 supportedModes:
     - audio_transcription
