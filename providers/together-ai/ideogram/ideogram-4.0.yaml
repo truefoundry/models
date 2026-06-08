@@ -1,0 +1,18 @@
+costs:
+    - input_cost_per_image: 0.06
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
+model: ideogram/ideogram-4.0
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/pricing
+status: active
+supportedModes:
+    - image

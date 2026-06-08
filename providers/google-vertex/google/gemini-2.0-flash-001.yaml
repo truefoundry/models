@@ -16,6 +16,7 @@ features:
     - json_output
     - code_execution
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -42,6 +43,6 @@ provisioning: serverless
 sources:
     - https://firebase.google.com/docs/ai-logic/models
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash
-status: active
+status: retired
 supportedModes:
     - chat

@@ -27,7 +27,13 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://console.groq.com/docs/model/openai/gpt-oss-120b

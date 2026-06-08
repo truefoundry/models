@@ -1,17 +1,23 @@
 costs:
     - input_cost_per_token: 0.0000015
+      input_cost_per_token_batches: 7.5e-7
       output_cost_per_token: 0.0000075
+      output_cost_per_token_batches: 0.00000375
       region: "*"
 features:
     - function_calling
     - structured_output
     - system_messages
+    - assistant_prefill
+    - tool_choice
 limits:
     context_window: 262144
 modalities:
     input:
         - text
         - image
+        - pdf
+        - audio
     output:
         - text
 mode: chat
