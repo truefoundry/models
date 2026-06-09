@@ -43,9 +43,16 @@ params:
       key: top_k
       maxValue: 64
       minValue: 1
+    - key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash
+    - https://ai.google.dev/gemini-api/docs/gemini-3
 status: preview
 supportedModes:
     - chat

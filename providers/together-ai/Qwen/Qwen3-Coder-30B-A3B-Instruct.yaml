@@ -15,8 +15,11 @@ modalities:
 mode: chat
 model: Qwen/Qwen3-Coder-30B-A3B-Instruct
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
 sources:
     - https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct
+    - https://docs.together.ai/docs/dedicated-models
 status: active
 supportedModes:
     - chat

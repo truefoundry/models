@@ -10,8 +10,13 @@ modalities:
 mode: completion
 model: Qwen/Qwen2.5-32B
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://huggingface.co/Qwen/Qwen2.5-32B
+    - https://docs.together.ai/docs/fine-tuning-models
 status: active
 supportedModes:
     - completion
+
+# costs not found in official Together AI docs — Qwen/Qwen2.5-32B is offered as a fine-tuning base model only, with no published per-token inference pricing

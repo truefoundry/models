@@ -10,8 +10,11 @@ modalities:
 mode: image
 model: Qwen/Qwen-Image
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/qwen-image
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - image

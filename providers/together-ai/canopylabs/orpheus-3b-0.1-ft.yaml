@@ -9,8 +9,11 @@ modalities:
 mode: text_to_speech
 model: canopylabs/orpheus-3b-0.1-ft
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/text-to-speech
+    - https://www.together.ai/models/orpheus-tts
 status: active
 supportedModes:
     - text_to_speech

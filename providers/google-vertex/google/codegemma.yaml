@@ -12,6 +12,11 @@ modalities:
         - code
 mode: completion
 model: google/codegemma
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
 provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/codegemma

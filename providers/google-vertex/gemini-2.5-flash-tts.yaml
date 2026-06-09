@@ -81,6 +81,11 @@ modalities:
         - audio
 mode: text_to_speech
 model: gemini-2.5-flash-tts
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
 provisioning: serverless
 removeParams:
     - tool_choice
