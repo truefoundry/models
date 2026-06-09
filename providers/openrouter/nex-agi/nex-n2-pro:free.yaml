@@ -1,0 +1,33 @@
+costs:
+    - input_cost_per_token: 0.0
+      output_cost_per_token: 0.0
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 262144
+    max_output_tokens: 262144
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: nex-agi/nex-n2-pro:free
+params:
+    - defaultValue: 0.7
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 40
+      key: top_k
+provisioning: serverless
+sources:
+    - https://openrouter.ai/nex-agi/nex-n2-pro:free
+supportedModes:
+    - chat
+thinking: true
