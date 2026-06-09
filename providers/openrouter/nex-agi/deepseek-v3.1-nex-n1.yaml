@@ -8,6 +8,7 @@ features:
     - json_output
     - structured_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 163840
@@ -22,7 +23,6 @@ model: nex-agi/deepseek-v3.1-nex-n1
 provisioning: serverless
 sources:
     - https://openrouter.ai/nex-agi/deepseek-v3.1-nex-n1
-    - https://openrouter.ai/nex-agi/deepseek-v3.1-nex-n1/api
-status: active
+status: retired
 supportedModes:
     - chat
