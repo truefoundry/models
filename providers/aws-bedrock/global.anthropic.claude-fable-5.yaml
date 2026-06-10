@@ -16,6 +16,12 @@ costs:
       cache_read_input_token_cost: 0.000001
       input_cost_per_token: 0.00001
       output_cost_per_token: 0.00005
+      region: us-east-2
+    - cache_creation_input_token_cost: 0.0000125
+      cache_creation_input_token_cost_per_hour: 0.00002
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
       region: us-east-1
     - cache_creation_input_token_cost: 0.0000125
       cache_creation_input_token_cost_per_hour: 0.00002
@@ -29,6 +35,18 @@ costs:
       input_cost_per_token: 0.00001
       output_cost_per_token: 0.00005
       region: mx-central-1
+    - cache_creation_input_token_cost: 0.0000125
+      cache_creation_input_token_cost_per_hour: 0.00002
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: me-south-1
+    - cache_creation_input_token_cost: 0.0000125
+      cache_creation_input_token_cost_per_hour: 0.00002
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: me-central-1
     - cache_creation_input_token_cost: 0.0000125
       cache_creation_input_token_cost_per_hour: 0.00002
       cache_read_input_token_cost: 0.000001
@@ -188,7 +206,6 @@ features:
     - cache_control
     - structured_output
     - assistant_prefill
-    - json_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -198,6 +215,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -210,11 +228,11 @@ params:
     - defaultValue: 1.0
       key: temperature
       maxValue: 1.0
-      minValue: 1.0
+      minValue: 0
     - defaultValue: 0.99
       key: top_p
-      maxValue: 0.999
-      minValue: 0.99
+      maxValue: 1.0
+      minValue: 0
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
