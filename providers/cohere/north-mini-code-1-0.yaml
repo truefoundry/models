@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_token: 0.0
+      output_cost_per_token: 0.0
+      region: "*"
+features:
+    - tool_choice
+    - function_calling
+    # - json_output is not supported
+limits:
+    context_window: 256000
+    max_output_tokens: 64000
+    max_tokens: 64000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: north-mini-code-1-0
+provisioning: serverless
+sources:
+    - https://huggingface.co/CohereLabs/North-Mini-Code-1.0
+status: active
+supportedModes:
+    - chat
