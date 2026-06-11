@@ -1,7 +1,7 @@
 costs:
     - input_cost_per_character: 0.000015
       region: "*"
-deprecationDate: "2026-06-18"
+deprecationDate: "2026-12-15"
 limits:
     max_tokens: 4096
 modalities:
@@ -19,6 +19,7 @@ removeParams:
     - response_format
     - tool_choice
     - parallel_tool_calls
-status: active
+    - reasoning_effort
+status: preview
 supportedModes:
     - text_to_speech
