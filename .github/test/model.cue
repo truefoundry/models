@@ -311,7 +311,7 @@ package model
 // Lifecycle status of a model
 #Status:
 	"active" |      // Model is fully supported and recommended for use (aka stable, ga)
-	"deprecated" |  // Model is deprecated and may be removed in the future
+	"deprecated" |  // Model is deprecated and may be removed in the future (aka legacy)
 	"preview" |     // Model is in early access and may change or have limited support (aka beta, experimental)
 	"retired"       // Model has been fully removed and is no longer accessible (aka removed, deleted, end-of-life)
 
