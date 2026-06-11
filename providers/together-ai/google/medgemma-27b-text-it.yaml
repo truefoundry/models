@@ -13,6 +13,8 @@ modalities:
 mode: chat
 model: google/medgemma-27b-text-it
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://huggingface.co/google/medgemma-27b-text-it
 status: active
