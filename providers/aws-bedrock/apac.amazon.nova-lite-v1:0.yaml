@@ -45,11 +45,12 @@ features:
     - system_messages
     - tool_choice
     - assistant_prefill
+    - structured_output
 limits:
     context_window: 300000
     max_input_tokens: 300000
-    max_output_tokens: 10000
-    max_tokens: 10000
+    max_output_tokens: 5000
+    max_tokens: 5000
 modalities:
     input:
         - text
@@ -70,6 +71,14 @@ params:
       key: max_tokens
       maxValue: 5000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
@@ -78,6 +87,7 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/modalities-image.html
     - https://docs.aws.amazon.com/nova/latest/userguide/modalities-video.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html
 status: active
 supportedModes:
     - chat

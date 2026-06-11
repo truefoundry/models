@@ -26,6 +26,7 @@ costs:
 features:
     - function_calling
     - prompt_caching
+    - structured_output
     - system_messages
     - tool_choice
 limits:
@@ -49,6 +50,13 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html

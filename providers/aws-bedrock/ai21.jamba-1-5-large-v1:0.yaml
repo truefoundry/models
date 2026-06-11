@@ -1,10 +1,12 @@
 costs:
-    - input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000008
+    - input_cost_per_token: 2e-6
+      output_cost_per_token: 8e-6
       region: us-east-1
+deprecationDate: "2026-05-26"
 features:
     - function_calling
     - system_messages
+isDeprecated: true
 limits:
     context_window: 256000
     max_input_tokens: 256000
@@ -31,13 +33,13 @@ params:
       maxValue: 1
       minValue: 0.01
     - defaultValue: 1
-      key: "n"
+      key: n
       maxValue: 16
       minValue: 1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-jamba.html
     - https://www.ai21.com/jamba
-status: active
+status: deprecated
 supportedModes:
     - chat
