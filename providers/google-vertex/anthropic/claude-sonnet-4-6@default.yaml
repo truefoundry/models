@@ -7,6 +7,14 @@ costs:
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
       region: us-east5
+    - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: us
     - cache_creation_input_token_cost: 0.00000375
       cache_creation_input_token_cost_per_hour: 0.000006
       cache_read_input_token_cost: 3e-7
@@ -24,6 +32,15 @@ costs:
       output_cost_per_token_batches: 0.00000825
       region: europe-west1
     - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: eu
+    - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       input_cost_per_token_batches: 0.00000165
@@ -42,9 +59,9 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 128000
-    max_tokens: 128000
-    tool_use_system_prompt_tokens: 346
+    max_output_tokens: 64000
+    max_tokens: 64000
+    tool_use_system_prompt_tokens: 497
 modalities:
     input:
         - text
@@ -56,7 +73,7 @@ mode: chat
 model: anthropic/claude-sonnet-4-6@default
 params:
     - key: max_tokens
-      maxValue: 128000
+      maxValue: 64000
     - key: temperature
       maxValue: 1
 provisioning: serverless
@@ -66,6 +83,7 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4-6
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
+    - https://platform.claude.com/docs/en/about-claude/models/overview
 status: active
 supportedModes:
     - chat

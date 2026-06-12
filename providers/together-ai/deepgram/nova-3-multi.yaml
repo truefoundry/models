@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_second: 0.00012833333333333333
+      region: "*"
 modalities:
     input:
         - audio
@@ -9,6 +12,8 @@ provisioning: provisioned
 sources:
     - https://docs.together.ai/docs/speech-to-text
     - https://www.together.ai/pricing
+    - https://www.together.ai/models/nova-3-multilingual
+    - https://www.together.ai/blog/deepgram-speech-to-text-and-voice-models-now-available-natively-on-together-ai
 status: active
 supportedModes:
     - audio_transcription

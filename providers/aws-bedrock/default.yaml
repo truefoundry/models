@@ -1,11 +1,13 @@
 documentation:
     - https://docs.aws.amazon.com/bedrock/
     - https://aws.amazon.com/bedrock/pricing/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/structured-output.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
+    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
 messages:
     options:
         - system
@@ -34,3 +36,13 @@ params:
     - defaultValue: true
       key: stream
       type: boolean
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string

@@ -118,6 +118,8 @@ export interface components {
             removeParams?: components["schemas"]["ModelParamKey"][];
             /** @description Param keys that must always be provided by callers */
             requiredParams?: components["schemas"]["ModelParamKey"][];
+            /** @description Retirement date of the model (YYYY-MM-DD) */
+            retirementDate?: string;
             /** @description Documentation or pricing source URLs */
             sources?: string[];
             status?: components["schemas"]["Status"];
@@ -131,6 +133,7 @@ export interface components {
             key: components["schemas"]["ModelParamKey"];
             maxValue?: number;
             minValue?: number;
+            supportedValues?: string[];
             type?: components["schemas"]["ModelParamType"];
         };
         /** @enum {string} */

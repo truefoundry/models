@@ -10,9 +10,11 @@ modalities:
         - text
 mode: chat
 model: Qwen/Qwen2.5-32B-Instruct
-provisioning: serverless
+provisioning: provisioned
+removeParams:
+    - reasoning_effort
 sources:
-    - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/dedicated-models
     - https://docs.together.ai/docs/fine-tuning-models
 status: active
 supportedModes:

@@ -13,6 +13,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - system_messages
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -33,14 +34,16 @@ params:
       minValue: 1
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 removeParams:
     - temperature
     - top_p
-sources:
-    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - parallel_tool_calls
 status: active
 supportedModes:
     - chat

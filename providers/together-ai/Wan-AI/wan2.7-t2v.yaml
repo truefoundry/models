@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_request: 0.1
+    - output_cost_per_second: 0.1
       region: "*"
 modalities:
     input:
@@ -10,9 +10,11 @@ modalities:
 mode: video
 model: Wan-AI/wan2.7-t2v
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/wan-27
-    - https://www.together.ai/pricing
+    - https://www.together.ai/blog/wan-2-7-now-available-on-together-ai
 status: active
 supportedModes:
     - video

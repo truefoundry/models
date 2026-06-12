@@ -20,7 +20,7 @@ limits:
     max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
-    tool_use_system_prompt_tokens: 346
+    tool_use_system_prompt_tokens: 497
 modalities:
     input:
         - text
@@ -33,7 +33,20 @@ model: databricks-claude-opus-4-6
 params:
     - key: max_tokens
       maxValue: 128000
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/about-claude/models/overview
+    - https://platform.claude.com/docs/en/about-claude/model-deprecations
+    - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
 status: active
 supportedModes:
     - chat

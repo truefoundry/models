@@ -7,7 +7,7 @@ costs:
       region: "*"
 deprecationDate: "2027-04-15"
 limits:
-    max_input_tokens: 8192
+    max_input_tokens: 8191
     output_vector_size: 1536
 modalities:
     input:
@@ -16,6 +16,7 @@ modalities:
         - embedding
 mode: embedding
 model: text-embedding-3-small
+provisioning: serverless
 removeParams:
     - temperature
     - top_p
@@ -26,6 +27,8 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
     - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
     - embedding

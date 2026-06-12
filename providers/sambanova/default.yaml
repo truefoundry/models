@@ -2,3 +2,11 @@ documentation:
     - https://docs.sambanova.ai/docs/en/models/sambacloud-models
     - https://cloud.sambanova.ai/plans/pricing
     - https://docs.sambanova.ai/docs/en/models/deprecations
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string

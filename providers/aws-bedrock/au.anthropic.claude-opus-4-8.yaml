@@ -18,7 +18,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
-    - structured_output
+    # - structured_output is not supported in bedrock-converse
     - assistant_prefill
 limits:
     context_window: 1000000
@@ -38,9 +38,12 @@ params:
       maxValue: 128000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - temperature
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-8.html
     - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 supportedModes:
     - chat
 thinking: true

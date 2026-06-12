@@ -1,5 +1,5 @@
 limits:
-    context_window: 131072
+    context_window: 65536
 modalities:
     input:
         - text
@@ -11,6 +11,7 @@ provisioning: serverless
 sources:
     - https://docs.together.ai/docs/fine-tuning-models
     - https://docs.together.ai/docs/inference-models
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - completion

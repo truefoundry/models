@@ -22,6 +22,14 @@ costs:
       input_cost_per_token_batches: 0.00000275
       output_cost_per_token: 0.0000275
       output_cost_per_token_batches: 0.00001375
+      region: us-east-2
+    - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
       region: us-east-1
     - cache_creation_input_token_cost: 0.000006875
       cache_creation_input_token_cost_per_hour: 0.000011
@@ -46,9 +54,8 @@ features:
     - system_messages
     - prompt_caching
     - cache_control
-    - structured_output
+    # - structured_output is not supported in bedrock-converse
     - assistant_prefill
-    - json_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -71,6 +78,8 @@ params:
     - key: thinking
       type: json
 provisioning: serverless
+removeParams:
+    - temperature
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-8.html
     - https://platform.claude.com/docs/en/about-claude/models/overview

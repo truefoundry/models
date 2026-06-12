@@ -1,5 +1,8 @@
-# costs: not found in official docs (pricing for Kimi K2 Thinking is not listed on
-# the Vertex AI Generative AI pricing page; model card pricing not exposed)
+costs:
+    - cache_read_input_token_cost: 6e-8
+      input_cost_per_token: 6e-7
+      output_cost_per_token: 2.5e-6
+      region: global
 features:
     - function_calling
     - structured_output
@@ -20,10 +23,11 @@ model: moonshotai/kimi-k2
 params:
     - key: max_tokens
       maxValue: 262144
-provisioning: serverless
+provisioning: provisioned
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/kimi/kimi-k2-thinking
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/kimi
+    - https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#moonshot-models
 status: active
 supportedModes:
     - chat

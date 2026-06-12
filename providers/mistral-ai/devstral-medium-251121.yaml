@@ -1,0 +1,24 @@
+costs:
+    - input_cost_per_token: 4e-7
+      output_cost_per_token: 2e-6
+      region: "*"
+features:
+    - function_calling
+    - structured_output
+limits:
+    context_window: 262144
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: unsupported
+model: devstral-medium-251121
+params:
+    - defaultValue: 0.2
+      key: temperature
+sources:
+    - https://docs.mistral.ai/models/model-cards/devstral-2-25-12
+status: retired
+supportedModes:
+    - chat

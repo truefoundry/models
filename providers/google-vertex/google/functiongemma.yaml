@@ -1,10 +1,16 @@
 features:
     - function_calling
+    - parallel_function_calling
 limits:
     context_window: 32000
     max_input_tokens: 32000
     max_output_tokens: 32000
     max_tokens: 32000
+messages:
+    options:
+        - developer
+        - user
+        - assistant
 modalities:
     input:
         - text
@@ -16,6 +22,7 @@ provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/functiongemma
     - https://huggingface.co/google/functiongemma-270m-it
+    - https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/functiongemma
 status: active
 supportedModes:
     - chat

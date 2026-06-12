@@ -9,7 +9,7 @@ features:
     - prompt_caching
     - structured_output
 limits:
-    context_window: 2000000
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -18,6 +18,15 @@ modalities:
         - text
 mode: responses
 model: grok-4.20-multi-agent-0309
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens

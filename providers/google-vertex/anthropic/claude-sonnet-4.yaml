@@ -1,72 +1,74 @@
 costs:
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: us-east5
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200000
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200000
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200000
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200000
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: global
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200000
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200000
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200000
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200000
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000015
-      output_cost_per_token_batches: 0.0000075
+      input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.5e-5
+      output_cost_per_token_batches: 7.5e-6
       region: europe-west1
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200000
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200000
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200000
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200000
           pricing_mode: marginal
+deprecationDate: "2026-09-14"
 features:
     - function_calling
     - tool_choice
     - prompt_caching
     - assistant_prefill
+isDeprecated: true
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -86,7 +88,7 @@ params:
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

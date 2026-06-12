@@ -2,10 +2,11 @@ costs:
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 6e-7
       region: "*"
-deprecationDate: "2026-07-23"
+deprecationDate: "2026-04-22"
 features:
     - system_messages
     - structured_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_output_tokens: 16384
@@ -29,6 +30,6 @@ removeParams:
     - temperature
 sources:
     - https://developers.openai.com/docs/models/gpt-4o-mini-search-preview
-status: preview
+status: deprecated
 supportedModes:
     - chat

@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_image: 0.3
+    - output_cost_per_second_1080p: 0.06
       region: "*"
 modalities:
     input:
@@ -11,8 +11,8 @@ mode: video
 model: pixverse/pixverse-v5
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/serverless-models
     - https://docs.together.ai/docs/videos-overview
+    - https://www.together.ai/models/pixverse-v5
 status: active
 supportedModes:
     - video

@@ -1,6 +1,5 @@
 costs:
-    - input_cost_per_token: 0 # not found in official docs — Together AI pricing page does not list Wan 2.7 I2V
-      output_cost_per_token: 0 # not found in official docs
+    - input_cost_per_request: 0.10 # $0.10 per video, flat rate per generation request (per Together AI docs serverless-models catalog)
       region: "*"
 modalities:
     input:
@@ -13,6 +12,8 @@ modalities:
 mode: video
 model: Wan-AI/wan2.7-i2v
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/wan2.7-quickstart
     - https://docs.together.ai/docs/videos-overview

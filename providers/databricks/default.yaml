@@ -1,2 +1,13 @@
 documentation:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
