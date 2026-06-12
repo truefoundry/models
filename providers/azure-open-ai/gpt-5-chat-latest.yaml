@@ -18,6 +18,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -32,9 +33,11 @@ removeParams:
     - max_tokens
     - tool_choice
     - parallel_tool_calls
+retirementDate: "2026-06-29"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: preview
 supportedModes:
     - chat
     - responses
+thinking: true

@@ -32,6 +32,12 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://deepmind.google/models/model-cards/gemini-3-1-flash-image/

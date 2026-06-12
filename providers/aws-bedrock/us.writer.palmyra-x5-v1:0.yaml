@@ -15,8 +15,7 @@ features:
     - function_calling
     # - structured_output is not supported
 limits:
-    context_window: 1048192
-    max_input_tokens: 1040000
+    context_window: 128000
     max_output_tokens: 8192
     max_tokens: 8192
 modalities:
@@ -47,6 +46,7 @@ params:
 provisioning: serverless
 removeParams:
     - "n"
+    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-palmyra-x5.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-writer-palmyra-x5.html
