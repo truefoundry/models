@@ -14,6 +14,7 @@ costs:
               - cost_per_token: 4.5e-5
                 from: 272000
           pricing_mode: cumulative
+deprecationDate: "2027-04-23"
 features:
     - function_calling
     - parallel_function_calling
@@ -35,6 +36,16 @@ modalities:
         - text
 mode: chat
 model: gpt-5.5-2026-04-24
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 status: active
 supportedModes:
