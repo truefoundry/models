@@ -5,11 +5,22 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - json_output
 limits:
     context_window: 262144
     max_tokens: 262144
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: chat
 model: nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16
+provisioning: serverless
+sources:
+    - https://deepinfra.com/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16
+status: active
+supportedModes:
+    - chat
