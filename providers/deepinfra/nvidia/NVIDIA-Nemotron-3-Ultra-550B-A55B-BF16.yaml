@@ -1,0 +1,15 @@
+costs:
+    - cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 1e-6
+      output_cost_per_token: 5e-6
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 262144
+    max_tokens: 262144
+modalities:
+    input:
+        - image
+mode: unknown
+model: nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16
