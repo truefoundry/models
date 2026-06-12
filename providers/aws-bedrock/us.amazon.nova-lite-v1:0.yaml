@@ -58,12 +58,14 @@ params:
       maxValue: 1
       minValue: 0.00001
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
     - https://docs.aws.amazon.com/nova/latest/userguide/modalities.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html
+    - https://aws.amazon.com/nova/pricing/
 status: active
 supportedModes:
     - chat
-thinking: true

@@ -1,6 +1,7 @@
 costs:
     - output_cost_per_second: 0.1
       region: "*"
+isDeprecated: true
 messages:
     options: []
 modalities:
@@ -16,7 +17,7 @@ removeParams:
     - temperature
     - stop
     - top_p
-    - "n"
+    - n
     - response_format
     - stream
     - tool_choice
@@ -24,6 +25,6 @@ removeParams:
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/video-generation-quickstart
-status: preview
+status: retired
 supportedModes:
     - video
