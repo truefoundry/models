@@ -70,7 +70,13 @@ params:
     - key: top_k
       maxValue: 128
       minValue: 0
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - "n"

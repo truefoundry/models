@@ -35,7 +35,6 @@ features:
     - system_messages
     - tool_choice
     - assistant_prefill
-isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -57,10 +56,11 @@ params:
       type: number
     - key: tool_choice
       type: json
+retirementDate: "2026-06-10"
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-4.html
 status: deprecated
 supportedModes:
     - chat
