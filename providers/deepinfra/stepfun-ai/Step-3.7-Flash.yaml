@@ -5,11 +5,30 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - json_output
 limits:
     context_window: 262144
     max_tokens: 262144
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: chat
 model: stepfun-ai/Step-3.7-Flash
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+sources:
+    - https://deepinfra.com/stepfun-ai/Step-3.7-Flash
+status: active
+supportedModes:
+    - chat
+thinking: true
