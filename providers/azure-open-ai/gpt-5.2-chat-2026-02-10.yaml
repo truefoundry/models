@@ -3,6 +3,7 @@ costs:
       input_cost_per_token: 0.00000175
       output_cost_per_token: 0.000014
       region: "*"
+deprecationDate: "2026-06-29"
 features:
     - function_calling
     - parallel_function_calling
@@ -12,12 +13,14 @@ features:
     - tool_choice
 limits:
     context_window: 128000
-    max_input_tokens: 111616
+    max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
 modalities:
     input:
         - text
+        - image
+        - pdf
     output:
         - text
 mode: chat
@@ -30,3 +33,4 @@ status: preview
 supportedModes:
     - chat
     - responses
+thinking: true

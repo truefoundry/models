@@ -30,6 +30,7 @@ limits:
 modalities:
     input:
         - text
+        - image
     output:
         - embedding
 mode: embedding
@@ -42,6 +43,7 @@ removeParams:
     - stop
     - stream
     - max_tokens
+    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-cohere-embed-english.html
