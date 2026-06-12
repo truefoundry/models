@@ -24,7 +24,6 @@ features:
     - prompt_caching
     - cache_control
     - system_messages
-    - structured_output
     - assistant_prefill
 limits:
     context_window: 1000000
@@ -45,6 +44,8 @@ params:
       maxValue: 128000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - temperature
 sources:
     - https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
