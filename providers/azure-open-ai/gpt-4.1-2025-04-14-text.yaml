@@ -11,7 +11,6 @@ costs:
       output_cost_per_token: 8e-6
       output_cost_per_token_batches: 4e-6
       region: "*"
-deprecationDate: "2026-11-04"
 features:
     - function_calling
     - parallel_function_calling
@@ -37,8 +36,10 @@ params:
     - key: max_completion_tokens
       maxValue: 32768
 provisioning: serverless
+retirementDate: "2026-10-14"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
     - chat
