@@ -58,6 +58,13 @@ params:
       key: max_tokens
       maxValue: 5000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
@@ -67,6 +74,8 @@ sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-choice.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
 status: active
 supportedModes:
     - chat
+thinking: true
