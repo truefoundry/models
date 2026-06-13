@@ -1,2 +1,13 @@
-mode: unknown
+mode: rerank
 model: cross-encoder/cross-encoder
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+supportedModes:
+    - rerank
