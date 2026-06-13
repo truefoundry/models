@@ -7,7 +7,6 @@ costs:
       output_cost_per_token: 0.000025
       output_cost_per_token_batches: 0.0000125
       region: "*"
-deprecationDate: "2027-02-05"
 features:
     - function_calling
     - parallel_function_calling
@@ -35,7 +34,16 @@ model: claude-opus-4-6
 params:
     - key: max_tokens
       maxValue: 128000
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
+retirementDate: "2027-02-05"
 status: active
 supportedModes:
     - chat
