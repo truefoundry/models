@@ -15,6 +15,12 @@ modalities:
         - text
 mode: chat
 model: grok-3-mini-fast-high-beta
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.x.ai/developers/models/grok-3-mini-fast
