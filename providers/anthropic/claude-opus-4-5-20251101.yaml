@@ -34,6 +34,13 @@ params:
       maxValue: 64000
     - defaultValue: null
       key: thinking
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
