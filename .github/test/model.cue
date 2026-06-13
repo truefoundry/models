@@ -279,6 +279,8 @@ package model
 	removeParams?: [...#ModelParamKey]
 	// Param keys that must always be provided by callers
 	requiredParams?: [...#ModelParamKey]
+	// Retirement date of the model (YYYY-MM-DD)
+	retirementDate?: string & =~"^\\d{4}-\\d{2}-\\d{2}$"
 	// Documentation or pricing source URLs
 	sources?: [...string]
 	// Lifecycle status of the model
@@ -309,9 +311,9 @@ package model
 // Lifecycle status of a model
 #Status:
 	"active" |      // Model is fully supported and recommended for use (aka stable, ga)
-	"deprecated" |  // Model is deprecated and may be removed in the future (aka sunset, end-of-life)
+	"deprecated" |  // Model is deprecated and may be removed in the future (aka legacy)
 	"preview" |     // Model is in early access and may change or have limited support (aka beta, experimental)
-	"retired"       // Model has been fully removed and is no longer accessible (aka removed, deleted)
+	"retired"       // Model has been fully removed and is no longer accessible (aka removed, deleted, end-of-life)
 
 #TieredPricing: {
 	cache_read?:  [...#PricingTier]
