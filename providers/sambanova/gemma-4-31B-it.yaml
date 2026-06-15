@@ -3,10 +3,12 @@ costs:
       output_cost_per_token: 0.00000115
       region: "*"
 limits:
-    context_window: 131072
-    max_output_tokens: 131072
+    context_window: 128000
 mode: chat
 model: gemma-4-31B-it
 provisioning: serverless
+sources:
+    - https://sambanova-systems.mintlify.dev/docs/en/features/function-calling
+status: preview
 supportedModes:
     - chat

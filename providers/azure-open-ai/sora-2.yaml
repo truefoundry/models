@@ -1,6 +1,7 @@
 costs:
     - output_cost_per_second: 0.1
       region: "*"
+deprecationDate: "2026-09-15"
 modalities:
     input:
         - text
@@ -22,6 +23,7 @@ removeParams:
     - stream
     - tool_choice
     - parallel_tool_calls
+    - reasoning_effort
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/video-generation
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

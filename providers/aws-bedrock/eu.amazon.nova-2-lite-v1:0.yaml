@@ -1,21 +1,39 @@
 costs:
-    - input_cost_per_token: 4.84e-7
+    - cache_read_input_token_cost: 1.21e-7
+      input_cost_per_token: 4.84e-7
+      input_cost_per_token_batches: 2.42e-7
       output_cost_per_token: 0.000004059
+      output_cost_per_token_batches: 0.0000020295
       region: eu-west-3
-    - input_cost_per_token: 3.74e-7
+    - cache_read_input_token_cost: 9.35e-8
+      input_cost_per_token: 3.74e-7
+      input_cost_per_token_batches: 1.87e-7
       output_cost_per_token: 0.000003157
+      output_cost_per_token_batches: 0.0000015785
       region: eu-west-1
-    - input_cost_per_token: 3.63e-7
+    - cache_read_input_token_cost: 9.075e-8
+      input_cost_per_token: 3.63e-7
+      input_cost_per_token_batches: 1.815e-7
       output_cost_per_token: 0.000003205
+      output_cost_per_token_batches: 0.0000016025
       region: eu-south-2
-    - input_cost_per_token: 5.28e-7
+    - cache_read_input_token_cost: 1.32e-7
+      input_cost_per_token: 5.28e-7
+      input_cost_per_token_batches: 2.64e-7
       output_cost_per_token: 0.000004411
+      output_cost_per_token_batches: 0.0000022055
       region: eu-south-1
-    - input_cost_per_token: 3.63e-7
+    - cache_read_input_token_cost: 9.075e-8
+      input_cost_per_token: 3.63e-7
+      input_cost_per_token_batches: 1.815e-7
       output_cost_per_token: 0.000002992
+      output_cost_per_token_batches: 0.000001496
       region: eu-north-1
-    - input_cost_per_token: 4.29e-7
+    - cache_read_input_token_cost: 1.0725e-7
+      input_cost_per_token: 4.29e-7
+      input_cost_per_token_batches: 2.145e-7
       output_cost_per_token: 0.000003597
+      output_cost_per_token_batches: 0.0000019785
       region: eu-central-1
 features:
     - function_calling
@@ -41,12 +59,21 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html
     - https://docs.aws.amazon.com/ai/responsible-ai/nova-2-lite/overview.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.html
+    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/core-inference.html
     - https://aws.amazon.com/nova/pricing/
     - https://aws.amazon.com/nova/models/
 status: active
