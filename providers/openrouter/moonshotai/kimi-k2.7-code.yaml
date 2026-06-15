@@ -1,24 +1,28 @@
 costs:
-    - input_cost_per_token: 3.2e-7
-      output_cost_per_token: 3.2e-6
+    - cache_read_input_token_cost: 1.9e-7
+      input_cost_per_token: 9.5e-7
+      output_cost_per_token: 4e-6
       region: "*"
 features:
     - function_calling
     - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
 limits:
     context_window: 262144
-    max_tokens: 262144
 modalities:
     input:
         - text
         - image
+        - video
     output:
         - text
 mode: chat
-model: Qwen/Qwen3.6-27B
+model: moonshotai/kimi-k2.7-code
 provisioning: serverless
 sources:
-    - https://deepinfra.com/Qwen/Qwen3.6-27B
+    - https://openrouter.ai/moonshotai/kimi-k2.7-code
 status: active
 supportedModes:
     - chat
