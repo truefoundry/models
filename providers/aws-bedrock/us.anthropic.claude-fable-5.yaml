@@ -38,7 +38,6 @@ features:
     - prompt_caching
     - structured_output
     - assistant_prefill
-    - json_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -57,15 +56,9 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: 1
-      key: temperature
-      maxValue: 1
-      minValue: 1
-    - defaultValue: 0.99
-      key: top_p
-      maxValue: 1
-      minValue: 0.99
 provisioning: serverless
+removeParams:
+    - temperature
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
     - https://www.anthropic.com/claude/fable
