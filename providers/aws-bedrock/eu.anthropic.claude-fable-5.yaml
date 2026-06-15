@@ -46,6 +46,8 @@ modalities:
 mode: chat
 model: eu.anthropic.claude-fable-5
 provisioning: serverless
+removeParams:
+    - temperature
 sources:
     - https://www.anthropic.com/claude/fable
     - https://aws.amazon.com/blogs/aws/anthropic-claude-fable-5-on-aws-mythos-class-capabilities-with-built-in-safeguards-now-available/
