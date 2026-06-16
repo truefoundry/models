@@ -22,15 +22,8 @@ modalities:
         - text
 mode: chat
 model: au.anthropic.claude-fable-5
-params:
-    - defaultValue: 1
-      key: temperature
-      maxValue: 1
-      minValue: 1
-    - defaultValue: 0.99
-      key: top_p
-      maxValue: 1
-      minValue: 0.99
+removeParams:
+    - temperature
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
