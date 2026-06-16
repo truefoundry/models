@@ -1,8 +1,71 @@
 costs:
-    - region: us-west-2
-    - region: us-east-1
-    - region: eu-west-1
-    - region: eu-north-1
-    - region: ap-northeast-1
-mode: unknown
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
+      region: us-west-2
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
+      region: us-east-1
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
+      region: eu-west-1
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
+      region: eu-north-1
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
+      region: ap-northeast-1
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - tool_choice
+    - structured_output
+    - assistant_prefill
+limits:
+    context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 64000
+    max_tokens: 64000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: anthropic.claude-haiku-4-5
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html
+    - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
+supportedModes:
+    - chat
+thinking: true
