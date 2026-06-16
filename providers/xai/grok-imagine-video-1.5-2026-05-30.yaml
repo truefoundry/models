@@ -3,7 +3,6 @@ costs:
       region: "*"
 modalities:
     input:
-        - text
         - image
     output:
         - video
@@ -17,6 +16,9 @@ removeParams:
     - "n"
     - stop
     - stream
+    - reasoning_effort
+sources:
+    - https://docs.x.ai/developers/models/grok-imagine-video-1.5-preview
 status: preview
 supportedModes:
     - video

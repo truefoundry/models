@@ -1,0 +1,19 @@
+limits:
+    context_window: 262144
+    max_input_tokens: 262144
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: google/diffusiongemma
+provisioning: provisioned
+sources:
+    - https://ai.google.dev/gemma/docs/diffusiongemma
+    - https://ai.google.dev/gemma/docs/diffusiongemma/model_card
+    - https://developers.googleblog.com/en/diffusiongemma-the-developer-guide/
+supportedModes:
+    - chat
