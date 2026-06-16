@@ -1,0 +1,54 @@
+costs:
+    - cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
+      region: us-west-2
+    - cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      output_cost_per_token: 0.0000198
+      region: us-gov-west-1
+    - cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
+      region: us-east-2
+    - cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
+      region: us-east-1
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+    - json_output
+limits:
+    context_window: 272000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: responses
+model: openai.gpt-5.4
+params:
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-54.html
+    - https://developers.openai.com/api/docs/models/gpt-5.4
+    - https://aws.amazon.com/blogs/aws/get-started-with-openai-gpt-5-5-gpt-5-4-models-and-codex-on-amazon-bedrock/
+status: active
+supportedModes:
+    - responses
+thinking: true
