@@ -9,8 +9,44 @@ costs:
     - region: eu-north-1
     - region: eu-central-1
     - region: ap-southeast-3
-    - region: ap-southeast-2
+    - input_cost_per_token: 1.545e-7
+      input_cost_per_token_batches: 7.73e-8
+      output_cost_per_token: 6.18e-7
+      output_cost_per_token_batches: 3.09e-7
+      region: ap-southeast-2
     - region: ap-south-1
     - region: ap-northeast-1
-mode: unknown
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - structured_output
+    - json_output
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16000
+    max_tokens: 16000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: openai.gpt-oss-120b
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-120b.html
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
