@@ -1,13 +1,47 @@
 costs:
-    - region: us-west-2
-    - region: us-east-2
-    - region: us-east-1
-    - region: sa-east-1
-    - region: eu-west-2
-    - region: eu-north-1
-    - region: ap-southeast-3
-    - region: ap-southeast-2
-    - region: ap-south-1
-    - region: ap-northeast-1
-mode: unknown
+    - input_cost_per_token: 6e-7
+      output_cost_per_token: 2.2e-6
+      region: us-west-2
+    - input_cost_per_token: 6e-7
+      output_cost_per_token: 2.2e-6
+      region: us-east-2
+    - input_cost_per_token: 6e-7
+      output_cost_per_token: 2.2e-6
+      region: us-east-1
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.64e-6
+      region: sa-east-1
+    - region: eu-west-2 # pricing not found in official docs
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.64e-6
+      region: eu-north-1
+    - region: ap-southeast-4 # pricing not found in official docs
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.64e-6
+      region: ap-southeast-3
+    - input_cost_per_token: 6.18e-7
+      output_cost_per_token: 2.266e-6
+      region: ap-southeast-2
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.64e-6
+      region: ap-south-1
+    - input_cost_per_token: 7.2e-7
+      output_cost_per_token: 2.64e-6
+      region: ap-northeast-1
+limits:
+    context_window: 203000
+    max_output_tokens: 4000
+    max_tokens: 4000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: zai.glm-4.7
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-4-7.html
+status: active
+supportedModes:
+    - chat
