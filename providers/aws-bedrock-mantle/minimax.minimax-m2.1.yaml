@@ -1,16 +1,62 @@
 costs:
-    - region: us-west-2
-    - region: us-east-2
-    - region: us-east-1
-    - region: sa-east-1
-    - region: eu-west-2
-    - region: eu-west-1
-    - region: eu-south-1
-    - region: eu-north-1
-    - region: eu-central-1
-    - region: ap-southeast-3
-    - region: ap-southeast-2
-    - region: ap-south-1
-    - region: ap-northeast-1
-mode: unknown
+    - input_cost_per_token: 3e-7
+      output_cost_per_token: 0.0000012
+      region: us-west-2
+    - input_cost_per_token: 3e-7
+      output_cost_per_token: 0.0000012
+      region: us-east-2
+    - input_cost_per_token: 3e-7
+      output_cost_per_token: 0.0000012
+      region: us-east-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: sa-east-1
+    - input_cost_per_token: 4.7e-7
+      output_cost_per_token: 0.00000186
+      region: eu-west-2
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: eu-west-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: eu-south-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: eu-north-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: eu-central-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: ap-southeast-3
+    - input_cost_per_token: 3.09e-7
+      output_cost_per_token: 0.000001236
+      region: ap-southeast-2
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: ap-south-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 0.00000144
+      region: ap-northeast-1
+features:
+    - function_calling
+    - system_messages
+limits:
+    context_window: 196000
+    max_output_tokens: 8000
+    max_tokens: 8000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: minimax.minimax-m2.1
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2-1.html
+    - https://www.minimax.io/news/minimax-m21
+status: active
+supportedModes:
+    - chat
+thinking: true
