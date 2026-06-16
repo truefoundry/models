@@ -19,9 +19,7 @@ features:
     - tool_choice
     - json_output
 limits:
-    context_window: 1050000
-    max_output_tokens: 128000
-    max_tokens: 128000
+    context_window: 272000
 modalities:
     input:
         - text
@@ -40,8 +38,7 @@ params:
           - xhigh
 provisioning: serverless
 sources:
-    - https://developers.openai.com/api/docs/models/gpt-5.4
-    - https://aws.amazon.com/blogs/aws/get-started-with-openai-gpt-5-5-gpt-5-4-models-and-codex-on-amazon-bedrock/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-54.html
 status: active
 supportedModes:
     - chat
