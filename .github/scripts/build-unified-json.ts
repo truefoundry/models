@@ -75,6 +75,18 @@ function main(): void {
         configs.push(
           buildUnifiedConfig(modelData, providerName, defaultProviderParams),
         );
+
+        // Anthropic models are also available through the AWS Claude platform,
+        // so emit an exact copy under the aws-claude-platform provider.
+        if (providerName === 'anthropic') {
+          configs.push(
+            buildUnifiedConfig(
+              modelData,
+              'aws-claude-platform',
+              defaultProviderParams,
+            ),
+          );
+        }
       } catch (err) {
         console.warn(`Warning: failed to parse ${modelFilePath}: ${err}`);
       }

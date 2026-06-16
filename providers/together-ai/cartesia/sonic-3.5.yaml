@@ -1,0 +1,22 @@
+costs:
+    - input_cost_per_token: 0.0
+      output_cost_per_token: 0.0
+      region: "*"
+limits:
+    context_window: 448
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
+model: cartesia/sonic-3.5
+provisioning: provisioned
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/models/cartesia-sonic-3-5
+    - https://docs.cartesia.ai/build-with-cartesia/tts-models/sonic-3-5
+status: active
+supportedModes:
+    - text_to_speech
