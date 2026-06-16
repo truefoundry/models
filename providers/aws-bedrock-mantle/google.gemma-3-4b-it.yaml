@@ -1,16 +1,52 @@
 costs:
-    - region: us-west-2
-    - region: us-east-2
-    - region: us-east-1
-    - region: sa-east-1
-    - region: eu-west-2
-    - region: eu-west-1
-    - region: eu-south-1
-    - region: eu-north-1
-    - region: eu-central-1
-    - region: ap-southeast-3
-    - region: ap-southeast-2
-    - region: ap-south-1
-    - region: ap-northeast-1
-mode: unknown
+    - input_cost_per_token: 4e-8
+      output_cost_per_token: 8e-8
+      region: us-west-2
+    - input_cost_per_token: 4e-8
+      output_cost_per_token: 8e-8
+      region: us-east-2
+    - input_cost_per_token: 4e-8
+      output_cost_per_token: 8e-8
+      region: us-east-1
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 1e-7
+      region: sa-east-1
+    - input_cost_per_token: 6e-8
+      output_cost_per_token: 1.2e-7
+      region: eu-west-2
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 9e-8
+      region: eu-west-1
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 9e-8
+      region: eu-south-1
+    - region: eu-north-1 # price not published on AWS Bedrock pricing page
+    - region: eu-central-1 # price not published on AWS Bedrock pricing page
+    - region: ap-southeast-3 # price not published on AWS Bedrock pricing page
+    - input_cost_per_token: 4.12e-8
+      output_cost_per_token: 8.24e-8
+      region: ap-southeast-2
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 9e-8
+      region: ap-south-1
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 1e-7
+      region: ap-northeast-1
+limits:
+    context_window: 128000
+    max_output_tokens: 8000
+    max_tokens: 8000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: google.gemma-3-4b-it
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-google-gemma-3-4b-it.html
+status: active
+supportedModes:
+    - chat
