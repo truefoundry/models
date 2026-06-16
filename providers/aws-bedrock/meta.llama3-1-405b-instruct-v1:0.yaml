@@ -1,10 +1,13 @@
 costs:
     - region: us-west-2
-isDeprecated: true
 modalities:
     input:
         - text
     output:
         - text
-mode: unknown
+mode: chat
 model: meta.llama3-1-405b-instruct-v1:0
+retirementDate: "2026-07-07"
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-1-405b-instruct.html
+status: deprecated

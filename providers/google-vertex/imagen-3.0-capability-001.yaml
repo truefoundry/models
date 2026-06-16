@@ -61,7 +61,7 @@ costs:
       region: asia-east2
     - output_cost_per_image: 0.04
       region: asia-east1
-deprecationDate: "2026-06-30"
+isDeprecated: true
 modalities:
     input:
         - text
@@ -79,11 +79,12 @@ removeParams:
     - stop
     - stream
     - tool_choice
+retirementDate: "2026-06-30"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/3-0-capability-001
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api-customization
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations
-status: active
+status: deprecated
 supportedModes:
     - image

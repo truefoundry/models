@@ -23,6 +23,10 @@ model: mistral-small-2603
 params:
     - defaultValue: 0.3
       key: temperature
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - high
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/mistral-small-4-0-26-03
