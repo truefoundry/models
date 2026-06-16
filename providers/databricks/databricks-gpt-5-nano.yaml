@@ -25,10 +25,16 @@ model: databricks-gpt-5-nano
 params:
     - defaultValue: minimal
       key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
     - https://developers.openai.com/api/docs/models/gpt-5-nano
 status: active
 supportedModes:

@@ -20,7 +20,12 @@ modalities:
 mode: chat
 model: databricks-gpt-oss-120b
 params:
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:
