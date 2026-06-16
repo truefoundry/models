@@ -1,7 +1,69 @@
 costs:
-    - region: us-east-1
-    - region: eu-west-1
-    - region: eu-north-1
-    - region: ap-northeast-1
-mode: unknown
+    - cache_creation_input_token_cost: 6.25e-6
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: us-east-1
+    - cache_creation_input_token_cost: 6.25e-6
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: eu-west-1
+    - cache_creation_input_token_cost: 6.25e-6
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: eu-north-1
+    - cache_creation_input_token_cost: 6.25e-6
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: ap-northeast-1
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - prompt_caching
+    - cache_control
+    - structured_output
+    - assistant_prefill
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: anthropic.claude-opus-4-7
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://www.anthropic.com/news/claude-opus-4-7
+    - https://aws.amazon.com/blogs/aws/introducing-anthropics-claude-opus-4-7-model-in-amazon-bedrock/
+status: active
+supportedModes:
+    - chat
+thinking: true
