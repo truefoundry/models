@@ -12,5 +12,15 @@ costs:
     - region: ap-southeast-2
     - region: ap-south-1
     - region: ap-northeast-1
-mode: unknown
+mode: chat
 model: zai.glm-4.6
+provisioning: serverless
+supportedModes:
+    - chat
+
+# Note: zai.glm-4.6 is not currently listed on the AWS Bedrock model cards page
+# (https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-zai.html) or on
+# the AWS Bedrock pricing page. Only GLM 4.7, GLM 4.7 Flash, and GLM 5 are documented.
+# Per the AWS Bedrock Mantle rules, regions present in the input YAML are preserved
+# even when pricing has not yet been published. Limits, features, and modalities are
+# omitted because AWS does not document them for this model.
