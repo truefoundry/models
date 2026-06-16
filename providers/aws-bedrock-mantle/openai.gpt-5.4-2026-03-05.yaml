@@ -26,7 +26,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: openai.gpt-5.4-2026-03-05
 params:
     - key: reasoning_effort
@@ -41,6 +41,5 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-54.html
 status: active
 supportedModes:
-    - chat
     - responses
 thinking: true
