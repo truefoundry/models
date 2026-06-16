@@ -1,0 +1,12 @@
+costs:
+    - cache_read_input_token_cost: 4e-7
+      input_cost_per_token: 4e-7
+      output_cost_per_token: 2e-6
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 196608
+    max_tokens: 196608
+mode: unknown
+model: MiniMaxAI/MiniMax-M2.7-Turbo
