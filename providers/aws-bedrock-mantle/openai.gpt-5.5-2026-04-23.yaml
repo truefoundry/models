@@ -1,5 +1,42 @@
 costs:
-    - region: us-east-2
-    - region: us-east-1
-mode: unknown
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      output_cost_per_token: 0.000033
+      region: us-east-2
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      output_cost_per_token: 0.000033
+      region: us-east-1
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - system_messages
+    - structured_output
+limits:
+    context_window: 272000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: responses
 model: openai.gpt-5.5-2026-04-23
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-55.html
+    - https://developers.openai.com/api/docs/models/gpt-5.5
+status: active
+supportedModes:
+    - responses
+thinking: true
