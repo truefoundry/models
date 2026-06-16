@@ -9,6 +9,7 @@ features:
     - function_calling
     - structured_output
     - tool_choice
+    - system_messages
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -27,6 +28,13 @@ params:
       key: max_tokens
       maxValue: 100000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - temperature

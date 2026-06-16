@@ -10,8 +10,8 @@ features:
 limits:
     context_window: 32768
     max_input_tokens: 32768
-    max_output_tokens: 8192
-    max_tokens: 8192
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -21,7 +21,7 @@ mode: chat
 model: gemma-3-1b-it
 params:
     - key: max_tokens
-      maxValue: 8192
+      maxValue: 32768
 provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/core
