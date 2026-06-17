@@ -16,7 +16,10 @@ modalities:
 mode: chat
 model: Qwen/Qwen3-235B-A22B-Instruct-2507-tput
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
+    - https://www.together.ai/models/qwen3-235b-a22b-instruct-2507-fp8
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
 status: active

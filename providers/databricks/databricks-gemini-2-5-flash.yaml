@@ -24,6 +24,8 @@ modalities:
 mode: chat
 model: databricks-gemini-2-5-flash
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash
