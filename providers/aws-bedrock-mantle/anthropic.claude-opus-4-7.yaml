@@ -38,7 +38,7 @@ features:
     - system_messages
     - prompt_caching
     - cache_control
-    - structured_output
+    # - structured_output is not supported
     - assistant_prefill
 limits:
     context_window: 1000000
@@ -61,8 +61,6 @@ removeParams:
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html
     - https://platform.claude.com/docs/en/about-claude/pricing
-    - https://www.anthropic.com/news/claude-opus-4-7
-    - https://aws.amazon.com/blogs/aws/introducing-anthropics-claude-opus-4-7-model-in-amazon-bedrock/
 status: active
 supportedModes:
     - chat
