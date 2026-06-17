@@ -6,6 +6,9 @@ features:
     - function_calling
     - tool_choice
     - assistant_prefill
+    - prompt_caching
+    - cache_control
+    - system_messages
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -20,6 +23,11 @@ modalities:
 mode: chat
 model: databricks-claude-sonnet-4-5
 provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
 status: active
 supportedModes:
     - chat
