@@ -1,12 +1,13 @@
 costs:
     - input_cost_per_query: 0.025
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.00001
+      input_cost_per_token: 2.5e-6
+      output_cost_per_token: 1e-5
       region: "*"
-deprecationDate: "2026-07-23"
+deprecationDate: "2026-04-22"
 features:
     - system_messages
     - structured_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -29,9 +30,10 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
     - temperature
+retirementDate: "2026-07-23"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-search-preview
-status: preview
+status: deprecated
 supportedModes:
     - chat
     - responses
