@@ -20,6 +20,8 @@ modalities:
 mode: chat
 model: databricks-meta-llama-3-3-70b-instruct
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling
