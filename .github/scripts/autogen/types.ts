@@ -54,6 +54,8 @@ export interface components {
             messages?: components["schemas"]["MessageConfig"];
             /** @description Configurable parameters with defaults */
             params?: components["schemas"]["ModelParam"][];
+            /** @description Pricing for built-in tools, keyed by tool name */
+            tool_pricing?: Record<string, never>;
         };
         /**
          * @description Supported feature flags a model can declare
@@ -169,6 +171,19 @@ export interface components {
             output?: components["schemas"]["PricingTier"][];
             pricing_mode?: components["schemas"]["PricingMode"];
         };
+        /** @description A single billable rate; a tool maps to a list of these */
+        ToolCost: {
+            /** @description pricing in USD */
+            cost: number;
+            unit: components["schemas"]["ToolPricingUnit"];
+        };
+        /**
+         * @description Built-in tools that can incur usage-based pricing beyond token costs
+         * @enum {string}
+         */
+        ToolName: "web_search";
+        /** @enum {string} */
+        ToolPricingUnit: "per_request" | "per_thousand_requests";
         /**
          * @description Vertex region identifiers
          * @enum {string}
@@ -206,4 +221,7 @@ export type PricingTier = components['schemas']['PricingTier'];
 export type Provisioning = components['schemas']['Provisioning'];
 export type Status = components['schemas']['Status'];
 export type TieredPricing = components['schemas']['TieredPricing'];
+export type ToolCost = components['schemas']['ToolCost'];
+export type ToolName = components['schemas']['ToolName'];
+export type ToolPricingUnit = components['schemas']['ToolPricingUnit'];
 export type VertexRegion = components['schemas']['VertexRegion'];
