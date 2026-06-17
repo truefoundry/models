@@ -19,6 +19,14 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-oss-20b
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://www.databricks.com/product/pricing/foundation-model-serving

@@ -9,8 +9,11 @@ modalities:
 mode: audio_transcription
 model: nvidia/parakeet-tdt-0.6b-v3
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/pricing
+    - https://www.together.ai/models/parakeet-tdt-0-6b-v3
 status: active
 supportedModes:
     - audio_transcription

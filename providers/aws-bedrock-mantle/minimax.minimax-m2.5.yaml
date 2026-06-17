@@ -1,0 +1,61 @@
+costs:
+    - input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
+      region: us-west-2
+    - input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
+      region: us-east-2
+    - input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
+      region: us-east-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: sa-east-1
+    - input_cost_per_token: 4.7e-7
+      output_cost_per_token: 1.86e-6
+      region: eu-west-2
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: eu-west-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: eu-south-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: eu-north-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: eu-central-1
+    - region: ap-southeast-4
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: ap-southeast-3
+    - input_cost_per_token: 3.1e-7
+      output_cost_per_token: 1.24e-6
+      region: ap-southeast-2
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: ap-south-1
+    - input_cost_per_token: 3.6e-7
+      output_cost_per_token: 1.44e-6
+      region: ap-northeast-1
+features:
+    - function_calling
+limits:
+    context_window: 196000
+    max_input_tokens: 196000
+    max_output_tokens: 8000
+    max_tokens: 8000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: minimax.minimax-m2.5
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2-5.html
+status: active
+supportedModes:
+    - chat

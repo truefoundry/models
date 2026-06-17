@@ -33,7 +33,12 @@ params:
       key: top_p
       maxValue: 1
       minValue: 0
-    - key: reasoning_effort
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:

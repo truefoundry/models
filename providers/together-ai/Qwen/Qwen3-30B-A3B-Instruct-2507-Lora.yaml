@@ -21,6 +21,11 @@ modalities:
 mode: chat
 model: Qwen/Qwen3-30B-A3B-Instruct-2507-Lora
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/models/qwen3-30b-a3b
+    - https://huggingface.co/Qwen/Qwen3-30B-A3B-Instruct-2507
 status: active
 supportedModes:
     - chat
