@@ -1,0 +1,23 @@
+costs:
+    - input_cost_per_annotated_page: 0.003
+      input_cost_per_page: 0.002
+      region: "*"
+features:
+    - function_calling
+limits:
+    context_window: 16384
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
+    output:
+        - text
+mode: unsupported
+model: mistral-ocr-3
+params:
+    - defaultValue: 0.0
+      key: temperature
+sources:
+    - https://docs.mistral.ai/capabilities/OCR/basic_ocr
+status: active

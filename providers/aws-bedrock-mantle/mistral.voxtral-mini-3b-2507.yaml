@@ -1,0 +1,51 @@
+costs:
+    - input_cost_per_token: 4e-8
+      output_cost_per_token: 4e-8
+      region: us-west-2
+    - input_cost_per_token: 4e-8
+      output_cost_per_token: 4e-8
+      region: us-east-2
+    - input_cost_per_token: 4e-8
+      output_cost_per_token: 4e-8
+      region: us-east-1
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 5e-8
+      region: sa-east-1
+    - input_cost_per_token: 6e-8
+      output_cost_per_token: 6e-8
+      region: eu-west-2
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 5e-8
+      region: eu-west-1
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 5e-8
+      region: eu-south-1
+    - region: eu-north-1 # pricing not found in official docs
+    - region: eu-central-1 # pricing not found in official docs
+    - region: ap-southeast-3 # pricing not found in official docs
+    - input_cost_per_token: 4.12e-8
+      output_cost_per_token: 4.12e-8
+      region: ap-southeast-2
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 5e-8
+      region: ap-south-1
+    - input_cost_per_token: 5e-8
+      output_cost_per_token: 5e-8
+      region: ap-northeast-1
+limits:
+    context_window: 32000
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+mode: chat
+model: mistral.voxtral-mini-3b-2507
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-voxtral-mini-3b-2507.html
+    - https://docs.mistral.ai/capabilities/audio/
+status: active
+supportedModes:
+    - chat
