@@ -1,3 +1,8 @@
+features:
+    - structured_output
+    - json_output
+limits:
+    context_window: 131072
 modalities:
     input:
         - text
@@ -6,7 +11,10 @@ modalities:
         - text
 mode: chat
 model: zai-org/GLM-OCR
-provisioning: serverless
+provisioning: provisioned
+sources:
+    - https://docs.together.ai/docs/dedicated-models
+    - https://huggingface.co/zai-org/GLM-OCR
 status: active
 supportedModes:
     - chat

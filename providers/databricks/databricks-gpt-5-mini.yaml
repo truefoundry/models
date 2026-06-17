@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - tool_choice
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -17,6 +18,16 @@ modalities:
         - text
 mode: chat
 model: databricks-gpt-5-mini
+params:
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits

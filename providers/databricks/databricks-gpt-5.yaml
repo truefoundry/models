@@ -30,7 +30,13 @@ modalities:
 mode: chat
 model: databricks-gpt-5
 params:
-    - key: reasoning_effort
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:
