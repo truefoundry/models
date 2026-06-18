@@ -1,2 +1,17 @@
-mode: unknown
+costs:
+    - output_cost_per_second: 0.045
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - video
+        - audio
+mode: video
 model: Pixverse/Pixverse-6-T2V
+provisioning: serverless
+sources:
+    - https://deepinfra.com/Pixverse/Pixverse-6-T2V
+status: active
+supportedModes:
+    - video
