@@ -54,8 +54,7 @@ export interface components {
             messages?: components["schemas"]["MessageConfig"];
             /** @description Configurable parameters with defaults */
             params?: components["schemas"]["ModelParam"][];
-            /** @description Pricing for built-in tools, keyed by tool name */
-            tool_pricing?: Record<string, never>;
+            tool_pricing?: components["schemas"]["ToolPricing"];
         };
         /**
          * @description Supported feature flags a model can declare
@@ -171,19 +170,16 @@ export interface components {
             output?: components["schemas"]["PricingTier"][];
             pricing_mode?: components["schemas"]["PricingMode"];
         };
-        /** @description A single billable rate; a tool maps to a list of these */
+        /** @description Pricing per billing unit; value is the cost */
         ToolCost: {
             /** @description pricing in USD */
-            cost: number;
-            unit: components["schemas"]["ToolPricingUnit"];
+            per_request?: number;
+            per_thousand_requests?: number;
         };
-        /**
-         * @description Built-in tools that can incur usage-based pricing beyond token costs
-         * @enum {string}
-         */
-        ToolName: "web_search";
-        /** @enum {string} */
-        ToolPricingUnit: "per_request" | "per_thousand_requests";
+        /** @description Pricing for built-in tools that can incur usage-based pricing beyond token costs */
+        ToolPricing: {
+            web_search?: components["schemas"]["ToolCost"];
+        };
         /**
          * @description Vertex region identifiers
          * @enum {string}
@@ -222,6 +218,5 @@ export type Provisioning = components['schemas']['Provisioning'];
 export type Status = components['schemas']['Status'];
 export type TieredPricing = components['schemas']['TieredPricing'];
 export type ToolCost = components['schemas']['ToolCost'];
-export type ToolName = components['schemas']['ToolName'];
-export type ToolPricingUnit = components['schemas']['ToolPricingUnit'];
+export type ToolPricing = components['schemas']['ToolPricing'];
 export type VertexRegion = components['schemas']['VertexRegion'];

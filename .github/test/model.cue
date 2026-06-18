@@ -44,19 +44,16 @@ package model
 // Section 2: Default provider config
 // ============================================================
 
-#ToolPricingUnit:
-	"per_request" |
-	"per_thousand_requests"
-
-// Built-in tools that can incur usage-based pricing beyond token costs
-#ToolName:
-	"web_search"
-
-// A single billable rate; a tool maps to a list of these
+// Pricing per billing unit; value is the cost
 #ToolCost: {
-	unit: #ToolPricingUnit
 	// pricing in USD
-	cost: number & >= 0
+	per_request?:           number & >= 0
+	per_thousand_requests?: number & >= 0
+}
+
+// Pricing for built-in tools that can incur usage-based pricing beyond token costs
+#ToolPricing: {
+	web_search?: #ToolCost
 }
 
 // Schema for default.yaml files (provider-level defaults)
@@ -67,8 +64,8 @@ package model
 	messages?: #MessageConfig
 	// Configurable parameters with defaults
 	params?: [...#ModelParam]
-	// Pricing for built-in tools, keyed by tool name
-	tool_pricing?: {[#ToolName]: [...#ToolCost]}
+	// Pricing for built-in tools
+	tool_pricing?: #ToolPricing
 }
 
 // ============================================================
