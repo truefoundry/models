@@ -1,3 +1,5 @@
+limits:
+    context_window: 16384
 modalities:
     input:
         - text
@@ -13,6 +15,7 @@ removeParams:
 sources:
     - https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/codellama-7b-hf
     - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_codellama.ipynb
+    - https://huggingface.co/codellama/CodeLlama-7b-hf
 status: active
 supportedModes:
     - completion

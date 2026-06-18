@@ -6,6 +6,14 @@ modalities:
 mode: video
 model: thudm/cogvideox
 provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/xdit
     - https://console.cloud.google.com/vertex-ai/publishers/thudm/model-garden/cogvideox

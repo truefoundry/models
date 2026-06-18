@@ -1,3 +1,4 @@
+isDeprecated: true
 limits:
     output_vector_size: 6144
 modalities:
@@ -12,7 +13,7 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
@@ -21,6 +22,6 @@ sources:
     - https://developers.google.com/health-ai-developer-foundations/derm-foundation/model-card
     - https://developers.google.com/health-ai-developer-foundations/derm-foundation/serving-api
     - https://developers.google.com/health-ai-developer-foundations/derm-foundation/get-started
-status: active
+status: deprecated
 supportedModes:
     - embedding

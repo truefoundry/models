@@ -1,19 +1,19 @@
 costs:
-    - cache_creation_input_token_cost: 0.00001875
-      cache_creation_input_token_cost_per_hour: 0.00003
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      input_cost_per_token_batches: 0.0000075
-      output_cost_per_token: 0.000075
-      output_cost_per_token_batches: 0.0000375
+    - cache_creation_input_token_cost: 1.875e-5
+      cache_creation_input_token_cost_per_hour: 3e-5
+      cache_read_input_token_cost: 1.5e-6
+      input_cost_per_token: 1.5e-5
+      input_cost_per_token_batches: 7.5e-6
+      output_cost_per_token: 7.5e-5
+      output_cost_per_token_batches: 3.75e-5
       region: us-east5
-    - cache_creation_input_token_cost: 0.00001875
-      cache_creation_input_token_cost_per_hour: 0.00003
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      input_cost_per_token_batches: 0.0000075
-      output_cost_per_token: 0.000075
-      output_cost_per_token_batches: 0.0000375
+    - cache_creation_input_token_cost: 1.875e-5
+      cache_creation_input_token_cost_per_hour: 3e-5
+      cache_read_input_token_cost: 1.5e-6
+      input_cost_per_token: 1.5e-5
+      input_cost_per_token_batches: 7.5e-6
+      output_cost_per_token: 7.5e-5
+      output_cost_per_token_batches: 3.75e-5
       region: global
 deprecationDate: "2026-08-05"
 features:
@@ -23,6 +23,7 @@ features:
     - prompt_caching
     - cache_control
     - system_messages
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -42,12 +43,13 @@ params:
     - key: max_tokens
       maxValue: 32000
 provisioning: serverless
+retirementDate: "2026-08-05"
 sources:
     - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/about-claude/model-deprecations
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-1
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

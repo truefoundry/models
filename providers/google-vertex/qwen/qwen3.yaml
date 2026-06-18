@@ -1,3 +1,14 @@
+costs:
+    - input_cost_per_token: 2.2e-7
+      input_cost_per_token_batches: 1.1e-7
+      output_cost_per_token: 8.8e-7
+      output_cost_per_token_batches: 4.4e-7
+      region: us-south1
+    - input_cost_per_token: 2.2e-7
+      input_cost_per_token_batches: 1.1e-7
+      output_cost_per_token: 8.8e-7
+      output_cost_per_token_batches: 4.4e-7
+      region: global
 features:
     - function_calling
     - structured_output
@@ -27,5 +38,3 @@ status: active
 supportedModes:
     - chat
 thinking: true
-
-# costs not found in official Vertex AI pricing docs for Qwen3 models
