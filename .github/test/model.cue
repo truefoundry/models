@@ -258,6 +258,7 @@ package model
 	"embedding" |
 	"image" |
 	"moderation" |
+	"ocr" |
 	"realtime" |
 	"rerank" |
 	"responses" |
