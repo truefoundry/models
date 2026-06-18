@@ -1,9 +1,9 @@
 costs:
     - cache_read_input_token_cost: 1.25e-7
-      input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.00001
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1e-5
       region: "*"
-deprecationDate: "2026-07-23"
+deprecationDate: "2026-04-22"
 features:
     - function_calling
     - parallel_function_calling
@@ -11,6 +11,7 @@ features:
     - structured_output
     - system_messages
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 400000
     max_output_tokens: 128000
@@ -32,10 +33,11 @@ provisioning: serverless
 removeParams:
     - max_tokens
     - max_completion_tokens
+retirementDate: "2026-07-23"
 sources:
     - https://developers.openai.com/docs/models/gpt-5-codex
     - https://developers.openai.com/api/docs/models/gpt-5-codex
-status: active
+status: deprecated
 supportedModes:
     - responses
 thinking: true

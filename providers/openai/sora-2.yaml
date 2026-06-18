@@ -1,7 +1,8 @@
 costs:
     - output_cost_per_second: 0.1
       region: "*"
-deprecationDate: "2026-09-24"
+deprecationDate: "2026-03-24"
+isDeprecated: true
 messages:
     options: []
 modalities:
@@ -19,13 +20,14 @@ removeParams:
     - temperature
     - stop
     - top_p
-    - "n"
+    - n
     - stream
     - tool_choice
     - parallel_tool_calls
     - reasoning_effort
+retirementDate: "2026-09-24"
 sources:
     - https://developers.openai.com/api/docs/models/sora-2
-status: active
+status: deprecated
 supportedModes:
     - video

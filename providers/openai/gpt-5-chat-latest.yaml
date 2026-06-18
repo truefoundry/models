@@ -5,7 +5,7 @@ costs:
       output_cost_per_token: 1e-5
       output_cost_per_token_batches: 5e-6
       region: "*"
-deprecationDate: "2026-07-23"
+deprecationDate: "2026-04-22"
 features:
     - function_calling
     - parallel_function_calling
@@ -13,6 +13,7 @@ features:
     - system_messages
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -41,10 +42,11 @@ removeParams:
     - n
     - max_tokens
     - reasoning_effort
+retirementDate: "2026-07-23"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-chat-latest
     - https://developers.openai.com/docs/models/gpt-5-chat-latest
     - https://developers.openai.com/docs/models/gpt-5
-status: active
+status: deprecated
 supportedModes:
     - chat

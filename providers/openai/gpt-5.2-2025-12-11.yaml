@@ -12,6 +12,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+    - json_output
 limits:
     context_window: 400000
     max_output_tokens: 128000
@@ -34,6 +35,13 @@ params:
       type: string
     - defaultValue: none
       key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 removeParams:
     - temperature

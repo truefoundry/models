@@ -1,14 +1,15 @@
 costs:
-    - input_cost_per_token: 0.000003
-      input_cost_per_token_batches: 0.0000015
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
+    - input_cost_per_token: 3e-6
+      input_cost_per_token_batches: 1.5e-6
+      output_cost_per_token: 1.2e-5
+      output_cost_per_token_batches: 6e-6
       region: "*"
-deprecationDate: "2026-07-23"
+deprecationDate: "2026-04-22"
 features:
     - function_calling
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 8192
     max_output_tokens: 1024
@@ -26,10 +27,11 @@ removeParams:
     - stream
     - max_tokens
     - max_completion_tokens
+retirementDate: "2026-07-23"
 sources:
     - https://developers.openai.com/api/docs/models/computer-use-preview
     - https://developers.openai.com/api/docs/guides/tools-computer-use
-status: active
+status: deprecated
 supportedModes:
     - responses
 thinking: true
