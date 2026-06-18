@@ -2,7 +2,6 @@ costs:
     - input_cost_per_annotated_page: 0.003
       region: "*"
 features:
-    - function_calling
     - structured_output
     - json_output
 limits:
@@ -11,11 +10,10 @@ modalities:
     input:
         - image
         - pdf
-        - doc
     output:
         - text
 mode: ocr
-model: azure_ai/global/mistral-document-ai-2512
+model: mistral-document-ai-2512
 params:
     - defaultValue: 0
       key: temperature
