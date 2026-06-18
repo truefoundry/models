@@ -1,2 +1,16 @@
-mode: unknown
+costs:
+    - input_cost_per_character: 6.2e-7
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
 model: hexgrad/Kokoro-82M
+provisioning: serverless
+sources:
+    - https://deepinfra.com/hexgrad/Kokoro-82M
+status: active
+supportedModes:
+    - text_to_speech
