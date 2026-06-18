@@ -9,6 +9,8 @@ modalities:
 mode: audio_transcription
 model: deepgram/flux
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/speech-to-text
     - https://www.together.ai/models/flux

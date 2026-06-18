@@ -9,10 +9,13 @@ modalities:
 mode: audio_transcription
 model: deepgram/nova-3-en
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/nova-3
     - https://www.together.ai/blog/deepgram-speech-to-text-and-voice-models-now-available-natively-on-together-ai
     - https://docs.together.ai/docs/speech-to-text
+    - https://docs.together.ai/docs/dedicated-endpoints/models
 status: active
 supportedModes:
     - audio_transcription

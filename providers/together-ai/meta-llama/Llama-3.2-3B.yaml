@@ -8,6 +8,8 @@ modalities:
 mode: completion
 model: meta-llama/Llama-3.2-3B
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://huggingface.co/meta-llama/Llama-3.2-3B
     - https://docs.together.ai/docs/fine-tuning-models
