@@ -16,6 +16,11 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-4o-mini-transcribe-2025-03-20
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 2000
+      minValue: 1
 provisioning: serverless
 removeParams:
     - top_p
@@ -23,6 +28,7 @@ removeParams:
     - tool_choice
     - parallel_tool_calls
     - stop
+    - reasoning_effort
 sources:
     - https://developers.openai.com/docs/guides/speech-to-text
     - https://developers.openai.com/docs/models/gpt-4o-mini-transcribe

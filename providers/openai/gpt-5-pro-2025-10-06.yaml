@@ -1,14 +1,16 @@
 costs:
-    - input_cost_per_token: 0.000015
-      input_cost_per_token_batches: 0.000015
+    - input_cost_per_token: 1.5e-5
+      input_cost_per_token_batches: 1.5e-5
       output_cost_per_token: 0.00012
       output_cost_per_token_batches: 0.00012
       region: "*"
+deprecationDate: "2026-06-11"
 features:
     - function_calling
     - structured_output
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 400000
     max_input_tokens: 400000
@@ -32,9 +34,10 @@ removeParams:
     - max_tokens
     - max_completion_tokens
     - reasoning_effort
+retirementDate: "2026-12-11"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-pro
-status: active
+status: deprecated
 supportedModes:
     - responses
 thinking: true
