@@ -1,12 +1,13 @@
 costs:
     - input_cost_per_token: 6.3e-7
-      output_cost_per_token: 0.0000018
+      output_cost_per_token: 1.8e-6
       region: "*"
 features:
     - function_calling
     - tool_choice
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 128000
 modalities:
@@ -20,11 +21,12 @@ model: Llama-4-Maverick-17B-128E-Instruct
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-06-09"
 sources:
     - https://docs.sambanova.ai/docs/en/features/function-calling
     - https://docs.sambanova.ai/docs/en/features/vision
     - https://docs.sambanova.ai/docs/api-reference/chat-completions/create-chat-based-completion
     - https://docs.sambanova.ai/docs/en/models/rate-limits
-status: preview
+status: retired
 supportedModes:
     - chat
