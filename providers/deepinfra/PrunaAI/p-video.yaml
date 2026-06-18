@@ -1,2 +1,20 @@
-mode: unknown
+costs:
+    - output_cost_per_second: 0.02
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - video
+mode: video
 model: PrunaAI/p-video
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://deepinfra.com/PrunaAI/p-video
+status: active
+supportedModes:
+    - video
