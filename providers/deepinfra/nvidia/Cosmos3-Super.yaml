@@ -1,2 +1,22 @@
-mode: unknown
+costs:
+    - output_cost_per_second_480p: 0.0432
+      output_cost_per_second_720p: 0.0972
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+        - image
+        - video
+        - audio
+mode: video
 model: nvidia/Cosmos3-Super
+provisioning: serverless
+sources:
+    - https://deepinfra.com/nvidia/Cosmos3-Super
+status: active
+supportedModes:
+    - video
