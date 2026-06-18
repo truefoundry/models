@@ -1,2 +1,20 @@
-mode: unknown
+costs:
+    - output_cost_per_video_token: 0.0000012
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
+        - audio
+mode: video
 model: ByteDance/Seedance-1.5-Pro
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://deepinfra.com/ByteDance/Seedance-1.5-Pro
+status: active
+supportedModes:
+    - video
