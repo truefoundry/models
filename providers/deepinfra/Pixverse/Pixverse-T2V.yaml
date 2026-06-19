@@ -1,0 +1,16 @@
+costs:
+    - input_cost_per_request: 0.20
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - video
+mode: video
+model: Pixverse/Pixverse-T2V
+provisioning: serverless
+sources:
+    - https://deepinfra.com/Pixverse/Pixverse-T2V
+status: active
+supportedModes:
+    - video

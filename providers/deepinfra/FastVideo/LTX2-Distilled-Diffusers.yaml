@@ -1,0 +1,21 @@
+costs:
+    - output_cost_per_second: 0.036
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - video
+        - audio
+mode: video
+model: FastVideo/LTX2-Distilled-Diffusers
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://deepinfra.com/FastVideo/LTX2-Distilled-Diffusers
+status: active
+supportedModes:
+    - video

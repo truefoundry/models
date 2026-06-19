@@ -1,0 +1,22 @@
+costs:
+    - input_cost_per_annotated_page: 0.003
+      input_cost_per_page: 0.003
+      region: "*"
+limits:
+    context_window: 16384
+modalities:
+    input:
+        - image
+        - pdf
+    output:
+        - text
+mode: ocr
+model: mistral-document-ai-2505
+params:
+    - defaultValue: 0
+      key: temperature
+provisioning: serverless
+sources:
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/mistral-ai/
+    - https://ai.azure.com/catalog/models/mistral-document-ai-2505
+status: active
