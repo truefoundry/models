@@ -18,18 +18,18 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 778 | Unified API for open source models |
+| OpenRouter | 783 | Unified API for open source models |
 | Google Vertex AI | 407 | Gemini, PaLM on GCP |
-| Together AI | 349 | Open source model hosting |
+| Together AI | 350 | Open source model hosting |
+| DeepInfra | 229 | Open source model hosting |
 | AWS Bedrock | 212 | Claude, Llama, Titan, Mistral on AWS |
-| DeepInfra | 209 | Open source model hosting |
 | Azure OpenAI | 193 | OpenAI models on Azure |
 | Deepgram | 143 | Speech-to-text and text-to-speech models |
 | OpenAI | 141 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Mistral AI | 93 | Mistral, Mixtral, Codestral |
-| xAI | 86 | Grok models |
+| xAI | 87 | Grok models |
+| Azure AI Foundry | 70 | Azure AI models |
 | Google Gemini | 70 | Gemini Pro, Ultra, Flash |
-| Azure AI Foundry | 68 | Azure AI models |
 | Aws Bedrock Mantle | 49 |  |
 | Cohere | 38 | Command, Embed models |
 | Databricks | 31 | Databricks-hosted models |
