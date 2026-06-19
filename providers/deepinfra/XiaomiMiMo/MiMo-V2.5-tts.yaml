@@ -1,0 +1,18 @@
+costs:
+    - input_cost_per_character: 0
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
+model: XiaomiMiMo/MiMo-V2.5-tts
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://deepinfra.com/XiaomiMiMo/MiMo-V2.5-tts
+status: active
+supportedModes:
+    - text_to_speech

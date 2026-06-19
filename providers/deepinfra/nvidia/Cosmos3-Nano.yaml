@@ -1,0 +1,21 @@
+costs:
+    - output_cost_per_second: 0.0108
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+        - image
+        - video
+        - audio
+mode: video
+model: nvidia/Cosmos3-Nano
+provisioning: serverless
+sources:
+    - https://deepinfra.com/nvidia/Cosmos3-Nano
+status: active
+supportedModes:
+    - video

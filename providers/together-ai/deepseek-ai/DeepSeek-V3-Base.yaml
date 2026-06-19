@@ -8,6 +8,8 @@ modalities:
 mode: completion
 model: deepseek-ai/DeepSeek-V3-Base
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/fine-tuning-models
     - https://docs.together.ai/docs/inference-models

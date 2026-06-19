@@ -1,0 +1,20 @@
+costs:
+    - output_cost_per_second: 0.15
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
+        - audio
+mode: video
+model: google/veo-3.1-fast
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://deepinfra.com/google/veo-3.1-fast
+status: active
+supportedModes:
+    - video

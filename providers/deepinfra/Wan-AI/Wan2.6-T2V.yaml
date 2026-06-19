@@ -1,0 +1,19 @@
+costs:
+    - output_cost_per_second: 0.1
+      region: "*"
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - video
+mode: video
+model: Wan-AI/Wan2.6-T2V
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://deepinfra.com/Wan-AI/Wan2.6-T2V
+status: active
+supportedModes:
+    - video

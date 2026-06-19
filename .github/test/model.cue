@@ -44,6 +44,18 @@ package model
 // Section 2: Default provider config
 // ============================================================
 
+// Pricing per billing unit; value is the cost
+#ToolCost: {
+	// pricing in USD
+	per_request?:           number & >= 0
+	per_thousand_requests?: number & >= 0
+}
+
+// Pricing for built-in tools that can incur usage-based pricing beyond token costs
+#ToolPricing: {
+	web_search?: #ToolCost
+}
+
 // Schema for default.yaml files (provider-level defaults)
 #DefaultConfig: {
 	// Official documentation links for models, pricing, and deprecations
@@ -52,6 +64,8 @@ package model
 	messages?: #MessageConfig
 	// Configurable parameters with defaults
 	params?: [...#ModelParam]
+	// Pricing for built-in tools
+	tool_pricing?: #ToolPricing
 }
 
 // ============================================================
@@ -244,6 +258,7 @@ package model
 	"embedding" |
 	"image" |
 	"moderation" |
+	"ocr" |
 	"realtime" |
 	"rerank" |
 	"responses" |

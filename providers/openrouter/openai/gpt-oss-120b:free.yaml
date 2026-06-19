@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 131072
@@ -22,8 +23,8 @@ params:
       type: string
 provisioning: serverless
 sources:
-    - https://openrouter.ai/openai/gpt-oss-120b:free/api
     - https://openrouter.ai/openai/gpt-oss-120b:free
+status: active
 supportedModes:
     - chat
 thinking: true

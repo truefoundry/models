@@ -2,10 +2,11 @@ costs:
     - input_cost_per_token: 0.00015
       output_cost_per_token: 0.0006
       region: "*"
-deprecationDate: "2026-10-23"
+deprecationDate: "2026-04-22"
 features:
     - function_calling
     - structured_output
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -37,13 +38,14 @@ removeParams:
     - temperature
     - top_p
     - stop
-    - "n"
+    - n
     - parallel_tool_calls
     - max_tokens
     - max_completion_tokens
+retirementDate: "2026-10-23"
 sources:
     - https://developers.openai.com/api/docs/models/o1-pro
-status: active
+status: deprecated
 supportedModes:
     - responses
 thinking: true

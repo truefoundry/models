@@ -9,8 +9,11 @@ modalities:
 mode: image
 model: stabilityai/stable-diffusion-3-medium
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/models/stable-diffusion-3
 status: active
 supportedModes:
     - image

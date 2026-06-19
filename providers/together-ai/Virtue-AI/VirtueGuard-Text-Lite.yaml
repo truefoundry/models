@@ -13,9 +13,10 @@ modalities:
 mode: moderation
 model: Virtue-AI/VirtueGuard-Text-Lite
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/virtueguard-text-lite
-    - https://www.together.ai/blog/virtueguard
 status: active
 supportedModes:
     - moderation

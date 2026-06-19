@@ -13,11 +13,19 @@ modalities:
         - text
 mode: chat
 model: sarvamai/sarvam-m
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
-    - https://www.together.ai/pricing
-    - https://build.nvidia.com/sarvamai/sarvam-m/modelcard
     - https://huggingface.co/sarvamai/sarvam-m
+    - https://build.nvidia.com/sarvamai/sarvam-m/modelcard
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - chat

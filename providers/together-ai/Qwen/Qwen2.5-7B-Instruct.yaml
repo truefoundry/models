@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - structured_output
+    - json_output
 limits:
     context_window: 32768
 modalities:
@@ -15,6 +16,10 @@ modalities:
 mode: chat
 model: Qwen/Qwen2.5-7B-Instruct
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/models/qwen2-5-7b-instruct-turbo
 status: active
 supportedModes:
     - chat

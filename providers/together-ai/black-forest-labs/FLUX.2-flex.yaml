@@ -12,9 +12,12 @@ modalities:
 mode: image
 model: black-forest-labs/FLUX.2-flex
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/images-overview
     - https://www.together.ai/pricing
+    - https://www.together.ai/models/flux-2-flex
 status: active
 supportedModes:
     - image
