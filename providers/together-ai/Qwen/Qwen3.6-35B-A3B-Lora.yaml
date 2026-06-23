@@ -2,9 +2,23 @@ costs:
     - input_cost_per_token: 0.0
       output_cost_per_token: 0.0
       region: "*"
+features:
+    - function_calling
+    - structured_output
+    - system_messages
 limits:
     context_window: 262144
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: Qwen/Qwen3.6-35B-A3B-Lora
+provisioning: serverless
+sources:
+    - https://docs.together.ai/docs/fine-tuning-models
+    - https://www.together.ai/pricing
 supportedModes:
     - chat
+thinking: true
