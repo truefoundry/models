@@ -5,11 +5,21 @@ costs:
       region: "*"
 features:
     - function_calling
+    - prompt_caching
 limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: chat
 model: Kimi-K2.6
+provisioning: serverless
+sources:
+    - https://pass.wafer.ai/v1/models
+status: active
+supportedModes:
+    - chat
 thinking: true
