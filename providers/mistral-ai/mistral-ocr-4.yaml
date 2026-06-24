@@ -2,8 +2,6 @@ costs:
     - input_cost_per_annotated_page: 0.005
       input_cost_per_page: 0.004
       region: "*"
-features:
-    - function_calling
 limits:
     context_window: 16384
 modalities:
@@ -13,12 +11,11 @@ modalities:
         - doc
     output:
         - text
-mode: unknown
+mode: ocr
 model: mistral-ocr-4
 params:
     - defaultValue: 0.0
       key: temperature
 sources:
     - https://docs.mistral.ai/models/model-cards/ocr-4-0
-    - https://mistral.ai/news/ocr-4/
 status: active
