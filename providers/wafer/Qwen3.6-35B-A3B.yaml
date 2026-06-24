@@ -5,11 +5,27 @@ costs:
       region: "*"
 features:
     - function_calling
+    - tool_choice
+    - json_output
+    - structured_output
+    - prompt_caching
+    - system_messages
 limits:
     context_window: 256000
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: chat
 model: Qwen3.6-35B-A3B
+provisioning: serverless
+sources:
+    - https://pass.wafer.ai/v1/models
+    - https://docs.wafer.ai/serverless/setup
+    - https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+status: active
+supportedModes:
+    - chat
 thinking: true
