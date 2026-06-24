@@ -1,7 +1,7 @@
 costs:
     - cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 2.1e-6
-      output_cost_per_token: 4.4e-6
+      input_cost_per_token: 1.74e-6
+      output_cost_per_token: 3.48e-6
       region: "*"
 features:
     - function_calling
@@ -29,6 +29,7 @@ provisioning: serverless
 sources:
     - https://www.together.ai/models/deepseek-v4-pro
     - https://docs.together.ai/docs/deepseek-v4-quickstart
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - chat
