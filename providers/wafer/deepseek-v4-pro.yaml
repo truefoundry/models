@@ -7,6 +7,20 @@ features:
     - function_calling
 limits:
     context_window: 1000000
-mode: unknown
+mode: chat
 model: deepseek-v4-pro
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - max
+provisioning: serverless
+sources:
+    - https://docs.wafer.ai/serverless/api-reference
+status: active
+supportedModes:
+    - chat
 thinking: true
