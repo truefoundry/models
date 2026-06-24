@@ -36,6 +36,10 @@ features:
     - prompt_caching
     - system_messages
     - tool_choice
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -48,9 +52,11 @@ model: eu.anthropic.claude-fable-5
 provisioning: serverless
 removeParams:
     - temperature
+    - top_p
 sources:
     - https://www.anthropic.com/claude/fable
     - https://aws.amazon.com/blogs/aws/anthropic-claude-fable-5-on-aws-mythos-class-capabilities-with-built-in-safeguards-now-available/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
 status: active
 supportedModes:
     - chat
