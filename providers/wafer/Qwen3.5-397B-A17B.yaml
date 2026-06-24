@@ -5,11 +5,30 @@ costs:
       region: "*"
 features:
     - function_calling
+    - tool_choice
+    - system_messages
+    - json_output
+    - structured_output
 limits:
     context_window: 262144
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: chat
 model: Qwen3.5-397B-A17B
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - max
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
 thinking: true
