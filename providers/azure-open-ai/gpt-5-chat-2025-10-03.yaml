@@ -11,6 +11,7 @@ features:
     - structured_output
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -30,8 +31,9 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-05-13"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-status: preview
+status: retired
 supportedModes:
     - chat

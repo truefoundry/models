@@ -1,7 +1,7 @@
 costs:
     - cache_read_input_token_cost: 1.75e-7
-      input_cost_per_token: 0.00000175
-      output_cost_per_token: 0.000014
+      input_cost_per_token: 1.75e-6
+      output_cost_per_token: 1.4e-5
       region: "*"
 deprecationDate: "2026-06-29"
 features:
@@ -11,6 +11,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 111616
@@ -36,10 +37,11 @@ params:
           - high
       type: string
 provisioning: serverless
+retirementDate: "2026-05-13"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true

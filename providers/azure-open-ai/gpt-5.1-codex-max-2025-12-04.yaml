@@ -3,13 +3,11 @@ costs:
       input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00001
       region: "*"
-deprecationDate: "2026-12-05"
 features:
     - function_calling
     - parallel_function_calling
     - prompt_caching
     - structured_output
-    - system_messages
     - tool_choice
 limits:
     context_window: 400000
@@ -18,7 +16,6 @@ limits:
     max_tokens: 128000
 messages:
     options:
-        - system
         - user
         - assistant
         - developer
@@ -39,13 +36,13 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
           - xhigh
       type: string
 provisioning: serverless
+retirementDate: "2026-12-05"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active

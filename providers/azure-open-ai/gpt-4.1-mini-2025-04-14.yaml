@@ -2,13 +2,13 @@ costs:
     - cache_read_input_token_cost: 1.1e-7
       input_cost_per_token: 4.4e-7
       input_cost_per_token_batches: 2.2e-7
-      output_cost_per_token: 0.00000176
+      output_cost_per_token: 1.76e-6
       output_cost_per_token_batches: 8.8e-7
       region: datazone_us
     - cache_read_input_token_cost: 1e-7
       input_cost_per_token: 4e-7
       input_cost_per_token_batches: 2e-7
-      output_cost_per_token: 0.0000016
+      output_cost_per_token: 1.6e-6
       output_cost_per_token_batches: 8e-7
       region: "*"
 deprecationDate: "2026-10-14"
@@ -19,6 +19,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: false
 limits:
     context_window: 1047576
     max_input_tokens: 1047576
@@ -36,8 +37,9 @@ params:
     - key: max_tokens
       maxValue: 32768
 provisioning: serverless
+retirementDate: "2026-10-14"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
-status: active
+status: deprecated
 supportedModes:
     - chat

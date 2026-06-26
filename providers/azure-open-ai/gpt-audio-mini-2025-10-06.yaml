@@ -4,7 +4,6 @@ costs:
       output_cost_per_audio_token: 0.00002
       output_cost_per_token: 0.0000024
       region: "*"
-deprecationDate: "2026-07-23"
 features:
     - function_calling
     - parallel_function_calling
@@ -28,6 +27,9 @@ params:
     - key: max_tokens
       maxValue: 16384
 provisioning: serverless
+removeParams:
+    - reasoning_effort
+retirementDate: "2026-07-23"
 sources:
     - https://developers.openai.com/docs/models/gpt-audio-mini
 status: active
