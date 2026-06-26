@@ -1,0 +1,31 @@
+costs:
+    - cache_read_input_token_cost: 2e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 1e-6
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - json_output
+    - structured_output
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: Qwen3.6-35B-A3B
+provisioning: serverless
+sources:
+    - https://pass.wafer.ai/v1/models
+    - https://docs.wafer.ai/serverless/setup
+    - https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+status: active
+supportedModes:
+    - chat
+thinking: true
