@@ -1,5 +1,6 @@
 costs:
-    - input_cost_per_token: 0.0
+    - input_cost_per_character: 0.00001
+      input_cost_per_token: 0.0
       output_cost_per_token: 0.0
       region: "*"
 limits:
@@ -16,6 +17,7 @@ sources:
     - https://docs.together.ai/docs/dedicated-endpoints/models
     - https://docs.together.ai/docs/text-to-speech
     - https://www.together.ai/blog/rime-voice-models-now-available-on-together-ai
+    - https://www.together.ai/models/rime-mist-v3-omni
     - https://rime.ai/resources/introducing-mist-v3-enterprise-tts
 status: active
 supportedModes:
