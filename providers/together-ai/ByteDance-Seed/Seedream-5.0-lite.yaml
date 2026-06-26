@@ -10,9 +10,12 @@ modalities:
 mode: image
 model: ByteDance-Seed/Seedream-5.0-lite
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://seed.bytedance.com/en/seedream5_0_lite
     - https://www.together.ai/pricing
+    - https://www.together.ai/models/seedream-50-lite
 status: active
 supportedModes:
     - image
