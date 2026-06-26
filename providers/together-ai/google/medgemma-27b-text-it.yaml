@@ -12,11 +12,12 @@ modalities:
         - text
 mode: chat
 model: google/medgemma-27b-text-it
-provisioning: serverless
+provisioning: provisioned
 removeParams:
     - reasoning_effort
 sources:
     - https://huggingface.co/google/medgemma-27b-text-it
+    - https://docs.together.ai/docs/dedicated-models
 status: active
 supportedModes:
     - chat
