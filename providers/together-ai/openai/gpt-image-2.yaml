@@ -1,6 +1,5 @@
 costs:
-    - input_cost_per_token: 0.0
-      output_cost_per_token: 0.0
+    - output_cost_per_image: 0.053
       region: "*"
 modalities:
     input:
@@ -15,6 +14,8 @@ removeParams:
     - reasoning_effort
 sources:
     - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/pricing
+    - https://www.together.ai/models/gpt-image-2
     - https://developers.openai.com/api/docs/models/gpt-image-2
 status: active
 supportedModes:
