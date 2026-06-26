@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+isDeprecated: true
 limits:
     context_window: 32000
 modalities:
@@ -15,9 +16,10 @@ modalities:
 mode: audio_transcription
 model: mistralai/Voxtral-Mini-3B-2507
 provisioning: serverless
+retirementDate: "2026-06-11"
 sources:
     - https://www.together.ai/models/voxtral-mini-3b-2507
-status: active
+status: retired
 supportedModes:
     - audio_transcription
     - chat
