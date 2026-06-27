@@ -1,2 +1,16 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: weiboai/vibethinker
+provisioning: provisioned
+sources:
+    - https://huggingface.co/WeiboAI/VibeThinker-1.5B
+    - https://huggingface.co/WeiboAI/VibeThinker-3B
+    - https://github.com/WeiboAI/VibeThinker
+status: active
+supportedModes:
+    - chat
+thinking: true
