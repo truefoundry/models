@@ -1,8 +1,11 @@
-costs:
-    - input_cost_per_token: 0.0
-      output_cost_per_token: 0.0
-      region: "*"
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - video
+mode: video
 model: alibaba/happyhorse-1.1-t2v
 supportedModes:
     - video
+
+# costs: pricing not found in official Together AI documentation (changelog, serverless models page, and pricing page only list happyhorse-1.0 variants)
