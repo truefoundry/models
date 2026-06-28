@@ -8,6 +8,7 @@ features:
     - json_output
     - tool_choice
     - system_messages
+    - structured_output
 limits:
     context_window: 262144
 modalities:
@@ -20,6 +21,8 @@ modalities:
 mode: chat
 model: moonshotai/Kimi-K2.7-Code
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/kimi-k27-code
 status: active
