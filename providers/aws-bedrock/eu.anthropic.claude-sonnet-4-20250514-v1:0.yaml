@@ -1,119 +1,119 @@
 costs:
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: eu-west-3
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200001
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200001
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200001
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200001
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: eu-west-1
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200001
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200001
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200001
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200001
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: eu-south-2
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200001
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200001
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200001
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200001
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: eu-south-1
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200001
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200001
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200001
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200001
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: eu-north-1
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200001
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200001
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200001
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200001
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.00000375
+    - cache_creation_input_token_cost: 3.75e-6
       cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
       region: eu-central-1
       tiered_pricing:
           cache_read:
               - cost_per_token: 6e-7
                 from: 200001
           cache_write:
-              - cost_per_token: 0.0000075
+              - cost_per_token: 7.5e-6
                 from: 200001
           input:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 200001
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 2.25e-5
                 from: 200001
           pricing_mode: marginal
-deprecationDate: "2026-06-15"
+deprecationDate: "2026-04-14"
 features:
     - function_calling
     - tool_choice
@@ -121,6 +121,7 @@ features:
     - cache_control
     - prompt_caching
     - assistant_prefill
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -146,12 +147,13 @@ params:
     - key: tool_choice
       type: json
 provisioning: serverless
+retirementDate: "2026-10-14"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
