@@ -10,9 +10,12 @@ modalities:
 mode: image
 model: google/imagen-4.0-ultra
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/pricing
     - https://docs.together.ai/docs/images-overview
+    - https://www.together.ai/models/google-imagen-4-0-ultra
 status: active
 supportedModes:
     - image

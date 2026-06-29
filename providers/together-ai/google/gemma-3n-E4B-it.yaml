@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - structured_output
+isDeprecated: true
 limits:
     context_window: 32768
     max_input_tokens: 32768
@@ -18,8 +19,9 @@ modalities:
 mode: chat
 model: google/gemma-3n-E4B-it
 provisioning: serverless
+retirementDate: "2026-06-26"
 sources:
     - https://www.together.ai/models/gemma-3n-e4b-it
-status: active
+status: retired
 supportedModes:
     - chat

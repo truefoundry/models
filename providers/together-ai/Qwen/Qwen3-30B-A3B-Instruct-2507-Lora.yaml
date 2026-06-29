@@ -8,6 +8,8 @@ features:
     - system_messages
 limits:
     context_window: 262144
+    max_output_tokens: 16384
+    max_tokens: 16384
 messages:
     options:
         - system
@@ -26,6 +28,7 @@ removeParams:
 sources:
     - https://www.together.ai/models/qwen3-30b-a3b
     - https://huggingface.co/Qwen/Qwen3-30B-A3B-Instruct-2507
+    - https://docs.together.ai/docs/lora-inference
 status: active
 supportedModes:
     - chat

@@ -16,10 +16,9 @@ modalities:
 mode: chat
 model: meta-llama/Llama-3.3-70B-Instruct-Turbo
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
-    - https://www.together.ai/pricing
-    - https://docs.together.ai/docs/function-calling
-    - https://docs.together.ai/docs/json-mode
     - https://www.together.ai/models/llama-3-3-70b
 status: active
 supportedModes:
