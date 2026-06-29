@@ -20,6 +20,8 @@ modalities:
 mode: chat
 model: databricks-llama-4-maverick
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/score-foundation-models
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits

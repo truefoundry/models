@@ -23,7 +23,12 @@ modalities:
         - text
 mode: chat
 model: databricks-gemini-2-5-pro
+params:
+    - key: thinking
+      type: boolean
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
 status: active
