@@ -1,6 +1,5 @@
 costs:
-    - input_cost_per_token: 0.0 # not found in official docs — dedicated inference deployment, no public per-token/character pricing
-      output_cost_per_token: 0.0 # not found in official docs — dedicated inference deployment, no public per-token/character pricing
+    - input_cost_per_character: 3e-5 # $30 / 1M characters (plus GPU hourly by hardware, not captured)
       region: "*"
 modalities:
     input:
