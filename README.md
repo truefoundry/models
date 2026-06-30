@@ -9,7 +9,7 @@ A comprehensive, community-maintained registry of AI/LLM model configurations. T
 
 LLM model configs change often — prices drop, features expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
 
-- **Unified Schema** — Consistent model configuration format across 22 providers
+- **Unified Schema** — Consistent model configuration format across 23 providers
 - **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
 - **Feature Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
 - **Open Source** — Community-driven updates ensure accuracy and coverage
@@ -18,15 +18,15 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 784 | Unified API for open source models |
-| Google Vertex AI | 407 | Gemini, PaLM on GCP |
-| Together AI | 360 | Open source model hosting |
-| DeepInfra | 229 | Open source model hosting |
+| OpenRouter | 785 | Unified API for open source models |
+| Google Vertex AI | 409 | Gemini, PaLM on GCP |
+| Together AI | 363 | Open source model hosting |
+| DeepInfra | 231 | Open source model hosting |
 | AWS Bedrock | 212 | Claude, Llama, Titan, Mistral on AWS |
-| Azure OpenAI | 193 | OpenAI models on Azure |
+| Azure OpenAI | 199 | OpenAI models on Azure |
 | Deepgram | 143 | Speech-to-text and text-to-speech models |
 | OpenAI | 141 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
-| Mistral AI | 93 | Mistral, Mixtral, Codestral |
+| Mistral AI | 96 | Mistral, Mixtral, Codestral |
 | xAI | 87 | Grok models |
 | Azure AI Foundry | 70 | Azure AI models |
 | Google Gemini | 70 | Gemini Pro, Ultra, Flash |
@@ -39,6 +39,7 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 | Groq | 23 | Fast inference models |
 | AI21 | 12 | Jamba models |
 | ElevenLabs | 10 | Voice synthesis and text-to-speech models |
+| Wafer | 10 |  |
 | Cerebras | 5 | Fast inference models |
 
 ## Installation
