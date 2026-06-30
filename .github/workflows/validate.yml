@@ -30,6 +30,8 @@ jobs:
 
       - name: Install CUE
         uses: cue-lang/setup-cue@v1.0.1
+        with:
+          version: 'v0.16.1'
 
       - name: Run validation
         run: ./.github/test/validate.sh

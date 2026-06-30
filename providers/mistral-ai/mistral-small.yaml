@@ -25,6 +25,9 @@ mode: chat
 model: mistral-small
 params:
     - key: reasoning_effort
+      supportedValues:
+          - none
+          - high
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/mistral-small-3-2-25-06
