@@ -91,6 +91,13 @@ params:
       maxValue: 128000
       minValue: 1024
       type: number
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
