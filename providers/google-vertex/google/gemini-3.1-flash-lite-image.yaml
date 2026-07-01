@@ -1,2 +1,48 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 2.5e-7
+      output_cost_per_image_token: 0.00003
+      output_cost_per_token: 0.0000015
+      region: global
+features:
+    - system_messages
+    - prompt_caching
+limits:
+    context_window: 65536
+    max_input_tokens: 65536
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+        - image
+mode: image
 model: google/gemini-3.1-flash-lite-image
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 4096
+      minValue: 1
+    - defaultValue: 1.0
+      key: temperature
+      maxValue: 2
+      minValue: 0
+    - defaultValue: 0.95
+      key: top_p
+      maxValue: 1
+      minValue: 0
+provisioning: serverless
+removeParams:
+    - tool_choice
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-lite-image
+    - https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/
+status: active
+supportedModes:
+    - image
+    - chat
+thinking: true
