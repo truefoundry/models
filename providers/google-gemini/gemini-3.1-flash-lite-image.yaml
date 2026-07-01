@@ -1,7 +1,25 @@
+costs:
+    - input_cost_per_token: 2.5e-7
+      input_cost_per_token_batches: 1.25e-7
+      output_cost_per_image_token: 0.00003
+      output_cost_per_token: 0.0000015
+      output_cost_per_token_batches: 7.5e-7
+      region: "*"
+features:
+    - function_calling
 limits:
+    context_window: 65536
     max_input_tokens: 65536
-    max_output_tokens: 65536
-mode: unknown
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+        - image
+mode: image
 model: gemini-3.1-flash-lite-image
 params:
     - defaultValue: 1
@@ -11,4 +29,17 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - high
+      type: string
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image
+status: active
+supportedModes:
+    - image
+    - chat
 thinking: true
