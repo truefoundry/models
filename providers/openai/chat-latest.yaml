@@ -23,6 +23,12 @@ modalities:
         - text
 mode: chat
 model: chat-latest
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - medium
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens

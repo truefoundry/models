@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_token: 2.5e-7
+      output_cost_per_token: 1.5e-6
+      region: "*"
+features:
+    - json_output
+limits:
+    context_window: 65536
+    max_output_tokens: 66000
+modalities:
+    input:
+        - image
+        - text
+    output:
+        - image
+        - text
+mode: chat
+model: google/gemini-3.1-flash-lite-image
+provisioning: serverless
+sources:
+    - https://openrouter.ai/google/gemini-3.1-flash-lite-image
+supportedModes:
+    - chat
+    - image
+thinking: true

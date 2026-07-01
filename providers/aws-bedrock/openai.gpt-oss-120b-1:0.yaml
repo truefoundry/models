@@ -66,6 +66,13 @@ params:
       maxValue: 16000
     - key: temperature
       maxValue: 2
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - stream
