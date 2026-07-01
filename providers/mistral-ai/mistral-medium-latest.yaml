@@ -23,6 +23,10 @@ model: mistral-medium-latest
 params:
     - defaultValue: 0.3
       key: temperature
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - high
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04

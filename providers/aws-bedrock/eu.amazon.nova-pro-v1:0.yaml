@@ -70,16 +70,10 @@ params:
     - key: top_k
       maxValue: 128
       minValue: 0
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - low
-          - medium
-          - high
-      type: string
 provisioning: serverless
 removeParams:
     - "n"
+    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
@@ -90,4 +84,3 @@ sources:
 status: active
 supportedModes:
     - chat
-thinking: true

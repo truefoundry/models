@@ -7,6 +7,8 @@ model: mistral-code-agent-latest
 params:
     - defaultValue: 0.2
       key: temperature
+removeParams:
+    - reasoning_effort
 status: active
 supportedModes:
     - chat

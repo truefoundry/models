@@ -46,17 +46,10 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0.00001
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - none
-          - low
-          - medium
-          - high
-      type: string
 provisioning: serverless
 removeParams:
     - "n"
+    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
@@ -65,4 +58,3 @@ sources:
 status: active
 supportedModes:
     - chat
-thinking: true
