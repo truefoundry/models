@@ -1,7 +1,33 @@
+costs:
+    - input_cost_per_token: 6e-7
+      output_cost_per_token: 3e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - system_messages
 limits:
     context_window: 131072
     max_output_tokens: 32768
-mode: unknown # not found in official docs — model ID "qwen/qwen3.6-27b" is not listed on Groq's models page
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: qwen/qwen3.6-27b
+params:
+    - defaultValue: default
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - default
+      type: string
+provisioning: serverless
+sources:
+    - https://console.groq.com/docs/model/qwen/qwen3.6-27b
+status: preview
 supportedModes:
-    - unknown
+    - chat
+thinking: true
