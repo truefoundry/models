@@ -50,6 +50,13 @@ modalities:
         - text
 mode: chat
 model: openai.gpt-oss-safeguard-120b
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-safeguard-120b.html

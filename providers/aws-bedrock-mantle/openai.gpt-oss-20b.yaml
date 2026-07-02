@@ -53,6 +53,13 @@ modalities:
         - text
 mode: chat
 model: openai.gpt-oss-20b
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-20b.html
