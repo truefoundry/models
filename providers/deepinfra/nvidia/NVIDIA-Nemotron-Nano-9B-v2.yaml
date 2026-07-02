@@ -2,9 +2,11 @@ costs:
     - input_cost_per_token: 4e-8
       output_cost_per_token: 1.6e-7
       region: "*"
+deprecationDate: "2026-06-11"
 features:
     - function_calling
     - json_output
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -20,7 +22,7 @@ model: nvidia/NVIDIA-Nemotron-Nano-9B-v2
 provisioning: serverless
 sources:
     - https://deepinfra.com/nvidia/NVIDIA-Nemotron-Nano-9B-v2
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
