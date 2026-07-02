@@ -83,12 +83,13 @@ costs:
       output_cost_per_token: 0.0000025
       output_cost_per_token_batches: 0.00000125
       region: europe-central2
-deprecationDate: "2026-10-02"
 features:
     - system_messages
+    - structured_output
+    - prompt_caching
 limits:
-    context_window: 32768
-    max_input_tokens: 32768
+    context_window: 65536
+    max_input_tokens: 65536
     max_output_tokens: 32768
     max_tokens: 32768
 modalities:
