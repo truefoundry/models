@@ -18,6 +18,8 @@ model: mistral-code-fim-latest
 params:
     - defaultValue: 0.3
       key: temperature
+removeParams:
+    - reasoning_effort
 status: active
 supportedModes:
     - completion

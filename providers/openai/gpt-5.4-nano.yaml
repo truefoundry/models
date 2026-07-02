@@ -28,6 +28,15 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens

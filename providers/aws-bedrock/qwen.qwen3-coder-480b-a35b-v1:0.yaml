@@ -43,9 +43,15 @@ params:
       key: max_tokens
       maxValue: 16000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
-removeParams:
-    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-480b-a35b-instruct.html
 status: active

@@ -9,6 +9,7 @@ costs:
 features:
     - code_execution
     - prompt_caching
+    - function_calling
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -20,7 +21,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: unsupported # Only supported via the Interactions API
 model: antigravity-preview-05-2026
 provisioning: serverless
 removeParams:
