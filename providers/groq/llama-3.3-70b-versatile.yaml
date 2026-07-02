@@ -4,12 +4,14 @@ costs:
       output_cost_per_token: 7.9e-7
       output_cost_per_token_batches: 3.95e-7
       region: "*"
+deprecationDate: "2026-06-17"
 features:
     - function_calling
     - parallel_function_calling
     - tool_choice
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -33,10 +35,11 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-08-16"
 sources:
     - https://console.groq.com/docs/tool-use
     - https://console.groq.com/docs/structured-outputs
     - https://console.groq.com/docs/batch
-status: active
+status: deprecated
 supportedModes:
     - chat
