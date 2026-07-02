@@ -1,0 +1,63 @@
+costs:
+    - cache_creation_input_token_cost: 0.00000275
+      cache_creation_input_token_cost_per_hour: 0.0000044
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.000011
+      region: us
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.00001
+      region: global
+    - cache_creation_input_token_cost: 0.00000275
+      cache_creation_input_token_cost_per_hour: 0.0000044
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.000011
+      region: eu
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - cache_control
+    - prompt_caching
+    - system_messages
+    - structured_output
+    - assistant_prefill
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: anthropic/claude-sonnet-5
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - key: top_k
+      minValue: 0
+    - key: thinking
+      type: json
+provisioning: serverless
+removeParams:
+    - temperature
+sources:
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
+    - https://www.anthropic.com/news/claude-sonnet-5
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude
+status: active
+supportedModes:
+    - chat
+thinking: true

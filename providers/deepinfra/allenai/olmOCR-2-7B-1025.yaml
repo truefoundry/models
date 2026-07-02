@@ -14,7 +14,7 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: unsupported # Deepinfra upstream bug causes context window overflow
 model: allenai/olmOCR-2-7B-1025
 provisioning: serverless
 sources:
