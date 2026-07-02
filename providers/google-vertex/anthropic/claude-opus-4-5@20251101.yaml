@@ -62,6 +62,13 @@ model: anthropic/claude-opus-4-5@20251101
 params:
     - key: max_tokens
       maxValue: 64000
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/opus-4-5
