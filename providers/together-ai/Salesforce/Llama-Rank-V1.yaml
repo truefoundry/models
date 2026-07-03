@@ -4,7 +4,18 @@ costs:
       region: "*"
 limits:
     context_window: 8192
-mode: unknown
+modalities:
+    input:
+        - text
+mode: rerank
 model: Salesforce/Llama-Rank-V1
+provisioning: provisioned
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/models/salesforce-llamarank
+    - https://www.together.ai/blog/together-rerank-api-and-salesforce-llamarank
+    - https://docs.together.ai/docs/inference/embeddings/rerank
+status: active
 supportedModes:
     - rerank
