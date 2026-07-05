@@ -7,6 +7,14 @@ features:
     - function_calling
 limits:
     context_window: 1048576
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: GLM5.2-Turbo
+provisioning: serverless
+supportedModes:
+    - chat
 thinking: true
