@@ -24,8 +24,13 @@ modalities:
 mode: responses
 model: gpt-5.5-pro
 params:
-    - defaultValue: medium
+    - defaultValue: high
       key: reasoning_effort
+      supportedValues:
+          - medium
+          - high
+          - xhigh
+      type: string
     - defaultValue: medium
       key: verbosity
 provisioning: serverless
