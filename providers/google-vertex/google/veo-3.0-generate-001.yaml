@@ -60,6 +60,7 @@ costs:
     - output_cost_per_second: 0.4
       region: asia-east1
 deprecationDate: "2026-06-30"
+isDeprecated: true
 modalities:
     input:
         - text
@@ -74,7 +75,7 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
@@ -82,6 +83,6 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/video/overview
     - https://developers.googleblog.com/en/veo-3-and-veo-3-fast-new-pricing-new-configurations-and-better-resolution/
-status: active
+status: deprecated
 supportedModes:
     - video

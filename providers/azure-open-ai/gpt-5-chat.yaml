@@ -26,10 +26,12 @@ mode: chat
 model: gpt-5-chat
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 16384
       minValue: 1
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2026-06-29"
 status: preview
 supportedModes:

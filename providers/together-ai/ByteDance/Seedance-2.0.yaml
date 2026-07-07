@@ -1,18 +1,18 @@
 costs:
-    - output_cost_per_second_720p: 0.16
+    - output_cost_per_second_1080p: 0.40
+      output_cost_per_second_4k: 0.836
+      output_cost_per_second_720p: 0.16
       region: "*"
 modalities:
     input:
         - text
         - image
+        - video
     output:
         - video
 mode: video
 model: ByteDance/Seedance-2.0
 provisioning: serverless
-sources:
-    - https://docs.together.ai/docs/serverless-models
-    - https://docs.together.ai/docs/changelog
 status: active
 supportedModes:
     - video
