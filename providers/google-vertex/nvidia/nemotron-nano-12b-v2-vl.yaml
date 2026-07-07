@@ -15,11 +15,17 @@ modalities:
         - text
 mode: chat
 model: nvidia/nemotron-nano-12b-v2-vl
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: provisioned
 sources:
     - https://build.nvidia.com/nvidia/nemotron-nano-12b-v2-vl/modelcard
     - https://huggingface.co/nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16
     - https://docs.vllm.ai/projects/recipes/en/latest/NVIDIA/Nemotron-Nano-12B-v2-VL.html
+    - https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-nano-12b-v2-vl
 status: active
 supportedModes:
     - chat

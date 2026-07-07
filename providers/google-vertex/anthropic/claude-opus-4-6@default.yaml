@@ -77,6 +77,14 @@ params:
       maxValue: 128000
     - key: temperature
       maxValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 removeParams:
     - "n"
