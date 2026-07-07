@@ -27,9 +27,11 @@ mode: chat
 model: gpt-5-chat-2025-08-15
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 16384
       minValue: 1
+removeParams:
+    - max_tokens
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: retired

@@ -2,11 +2,13 @@ costs:
     - input_cost_per_token: 2.9e-7
       output_cost_per_token: 5.9e-7
       region: "*"
+deprecationDate: "2026-06-17"
 features:
     - function_calling
     - parallel_function_calling
     - json_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 40960
@@ -30,11 +32,12 @@ params:
           - default
       type: string
 provisioning: serverless
+retirementDate: "2026-07-17"
 sources:
     - https://console.groq.com/docs/model/qwen/qwen3-32b
     - https://console.groq.com/docs/reasoning
     - https://console.groq.com/docs/tool-use
-status: preview
+status: deprecated
 supportedModes:
     - chat
 thinking: true
