@@ -8,9 +8,12 @@ modalities:
         - image
     output:
         - video
+        - audio
 mode: video
 model: alibaba/happyhorse-1.0-i2v
 provisioning: serverless
+sources:
+    - https://www.together.ai/models/happyhorse-1-0-i2v
 status: active
 supportedModes:
     - video
