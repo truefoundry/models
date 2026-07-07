@@ -3,7 +3,7 @@ features:
     - parallel_function_calling
     - system_messages
 limits:
-    context_window: 128000
+    context_window: 131072
 messages:
     options:
         - system
@@ -21,6 +21,7 @@ sources:
     - https://www.together.ai/models/cogito-v1-preview-llama-70b
     - https://www.together.ai/models/cogito-v1-preview-llama-3b
     - https://huggingface.co/deepcogito/cogito-v1-preview-llama-8B
+    - https://docs.together.ai/docs/dedicated-models
 status: active
 supportedModes:
     - chat

@@ -2,8 +2,6 @@ costs:
     - input_cost_per_token: 0.00000125
       output_cost_per_token: 0.00000125
       region: "*"
-features:
-    - json_output
 limits:
     context_window: 163840
 modalities:
@@ -17,8 +15,10 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 sources:
-    - https://docs.together.ai/docs/json-mode
     - https://www.together.ai/models/cogito-v2-1-671b
+    - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/json-mode
+    - https://docs.together.ai/docs/function-calling
 status: active
 supportedModes:
     - chat
