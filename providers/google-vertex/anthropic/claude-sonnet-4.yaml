@@ -85,6 +85,15 @@ model: anthropic/claude-sonnet-4
 params:
     - key: max_tokens
       maxValue: 64000
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-4
