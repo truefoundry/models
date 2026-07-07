@@ -6,12 +6,14 @@ features:
     - function_calling
     - json_output
     - structured_output
+    - assistant_prefill
 limits:
     context_window: 262144
 modalities:
     input:
         - text
         - image
+        - doc
     output:
         - text
 mode: chat

@@ -9,8 +9,12 @@ modalities:
 mode: image
 model: Lykon/DreamShaper
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/images-overview
+    - https://www.together.ai/models/dreamshaper
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - image

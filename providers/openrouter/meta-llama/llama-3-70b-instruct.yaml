@@ -2,6 +2,7 @@ costs:
     - input_cost_per_token: 5.1e-7
       output_cost_per_token: 7.4e-7
       region: "*"
+isDeprecated: true
 limits:
     context_window: 8192
     max_output_tokens: 8000
@@ -17,6 +18,6 @@ provisioning: serverless
 retirementDate: "2026-06-19"
 sources:
     - https://openrouter.ai/meta-llama/llama-3-70b-instruct
-status: active
+status: retired
 supportedModes:
     - chat

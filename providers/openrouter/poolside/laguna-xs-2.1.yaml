@@ -1,13 +1,11 @@
 costs:
-    - cache_read_input_token_cost: 5e-8
-      input_cost_per_token: 1e-7
-      output_cost_per_token: 2e-7
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 6e-8
+      output_cost_per_token: 1.2e-7
       region: "*"
 features:
     - function_calling
-    - json_output
     - prompt_caching
-    - structured_output
     - tool_choice
 limits:
     context_window: 262144
@@ -18,17 +16,15 @@ modalities:
     output:
         - text
 mode: chat
-model: poolside/laguna-xs.2
+model: poolside/laguna-xs-2.1
 params:
     - defaultValue: 0.7
       key: temperature
     - defaultValue: 0.9
       key: top_p
 provisioning: serverless
-retirementDate: "2026-07-09"
 sources:
-    - https://openrouter.ai/poolside/laguna-xs.2
-status: active
+    - https://openrouter.ai/poolside/laguna-xs-2.1
 supportedModes:
     - chat
 thinking: true
