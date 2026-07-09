@@ -233,6 +233,15 @@ params:
       key: top_p
       maxValue: 1.0
       minValue: 0
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
@@ -241,6 +250,7 @@ sources:
     - https://platform.claude.com/docs/en/about-claude/models/overview
     - https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat
