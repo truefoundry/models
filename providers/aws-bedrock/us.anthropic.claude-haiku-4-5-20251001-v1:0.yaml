@@ -41,10 +41,12 @@ costs:
       region: ca-central-1
 features:
     - function_calling
+    - parallel_function_calling
     - prompt_caching
     - cache_control
     - system_messages
     - tool_choice
+    - assistant_prefill
 limits:
     context_window: 200000
     max_input_tokens: 200000
