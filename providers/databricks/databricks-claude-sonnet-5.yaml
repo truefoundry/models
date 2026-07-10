@@ -1,5 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
       cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.000002
       output_cost_per_token: 0.00001
@@ -10,9 +11,7 @@ features:
     - system_messages
     - prompt_caching
     - cache_control
-    - structured_output
     - assistant_prefill
-    - json_output
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -27,6 +26,9 @@ mode: chat
 model: databricks-claude-sonnet-5
 provisioning: serverless
 removeParams:
+    - temperature
+    - top_p
+    - top_k
     - reasoning_effort
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models/overview
