@@ -3,8 +3,13 @@ modalities:
         - text
     output:
         - video
+        - audio
 mode: video
 model: alibaba/happyhorse-1.1-t2v
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/happyhorse-1-1-t2v
+status: active
 supportedModes:
     - video
 
