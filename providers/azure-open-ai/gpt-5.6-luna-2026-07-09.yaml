@@ -1,3 +1,49 @@
+costs:
+    - cache_read_input_token_cost: 0.0000001
+      input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000006
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000002
+                from: 272000
+          input:
+              - cost_per_token: 0.000002
+                from: 272000
+          output:
+              - cost_per_token: 0.000009
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000011
+      input_cost_per_token: 0.0000011
+      output_cost_per_token: 0.0000066
+      region: datazone_eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.00000022
+                from: 272000
+          input:
+              - cost_per_token: 0.0000022
+                from: 272000
+          output:
+              - cost_per_token: 0.0000099
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000011
+      input_cost_per_token: 0.0000011
+      output_cost_per_token: 0.0000066
+      region: datazone_us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.00000022
+                from: 272000
+          input:
+              - cost_per_token: 0.0000022
+                from: 272000
+          output:
+              - cost_per_token: 0.0000099
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
@@ -35,5 +81,3 @@ status: active
 supportedModes:
     - chat
 thinking: true
-
-# costs: pricing not yet published for this model in the authoritative Azure pricing data source
