@@ -4,9 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
-    - structured_output
     - json_output
-    - tool_choice
 limits:
     context_window: 1000000
     max_output_tokens: 65536
@@ -20,9 +18,10 @@ modalities:
 mode: chat
 model: Qwen/Qwen3.7-Plus
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/qwen37-plus
 status: active
 supportedModes:
     - chat
-thinking: true
