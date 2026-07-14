@@ -1,8 +1,55 @@
+costs:
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.000000275
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
+      region: datazone_eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.00000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000055
+                from: 272000
+          output:
+              - cost_per_token: 0.00002475
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.000000275
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
+      region: datazone_us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.00000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000055
+                from: 272000
+          output:
+              - cost_per_token: 0.00002475
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
     - system_messages
     - structured_output
+    - prompt_caching
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -24,6 +71,7 @@ params:
           - low
           - medium
           - high
+          - xhigh
       type: string
 provisioning: serverless
 retirementDate: "2027-07-09"
