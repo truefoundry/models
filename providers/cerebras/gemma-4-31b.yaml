@@ -22,6 +22,15 @@ modalities:
         - text
 mode: chat
 model: gemma-4-31b
+params:
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://inference-docs.cerebras.ai/models/gemma-4-31b
