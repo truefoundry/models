@@ -8,6 +8,7 @@ features:
     - json_output
     - tool_choice
     - system_messages
+    - assistant_prefill
 limits:
     context_window: 262144
 modalities:
@@ -31,6 +32,7 @@ provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/mistral-small-4-0-26-03
     - https://docs.mistral.ai/capabilities/reasoning
+    - https://mistral.ai/pricing/api
 status: active
 supportedModes:
     - chat
