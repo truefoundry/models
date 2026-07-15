@@ -36,6 +36,15 @@ params:
           - medium
           - high
       type: string
+    - defaultValue: 0.7
+      key: temperature
+      type: number
+    - defaultValue: 0.95
+      key: top_p
+      type: number
+    - defaultValue: 131072
+      key: max_completion_tokens
+      type: number
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-3.html
