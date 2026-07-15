@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 0.0
-      output_cost_per_token: 0.0
+    - input_cost_per_token: 0.0 # not found in official docs
+      output_cost_per_token: 0.0 # not found in official docs
       region: "*"
 modalities:
     input:
@@ -12,8 +12,11 @@ modalities:
 mode: image
 model: google/flash-image-3.1-lite
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/pricing
     - https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/
+status: active
 supportedModes:
     - image
