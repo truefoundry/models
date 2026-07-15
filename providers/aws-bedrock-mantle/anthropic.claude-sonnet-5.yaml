@@ -7,6 +7,30 @@ costs:
       output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
       region: us-east-1
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: eu-west-1
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: eu-north-1
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: ap-southeast-4
 features:
     - function_calling
     - parallel_function_calling
