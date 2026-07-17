@@ -1,5 +1,5 @@
 costs:
-    - cache_creation_input_token_cost_per_hour: 0.000001
+    - cache_creation_input_token_cost_per_hour: 1e-6
       cache_read_input_audio_token_cost: 3e-8
       cache_read_input_token_cost: 1e-8
       input_cost_per_audio_token: 3e-7
@@ -14,6 +14,7 @@ features:
     - structured_output
     - code_execution
     - json_output
+isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -39,7 +40,7 @@ provisioning: serverless
 retirementDate: "2026-07-09"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true
