@@ -28,6 +28,11 @@ params:
       key: top_p
     - key: max_tokens
       maxValue: 40000
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - default
+      type: string
 provisioning: serverless
 sources:
     - https://inference-docs.cerebras.ai/models/zai-glm-47
