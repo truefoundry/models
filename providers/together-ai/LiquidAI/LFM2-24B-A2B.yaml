@@ -8,6 +8,7 @@ features:
     - tool_choice
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 32768
 messages:
@@ -23,11 +24,12 @@ modalities:
 mode: chat
 model: LiquidAI/LFM2-24B-A2B
 provisioning: serverless
+retirementDate: "2026-07-09"
 sources:
     - https://www.together.ai/models/lfm2-24b-a2b
     - https://huggingface.co/LiquidAI/LFM2-24B-A2B
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
-status: active
+status: retired
 supportedModes:
     - chat
