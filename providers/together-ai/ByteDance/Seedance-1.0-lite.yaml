@@ -10,9 +10,12 @@ modalities:
 mode: video
 model: ByteDance/Seedance-1.0-lite
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/serverless-models
     - https://docs.together.ai/docs/videos-overview
+    - https://www.together.ai/models/bytedance-seedance-1-0-lite
 status: active
 supportedModes:
     - video
