@@ -1,11 +1,16 @@
 costs:
-    - cache_creation_input_token_cost_per_hour: 0.000001
-      cache_read_input_token_cost: 1.5e-7
+    - cache_read_input_token_cost: 1.5e-7
       input_cost_per_token: 0.0000015
       input_cost_per_token_batches: 7.5e-7
       output_cost_per_token: 0.000009
       output_cost_per_token_batches: 0.0000045
       region: global
+    - cache_read_input_token_cost: 1.65e-7
+      input_cost_per_token: 0.00000165
+      input_cost_per_token_batches: 8.25e-7
+      output_cost_per_token: 0.0000099
+      output_cost_per_token_batches: 0.00000495
+      region: eu
 features:
     - function_calling
     - parallel_function_calling
@@ -38,8 +43,9 @@ params:
       minValue: 1
 provisioning: serverless
 sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash
     - https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
-    - https://ai.google.dev/gemini-api/docs/pricing
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash
     - https://deepmind.google/models/gemini/flash/
 status: active
 supportedModes:

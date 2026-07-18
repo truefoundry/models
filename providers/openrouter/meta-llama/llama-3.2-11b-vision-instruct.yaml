@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - json_output
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 16384
@@ -17,8 +18,9 @@ modalities:
 mode: chat
 model: meta-llama/llama-3.2-11b-vision-instruct
 provisioning: serverless
+retirementDate: "2026-07-17"
 sources:
     - https://openrouter.ai/meta-llama/llama-3.2-11b-vision-instruct/api
-status: active
+status: retired
 supportedModes:
     - chat

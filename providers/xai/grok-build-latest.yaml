@@ -1,0 +1,31 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_image_token: 1e-6
+      input_cost_per_token: 1e-6
+      output_cost_per_token: 2e-6
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4e-7
+                from: 200000
+          input:
+              - cost_per_token: 2e-6
+                from: 200000
+          output:
+              - cost_per_token: 4e-6
+                from: 200000
+          pricing_mode: cumulative
+limits:
+    context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: grok-build-latest
+provisioning: serverless
+status: active
+supportedModes:
+    - chat

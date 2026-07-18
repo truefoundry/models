@@ -6,6 +6,7 @@ features:
     - function_calling
     - json_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131072
 modalities:
@@ -16,10 +17,11 @@ modalities:
 mode: chat
 model: nvidia/llama-3.3-nemotron-super-49b-v1.5
 provisioning: serverless
+retirementDate: "2026-07-17"
 sources:
     - https://openrouter.ai/nvidia/llama-3.3-nemotron-super-49b-v1.5/api
     - https://openrouter.ai/nvidia/llama-3.3-nemotron-super-49b-v1.5
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true

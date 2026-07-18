@@ -1,13 +1,14 @@
 costs:
     - cache_read_input_token_cost: 2.6e-7
-      input_cost_per_token: 0.0000014
-      output_cost_per_token: 0.0000044
+      input_cost_per_token: 1.4e-6
+      output_cost_per_token: 4.4e-6
       region: "*"
 features:
     - function_calling
     - json_output
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 202752
     max_output_tokens: 131072
@@ -22,13 +23,14 @@ model: zai-org/GLM-5.1
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-10"
 sources:
     - https://www.together.ai/models/glm-51
     - https://www.together.ai/pricing
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
     - https://docs.together.ai/reference/chat-completions-1
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true

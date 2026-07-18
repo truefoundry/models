@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - structured_output
+    - json_output
 limits:
     context_window: 262144
 modalities:
@@ -15,6 +16,8 @@ modalities:
 mode: chat
 model: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/qwen3-next-80b-a3b-instruct
 status: active

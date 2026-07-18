@@ -1,7 +1,5 @@
 costs:
-    - cache_creation_input_token_cost_per_hour: 1e-6
-      cache_read_input_token_cost: 5e-8
-      input_cost_per_token: 5e-7
+    - input_cost_per_token: 5e-7
       input_cost_per_token_batches: 2.5e-7
       output_cost_per_image_token: 6e-5
       output_cost_per_token: 3e-6
@@ -9,7 +7,6 @@ costs:
       region: "*"
 features:
     - system_messages
-    - prompt_caching
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -19,7 +16,6 @@ modalities:
         - text
         - image
         - video
-        - audio
     output:
         - text
         - image
@@ -33,7 +29,7 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
-    - defaultValue: high
+    - defaultValue: minimal
       key: reasoning_effort
       supportedValues:
           - minimal
