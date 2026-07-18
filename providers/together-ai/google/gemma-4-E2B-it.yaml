@@ -12,6 +12,7 @@ modalities:
         - text
         - image
         - audio
+        - video
     output:
         - text
 mode: chat
@@ -20,6 +21,7 @@ provisioning: provisioned
 sources:
     - https://huggingface.co/google/gemma-4-E2B-it
     - https://ai.google.dev/gemma/docs/core/model_card_4
+    - https://docs.together.ai/docs/dedicated-models
 status: active
 supportedModes:
     - chat

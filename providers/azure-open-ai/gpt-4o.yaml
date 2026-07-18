@@ -1,15 +1,15 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.00001
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_token: 2.5e-6
+      output_cost_per_token: 1e-5
       region: global
-    - cache_read_input_token_cost: 0.000001375
-      input_cost_per_token: 0.00000275
-      output_cost_per_token: 0.000011
+    - cache_read_input_token_cost: 1.375e-6
+      input_cost_per_token: 2.75e-6
+      output_cost_per_token: 1.1e-5
       region: datazone_us
-    - cache_read_input_token_cost: 0.000001375
-      input_cost_per_token: 0.00000275
-      output_cost_per_token: 0.000011
+    - cache_read_input_token_cost: 1.375e-6
+      input_cost_per_token: 2.75e-6
+      output_cost_per_token: 1.1e-5
       region: datazone_eu
 features:
     - function_calling

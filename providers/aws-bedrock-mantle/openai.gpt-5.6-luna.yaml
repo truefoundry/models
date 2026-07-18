@@ -1,0 +1,42 @@
+costs:
+    - cache_creation_input_token_cost: 0.00000125
+      cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000006
+      region: us-west-2
+    - cache_creation_input_token_cost: 0.00000125
+      cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000006
+      region: us-east-2
+    - cache_creation_input_token_cost: 0.00000125
+      cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000006
+      region: us-east-1
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+    - json_output
+limits:
+    context_window: 272000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: responses
+model: openai.gpt-5.6-luna
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-luna.html
+    - https://developers.openai.com/api/docs/models/gpt-5.6-luna
+status: active
+supportedModes:
+    - responses
+thinking: true

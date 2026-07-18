@@ -11,12 +11,15 @@ costs:
     - region: ap-southeast-4
     - region: ap-southeast-3
     - input_cost_per_token: 1.545e-7
+      input_cost_per_token_batches: 7.73e-8
       output_cost_per_token: 6.18e-7
+      output_cost_per_token_batches: 3.09e-7
       region: ap-southeast-2
     - region: ap-south-1
     - region: ap-northeast-1
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 32000
     max_output_tokens: 8000

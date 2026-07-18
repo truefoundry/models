@@ -2,9 +2,11 @@ costs:
     - input_cost_per_token: 4e-7
       output_cost_per_token: 4e-7
       region: "*"
+deprecationDate: "2026-06-11"
 features:
     - function_calling
     - json_output
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -20,6 +22,6 @@ model: meta-llama/Meta-Llama-3.1-70B-Instruct
 provisioning: serverless
 sources:
     - https://deepinfra.com/meta-llama/Meta-Llama-3.1-70B-Instruct
-status: active
+status: deprecated
 supportedModes:
     - chat
