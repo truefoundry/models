@@ -1,0 +1,21 @@
+costs:
+    - cache_read_input_token_cost: 1.7e-7
+      input_cost_per_token: 1e-6
+      output_cost_per_token: 4.05e-6
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+    - tool_choice
+limits:
+    context_window: 1048576
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+mode: chat
+model: thinkingmachines/inkling
+thinking: true
