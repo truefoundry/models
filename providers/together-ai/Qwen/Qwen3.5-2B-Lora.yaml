@@ -4,8 +4,15 @@ costs:
       region: "*"
 limits:
     context_window: 262144
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3.5-2B-Lora
 provisioning: provisioned
+sources:
+    - https://docs.together.ai/docs/dedicated-endpoints/lora-adapter
 supportedModes:
     - chat
