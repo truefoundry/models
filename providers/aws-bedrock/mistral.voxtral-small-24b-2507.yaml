@@ -43,6 +43,8 @@ modalities:
 mode: chat
 model: mistral.voxtral-small-24b-2507
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.mistral.ai/models/voxtral-small-25-07
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-voxtral-small-24b-2507.html

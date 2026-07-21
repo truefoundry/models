@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
     - structured_output
     - system_messages
     - tool_choice
@@ -22,6 +23,7 @@ provisioning: provisioned
 sources:
     - https://huggingface.co/Qwen/Qwen3.6-35B-A3B-FP8
     - https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+    - https://www.together.ai/models/qwen3-6-35b-a3b-fp8
 status: active
 supportedModes:
     - chat

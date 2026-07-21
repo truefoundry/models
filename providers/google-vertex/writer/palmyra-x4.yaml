@@ -15,6 +15,11 @@ modalities:
         - text
 mode: chat
 model: writer/palmyra-x4
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 4096
+      minValue: 1
 provisioning: provisioned
 sources:
     - https://dev.writer.com/home/models

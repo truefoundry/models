@@ -1,0 +1,34 @@
+costs:
+    - input_cost_per_audio_token: 0.0000035
+      output_cost_per_audio_token: 0.000021
+      region: "*"
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 65536
+modalities:
+    input:
+        - audio
+    output:
+        - audio
+        - text
+mode: audio_translation
+model: gemini-3.5-live-translate-preview
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview
+    - https://ai.google.dev/gemini-api/docs/live-api/live-translate
+status: preview
+supportedModes:
+    - audio_translation

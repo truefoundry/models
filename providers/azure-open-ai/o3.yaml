@@ -40,6 +40,10 @@ params:
       type: string
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 removeParams:
@@ -50,8 +54,6 @@ removeParams:
     - max_tokens
     - parallel_tool_calls
 retirementDate: "2026-10-16"
-sources:
-    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
     - chat
