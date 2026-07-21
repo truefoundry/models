@@ -5,7 +5,7 @@ costs:
       output_cost_per_token: 1.4e-5
       output_cost_per_token_batches: 7e-6
       region: "*"
-deprecationDate: "2026-08-10"
+deprecationDate: "2026-05-08"
 features:
     - function_calling
     - parallel_function_calling
@@ -45,8 +45,10 @@ removeParams:
     - top_p
     - n
     - max_tokens
+retirementDate: "2026-08-10"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest
+    - https://developers.openai.com/api/docs/deprecations
 status: deprecated
 supportedModes:
     - chat
