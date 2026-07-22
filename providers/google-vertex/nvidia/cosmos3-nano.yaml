@@ -1,2 +1,25 @@
-mode: unknown
+limits:
+    max_input_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+    output:
+        - text
+        - image
+        - video
+        - audio
+mode: video
 model: nvidia/cosmos3-nano
+provisioning: provisioned
+sources:
+    - https://huggingface.co/nvidia/Cosmos3-Nano
+    - https://build.nvidia.com/nvidia/cosmos3-nano
+    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_nvidia_cosmos_deployment.ipynb
+status: active
+supportedModes:
+    - video
+    - chat
+thinking: true
