@@ -1,27 +1,36 @@
 costs:
-    - region: us-west-2
-      # not found in official docs — V3.1 pricing not published for this region
-    - region: us-east-2
-      # not found in official docs — V3.1 pricing not published for this region
-    - region: us-east-1
-      # not found in official docs — V3.1 pricing not published for this region
-    - region: sa-east-1
-      # not found in official docs — V3.1 pricing not published for this region
-    - region: eu-west-2
-      # not found in official docs — V3.1 pricing not published for this region
-    - region: eu-north-1
-      # not found in official docs — V3.1 pricing not published for this region
+    - input_cost_per_token: 5.8e-7
+      output_cost_per_token: 0.00000168
+      region: us-west-2
+    - input_cost_per_token: 5.8e-7
+      output_cost_per_token: 0.00000168
+      region: us-east-2
+    - input_cost_per_token: 5.8e-7
+      output_cost_per_token: 0.00000168
+      region: us-east-1
+    - input_cost_per_token: 6.96e-7
+      output_cost_per_token: 0.000002016
+      region: sa-east-1
+    - input_cost_per_token: 8.99985e-7
+      output_cost_per_token: 0.000002606853
+      region: eu-west-2
+    - input_cost_per_token: 5.8e-7
+      output_cost_per_token: 0.00000168
+      region: eu-north-1
     - region: ap-southeast-4
       # not found in official docs — V3.1 pricing not published for this region
-    - region: ap-southeast-3
-      # not found in official docs — V3.1 pricing not published for this region
+    - input_cost_per_token: 6e-7
+      output_cost_per_token: 0.00000174
+      region: ap-southeast-3
     - input_cost_per_token: 5.974e-7
       output_cost_per_token: 0.0000017304
       region: ap-southeast-2
-    - region: ap-south-1
-      # not found in official docs — V3.1 pricing not published for this region
-    - region: ap-northeast-1
-      # not found in official docs — V3.1 pricing not published for this region
+    - input_cost_per_token: 6.82424e-7
+      output_cost_per_token: 0.000001976678
+      region: ap-south-1
+    - input_cost_per_token: 7.01666e-7
+      output_cost_per_token: 0.000002032411
+      region: ap-northeast-1
 features:
     - function_calling
     - system_messages
