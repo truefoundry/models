@@ -1,8 +1,19 @@
 limits:
     context_window: 4096
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
 model: voxtral-mini-tts-mellon-greek-2606-solutions
 params:
     - defaultValue: 0.3
       key: temperature
+sources:
+    - https://docs.mistral.ai/models/model-cards/voxtral-tts-26-03
+    - https://docs.mistral.ai/studio-api/audio/text_to_speech
+    - https://legal.mistral.ai/ai-governance/models/voxtral-mini-tts
 status: active
+
+# costs not found in official docs — Mistral Solutions custom enterprise variant
