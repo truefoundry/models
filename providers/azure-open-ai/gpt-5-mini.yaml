@@ -48,6 +48,14 @@ params:
       key: verbosity
     - defaultValue: null
       key: reasoning
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
