@@ -1,0 +1,12 @@
+costs:
+    - cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 1.2e-6
+      output_cost_per_token: 2.4e-6
+      region: "*"
+features:
+    - function_calling
+limits:
+    context_window: 1048576
+mode: unknown
+model: DeepSeek-V4-Pro
+thinking: true
