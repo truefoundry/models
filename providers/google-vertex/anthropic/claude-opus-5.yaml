@@ -20,10 +20,10 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
-    - tool_choice
-    - prompt_caching
     - cache_control
     - system_messages
+    - tool_choice
+    - prompt_caching
     - structured_output
     - assistant_prefill
 limits:
@@ -35,15 +35,20 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
-model: anthropic/claude-opus-4-8
+model: anthropic/claude-opus-5
 params:
-    - defaultValue: 256
+    - defaultValue: 1024
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: 1
+      key: temperature
+      maxValue: 1
+      minValue: 0
     - defaultValue: high
       key: reasoning_effort
       supportedValues:
@@ -53,16 +58,14 @@ params:
           - xhigh
           - max
       type: string
+    - key: thinking
+      type: json
 provisioning: serverless
-removeParams:
-    - temperature
-    - top_p
-retirementDate: "2027-05-28"
 sources:
+    - https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5
     - https://platform.claude.com/docs/en/about-claude/models/overview
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
-    - https://platform.claude.com/docs/en/about-claude/model-deprecations
 status: active
 supportedModes:
     - chat
