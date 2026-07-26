@@ -42,6 +42,7 @@ features:
     - prompt_caching
     - system_messages
     - tool_choice
+    - assistant_prefill
 limits:
     context_window: 300000
     max_input_tokens: 300000
@@ -70,17 +71,23 @@ params:
     - key: top_k
       maxValue: 128
       minValue: 0
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - "n"
-    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html
     - https://docs.aws.amazon.com/nova/latest/userguide/complete-request-schema.html
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.html
     - https://docs.aws.amazon.com/nova/latest/userguide/tool-use.html
 status: active
 supportedModes:
     - chat
+thinking: true
