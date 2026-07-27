@@ -1,5 +1,38 @@
 costs:
-    - region: ap-southeast-4
-    - region: ap-southeast-2
-mode: unknown
+    - cache_creation_input_token_cost: 2.75e-6
+      cache_creation_input_token_cost_per_hour: 4.4e-6
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 2.2e-6
+      output_cost_per_token: 1.1e-5
+      region: ap-southeast-4
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - prompt_caching
+    - cache_control
+    - structured_output
+    - assistant_prefill
+    - json_output
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: au.anthropic.claude-sonnet-5
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://aws.amazon.com/bedrock/pricing/
+status: active
+supportedModes:
+    - chat
+thinking: true
