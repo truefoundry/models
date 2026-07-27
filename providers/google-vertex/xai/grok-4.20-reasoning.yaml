@@ -7,6 +7,8 @@ features:
     - function_calling
     - structured_output
     - prompt_caching
+    - system_messages
+    - tool_choice
 limits:
     context_window: 2000000
 modalities:
@@ -20,6 +22,7 @@ model: xai/grok-4.20-reasoning
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/grok/grok-4-20
+    - https://docs.x.ai/developers/models/grok-4.20-reasoning
     - https://docs.x.ai/developers/models#models-and-pricing
 status: preview
 supportedModes:

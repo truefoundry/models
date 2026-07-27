@@ -7,34 +7,37 @@ costs:
       region: global
 features:
     - system_messages
-    - function_calling
-    - structured_output
-    - json_output
 limits:
-    context_window: 1000000
-    max_input_tokens: 1000000
-    max_output_tokens: 64000
-    max_tokens: 64000
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
         - image
         - video
-        - audio
+        - pdf
     output:
         - text
         - image
 mode: image
 model: google/gemini-3.1-flash-image
 params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 64000
-      minValue: 1
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+      minValue: 0
+    - defaultValue: 0.95
+      key: top_p
+      maxValue: 1
+      minValue: 0
 provisioning: serverless
+retirementDate: "2027-05-28"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-image
     - https://deepmind.google/models/model-cards/gemini-3-1-flash-image/
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image
 status: preview
 supportedModes:
     - image
