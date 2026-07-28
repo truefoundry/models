@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: sonar-pro
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
 removeParams:
     - stop
