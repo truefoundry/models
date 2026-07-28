@@ -1,0 +1,11 @@
+costs:
+    - cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+      region: "*"
+limits:
+    context_window: 1000000
+mode: unknown
+model: moonshotai/Kimi-K3
+supportedModes:
+    - chat
