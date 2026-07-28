@@ -1,12 +1,13 @@
 costs:
-    - input_cost_per_audio_token: 0.0000065
+    - input_cost_per_audio_token: 6.5e-6
       input_cost_per_image: 0.00012
       input_cost_per_image_token: 4.5e-7
       input_cost_per_second: 0.00016
       input_cost_per_token: 2e-7
       input_cost_per_token_batches: 1e-7
-      input_cost_per_video_token: 0.000012
+      input_cost_per_video_token: 1.2e-5
       region: "*"
+isDeprecated: true
 limits:
     context_window: 8192
     max_input_tokens: 8192
@@ -32,6 +33,7 @@ removeParams:
     - stream
     - tool_choice
     - reasoning_effort
+retirementDate: "2026-08-10"
 sources:
     - https://ai.google.dev/gemini-api/docs/embeddings
 status: preview
