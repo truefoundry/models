@@ -1,43 +1,19 @@
 costs:
-    - cache_creation_input_token_cost: 0.000003125
-      cache_read_input_token_cost: 2.5e-7
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.000015
+    - cache_creation_input_token_cost: 0.00000344
+      cache_read_input_token_cost: 2.8e-7
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
       region: us-west-2
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000005
-                from: 272000
-          output:
-              - cost_per_token: 0.0000225
-                from: 272000
-          pricing_mode: cumulative
-    - cache_creation_input_token_cost: 0.000003125
-      cache_read_input_token_cost: 2.5e-7
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.000015
+    - cache_creation_input_token_cost: 0.00000344
+      cache_read_input_token_cost: 2.8e-7
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
       region: us-east-2
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000005
-                from: 272000
-          output:
-              - cost_per_token: 0.0000225
-                from: 272000
-          pricing_mode: cumulative
-    - cache_creation_input_token_cost: 0.000003125
-      cache_read_input_token_cost: 2.5e-7
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.000015
+    - cache_creation_input_token_cost: 0.00000344
+      cache_read_input_token_cost: 2.8e-7
+      input_cost_per_token: 0.00000275
+      output_cost_per_token: 0.0000165
       region: us-east-1
-      tiered_pricing:
-          input:
-              - cost_per_token: 0.000005
-                from: 272000
-          output:
-              - cost_per_token: 0.0000225
-                from: 272000
-          pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
@@ -62,8 +38,8 @@ mode: responses
 model: openai.gpt-5.6-terra
 provisioning: serverless
 sources:
-    - https://aws.amazon.com/blogs/machine-learning/openai-gpt-5-6-sol-terra-and-luna-are-now-generally-available-on-amazon-bedrock/
     - https://developers.openai.com/api/docs/models/gpt-5.6-terra
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-terra.html
 status: active
 supportedModes:
     - responses
