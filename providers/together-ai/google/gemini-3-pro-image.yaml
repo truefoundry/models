@@ -2,7 +2,10 @@ costs:
     - output_cost_per_image: 0.134
       output_cost_per_image_4k: 0.24
       region: "*"
+features:
+    - system_messages
 limits:
+    context_window: 65536
     max_input_tokens: 65536
     max_output_tokens: 32768
     max_tokens: 32768
@@ -18,7 +21,7 @@ model: google/gemini-3-pro-image
 provisioning: serverless
 sources:
     - https://www.together.ai/models/nano-banana-pro
-    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image
 status: active
 supportedModes:
     - image
