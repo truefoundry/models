@@ -1,2 +1,13 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: gpt-transcribe-2026-07-28
+provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-transcribe
+supportedModes:
+    - audio_transcription
