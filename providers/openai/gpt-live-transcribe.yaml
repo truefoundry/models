@@ -1,0 +1,26 @@
+costs:
+    - input_cost_per_second: 0.0002833333333333333 # $0.017 per minute of realtime audio duration
+      region: "*"
+modalities:
+    input:
+        - audio
+        - text
+    output:
+        - text
+mode: audio_transcription
+model: gpt-live-transcribe
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - stop
+    - top_p
+    - "n"
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-live-transcribe
+    - https://developers.openai.com/api/docs/guides/realtime-transcription
+status: active
+supportedModes:
+    - audio_transcription
