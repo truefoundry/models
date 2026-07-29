@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_image: 2.5e-7
+      input_cost_per_token: 2.5e-7
+      output_cost_per_token: 1.5e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 65535
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+        - audio
+        - video
+    output:
+        - text
+mode: chat
+model: google/gemini-3-flash-preview:batch
+thinking: true
