@@ -1,8 +1,10 @@
 costs:
-    - input_cost_per_audio_token: 0.00000125
-      input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.000005
+    - input_cost_per_audio_token: 1.25e-6
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 5e-6
       region: "*"
+deprecationDate: "2026-07-20"
+isDeprecated: true
 limits:
     context_window: 16000
     max_input_tokens: 16000
@@ -24,15 +26,16 @@ params:
 provisioning: serverless
 removeParams:
     - top_p
-    - "n"
+    - n
     - tool_choice
     - parallel_tool_calls
     - stop
     - reasoning_effort
+retirementDate: "2027-01-20"
 sources:
     - https://developers.openai.com/docs/guides/speech-to-text
     - https://developers.openai.com/docs/models/gpt-4o-mini-transcribe
     - https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe
-status: active
+status: deprecated
 supportedModes:
     - audio_transcription

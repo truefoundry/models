@@ -1,0 +1,13 @@
+modalities:
+    input:
+        - audio
+        - text
+    output:
+        - text
+mode: audio_transcription
+model: gpt-live-transcribe
+provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-live-transcribe
+supportedModes:
+    - audio_transcription
