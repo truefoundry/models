@@ -1,0 +1,25 @@
+costs:
+    - cache_creation_input_token_cost: 9.375e-6
+      cache_read_input_token_cost: 7.5e-7
+      input_cost_per_token: 7.5e-6
+      output_cost_per_token: 3.75e-5
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 200000
+    max_output_tokens: 32000
+modalities:
+    input:
+        - image
+        - text
+        - pdf
+    output:
+        - text
+mode: chat
+model: anthropic/claude-opus-4.1:batch
+thinking: true
