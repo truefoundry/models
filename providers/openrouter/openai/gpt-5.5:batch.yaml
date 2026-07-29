@@ -3,6 +3,17 @@ costs:
       input_cost_per_token: 2.5e-6
       output_cost_per_token: 1.5e-5
       region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 5e-7
+                from: 272000
+          input:
+              - cost_per_token: 5e-6
+                from: 272000
+          output:
+              - cost_per_token: 2.25e-5
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - json_output
