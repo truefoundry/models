@@ -27,4 +27,9 @@ params:
       key: temperature
     - defaultValue: 1
       key: top_p
+provisioning: serverless
+sources:
+    - https://openrouter.ai/anthropic/claude-sonnet-4.5:batch
+supportedModes:
+    - chat
 thinking: true
