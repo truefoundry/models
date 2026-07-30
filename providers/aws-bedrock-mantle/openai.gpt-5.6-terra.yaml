@@ -38,6 +38,8 @@ costs:
               - cost_per_token: 0.0000225
                 from: 272000
           pricing_mode: cumulative
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /openai
 features:
     - function_calling
     - parallel_function_calling
