@@ -5,6 +5,7 @@ costs:
       output_cost_per_token: 0.00015
       output_cost_per_token_batches: 7.5e-5
       region: "*"
+deprecationDate: "2025-04-14"
 features:
     - function_calling
     - parallel_function_calling
@@ -12,6 +13,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -28,6 +30,7 @@ model: gpt-4.5-preview
 params:
     - key: max_tokens
       maxValue: 16384
+provisioning: serverless
 retirementDate: "2025-07-14"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
