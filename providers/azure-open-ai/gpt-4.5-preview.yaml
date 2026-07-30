@@ -1,0 +1,36 @@
+costs:
+    - cache_read_input_token_cost: 3.75e-5
+      input_cost_per_token: 7.5e-5
+      input_cost_per_token_batches: 3.75e-5
+      output_cost_per_token: 0.00015
+      output_cost_per_token_batches: 7.5e-5
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: gpt-4.5-preview
+params:
+    - key: max_tokens
+      maxValue: 16384
+retirementDate: "2025-07-14"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: retired
+supportedModes:
+    - chat
