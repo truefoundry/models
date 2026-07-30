@@ -48,10 +48,22 @@ mode: chat
 model: ra-gpt-5.6-sol
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.6-sol
 status: active
