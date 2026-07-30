@@ -1,0 +1,72 @@
+costs:
+    - cache_creation_input_token_cost: 0.00000625
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.00003
+      output_cost_per_token_batches: 0.000015
+      priority_pricing:
+          cache_creation_input_token_cost: 0.0000125
+          cache_read_input_token_cost: 0.000001
+          input_cost_per_token: 0.00001
+          output_cost_per_token: 0.00006
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 272001
+          cache_write:
+              - cost_per_token: 0.0000125
+                from: 272001
+          input:
+              - cost_per_token: 0.00001
+                from: 272001
+          output:
+              - cost_per_token: 0.000045
+                from: 272001
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - parallel_function_calling
+    - structured_output
+    - prompt_caching
+    - system_messages
+    - tool_choice
+    - json_output
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: ra-gpt-5.6-sol
+params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-5.6-sol
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
