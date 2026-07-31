@@ -65,8 +65,11 @@ export interface components {
              * @description Path segment AWS serves this model under on the bedrock-mantle endpoint,
              *     injected before `/v1/...`. Taken from the bedrock-mantle row of the model
              *     card's Programmatic Access table, and includes the leading slash.
+             *     Prefer omitting this field for models on the plain `/v1/...` path; "/" says
+             *     the same thing explicitly and the gateway treats the two identically.
+             * @enum {string}
              */
-            bedrock_mantle_adhoc_prefix?: string;
+            bedrock_mantle_adhoc_prefix?: "/" | "/anthropic" | "/openai";
         };
         /**
          * @description Supported feature flags a model can declare
