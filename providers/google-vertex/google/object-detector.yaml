@@ -3,6 +3,8 @@ costs:
       region: us-central1
     - input_cost_per_second: 0.0016667
       region: europe-west4
+deprecationDate: "2026-06-15"
+isDeprecated: true
 modalities:
     input:
         - video
@@ -15,14 +17,15 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
+retirementDate: "2026-09-30"
 sources:
     - https://cloud.google.com/vision-ai/pricing
     - https://docs.cloud.google.com/vision-ai/docs/object-detector-model
     - https://docs.cloud.google.com/vision-ai/docs/app-supported-regions
-status: active
+status: deprecated
 supportedModes:
     - video
