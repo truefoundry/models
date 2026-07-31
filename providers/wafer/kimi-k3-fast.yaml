@@ -5,11 +5,23 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
+    - json_output
 limits:
     context_window: 1048576
 modalities:
     input:
+        - text
         - image
-mode: unknown
+    output:
+        - text
+mode: chat
 model: kimi-k3-fast
+provisioning: serverless
+sources:
+    - https://pass.wafer.ai/v1/models
+status: active
+supportedModes:
+    - chat
+    - responses
 thinking: true
