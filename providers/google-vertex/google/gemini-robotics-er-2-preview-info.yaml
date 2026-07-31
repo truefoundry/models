@@ -1,2 +1,39 @@
-mode: unknown
+costs:
+    - cache_creation_input_token_cost_per_hour: 0.000001
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: global
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - code_execution
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+    output:
+        - text
+mode: chat
 model: google/gemini-robotics-er-2-preview-info
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/robotics-overview
+    - https://ai.google.dev/gemini-api/docs/pricing
+    - https://deepmind.google/models/model-cards/gemini-robotics-er-2/
+status: preview
+supportedModes:
+    - chat
+thinking: true
