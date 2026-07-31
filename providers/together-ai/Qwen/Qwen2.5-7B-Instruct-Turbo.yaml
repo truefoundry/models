@@ -18,12 +18,15 @@ modalities:
 mode: chat
 model: Qwen/Qwen2.5-7B-Instruct-Turbo
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/serverless-models
     - https://www.together.ai/pricing
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
     - https://docs.together.ai/reference/chat-completions
+    - https://www.together.ai/models/qwen2-5-7b-instruct-turbo
 status: active
 supportedModes:
     - chat

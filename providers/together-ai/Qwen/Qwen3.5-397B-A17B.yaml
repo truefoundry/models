@@ -1,13 +1,14 @@
 costs:
     - cache_read_input_token_cost: 3.5e-7
       input_cost_per_token: 6e-7
-      output_cost_per_token: 0.0000036
+      output_cost_per_token: 3.6e-6
       region: "*"
 features:
     - function_calling
     - structured_output
     - json_output
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -22,10 +23,11 @@ model: Qwen/Qwen3.5-397B-A17B
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-06-29"
 sources:
     - https://www.together.ai/models/qwen3-5-397b-a17b
     - https://www.together.ai/pricing
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true

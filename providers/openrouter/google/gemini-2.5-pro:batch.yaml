@@ -1,0 +1,45 @@
+costs:
+    - cache_read_input_audio_token_cost: 1.25e-7
+      cache_read_input_token_cost: 1.25e-7
+      input_cost_per_audio_token: 6.25e-7
+      input_cost_per_image_token: 6.25e-7
+      input_cost_per_token: 6.25e-7
+      output_cost_per_token: 5e-6
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.5e-7
+                from: 200000
+          input:
+              - cost_per_token: 1.25e-6
+                from: 200000
+          output:
+              - cost_per_token: 7.5e-6
+                from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+        - audio
+        - video
+    output:
+        - text
+mode: chat
+model: google/gemini-2.5-pro:batch
+provisioning: serverless
+sources:
+    - https://openrouter.ai/google/gemini-2.5-pro:batch
+supportedModes:
+    - chat
+thinking: true

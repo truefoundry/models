@@ -7,6 +7,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -15,6 +16,8 @@ provisioning: provisioned
 sources:
     - https://docs.together.ai/docs/dedicated-models
     - https://huggingface.co/zai-org/GLM-OCR
+    - https://docs.z.ai/guides/vlm/glm-ocr
+    - https://github.com/zai-org/GLM-OCR
 status: active
 supportedModes:
     - chat

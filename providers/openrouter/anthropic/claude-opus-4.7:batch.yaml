@@ -1,0 +1,30 @@
+costs:
+    - cache_creation_input_token_cost: 3.125e-6
+      cache_read_input_token_cost: 2.5e-7
+      input_cost_per_token: 2.5e-6
+      output_cost_per_token: 1.25e-5
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: anthropic/claude-opus-4.7:batch
+provisioning: serverless
+sources:
+    - https://openrouter.ai/anthropic/claude-opus-4.7
+supportedModes:
+    - chat
+thinking: true

@@ -1,6 +1,5 @@
 costs:
-    - input_cost_per_token: 0.0
-      output_cost_per_token: 0.0
+    - input_cost_per_character: 0.000065
       region: "*"
 limits:
     context_window: 448
@@ -15,8 +14,9 @@ provisioning: provisioned
 removeParams:
     - reasoning_effort
 sources:
-    - https://www.together.ai/models/cartesia-sonic-3-5
+    - https://www.together.ai/models/cartesia-sonic-35
     - https://docs.cartesia.ai/build-with-cartesia/tts-models/sonic-3-5
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - text_to_speech

@@ -1,0 +1,28 @@
+costs:
+    - cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: moonshotai/Kimi-K3
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/kimi-k3
+    - https://www.together.ai/pricing
+status: active
+supportedModes:
+    - chat
+thinking: true
