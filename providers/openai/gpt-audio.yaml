@@ -1,14 +1,16 @@
 costs:
-    - input_cost_per_audio_token: 0.000032
-      input_cost_per_token: 0.0000025
-      output_cost_per_audio_token: 0.000064
-      output_cost_per_token: 0.00001
+    - input_cost_per_audio_token: 3.2e-5
+      input_cost_per_token: 2.5e-6
+      output_cost_per_audio_token: 6.4e-5
+      output_cost_per_token: 1e-5
       region: "*"
+deprecationDate: "2026-07-20"
 features:
     - function_calling
     - parallel_function_calling
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -29,9 +31,10 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-01-20"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-audio
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses
