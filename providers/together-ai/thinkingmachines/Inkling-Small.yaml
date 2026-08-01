@@ -1,0 +1,25 @@
+costs:
+    - cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 5e-7
+      output_cost_per_token: 1.2e-6
+      region: "*"
+limits:
+    context_window: 524288
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+mode: chat
+model: thinkingmachines/Inkling-Small
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/inkling-small
+    - https://www.together.ai/pricing
+    - https://thinkingmachines.ai/news/inkling-small/
+status: active
+supportedModes:
+    - chat
+thinking: true
