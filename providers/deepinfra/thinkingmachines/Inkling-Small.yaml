@@ -4,12 +4,25 @@ costs:
       output_cost_per_token: 1.44e-6
       region: "*"
 features:
+    - function_calling
+    - json_output
     - prompt_caching
 limits:
     context_window: 524288
     max_tokens: 524288
 modalities:
     input:
+        - text
         - image
-mode: unknown
+        - audio
+    output:
+        - text
+mode: chat
 model: thinkingmachines/Inkling-Small
+provisioning: serverless
+sources:
+    - https://deepinfra.com/thinkingmachines/Inkling-Small
+status: active
+supportedModes:
+    - chat
+thinking: true
