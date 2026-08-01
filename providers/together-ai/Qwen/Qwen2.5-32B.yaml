@@ -1,3 +1,4 @@
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 8000
@@ -12,11 +13,10 @@ model: Qwen/Qwen2.5-32B
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://huggingface.co/Qwen/Qwen2.5-32B
     - https://docs.together.ai/docs/fine-tuning-models
-status: active
+status: retired
 supportedModes:
     - completion
-
-# costs not found in official Together AI docs — Qwen/Qwen2.5-32B is offered as a fine-tuning base model only, with no published per-token inference pricing

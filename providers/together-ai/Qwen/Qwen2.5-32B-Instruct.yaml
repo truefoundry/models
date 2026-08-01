@@ -1,8 +1,9 @@
 features:
     - function_calling
     - system_messages
+isDeprecated: true
 limits:
-    context_window: 32768 # from fine-tuning supported models page (SFT context length)
+    context_window: 32768
 modalities:
     input:
         - text
@@ -13,9 +14,10 @@ model: Qwen/Qwen2.5-32B-Instruct
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://docs.together.ai/docs/dedicated-models
     - https://docs.together.ai/docs/fine-tuning-models
-status: active
+status: retired
 supportedModes:
     - chat

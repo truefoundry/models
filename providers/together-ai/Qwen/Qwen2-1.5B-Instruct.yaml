@@ -1,3 +1,4 @@
+isDeprecated: true
 limits:
     context_window: 32768
 modalities:
@@ -8,11 +9,10 @@ modalities:
 mode: chat
 model: Qwen/Qwen2-1.5B-Instruct
 provisioning: provisioned
+retirementDate: "2026-07-29"
 sources:
     - https://docs.together.ai/docs/fine-tuning-models
     - https://docs.together.ai/docs/dedicated-models
-status: active
+status: retired
 supportedModes:
     - chat
-
-# costs: not found in official docs (model is documented only in fine-tuning and dedicated-endpoint model lists; not listed in Together AI's serverless pricing tables)

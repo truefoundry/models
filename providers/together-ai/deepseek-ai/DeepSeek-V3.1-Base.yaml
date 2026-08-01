@@ -1,7 +1,8 @@
 costs:
     - input_cost_per_token: 6e-7
-      output_cost_per_token: 0.0000017
+      output_cost_per_token: 1.7e-6
       region: "*"
+isDeprecated: true
 limits:
     context_window: 131072
 modalities:
@@ -12,10 +13,11 @@ modalities:
 mode: completion
 model: deepseek-ai/DeepSeek-V3.1-Base
 provisioning: provisioned
+retirementDate: "2026-07-29"
 sources:
     - https://together.ai/pricing
     - https://docs.together.ai/docs/deepseek-3-1-quickstart
     - https://docs.together.ai/docs/fine-tuning-models
-status: active
+status: retired
 supportedModes:
     - completion

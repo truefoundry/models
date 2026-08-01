@@ -1,3 +1,4 @@
+isDeprecated: true
 limits:
     context_window: 131072
 modalities:
@@ -10,9 +11,10 @@ model: Qwen/Qwen2-7B
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://docs.together.ai/docs/fine-tuning-models
     - https://www.together.ai/pricing
-status: active
+status: retired
 supportedModes:
     - completion
