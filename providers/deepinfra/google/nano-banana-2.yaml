@@ -1,2 +1,17 @@
-mode: unknown
+costs:
+    - output_cost_per_image_token: 0.00006
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - image
+mode: image
 model: google/nano-banana-2
+sources:
+    - https://deepinfra.com/google/nano-banana-2
+status: active
+supportedModes:
+    - image
