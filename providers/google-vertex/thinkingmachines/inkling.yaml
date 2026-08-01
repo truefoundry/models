@@ -1,0 +1,16 @@
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+mode: chat
+model: thinkingmachines/inkling
+sources:
+    - https://thinkingmachines.ai/model-card/inkling/
+    - https://thinkingmachines.ai/news/introducing-inkling/
+supportedModes:
+    - chat
