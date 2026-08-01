@@ -5,7 +5,21 @@ costs:
       region: "*"
 limits:
     context_window: 524288
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+mode: chat
 model: thinkingmachines/Inkling-Small
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/inkling-small
+    - https://www.together.ai/pricing
+    - https://thinkingmachines.ai/news/inkling-small/
+status: active
 supportedModes:
     - chat
+thinking: true
