@@ -6,6 +6,7 @@ features:
     - function_calling
     - structured_output
     - tool_choice
+    - system_messages
 limits:
     context_window: 128000
     max_output_tokens: 4000
@@ -20,6 +21,7 @@ model: command-r7b-arabic-02-2025
 provisioning: serverless
 sources:
     - https://docs.cohere.com/docs/command-r7b
+    - https://docs.cohere.com/v2/changelog/command-r7b-arabic
 status: active
 supportedModes:
     - chat
