@@ -1,10 +1,12 @@
 costs:
     - input_cost_per_token: 6e-7
-      output_cost_per_token: 0.0000022
+      output_cost_per_token: 2.2e-6
       region: global
+deprecationDate: "2026-07-21"
 features:
     - function_calling
     - structured_output
+isDeprecated: true
 limits:
     context_window: 200000
     max_output_tokens: 128000
@@ -21,10 +23,11 @@ params:
     - key: max_tokens
       maxValue: 128000
 provisioning: provisioned
+retirementDate: "2026-10-21"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-47
     - https://cloud.google.com/vertex-ai/generative-ai/pricing#glm-models
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

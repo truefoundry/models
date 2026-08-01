@@ -3,6 +3,8 @@ costs:
       region: us-central1
     - input_cost_per_second: 0.001666666
       region: europe-west4
+deprecationDate: "2026-06-15"
+isDeprecated: true
 modalities:
     input:
         - image
@@ -16,14 +18,15 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
+retirementDate: "2026-09-30"
 sources:
     - https://docs.cloud.google.com/vision-ai/docs/person-vehicle-model
     - https://cloud.google.com/vision-ai/pricing
     - https://docs.cloud.google.com/vision-ai/docs/app-supported-regions
-status: preview
+status: deprecated
 supportedModes:
     - image

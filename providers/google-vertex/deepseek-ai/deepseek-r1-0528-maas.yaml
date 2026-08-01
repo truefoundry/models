@@ -1,14 +1,16 @@
 costs:
-    - input_cost_per_token: 0.00000135
+    - input_cost_per_token: 1.35e-6
       input_cost_per_token_batches: 6.75e-7
-      output_cost_per_token: 0.0000054
-      output_cost_per_token_batches: 0.0000027
+      output_cost_per_token: 5.4e-6
+      output_cost_per_token_batches: 2.7e-6
       region: us-central1
+deprecationDate: "2026-07-21"
 features:
     - function_calling
     - structured_output
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 163840
     max_output_tokens: 32768
@@ -22,10 +24,11 @@ modalities:
 mode: chat
 model: deepseek-ai/deepseek-r1-0528-maas
 provisioning: serverless
+retirementDate: "2026-10-21"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/r1-0528
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

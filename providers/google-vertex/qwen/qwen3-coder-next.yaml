@@ -18,6 +18,11 @@ modalities:
         - code
 mode: chat
 model: qwen/qwen3-coder-next
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen
