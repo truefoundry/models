@@ -7,6 +7,9 @@ features:
     - function_calling
     - prompt_caching
     - tool_choice
+    - structured_output
+    - json_output
+    - system_messages
 limits:
     context_window: 524288
 modalities:
@@ -18,4 +21,11 @@ modalities:
         - text
 mode: chat
 model: thinkingmachines/inkling-small
+provisioning: serverless
+sources:
+    - https://openrouter.ai/thinkingmachines/inkling-small
+status: active
+supportedModes:
+    - chat
+    - completion
 thinking: true
