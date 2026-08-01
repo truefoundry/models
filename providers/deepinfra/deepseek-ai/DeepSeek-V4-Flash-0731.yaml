@@ -4,9 +4,30 @@ costs:
       output_cost_per_token: 1.8e-7
       region: "*"
 features:
+    - function_calling
+    - json_output
     - prompt_caching
 limits:
     context_window: 1048576
     max_tokens: 1048576
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: deepseek-ai/DeepSeek-V4-Flash-0731
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash-0731
+status: active
+supportedModes:
+    - chat
