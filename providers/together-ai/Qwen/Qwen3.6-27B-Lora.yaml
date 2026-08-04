@@ -2,10 +2,24 @@ costs:
     - input_cost_per_token: 0.0
       output_cost_per_token: 0.0
       region: "*"
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
 limits:
     context_window: 262144
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
 mode: chat # not found in official Together AI catalog; inferred from base Qwen3.6-27B capability
 model: Qwen/Qwen3.6-27B-Lora
 provisioning: provisioned
+sources:
+    - https://huggingface.co/Qwen/Qwen3.6-27B
 supportedModes:
     - chat
+thinking: true
