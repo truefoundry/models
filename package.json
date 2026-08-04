@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "validate": "./.github/test/validate.sh",
+    "check:case-collisions": "ts-node --project .github/scripts/tsconfig.json .github/scripts/check-case-collisions.ts",
     "generate:types": "ts-node --project .github/scripts/tsconfig.json .github/scripts/generate-types.ts",
     "build:json": "ts-node --project .github/scripts/tsconfig.json .github/scripts/build-unified-json.ts",
     "lint:yaml": "yamllint -c .yamllint.yml providers/",

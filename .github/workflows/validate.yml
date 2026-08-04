@@ -36,3 +36,22 @@ jobs:
       - name: Run validation
         run: ./.github/test/validate.sh
 
+  check-case-collisions:
+    name: Check for case-colliding paths
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run check
+        run: npm run check:case-collisions
+
