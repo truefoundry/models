@@ -1,2 +1,24 @@
-mode: unknown
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - structured_output
+    - prompt_caching
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
 model: moonshotai/kimi-k3
+provisioning: provisioned
+sources:
+    - https://discuss.google.dev/t/announcing-day-0-support-for-kimi-k3-on-google-cloud/385392
+    - https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month
+    - https://huggingface.co/moonshotai/Kimi-K3
+status: active
+supportedModes:
+    - chat
+thinking: true
