@@ -1,8 +1,26 @@
 costs:
+    # Together AI publishes FLUX-3 pricing as $0.17 per video (up to 20 seconds).
+    # The schema has no per-video cost field, and per-second/resolution rates
+    # are not published; token costs are placeholders and do not reflect
+    # actual charges.
     - input_cost_per_token: 0.0
       output_cost_per_token: 0.0
       region: "*"
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - video
+        - audio
+        - image
+mode: video
 model: black-forest-labs/FLUX-3
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/flux-3
+    - https://bfl.ai/blog/flux-3
+status: preview
 supportedModes:
     - video
