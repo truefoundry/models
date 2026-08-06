@@ -1,2 +1,52 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 0.000003
+      input_cost_per_token: 0.00003
+      output_cost_per_token: 0.00018
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000006
+                from: 272000
+          input:
+              - cost_per_token: 0.00006
+                from: 272000
+          output:
+              - cost_per_token: 0.00027
+                from: 272000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1050000
+    max_input_tokens: 1050000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: responses
 model: gpt-5.4-pro
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+retirementDate: "2027-09-07"
+status: active
+supportedModes:
+    - responses
+thinking: true
