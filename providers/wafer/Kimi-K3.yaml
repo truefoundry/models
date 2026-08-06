@@ -1,0 +1,17 @@
+costs:
+    - cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+      region: "*"
+features:
+    - function_calling
+limits:
+    context_window: 912384
+modalities:
+    input:
+        - image
+mode: chat
+model: Kimi-K3
+supportedModes:
+    - chat
+thinking: true

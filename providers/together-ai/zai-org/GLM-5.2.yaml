@@ -7,6 +7,7 @@ features:
     - function_calling
     - json_output
     - structured_output
+    - prompt_caching
 limits:
     context_window: 262144
     max_output_tokens: 131072
@@ -28,6 +29,8 @@ params:
 provisioning: serverless
 sources:
     - https://www.together.ai/models/glm-52
+    - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/glm-5.2-quickstart
 status: active
 supportedModes:
     - chat

@@ -6,6 +6,7 @@ features:
     - function_calling
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 1048576
 modalities:
@@ -19,9 +20,10 @@ model: meta-llama/Llama-4-Maverick-17B-128E
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://www.together.ai/models/llama-4-maverick
     - https://docs.together.ai/docs/dedicated-models
-status: active
+status: retired
 supportedModes:
     - chat

@@ -2,15 +2,17 @@ costs:
     - cache_read_input_token_cost: 6e-8
       input_cost_per_token: 6e-7
       input_cost_per_token_batches: 3e-7
-      output_cost_per_token: 0.0000017
+      output_cost_per_token: 1.7e-6
       output_cost_per_token_batches: 8.5e-7
-      region: us-west2 # docs specify us-central1 but the model is available via us-west2 inference
+      region: us-west2
+deprecationDate: "2026-07-21"
 features:
     - function_calling
     - tool_choice
     - structured_output
     - system_messages
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 163840
     max_output_tokens: 32768
@@ -24,11 +26,12 @@ modalities:
 mode: chat
 model: deepseek-ai/deepseek-v3.1-maas
 provisioning: serverless
+retirementDate: "2026-10-21"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-v31
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/use-open-models
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

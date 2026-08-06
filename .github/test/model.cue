@@ -158,6 +158,17 @@ package model
 	priority_pricing?: #Cost
 }
 
+// Provider-specific configuration that cannot be expressed through the generic
+// fields above. Each key is owned by exactly one provider.
+#ExtraConfiguration: {
+	// Path segment AWS serves this model under on the bedrock-mantle endpoint,
+	// injected before `/v1/...`. Taken from the bedrock-mantle row of the model
+	// card's Programmatic Access table, and includes the leading slash.
+	// Prefer omitting this field for models on the plain `/v1/...` path; "/" says
+	// the same thing explicitly and the gateway treats the two identically.
+	bedrock_mantle_adhoc_prefix?: "/" | "/anthropic" | "/openai"
+}
+
 // Supported feature flags a model can declare
 #Feature:
 	"assistant_prefill" |          // Caller can seed the assistant turn to guide the response
@@ -272,6 +283,8 @@ package model
 	costs?: [...#CostWithRegion]
 	// Date after which the model is considered deprecated (YYYY-MM-DD)
 	deprecationDate?: string & =~"^\\d{4}-\\d{2}-\\d{2}$"
+	// Provider-specific escape-hatch configuration
+	extra_configuration?: #ExtraConfiguration
 	// Feature flags for capabilities like function calling, prompt caching, etc.
 	features?: [...#Feature]
 	// Whether the model is deprecated

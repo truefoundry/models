@@ -1,8 +1,10 @@
 costs:
     - input_cost_per_page: 0.0003
       input_cost_per_token: 3e-7
-      output_cost_per_token: 0.0000012
-      region: global # docs specify us-central1 but the model is only available via global inference
+      output_cost_per_token: 1.2e-6
+      region: global
+deprecationDate: "2026-07-21"
+isDeprecated: true
 limits:
     context_window: 8192
     max_output_tokens: 8192
@@ -22,9 +24,10 @@ params:
       maxValue: 8192
       minValue: 1
 provisioning: serverless
+retirementDate: "2026-10-21"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-ocr
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek
-status: active
+status: deprecated
 supportedModes:
     - ocr

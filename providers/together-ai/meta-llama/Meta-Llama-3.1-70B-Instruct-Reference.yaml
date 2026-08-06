@@ -3,6 +3,7 @@ features:
     - tool_choice
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 24576
 modalities:
@@ -15,9 +16,10 @@ model: meta-llama/Meta-Llama-3.1-70B-Instruct-Reference
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://docs.together.ai/docs/dedicated-models
     - https://docs.together.ai/docs/fine-tuning-models
-status: active
+status: retired
 supportedModes:
     - chat

@@ -45,13 +45,15 @@ mode: chat
 model: gpt-5.4-2026-03-05
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-03-05"
 status: active
 supportedModes:

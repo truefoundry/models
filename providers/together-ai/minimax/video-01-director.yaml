@@ -10,8 +10,11 @@ modalities:
 mode: video
 model: minimax/video-01-director
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/videos-overview
+    - https://www.together.ai/models/minimax-01-director
 status: active
 supportedModes:
     - video

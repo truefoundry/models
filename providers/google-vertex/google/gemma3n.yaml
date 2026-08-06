@@ -3,11 +3,14 @@ features:
 limits:
     context_window: 32000
     max_input_tokens: 32000
+    max_output_tokens: 32000
+    max_tokens: 32000
 modalities:
     input:
         - text
         - image
         - audio
+        - video
     output:
         - text
 mode: chat
@@ -15,6 +18,7 @@ model: google/gemma3n
 provisioning: provisioned
 sources:
     - https://ai.google.dev/gemma/docs/gemma-3n
+    - https://ai.google.dev/gemma/docs/gemma-3n/model_card
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-gemma
 status: active
 supportedModes:

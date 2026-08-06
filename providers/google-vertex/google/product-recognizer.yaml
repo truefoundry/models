@@ -1,6 +1,8 @@
 costs:
-    - input_cost_per_image: 0.000025
+    - input_cost_per_image: 2.5e-5
       region: us-central1
+deprecationDate: "2026-06-15"
+isDeprecated: true
 modalities:
     input:
         - image
@@ -13,13 +15,14 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
+retirementDate: "2026-09-30"
 sources:
     - https://docs.cloud.google.com/vision-ai/docs/product-recognizer
     - https://cloud.google.com/vision-ai/pricing
-status: active
+status: deprecated
 supportedModes:
     - image
