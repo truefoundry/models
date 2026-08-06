@@ -57,6 +57,21 @@ export interface components {
             tool_pricing?: components["schemas"]["ToolPricing"];
         };
         /**
+         * @description Provider-specific configuration that cannot be expressed through the generic
+         *     fields above. Each key is owned by exactly one provider.
+         */
+        ExtraConfiguration: {
+            /**
+             * @description Path segment AWS serves this model under on the bedrock-mantle endpoint,
+             *     injected before `/v1/...`. Taken from the bedrock-mantle row of the model
+             *     card's Programmatic Access table, and includes the leading slash.
+             *     Prefer omitting this field for models on the plain `/v1/...` path; "/" says
+             *     the same thing explicitly and the gateway treats the two identically.
+             * @enum {string}
+             */
+            bedrock_mantle_adhoc_prefix?: "/" | "/anthropic" | "/openai";
+        };
+        /**
          * @description Supported feature flags a model can declare
          * @enum {string}
          */
@@ -102,6 +117,7 @@ export interface components {
             costs?: components["schemas"]["CostWithRegion"][];
             /** @description Date after which the model is considered deprecated (YYYY-MM-DD) */
             deprecationDate?: string;
+            extra_configuration?: components["schemas"]["ExtraConfiguration"];
             /** @description Feature flags for capabilities like function calling, prompt caching, etc. */
             features?: components["schemas"]["Feature"][];
             /** @description Whether the model is deprecated */
@@ -200,6 +216,7 @@ export type AzureRegion = components['schemas']['AzureRegion'];
 export type Cost = components['schemas']['Cost'];
 export type CostWithRegion = components['schemas']['CostWithRegion'];
 export type DefaultConfig = components['schemas']['DefaultConfig'];
+export type ExtraConfiguration = components['schemas']['ExtraConfiguration'];
 export type Feature = components['schemas']['Feature'];
 export type GCPRegion = components['schemas']['GCPRegion'];
 export type Limits = components['schemas']['Limits'];

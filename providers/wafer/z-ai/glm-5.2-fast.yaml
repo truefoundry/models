@@ -11,9 +11,9 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 1048576
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -25,6 +25,8 @@ provisioning: serverless
 sources:
     - https://docs.z.ai/guides/llm/glm-5.2
     - https://vercel.com/changelog/glm-5-2-fast-via-wafer-now-available-on-ai-gateway
+    - https://wafer.ai
+    - https://vercel.com/ai-gateway/models/glm-5.2-fast
 status: active
 supportedModes:
     - chat

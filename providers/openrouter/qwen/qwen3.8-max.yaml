@@ -1,0 +1,31 @@
+costs:
+    - cache_creation_input_token_cost: 2.5e-6
+      cache_read_input_token_cost: 2.5e-7
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 6e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1000000
+    max_output_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: qwen/qwen3.8-max
+provisioning: serverless
+sources:
+    - https://openrouter.ai/qwen/qwen3.8-max
+status: active
+supportedModes:
+    - chat
+thinking: true

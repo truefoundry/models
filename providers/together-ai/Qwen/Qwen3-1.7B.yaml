@@ -1,6 +1,7 @@
 features:
     - function_calling
     - system_messages
+isDeprecated: true
 limits:
     context_window: 32768
     max_output_tokens: 32768
@@ -15,10 +16,11 @@ model: Qwen/Qwen3-1.7B
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://www.together.ai/models/qwen3-1-7b
     - https://huggingface.co/Qwen/Qwen3-1.7B
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true

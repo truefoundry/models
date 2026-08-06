@@ -1,6 +1,8 @@
 costs:
-    - input_cost_per_image: 0.000025
+    - input_cost_per_image: 2.5e-5
       region: us-central1
+deprecationDate: "2026-06-15"
+isDeprecated: true
 modalities:
     input:
         - image
@@ -17,11 +19,12 @@ removeParams:
     - stop
     - stream
     - tool_choice
+retirementDate: "2026-09-30"
 sources:
     - https://docs.cloud.google.com/vision-ai/docs/tag-recognizer
     - https://cloud.google.com/vision-ai/pricing
     - https://docs.cloud.google.com/vision-ai/docs/warehouse-supported-regions
     - https://docs.cloud.google.com/vision-ai/docs/batch-image
-status: active
+status: deprecated
 supportedModes:
     - image

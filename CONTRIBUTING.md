@@ -124,6 +124,17 @@ removeParams: [<param-key>, ...]
 
 # Param keys that must always be provided by callers
 requiredParams: [<param-key>, ...]
+
+# Provider-specific escape-hatch configuration. Only set a key here when the
+# behaviour cannot be expressed through the generic fields above, and only on
+# models belonging to the provider that owns the key.
+extra_configuration:
+    # aws-bedrock-mantle only. The path segment AWS serves the model under,
+    # injected before /v1/... Copy it from the bedrock-mantle row of the model
+    # card's Programmatic Access table, reading it from the In-Region endpoint
+    # URL: "/openai" or "/anthropic". Omit the key entirely when the model is
+    # served on the plain https://bedrock-mantle.{region}.api.aws/v1 path.
+    bedrock_mantle_adhoc_prefix: /openai
 ```
 
 ### 4. Examples

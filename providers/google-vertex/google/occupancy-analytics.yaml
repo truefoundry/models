@@ -1,3 +1,5 @@
+deprecationDate: "2026-06-15"
+isDeprecated: true
 modalities:
     input:
         - video
@@ -10,19 +12,15 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
-# costs not found in official docs in a form compatible with the schema —
-# Vertex AI Vision Occupancy Analytics is billed at $20 per stream per month
-# (flat monthly subscription, not per-token/second/request), plus
-# $0.0085/GB data ingestion and $0.0085/GB data consumption, none of which
-# map cleanly onto the available #Cost fields.
+retirementDate: "2026-09-30"
 sources:
     - https://cloud.google.com/vision-ai/pricing
     - https://docs.cloud.google.com/vision-ai/docs/overview
     - https://docs.cloud.google.com/vision-ai/docs/occupancy-analytics-model
-status: active
+status: deprecated
 supportedModes:
     - video

@@ -6,6 +6,7 @@ features:
     - function_calling
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 32768
 modalities:
@@ -18,8 +19,9 @@ model: Qwen/Qwen2.5-7B-Instruct
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://www.together.ai/models/qwen2-5-7b-instruct-turbo
-status: active
+status: retired
 supportedModes:
     - chat

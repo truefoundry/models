@@ -1,5 +1,6 @@
 features:
     - system_messages
+isDeprecated: true
 limits:
     context_window: 32768
     max_input_tokens: 32768
@@ -13,11 +14,10 @@ model: google/gemma-3-270m-it
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://docs.together.ai/docs/fine-tuning-models
     - https://docs.together.ai/docs/dedicated-endpoints/models
-status: active
+status: retired
 supportedModes:
     - chat
-
-# costs: not found in official docs — model is offered as a dedicated endpoint / fine-tuning base on Together AI, billed by GPU-hour rather than per-token

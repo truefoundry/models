@@ -1,0 +1,17 @@
+costs:
+    - output_cost_per_image_token: 0.00012
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: google/nano-banana-pro
+provisioning: serverless
+sources:
+    - https://deepinfra.com/google/nano-banana-pro
+status: active
+supportedModes:
+    - image

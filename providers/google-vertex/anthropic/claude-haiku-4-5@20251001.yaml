@@ -7,6 +7,14 @@ costs:
       output_cost_per_token: 0.0000055
       output_cost_per_token_batches: 0.00000275
       region: us-east5
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
+      region: us
     - cache_creation_input_token_cost: 0.00000125
       cache_creation_input_token_cost_per_hour: 0.000002
       cache_read_input_token_cost: 1e-7
@@ -23,6 +31,14 @@ costs:
       output_cost_per_token: 0.0000055
       output_cost_per_token_batches: 0.00000275
       region: europe-west1
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
+      region: eu
     - cache_creation_input_token_cost: 0.000001375
       cache_creation_input_token_cost_per_hour: 0.0000022
       cache_read_input_token_cost: 1.1e-7
@@ -60,6 +76,8 @@ removeParams:
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/haiku-4-5
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/about-claude/models/overview
+    - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
 status: active
 supportedModes:
     - chat
