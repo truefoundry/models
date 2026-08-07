@@ -23,4 +23,9 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+provisioning: serverless
+sources:
+    - https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:batch
+supportedModes:
+    - chat
 thinking: true
