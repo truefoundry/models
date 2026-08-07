@@ -23,4 +23,9 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+provisioning: serverless
+sources:
+    - https://openrouter.ai/z-ai/glm-5.2:batch
+supportedModes:
+    - chat
 thinking: true
