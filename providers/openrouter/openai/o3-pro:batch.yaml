@@ -19,4 +19,10 @@ modalities:
         - text
 mode: chat
 model: openai/o3-pro:batch
+provisioning: serverless
+sources:
+    - https://openrouter.ai/openai/o3-pro
+supportedModes:
+    - chat
+    - completion
 thinking: true
