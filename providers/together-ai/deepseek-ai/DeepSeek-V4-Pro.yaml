@@ -9,6 +9,7 @@ features:
     - structured_output
     - json_output
     - system_messages
+    - prompt_caching
 limits:
     context_window: 512000
 modalities:
@@ -29,7 +30,6 @@ provisioning: serverless
 sources:
     - https://www.together.ai/models/deepseek-v4-pro
     - https://docs.together.ai/docs/deepseek-v4-quickstart
-    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - chat
