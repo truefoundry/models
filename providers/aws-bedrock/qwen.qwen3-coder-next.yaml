@@ -40,6 +40,7 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 256000
     max_output_tokens: 16000
@@ -57,6 +58,8 @@ params:
       maxValue: 16000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-next.html
 status: active

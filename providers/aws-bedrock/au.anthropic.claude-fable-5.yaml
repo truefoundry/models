@@ -22,9 +22,20 @@ modalities:
         - text
 mode: chat
 model: au.anthropic.claude-fable-5
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
+    - top_p
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
 status: active
