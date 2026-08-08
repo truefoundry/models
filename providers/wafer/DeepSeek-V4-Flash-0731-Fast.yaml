@@ -5,8 +5,30 @@ costs:
       region: "*"
 features:
     - function_calling
+    - structured_output
+    - json_output
+    - tool_choice
+    - system_messages
+    - prompt_caching
 limits:
     context_window: 1048576
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: DeepSeek-V4-Flash-0731-Fast
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+provisioning: serverless
+sources:
+    - https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731
+status: active
+supportedModes:
+    - chat
 thinking: true
