@@ -5,11 +5,23 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - json_output
 limits:
     context_window: 1048576
     max_tokens: 1048576
 modalities:
     input:
+        - text
         - image
-mode: unknown
+        - video
+    output:
+        - text
+mode: chat
 model: moonshotai/Kimi-K3
+provisioning: serverless
+sources:
+    - https://deepinfra.com/moonshotai/Kimi-K3
+status: active
+supportedModes:
+    - chat
