@@ -1,28 +1,28 @@
 costs:
-    - cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 3e-5
+    - cache_read_input_token_cost: 3.75e-8
+      input_cost_per_token: 7.5e-8
+      output_cost_per_token: 3e-7
       region: "*"
 features:
     - function_calling
+    - json_output
     - prompt_caching
     - structured_output
     - tool_choice
 limits:
-    context_window: 1000000
-    max_output_tokens: 128000
+    context_window: 128000
+    max_output_tokens: 16384
 modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
-model: sakana/fugu-ultra
+model: openai/gpt-4o-mini:batch
 provisioning: serverless
 sources:
-    - https://openrouter.ai/sakana/fugu-ultra
-status: active
+    - https://openrouter.ai/openai/gpt-4o-mini
 supportedModes:
     - chat
-thinking: true

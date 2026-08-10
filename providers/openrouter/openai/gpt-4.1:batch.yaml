@@ -1,8 +1,7 @@
 costs:
-    - cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 1e-7
+    - cache_read_input_token_cost: 2.5e-7
       input_cost_per_token: 1e-6
-      output_cost_per_token: 6e-6
+      output_cost_per_token: 4e-6
       region: "*"
 features:
     - function_calling
@@ -11,21 +10,19 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 1050000
-    max_output_tokens: 128000
+    context_window: 1047576
+    max_output_tokens: 32768
 modalities:
     input:
-        - pdf
         - image
         - text
+        - pdf
     output:
         - text
 mode: chat
-model: openai/gpt-5.6-terra
+model: openai/gpt-4.1:batch
 provisioning: serverless
 sources:
-    - https://openrouter.ai/openai/gpt-5.6-terra
-status: active
+    - https://openrouter.ai/openai/gpt-4.1
 supportedModes:
     - chat
-thinking: true
