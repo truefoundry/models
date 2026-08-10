@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 import { DefaultConfig, ModelConfig } from './autogen/types';
+import { NON_MODEL_YAML } from './constants';
 import { UnifiedModelConfig } from './types';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -19,7 +20,7 @@ function collectModelFiles(dir: string): string[] {
     } else if (
       entry.isFile() &&
       entry.name.endsWith('.yaml') &&
-      entry.name !== 'default.yaml'
+      !NON_MODEL_YAML.has(entry.name)
     ) {
       results.push(fullPath);
     }
