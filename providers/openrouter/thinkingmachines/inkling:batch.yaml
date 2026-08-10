@@ -1,0 +1,27 @@
+costs:
+    - cache_read_input_token_cost: 8.5e-8
+      input_cost_per_token: 5e-7
+      output_cost_per_token: 2.025e-6
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+    - tool_choice
+limits:
+    context_window: 524288
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+mode: chat
+model: thinkingmachines/inkling:batch
+provisioning: serverless
+sources:
+    - https://openrouter.ai/thinkingmachines/inkling:batch
+status: active
+supportedModes:
+    - chat
+thinking: true
