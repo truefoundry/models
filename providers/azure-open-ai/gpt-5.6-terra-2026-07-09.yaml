@@ -1,47 +1,47 @@
 costs:
-    - cache_read_input_token_cost: 2.75e-7
-      input_cost_per_token: 0.00000275
-      output_cost_per_token: 0.0000165
+    - cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
       region: datazone_us
       tiered_pricing:
           cache_read:
-              - cost_per_token: 5.5e-7
+              - cost_per_token: 4.4e-7
                 from: 272000
           input:
-              - cost_per_token: 0.0000055
+              - cost_per_token: 0.0000044
                 from: 272000
           output:
-              - cost_per_token: 0.00002475
+              - cost_per_token: 0.0000198
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 2.75e-7
-      input_cost_per_token: 0.00000275
-      output_cost_per_token: 0.0000165
+    - cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
       region: datazone_eu
       tiered_pricing:
           cache_read:
-              - cost_per_token: 5.5e-7
+              - cost_per_token: 4.4e-7
                 from: 272000
           input:
-              - cost_per_token: 0.0000055
+              - cost_per_token: 0.0000044
                 from: 272000
           output:
-              - cost_per_token: 0.00002475
+              - cost_per_token: 0.0000198
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 2.5e-7
-      input_cost_per_token: 0.0000025
-      output_cost_per_token: 0.000015
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 5e-7
+              - cost_per_token: 4e-7
                 from: 272000
           input:
-              - cost_per_token: 0.000005
+              - cost_per_token: 0.000004
                 from: 272000
           output:
-              - cost_per_token: 0.0000225
+              - cost_per_token: 0.000018
                 from: 272000
           pricing_mode: cumulative
 features:
@@ -52,13 +52,14 @@ features:
     - prompt_caching
 limits:
     context_window: 1050000
-    max_input_tokens: 922000
+    max_input_tokens: 1050000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
