@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_token: 7.5e-5
+      output_cost_per_token: 0.0003
+      region: "*"
+features:
+    - json_output
+    - structured_output
+limits:
+    context_window: 200000
+    max_output_tokens: 100000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: openai/o1-pro:batch
+provisioning: serverless
+sources:
+    - https://openrouter.ai/openai/o1-pro:batch
+supportedModes:
+    - chat
+thinking: true
