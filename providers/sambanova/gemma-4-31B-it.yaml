@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 2.2e-7
-      output_cost_per_token: 5.9e-7
+    - input_cost_per_token: 3.8e-7
+      output_cost_per_token: 1.15e-6
       region: "*"
 limits:
     context_window: 128000
@@ -15,7 +15,11 @@ mode: chat
 model: gemma-4-31B-it
 provisioning: serverless
 sources:
+    - https://sambanova-systems.mintlify.dev/docs/en/models/sambacloud-models
     - https://sambanova-systems.mintlify.dev/docs/en/features/function-calling
+    - https://sambanova-systems.mintlify.dev/docs/en/features/vision
+    - https://sambanova-systems.mintlify.dev/docs/en/features/video
+    - https://sambanova-systems.mintlify.dev/docs/en/features/prompt-caching
 status: preview
 supportedModes:
     - chat
