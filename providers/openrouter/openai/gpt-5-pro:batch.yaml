@@ -1,28 +1,27 @@
 costs:
-    - cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 5e-6
-      output_cost_per_token: 3e-5
+    - input_cost_per_token: 7.5e-6
+      output_cost_per_token: 6e-5
       region: "*"
 features:
     - function_calling
-    - prompt_caching
+    - json_output
     - structured_output
     - tool_choice
 limits:
-    context_window: 1000000
+    context_window: 400000
     max_output_tokens: 128000
 modalities:
     input:
-        - text
         - image
+        - text
+        - pdf
     output:
         - text
 mode: chat
-model: sakana/fugu-ultra
+model: openai/gpt-5-pro:batch
 provisioning: serverless
 sources:
-    - https://openrouter.ai/sakana/fugu-ultra
-status: active
+    - https://openrouter.ai/openai/gpt-5-pro:batch
 supportedModes:
     - chat
 thinking: true
