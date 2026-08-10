@@ -4,3 +4,5 @@ export interface UnifiedModelConfig extends Generated.ModelConfig {
   defaultProviderParams?: Generated.DefaultConfig;
   provider: string;
 }
+
+export type UnifiedProviderConfig = Generated.ProviderConfig;
