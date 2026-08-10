@@ -6,18 +6,18 @@ features:
     - function_calling
     - tool_choice
 limits:
-    context_window: 131072
-    max_output_tokens: 8192
+    context_window: 262144
+    max_output_tokens: 32768
 modalities:
     input:
         - text
     output:
         - text
 mode: chat
-model: poolside/laguna-m.1:free
+model: inclusionai/ling-3.0-tiny:free
 provisioning: serverless
 sources:
-    - https://openrouter.ai/poolside/laguna-m.1:free
+    - https://openrouter.ai/inclusionai/ling-3.0-tiny:free
 supportedModes:
     - chat
 thinking: true
