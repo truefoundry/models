@@ -24,6 +24,8 @@ modalities:
 mode: chat
 model: databricks-claude-opus-4-5
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
     - https://learn.microsoft.com/en-us/azure/databricks/machine-learning/foundation-model-apis/limits

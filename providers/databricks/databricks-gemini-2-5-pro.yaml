@@ -10,7 +10,7 @@ features:
     - json_output
 limits:
     context_window: 1048576
-    max_input_tokens: 1048576
+    max_input_tokens: 200000
     max_output_tokens: 65536
     max_tokens: 65536
 modalities:
@@ -23,7 +23,13 @@ modalities:
         - text
 mode: chat
 model: databricks-gemini-2-5-pro
+params:
+    - key: thinking
+      type: json
 provisioning: serverless
+removeParams:
+    - reasoning_effort
+retirementDate: "2026-10-02"
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
 status: active
