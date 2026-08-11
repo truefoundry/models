@@ -1,14 +1,42 @@
 costs:
-    - cache_creation_input_token_cost: 0.00000688
+    - cache_creation_input_token_cost: 0.000006875
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.000033
       region: us-east-2
-    - cache_creation_input_token_cost: 0.00000688
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000011
+                from: 272001
+          cache_write:
+              - cost_per_token: 0.00001375
+                from: 272001
+          input:
+              - cost_per_token: 0.000011
+                from: 272001
+          output:
+              - cost_per_token: 0.0000495
+                from: 272001
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.000006875
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
       output_cost_per_token: 0.000033
       region: us-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000011
+                from: 272001
+          cache_write:
+              - cost_per_token: 0.00001375
+                from: 272001
+          input:
+              - cost_per_token: 0.000011
+                from: 272001
+          output:
+              - cost_per_token: 0.0000495
+                from: 272001
+          pricing_mode: cumulative
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /openai
 features:
@@ -18,7 +46,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 272000
+    context_window: 1000000
 modalities:
     input:
         - text
