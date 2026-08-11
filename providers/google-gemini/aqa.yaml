@@ -1,3 +1,5 @@
+features:
+    - system_messages
 limits:
     context_window: 7168
     max_input_tokens: 7168
@@ -16,6 +18,8 @@ params:
       maxValue: 1024
       minValue: 1
 provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/semantic_retrieval
 status: active
 supportedModes:
     - chat
