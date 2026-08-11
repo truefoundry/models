@@ -35,6 +35,10 @@ from typing import Dict, List
 _SAFE_PROVIDER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 _SAFE_MODEL = re.compile(r"^[A-Za-z0-9~][A-Za-z0-9._@:/~-]*$")
 
+# Yamls under providers/ that describe the provider itself, not a model. There is
+# nothing per-model to test for these, so they never trigger a test run.
+NON_MODEL_YAML = frozenset({"default.yaml", "provider-config.yaml"})
+
 
 def _require_env(name: str) -> str:
     value = os.environ.get(name)
@@ -72,10 +76,11 @@ def _fetch_pr_files(repo: str, pr_number: str) -> List[dict]:
 
 
 def _changed_provider_yaml_paths(files: List[dict]) -> List[str]:
-    """Filter the PR file list to provider yamls that still exist post-PR.
+    """Filter the PR file list to model yamls that still exist post-PR.
 
     Removed files are skipped — there's nothing to test for a model the PR
-    deletes. Non-yaml and non-providers paths are dropped entirely.
+    deletes. Non-yaml and non-providers paths are dropped entirely, as are
+    provider-scoped yamls (see NON_MODEL_YAML), which name no model to test.
     """
     paths: List[str] = []
     for entry in files:
@@ -83,6 +88,9 @@ def _changed_provider_yaml_paths(files: List[dict]) -> List[str]:
             continue
         path = entry.get("filename", "")
         if not path.startswith("providers/") or not path.endswith(".yaml"):
+            continue
+        if os.path.basename(path) in NON_MODEL_YAML:
+            print(f"Skipping provider-scoped yaml: {path}")
             continue
         paths.append(path)
     return paths

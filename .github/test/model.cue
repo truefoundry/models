@@ -68,6 +68,16 @@ package model
 	tool_pricing?: #ToolPricing
 }
 
+// One anthropic-beta column: clientToken -> providerToken, or null to drop
+#BetaColumn: {[string]: string | null}
+
+// Schema for provider-config.yaml files (provider-scoped, not per-model).
+// Every field is optional so future provider-scoped settings can slot in.
+#ProviderConfig: {
+	// anthropic-beta translation keyed by provider flavor (e.g. invoke/converse, or default)
+	anthropic_betas?: {[string]: #BetaColumn}
+}
+
 // ============================================================
 // Section 3: Model config definitions
 // ============================================================

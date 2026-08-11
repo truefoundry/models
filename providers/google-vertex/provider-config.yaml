@@ -1,0 +1,18 @@
+# anthropic-beta translation: clientToken -> providerToken, null drops. Strict allowlist; unknown betas are rejected.
+# https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
+# Files API, Agent Skills, MCP connector and code execution are absent per Vertex's "Features not supported" list.
+anthropic_betas:
+    default:
+        advanced-tool-use-2025-11-20: tool-search-tool-2025-10-19
+        compact-2026-01-12: compact-2026-01-12
+        computer-use-2025-01-24: computer-use-2025-01-24
+        computer-use-2025-11-24: computer-use-2025-11-24
+        context-1m-2025-08-07: context-1m-2025-08-07
+        context-management-2025-06-27: context-management-2025-06-27
+        # GA on Google Cloud per Anthropic's feature matrix.
+        fine-grained-tool-streaming-2025-05-14: fine-grained-tool-streaming-2025-05-14
+        interleaved-thinking-2025-05-14: interleaved-thinking-2025-05-14
+        structured-outputs-2025-11-13: structured-outputs-2025-11-13
+        tool-search-tool-2025-10-19: tool-search-tool-2025-10-19
+        # Web search 400s as a beta header (anthropics/claude-code#12429).
+        web-search-2025-03-05: null
