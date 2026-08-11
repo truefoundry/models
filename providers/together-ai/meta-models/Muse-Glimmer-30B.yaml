@@ -1,0 +1,11 @@
+costs:
+    - cache_read_input_token_cost: 4e-8
+      input_cost_per_token: 3.5e-7
+      output_cost_per_token: 1.5e-6
+      region: "*"
+limits:
+    context_window: 131072
+mode: unknown
+model: meta-models/Muse-Glimmer-30B
+supportedModes:
+    - chat
