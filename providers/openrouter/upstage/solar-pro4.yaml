@@ -1,0 +1,22 @@
+costs:
+    - cache_read_input_token_cost: 6e-9
+      input_cost_per_token: 3e-8
+      output_cost_per_token: 1.2e-7
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 524288
+    max_output_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: upstage/solar-pro4
+thinking: true
