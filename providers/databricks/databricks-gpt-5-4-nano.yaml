@@ -1,17 +1,15 @@
 costs:
-    - cache_creation_input_token_cost: 2.5e-7
-      cache_read_input_token_cost: 2.5e-8
-      input_cost_per_token: 2.5e-7
-      output_cost_per_token: 0.000002
+    - cache_creation_input_token_cost: 2e-7
+      cache_read_input_token_cost: 2e-8
+      input_cost_per_token: 2e-7
+      output_cost_per_token: 0.00000125
       region: "*"
 features:
     - function_calling
-    - tool_choice
     - structured_output
-    - json_output
-    - prompt_caching
+    - tool_choice
     - system_messages
-    - cache_control
+    - prompt_caching
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -24,23 +22,24 @@ modalities:
     output:
         - text
 mode: chat
-model: databricks-gpt-5-mini
+model: databricks-gpt-5-4-nano
 params:
-    - defaultValue: minimal
+    - defaultValue: none
       key: reasoning_effort
       supportedValues:
           - none
-          - minimal
           - low
           - medium
           - high
+          - xhigh
       type: string
 provisioning: serverless
 sources:
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
-    - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling
-    - https://docs.databricks.com/aws/en/machine-learning/model-serving/structured-outputs
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
+    - https://developers.openai.com/api/docs/models/gpt-5.4-nano
 status: active
 supportedModes:
     - chat
