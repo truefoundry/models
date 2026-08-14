@@ -1,0 +1,50 @@
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_image_token: 2e-6
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 6e-6
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1e-6
+                from: 200000
+          input:
+              - cost_per_token: 4e-6
+                from: 200000
+          output:
+              - cost_per_token: 1.2e-5
+                from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 500000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: grok-4.6
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.x.ai/developers/grok-4-6
+    - https://docs.x.ai/developers/pricing
+status: active
+supportedModes:
+    - chat
+thinking: true
