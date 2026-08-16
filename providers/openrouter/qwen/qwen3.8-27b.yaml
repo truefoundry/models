@@ -1,0 +1,29 @@
+costs:
+    - input_cost_per_token: 4.5e-7
+      output_cost_per_token: 3.2e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 262144
+    max_output_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: qwen/qwen3.8-27b
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 20
+      key: top_k
+thinking: true
