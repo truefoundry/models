@@ -1,0 +1,48 @@
+costs:
+    - cache_creation_input_token_cost: 2.5e-7
+      cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 2.5e-7
+      output_cost_per_token: 0.000002
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - json_output
+    - prompt_caching
+    - system_messages
+    - cache_control
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: system.ai.gpt-5-mini
+params:
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/structured-outputs
+    - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true

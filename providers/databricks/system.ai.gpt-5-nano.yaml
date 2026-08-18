@@ -1,0 +1,44 @@
+costs:
+    - cache_creation_input_token_cost: 5e-8
+      cache_read_input_token_cost: 5e-9
+      input_cost_per_token: 5e-8
+      output_cost_per_token: 4e-7
+      region: "*"
+features:
+    - system_messages
+    - function_calling
+    - tool_choice
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: system.ai.gpt-5-nano
+params:
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
+    - https://developers.openai.com/api/docs/models/gpt-5-nano
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
