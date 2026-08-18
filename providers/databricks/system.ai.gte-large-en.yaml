@@ -1,0 +1,22 @@
+costs:
+    - input_cost_per_token: 1.3e-7
+      output_cost_per_token: 0
+      region: "*"
+limits:
+    context_window: 8192
+    max_input_tokens: 8192
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
+model: system.ai.gte-large-en
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - reasoning_effort
+status: active
+supportedModes:
+    - embedding
