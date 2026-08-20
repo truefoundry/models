@@ -6,7 +6,6 @@ costs:
       region: global
 features:
     - system_messages
-    - structured_output
 limits:
     context_window: 65536
     max_input_tokens: 65536
@@ -25,7 +24,8 @@ provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image
-status: active
+    - https://ai.google.dev/gemini-api/docs/pricing
+status: preview
 supportedModes:
     - image
     - chat

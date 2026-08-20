@@ -19,7 +19,7 @@ features:
     - structured_output
     - prompt_caching
 limits:
-    context_window: 2000000
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -32,6 +32,7 @@ provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/grok/grok-4-20
     - https://docs.x.ai/developers/models#models-and-pricing
+    - https://docs.x.ai/developers/models/grok-4.20-non-reasoning
 status: active
 supportedModes:
     - chat

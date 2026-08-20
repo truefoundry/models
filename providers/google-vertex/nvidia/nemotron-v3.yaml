@@ -4,6 +4,8 @@ features:
     - tool_choice
 limits:
     context_window: 1000000
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - text
@@ -15,6 +17,7 @@ provisioning: provisioned
 sources:
     - https://developer.nvidia.com/nemotron
     - https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/
+    - https://cloud.google.com/blog/products/compute/google-cloud-ai-infrastructure-at-nvidia-gtc-2026
 status: active
 supportedModes:
     - chat

@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_character: 0.000001
       region: global
+limits:
+    max_input_tokens: 100000
 modalities:
     input:
         - text
@@ -21,6 +23,7 @@ sources:
     - https://cloud.google.com/natural-language/pricing
     - https://docs.cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSentiment
     - https://docs.cloud.google.com/natural-language/docs/basics
+    - https://docs.cloud.google.com/natural-language/limits
 status: active
 supportedModes:
     - unknown
