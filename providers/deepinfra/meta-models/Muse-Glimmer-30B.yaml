@@ -1,0 +1,15 @@
+costs:
+    - cache_read_input_token_cost: 3.9999999e-8
+      input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - image
+mode: unknown
+model: meta-models/Muse-Glimmer-30B
