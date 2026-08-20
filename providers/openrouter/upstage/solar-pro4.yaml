@@ -8,6 +8,7 @@ features:
     - json_output
     - prompt_caching
     - structured_output
+    - system_messages
     - tool_choice
 limits:
     context_window: 524288
@@ -19,4 +20,10 @@ modalities:
         - text
 mode: chat
 model: upstage/solar-pro4
+provisioning: serverless
+sources:
+    - https://openrouter.ai/upstage/solar-pro4
+status: active
+supportedModes:
+    - chat
 thinking: true
