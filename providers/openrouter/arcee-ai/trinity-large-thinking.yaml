@@ -6,6 +6,7 @@ costs:
 features:
     - function_calling
     - json_output
+    - prompt_caching
     - structured_output
     - tool_choice
 limits:
@@ -26,7 +27,7 @@ params:
       key: top_p
 provisioning: serverless
 sources:
-    - https://openrouter.ai/arcee-ai/trinity-large-thinking/api
+    - https://openrouter.ai/arcee-ai/trinity-large-thinking
 status: active
 supportedModes:
     - chat
