@@ -1,0 +1,13 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 6e-6
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 262144
+    max_tokens: 262144
+mode: unknown
+model: Qwen/Qwen3.8-2.4T-A95B
+thinking: true
