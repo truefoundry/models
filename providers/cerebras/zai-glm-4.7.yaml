@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 0.00000225
-      output_cost_per_token: 0.00000275
+    - input_cost_per_token: 2.25e-6
+      output_cost_per_token: 2.75e-6
       region: "*"
 deprecationDate: "2026-08-17"
 features:
@@ -10,6 +10,7 @@ features:
     - structured_output
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 40000
@@ -38,7 +39,7 @@ sources:
     - https://inference-docs.cerebras.ai/models/zai-glm-47
     - https://inference-docs.cerebras.ai/resources/glm-47-migration
     - https://inference-docs.cerebras.ai/capabilities/tool-use
-status: preview
+status: deprecated
 supportedModes:
     - chat
 thinking: true
