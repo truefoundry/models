@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - prompt_caching
 limits:
     context_window: 256000
 modalities:
@@ -20,6 +21,8 @@ params:
       key: temperature
 removeParams:
     - reasoning_effort
+sources:
+    - https://docs.mistral.ai/api/endpoint/fim
 status: active
 supportedModes:
     - completion

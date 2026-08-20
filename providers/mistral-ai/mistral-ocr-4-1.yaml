@@ -1,3 +1,7 @@
+costs:
+    - input_cost_per_annotated_page: 0.005
+      input_cost_per_page: 0.004
+      region: "*"
 features:
     - function_calling
 limits:
@@ -6,11 +10,15 @@ modalities:
     input:
         - image
         - pdf
-mode: unknown
+    output:
+        - text
+mode: ocr
 model: mistral-ocr-4-1
 params:
     - defaultValue: 0.0
       key: temperature
-status: active
+sources:
+    - https://docs.mistral.ai/models/ocr-4-1
+status: preview
 supportedModes:
     - ocr
