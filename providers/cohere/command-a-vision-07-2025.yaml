@@ -3,7 +3,6 @@ costs:
       output_cost_per_token: 0
       region: "*"
 features:
-    - structured_output
     - system_messages
 limits:
     context_window: 128000
@@ -27,6 +26,7 @@ sources:
     - https://docs.cohere.com/docs/command-a-vision
     - https://docs.cohere.com/docs/command-a
     - https://docs.cohere.com/v2/docs/structured-outputs
+    - https://docs.cohere.com/docs/image-inputs
 status: active
 supportedModes:
     - chat
