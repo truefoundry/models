@@ -1,2 +1,21 @@
-mode: unknown
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: nvidia/nemotron-3.5-lightning
+provisioning: serverless
+sources:
+    - https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+status: preview
+supportedModes:
+    - chat
+thinking: true
