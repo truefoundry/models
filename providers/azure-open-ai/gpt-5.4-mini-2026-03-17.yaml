@@ -12,7 +12,8 @@ features:
     - structured_output
     - json_output
 limits:
-    max_input_tokens: 1050000
+    context_window: 400000
+    max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
@@ -29,16 +30,19 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: medium
+    - defaultValue: none
       key: reasoning_effort
       supportedValues:
-          - minimal
+          - none
           - low
           - medium
           - high
+          - xhigh
       type: string
 provisioning: serverless
-retirementDate: "2027-03-18"
+retirementDate: "2027-09-21"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
     - chat

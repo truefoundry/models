@@ -1,3 +1,10 @@
+costs:
+    - input_cost_per_second: 0.0002833333333333333
+      region: "*"
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
 modalities:
     input:
         - audio
@@ -10,5 +17,8 @@ provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-live-transcribe
     - https://developers.openai.com/api/docs/changelog
+    - https://ai.azure.com/catalog/models/gpt-live-transcribe
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-whisper
+status: active
 supportedModes:
     - audio_transcription
