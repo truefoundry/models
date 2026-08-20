@@ -1,5 +1,64 @@
 costs:
-    - region: ap-south-2
-    - region: ap-south-1
-mode: unknown
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: ap-south-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272001
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272001
+          input:
+              - cost_per_token: 0.0000044
+                from: 272001
+          output:
+              - cost_per_token: 0.0000198
+                from: 272001
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: ap-south-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272001
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272001
+          input:
+              - cost_per_token: 0.0000044
+                from: 272001
+          output:
+              - cost_per_token: 0.0000198
+                from: 272001
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
+    - prompt_caching
+    - json_output
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: in.openai.gpt-5.6-terra
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-terra.html
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
