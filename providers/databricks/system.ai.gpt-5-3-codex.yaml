@@ -25,10 +25,14 @@ model: system.ai.gpt-5-3-codex
 params:
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
       type: string
 provisioning: serverless
 sources:
-    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
