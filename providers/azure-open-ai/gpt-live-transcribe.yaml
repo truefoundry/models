@@ -1,3 +1,7 @@
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
 modalities:
     input:
         - audio
@@ -9,5 +13,8 @@ model: gpt-live-transcribe
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-live-transcribe
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-whisper
+    - https://ai.azure.com/catalog/models/gpt-live-transcribe
+status: active
 supportedModes:
     - audio_transcription

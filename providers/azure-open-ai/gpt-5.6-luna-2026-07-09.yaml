@@ -54,7 +54,7 @@ features:
     - json_output
 limits:
     context_window: 1050000
-    max_input_tokens: 1050000
+    max_input_tokens: 922000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
@@ -75,6 +75,7 @@ params:
           - medium
           - high
           - xhigh
+          - max
       type: string
 provisioning: serverless
 retirementDate: "2028-01-11"

@@ -18,6 +18,15 @@ modalities:
         - audio
 mode: realtime
 model: gpt-realtime-2.1-mini-2026-07-07
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 retirementDate: "2027-06-25"
 sources:
@@ -25,6 +34,7 @@ sources:
 status: preview
 supportedModes:
     - realtime
+thinking: true
 
 # costs: not found in official docs
 # limits: not found in official docs
