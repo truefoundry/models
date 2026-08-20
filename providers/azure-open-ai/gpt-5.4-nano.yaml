@@ -24,17 +24,19 @@ modalities:
 mode: chat
 model: gpt-5.4-nano
 params:
-    - defaultValue: medium
+    - defaultValue: none
       key: reasoning_effort
       supportedValues:
-          - minimal
+          - none
           - low
           - medium
           - high
+          - xhigh
       type: string
 provisioning: serverless
 retirementDate: "2027-09-21"
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

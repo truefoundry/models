@@ -1,3 +1,7 @@
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
 limits:
     context_window: 1000000
 modalities:
@@ -9,8 +13,11 @@ modalities:
         - text
 mode: chat
 model: thinkingmachines/inkling
+provisioning: provisioned
 sources:
     - https://thinkingmachines.ai/model-card/inkling/
     - https://thinkingmachines.ai/news/introducing-inkling/
+status: active
 supportedModes:
     - chat
+thinking: true
