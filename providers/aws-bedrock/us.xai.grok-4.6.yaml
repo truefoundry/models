@@ -1,0 +1,57 @@
+costs:
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-west-2
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-west-1
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-east-2
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-east-1
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 500000
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: us.xai.grok-4.6
+params:
+    - defaultValue: 131072
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+    - https://docs.x.ai/developers/grok-4-6
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
