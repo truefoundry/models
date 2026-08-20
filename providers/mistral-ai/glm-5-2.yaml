@@ -1,9 +1,23 @@
+costs:
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 0.0000014
+      output_cost_per_token: 0.0000044
+      region: "*"
 features:
     - function_calling
+    - structured_output
+    - prompt_caching
 limits:
     context_window: 1048576
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: glm-5-2
-status: active
+sources:
+    - https://docs.mistral.ai/models/zai-glm-5-2
+status: preview
 supportedModes:
     - chat
