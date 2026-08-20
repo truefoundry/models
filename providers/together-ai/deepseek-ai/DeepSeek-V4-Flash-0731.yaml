@@ -5,8 +5,12 @@ costs:
       region: "*"
 features:
     - function_calling
+    - json_output
+    - structured_output
+    - tool_choice
+    - system_messages
 limits:
-    context_window: 1048576
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -14,6 +18,14 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V4-Flash-0731
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models/deepseek-v4-flash-0731
