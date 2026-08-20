@@ -1,6 +1,6 @@
 costs:
-    - input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.00001
+    - input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1e-5
       region: "*"
 features:
     - function_calling
@@ -8,6 +8,7 @@ features:
     - structured_output
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -24,6 +25,7 @@ modalities:
 mode: chat
 model: system.ai.gemini-2-5-pro
 provisioning: serverless
+retirementDate: "2026-10-02"
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
 status: active

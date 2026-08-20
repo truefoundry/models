@@ -35,6 +35,16 @@ params:
       key: max_tokens
       maxValue: 64000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 status: active
 supportedModes:

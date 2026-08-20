@@ -1,6 +1,6 @@
 costs:
     - input_cost_per_token: 3e-7
-      output_cost_per_token: 0.0000025
+      output_cost_per_token: 2.5e-6
       region: "*"
 features:
     - function_calling
@@ -8,6 +8,7 @@ features:
     - structured_output
     - system_messages
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -26,6 +27,7 @@ model: system.ai.gemini-2-5-flash
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-10-02"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash
