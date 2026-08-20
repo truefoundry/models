@@ -18,11 +18,20 @@ modalities:
         - text
 mode: chat
 model: sonar-deep-research
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
+retirementDate: "2026-09-27"
 sources:
     - https://docs.perplexity.ai/docs/sonar/models/sonar-deep-research
     - https://docs.perplexity.ai/docs/sonar/features
-    - https://docs.perplexity.ai/api-reference/sonar-post
 status: active
 supportedModes:
     - chat
