@@ -1,5 +1,6 @@
 limits:
     context_window: 512
+    max_input_tokens: 512
     output_vector_size: 384
 modalities:
     input:
@@ -14,9 +15,11 @@ removeParams:
     - max_tokens
     - temperature
     - stream
+    - reasoning_effort
 sources:
     - https://docs.cohere.com/docs/cohere-embed
     - https://docs.cohere.com/reference/embed
+    - https://docs.cohere.com/docs/models
 status: active
 supportedModes:
     - embedding
