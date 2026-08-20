@@ -22,6 +22,8 @@ features:
     - system_messages
 limits:
     context_window: 500000
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -31,6 +33,10 @@ modalities:
 mode: chat
 model: us.xai.grok-4.6
 params:
+    - defaultValue: 131072
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
     - defaultValue: low
       key: reasoning_effort
       supportedValues:
