@@ -1,9 +1,138 @@
 costs:
-    - region: us-west-2
-    - region: us-west-1
-    - region: us-east-2
-    - region: us-east-1
-    - region: ca-west-1
-    - region: ca-central-1
-mode: unknown
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: us-west-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000044
+                from: 272000
+          output:
+              - cost_per_token: 0.0000198
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: us-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000044
+                from: 272000
+          output:
+              - cost_per_token: 0.0000198
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: us-east-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000044
+                from: 272000
+          output:
+              - cost_per_token: 0.0000198
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: us-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000044
+                from: 272000
+          output:
+              - cost_per_token: 0.0000198
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: ca-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000044
+                from: 272000
+          output:
+              - cost_per_token: 0.0000198
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000132
+      region: ca-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4.4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000044
+                from: 272000
+          output:
+              - cost_per_token: 0.0000198
+                from: 272000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - prompt_caching
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: us.openai.gpt-5.6-terra
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-terra.html
+supportedModes:
+    - chat
+    - responses
+thinking: true
