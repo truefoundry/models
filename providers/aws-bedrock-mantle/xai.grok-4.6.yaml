@@ -13,6 +13,8 @@ features:
     - system_messages
 limits:
     context_window: 500000
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -30,6 +32,9 @@ params:
           - high
           - xhigh
       type: string
+    - defaultValue: 131072
+      key: max_completion_tokens
+      type: number
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
