@@ -63,7 +63,7 @@ mode: chat
 model: us-gov.anthropic.claude-sonnet-4-5-20250929-v1:0
 params:
     - key: max_tokens
-      maxValue: 8192
+      maxValue: 64000
     - key: thinking
       maxValue: 128000
       minValue: 1024
@@ -76,6 +76,7 @@ removeParams:
 sources:
     - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://aws.amazon.com/about-aws/whats-new/2025/11/anthropics-claude-sonnet-4-5-amazon-bedrock-aws-govcloud-us
 status: active
 supportedModes:
     - chat
