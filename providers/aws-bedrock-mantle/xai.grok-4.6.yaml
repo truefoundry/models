@@ -1,0 +1,46 @@
+costs:
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-west-2
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /openai
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - system_messages
+limits:
+    context_window: 500000
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: xai.grok-4.6
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+    - defaultValue: 131072
+      key: max_completion_tokens
+      type: number
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
+    - https://docs.x.ai/developers/grok-4-6
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
