@@ -5,9 +5,21 @@ costs:
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - json_output
 limits:
     context_window: 262144
     max_tokens: 262144
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: Qwen/Qwen3.8-2.4T-A95B
+sources:
+    - https://deepinfra.com/Qwen/Qwen3.8-2.4T-A95B
+status: active
+supportedModes:
+    - chat
 thinking: true
