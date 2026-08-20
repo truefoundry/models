@@ -49,10 +49,13 @@ costs:
       region: asia-east1
 features:
     - function_calling
+    - parallel_function_calling
     - tool_choice
     - prompt_caching
+    - cache_control
     - structured_output
     - assistant_prefill
+    - system_messages
 limits:
     context_window: 200000
     max_input_tokens: 200000

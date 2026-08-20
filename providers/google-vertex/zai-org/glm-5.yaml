@@ -1,8 +1,9 @@
-# costs: not found in official docs — Vertex AI pricing page does not list zai-org/glm-5
+deprecationDate: "2026-07-21"
 features:
     - function_calling
     - structured_output
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 200000
     max_output_tokens: 128000
@@ -18,13 +19,14 @@ params:
     - key: max_tokens
       maxValue: 128000
 provisioning: serverless
+retirementDate: "2026-10-21"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg/glm-5
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/provisioned-throughput/supported-models
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes
     - https://docs.z.ai/guides/llm/glm-5
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
