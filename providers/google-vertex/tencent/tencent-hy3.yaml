@@ -1,2 +1,20 @@
-mode: unknown
+features:
+    - function_calling
+    - tool_choice
+    - json_output
+    - system_messages
+limits:
+    context_window: 262144
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: tencent/tencent-hy3
+provisioning: provisioned
+sources:
+    - https://github.com/Tencent-Hunyuan/Hy3
+supportedModes:
+    - chat
+thinking: true
