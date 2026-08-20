@@ -7,6 +7,7 @@ features:
     - json_output
     - structured_output
     - tool_choice
+    - system_messages
 limits:
     context_window: 262144
     max_output_tokens: 131072
@@ -19,4 +20,9 @@ modalities:
         - text
 mode: chat
 model: bytedance-seed/seed-2.0-code
+provisioning: serverless
+sources:
+    - https://openrouter.ai/bytedance-seed/seed-2.0-code
+supportedModes:
+    - chat
 thinking: true
