@@ -1,2 +1,55 @@
-mode: unknown
+costs:
+    - cache_creation_input_token_cost_per_hour: 5e-7
+      cache_read_input_token_cost: 7.5e-8
+      # Introductory pricing through 2026-12-31; rates increase 2x starting 2027-01-01.
+      input_cost_per_token: 7.5e-7
+      input_cost_per_token_batches: 3.75e-7
+      output_cost_per_token: 3.75e-6
+      output_cost_per_token_batches: 1.875e-6
+      region: global
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - code_execution
+    - json_output
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+        - pdf
+    output:
+        - text
+mode: chat
 model: google/gemini-3.7-flash
+params:
+    - defaultValue: 65536
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash
+    - https://ai.google.dev/gemini-api/docs/pricing
+    - https://deepmind.google/models/model-cards/gemini-3-7-flash/
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash
+status: active
+supportedModes:
+    - chat
+thinking: true
