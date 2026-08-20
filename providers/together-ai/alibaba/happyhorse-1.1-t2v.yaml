@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_request: 0.14
+      region: "*"
 modalities:
     input:
         - text
@@ -9,8 +12,7 @@ model: alibaba/happyhorse-1.1-t2v
 provisioning: serverless
 sources:
     - https://www.together.ai/models/happyhorse-1-1-t2v
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - video
-
-# costs: pricing not found in official Together AI documentation (changelog, serverless models page, and pricing page only list happyhorse-1.0 variants)

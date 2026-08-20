@@ -10,9 +10,12 @@ modalities:
 mode: image
 model: black-forest-labs/FLUX.1-kontext-max
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.together.ai/docs/serverless-models
     - https://docs.together.ai/docs/images-overview
+    - https://www.together.ai/models/flux-1-kontext-max
 status: active
 supportedModes:
     - image

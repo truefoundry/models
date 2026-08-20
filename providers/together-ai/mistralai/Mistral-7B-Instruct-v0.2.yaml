@@ -5,6 +5,7 @@ costs:
 features:
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 32768
 modalities:
@@ -17,12 +18,13 @@ model: mistralai/Mistral-7B-Instruct-v0.2
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://www.together.ai/models/mistral-7b-instruct-v0-2
     - https://www.together.ai/pricing
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
     - https://docs.together.ai/docs/dedicated-models
-status: active
+status: retired
 supportedModes:
     - chat
