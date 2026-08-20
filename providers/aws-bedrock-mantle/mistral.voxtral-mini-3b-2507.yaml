@@ -39,6 +39,9 @@ costs:
     - input_cost_per_token: 5e-8
       output_cost_per_token: 5e-8
       region: ap-northeast-1
+features:
+    - function_calling
+    - structured_output
 limits:
     context_window: 32000
 modalities:
