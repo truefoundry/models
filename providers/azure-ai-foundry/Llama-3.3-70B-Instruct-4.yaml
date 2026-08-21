@@ -1,4 +1,31 @@
+costs:
+    - input_cost_per_token: 7.1e-7
+      output_cost_per_token: 7.1e-7
+      region: "*"
+features:
+    - system_messages
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Llama-3.3-70B-Instruct-4
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://ai.azure.com/explore/models/Llama-3.3-70B-Instruct/version/4/registry/azureml-meta
+    - https://marketplace.microsoft.com/en-us/product/metagenai.llama-3-3-70b-instruct-offer?tab=overview
+status: active
 supportedModes:
     - chat
