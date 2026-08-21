@@ -1,4 +1,31 @@
+features:
+    - system_messages
+    - json_output
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 384000
+    max_tokens: 384000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: DeepSeek-V4-Flash
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 384000
+      minValue: 1
+provisioning: serverless
+# costs: not found in official docs — the Microsoft Foundry pricing page for DeepSeek does not publish per-token rates for DeepSeek-V4-Flash at the time of writing
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
+status: active
 supportedModes:
     - chat
+thinking: true
