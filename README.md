@@ -18,27 +18,27 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 847 | Unified API for open source models |
-| Google Vertex AI | 420 | Gemini, PaLM on GCP |
-| Together AI | 371 | Open source model hosting |
-| Microsoft Foundry | 284 | OpenAI and Foundry catalog models on Microsoft Foundry |
-| DeepInfra | 247 | Open source model hosting |
-| AWS Bedrock | 219 | Claude, Llama, Titan, Mistral on AWS |
-| Azure OpenAI | 215 | OpenAI models on Azure |
+| OpenRouter | 881 | Unified API for open source models |
+| Google Vertex AI | 422 | Gemini, PaLM on GCP |
+| Together AI | 376 | Open source model hosting |
+| Microsoft Foundry | 299 | OpenAI and Foundry catalog models on Microsoft Foundry |
+| DeepInfra | 249 | Open source model hosting |
+| Azure OpenAI | 230 | OpenAI models on Azure |
+| AWS Bedrock | 221 | Claude, Llama, Titan, Mistral on AWS |
 | OpenAI | 151 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Deepgram | 143 | Speech-to-text and text-to-speech models |
-| Mistral AI | 101 | Mistral, Mixtral, Codestral |
-| xAI | 90 | Grok models |
+| Mistral AI | 102 | Mistral, Mixtral, Codestral |
+| xAI | 91 | Grok models |
 | Google Gemini | 77 | Gemini Pro, Ultra, Flash |
 | Azure AI Foundry | 70 | Azure AI models |
-| Aws Bedrock Mantle | 54 |  |
+| Databricks | 68 | Databricks-hosted models |
+| Aws Bedrock Mantle | 55 |  |
 | Cohere | 38 | Command, Embed models |
-| Databricks | 32 | Databricks-hosted models |
 | SambaNova | 30 | Enterprise AI models |
 | Anthropic | 27 | Claude 3, Claude 3.5, Claude 4 |
 | Perplexity | 24 | Search-augmented models |
 | Groq | 23 | Fast inference models |
-| Wafer | 14 |  |
+| Wafer | 15 |  |
 | AI21 | 12 | Jamba models |
 | ElevenLabs | 11 | Voice synthesis and text-to-speech models |
 | Cerebras | 6 | Fast inference models |

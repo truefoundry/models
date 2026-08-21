@@ -1,47 +1,47 @@
 costs:
-    - cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 0.0000011
-      output_cost_per_token: 0.0000066
+    - cache_read_input_token_cost: 2.2e-8
+      input_cost_per_token: 2.2e-7
+      output_cost_per_token: 0.00000132
       region: datazone_us
       tiered_pricing:
           cache_read:
-              - cost_per_token: 2.2e-7
+              - cost_per_token: 4.4e-8
                 from: 272000
           input:
-              - cost_per_token: 0.0000022
+              - cost_per_token: 4.4e-7
                 from: 272000
           output:
-              - cost_per_token: 0.0000099
+              - cost_per_token: 0.00000198
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 0.0000011
-      output_cost_per_token: 0.0000066
+    - cache_read_input_token_cost: 2.2e-8
+      input_cost_per_token: 2.2e-7
+      output_cost_per_token: 0.00000132
       region: datazone_eu
       tiered_pricing:
           cache_read:
-              - cost_per_token: 2.2e-7
+              - cost_per_token: 4.4e-8
                 from: 272000
           input:
-              - cost_per_token: 0.0000022
+              - cost_per_token: 4.4e-7
                 from: 272000
           output:
-              - cost_per_token: 0.0000099
+              - cost_per_token: 0.00000198
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000006
+    - cache_read_input_token_cost: 2e-8
+      input_cost_per_token: 2e-7
+      output_cost_per_token: 0.0000012
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 2e-7
+              - cost_per_token: 4e-8
                 from: 272000
           input:
-              - cost_per_token: 0.000002
+              - cost_per_token: 4e-7
                 from: 272000
           output:
-              - cost_per_token: 0.000009
+              - cost_per_token: 0.0000018
                 from: 272000
           pricing_mode: cumulative
 features:
@@ -61,6 +61,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -74,10 +75,12 @@ params:
           - medium
           - high
           - xhigh
+          - max
       type: string
 provisioning: serverless
-retirementDate: "2027-07-09"
+retirementDate: "2028-01-11"
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true
