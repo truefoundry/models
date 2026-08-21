@@ -1,0 +1,51 @@
+costs:
+    - cache_read_input_audio_token_cost: 4e-7
+      cache_read_input_token_cost: 4e-7
+      input_cost_per_audio_token: 0.000032
+      input_cost_per_image_token: 0.000005
+      input_cost_per_token: 0.000004
+      output_cost_per_audio_token: 0.000064
+      output_cost_per_token: 0.000024
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - prompt_caching
+    - tool_choice
+limits:
+    context_window: 256000
+    max_output_tokens: 32000
+    max_tokens: 32000
+modalities:
+    input:
+        - text
+        - audio
+        - image
+    output:
+        - text
+        - audio
+mode: realtime
+model: gpt-realtime-2-2026-05-06
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 32000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+retirementDate: "2027-05-06"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/realtime-2
+    - https://developers.openai.com/api/docs/models/gpt-realtime-2
+status: active
+supportedModes:
+    - realtime
+thinking: true

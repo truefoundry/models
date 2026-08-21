@@ -1,0 +1,40 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1e-5
+      region: "*"
+deprecationDate: "2026-04-15"
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+isDeprecated: true
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: gpt-5-chat-2025-08-15
+params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 16384
+      minValue: 1
+removeParams:
+    - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: retired
+supportedModes:
+    - chat
+thinking: true

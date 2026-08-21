@@ -1,0 +1,33 @@
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 5e-6
+      output_cost_per_token: 3e-5
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 128000
+    max_input_tokens: 111616
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: gpt-chat-latest-2026-05-28
+provisioning: serverless
+retirementDate: "2026-08-28"
+status: preview
+supportedModes:
+    - chat
+    - responses
+thinking: true

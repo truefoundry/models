@@ -1,0 +1,83 @@
+costs:
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      output_cost_per_token: 0.000033
+      region: datazone_us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000011
+                from: 272000
+          input:
+              - cost_per_token: 0.000011
+                from: 272000
+          output:
+              - cost_per_token: 0.0000495
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      output_cost_per_token: 0.000033
+      region: datazone_eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000011
+                from: 272000
+          input:
+              - cost_per_token: 0.000011
+                from: 272000
+          output:
+              - cost_per_token: 0.0000495
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.00003
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 272000
+          input:
+              - cost_per_token: 0.00001
+                from: 272000
+          output:
+              - cost_per_token: 0.000045
+                from: 272000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: gpt-5.6-sol-2026-07-09
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+retirementDate: "2027-07-09"
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true

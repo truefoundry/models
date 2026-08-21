@@ -1,0 +1,24 @@
+deprecationDate: "2026-02-28"
+isDeprecated: true
+modalities:
+    input:
+        - text
+    output:
+        - video
+mode: video
+model: sora-2025-05-02
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - n
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: retired
+supportedModes:
+    - video

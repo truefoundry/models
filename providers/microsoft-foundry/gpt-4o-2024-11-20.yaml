@@ -1,0 +1,49 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_token: 2.5e-6
+      output_cost_per_token: 1e-5
+      region: global
+    - cache_creation_input_token_cost: 1.38e-6
+      input_cost_per_token: 2.75e-6
+      output_cost_per_token: 1.1e-5
+      region: datazone_us
+    - cache_creation_input_token_cost: 1.38e-6
+      input_cost_per_token: 2.75e-6
+      output_cost_per_token: 1.1e-5
+      region: datazone_eu
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_token: 2.75e-6
+      output_cost_per_token: 1.1e-5
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - structured_output
+    - prompt_caching
+    - json_output
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: gpt-4o-2024-11-20
+params:
+    - key: max_tokens
+      maxValue: 16384
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+retirementDate: "2026-10-01"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
+supportedModes:
+    - chat

@@ -1,0 +1,55 @@
+costs:
+    - cache_read_input_token_cost: 6.05e-7
+      input_cost_per_token: 1.21e-6
+      input_cost_per_token_batches: 6.05e-7
+      output_cost_per_token: 4.84e-6
+      output_cost_per_token_batches: 2.42e-6
+      region: datazone_us
+    - cache_read_input_token_cost: 6.05e-7
+      input_cost_per_token: 1.21e-6
+      input_cost_per_token_batches: 6.05e-7
+      output_cost_per_token: 4.84e-6
+      output_cost_per_token_batches: 2.42e-6
+      region: datazone_eu
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 1.1e-6
+      output_cost_per_token: 4.4e-6
+      region: "*"
+deprecationDate: "2026-08-02"
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    max_input_tokens: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: o3-mini-2025-01-31
+params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - n
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: deprecated
+supportedModes:
+    - chat
+thinking: true

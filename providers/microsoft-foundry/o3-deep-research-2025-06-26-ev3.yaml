@@ -1,0 +1,55 @@
+costs:
+    - cache_read_input_token_cost: 0.0000025
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00004
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: o3-deep-research-2025-06-26-ev3
+params:
+    - defaultValue: 100000
+      key: max_completion_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+retirementDate: "2026-12-26"
+sources:
+    - https://developers.openai.com/docs/models/o3-deep-research
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/deep-research
+status: active
+supportedModes:
+    - chat
+thinking: true

@@ -1,0 +1,28 @@
+# costs: not found in official docs
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - structured_output
+    - system_messages
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: gpt-4o-canvas-2024-09-25
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
+provisioning: serverless
+supportedModes:
+    - chat

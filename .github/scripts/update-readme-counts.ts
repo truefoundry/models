@@ -16,6 +16,7 @@ const PROVIDER_META: Record<string, ProviderMeta> = {
   'aws-bedrock': { name: 'AWS Bedrock', description: 'Claude, Llama, Titan, Mistral on AWS' },
   'azure-ai-foundry': { name: 'Azure AI Foundry', description: 'Azure AI models' },
   'azure-open-ai': { name: 'Azure OpenAI', description: 'OpenAI models on Azure' },
+  'microsoft-foundry': { name: 'Microsoft Foundry', description: 'OpenAI and Foundry catalog models on Microsoft Foundry' },
   'cerebras': { name: 'Cerebras', description: 'Fast inference models' },
   'cohere': { name: 'Cohere', description: 'Command, Embed models' },
   'databricks': { name: 'Databricks', description: 'Databricks-hosted models' },

@@ -1,0 +1,53 @@
+costs:
+    - cache_read_input_token_cost: 6.05e-7
+      input_cost_per_token: 0.00000121
+      input_cost_per_token_batches: 6.05e-7
+      output_cost_per_token: 0.00000484
+      output_cost_per_token_batches: 0.00000242
+      region: datazone_us
+    - cache_read_input_token_cost: 6.05e-7
+      input_cost_per_token: 0.00000121
+      input_cost_per_token_batches: 6.05e-7
+      output_cost_per_token: 0.00000484
+      output_cost_per_token_batches: 0.00000242
+      region: datazone_eu
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000011
+      output_cost_per_token: 0.0000044
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: o1-mini-2024-09-12
+params:
+    - defaultValue: 65536
+      key: max_completion_tokens
+      maxValue: 65536
+      minValue: 1
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - response_format
+    - reasoning_effort
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models
+status: active
+supportedModes:
+    - chat
+thinking: true

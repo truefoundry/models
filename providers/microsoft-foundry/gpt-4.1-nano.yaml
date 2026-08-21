@@ -1,0 +1,53 @@
+costs:
+    - cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 1.1e-7
+      input_cost_per_token_batches: 6e-8
+      output_cost_per_token: 4.4e-7
+      output_cost_per_token_batches: 2.2e-7
+      region: datazone_us
+    - cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 1e-7
+      input_cost_per_token_batches: 5e-8
+      output_cost_per_token: 4e-7
+      output_cost_per_token_batches: 2e-7
+      region: "*"
+deprecationDate: "2026-10-14"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 1047576
+    max_input_tokens: 1047576
+    max_output_tokens: 32768
+    max_tokens: 32768
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: gpt-4.1-nano
+params:
+    - defaultValue: 1000
+      key: max_completion_tokens
+      maxValue: 32768
+      minValue: 1
+    - defaultValue: null
+      key: response_format
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+retirementDate: "2026-10-14"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+status: active
+supportedModes:
+    - chat
+    - responses

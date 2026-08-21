@@ -1,0 +1,38 @@
+costs:
+    - input_cost_per_audio_token: 0.00004
+      input_cost_per_token: 0.0000025
+      output_cost_per_audio_token: 0.00008
+      output_cost_per_token: 0.00001
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: chat
+model: gpt-4o-audio-mai
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
+supportedModes:
+    - chat

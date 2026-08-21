@@ -1,0 +1,31 @@
+costs:
+    - input_cost_per_audio_token: 1e-5
+      input_cost_per_token: 6e-7
+      output_cost_per_audio_token: 2e-5
+      output_cost_per_token: 2.4e-6
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: chat
+model: gpt-audio-mini
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+status: active
+supportedModes:
+    - chat

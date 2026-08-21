@@ -1,0 +1,32 @@
+costs:
+    - output_cost_per_second: 0.1
+      region: "*"
+isDeprecated: true
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - video
+mode: video
+model: sora-2-2025-10-06
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - n
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+retirementDate: "2026-07-15"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation
+    - https://azure.microsoft.com/en-us/products/ai-services/video-generation
+status: retired
+supportedModes:
+    - video
