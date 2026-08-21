@@ -32,5 +32,5 @@ jobs:
         run: |
           tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
           tfy trigger job \
-            --application-fqn "$TFY_JOB_FQN" \
+            --application-fqn "$TFY_PR_JOB_FQN" \
             --command "python job.py --pr-number $PR_NUMBER"
