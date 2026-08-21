@@ -11,6 +11,7 @@ features:
 limits:
     context_window: 262144
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -20,6 +21,11 @@ modalities:
         - text
 mode: chat
 model: bytedance-seed/seed-2.0-code
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
 provisioning: serverless
 sources:
     - https://openrouter.ai/bytedance-seed/seed-2.0-code
