@@ -1,4 +1,19 @@
+features:
+    - function_calling
+    - system_messages
+limits:
+    context_window: 131000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen3-32b
+sources:
+    - https://ai.azure.com/catalog/models/qwen3-32b
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/fine-tuning-models/
+status: active
 supportedModes:
     - chat
+thinking: true
