@@ -75,49 +75,14 @@ costs:
               - cost_per_token: 4.95e-5
                 from: 272000
           pricing_mode: cumulative
-    - cache_creation_input_token_cost: 6.875e-6
-      cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 5.5e-6
-      output_cost_per_token: 3.3e-5
-      region: ca-west-1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 1.1e-6
-                from: 272000
-          cache_write:
-              - cost_per_token: 1.375e-5
-                from: 272000
-          input:
-              - cost_per_token: 1.1e-5
-                from: 272000
-          output:
-              - cost_per_token: 4.95e-5
-                from: 272000
-          pricing_mode: cumulative
-    - cache_creation_input_token_cost: 6.875e-6
-      cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 5.5e-6
-      output_cost_per_token: 3.3e-5
-      region: ca-central-1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 1.1e-6
-                from: 272000
-          cache_write:
-              - cost_per_token: 1.375e-5
-                from: 272000
-          input:
-              - cost_per_token: 1.1e-5
-                from: 272000
-          output:
-              - cost_per_token: 4.95e-5
-                from: 272000
-          pricing_mode: cumulative
 features:
+    - function_calling
     - prompt_caching
     - system_messages
 limits:
     context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -130,10 +95,12 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - minimal
+          - none
           - low
           - medium
           - high
+          - xhigh
+          - max
       type: string
 provisioning: serverless
 sources:
