@@ -1,4 +1,20 @@
+features:
+    - system_messages
+limits:
+    context_window: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Phi-3-mini-128k-instruct-12
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Phi-3-mini-128k-instruct
+    - https://huggingface.co/microsoft/Phi-3-mini-128k-instruct
 supportedModes:
     - chat
+
+# costs: not found in official docs
+# max_output_tokens: not found in official docs
