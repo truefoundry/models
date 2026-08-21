@@ -1,2 +1,36 @@
-mode: unknown
+costs:
+    - cache_creation_input_audio_token_cost: 4e-6
+      cache_read_input_token_cost: 4e-6
+      input_cost_per_audio_token: 3.2e-5
+      input_cost_per_image: 5e-6
+      input_cost_per_token: 4e-6
+      output_cost_per_audio_token: 6.4e-5
+      output_cost_per_token: 1.6e-5
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 32000
+    max_input_tokens: 32000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+        - audio
+mode: realtime
 model: gpt-realtime-1.5
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+retirementDate: "2027-08-24"
+status: active
+supportedModes:
+    - realtime
