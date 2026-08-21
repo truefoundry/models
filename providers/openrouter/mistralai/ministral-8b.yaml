@@ -17,3 +17,8 @@ model: mistralai/ministral-8b
 params:
     - defaultValue: 0.3
       key: temperature
+provisioning: serverless
+sources:
+    - https://openrouter.ai/mistralai/ministral-8b
+supportedModes:
+    - chat
