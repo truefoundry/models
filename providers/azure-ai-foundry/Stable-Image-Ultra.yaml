@@ -1,2 +1,23 @@
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
 model: Stable-Image-Ultra
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stream
+    - stop
+# costs not found in official docs — Azure Marketplace listing requires sign-in to view pricing
+# limits not found in official docs
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners
+    - https://marketplace.microsoft.com/en-us/product/saas/stabilityai.stabilityai-siu
+status: active
+supportedModes:
+    - image
