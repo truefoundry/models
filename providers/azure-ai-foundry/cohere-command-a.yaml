@@ -1,4 +1,30 @@
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - json_output
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 8182
+    max_tokens: 8182
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: cohere-command-a
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 8182
+      minValue: 1
+provisioning: serverless
+# costs: not found in official Azure AI Foundry pricing docs (page shows "$-/1M Tokens" placeholder)
+sources:
+    - https://ai.azure.com/catalog/models/cohere-command-a
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+status: active
 supportedModes:
     - chat
