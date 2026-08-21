@@ -1,4 +1,57 @@
+costs:
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.00001
+      region: global
+    - cache_creation_input_token_cost: 0.00000275
+      cache_creation_input_token_cost_per_hour: 0.0000044
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.000011
+      region: datazone_us
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - prompt_caching
+    - cache_control
+    - structured_output
+    - assistant_prefill
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: claude-sonnet-5
+params:
+    - defaultValue: 4096
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 supportedModes:
     - chat
+thinking: true
