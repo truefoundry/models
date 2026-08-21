@@ -1,4 +1,23 @@
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: DeepSeek-V4-Flash-2026-04-23
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+provisioning: serverless
+retirementDate: "2028-02-20"
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash
+status: active
 supportedModes:
     - chat
