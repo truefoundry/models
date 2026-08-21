@@ -7,16 +7,16 @@ costs:
       tiered_pricing:
           cache_read:
               - cost_per_token: 4.4e-7
-                from: 272001
+                from: 272000
           cache_write:
               - cost_per_token: 0.0000055
-                from: 272001
+                from: 272000
           input:
               - cost_per_token: 0.0000044
-                from: 272001
+                from: 272000
           output:
               - cost_per_token: 0.0000198
-                from: 272001
+                from: 272000
           pricing_mode: cumulative
     - cache_creation_input_token_cost: 0.00000275
       cache_read_input_token_cost: 2.2e-7
@@ -26,16 +26,16 @@ costs:
       tiered_pricing:
           cache_read:
               - cost_per_token: 4.4e-7
-                from: 272001
+                from: 272000
           cache_write:
               - cost_per_token: 0.0000055
-                from: 272001
+                from: 272000
           input:
               - cost_per_token: 0.0000044
-                from: 272001
+                from: 272000
           output:
               - cost_per_token: 0.0000198
-                from: 272001
+                from: 272000
           pricing_mode: cumulative
 features:
     - function_calling
@@ -46,6 +46,8 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -54,6 +56,17 @@ modalities:
         - text
 mode: chat
 model: in.openai.gpt-5.6-terra
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-terra.html
