@@ -1,0 +1,35 @@
+costs:
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 1.4e-7
+      output_cost_per_token: 2.8e-7
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - structured_output
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: deepseek-ai/DeepSeek-V4-Flash-0731
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/deepseek-v4-flash-0731
+status: preview
+supportedModes:
+    - chat
+thinking: true

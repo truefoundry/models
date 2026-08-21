@@ -1,0 +1,31 @@
+costs:
+    - input_cost_per_token: 0.0
+      output_cost_per_token: 0.0
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 128000
+    max_output_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: liquid/lfm-2.5-2.6b:free
+params:
+    - defaultValue: 0.1
+      key: temperature
+    - defaultValue: 50
+      key: top_k
+provisioning: serverless
+sources:
+    - https://openrouter.ai/liquid/lfm-2.5-2.6b:free
+status: active
+supportedModes:
+    - chat
+thinking: true

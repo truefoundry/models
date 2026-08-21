@@ -1,0 +1,28 @@
+costs:
+    - cache_read_input_token_cost: 4e-8
+      input_cost_per_token: 3.5e-7
+      output_cost_per_token: 1.5e-6
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+limits:
+    context_window: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: meta-models/Muse-Glimmer-30B
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/models/muse-glimmer
+    - https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model
+status: active
+supportedModes:
+    - chat
+thinking: true

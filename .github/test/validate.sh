@@ -22,12 +22,12 @@ validate_file() {
     local filename=$(basename "$file")
     local definition
 
-    # Use different definition for default.yaml vs model files
-    if [ "$filename" = "default.yaml" ]; then
-        definition="#DefaultConfig"
-    else
-        definition="#ModelConfig"
-    fi
+    # Provider-scoped yamls each have their own definition; everything else is a model
+    case "$filename" in
+        default.yaml)         definition="#DefaultConfig" ;;
+        provider-config.yaml) definition="#ProviderConfig" ;;
+        *)                    definition="#ModelConfig" ;;
+    esac
 
     cat "$file" | cue vet "$MODEL_SCHEMA" "$MODEL_RULES" yaml: - -d "$definition" 2>&1
 }

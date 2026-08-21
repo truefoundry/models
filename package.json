@@ -7,6 +7,7 @@
     "validate": "./.github/test/validate.sh",
     "generate:types": "ts-node --project .github/scripts/tsconfig.json .github/scripts/generate-types.ts",
     "build:json": "ts-node --project .github/scripts/tsconfig.json .github/scripts/build-unified-json.ts",
+    "build:provider-configs": "ts-node --project .github/scripts/tsconfig.json .github/scripts/build-provider-configs.ts",
     "lint:yaml": "yamllint -c .yamllint.yml providers/",
     "sort:yaml": "ts-node --project .github/scripts/tsconfig.json .github/scripts/sort-yaml-keys.ts",
     "lint:yaml:fix": "npm run sort:yaml && prettier --write --log-level silent --tab-width 4 --print-width 256 'providers/**/*.yaml'",

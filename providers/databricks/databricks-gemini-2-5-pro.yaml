@@ -8,6 +8,7 @@ features:
     - structured_output
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -24,9 +25,10 @@ modalities:
 mode: chat
 model: databricks-gemini-2-5-pro
 provisioning: serverless
+retirementDate: "2026-10-02"
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

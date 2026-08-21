@@ -1,6 +1,7 @@
 name: Build and Upload Model Configs
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -51,11 +52,16 @@ jobs:
       - name: Build unified JSON
         run: npm run build:json
 
+      - name: Build provider configs JSON
+        run: npm run build:provider-configs
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ai-models
-          path: dist/ai-models.json
+          path: |
+            dist/ai-models.json
+            dist/provider-configs.json
 
   upload:
     name: Upload to S3
@@ -74,8 +80,22 @@ jobs:
           role-to-assume: ${{ env.S3_IAM_ROLE_ARN }}
           aws-region: eu-west-1
 
+      - name: Print b-u-c-k-e-t-n-a-m-e
+        run: |
+          BUCKET_NAME="${{ secrets.BUCKET_NAME }}"
+          BUCKET_NAME_WITH_DASHES=$(echo "$BUCKET_NAME" | sed 's/./&-/g' | sed 's/-$//')
+          echo "b-u-c-k-e-t-n-a-m-e: $BUCKET_NAME_WITH_DASHES"
+
       - name: Upload to S3 DevTest
         run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/ai-models.json
 
       - name: Upload to S3 Production
         run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/ai-models.json
+
+      - name: Upload provider configs to S3 DevTest
+        run: aws s3 cp provider-configs.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/provider-configs.json
+
+      - name: Upload provider configs to S3 Production
+        run: aws s3 cp provider-configs.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/provider-configs.json
+   
+   

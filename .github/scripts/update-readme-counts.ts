@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { NON_MODEL_YAML } from './constants';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const PROVIDERS_DIR = path.join(REPO_ROOT, 'providers');
@@ -44,7 +45,7 @@ function countModelFiles(dir: string): number {
     } else if (
       entry.isFile() &&
       entry.name.endsWith('.yaml') &&
-      entry.name !== 'default.yaml'
+      !NON_MODEL_YAML.has(entry.name)
     ) {
       count++;
     }

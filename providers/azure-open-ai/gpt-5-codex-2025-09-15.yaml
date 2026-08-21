@@ -29,6 +29,14 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
 retirementDate: "2027-03-17"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

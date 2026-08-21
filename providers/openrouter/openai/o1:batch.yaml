@@ -1,0 +1,30 @@
+costs:
+    - cache_read_input_token_cost: 3.75e-6
+      input_cost_per_token: 7.5e-6
+      output_cost_per_token: 3e-5
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 200000
+    max_output_tokens: 100000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: openai/o1:batch
+provisioning: serverless
+sources:
+    - https://openrouter.ai/openai/o1
+status: active
+supportedModes:
+    - chat
+thinking: true

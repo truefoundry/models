@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - json_output
+    - structured_output
 limits:
     context_window: 131072
 modalities:
@@ -16,7 +17,6 @@ mode: chat
 model: google/gemma-3-4b-it
 provisioning: serverless
 sources:
-    - https://openrouter.ai/google/gemma-3-4b-it/api
     - https://openrouter.ai/google/gemma-3-4b-it
 status: active
 supportedModes:

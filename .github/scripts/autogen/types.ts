@@ -14,6 +14,10 @@ export interface components {
         AWSRegion: "af-south-1" | "ap-east-1" | "ap-east-2" | "ap-northeast-1" | "ap-northeast-2" | "ap-northeast-3" | "ap-south-1" | "ap-south-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-southeast-3" | "ap-southeast-4" | "ap-southeast-5" | "ap-southeast-6" | "ap-southeast-7" | "ca-central-1" | "ca-west-1" | "cn-north-1" | "cn-northwest-1" | "eu-central-1" | "eu-central-2" | "eu-north-1" | "eu-south-1" | "eu-south-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "il-central-1" | "me-central-1" | "me-south-1" | "mx-central-1" | "sa-east-1" | "us-east-1" | "us-east-2" | "us-gov-east-1" | "us-gov-west-1" | "us-west-1" | "us-west-2";
         /** @enum {string} */
         AzureRegion: "datazone_eu" | "datazone_us" | "global";
+        /** @description One anthropic-beta column: clientToken -> providerToken, or null to drop */
+        BetaColumn: {
+            [key: string]: string | null;
+        };
         Cost: {
             cache_creation_input_audio_token_cost?: number;
             cache_creation_input_token_cost?: number;
@@ -170,6 +174,16 @@ export interface components {
             from: number;
         };
         /**
+         * @description Schema for provider-config.yaml files (provider-scoped, not per-model).
+         *     Every field is optional so future provider-scoped settings can slot in.
+         */
+        ProviderConfig: {
+            /** @description anthropic-beta translation keyed by provider flavor (e.g. invoke/converse, or default) */
+            anthropic_betas?: {
+                [key: string]: components["schemas"]["BetaColumn"];
+            };
+        };
+        /**
          * @description How the model is made available to callers
          * @enum {string}
          */
@@ -213,6 +227,7 @@ export type operations = Record<string, never>;
 
 export type AWSRegion = components['schemas']['AWSRegion'];
 export type AzureRegion = components['schemas']['AzureRegion'];
+export type BetaColumn = components['schemas']['BetaColumn'];
 export type Cost = components['schemas']['Cost'];
 export type CostWithRegion = components['schemas']['CostWithRegion'];
 export type DefaultConfig = components['schemas']['DefaultConfig'];
@@ -231,6 +246,7 @@ export type ModelParamKey = components['schemas']['ModelParamKey'];
 export type ModelParamType = components['schemas']['ModelParamType'];
 export type PricingMode = components['schemas']['PricingMode'];
 export type PricingTier = components['schemas']['PricingTier'];
+export type ProviderConfig = components['schemas']['ProviderConfig'];
 export type Provisioning = components['schemas']['Provisioning'];
 export type Status = components['schemas']['Status'];
 export type TieredPricing = components['schemas']['TieredPricing'];

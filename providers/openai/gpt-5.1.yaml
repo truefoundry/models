@@ -46,8 +46,6 @@ params:
       type: string
 provisioning: serverless
 removeParams:
-    - temperature
-    - top_p
     - "n"
     - max_tokens
 sources:
@@ -55,4 +53,5 @@ sources:
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

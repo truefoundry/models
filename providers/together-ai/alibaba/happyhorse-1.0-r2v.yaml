@@ -1,6 +1,5 @@
 costs:
-    - input_cost_per_token: 0.0 # not found in official docs (Together AI changelog lists alibaba/happyhorse-1.0-r2v as serverless but no published price)
-      output_cost_per_token: 0.0 # not found in official docs
+    - input_cost_per_request: 0.24
       region: "*"
 modalities:
     input:
@@ -11,6 +10,8 @@ modalities:
 mode: video
 model: alibaba/happyhorse-1.0-r2v
 provisioning: serverless
+sources:
+    - https://www.together.ai/models/happyhorse-1-0-r2v
 status: active
 supportedModes:
     - video

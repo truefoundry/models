@@ -41,11 +41,17 @@ params:
       minValue: 1
     - defaultValue: null
       key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
       type: string
 provisioning: serverless
 removeParams:
     - parallel_tool_calls
-retirementDate: "2027-03-06"
+retirementDate: "2027-09-07"
 status: active
 supportedModes:
     - responses

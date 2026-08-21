@@ -1,0 +1,30 @@
+costs:
+    - input_cost_per_token: 5e-7
+      output_cost_per_token: 0.0000015
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+limits:
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: system.ai.llama-4-maverick
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/score-foundation-models
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling
+    - https://www.databricks.com/product/pricing/foundation-model-serving
+status: active
+supportedModes:
+    - chat

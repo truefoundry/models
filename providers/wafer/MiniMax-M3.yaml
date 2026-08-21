@@ -1,17 +1,17 @@
 costs:
-    - cache_read_input_token_cost: 6e-8
-      input_cost_per_token: 3e-7
-      output_cost_per_token: 1.2e-6
+    - cache_read_input_token_cost: 7e-8
+      input_cost_per_token: 3.3e-7
+      output_cost_per_token: 1.32e-6
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 1.2e-7
+              - cost_per_token: 1.3e-7
                 from: 512000
           input:
-              - cost_per_token: 6e-7
+              - cost_per_token: 6.6e-7
                 from: 512000
           output:
-              - cost_per_token: 2.4e-6
+              - cost_per_token: 2.64e-6
                 from: 512000
 features:
     - function_calling
@@ -19,8 +19,8 @@ features:
     - system_messages
 limits:
     context_window: 1048576
-    max_output_tokens: 512000
-    max_tokens: 512000
+    max_output_tokens: 524288
+    max_tokens: 524288
 modalities:
     input:
         - text
@@ -38,6 +38,8 @@ sources:
     - https://www.minimax.io/blog/minimax-m3
     - https://platform.minimax.io/docs/guides/models-intro
     - https://platform.minimax.io/docs/api-reference/text-chat-openai.md
+    - https://pass.wafer.ai/v1/models
+    - https://app.wafer.ai/models
 status: active
 supportedModes:
     - chat

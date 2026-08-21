@@ -1,0 +1,92 @@
+costs:
+    - cache_creation_input_token_cost_per_hour: 0.0000011
+      cache_read_input_token_cost: 1.65e-7
+      input_cost_per_token: 0.00000165
+      input_cost_per_token_batches: 8.25e-7
+      output_cost_per_token: 0.0000099
+      output_cost_per_token_batches: 0.00000495
+      region: us
+    - cache_creation_input_token_cost_per_hour: 0.000001
+      cache_read_input_token_cost: 1.5e-7
+      input_cost_per_token: 0.0000015
+      input_cost_per_token_batches: 7.5e-7
+      output_cost_per_token: 0.000009
+      output_cost_per_token_batches: 0.0000045
+      region: global
+    - cache_creation_input_token_cost_per_hour: 0.0000011
+      cache_read_input_token_cost: 1.65e-7
+      input_cost_per_token: 0.00000165
+      input_cost_per_token_batches: 8.25e-7
+      output_cost_per_token: 0.0000099
+      output_cost_per_token_batches: 0.00000495
+      region: europe-west2
+    - cache_creation_input_token_cost_per_hour: 0.0000011
+      cache_read_input_token_cost: 1.65e-7
+      input_cost_per_token: 0.00000165
+      input_cost_per_token_batches: 8.25e-7
+      output_cost_per_token: 0.0000099
+      output_cost_per_token_batches: 0.00000495
+      region: eu
+    - cache_creation_input_token_cost_per_hour: 0.0000011
+      cache_read_input_token_cost: 1.65e-7
+      input_cost_per_token: 0.00000165
+      input_cost_per_token_batches: 8.25e-7
+      output_cost_per_token: 0.0000099
+      output_cost_per_token_batches: 0.00000495
+      region: asia-southeast1
+    - cache_creation_input_token_cost_per_hour: 0.0000011
+      cache_read_input_token_cost: 1.65e-7
+      input_cost_per_token: 0.00000165
+      input_cost_per_token_batches: 8.25e-7
+      output_cost_per_token: 0.0000099
+      output_cost_per_token_batches: 0.00000495
+      region: asia-south1
+    - cache_creation_input_token_cost_per_hour: 0.0000011
+      cache_read_input_token_cost: 1.65e-7
+      input_cost_per_token: 0.00000165
+      input_cost_per_token_batches: 8.25e-7
+      output_cost_per_token: 0.0000099
+      output_cost_per_token_batches: 0.00000495
+      region: asia-northeast1
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - code_execution
+    - json_output
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+        - pdf
+    output:
+        - text
+mode: chat
+model: gemini-3.5-flash
+params:
+    - defaultValue: 65536
+      key: max_tokens
+      maxValue: 65536
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash
+    - https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash
+    - https://ai.google.dev/gemini-api/docs/pricing
+    - https://deepmind.google/models/gemini/flash/
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-5-flash
+status: active
+supportedModes:
+    - chat
+thinking: true

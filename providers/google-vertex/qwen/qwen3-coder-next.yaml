@@ -1,10 +1,11 @@
-# costs: not found in official Vertex AI docs for this model
+deprecationDate: "2026-07-21"
 features:
     - function_calling
     - structured_output
     - json_output
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 262144
     max_output_tokens: 65536
@@ -24,10 +25,11 @@ params:
       maxValue: 65536
       minValue: 1
 provisioning: serverless
+retirementDate: "2026-10-21"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/qwen/qwen3-coder
     - https://openrouter.ai/qwen/qwen3-coder-next/api
-status: active
+status: deprecated
 supportedModes:
     - chat
