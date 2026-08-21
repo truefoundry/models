@@ -1,4 +1,28 @@
+features:
+    - function_calling
+    - system_messages
+limits:
+    context_window: 128000
+    max_output_tokens: 64000
+    max_tokens: 64000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: Cohere-command-a-plus-05-2026
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
+provisioning: provisioned
+sources:
+    - https://ai.azure.com/catalog/models/Cohere-command-a-plus-05-2026
+    - https://docs.cohere.com/docs/command-a-plus
+status: preview
 supportedModes:
     - chat
+thinking: true
