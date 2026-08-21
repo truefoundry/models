@@ -1,4 +1,31 @@
+features:
+    - json_output
+    - system_messages
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: DeepSeek-V3.2
+params:
+    - defaultValue: 4096
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V3.2
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
+status: active
 supportedModes:
     - chat
+thinking: true
+
+# costs: not found in official docs (Azure Foundry DeepSeek pricing page shows "$-" placeholders)
