@@ -1,2 +1,53 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - json_output
+limits:
+    context_window: 500000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: xai/grok-4.6
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+provisioning: serverless
+sources:
+    - https://x.ai/news/grok-4-6-vertex-ai
+    - https://docs.x.ai/developers/grok-4-6
+    - https://docs.x.ai/developers/models
+    - https://docs.x.ai/developers/community/google-cloud-vertex-ai
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok
+status: active
+supportedModes:
+    - chat
+thinking: true
