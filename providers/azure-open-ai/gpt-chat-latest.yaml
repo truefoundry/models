@@ -1,4 +1,25 @@
+features:
+    - function_calling
+    - parallel_function_calling
+    - structured_output
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: gpt-chat-latest
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+retirementDate: "2026-12-02"
+status: preview
 supportedModes:
     - chat
+    - responses
+thinking: true
