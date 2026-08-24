@@ -43,3 +43,19 @@ anthropic_betas:
         token-efficient-tools-2025-02-19: token-efficient-tools-2025-02-19
         tool-examples-2025-10-29: tool-examples-2025-10-29
         tool-search-tool-2025-10-19: tool-search-tool-2025-10-19
+server_tools:
+    # Converse does not support Anthropic server-side tool search.
+    converse:
+        tool_search_tool_bm25_20251119:
+            type: null
+        tool_search_tool_regex_20251119:
+            type: null
+    # InvokeModel expects the unversioned regex type and does not support BM25.
+    invoke:
+        tool_search_tool_bm25_20251119:
+            type: null
+        tool_search_tool_regex_20251119:
+            betas:
+                - tool-examples-2025-10-29
+                - tool-search-tool-2025-10-19
+            type: tool_search_tool_regex

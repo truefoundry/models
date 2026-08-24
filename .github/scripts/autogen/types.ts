@@ -182,12 +182,25 @@ export interface components {
             anthropic_betas?: {
                 [key: string]: components["schemas"]["BetaColumn"];
             };
+            /** @description server-tool translation keyed by provider flavor (e.g. invoke/converse, or default) */
+            server_tools?: {
+                [key: string]: components["schemas"]["ServerToolColumn"];
+            };
         };
         /**
          * @description How the model is made available to callers
          * @enum {string}
          */
         Provisioning: "serverless" | "provisioned";
+        /** @description One server-tool column: client tool type -> provider mapping */
+        ServerToolColumn: {
+            [key: string]: components["schemas"]["ServerToolMapping"];
+        };
+        /** @description One server-tool mapping. A null type drops the tool; betas are added when it survives. */
+        ServerToolMapping: {
+            betas?: string[];
+            type: string | null;
+        };
         /**
          * @description Lifecycle status of a model
          * @enum {string}
@@ -248,6 +261,8 @@ export type PricingMode = components['schemas']['PricingMode'];
 export type PricingTier = components['schemas']['PricingTier'];
 export type ProviderConfig = components['schemas']['ProviderConfig'];
 export type Provisioning = components['schemas']['Provisioning'];
+export type ServerToolColumn = components['schemas']['ServerToolColumn'];
+export type ServerToolMapping = components['schemas']['ServerToolMapping'];
 export type Status = components['schemas']['Status'];
 export type TieredPricing = components['schemas']['TieredPricing'];
 export type ToolCost = components['schemas']['ToolCost'];
