@@ -26,13 +26,15 @@ mode: responses
 model: gpt-5.3-codex-2026-02-24
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-08-24"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

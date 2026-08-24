@@ -24,6 +24,10 @@ modalities:
 mode: responses
 model: gpt-5.1-codex-max
 params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -34,6 +38,8 @@ params:
           - xhigh
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-05-18"
 status: active
 supportedModes:

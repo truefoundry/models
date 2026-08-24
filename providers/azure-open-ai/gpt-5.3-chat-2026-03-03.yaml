@@ -27,10 +27,12 @@ mode: chat
 model: gpt-5.3-chat-2026-03-03
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 16384
       minValue: 1
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2026-06-29"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

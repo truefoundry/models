@@ -27,7 +27,7 @@ mode: chat
 model: gpt-5.4-mini-2026-03-17
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
     - defaultValue: none
@@ -40,6 +40,8 @@ params:
           - xhigh
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-09-21"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
