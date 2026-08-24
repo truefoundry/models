@@ -26,10 +26,12 @@ mode: responses
 model: gpt-5.2-codex-2026-01-14
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-07-13"
 status: active
 supportedModes:
