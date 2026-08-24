@@ -1,0 +1,36 @@
+costs:
+    - input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.00001
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - system_messages
+    - json_output
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 4000
+    max_tokens: 4000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: Cohere-command-r-plus-08-2024
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 4000
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://docs.cohere.com/docs/command-r-plus
+    - https://docs.cohere.com/docs/models
+    - https://docs.cohere.com/docs/deprecations
+    - https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cohere.cohere-command-r-plus-08-2024-offer
+status: active
+supportedModes:
+    - chat
