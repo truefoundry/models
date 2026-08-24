@@ -1,0 +1,30 @@
+costs:
+    - output_cost_per_second: 0.1
+      region: "*"
+isDeprecated: true
+messages:
+    options: []
+modalities:
+    input:
+        - text
+    output:
+        - video
+mode: video
+model: aoai-sora-2025-02-28
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - n
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/video-generation-quickstart
+status: retired
+supportedModes:
+    - video

@@ -1,0 +1,65 @@
+costs:
+    - cache_read_input_token_cost: 6.05e-7
+      input_cost_per_token: 0.00000121
+      input_cost_per_token_batches: 6.05e-7
+      output_cost_per_token: 0.00000484
+      output_cost_per_token_batches: 0.00000242
+      region: datazone_us
+    - cache_read_input_token_cost: 6.05e-7
+      input_cost_per_token: 0.00000121
+      input_cost_per_token_batches: 6.05e-7
+      output_cost_per_token: 0.00000484
+      output_cost_per_token_batches: 0.00000242
+      region: datazone_eu
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000011
+      output_cost_per_token: 0.0000044
+      region: "*"
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+    - prompt_caching
+    - tool_choice
+limits:
+    context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: o3-mini-alpha-2024-12-17
+params:
+    - defaultValue: 100000
+      key: max_completion_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+    - defaultValue: 100000
+      key: max_tokens
+      maxValue: 100000
+      minValue: 1
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models
+status: preview
+supportedModes:
+    - chat
+thinking: true

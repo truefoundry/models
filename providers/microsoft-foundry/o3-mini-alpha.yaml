@@ -1,0 +1,30 @@
+deprecationDate: "2026-01-31"
+features:
+    - structured_output
+    - function_calling
+    - tool_choice
+isDeprecated: true
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: o3-mini-alpha
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      type: string
+removeParams:
+    - temperature
+    - top_p
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models
+supportedModes:
+    - chat
+thinking: true

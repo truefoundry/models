@@ -1,0 +1,16 @@
+costs:
+    - input_cost_per_second: 0.0002833333333333333
+      region: "*"
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
+model: gpt-realtime-whisper-2-2026-07-27
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-whisper
+    - https://ai.azure.com/catalog/models/gpt-realtime-whisper
+supportedModes:
+    - audio_transcription

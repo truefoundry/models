@@ -1,0 +1,26 @@
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+mode: audio_transcription
+model: gpt-transcribe-2026-07-28
+provisioning: serverless
+removeParams:
+    - stop
+    - top_p
+    - "n"
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+    - response_format
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-transcribe
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+status: active
+supportedModes:
+    - audio_transcription
+
+# costs: not found in official Azure OpenAI docs — Azure pricing page does not list gpt-transcribe pricing
+# limits: not found in official Azure OpenAI docs for this snapshot

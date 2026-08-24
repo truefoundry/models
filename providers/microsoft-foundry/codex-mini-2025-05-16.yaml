@@ -1,0 +1,54 @@
+costs:
+    - cache_read_input_token_cost: 3.75e-7
+      input_cost_per_token: 1.5e-6
+      output_cost_per_token: 6e-6
+      region: "*"
+deprecationDate: "2026-11-15"
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+isDeprecated: true
+limits:
+    max_input_tokens: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: responses
+model: codex-mini-2025-05-16
+params:
+    - defaultValue: 100000
+      key: max_completion_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - n
+    - stop
+    - parallel_tool_calls
+retirementDate: "2026-11-15"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+status: deprecated
+supportedModes:
+    - responses
+thinking: true

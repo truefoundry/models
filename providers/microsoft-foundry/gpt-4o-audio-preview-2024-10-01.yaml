@@ -1,0 +1,41 @@
+costs:
+    - cache_creation_input_audio_token_cost: 2.2e-5
+      cache_read_input_token_cost: 2.75e-6
+      input_cost_per_audio_token: 0.00011
+      input_cost_per_token: 5.5e-6
+      output_cost_per_audio_token: 0.00022
+      output_cost_per_token: 2.2e-5
+      region: datazone_eu
+    - cache_creation_input_audio_token_cost: 2.2e-5
+      cache_read_input_token_cost: 2.75e-6
+      input_cost_per_audio_token: 0.00011
+      input_cost_per_token: 5.5e-6
+      output_cost_per_audio_token: 0.00022
+      output_cost_per_token: 2.2e-5
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+isDeprecated: true
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: chat
+model: gpt-4o-audio-preview-2024-10-01
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/legacy-models
+status: retired
+supportedModes:
+    - chat

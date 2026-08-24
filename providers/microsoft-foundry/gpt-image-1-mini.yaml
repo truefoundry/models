@@ -1,0 +1,29 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_image_token: 0.0000025
+      input_cost_per_token: 0.000002
+      output_cost_per_image_token: 0.000008
+      region: "*"
+features:
+    - prompt_caching
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: gpt-image-1-mini
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - stop
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+retirementDate: "2027-04-07"
+sources:
+    - https://developers.openai.com/docs/models/gpt-image-1-mini
+status: active
+supportedModes:
+    - image
