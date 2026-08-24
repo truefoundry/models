@@ -1,0 +1,19 @@
+features:
+    - function_calling
+    - system_messages
+limits:
+    context_window: 131000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: qwen-3-32b
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/qwen3-32b
+status: preview
+supportedModes:
+    - chat
+thinking: true
