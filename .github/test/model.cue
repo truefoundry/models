@@ -71,22 +71,22 @@ package model
 // One anthropic-beta column: clientToken -> providerToken, or null to drop
 #BetaColumn: {[string]: string | null}
 
-// One server-tool mapping. A null type drops the tool; betas are added when it survives.
-#ServerToolMapping: {
+// One Anthropic server-tool mapping. A null type drops the tool; betas are added when it survives.
+#AnthropicServerToolMapping: {
 	type:   string | null
 	betas?: [...string]
 }
 
-// One server-tool column: client tool type -> provider mapping
-#ServerToolColumn: {[string]: #ServerToolMapping}
+// One Anthropic server-tool column: client tool type -> provider mapping
+#AnthropicServerToolColumn: {[string]: #AnthropicServerToolMapping}
 
 // Schema for provider-config.yaml files (provider-scoped, not per-model).
 // Every field is optional so future provider-scoped settings can slot in.
 #ProviderConfig: {
 	// anthropic-beta translation keyed by provider flavor (e.g. invoke/converse, or default)
 	anthropic_betas?: {[string]: #BetaColumn}
-	// server-tool translation keyed by provider flavor (e.g. invoke/converse, or default)
-	server_tools?: {[string]: #ServerToolColumn}
+	// Anthropic server-tool translation keyed by provider flavor (e.g. invoke/converse, or default)
+	anthropic_server_tools?: {[string]: #AnthropicServerToolColumn}
 }
 
 // ============================================================
