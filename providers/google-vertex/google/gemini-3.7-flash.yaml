@@ -1,12 +1,27 @@
 costs:
+    # Introductory pricing through 2026-12-31; rates increase 2x starting 2027-01-01.
+    # Non-global (us/eu) PayGo is ~10% above global per Vertex list pricing.
+    - cache_creation_input_token_cost_per_hour: 5.5e-7
+      cache_read_input_token_cost: 8.25e-8
+      input_cost_per_token: 8.25e-7
+      input_cost_per_token_batches: 4.125e-7
+      output_cost_per_token: 4.125e-6
+      output_cost_per_token_batches: 2.0625e-6
+      region: us
     - cache_creation_input_token_cost_per_hour: 5e-7
       cache_read_input_token_cost: 7.5e-8
-      # Introductory pricing through 2026-12-31; rates increase 2x starting 2027-01-01.
       input_cost_per_token: 7.5e-7
       input_cost_per_token_batches: 3.75e-7
       output_cost_per_token: 3.75e-6
       output_cost_per_token_batches: 1.875e-6
       region: global
+    - cache_creation_input_token_cost_per_hour: 5.5e-7
+      cache_read_input_token_cost: 8.25e-8
+      input_cost_per_token: 8.25e-7
+      input_cost_per_token_batches: 4.125e-7
+      output_cost_per_token: 4.125e-6
+      output_cost_per_token_batches: 2.0625e-6
+      region: eu
 features:
     - function_calling
     - parallel_function_calling
@@ -45,10 +60,11 @@ params:
           - high
 provisioning: serverless
 sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash
+    - https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://deepmind.google/models/model-cards/gemini-3-7-flash/
-    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash
 status: active
 supportedModes:
     - chat
