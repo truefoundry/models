@@ -1,2 +1,31 @@
-mode: unknown
+costs:
+    - region: global # pricing not found in official docs (model is Preview and not yet listed on the Vertex AI pricing page)
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - system_messages
+limits:
+    context_window: 1000000
+    max_output_tokens: 64000
+    max_tokens: 64000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: zai-org/glm-5.2-maas
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-52
+    - https://docs.z.ai/guides/llm/glm-5.2
+status: preview
+supportedModes:
+    - chat
+thinking: true
