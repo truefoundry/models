@@ -1,0 +1,28 @@
+costs:
+    - input_cost_per_token: 7.5e-7
+      output_cost_per_token: 3.75e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+limits:
+    context_window: 1000000
+    max_tokens: 1000000
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+        - pdf
+    output:
+        - text
+mode: chat
+model: google/gemini-3.7-flash
+provisioning: serverless
+sources:
+    - https://deepinfra.com/google/gemini-3.7-flash
+status: active
+supportedModes:
+    - chat
+thinking: true
