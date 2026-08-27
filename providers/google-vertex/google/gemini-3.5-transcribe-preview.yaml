@@ -1,2 +1,25 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      region: global
+limits:
+    context_window: 96000
+    max_input_tokens: 96000
+    max_output_tokens: 32000
+    max_tokens: 32000
+modalities:
+    input:
+        - audio
+        - text
+    output:
+        - text
+mode: audio_transcription
 model: google/gemini-3.5-transcribe-preview
+provisioning: serverless
+sources:
+    - https://deepmind.google/models/model-cards/gemini-3-5-audio/
+    - https://ai.google.dev/gemini-api/docs/transcribe
+    - https://ai.google.dev/gemini-api/docs/pricing
+status: preview
+supportedModes:
+    - audio_transcription
