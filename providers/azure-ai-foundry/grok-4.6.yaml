@@ -1,4 +1,32 @@
+features:
+    - function_calling
+    - tool_choice
+    - json_output
+    - system_messages
+limits:
+    context_window: 200000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: grok-4.6
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/grok-4.6
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/grok/
+status: preview
 supportedModes:
     - chat
+
+# costs: not found in official docs — grok-4.6 is in Preview and pricing is not yet published on the Azure Foundry Grok pricing page
