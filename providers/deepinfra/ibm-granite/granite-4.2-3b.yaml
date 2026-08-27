@@ -1,0 +1,12 @@
+costs:
+    - cache_read_input_token_cost: 7.5e-9
+      input_cost_per_token: 3e-8
+      output_cost_per_token: 1.2e-7
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 131072
+    max_tokens: 131072
+mode: unknown
+model: ibm-granite/granite-4.2-3b
