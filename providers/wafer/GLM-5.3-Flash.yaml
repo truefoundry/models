@@ -1,4 +1,25 @@
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - json_output
+    - system_messages
 limits:
     context_window: 1048576
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
 model: GLM-5.3-Flash
+provisioning: serverless
+sources:
+    - https://docs.z.ai/guides/vlm/glm-5.3-flash
+    - https://docs.wafer.ai/serverless/setup
+status: active
+supportedModes:
+    - chat
+thinking: true
