@@ -1,0 +1,11 @@
+costs:
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 5e-7
+      region: "*"
+limits:
+    context_window: 1048575
+mode: unknown
+model: zai-org/GLM-5.3-Flash
+supportedModes:
+    - chat
