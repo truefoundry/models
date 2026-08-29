@@ -24,4 +24,10 @@ model: moonshotai/kimi-k3:batch
 params:
     - defaultValue: 0.95
       key: top_p
+provisioning: serverless
+sources:
+    - https://openrouter.ai/moonshotai/kimi-k3:batch
+status: active
+supportedModes:
+    - chat
 thinking: true
