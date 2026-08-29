@@ -1,0 +1,25 @@
+costs:
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 1.5e-7
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 262144
+    max_output_tokens: 209715
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: mistralai/ministral-8b-2512:batch
+params:
+    - defaultValue: 0.3
+      key: temperature
