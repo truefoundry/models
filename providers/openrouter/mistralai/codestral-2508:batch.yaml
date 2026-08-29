@@ -23,3 +23,8 @@ model: mistralai/codestral-2508:batch
 params:
     - defaultValue: 0.3
       key: temperature
+provisioning: serverless
+sources:
+    - https://openrouter.ai/mistralai/codestral-2508:batch
+supportedModes:
+    - chat
