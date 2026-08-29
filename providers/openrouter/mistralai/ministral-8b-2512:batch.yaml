@@ -23,3 +23,9 @@ model: mistralai/ministral-8b-2512:batch
 params:
     - defaultValue: 0.3
       key: temperature
+provisioning: serverless
+sources:
+    - https://openrouter.ai/mistralai/ministral-8b-2512:batch
+status: active
+supportedModes:
+    - chat
