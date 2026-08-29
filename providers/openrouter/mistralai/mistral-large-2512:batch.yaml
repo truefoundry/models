@@ -24,3 +24,8 @@ model: mistralai/mistral-large-2512:batch
 params:
     - defaultValue: 0.0645
       key: temperature
+provisioning: serverless
+sources:
+    - https://openrouter.ai/mistralai/mistral-large-2512
+supportedModes:
+    - chat
