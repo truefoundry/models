@@ -24,3 +24,8 @@ model: mistralai/mistral-medium-3.1:batch
 params:
     - defaultValue: 0.3
       key: temperature
+provisioning: serverless
+sources:
+    - https://openrouter.ai/mistralai/mistral-medium-3.1:batch
+supportedModes:
+    - chat
