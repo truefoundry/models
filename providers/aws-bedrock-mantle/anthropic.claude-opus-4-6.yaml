@@ -1,5 +1,31 @@
 costs:
-    - region: us-west-2
-    - region: us-east-2
-mode: unknown
+    - region: us-west-2 # bedrock-mantle pricing not published for this model
+    - region: us-east-2 # bedrock-mantle pricing not published for this model
+features:
+    - prompt_caching
+    - cache_control
+    - function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: anthropic.claude-opus-4-6
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-6.html
+    - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
+supportedModes:
+    - chat
+thinking: true
