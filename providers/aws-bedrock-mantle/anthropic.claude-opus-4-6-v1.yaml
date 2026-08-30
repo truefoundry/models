@@ -1,5 +1,28 @@
 costs:
     - region: us-west-2
     - region: us-east-2
-mode: unknown
+features:
+    - function_calling
+    - prompt_caching
+    - cache_control
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: anthropic.claude-opus-4-6-v1
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-6.html
+supportedModes:
+    - chat
+thinking: true
