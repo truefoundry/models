@@ -1,0 +1,35 @@
+costs:
+    - cache_read_input_token_cost: 2.5e-7
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 6e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+limits:
+    context_window: 256000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: Qwen/Qwen3.8-2.4T-A95B
+params:
+    - defaultValue: xhigh
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/qwen3-8-max
+status: active
+supportedModes:
+    - chat
+thinking: true
