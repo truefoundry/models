@@ -1,4 +1,38 @@
+costs:
+    - cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      output_cost_per_token: 0.0000165
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - system_messages
+    - json_output
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: Kimi-K3
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/FW-Kimi-K3
+    - https://learn.microsoft.com/en-us/answers/questions/5968433/what-is-the-pricing-for-the-fw-kimi-k3-by-firework
+    - https://fireworks.ai/models/fireworks/kimi-k3
+status: active
 supportedModes:
     - chat
+thinking: true
