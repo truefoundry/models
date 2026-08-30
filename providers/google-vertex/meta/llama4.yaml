@@ -6,8 +6,10 @@ costs:
       region: us-east5
 features:
     - function_calling
+    - parallel_function_calling
     - structured_output
     - system_messages
+    - tool_choice
 limits:
     context_window: 524288
     max_output_tokens: 8192
@@ -30,6 +32,7 @@ sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama/llama4-maverick
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/llama/llama4-scout
+    - https://developers.googleblog.com/en/llama-4-ga-maas-vertex-ai/
 status: active
 supportedModes:
     - chat

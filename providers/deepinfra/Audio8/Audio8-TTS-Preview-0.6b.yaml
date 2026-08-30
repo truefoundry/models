@@ -1,0 +1,16 @@
+costs:
+    - input_cost_per_character: 0.000005
+      region: "*"
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - audio
+mode: text_to_speech
+model: Audio8/Audio8-TTS-Preview-0.6b
+sources:
+    - https://deepinfra.com/Audio8/Audio8-TTS-Preview-0.6b
+status: preview
+supportedModes:
+    - text_to_speech
