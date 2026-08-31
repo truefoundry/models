@@ -2,9 +2,28 @@ costs:
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 4.7e-7
       region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - json_output
+    - system_messages
 limits:
     context_window: 1000000
-mode: unknown
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
 model: Qwen/Qwen3.8-Flash
+provisioning: serverless
+sources:
+    - https://openrouter.ai/qwen/qwen3.8-flash
 supportedModes:
     - chat
+thinking: true
