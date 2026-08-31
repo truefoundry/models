@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6e-7
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 131072
+    max_output_tokens: 117964
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: openai/gpt-oss-120b:batch
+provisioning: serverless
+sources:
+    - https://openrouter.ai/openai/gpt-oss-120b:batch
+supportedModes:
+    - chat
+thinking: true
