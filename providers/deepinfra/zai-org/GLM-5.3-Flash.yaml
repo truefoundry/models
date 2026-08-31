@@ -18,9 +18,15 @@ modalities:
         - text
 mode: chat
 model: zai-org/GLM-5.3-Flash
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
-removeParams:
-    - reasoning_effort
 sources:
     - https://deepinfra.com/zai-org/GLM-5.3-Flash
 status: active
