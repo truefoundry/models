@@ -1,0 +1,17 @@
+limits:
+    context_window: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: Phi-3.5-vision-instruct-2
+provisioning: serverless
+sources:
+    - https://huggingface.co/microsoft/Phi-3.5-vision-instruct
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-from-partners
+status: active
+supportedModes:
+    - chat
