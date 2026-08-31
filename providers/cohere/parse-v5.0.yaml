@@ -1,0 +1,23 @@
+limits:
+    context_window: 8192
+modalities:
+    input:
+        - image
+        - pdf
+        - doc
+    output:
+        - text
+mode: ocr
+model: parse-v5.0
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stream
+    - reasoning_effort
+sources:
+    - https://docs.cohere.com/docs/parse
+    - https://docs.cohere.com/reference/parse
+status: active
+supportedModes:
+    - ocr
