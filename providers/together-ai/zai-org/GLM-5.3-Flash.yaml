@@ -18,9 +18,15 @@ modalities:
         - text
 mode: chat
 model: zai-org/GLM-5.3-Flash
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
-removeParams:
-    - reasoning_effort
 sources:
     - https://www.together.ai/models/glm-5-3-flash
     - https://docs.z.ai/guides/vlm/glm-5.3-flash
