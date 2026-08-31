@@ -18,7 +18,8 @@ modalities:
 mode: chat
 model: zai-org/GLM-5.3
 params:
-    - key: reasoning_effort
+    - defaultValue: max
+      key: reasoning_effort
       supportedValues:
           - low
           - high
