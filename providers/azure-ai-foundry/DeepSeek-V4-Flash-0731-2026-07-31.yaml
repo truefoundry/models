@@ -1,0 +1,22 @@
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: DeepSeek-V4-Flash-0731-2026-07-31
+provisioning: serverless
+retirementDate: "2026-12-03"
+# costs not found in official docs — Azure Foundry pricing page does not list per-token rates for this model
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash
+status: preview
+supportedModes:
+    - chat

@@ -1,0 +1,32 @@
+costs:
+    - cache_read_input_token_cost: 3.96e-8
+      input_cost_per_token: 1.188e-6
+      output_cost_per_token: 3.564e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 384000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: deepseek/deepseek-v4-pro-0813
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 1
+      key: top_p
+provisioning: serverless
+sources:
+    - https://openrouter.ai/deepseek/deepseek-v4-pro-0813
+supportedModes:
+    - chat
+thinking: true

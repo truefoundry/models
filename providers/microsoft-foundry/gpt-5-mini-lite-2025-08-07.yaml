@@ -1,0 +1,14 @@
+# Model gpt-5-mini-lite-2025-08-07 not found in official Azure OpenAI docs,
+# OpenAI docs, or the LiteLLM Azure pricing JSON. Only gpt-5-mini-2025-08-07
+# (without "-lite") is documented. Pricing, limits, features, and modalities
+# are omitted because they cannot be confirmed from official documentation.
+mode: chat
+model: gpt-5-mini-lite-2025-08-07
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://developers.openai.com/api/docs/models/gpt-5-mini
+status: active
+supportedModes:
+    - chat

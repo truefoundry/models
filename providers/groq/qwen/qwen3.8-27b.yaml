@@ -1,0 +1,34 @@
+costs:
+    - input_cost_per_token: 8e-7
+      output_cost_per_token: 4e-6
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - json_output
+    - structured_output
+    - system_messages
+    - prompt_caching
+limits:
+    context_window: 131042
+    max_output_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: qwen/qwen3.8-27b
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 16384
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://console.groq.com/docs/model/qwen/qwen3.8-27b
+status: preview
+supportedModes:
+    - chat
+thinking: true

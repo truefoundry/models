@@ -1,0 +1,34 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_image_token: 8e-6
+      input_cost_per_token: 5e-6
+      output_cost_per_image_token: 3e-5
+      output_cost_per_token: 1e-5
+      region: "*"
+features:
+    - prompt_caching
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - image
+mode: image
+model: gpt-image-2-2026-04-21
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+retirementDate: "2027-10-21"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
+supportedModes:
+    - image

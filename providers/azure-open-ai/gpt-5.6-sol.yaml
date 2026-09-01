@@ -65,6 +65,10 @@ modalities:
 mode: chat
 model: gpt-5.6-sol
 params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -75,6 +79,8 @@ params:
           - xhigh
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2028-01-11"
 status: active
 supportedModes:

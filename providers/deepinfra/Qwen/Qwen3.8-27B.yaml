@@ -1,0 +1,28 @@
+costs:
+    - cache_read_input_token_cost: 4e-8
+      input_cost_per_token: 4e-7
+      output_cost_per_token: 3e-6
+      region: "*"
+features:
+    - prompt_caching
+    - function_calling
+    - json_output
+limits:
+    context_window: 262144
+    max_tokens: 262144
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: Qwen/Qwen3.8-27B
+provisioning: serverless
+sources:
+    - https://deepinfra.com/Qwen/Qwen3.8-27B
+status: active
+supportedModes:
+    - chat
+thinking: true

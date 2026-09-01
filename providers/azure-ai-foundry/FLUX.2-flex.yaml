@@ -1,0 +1,28 @@
+limits:
+    context_window: 32000
+messages:
+    options:
+        - user
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: FLUX.2-flex
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - stream
+sources:
+    - https://ai.azure.com/catalog/models/FLUX.2-flex
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability
+status: preview
+supportedModes:
+    - image

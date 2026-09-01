@@ -26,9 +26,11 @@ modalities:
 mode: chat
 model: gpt-5.2-chat-2026-02-10
 params:
-    - key: max_tokens
+    - key: max_completion_tokens
       maxValue: 16384
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2026-06-29"
 status: retired
 supportedModes:

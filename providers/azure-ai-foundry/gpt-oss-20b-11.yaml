@@ -1,0 +1,35 @@
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: gpt-oss-20b-11
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+provisioning: provisioned
+sources:
+    - https://ai.azure.com/catalog/models/gpt-oss-20b
+status: preview
+supportedModes:
+    - chat
+thinking: true

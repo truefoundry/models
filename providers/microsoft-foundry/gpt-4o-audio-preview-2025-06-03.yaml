@@ -1,0 +1,34 @@
+costs:
+    - input_cost_per_audio_token: 4e-5
+      input_cost_per_token: 2.5e-6
+      output_cost_per_audio_token: 8e-5
+      output_cost_per_token: 1e-5
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+isDeprecated: true
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: chat
+model: gpt-4o-audio-preview-2025-06-03
+params:
+    - key: max_tokens
+      maxValue: 16384
+sources:
+    - https://developers.openai.com/docs/models/gpt-4o-audio-preview
+status: deprecated
+supportedModes:
+    - chat

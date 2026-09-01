@@ -1,0 +1,65 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      region: global
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 0.00000138
+      output_cost_per_token: 0.000011
+      region: datazone_us
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 0.00000138
+      output_cost_per_token: 0.000011
+      region: datazone_eu
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+        - image
+mode: chat
+model: gpt-5.1-2025-11-13
+params:
+    - defaultValue: 20000
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - max_tokens
+retirementDate: "2027-05-15"
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true

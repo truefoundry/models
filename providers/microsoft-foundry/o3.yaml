@@ -1,0 +1,61 @@
+costs:
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000088
+      region: datazone_us
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000008
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
+messages:
+    options:
+        - user
+        - assistant
+        - developer
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: o3
+params:
+    - defaultValue: 1000
+      key: max_completion_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: null
+      key: response_format
+      type: string
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - stream
+    - max_tokens
+    - parallel_tool_calls
+retirementDate: "2026-10-21"
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true

@@ -1,0 +1,48 @@
+costs:
+    - input_cost_per_token: 0.00002
+      input_cost_per_token_batches: 0.00001
+      output_cost_per_token: 0.00008
+      output_cost_per_token_batches: 0.00004
+      region: "*"
+features:
+    - function_calling
+    - structured_output
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 100000
+    max_tokens: 100000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: responses
+model: o3-pro
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 100000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+    - parallel_tool_calls
+    - stream
+retirementDate: "2026-12-17"
+status: active
+supportedModes:
+    - responses
+thinking: true

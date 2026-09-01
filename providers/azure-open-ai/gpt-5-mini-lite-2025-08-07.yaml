@@ -4,7 +4,11 @@
 # are omitted because they cannot be confirmed from official documentation.
 mode: chat
 model: gpt-5-mini-lite-2025-08-07
+params:
+    - key: max_completion_tokens
 provisioning: serverless
+removeParams:
+    - max_tokens
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure

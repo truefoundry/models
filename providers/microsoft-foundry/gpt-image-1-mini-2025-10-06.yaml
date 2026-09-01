@@ -1,0 +1,29 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_image_token: 0.0000025
+      input_cost_per_token: 0.000002
+      output_cost_per_image_token: 0.000008
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: gpt-image-1-mini-2025-10-06
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+retirementDate: "2027-04-07"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
+supportedModes:
+    - image

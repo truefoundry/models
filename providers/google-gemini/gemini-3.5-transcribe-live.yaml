@@ -1,0 +1,32 @@
+costs:
+    - input_cost_per_audio_token: 0.0000035
+      output_cost_per_token: 0.000021
+      region: "*"
+limits:
+    context_window: 96000
+    max_input_tokens: 96000
+    max_output_tokens: 32000
+    max_tokens: 32000
+modalities:
+    input:
+        - audio
+        - text
+    output:
+        - text
+mode: audio_transcription
+model: gemini-3.5-transcribe-live
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+sources:
+    - https://deepmind.google/models/model-cards/gemini-3-5-audio/
+    - https://ai.google.dev/gemini-api/docs/transcribe
+status: active
+supportedModes:
+    - audio_transcription

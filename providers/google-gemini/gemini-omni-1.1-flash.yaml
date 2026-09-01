@@ -1,0 +1,37 @@
+costs:
+    - input_cost_per_token: 1.5e-6
+      output_cost_per_token: 9e-6
+      output_cost_per_video_token: 1.75e-5
+      region: "*"
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+    output:
+        - audio
+        - text
+        - video
+mode: video
+model: gemini-omni-1.1-flash
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
+    - reasoning_effort
+    - max_tokens
+    - stop
+    - tool_choice
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash
+    - https://ai.google.dev/gemini-api/docs/omni
+    - https://ai.google.dev/gemini-api/docs/pricing
+    - https://deepmind.google/models/model-cards/gemini-omni-flash/
+status: active
+supportedModes:
+    - video
