@@ -1,28 +1,28 @@
 costs:
-    - cache_creation_input_token_cost: 6.25e-6
-      cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 0.000005
-      input_cost_per_token_batches: 2.5e-6
-      output_cost_per_token: 0.00003
-      output_cost_per_token_batches: 0.000015
+    - cache_creation_input_token_cost: 0.000005
+      cache_read_input_token_cost: 4e-7
+      input_cost_per_token: 0.000004
+      input_cost_per_token_batches: 0.000002
+      output_cost_per_token: 0.00002
+      output_cost_per_token_batches: 0.00001
       priority_pricing:
-          cache_creation_input_token_cost: 0.0000125
-          cache_read_input_token_cost: 0.000001
-          input_cost_per_token: 0.00001
-          output_cost_per_token: 0.00006
+          cache_creation_input_token_cost: 0.00001
+          cache_read_input_token_cost: 8e-7
+          input_cost_per_token: 0.000008
+          output_cost_per_token: 0.00004
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 0.000001
+              - cost_per_token: 8e-7
                 from: 272000
           cache_write:
-              - cost_per_token: 0.0000125
-                from: 272000
-          input:
               - cost_per_token: 0.00001
                 from: 272000
+          input:
+              - cost_per_token: 0.000008
+                from: 272000
           output:
-              - cost_per_token: 0.000045
+              - cost_per_token: 0.00003
                 from: 272000
           pricing_mode: cumulative
 features:
@@ -30,6 +30,9 @@ features:
     - structured_output
     - prompt_caching
     - system_messages
+    - tool_choice
+    - parallel_function_calling
+    - json_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
