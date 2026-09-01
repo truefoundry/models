@@ -1,0 +1,18 @@
+costs:
+    - input_cost_per_token: "0.00000060"
+      output_cost_per_token: "0.00000240"
+      region: "*"
+limits:
+    context_window: 1048576
+    max_output_tokens: 1048576
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: MiniMax-M3
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
