@@ -39,6 +39,8 @@ costs:
       output_cost_per_token: 0.000025
       output_cost_per_token_batches: 0.0000125
       region: ap-northeast-1
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /anthropic
 features:
     - function_calling
     - parallel_function_calling

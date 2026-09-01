@@ -1,0 +1,18 @@
+costs:
+    - input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000003
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+limits:
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 4096
+modalities:
+    input:
+        - image
+mode: chat
+model: mistral-small-2503
+supportedModes:
+    - chat

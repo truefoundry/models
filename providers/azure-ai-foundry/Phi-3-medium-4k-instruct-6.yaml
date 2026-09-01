@@ -1,0 +1,21 @@
+features:
+    - system_messages
+isDeprecated: true
+limits:
+    context_window: 4096
+    max_input_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: Phi-3-medium-4k-instruct
+provisioning: serverless
+retirementDate: "2025-08-30"
+sources:
+    - https://ai.azure.com/explore/models/Phi-3-medium-4k-instruct/version/5/registry/azureml
+    - https://huggingface.co/microsoft/Phi-3-medium-4k-instruct
+status: retired
+supportedModes:
+    - chat

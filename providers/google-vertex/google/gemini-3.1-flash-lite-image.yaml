@@ -37,6 +37,10 @@ params:
       key: top_p
       maxValue: 1
       minValue: 0
+    - key: reasoning_effort
+      supportedValues:
+          - minimal
+          - high
 provisioning: serverless
 removeParams:
     - tool_choice
@@ -45,6 +49,7 @@ sources:
     - https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image
     - https://deepmind.google/models/gemini-image/flash-lite/
+    - https://ai.google.dev/gemini-api/docs/pricing
 status: active
 supportedModes:
     - image

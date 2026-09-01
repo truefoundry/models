@@ -4,6 +4,11 @@ costs:
       region: "*"
 limits:
     context_window: 262144
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Qwen/Qwen3.5-35B-A3B-Lora
 provisioning: provisioned

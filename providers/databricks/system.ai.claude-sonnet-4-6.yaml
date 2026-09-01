@@ -1,0 +1,42 @@
+costs:
+    - cache_creation_input_token_cost: 0.00000375
+      cache_creation_input_token_cost_per_hour: 0.000006
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - prompt_caching
+    - cache_control
+    - structured_output
+    - assistant_prefill
+    - system_messages
+limits:
+    context_window: 1000000
+    max_output_tokens: 64000
+    max_tokens: 64000
+    tool_use_system_prompt_tokens: 346
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: system.ai.claude-sonnet-4-6
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
+thinking: true

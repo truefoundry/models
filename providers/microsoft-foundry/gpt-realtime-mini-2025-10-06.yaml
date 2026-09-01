@@ -1,0 +1,37 @@
+costs:
+    - cache_creation_input_audio_token_cost: 3e-7
+      cache_read_input_token_cost: 6e-8
+      input_cost_per_audio_token: 1e-5
+      input_cost_per_image: 8e-7
+      input_cost_per_token: 6e-7
+      output_cost_per_audio_token: 2e-5
+      output_cost_per_token: 2.4e-6
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+isDeprecated: true
+limits:
+    context_window: 32000
+    max_input_tokens: 32000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+        - audio
+mode: realtime
+model: gpt-realtime-mini-2025-10-06
+provisioning: serverless
+retirementDate: "2026-07-23"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: retired
+supportedModes:
+    - realtime

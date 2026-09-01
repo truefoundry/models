@@ -38,7 +38,17 @@ costs:
       input_cost_per_token_batches: 5.5e-7
       output_cost_per_token: 0.0000055
       output_cost_per_token_batches: 0.00000275
+      region: ap-southeast-4
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
       region: ap-northeast-1
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /anthropic
 features:
     - function_calling
     - parallel_function_calling

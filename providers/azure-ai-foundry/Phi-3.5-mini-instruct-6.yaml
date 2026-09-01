@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_token: 1.3e-7
+      output_cost_per_token: 5.2e-7
+      region: "*"
+features:
+    - tool_choice
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: Phi-3.5-mini-instruct-6
+provisioning: serverless
+sources:
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/
+    - https://ai.azure.com/explore/models/Phi-3.5-mini-instruct/version/6/registry/azureml
+status: active
+supportedModes:
+    - chat

@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_image_token: 0.00000175
+      input_cost_per_token: 0.00000175
+      output_cost_per_image_token: 0.0000195
+      region: "*"
+limits:
+    context_window: 131072
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: MAI-Image-2.5-Flash-2026-06-02
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/MAI-Image-2.5-Flash
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+    - https://microsoft.ai/news/introducing-mai-image-2-5/
+status: preview
+supportedModes:
+    - image

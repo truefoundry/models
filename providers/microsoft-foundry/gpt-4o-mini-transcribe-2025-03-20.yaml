@@ -1,0 +1,30 @@
+costs:
+    - input_cost_per_audio_token: 0.00000125
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.000005
+      region: "*"
+limits:
+    max_input_tokens: 16000
+    max_output_tokens: 2000
+    max_tokens: 2000
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
+model: gpt-4o-mini-transcribe-2025-03-20
+provisioning: serverless
+removeParams:
+    - stop
+    - top_p
+    - "n"
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+retirementDate: "2026-10-15"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
+supportedModes:
+    - audio_transcription

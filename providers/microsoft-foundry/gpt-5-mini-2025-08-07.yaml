@@ -1,0 +1,60 @@
+costs:
+    - cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 2.5e-7
+      output_cost_per_token: 0.000002
+      region: global
+    - cache_read_input_token_cost: 2.75e-8
+      input_cost_per_token: 2.75e-7
+      output_cost_per_token: 0.0000022
+      region: datazone_us
+    - cache_read_input_token_cost: 2.75e-8
+      input_cost_per_token: 2.75e-7
+      output_cost_per_token: 0.0000022
+      region: datazone_eu
+    - cache_read_input_token_cost: 2.5e-8
+      input_cost_per_token: 2.5e-7
+      output_cost_per_token: 0.000002
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: gpt-5-mini-2025-08-07
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+retirementDate: "2027-02-09"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true

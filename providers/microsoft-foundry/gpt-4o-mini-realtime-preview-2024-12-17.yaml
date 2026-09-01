@@ -1,0 +1,37 @@
+costs:
+    - cache_creation_input_audio_token_cost: 3e-7
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_audio_token: 0.00001
+      input_cost_per_token: 6e-7
+      output_cost_per_audio_token: 0.00002
+      output_cost_per_token: 0.0000024
+      region: global
+    - cache_creation_input_audio_token_cost: 3.3e-7
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_audio_token: 0.000011
+      input_cost_per_token: 6.6e-7
+      output_cost_per_audio_token: 0.000022
+      output_cost_per_token: 0.00000264
+      region: "*"
+deprecationDate: "2026-03-24"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+isDeprecated: true
+limits:
+    max_input_tokens: 16000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: realtime
+model: gpt-4o-mini-realtime-preview-2024-12-17
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

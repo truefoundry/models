@@ -1,0 +1,65 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1e-5
+      region: global
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 1.38e-6
+      output_cost_per_token: 1.1e-5
+      region: datazone_us
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 1.38e-6
+      output_cost_per_token: 1.1e-5
+      region: datazone_eu
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+isDeprecated: true
+limits:
+    context_window: 128000
+    max_input_tokens: 111616
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: gpt-5.1-chat
+params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 16384
+      minValue: 1
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - n
+    - max_tokens
+    - parallel_tool_calls
+retirementDate: "2026-06-29"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+status: retired
+supportedModes:
+    - chat
+    - responses
+thinking: true

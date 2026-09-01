@@ -3,8 +3,10 @@ costs:
       input_cost_per_token: 5e-7
       output_cost_per_token: 1.2e-6
       region: "*"
+features:
+    - function_calling
 limits:
-    context_window: 524288
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -14,6 +16,16 @@ modalities:
         - text
 mode: chat
 model: thinkingmachines/Inkling-Small
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models/inkling-small

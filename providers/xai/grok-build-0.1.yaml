@@ -15,6 +15,10 @@ costs:
               - cost_per_token: 4e-6
                 from: 200000
           pricing_mode: cumulative
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
 limits:
     context_window: 256000
 modalities:
@@ -28,6 +32,9 @@ model: grok-build-0.1
 provisioning: serverless
 removeParams:
     - reasoning_effort
+sources:
+    - https://docs.x.ai/developers/models/grok-build-0.1
 status: preview
 supportedModes:
     - chat
+thinking: true

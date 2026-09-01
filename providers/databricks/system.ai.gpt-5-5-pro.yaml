@@ -1,0 +1,42 @@
+costs:
+    - input_cost_per_token: 0.00003
+      output_cost_per_token: 0.00018
+      region: "*"
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+    - json_output
+limits:
+    context_window: 1050000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: responses
+model: system.ai.gpt-5-5-pro
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
+    - https://developers.openai.com/api/docs/models/gpt-5.5-pro
+status: active
+supportedModes:
+    - responses
+thinking: true

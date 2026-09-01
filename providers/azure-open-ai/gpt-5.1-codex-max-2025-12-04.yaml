@@ -30,7 +30,7 @@ mode: responses
 model: gpt-5.1-codex-max-2025-12-04
 params:
     - defaultValue: 128000
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
     - defaultValue: medium
@@ -43,7 +43,9 @@ params:
           - xhigh
       type: string
 provisioning: serverless
-retirementDate: "2026-12-05"
+removeParams:
+    - max_tokens
+retirementDate: "2027-05-18"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active

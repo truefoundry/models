@@ -1,0 +1,56 @@
+documentation:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/
+    - https://azure.microsoft.com/en-us/pricing/details/microsoft-foundry/
+    - https://azure.microsoft.com/en-us/pricing/details/azure-openai/
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/foundry-models-overview
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/model-lifecycle-retirement
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reasoning
+messages:
+    options:
+        - system
+        - user
+        - assistant
+        - developer
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 4096
+      minValue: 1
+    - defaultValue: 0.8
+      key: temperature
+      maxValue: 2
+      minValue: 0
+    - defaultValue: null
+      key: stop
+      type: array-of-strings
+    - defaultValue: 0.1
+      key: top_p
+      maxValue: 1
+      minValue: 0
+    - defaultValue: 1
+      key: "n"
+      maxValue: 10
+      minValue: 1
+    - defaultValue: null
+      key: response_format
+      type: string
+    - defaultValue: true
+      key: stream
+      type: boolean
+    - defaultValue: null
+      key: tool_choice
+    - defaultValue: true
+      key: parallel_tool_calls
+      type: boolean
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string

@@ -1,0 +1,30 @@
+features:
+    - function_calling
+    - structured_output
+    - code_execution
+    - prompt_caching
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+    output:
+        - text
+mode: chat
+model: google/gemini-robotics-er-2-preview-info
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview
+    - https://deepmind.google/models/model-cards/gemini-robotics-er-2/
+status: preview
+supportedModes:
+    - chat
+thinking: true

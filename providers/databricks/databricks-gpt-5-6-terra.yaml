@@ -1,0 +1,62 @@
+costs:
+    - cache_creation_input_token_cost: 0.0000025
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000004
+                from: 272000
+          output:
+              - cost_per_token: 0.000018
+                from: 272000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: databricks-gpt-5-6-terra
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
+    - https://developers.openai.com/api/docs/models/gpt-5.6-terra
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true

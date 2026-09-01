@@ -270,7 +270,6 @@ features:
     - tool_choice
     - prompt_caching
     - cache_control
-    - structured_output
     - assistant_prefill
 limits:
     context_window: 1000000
@@ -298,7 +297,7 @@ params:
     - defaultValue: 0.99
       key: top_p
       maxValue: 1.0
-      minValue: 0
+      minValue: 0.99
     - defaultValue: high
       key: reasoning_effort
       supportedValues:

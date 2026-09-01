@@ -32,8 +32,15 @@ modalities:
         - text
 mode: chat
 model: gpt-5-mini-2025-08-07-lite
+params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
-retirementDate: "2027-02-06"
+removeParams:
+    - max_tokens
+retirementDate: "2027-02-09"
 status: active
 supportedModes:
     - chat
