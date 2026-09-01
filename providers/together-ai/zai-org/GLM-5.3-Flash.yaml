@@ -1,0 +1,36 @@
+costs:
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 5e-7
+      region: "*"
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: zai-org/GLM-5.3-Flash
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/glm-5-3-flash
+    - https://docs.z.ai/guides/vlm/glm-5.3-flash
+status: active
+supportedModes:
+    - chat
+thinking: true

@@ -1,0 +1,14 @@
+costs:
+    - output_cost_per_image: 0.04
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: grok-imagine-image-2.0
+provisioning: serverless
+supportedModes:
+    - image
