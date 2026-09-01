@@ -7,6 +7,15 @@ export type paths = Record<string, never>;
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** @description One Anthropic server-tool column: client tool type -> provider mapping */
+        AnthropicServerToolColumn: {
+            [key: string]: components["schemas"]["AnthropicServerToolMapping"];
+        };
+        /** @description One Anthropic server-tool mapping. A null type drops the tool; betas are added when it survives. */
+        AnthropicServerToolMapping: {
+            betas?: string[];
+            type: string | null;
+        };
         /**
          * @description AWS region identifiers
          * @enum {string}
@@ -182,6 +191,10 @@ export interface components {
             anthropic_betas?: {
                 [key: string]: components["schemas"]["BetaColumn"];
             };
+            /** @description Anthropic server-tool translation keyed by provider flavor (e.g. invoke/converse, or default) */
+            anthropic_server_tools?: {
+                [key: string]: components["schemas"]["AnthropicServerToolColumn"];
+            };
         };
         /**
          * @description How the model is made available to callers
@@ -226,6 +239,8 @@ export type $defs = Record<string, never>;
 export type operations = Record<string, never>;
 
 export type AWSRegion = components['schemas']['AWSRegion'];
+export type AnthropicServerToolColumn = components['schemas']['AnthropicServerToolColumn'];
+export type AnthropicServerToolMapping = components['schemas']['AnthropicServerToolMapping'];
 export type AzureRegion = components['schemas']['AzureRegion'];
 export type BetaColumn = components['schemas']['BetaColumn'];
 export type Cost = components['schemas']['Cost'];
