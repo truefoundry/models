@@ -1,0 +1,63 @@
+costs:
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000025
+      region: global
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000025
+      region: datazone_us
+features:
+    - function_calling
+    - parallel_function_calling
+    - cache_control
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - assistant_prefill
+    - json_output
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: claude-opus-4-8
+params:
+    - defaultValue: 8192
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: 1
+      key: temperature
+      maxValue: 1
+      minValue: 0
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+    - key: thinking
+      type: json
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
+status: active
+supportedModes:
+    - chat
+thinking: true
