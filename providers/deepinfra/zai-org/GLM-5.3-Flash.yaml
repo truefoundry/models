@@ -1,0 +1,35 @@
+costs:
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 5e-7
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+limits:
+    context_window: 1048576
+    max_tokens: 1048576
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: zai-org/GLM-5.3-Flash
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://deepinfra.com/zai-org/GLM-5.3-Flash
+status: active
+supportedModes:
+    - chat
+thinking: true

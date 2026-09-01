@@ -1,0 +1,32 @@
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+    - json_output
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: gpt-oss-20b
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+provisioning: provisioned
+sources:
+    - https://ai.azure.com/catalog/models/gpt-oss-20b
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+status: preview
+supportedModes:
+    - chat
+thinking: true
