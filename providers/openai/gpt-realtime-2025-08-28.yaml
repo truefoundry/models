@@ -1,17 +1,19 @@
 costs:
     - cache_read_input_audio_token_cost: 4e-7
       cache_read_input_token_cost: 4e-7
-      input_cost_per_audio_token: 0.000032
-      input_cost_per_image_token: 0.000005
-      input_cost_per_token: 0.000004
-      output_cost_per_audio_token: 0.000064
-      output_cost_per_token: 0.000016
+      input_cost_per_audio_token: 3.2e-5
+      input_cost_per_image_token: 5e-6
+      input_cost_per_token: 4e-6
+      output_cost_per_audio_token: 6.4e-5
+      output_cost_per_token: 1.6e-5
       region: "*"
+deprecationDate: "2026-07-20"
 features:
     - function_calling
     - prompt_caching
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 32000
     max_output_tokens: 4096
@@ -27,8 +29,9 @@ modalities:
 mode: realtime
 model: gpt-realtime-2025-08-28
 provisioning: serverless
+retirementDate: "2027-01-20"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-realtime
-status: active
+status: deprecated
 supportedModes:
     - realtime
