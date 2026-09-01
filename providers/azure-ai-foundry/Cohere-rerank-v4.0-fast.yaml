@@ -1,0 +1,27 @@
+costs:
+    - input_cost_per_query: 0.002
+      region: global
+    - input_cost_per_query: 0.0022
+      region: datazone_eu
+limits:
+    context_window: 4096
+modalities:
+    input:
+        - text
+mode: rerank
+model: Cohere-rerank-v4.0-fast
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - stream
+sources:
+    - https://ai.azure.com/catalog/models/Cohere-rerank-v4.0-fast
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/cohere/
+    - https://prices.azure.com/api/retail/prices
+status: active
+supportedModes:
+    - rerank

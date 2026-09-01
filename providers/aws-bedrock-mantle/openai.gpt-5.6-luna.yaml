@@ -90,7 +90,13 @@ params:
           - xhigh
           - max
       type: string
+    - key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
+      type: number
 provisioning: serverless
+removeParams:
+    - max_tokens
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-luna.html
     - https://developers.openai.com/api/docs/models/gpt-5.6-luna
