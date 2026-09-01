@@ -1,0 +1,18 @@
+limits:
+    context_window: 16384
+    max_input_tokens: 16384
+    max_output_tokens: 16384
+    max_tokens: 16384
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: Phi-4-3
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-from-partners
+status: active
+supportedModes:
+    - chat

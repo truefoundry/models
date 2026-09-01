@@ -1,0 +1,34 @@
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 256000
+    max_output_tokens: 64000
+    max_tokens: 64000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: MAI-Thinking-1-2026-06-01
+params:
+    - defaultValue: 32768
+      key: max_completion_tokens
+      maxValue: 64000
+      minValue: 1
+provisioning: serverless
+removeParams:
+    - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-thinking
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://ai.azure.com/catalog/models/MAI-Thinking-1
+status: preview
+supportedModes:
+    - chat
+thinking: true
+
+# costs not found in official docs
