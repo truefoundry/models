@@ -80,14 +80,7 @@ modalities:
         - text
 mode: responses
 model: openai.gpt-5.6-terra
-params:
-    - key: max_completion_tokens
-      maxValue: 128000
-      minValue: 1
-      type: number
 provisioning: serverless
-removeParams:
-    - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.6-terra
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-terra.html
