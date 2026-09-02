@@ -58,12 +58,14 @@ costs:
           pricing_mode: cumulative
 features:
     - function_calling
+    - json_output
     - parallel_function_calling
     - prompt_caching
     - structured_output
     - system_messages
     - tool_choice
 limits:
+    context_window: 1050000
     max_input_tokens: 922000
     max_output_tokens: 128000
     max_tokens: 128000
@@ -77,7 +79,7 @@ modalities:
 mode: chat
 model: gpt-5.6-luna
 params:
-    - defaultValue: 20000
+    - defaultValue: 128
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
@@ -91,6 +93,7 @@ params:
           - xhigh
           - max
       type: string
+provisioning: serverless
 removeParams:
     - max_tokens
 retirementDate: "2028-01-11"
