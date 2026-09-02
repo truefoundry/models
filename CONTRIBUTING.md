@@ -4,12 +4,32 @@ Thank you for your interest in contributing to the TrueFoundry Models Registry! 
 
 ## Table of Contents
 
+- [What Belongs Here](#what-belongs-here)
 - [Code of Conduct](#code-of-conduct)
 - [How to Contribute](#how-to-contribute)
 - [Adding a New Model](#adding-a-new-model)
+- [Requesting a New Provider](#requesting-a-new-provider)
 - [Updating an Existing Model](#updating-an-existing-model)
 - [Pull Request Process](#pull-request-process)
 - [Style Guide](#style-guide)
+
+## What Belongs Here
+
+This registry holds **metadata for providers the TrueFoundry LLM Gateway already integrates with**. The directories under `providers/` are that list, and the [Supported Providers table](README.md#supported-providers) in the README renders it.
+
+In scope:
+
+- Adding a model under an existing provider
+- Correcting pricing, limits, features, modalities, or `sources`
+- Marking a model deprecated or retired
+
+Out of scope:
+
+- **A new `providers/<name>/` directory.** The gateway can only route to providers it has an integration for, so registry YAML for an unsupported provider is inert. See [Requesting a New Provider](#requesting-a-new-provider).
+- Gateway routing, authentication, or request/response transformation. None of that is configured from this repo.
+- Edits to the README's Supported Providers table. It's generated from `providers/` by [`update-readme-counts.ts`](.github/scripts/update-readme-counts.ts).
+
+PRs that add an unsupported provider will be closed with a pointer to this section. It isn't a judgement on the provider, there's just nothing on the gateway side for the files to attach to yet.
 
 ## Code of Conduct
 
@@ -41,6 +61,8 @@ To add a new model, create a YAML file in the appropriate provider directory:
 ```
 providers/<provider-name>/<model-name>.yaml
 ```
+
+`<provider-name>` must be a directory that already exists. If it doesn't, see [Requesting a New Provider](#requesting-a-new-provider) rather than creating one.
 
 ### 2. Required Fields
 
@@ -187,6 +209,19 @@ A minimal model definition (e.g., audio transcription or TTS):
 model: nova-3-general
 mode: audio_transcription
 ```
+
+## Requesting a New Provider
+
+Support for a provider that isn't in the [Supported Providers table](README.md#supported-providers) starts in the gateway, not in this repo. [Open an issue](../../issues) with:
+
+- The provider and a link to its API reference
+- Which endpoints you need (chat, embeddings, transcription, text-to-speech, images, rerank)
+- Whether the API is OpenAI-compatible, and on which routes
+- The use case and rough volume
+
+Note that OpenAI compatibility on `/chat/completions` doesn't cover everything. Endpoints outside chat, embeddings, and responses need explicit work in the gateway even when the provider mirrors OpenAI's shape.
+
+Once the integration lands, the provider directory gets created and model YAML is welcome.
 
 ## Updating an Existing Model
 

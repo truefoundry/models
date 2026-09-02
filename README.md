@@ -5,6 +5,17 @@
 
 A comprehensive, community-maintained registry of AI/LLM model configurations. This repository provides standardized model metadata including pricing, features, and token limits across all major AI providers.
 
+## Scope
+
+This registry is **metadata only**, for providers the TrueFoundry LLM Gateway already integrates with. Every directory under `providers/` corresponds to an existing gateway integration, and the list of those integrations lives in the gateway, not here.
+
+That means:
+
+- **Adding or updating a model** under an existing provider is exactly what this repo is for. Pricing, limits, features, modalities, deprecations — open a PR.
+- **Adding a new provider** is not. A new `providers/<name>/` directory has no effect on its own: without a gateway integration behind it, nothing reads those files at runtime. New provider support is gateway work, so [open an issue](../../issues) describing the provider and the use case instead of sending registry YAML.
+
+See [Supported Providers](#supported-providers) below for the current list.
+
 ## Why Use This?
 
 LLM model configs change often — prices drop, features expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
@@ -15,6 +26,8 @@ LLM model configs change often — prices drop, features expand, limits shift. T
 - **Open Source** — Community-driven updates ensure accuracy and coverage
 
 ## Supported Providers
+
+This is the complete set of providers the gateway supports. If a provider isn't listed here, the registry has no place to put its models yet. The table is generated from `providers/` by [`update-readme-counts.ts`](.github/scripts/update-readme-counts.ts), so don't edit it by hand.
 
 | Provider | Models | Description |
 |----------|--------|-------------|
@@ -118,7 +131,7 @@ providers/
 
 ## Contributing
 
-We welcome contributions! Whether it's adding a new model, updating pricing, or fixing outdated information — see the [Contributing Guide](CONTRIBUTING.md) for details on the schema, examples, and PR process.
+We welcome contributions! Whether it's adding a model under one of the [supported providers](#supported-providers), updating pricing, or fixing outdated information — see the [Contributing Guide](CONTRIBUTING.md) for details on the schema, examples, and PR process. For a provider that isn't on that list, read [Scope](#scope) first.
 
 ## License
 
