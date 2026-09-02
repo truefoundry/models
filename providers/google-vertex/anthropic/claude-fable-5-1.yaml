@@ -23,9 +23,7 @@ features:
     - prompt_caching
     - cache_control
     - system_messages
-    - tool_choice
     - structured_output
-    - assistant_prefill
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -43,9 +41,19 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - key: thinking
-      type: json
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
 sources:
     - https://platform.claude.com/docs/en/models/fable-5-1/overview
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
