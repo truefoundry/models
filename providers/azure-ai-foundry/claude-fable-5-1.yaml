@@ -1,4 +1,58 @@
+costs:
+    - cache_creation_input_token_cost: 0.0000125
+      cache_creation_input_token_cost_per_hour: 0.00002
+      cache_read_input_token_cost: 2.5e-7
+      input_cost_per_token: 0.00001
+      input_cost_per_token_batches: 0.000005
+      output_cost_per_token: 0.00005
+      output_cost_per_token_batches: 0.000025
+      region: global
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - tool_choice
+    - structured_output
+    - json_output
+    - code_execution
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: claude-fable-5-1
+params:
+    - defaultValue: 4096
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: "high"
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - "n"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
+    - https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1
+status: preview
 supportedModes:
     - chat
+thinking: true
