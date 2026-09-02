@@ -1,4 +1,13 @@
+modalities:
+    input:
+        - text
+    output:
+        - audio
 mode: text_to_speech
 model: eleven_monolingual_v1
+provisioning: serverless
 supportedModes:
     - text_to_speech
+
+# Pricing, limits, and features not found in official docs — eleven_monolingual_v1
+# is not listed on the current ElevenLabs models, pricing, or deprecation pages.

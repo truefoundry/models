@@ -1,4 +1,14 @@
+costs:
+    - input_cost_per_character: 0.00005
+      region: "*"
+modalities:
+    input:
+        - text
+    output:
+        - audio
 mode: text_to_speech
 model: eleven_flash_v2_5
+provisioning: serverless
+status: active
 supportedModes:
     - text_to_speech
