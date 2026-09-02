@@ -2,9 +2,22 @@ costs:
     - input_cost_per_token: 0.0
       output_cost_per_token: 0.0
       region: "*"
+features:
+    - function_calling
+    - structured_output
 limits:
     context_window: 1048576
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: zai-org/GLM-5.3-FP8-Lora
+provisioning: provisioned
+sources:
+    - https://www.together.ai/models/glm-5-3
+    - https://docs.together.ai/docs/fine-tuning-models
 supportedModes:
     - chat
+thinking: true
