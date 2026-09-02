@@ -1,0 +1,96 @@
+costs:
+    - cache_creation_input_token_cost: 0.00001375
+      cache_creation_input_token_cost_per_hour: 0.000022
+      cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.000011
+      input_cost_per_token_batches: 0.0000055
+      output_cost_per_token: 0.000055
+      output_cost_per_token_batches: 0.0000275
+      region: us-west-2
+    - cache_creation_input_token_cost: 0.00001375
+      cache_creation_input_token_cost_per_hour: 0.000022
+      cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.000011
+      input_cost_per_token_batches: 0.0000055
+      output_cost_per_token: 0.000055
+      output_cost_per_token_batches: 0.0000275
+      region: us-west-1
+    - cache_creation_input_token_cost: 0.00001375
+      cache_creation_input_token_cost_per_hour: 0.000022
+      cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.000011
+      input_cost_per_token_batches: 0.0000055
+      output_cost_per_token: 0.000055
+      output_cost_per_token_batches: 0.0000275
+      region: us-east-2
+    - cache_creation_input_token_cost: 0.00001375
+      cache_creation_input_token_cost_per_hour: 0.000022
+      cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.000011
+      input_cost_per_token_batches: 0.0000055
+      output_cost_per_token: 0.000055
+      output_cost_per_token_batches: 0.0000275
+      region: us-east-1
+    - cache_creation_input_token_cost: 0.00001375
+      cache_creation_input_token_cost_per_hour: 0.000022
+      cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.000011
+      input_cost_per_token_batches: 0.0000055
+      output_cost_per_token: 0.000055
+      output_cost_per_token_batches: 0.0000275
+      region: ca-west-1
+    - cache_creation_input_token_cost: 0.00001375
+      cache_creation_input_token_cost_per_hour: 0.000022
+      cache_read_input_token_cost: 2.75e-7
+      input_cost_per_token: 0.000011
+      input_cost_per_token_batches: 0.0000055
+      output_cost_per_token: 0.000055
+      output_cost_per_token_batches: 0.0000275
+      region: ca-central-1
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - prompt_caching
+    - cache_control
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: us.anthropic.claude-fable-5-1
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: 1
+      key: temperature
+      maxValue: 1
+      minValue: 1
+    - defaultValue: 0.99
+      key: top_p
+      maxValue: 0.99
+      minValue: 0.99
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5-1.html
+status: active
+supportedModes:
+    - chat
+thinking: true
