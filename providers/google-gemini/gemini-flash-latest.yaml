@@ -1,12 +1,10 @@
 costs:
-    - cache_creation_input_token_cost_per_hour: 0.000001
-      cache_read_input_audio_token_cost: 1e-7
-      cache_read_input_token_cost: 5e-8
-      input_cost_per_audio_token: 0.000001
-      input_cost_per_token: 5e-7
-      input_cost_per_token_batches: 2.5e-7
-      output_cost_per_token: 0.000003
-      output_cost_per_token_batches: 0.0000015
+    - cache_creation_input_token_cost_per_hour: 5e-7
+      cache_read_input_token_cost: 7.5e-8
+      input_cost_per_token: 7.5e-7
+      input_cost_per_token_batches: 3.75e-7
+      output_cost_per_token: 0.00000375
+      output_cost_per_token_batches: 0.000001875
       region: "*"
 features:
     - function_calling
@@ -42,11 +40,18 @@ params:
       key: temperature
       maxValue: 2
       minValue: 0
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
-    - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
-    - https://ai.google.dev/gemini-api/docs/gemini-3
-status: preview
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash
+    - https://ai.google.dev/gemini-api/docs/latest-model
+status: active
 supportedModes:
     - chat
 thinking: true

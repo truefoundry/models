@@ -1,15 +1,16 @@
 costs:
-    - input_cost_per_audio_token: 0.000002
-      input_cost_per_token: 0.000001
+    - input_cost_per_audio_token: 2e-6
+      input_cost_per_token: 1e-6
       input_cost_per_token_batches: 5e-7
-      output_cost_per_token: 0.000005
-      output_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 5e-6
+      output_cost_per_token_batches: 2.5e-6
       region: "*"
 features:
     - function_calling
     - structured_output
     - code_execution
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -36,9 +37,10 @@ params:
     - defaultValue: 64
       key: top_k
 provisioning: serverless
+retirementDate: "2026-08-31"
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true
