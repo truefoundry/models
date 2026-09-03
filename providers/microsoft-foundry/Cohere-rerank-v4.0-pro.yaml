@@ -1,4 +1,18 @@
-mode: chat
+costs:
+    - input_cost_per_query: 0.0025
+      region: global
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: rerank
 model: Cohere-rerank-v4.0-pro
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Cohere-rerank-v4.0-pro
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/cohere/
+    - https://docs.cohere.com/docs/cohere-on-microsoft-azure
+status: active
 supportedModes:
-    - chat
+    - rerank
