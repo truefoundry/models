@@ -1,7 +1,34 @@
+costs:
+    - cache_creation_input_token_cost_per_hour: 5e-7
+      cache_read_input_token_cost: 7.5e-8
+      input_cost_per_token: 7.5e-7
+      input_cost_per_token_batches: 3.75e-7
+      output_cost_per_token: 0.00000375
+      output_cost_per_token_batches: 0.000001875
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+    - structured_output
+    - code_execution
+    - system_messages
+    - tool_choice
+    - json_output
 limits:
+    context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
-mode: unknown
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+        - pdf
+    output:
+        - text
+mode: chat
 model: gemini-3.8-flash
 params:
     - defaultValue: 1
@@ -11,4 +38,18 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash
+    - https://deepmind.google/models/model-cards/gemini-3-8-flash/
+status: active
+supportedModes:
+    - chat
 thinking: true
