@@ -1,4 +1,28 @@
+costs:
+    - input_cost_per_token: 5e-7
+      output_cost_per_token: 1.5e-6
+      region: global
+features:
+    - function_calling
+    - json_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: Mistral-Large-3
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/Mistral-Large-3
+    - https://azure.microsoft.com/en-us/blog/introducing-mistral-large-3-in-microsoft-foundry-open-capable-and-ready-for-production-workloads/
+status: preview
 supportedModes:
     - chat
