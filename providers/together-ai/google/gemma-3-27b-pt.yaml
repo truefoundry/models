@@ -1,3 +1,4 @@
+isDeprecated: true
 limits:
     context_window: 128000
     max_output_tokens: 8192
@@ -13,9 +14,10 @@ model: google/gemma-3-27b-pt
 provisioning: provisioned
 removeParams:
     - reasoning_effort
+retirementDate: "2026-07-29"
 sources:
     - https://huggingface.co/google/gemma-3-27b-pt
     - https://docs.together.ai/docs/dedicated-models
-status: active
+status: retired
 supportedModes:
     - completion
