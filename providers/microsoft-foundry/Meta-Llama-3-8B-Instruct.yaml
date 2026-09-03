@@ -1,4 +1,16 @@
+features:
+    - system_messages
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Meta-Llama-3-8B-Instruct
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/meta-llama-meta-llama-3-8b-instruct
+    - https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metagenai.meta-llama-3-8b-chat-offer
+status: active
 supportedModes:
     - chat
