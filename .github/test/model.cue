@@ -168,8 +168,9 @@ package model
 
 	// Resolution-based image pricing: matches fields like output_cost_per_image_1k, output_cost_per_image_4k, etc.
 	[=~"^output_cost_per_image_\\d+[pk]$"]: number & >= 0
-	// Resolution-based video pricing: matches fields like output_cost_per_second_480p, output_cost_per_second_4k, etc.
-	[=~"^output_cost_per_second_\\d+[pk]$"]: number & >= 0
+	// Resolution-based video pricing: matches fields like output_cost_per_second_480p, output_cost_per_second_4k,
+	// and their video-only counterparts output_cost_per_second_480p_noaudio, etc. (no suffix = with audio, the default).
+	[=~"^output_cost_per_second_\\d+[pk](_noaudio)?$"]: number & >= 0
 }
 
 // Pricing entry; "*" applies to all regions
