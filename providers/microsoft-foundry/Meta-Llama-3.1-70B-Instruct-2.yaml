@@ -1,4 +1,16 @@
+features:
+    - system_messages
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Meta-Llama-3.1-70B-Instruct-2
+provisioning: serverless
 supportedModes:
     - chat
+
+# No pricing, limits, or lifecycle data for this specific "-2" variant is
+# published in the official Azure AI Foundry catalog or the Microsoft Foundry
+# model retirement schedule at the time of research (2026-09-03).
