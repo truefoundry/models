@@ -1,4 +1,19 @@
+features:
+    - system_messages
+limits:
+    context_window: 128000
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
 mode: chat
 model: Phi-3.5-vision-instruct-2
+sources:
+    - https://huggingface.co/microsoft/Phi-3.5-vision-instruct
+    - https://ai.azure.com/catalog/models/Phi-3.5-vision-instruct
+status: active
 supportedModes:
     - chat
