@@ -1,0 +1,15 @@
+costs:
+    - cache_read_input_token_cost: 1.400000008e-7
+      input_cost_per_token: 4.4e-7
+      output_cost_per_token: 1.32e-6
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 1048576
+    max_tokens: 1048576
+modalities:
+    input:
+        - image
+mode: unknown
+model: deepseek-ai/DeepSeek-V4-Flash-Vision-Exp
