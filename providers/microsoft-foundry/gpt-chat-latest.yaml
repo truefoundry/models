@@ -1,4 +1,38 @@
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 5e-6
+      input_cost_per_token_batches: 2.5e-6
+      output_cost_per_token: 3e-5
+      output_cost_per_token_batches: 1.5e-5
+      region: global
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 200000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: gpt-chat-latest
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+retirementDate: "2026-12-02"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-chat-latest
+    - https://developers.openai.com/api/docs/models/chat-latest
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/updates-to-gpt-chat-latest-in-microsoft-foundry/4546815
+status: preview
 supportedModes:
     - chat
+thinking: true
