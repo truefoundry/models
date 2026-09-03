@@ -11,11 +11,12 @@ features:
     - prompt_caching
     - system_messages
 limits:
-    context_window: 256000
+    context_window: 262144
 modalities:
     input:
         - text
         - image
+        - video
     output:
         - text
 mode: chat
