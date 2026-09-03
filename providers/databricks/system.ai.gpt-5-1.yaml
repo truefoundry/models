@@ -37,8 +37,10 @@ params:
       key: reasoning_effort
       supportedValues:
           - none
+          - low
           - medium
           - high
+          - xhigh
       type: string
 provisioning: serverless
 sources:
@@ -46,6 +48,7 @@ sources:
     - https://docs.databricks.com/aws/en/machine-learning/retired-models-policy
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving-1
+    - https://developers.openai.com/api/docs/models/gpt-5.1
 status: active
 supportedModes:
     - chat
