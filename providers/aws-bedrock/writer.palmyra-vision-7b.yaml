@@ -44,6 +44,7 @@ costs:
 features:
     - system_messages
     - structured_output
+    - function_calling
 limits:
     context_window: 4000
     max_output_tokens: 4000
@@ -66,6 +67,8 @@ params:
       maxValue: 4000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-writer-palmyra-vision-7b.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-writer-palmyra.html
