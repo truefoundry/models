@@ -1,6 +1,9 @@
-limits:
-    max_input_tokens: 1048576
-    max_output_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - audio
 mode: unknown
 model: lyria-3.5
 params:
@@ -11,3 +14,9 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/music-generation
+status: active
+supportedModes:
+    - unknown
