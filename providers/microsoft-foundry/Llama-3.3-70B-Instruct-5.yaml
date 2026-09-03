@@ -1,4 +1,36 @@
+costs:
+    - input_cost_per_token: 7.1e-7
+      output_cost_per_token: 7.1e-7
+      region: global
+    - input_cost_per_token: 7.1e-7
+      output_cost_per_token: 7.1e-7
+      region: datazone_us
+    - input_cost_per_token: 7.1e-7
+      output_cost_per_token: 7.1e-7
+      region: datazone_eu
+features:
+    - system_messages
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Llama-3.3-70B-Instruct-5
+provisioning: serverless
+removeParams:
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/Llama-3.3-70B-Instruct
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability
+status: active
 supportedModes:
     - chat
