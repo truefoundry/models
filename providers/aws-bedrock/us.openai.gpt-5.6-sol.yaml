@@ -95,17 +95,6 @@ modalities:
         - text
 mode: chat
 model: us.openai.gpt-5.6-sol
-params:
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - none
-          - low
-          - medium
-          - high
-          - xhigh
-          - max
-      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-sol.html
