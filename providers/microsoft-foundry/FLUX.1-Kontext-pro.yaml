@@ -1,4 +1,20 @@
+costs:
+    - output_cost_per_image: 0.04
+      region: "*"
+limits:
+    max_input_tokens: 5000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
 mode: image
 model: FLUX.1-Kontext-pro
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-flux
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/black-forest-labs/
+status: active
 supportedModes:
     - image

@@ -5,15 +5,24 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 4096
     max_tokens: 4096
 modalities:
     input:
-        - audio
+        - text
         - image
+        - audio
+    output:
+        - text
 mode: chat
 model: Phi-4-multimodal-instruct
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Phi-4-multimodal-instruct
+status: active
 supportedModes:
     - chat

@@ -8,7 +8,30 @@ limits:
     max_output_tokens: 4096
     max_query_tokens: 2048
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: rerank
 model: cohere-rerank-v3-english
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+    - stop
+sources:
+    - https://ai.azure.com/explore/models/Cohere-rerank-v3-english/version/1/registry/azureml-cohere
+    - https://docs.cohere.com/docs/cohere-on-microsoft-azure
+    - https://docs.cohere.com/docs/cohere-on-azure/azure-ai-reranking
+    - https://docs.cohere.com/docs/deprecations
+status: active
 supportedModes:
     - rerank

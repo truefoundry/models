@@ -19,10 +19,8 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
-        - image
 mode: chat
 model: gpt-5.2
 params:
@@ -32,6 +30,14 @@ params:
       minValue: 1
     - defaultValue: null
       key: response_format
+      type: string
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 removeParams:

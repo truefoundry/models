@@ -32,8 +32,19 @@ modalities:
         - text
 mode: chat
 model: gpt-5-mini-2025-08-07-lite
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 retirementDate: "2027-02-09"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-5-mini
 status: active
 supportedModes:
     - chat

@@ -1,4 +1,34 @@
+costs:
+    - input_cost_per_image: 0.015
+      # Pricing is per megapixel with resolution rounded up to next MP.
+      # Generated image: first MP $0.03, each subsequent MP $0.015.
+      # Reference images: $0.015 per MP.
+      output_cost_per_image: 0.03
+      region: global
+limits:
+    max_input_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
 mode: image
 model: flux.2-pro
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/FLUX.2-pro
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-flux
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/black-forest-labs/
+status: active
 supportedModes:
     - image

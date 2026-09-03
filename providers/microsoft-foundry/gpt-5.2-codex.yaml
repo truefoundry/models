@@ -24,8 +24,20 @@ modalities:
         - text
 mode: responses
 model: gpt-5.2-codex
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 retirementDate: "2027-07-13"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-5.2-codex
+    - https://developers.openai.com/api/docs/models/gpt-5.2-codex
 status: active
 supportedModes:
     - responses

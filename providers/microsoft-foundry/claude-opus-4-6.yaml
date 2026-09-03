@@ -1,24 +1,49 @@
 costs:
     - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
       output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - tool_choice
     - prompt_caching
+    - cache_control
     - structured_output
+    - system_messages
 limits:
-    max_input_tokens: 200000
+    context_window: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
-    tool_use_system_prompt_tokens: 159
+    tool_use_system_prompt_tokens: 497
 modalities:
     input:
+        - text
         - image
         - pdf
+    output:
+        - text
 mode: chat
 model: claude-opus-4-6
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
+    - https://platform.claude.com/docs/en/about-claude/pricing
+status: active
 supportedModes:
     - chat
+thinking: true

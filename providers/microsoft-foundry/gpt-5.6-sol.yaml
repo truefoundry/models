@@ -52,7 +52,8 @@ features:
     - system_messages
     - tool_choice
 limits:
-    max_input_tokens: 1050000
+    context_window: 1050000
+    max_input_tokens: 922000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
@@ -73,9 +74,13 @@ params:
           - medium
           - high
           - xhigh
+          - max
       type: string
 provisioning: serverless
 retirementDate: "2028-01-11"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-5.6-sol
+    - https://azure.microsoft.com/en-us/blog/gpt-5-6-now-available-in-microsoft-foundry/
 status: active
 supportedModes:
     - chat

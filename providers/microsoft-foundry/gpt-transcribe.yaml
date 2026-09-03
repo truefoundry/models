@@ -1,3 +1,7 @@
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
 modalities:
     input:
         - audio
@@ -6,8 +10,21 @@ modalities:
         - text
 mode: audio_transcription
 model: gpt-transcribe
+# costs: not found in official docs — Microsoft Foundry documents gpt-transcribe as priced per audio hour under Global Standard but does not publish an exact rate on the Azure OpenAI/Foundry pricing pages
 provisioning: serverless
+removeParams:
+    - max_tokens
+    - stop
+    - top_p
+    - "n"
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/models/gpt-transcribe
+    - https://learn.microsoft.com/en-us/azure/ai-services/speech-service/transcribe-overview
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-whisper
+    - https://ai.azure.com/catalog/models/gpt-transcribe
+status: active
 supportedModes:
     - audio_transcription

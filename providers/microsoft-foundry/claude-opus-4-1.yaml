@@ -1,15 +1,17 @@
 costs:
-    - cache_creation_input_token_cost: 0.00001875
-      cache_read_input_token_cost: 0.0000015
-      input_cost_per_token: 0.000015
-      output_cost_per_token: 0.000075
+    - cache_creation_input_token_cost: 1.875e-5
+      cache_read_input_token_cost: 1.5e-6
+      input_cost_per_token: 1.5e-5
+      output_cost_per_token: 7.5e-5
       region: "*"
+deprecationDate: "2026-06-05"
 features:
     - function_calling
     - tool_choice
     - prompt_caching
     - structured_output
     - assistant_prefill
+isDeprecated: true
 limits:
     max_input_tokens: 200000
     max_output_tokens: 32000
@@ -20,5 +22,7 @@ modalities:
         - pdf
 mode: chat
 model: claude-opus-4-1
+retirementDate: "2026-08-05"
+status: retired
 supportedModes:
     - chat

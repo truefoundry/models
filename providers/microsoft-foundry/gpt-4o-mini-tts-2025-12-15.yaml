@@ -5,6 +5,7 @@ costs:
       output_cost_per_token: 0.00001
       region: "*"
 limits:
+    context_window: 2000
     max_input_tokens: 2000
 modalities:
     input:
@@ -28,6 +29,7 @@ retirementDate: "2027-06-15"
 sources:
     - https://developers.openai.com/docs/guides/text-to-speech
     - https://developers.openai.com/docs/models/gpt-4o-mini-tts
+    - https://ai.azure.com/catalog/models/gpt-4o-mini-tts
 status: active
 supportedModes:
     - text_to_speech
