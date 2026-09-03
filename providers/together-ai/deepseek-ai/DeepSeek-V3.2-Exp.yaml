@@ -1,7 +1,7 @@
 features:
     - json_output
 limits:
-    context_window: 163840
+    context_window: 128000
 modalities:
     input:
         - text
@@ -11,11 +11,9 @@ mode: chat
 model: deepseek-ai/DeepSeek-V3.2-Exp
 provisioning: serverless
 sources:
-    - https://together.ai/pricing
-    - https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Exp
-    - https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Exp/blob/main/config.json
-    - https://together.ai/models
-status: active
+    - https://www.together.ai/models/deepseek-v3-2-exp
+    - https://www.together.ai/pricing
+status: preview
 supportedModes:
     - chat
 thinking: true
