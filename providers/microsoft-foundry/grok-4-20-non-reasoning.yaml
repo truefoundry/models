@@ -1,4 +1,44 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.0000025
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 4e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000025
+                from: 200000
+          output:
+              - cost_per_token: 0.000005
+                from: 200000
+features:
+    - function_calling
+    - parallel_function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+    - prompt_caching
+limits:
+    context_window: 262000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: grok-4-20-non-reasoning
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/grok-4-20-non-reasoning
+    - https://docs.x.ai/developers/models/grok-4.20-non-reasoning
+status: preview
 supportedModes:
     - chat
+thinking: false
