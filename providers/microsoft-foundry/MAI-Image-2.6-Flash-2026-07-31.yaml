@@ -1,2 +1,29 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: MAI-Image-2.6-Flash-2026-07-31
+provisioning: serverless
+# costs: not found in official docs
+# limits: not found in official docs for MAI-Image-2.6-Flash
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/
+    - https://ai.azure.com/catalog/models/MAI-Image-2.6-Flash
+status: preview
+supportedModes:
+    - image
