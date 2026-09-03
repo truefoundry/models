@@ -1,13 +1,14 @@
 costs:
     - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 2.3e-7
-      output_cost_per_token: 0.0000023
+      output_cost_per_token: 2.3e-6
       region: "*"
 deprecationDate: "2026-08-24"
 features:
     - prompt_caching
     - function_calling
     - json_output
+isDeprecated: true
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -23,7 +24,7 @@ model: Qwen/Qwen3-235B-A22B-Thinking-2507
 provisioning: serverless
 sources:
     - https://deepinfra.com/Qwen/Qwen3-235B-A22B-Thinking-2507
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
