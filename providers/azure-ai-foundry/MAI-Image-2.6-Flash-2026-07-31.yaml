@@ -1,2 +1,25 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: MAI-Image-2.6-Flash-2026-07-31
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+# costs: not found in official docs (MAI-Image-2.6-Flash is in private preview on Microsoft Foundry; pricing not publicly disclosed)
+# limits: not found in official docs for this specific 2026-07-31 version
+sources:
+    - https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+    - https://ai.azure.com/catalog/models/MAI-Image-2.6-Flash
+status: preview
+supportedModes:
+    - image
