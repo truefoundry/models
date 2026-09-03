@@ -1,4 +1,22 @@
+costs:
+    - input_cost_per_token: 1.9e-7
+      output_cost_per_token: 5.1e-7
+      region: "*"
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: DeepSeek-V4-Flash
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-deepseek-v4-flash-and-v4-pro-in-microsoft-foundry/4515174
+status: active
 supportedModes:
     - chat
