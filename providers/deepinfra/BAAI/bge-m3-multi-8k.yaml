@@ -4,5 +4,16 @@ costs:
 limits:
     context_window: 8192
     max_tokens: 8192
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: BAAI/bge-m3-multi-8k
+provisioning: serverless
+sources:
+    - https://deepinfra.com/BAAI/bge-m3-multi-8k
+status: active
+supportedModes:
+    - embedding
