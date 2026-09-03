@@ -28,9 +28,12 @@ modalities:
 mode: chat
 model: system.ai.claude-haiku-4-5
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/models/haiku-4-5/overview
 status: active
 supportedModes:
     - chat
