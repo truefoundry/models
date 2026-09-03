@@ -10,7 +10,6 @@ limits:
 modalities:
     input:
         - audio
-        - text
     output:
         - audio
         - text
@@ -22,11 +21,14 @@ params:
       maxValue: 65536
       minValue: 1
 provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - tool_choice
 sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://deepmind.google/models/model-cards/gemini-3-5-audio/
 status: preview
 supportedModes:
     - audio_translation
-    - realtime
