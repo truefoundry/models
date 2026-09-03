@@ -1,2 +1,16 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: MAI-Image-2.6-Flash
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/MAI-Image-2.6-Flash
+    - https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/
+    - https://microsoft.ai/models/mai-image-2-5/
+status: preview
+supportedModes:
+    - image
