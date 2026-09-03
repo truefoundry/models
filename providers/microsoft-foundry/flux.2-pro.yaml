@@ -1,4 +1,33 @@
+limits:
+    max_input_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
 mode: image
 model: flux.2-pro
+provisioning: serverless
+# Pricing is billed per megapixel (not per image) and cannot be expressed in
+# the schema's per-image cost fields. Per official Azure pricing:
+#   - Generated image: $0.03 for the first megapixel, $0.015 per additional megapixel
+#   - Reference image input: $0.015 per megapixel
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - n
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/FLUX.2-pro
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/black-forest-labs/
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/black-forest-labs-flux-2-visual-intelligence-for-enterprise-creative-now-on-micr/4477561
+status: active
 supportedModes:
     - image

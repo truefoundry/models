@@ -4,11 +4,22 @@ costs:
       output_cost_per_token: 0
       region: "*"
 limits:
+    context_window: 32768
     max_input_tokens: 32768
     max_output_tokens: 32768
     max_query_tokens: 4096
     max_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: rerank
 model: cohere-rerank-v4.0-fast
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Cohere-rerank-v4.0-fast
+    - https://docs.cohere.com/docs/rerank
+status: active
 supportedModes:
     - rerank

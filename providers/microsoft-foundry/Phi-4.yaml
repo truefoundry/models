@@ -9,7 +9,16 @@ limits:
     max_input_tokens: 16384
     max_output_tokens: 16384
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Phi-4
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Phi-4
+status: active
 supportedModes:
     - chat
