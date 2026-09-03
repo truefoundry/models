@@ -1,4 +1,15 @@
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen3-32b-v2
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/qwen3-32b
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/fine-tuning-cost-management
+status: active
 supportedModes:
     - chat
+thinking: true
