@@ -1,2 +1,20 @@
-mode: unknown
+limits:
+    context_window: 8192
+    max_output_tokens: 64000
+    max_tokens: 64000
+modalities:
+    input:
+        - image
+        - pdf
+    output:
+        - text
+mode: ocr
 model: Cohere-parse-v5
+provisioning: provisioned
+sources:
+    - https://ai.azure.com/catalog/models/Cohere-parse-v5
+    - https://docs.cohere.com/docs/parse
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-cohere-parse-v5/4550955
+status: preview
+supportedModes:
+    - ocr
