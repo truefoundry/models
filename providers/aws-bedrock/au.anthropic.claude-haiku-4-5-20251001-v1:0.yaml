@@ -6,6 +6,14 @@ costs:
       input_cost_per_token_batches: 5.5e-7
       output_cost_per_token: 0.0000055
       output_cost_per_token_batches: 0.00000275
+      region: ap-southeast-6
+    - cache_creation_input_token_cost: 0.000001375
+      cache_creation_input_token_cost_per_hour: 0.0000022
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000011
+      input_cost_per_token_batches: 5.5e-7
+      output_cost_per_token: 0.0000055
+      output_cost_per_token_batches: 0.00000275
       region: ap-southeast-4
     - cache_creation_input_token_cost: 0.000001375
       cache_creation_input_token_cost_per_hour: 0.0000022
@@ -22,6 +30,7 @@ features:
     - system_messages
     - assistant_prefill
     - cache_control
+    - structured_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -48,6 +57,7 @@ sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html
 status: active
 supportedModes:
     - chat

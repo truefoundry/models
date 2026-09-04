@@ -36,6 +36,11 @@ modalities:
         - text
 mode: chat
 model: au.anthropic.claude-opus-5
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5.html

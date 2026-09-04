@@ -43,10 +43,12 @@ costs:
           pricing_mode: marginal
 features:
     - function_calling
+    - parallel_function_calling
     - prompt_caching
     - tool_choice
     - system_messages
     - assistant_prefill
+    - cache_control
 limits:
     context_window: 200000
     max_input_tokens: 200000
