@@ -22,6 +22,9 @@ modalities:
         - text
 mode: chat
 model: Llama-3.3-70B-Instruct-5
+params:
+    - key: max_tokens
+      maxValue: 8192
 provisioning: serverless
 removeParams:
     - response_format
