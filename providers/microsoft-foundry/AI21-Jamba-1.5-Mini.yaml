@@ -1,0 +1,26 @@
+costs:
+    - input_cost_per_token: 2e-7
+      output_cost_per_token: 4e-7
+      region: "*"
+features:
+    - function_calling
+    - system_messages
+    - structured_output
+    - json_output
+limits:
+    context_window: 256000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: AI21-Jamba-1.5-Mini
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/AI21-Jamba-1.5-Mini
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-ai21-labs-jamba-1-5-large-and-jamba-1-5-mini-on-azure-ai-models-as-a/4220040
+    - https://www.ai21.com/blog/announcing-jamba-model-family/
+status: active
+supportedModes:
+    - chat
