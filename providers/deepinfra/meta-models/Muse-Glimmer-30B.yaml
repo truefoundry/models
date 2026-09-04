@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 3.9999999e-8
+    - cache_read_input_token_cost: 4e-8
       input_cost_per_token: 3e-7
       output_cost_per_token: 1.2e-6
       region: "*"
@@ -18,6 +18,15 @@ modalities:
         - text
 mode: chat
 model: meta-models/Muse-Glimmer-30B
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/meta-models/Muse-Glimmer-30B
