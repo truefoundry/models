@@ -1,0 +1,32 @@
+limits:
+    context_window: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: MAI-Image-2.5-Pro
+provisioning: serverless
+# costs not found in official docs — Microsoft pricing table lists placeholder "$-" for MAI-Image-2.5 Pro Global
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+retirementDate: "2026-10-01"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://ai.azure.com/catalog/models/MAI-Image-2.5-Pro
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/
+status: preview
+supportedModes:
+    - image
