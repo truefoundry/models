@@ -22,11 +22,12 @@ model: moonshotai/Kimi-K2.6
 params:
     - key: reasoning
       type: json
-provisioning: serverless
+provisioning: provisioned
 removeParams:
     - reasoning_effort
 sources:
     - https://www.together.ai/models/kimi-k26
+    - https://docs.together.ai/docs/kimi-k2.6-quickstart
 status: active
 supportedModes:
     - chat

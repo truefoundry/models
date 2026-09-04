@@ -9,8 +9,10 @@ modalities:
 mode: image
 model: black-forest-labs/FLUX.1-schnell
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
-    - https://docs.together.ai/docs/serverless-models
+    - https://www.together.ai/models/flux-1-schnell-2
 status: active
 supportedModes:
     - image

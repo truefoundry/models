@@ -9,7 +9,7 @@ features:
     - json_output
     - tool_choice
 limits:
-    context_window: 128000
+    context_window: 131072
 modalities:
     input:
         - text
@@ -28,6 +28,7 @@ params:
 provisioning: serverless
 sources:
     - https://www.together.ai/models/gpt-oss-120b
+    - https://www.together.ai/pricing
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
 status: active
