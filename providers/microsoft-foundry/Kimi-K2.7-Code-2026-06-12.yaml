@@ -15,6 +15,9 @@ modalities:
         - text
 mode: chat
 model: Kimi-K2.7-Code-2026-06-12
+params:
+    - key: max_tokens
+      maxValue: 262144
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/Kimi-K2.7-Code
