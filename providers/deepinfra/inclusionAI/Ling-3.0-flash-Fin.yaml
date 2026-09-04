@@ -1,0 +1,24 @@
+costs:
+    - cache_read_input_token_cost: 1.2e-8
+      input_cost_per_token: 6e-8
+      output_cost_per_token: 1.8e-7
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+limits:
+    context_window: 262144
+    max_tokens: 262144
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: inclusionAI/Ling-3.0-flash-Fin
+sources:
+    - https://deepinfra.com/inclusionAI/Ling-3.0-flash-Fin
+status: active
+supportedModes:
+    - chat
