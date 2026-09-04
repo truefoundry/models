@@ -32,6 +32,9 @@ modalities:
         - text
 mode: chat
 model: grok-4-20-non-reasoning
+params:
+    - key: max_tokens
+      maxValue: 8192
 provisioning: serverless
 removeParams:
     - reasoning_effort
