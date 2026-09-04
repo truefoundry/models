@@ -1,0 +1,22 @@
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: MAI-Image-2.6-2026-07-31
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+sources:
+    - https://microsoft.ai/news/mai-image-2-6-launches-at-no-2-on-arena-ahead-of-google-meta-and-xai/
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+status: preview
+supportedModes:
+    - image
