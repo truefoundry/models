@@ -1,0 +1,26 @@
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: Stable-Diffusion-3.5-Large
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/explore/models/Stable-Diffusion-3.5-Large/version/1/registry/azureml-stabilityai
+    - https://stability.ai/news-updates/stable-diffusion-35-large-is-now-available-on-microsoft-ai-foundry
+status: active
+supportedModes:
+    - image
