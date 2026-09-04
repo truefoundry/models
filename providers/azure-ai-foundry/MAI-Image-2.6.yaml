@@ -1,0 +1,26 @@
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: MAI-Image-2.6
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - stream
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+    - https://ai.azure.com/catalog/models/MAI-Image-2.5-Flash
+    - https://labs.ai.azure.com/projects/mai-image-2/
+status: preview
+supportedModes:
+    - image
+
+# costs: not found in official docs — MAI-Image-2.6 is in private preview on Microsoft Foundry and no pricing has been published yet
+# limits: not found in official docs — no 2.6-specific limits published; official docs currently list only the MAI-Image-2.5 family
