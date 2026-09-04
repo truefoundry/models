@@ -19,6 +19,9 @@ modalities:
         - text
 mode: chat
 model: grok-4-1-fast-reasoning
+params:
+    - key: max_tokens
+      maxValue: 131072
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/grok-4-1-fast-reasoning
