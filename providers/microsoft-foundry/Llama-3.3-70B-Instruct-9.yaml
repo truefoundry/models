@@ -4,6 +4,8 @@ costs:
       region: "*"
 features:
     - system_messages
+    - function_calling
+    - tool_choice
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -28,7 +30,6 @@ params:
       minValue: 1
 provisioning: serverless
 removeParams:
-    - tool_choice
     - parallel_tool_calls
     - reasoning_effort
     - response_format
