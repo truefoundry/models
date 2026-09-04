@@ -22,6 +22,9 @@ modalities:
         - audio
 mode: chat
 model: gpt-audio
+params:
+    - key: max_tokens
+      maxValue: 16384
 provisioning: serverless
 removeParams:
     - reasoning_effort
