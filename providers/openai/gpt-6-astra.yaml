@@ -1,0 +1,72 @@
+costs:
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.000010
+      input_cost_per_token_batches: 0.000005
+      output_cost_per_token: 0.000050
+      output_cost_per_token_batches: 0.000025
+      priority_pricing:
+          cache_creation_input_token_cost: 0.000025
+          cache_read_input_token_cost: 0.000002
+          input_cost_per_token: 0.000020
+          output_cost_per_token: 0.000100
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.000020
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+    - system_messages
+    - tool_choice
+    - parallel_function_calling
+    - json_output
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: gpt-6-astra
+params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-6-astra
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
