@@ -6,11 +6,25 @@ features:
     - function_calling
     - tool_choice
     - assistant_prefill
+    - json_output
+    - system_messages
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 8191
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: mistral-medium-2505
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-from-partners
+    - https://ai.azure.com/catalog/models/mistral-medium-2505
+status: active
 supportedModes:
     - chat

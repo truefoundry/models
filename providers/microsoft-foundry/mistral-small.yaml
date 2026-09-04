@@ -6,10 +6,22 @@ features:
     - function_calling
     - tool_choice
 limits:
+    context_window: 32000
     max_input_tokens: 32000
     max_output_tokens: 8191
     max_tokens: 8191
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mistral-small
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/mistral-ai/
+status: active
 supportedModes:
     - chat

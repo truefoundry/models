@@ -14,6 +14,11 @@ limits:
     max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
+messages:
+    options:
+        - user
+        - assistant
+        - developer
 modalities:
     input:
         - text
@@ -35,6 +40,8 @@ params:
       type: string
 provisioning: serverless
 retirementDate: "2027-05-18"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-5.1-codex-max
 status: active
 supportedModes:
     - responses

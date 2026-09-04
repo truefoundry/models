@@ -1,6 +1,36 @@
+features:
+    - system_messages
+    - function_calling
+    - tool_choice
+modalities:
+    input:
+        - audio
+        - text
+        - image
+    output:
+        - audio
+        - text
 mode: realtime
 model: gpt-realtime-2.1-mini-2026-06-25
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/realtime-2
+    - https://ai.azure.com/catalog/models/gpt-realtime-2.1-mini
+status: preview
 supportedModes:
     - realtime
+thinking: true
 
 # Model not yet documented in any official source as of 2026-06-24 — model version
+# 2026-06-25 is not individually listed on the Azure model retirement schedule;
+# only version 2026-07-07 of gpt-realtime-2.1-mini appears there. Pricing and
+# per-version limits for 2026-06-25 are not found in official docs.

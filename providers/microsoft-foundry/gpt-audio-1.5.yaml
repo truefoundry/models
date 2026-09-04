@@ -10,6 +10,7 @@ features:
     - system_messages
     - tool_choice
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 16384
     max_tokens: 16384
@@ -31,6 +32,8 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 retirementDate: "2027-08-24"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-audio-1.5
 status: active
 supportedModes:
     - chat

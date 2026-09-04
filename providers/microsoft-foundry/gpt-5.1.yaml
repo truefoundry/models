@@ -45,11 +45,9 @@ params:
       key: reasoning_effort
       supportedValues:
           - none
-          - minimal
           - low
           - medium
           - high
-          - xhigh
       type: string
 provisioning: serverless
 removeParams:
@@ -60,6 +58,7 @@ removeParams:
 retirementDate: "2027-05-15"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
     - chat

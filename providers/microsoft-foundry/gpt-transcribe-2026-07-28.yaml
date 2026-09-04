@@ -1,3 +1,7 @@
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
 modalities:
     input:
         - text
@@ -18,9 +22,9 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-transcribe
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://ai.azure.com/catalog/models/gpt-transcribe
 status: active
 supportedModes:
     - audio_transcription
 
 # costs: not found in official Azure OpenAI docs — Azure pricing page does not list gpt-transcribe pricing
-# limits: not found in official Azure OpenAI docs for this snapshot

@@ -5,11 +5,30 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - json_output
+    - system_messages
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
+messages:
+    options:
+        - system
+        - user
+        - assistant
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mistral-large-latest
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners
+status: active
 supportedModes:
     - chat

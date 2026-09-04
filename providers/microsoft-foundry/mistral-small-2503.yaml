@@ -5,14 +5,26 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - json_output
 limits:
+    context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 128000
+    max_output_tokens: 4096
     max_tokens: 4096
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral-small-2503
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/mistral-small-2503
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners
+status: active
 supportedModes:
     - chat
