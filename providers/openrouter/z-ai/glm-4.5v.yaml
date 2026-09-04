@@ -7,6 +7,7 @@ features:
     - function_calling
     - prompt_caching
     - tool_choice
+    - json_output
 limits:
     context_window: 65536
     max_output_tokens: 16384
@@ -21,7 +22,7 @@ mode: chat
 model: z-ai/glm-4.5v
 provisioning: serverless
 sources:
-    - https://openrouter.ai/z-ai/glm-4.5v/api
+    - https://openrouter.ai/z-ai/glm-4.5v
 status: active
 supportedModes:
     - chat

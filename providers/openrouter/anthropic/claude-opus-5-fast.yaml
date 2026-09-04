@@ -4,12 +4,14 @@ costs:
       input_cost_per_token: 1e-5
       output_cost_per_token: 5e-5
       region: "*"
+deprecationDate: "2026-09-01"
 features:
     - function_calling
     - json_output
     - prompt_caching
     - structured_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -25,6 +27,7 @@ model: anthropic/claude-opus-5-fast
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-opus-5-fast
+status: deprecated
 supportedModes:
     - chat
 thinking: true
