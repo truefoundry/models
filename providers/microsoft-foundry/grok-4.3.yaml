@@ -20,6 +20,9 @@ modalities:
         - text
 mode: chat
 model: grok-4.3
+params:
+    - key: max_tokens
+      maxValue: 8192
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/grok-4.3
