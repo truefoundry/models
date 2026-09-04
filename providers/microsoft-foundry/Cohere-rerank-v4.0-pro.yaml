@@ -9,6 +9,13 @@ modalities:
 mode: rerank
 model: Cohere-rerank-v4.0-pro
 provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - stream
+    - reasoning_effort
 sources:
     - https://ai.azure.com/catalog/models/Cohere-rerank-v4.0-pro
     - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/cohere/
