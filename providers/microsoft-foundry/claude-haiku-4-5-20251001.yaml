@@ -36,6 +36,8 @@ params:
     - key: max_tokens
       maxValue: 64000
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://ai.azure.com/catalog/models/claude-haiku-4-5
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
