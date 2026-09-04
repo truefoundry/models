@@ -19,6 +19,13 @@ modalities:
         - text
 mode: chat
 model: GLM-5.2
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - high
+          - max
 provisioning: serverless
 sources:
     - https://pass.wafer.ai/v1/models
