@@ -49,6 +49,8 @@ params:
       type: string
     - key: thinking
       type: json
+    - key: max_tokens
+      maxValue: 128000
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/claude-opus-5
