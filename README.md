@@ -31,29 +31,29 @@ This is the complete set of providers the gateway supports. If a provider isn't 
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 930 | Unified API for open source models |
-| Google Vertex AI | 431 | Gemini, PaLM on GCP |
+| OpenRouter | 938 | Unified API for open source models |
+| Google Vertex AI | 436 | Gemini, PaLM on GCP |
+| Microsoft Foundry | 426 | OpenAI and Foundry catalog models on Microsoft Foundry |
 | Together AI | 384 | Open source model hosting |
-| Microsoft Foundry | 299 | OpenAI and Foundry catalog models on Microsoft Foundry |
 | DeepInfra | 262 | Open source model hosting |
-| Azure OpenAI | 230 | OpenAI models on Azure |
-| AWS Bedrock | 229 | Claude, Llama, Titan, Mistral on AWS |
-| Azure AI Foundry | 220 | Azure AI models |
-| OpenAI | 151 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
+| Azure OpenAI | 238 | OpenAI models on Azure |
+| AWS Bedrock | 231 | Claude, Llama, Titan, Mistral on AWS |
+| Azure AI Foundry | 221 | Azure AI models |
+| OpenAI | 156 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Deepgram | 143 | Speech-to-text and text-to-speech models |
-| Mistral AI | 103 | Mistral, Mixtral, Codestral |
+| Mistral AI | 104 | Mistral, Mixtral, Codestral |
 | xAI | 92 | Grok models |
-| Google Gemini | 80 | Gemini Pro, Ultra, Flash |
+| Google Gemini | 82 | Gemini Pro, Ultra, Flash |
 | Databricks | 68 | Databricks-hosted models |
 | Aws Bedrock Mantle | 55 |  |
 | Cohere | 39 | Command, Embed models |
-| SambaNova | 30 | Enterprise AI models |
-| Anthropic | 27 | Claude 3, Claude 3.5, Claude 4 |
+| SambaNova | 31 | Enterprise AI models |
+| Anthropic | 28 | Claude 3, Claude 3.5, Claude 4 |
+| Groq | 24 | Fast inference models |
 | Perplexity | 24 | Search-augmented models |
-| Groq | 23 | Fast inference models |
-| Wafer | 17 |  |
+| Wafer | 18 |  |
 | AI21 | 12 | Jamba models |
-| ElevenLabs | 11 | Voice synthesis and text-to-speech models |
+| ElevenLabs | 12 | Voice synthesis and text-to-speech models |
 | Cerebras | 6 | Fast inference models |
 
 ## Installation
