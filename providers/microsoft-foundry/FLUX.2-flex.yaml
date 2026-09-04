@@ -1,0 +1,38 @@
+costs:
+    - input_cost_per_image: 0.05 # per megapixel of reference image
+      output_cost_per_image: 0.05 # per megapixel of generated image
+      region: global
+    - input_cost_per_image: 0.055 # per megapixel of reference image
+      output_cost_per_image: 0.055 # per megapixel of generated image
+      region: datazone_us
+    - input_cost_per_image: 0.055 # per megapixel of reference image
+      output_cost_per_image: 0.055 # per megapixel of generated image
+      region: datazone_eu
+limits:
+    max_input_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: FLUX.2-flex
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - parallel_tool_calls
+    - tool_choice
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - response_format
+    - max_tokens
+sources:
+    - https://ai.azure.com/catalog/models/FLUX.2-flex
+    - https://prices.azure.com/api/retail/prices
+status: preview
+supportedModes:
+    - image
