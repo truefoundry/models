@@ -2,14 +2,21 @@ costs:
     - input_cost_per_token: 7.1e-7
       output_cost_per_token: 7.1e-7
       region: "*"
-features:
-    - function_calling
-    - tool_choice
 limits:
     max_input_tokens: 128000
-    max_output_tokens: 2048
-    max_tokens: 4096
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Llama-3.3-70B-Instruct
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/model-lifecycle-retirement
+status: active
 supportedModes:
     - chat

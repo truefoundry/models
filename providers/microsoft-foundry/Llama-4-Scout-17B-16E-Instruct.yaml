@@ -6,13 +6,21 @@ features:
     - function_calling
     - tool_choice
 limits:
+    context_window: 10000000
     max_input_tokens: 10000000
     max_output_tokens: 16384
-    max_tokens: 4096
+    max_tokens: 16384
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: Llama-4-Scout-17B-16E-Instruct
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Llama-4-Scout-17B-16E-Instruct
+status: active
 supportedModes:
     - chat

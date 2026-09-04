@@ -11,7 +11,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 272000
+    context_window: 400000
     max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
@@ -24,6 +24,14 @@ modalities:
         - text
 mode: responses
 model: gpt-5.3-codex
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 retirementDate: "2027-08-24"
 status: active

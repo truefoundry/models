@@ -29,8 +29,17 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 retirementDate: "2027-07-13"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-5.2-codex
 status: active
 supportedModes:
     - responses

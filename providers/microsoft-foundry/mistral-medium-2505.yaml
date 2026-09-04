@@ -6,11 +6,25 @@ features:
     - function_calling
     - tool_choice
     - assistant_prefill
+    - structured_output
+    - system_messages
+    - json_output
 limits:
     max_input_tokens: 131072
     max_output_tokens: 8191
     max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: mistral-medium-2505
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/mistral-medium-2505
+    - https://docs.mistral.ai/models/mistral-medium-3-25-05
+status: active
 supportedModes:
     - chat

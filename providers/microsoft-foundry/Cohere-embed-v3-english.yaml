@@ -8,10 +8,17 @@ limits:
     output_vector_size: 1024
 modalities:
     input:
+        - text
         - image
+    output:
+        - embedding
 mode: embedding
 model: Cohere-embed-v3-english
+provisioning: serverless
 removeParams:
     - max_tokens
+sources:
+    - https://ai.azure.com/catalog/models/Cohere-embed-v3-english
+status: active
 supportedModes:
     - embedding

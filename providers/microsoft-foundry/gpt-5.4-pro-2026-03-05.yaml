@@ -16,10 +16,10 @@ costs:
           pricing_mode: cumulative
 features:
     - function_calling
-    - parallel_function_calling
     - system_messages
     - tool_choice
     - prompt_caching
+    - structured_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -29,7 +29,6 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: responses
@@ -42,7 +41,7 @@ params:
     - defaultValue: null
       key: reasoning_effort
       supportedValues:
-          - minimal
+          - none
           - low
           - medium
           - high

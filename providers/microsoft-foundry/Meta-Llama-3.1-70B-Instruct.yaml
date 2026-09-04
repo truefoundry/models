@@ -8,7 +8,15 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 2048
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Meta-Llama-3.1-70B-Instruct
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-from-partners
 supportedModes:
     - chat

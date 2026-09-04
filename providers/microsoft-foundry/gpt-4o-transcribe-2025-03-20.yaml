@@ -10,6 +10,7 @@ limits:
 modalities:
     input:
         - audio
+        - text
     output:
         - text
 mode: audio_transcription
@@ -27,6 +28,8 @@ removeParams:
     - parallel_tool_calls
     - reasoning_effort
 retirementDate: "2026-10-15"
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-4o-transcribe
 status: active
 supportedModes:
     - audio_transcription

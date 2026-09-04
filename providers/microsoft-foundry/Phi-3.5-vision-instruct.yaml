@@ -5,13 +5,21 @@ costs:
 features:
     - tool_choice
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: Phi-3.5-vision-instruct
+sources:
+    - https://huggingface.co/microsoft/Phi-3.5-vision-instruct
+    - https://ai.azure.com/catalog/models/Phi-3.5-vision-instruct
+status: active
 supportedModes:
     - chat

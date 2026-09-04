@@ -8,10 +8,29 @@ features:
     - tool_choice
     - structured_output
 limits:
+    context_window: 131072
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 131072
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: gpt-oss-120b
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/gpt-oss-120b
+status: active
 supportedModes:
     - chat
+thinking: true

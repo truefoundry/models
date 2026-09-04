@@ -6,7 +6,17 @@ limits:
     max_input_tokens: 8192
     max_output_tokens: 8192
     max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: jais-30b-chat
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/jais-30b-chat
+    - https://ai.azure.com/explore/models/jais-30b-chat/version/1/registry/azureml-core42
+status: active
 supportedModes:
     - chat

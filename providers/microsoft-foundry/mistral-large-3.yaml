@@ -5,14 +5,25 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - json_output
+    - system_messages
 limits:
     max_input_tokens: 256000
     max_output_tokens: 8191
     max_tokens: 8191
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: mistral-large-3
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://azure.microsoft.com/en-us/blog/introducing-mistral-large-3-in-microsoft-foundry-open-capable-and-ready-for-production-workloads/
+status: preview
 supportedModes:
     - chat

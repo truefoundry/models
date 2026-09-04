@@ -8,7 +8,13 @@ limits:
     max_output_tokens: 4096
     max_query_tokens: 2048
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: rerank
 model: cohere-rerank-v3-multilingual
+provisioning: serverless
 supportedModes:
     - rerank

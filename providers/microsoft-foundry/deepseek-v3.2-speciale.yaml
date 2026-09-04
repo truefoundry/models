@@ -3,15 +3,26 @@ costs:
       output_cost_per_token: 0.00000168
       region: "*"
 features:
-    - function_calling
-    - tool_choice
     - prompt_caching
     - assistant_prefill
+    - json_output
+    - system_messages
 limits:
-    max_input_tokens: 163840
-    max_output_tokens: 163840
-    max_tokens: 163840
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek-v3.2-speciale
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V3.2-Speciale
+status: active
 supportedModes:
     - chat
+thinking: true
