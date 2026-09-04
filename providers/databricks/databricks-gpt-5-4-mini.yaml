@@ -25,18 +25,16 @@ modalities:
 mode: chat
 model: databricks-gpt-5-4-mini
 params:
-    - defaultValue: none
+    - defaultValue: minimal
       key: reasoning_effort
       supportedValues:
-          - none
+          - minimal
           - low
           - medium
           - high
-          - xhigh
       type: string
 provisioning: serverless
 sources:
-    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
