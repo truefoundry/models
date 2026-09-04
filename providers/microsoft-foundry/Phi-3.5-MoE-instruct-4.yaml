@@ -1,0 +1,17 @@
+features:
+    - system_messages
+limits:
+    context_window: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: Phi-3.5-MoE-instruct-4
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Phi-3.5-MoE-instruct
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-the-availability-of-phi-3-5-moe-in-azure-ai-studio-and-github/4256278
+supportedModes:
+    - chat
