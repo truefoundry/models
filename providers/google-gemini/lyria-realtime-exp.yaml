@@ -1,5 +1,22 @@
-limits:
-    max_input_tokens: 1048576
-    max_output_tokens: 65536
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: realtime
 model: lyria-realtime-exp
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - top_k
+    - stop
+    - stream
+    - tool_choice
+    - reasoning_effort
+sources:
+    - https://ai.google.dev/gemini-api/docs/realtime-music-generation
+status: preview
+supportedModes:
+    - realtime
