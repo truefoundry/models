@@ -42,7 +42,7 @@ mode: responses
 model: gpt-5.1-codex-mini-2025-11-13
 params:
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
     - defaultValue: medium
@@ -55,6 +55,7 @@ params:
       type: string
 provisioning: serverless
 removeParams:
+    - max_tokens
     - "n"
 retirementDate: "2027-05-15"
 status: active

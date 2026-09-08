@@ -24,6 +24,7 @@ modalities:
 mode: responses
 model: gpt-5.1-codex-max
 params:
+    - key: max_completion_tokens
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -39,3 +40,6 @@ status: active
 supportedModes:
     - responses
 thinking: true
+
+removeParams:
+    - max_tokens

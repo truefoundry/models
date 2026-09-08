@@ -67,6 +67,7 @@ modalities:
 mode: chat
 model: gpt-5.6-luna-2026-07-09
 params:
+    - key: max_completion_tokens
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -84,3 +85,6 @@ supportedModes:
     - chat
     - responses
 thinking: true
+
+removeParams:
+    - max_tokens

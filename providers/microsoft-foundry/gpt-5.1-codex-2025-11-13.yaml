@@ -41,7 +41,7 @@ modalities:
 mode: responses
 model: gpt-5.1-codex-2025-11-13
 params:
-    - key: max_tokens
+    - key: max_completion_tokens
       maxValue: 128000
 provisioning: serverless
 retirementDate: "2027-05-15"
@@ -52,3 +52,6 @@ status: active
 supportedModes:
     - responses
 thinking: true
+
+removeParams:
+    - max_tokens

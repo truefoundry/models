@@ -30,7 +30,7 @@ mode: responses
 model: gpt-5.1-codex-max-2025-12-04
 params:
     - defaultValue: 128000
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
     - defaultValue: medium
@@ -50,3 +50,6 @@ status: active
 supportedModes:
     - responses
 thinking: true
+
+removeParams:
+    - max_tokens

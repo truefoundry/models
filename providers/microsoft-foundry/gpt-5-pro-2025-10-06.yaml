@@ -25,7 +25,7 @@ mode: responses
 model: gpt-5-pro-2025-10-06
 params:
     - defaultValue: 128000
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
     - defaultValue: high
@@ -39,3 +39,6 @@ status: active
 supportedModes:
     - responses
 thinking: true
+
+removeParams:
+    - max_tokens

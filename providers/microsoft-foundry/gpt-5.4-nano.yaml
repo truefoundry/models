@@ -24,6 +24,7 @@ modalities:
 mode: chat
 model: gpt-5.4-nano
 params:
+    - key: max_completion_tokens
     - defaultValue: none
       key: reasoning_effort
       supportedValues:
@@ -40,3 +41,6 @@ supportedModes:
     - chat
     - responses
 thinking: true
+
+removeParams:
+    - max_tokens
