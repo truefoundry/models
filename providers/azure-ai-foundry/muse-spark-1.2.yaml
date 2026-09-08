@@ -1,4 +1,12 @@
 mode: chat
 model: muse-spark-1.2
+provisioning: serverless
 supportedModes:
     - chat
+
+# Not found in official Azure AI Foundry documentation:
+# - costs (no pricing listed on Microsoft Foundry pricing page for this model)
+# - limits (no context window or output token limits documented)
+# - features (no capability details documented)
+# - modalities (no modality details documented)
+# - deprecation / retirement information (model not listed in Microsoft Foundry model retirement schedule)
