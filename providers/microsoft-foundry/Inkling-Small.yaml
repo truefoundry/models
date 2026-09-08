@@ -1,4 +1,18 @@
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
 mode: chat
 model: Inkling-Small
+provisioning: serverless
+sources:
+    - https://thinkingmachines.ai/model-card/inkling-small/
+    - https://thinkingmachines.ai/news/inkling-small/
+    - https://huggingface.co/thinkingmachines/Inkling-Small
 supportedModes:
     - chat
