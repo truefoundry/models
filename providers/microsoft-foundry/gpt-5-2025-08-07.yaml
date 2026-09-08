@@ -44,6 +44,8 @@ params:
           - high
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-02-09"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
@@ -52,6 +54,3 @@ supportedModes:
     - chat
     - responses
 thinking: true
-
-removeParams:
-    - max_tokens

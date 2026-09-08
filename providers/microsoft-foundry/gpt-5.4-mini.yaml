@@ -26,6 +26,7 @@ mode: chat
 model: gpt-5.4-mini
 params:
     - key: max_completion_tokens
+      maxValue: 128000
     - defaultValue: none
       key: reasoning_effort
       supportedValues:
@@ -36,12 +37,11 @@ params:
           - xhigh
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-09-21"
 status: active
 supportedModes:
     - chat
     - responses
 thinking: true
-
-removeParams:
-    - max_tokens

@@ -34,13 +34,13 @@ mode: chat
 model: gpt-5-mini-2025-08-07-lite
 params:
     - key: max_completion_tokens
+      maxValue: 128000
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-02-09"
 status: active
 supportedModes:
     - chat
     - responses
 thinking: true
-
-removeParams:
-    - max_tokens

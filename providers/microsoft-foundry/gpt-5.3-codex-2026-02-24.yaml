@@ -33,6 +33,8 @@ params:
       key: reasoning_effort
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-08-24"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
@@ -40,6 +42,3 @@ status: active
 supportedModes:
     - responses
 thinking: true
-
-removeParams:
-    - max_tokens
