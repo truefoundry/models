@@ -1,4 +1,34 @@
+costs:
+    - input_cost_per_token: 9.5e-7
+      output_cost_per_token: 4e-6
+      region: global
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 262144
+    max_input_tokens: 262144
+    max_output_tokens: 262144
+    max_tokens: 262144
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: Kimi-K2.6
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 262144
+      minValue: 1
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Kimi-K2.6
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-kimi-k2-6-in-microsoft-foundry/4513125
+status: preview
 supportedModes:
     - chat
+thinking: true
