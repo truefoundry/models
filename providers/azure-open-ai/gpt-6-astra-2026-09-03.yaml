@@ -37,6 +37,25 @@ costs:
               - cost_per_token: 0.0000825
                 from: 272000
           pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00001375
+      cache_read_input_token_cost: 0.0000011
+      input_cost_per_token: 0.000011
+      output_cost_per_token: 0.000055
+      region: datazone_eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000022
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000275
+                from: 272000
+          input:
+              - cost_per_token: 0.000022
+                from: 272000
+          output:
+              - cost_per_token: 0.0000825
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
@@ -53,15 +72,19 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
 model: gpt-6-astra-2026-09-03
 params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
@@ -72,7 +95,9 @@ provisioning: serverless
 removeParams:
     - temperature
     - top_p
+    - max_tokens
 sources:
+    - https://developers.openai.com/api/docs/models/gpt-6-astra
     - https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/
 status: active
 supportedModes:
