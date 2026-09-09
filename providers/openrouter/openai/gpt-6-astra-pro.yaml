@@ -1,0 +1,55 @@
+costs:
+    - cache_creation_input_token_cost: 1.25e-5
+      cache_read_input_token_cost: 1e-6
+      input_cost_per_token: 1e-5
+      output_cost_per_token: 5e-5
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2e-6
+                from: 272000
+          cache_write:
+              - cost_per_token: 2.5e-5
+                from: 272000
+          input:
+              - cost_per_token: 2e-5
+                from: 272000
+          output:
+              - cost_per_token: 7.5e-5
+                from: 272000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1050000
+    max_output_tokens: 128000
+modalities:
+    input:
+        - pdf
+        - image
+        - text
+    output:
+        - text
+mode: chat
+model: openai/gpt-6-astra-pro
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://openrouter.ai/openai/gpt-6-astra-pro
+status: active
+supportedModes:
+    - chat
+thinking: true
