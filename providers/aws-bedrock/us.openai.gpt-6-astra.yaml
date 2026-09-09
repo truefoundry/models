@@ -79,25 +79,6 @@ costs:
       cache_read_input_token_cost: 0.0000011
       input_cost_per_token: 0.000011
       output_cost_per_token: 0.000055
-      region: ca-west-1
-      tiered_pricing:
-          cache_read:
-              - cost_per_token: 0.0000022
-                from: 272000
-          cache_write:
-              - cost_per_token: 0.0000275
-                from: 272000
-          input:
-              - cost_per_token: 0.000022
-                from: 272000
-          output:
-              - cost_per_token: 0.0000825
-                from: 272000
-          pricing_mode: cumulative
-    - cache_creation_input_token_cost: 0.00001375
-      cache_read_input_token_cost: 0.0000011
-      input_cost_per_token: 0.000011
-      output_cost_per_token: 0.000055
       region: ca-central-1
       tiered_pricing:
           cache_read:
@@ -119,8 +100,6 @@ features:
     - tool_choice
     - system_messages
     - prompt_caching
-    - cache_control
-    - structured_output
     - json_output
 limits:
     context_window: 1050000
@@ -136,10 +115,6 @@ modalities:
 mode: chat
 model: us.openai.gpt-6-astra
 params:
-    - defaultValue: 4096
-      key: max_tokens
-      maxValue: 128000
-      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -153,8 +128,9 @@ provisioning: serverless
 sources:
     - https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/
     - https://developers.openai.com/api/docs/models/gpt-6-astra
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-astra.html
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true
