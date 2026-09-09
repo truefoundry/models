@@ -30,5 +30,42 @@ costs:
     - region: ap-northeast-1
     - region: ap-east-2
     - region: af-south-1
-mode: unknown
+    # AWS Bedrock pricing for GPT-6 Astra not yet published on https://aws.amazon.com/bedrock/pricing/ as of 2026-09-09 (model reached GA on 2026-09-08); per-region token costs omitted rather than inferred.
+features:
+    - function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: global.openai.gpt-6-astra
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/
+    - https://developers.openai.com/api/docs/models/gpt-6-astra
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html
+status: active
+supportedModes:
+    - chat
+thinking: true
