@@ -7,16 +7,16 @@ costs:
       tiered_pricing:
           cache_read:
               - cost_per_token: 0.000002
-                from: 272001
+                from: 272000
           cache_write:
               - cost_per_token: 0.000025
-                from: 272001
+                from: 272000
           input:
               - cost_per_token: 0.00002
-                from: 272001
+                from: 272000
           output:
               - cost_per_token: 0.000075
-                from: 272001
+                from: 272000
           pricing_mode: cumulative
     - cache_creation_input_token_cost: 0.00001375
       cache_read_input_token_cost: 0.0000011
@@ -26,24 +26,25 @@ costs:
       tiered_pricing:
           cache_read:
               - cost_per_token: 0.0000022
-                from: 272001
+                from: 272000
           cache_write:
               - cost_per_token: 0.0000275
-                from: 272001
+                from: 272000
           input:
               - cost_per_token: 0.000022
-                from: 272001
+                from: 272000
           output:
               - cost_per_token: 0.0000825
-                from: 272001
+                from: 272000
           pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
-    - tool_choice
-    - structured_output
     - prompt_caching
+    - structured_output
     - system_messages
+    - tool_choice
+    - json_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -53,6 +54,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -61,21 +63,21 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
           - xhigh
           - max
       type: string
-    - key: verbosity
-      type: string
-    - key: max_completion_tokens
-      type: number
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
 removeParams:
     - temperature
     - top_p
+    - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-6-astra
     - https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/
