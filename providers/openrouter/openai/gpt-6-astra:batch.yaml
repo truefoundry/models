@@ -4,6 +4,20 @@ costs:
       input_cost_per_token: 5e-6
       output_cost_per_token: 2.5e-5
       region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1e-6
+                from: 272000
+          cache_write:
+              - cost_per_token: 1.25e-5
+                from: 272000
+          input:
+              - cost_per_token: 1e-5
+                from: 272000
+          output:
+              - cost_per_token: 3.75e-5
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - json_output
@@ -22,6 +36,16 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-6-astra:batch
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-6-astra:batch
