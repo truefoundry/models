@@ -54,6 +54,7 @@ modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -62,25 +63,26 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
           - xhigh
           - max
       type: string
-    - key: max_completion_tokens
+    - defaultValue: 128
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
-      type: number
 provisioning: serverless
 removeParams:
     - temperature
     - top_p
     - max_tokens
 sources:
+    - https://developers.openai.com/api/docs/models/gpt-6-astra
     - https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true
