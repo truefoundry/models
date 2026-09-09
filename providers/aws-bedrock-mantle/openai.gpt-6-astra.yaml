@@ -1,14 +1,34 @@
 costs:
-    - region: us-west-2
-      # AWS Bedrock has not yet published pricing for GPT-6 Astra
+    - cache_creation_input_token_cost: 0.00001375
+      cache_read_input_token_cost: 0.0000011
+      input_cost_per_token: 0.000011
+      output_cost_per_token: 0.000055
+      region: us-west-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000022
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000275
+                from: 272000
+          input:
+              - cost_per_token: 0.000022
+                from: 272000
+          output:
+              - cost_per_token: 0.0000825
+                from: 272000
+          pricing_mode: cumulative
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /openai
 features:
     - function_calling
     - parallel_function_calling
-    - prompt_caching
-    - structured_output
-    - system_messages
     - tool_choice
+    - system_messages
+    - structured_output
     - json_output
+    - prompt_caching
+    - cache_control
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -20,20 +40,29 @@ modalities:
         - image
     output:
         - text
-mode: chat
+mode: responses
 model: openai.gpt-6-astra
 params:
-    - key: reasoning_effort
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
       supportedValues:
           - low
           - medium
           - high
           - xhigh
           - max
+      type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-6-astra
     - https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-astra.html
 status: active
 supportedModes:
     - chat
