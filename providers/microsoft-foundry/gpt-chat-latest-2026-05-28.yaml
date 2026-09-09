@@ -24,7 +24,12 @@ modalities:
         - text
 mode: chat
 model: gpt-chat-latest-2026-05-28
+params:
+    - key: max_completion_tokens
+      maxValue: 16384
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2026-08-28"
 status: preview
 supportedModes:

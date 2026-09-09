@@ -71,10 +71,12 @@ params:
           - max
       type: string
     - defaultValue: 128
-      key: max_tokens
+      key: max_completion_tokens
       maxValue: 128000
       minValue: 1
 provisioning: serverless
+removeParams:
+    - max_tokens
 sources:
     - https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-available-in-microsoft-foundry/
 status: preview

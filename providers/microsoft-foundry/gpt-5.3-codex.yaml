@@ -24,7 +24,12 @@ modalities:
         - text
 mode: responses
 model: gpt-5.3-codex
+params:
+    - key: max_completion_tokens
+      maxValue: 128000
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-08-24"
 status: active
 supportedModes:
