@@ -1,42 +1,334 @@
 costs:
-    - region: us-west-2
-    - region: us-west-1
-    - region: us-east-2
-    - region: us-east-1
-    - region: sa-east-1
-    - region: mx-central-1
-    - region: il-central-1
-    - region: eu-west-3
-    - region: eu-west-2
-    - region: eu-west-1
-    - region: eu-south-2
-    - region: eu-south-1
-    - region: eu-north-1
-    - region: eu-central-2
-    - region: eu-central-1
-    - region: ca-west-1
-    - region: ca-central-1
-    - region: ap-southeast-7
-    - region: ap-southeast-6
-    - region: ap-southeast-5
-    - region: ap-southeast-4
-    - region: ap-southeast-3
-    - region: ap-southeast-2
-    - region: ap-southeast-1
-    - region: ap-south-2
-    - region: ap-south-1
-    - region: ap-northeast-3
-    - region: ap-northeast-2
-    - region: ap-northeast-1
-    - region: ap-east-2
-    - region: af-south-1
-    # AWS Bedrock pricing for GPT-6 Astra not yet published on https://aws.amazon.com/bedrock/pricing/ as of 2026-09-09 (model reached GA on 2026-09-08); per-region token costs omitted rather than inferred.
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: us-west-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: us-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: us-east-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: us-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: sa-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: eu-west-3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: eu-west-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: eu-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: eu-north-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: eu-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: ca-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: ap-southeast-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: ap-southeast-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: ap-south-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: ap-northeast-3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: ap-northeast-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: ap-northeast-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
-    - prompt_caching
-    - structured_output
-    - system_messages
+    - parallel_function_calling
     - tool_choice
+    - system_messages
+    - prompt_caching
+    - json_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -64,8 +356,9 @@ provisioning: serverless
 sources:
     - https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/
     - https://developers.openai.com/api/docs/models/gpt-6-astra
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-astra.html
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true
