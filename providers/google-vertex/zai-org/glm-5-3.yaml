@@ -1,2 +1,32 @@
-mode: unknown
+features:
+    - function_calling
+    - structured_output
+    - json_output
+    - prompt_caching
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: zai-org/glm-5-3
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+provisioning: serverless
+sources:
+    - https://docs.z.ai/guides/llm/glm-5.3
+supportedModes:
+    - chat
+thinking: true
+
+# costs: not found in official Vertex AI docs — GLM-5.3 is not yet listed on docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/zaiorg (only GLM 5, GLM 5.2, and GLM 4.7 are documented as of 2026-09)
