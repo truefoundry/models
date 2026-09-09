@@ -56,6 +56,7 @@ features:
     - cache_control
     - assistant_prefill
     - json_output
+    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -72,7 +73,6 @@ provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
-    - https://platform.claude.com/docs/en/about-claude/pricing
 status: active
 supportedModes:
     - chat

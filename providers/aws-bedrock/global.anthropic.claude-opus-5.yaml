@@ -271,6 +271,7 @@ features:
     - prompt_caching
     - cache_control
     - assistant_prefill
+    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -292,6 +293,7 @@ provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5.html
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/
 status: active
 supportedModes:
     - chat
