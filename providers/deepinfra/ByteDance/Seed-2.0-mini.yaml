@@ -28,6 +28,15 @@ modalities:
         - text
 mode: chat
 model: ByteDance/Seed-2.0-mini
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/ByteDance/Seed-2.0-mini
