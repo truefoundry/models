@@ -15,6 +15,12 @@ costs:
               - cost_per_token: 4e-6
                 from: 200000
           pricing_mode: cumulative
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+    - tool_choice
+    - system_messages
 limits:
     context_window: 256000
 modalities:
@@ -26,6 +32,8 @@ modalities:
 mode: chat
 model: grok-build-latest
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 status: active
 supportedModes:
     - chat
