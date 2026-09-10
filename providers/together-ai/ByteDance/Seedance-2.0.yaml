@@ -1,5 +1,6 @@
 costs:
     - output_cost_per_second_1080p: 0.40
+      output_cost_per_second_480p: 0.16
       output_cost_per_second_4k: 0.836
       output_cost_per_second_720p: 0.16
       region: "*"
@@ -8,6 +9,7 @@ modalities:
         - text
         - image
         - video
+        - audio
     output:
         - video
 mode: video
@@ -17,6 +19,7 @@ removeParams:
     - reasoning_effort
 sources:
     - https://www.together.ai/pricing
+    - https://www.together.ai/models/seedance-2-0
 status: active
 supportedModes:
     - video

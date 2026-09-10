@@ -10,7 +10,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 262144
+    context_window: 1048575
     max_output_tokens: 131072
     max_tokens: 131072
 modalities:
@@ -21,9 +21,10 @@ modalities:
 mode: chat
 model: zai-org/GLM-5.2-FP8
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/glm-52
-    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - chat
