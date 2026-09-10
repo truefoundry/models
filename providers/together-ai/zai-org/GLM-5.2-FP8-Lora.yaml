@@ -10,6 +10,8 @@ features:
     - prompt_caching
 limits:
     context_window: 1048576
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -17,9 +19,18 @@ modalities:
         - text
 mode: chat
 model: zai-org/GLM-5.2-FP8-Lora
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models/glm-52
+    - https://docs.together.ai/docs/glm-5.2-quickstart
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - chat
