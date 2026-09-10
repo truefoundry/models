@@ -2,9 +2,11 @@ costs:
     - cache_read_input_token_cost: 1.25e-6
       input_cost_per_image_token: 8e-6
       input_cost_per_token: 5e-6
-      input_cost_per_token_batches: 2.5e-6
       output_cost_per_image_token: 3e-5
+      output_cost_per_token: 3e-5
       region: "*"
+features:
+    - prompt_caching
 modalities:
     input:
         - text
@@ -24,6 +26,7 @@ removeParams:
     - reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/models/gpt-image-2.5-flare
+    - https://developers.openai.com/docs/pricing
 status: active
 supportedModes:
     - image
