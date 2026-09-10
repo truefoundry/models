@@ -1,0 +1,33 @@
+costs:
+    - cache_read_input_token_cost: 0.00000125
+      input_cost_per_image_token: 0.000008
+      input_cost_per_token: 0.000005
+      output_cost_per_image_token: 0.00003
+      output_cost_per_token: 0.00003
+      region: "*"
+features:
+    - prompt_caching
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: gpt-image-2.5-sunburst-2026-09-08
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst
+    - https://developers.openai.com/docs/pricing
+status: active
+supportedModes:
+    - image
