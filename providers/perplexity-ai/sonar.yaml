@@ -1,11 +1,9 @@
 costs:
-    - cache_read_input_token_cost: 6.25e-8
-      input_cost_per_token: 2.5e-7
-      output_cost_per_token: 0.0000025
+    - input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000001
       region: "*"
 features:
     - structured_output
-    - prompt_caching
     - system_messages
 limits:
     context_window: 128000
@@ -20,6 +18,7 @@ model: sonar
 provisioning: serverless
 removeParams:
     - stop
+retirementDate: "2026-09-27"
 sources:
     - https://docs.perplexity.ai/docs/sonar/models/sonar
     - https://docs.perplexity.ai/docs/sonar/capabilities/structured-outputs

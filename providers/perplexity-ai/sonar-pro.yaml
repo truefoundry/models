@@ -17,6 +17,11 @@ modalities:
         - text
 mode: chat
 model: sonar-pro
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
 removeParams:
     - stop
@@ -24,7 +29,6 @@ retirementDate: "2026-09-27"
 sources:
     - https://docs.perplexity.ai/docs/sonar/models/sonar-pro
     - https://docs.perplexity.ai/docs/sonar/features
-    - https://docs.perplexity.ai/docs/sonar/models
 status: active
 supportedModes:
     - chat
