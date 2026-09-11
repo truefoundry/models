@@ -1,3 +1,8 @@
+costs:
+    - cache_read_input_token_cost: 2.6e-7
+      input_cost_per_token: 0.0000014
+      output_cost_per_token: 0.0000044
+      region: global
 features:
     - function_calling
     - tool_choice
@@ -29,7 +34,8 @@ params:
 provisioning: serverless
 sources:
     - https://docs.z.ai/guides/llm/glm-5.2
-    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-5
+    - https://docs.z.ai/guides/overview/pricing
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-52
 status: preview
 supportedModes:
     - chat

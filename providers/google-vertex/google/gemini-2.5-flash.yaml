@@ -19,8 +19,8 @@ features:
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
-    max_output_tokens: 65535
-    max_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -35,12 +35,14 @@ model: google/gemini-2.5-flash
 params:
     - defaultValue: 256
       key: max_tokens
-      maxValue: 65535
+      maxValue: 65536
       minValue: 1
 provisioning: serverless
 retirementDate: "2026-10-16"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
+    - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash
+    - https://ai.google.dev/pricing
 status: active
 supportedModes:
     - chat
