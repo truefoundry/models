@@ -9,6 +9,7 @@ features:
     - prompt_caching
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131000
     max_input_tokens: 131000
@@ -32,9 +33,10 @@ params:
           - high
       type: string
 provisioning: serverless
+retirementDate: "2026-09-03"
 sources:
     - https://inference-docs.cerebras.ai/models/gemma-4-31b
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true
