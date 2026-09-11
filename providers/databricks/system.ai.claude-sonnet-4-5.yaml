@@ -9,6 +9,7 @@ features:
     - prompt_caching
     - cache_control
     - system_messages
+    - structured_output
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -28,6 +29,7 @@ removeParams:
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/structured-outputs
 status: active
 supportedModes:
     - chat

@@ -35,7 +35,19 @@ params:
       key: max_tokens
       maxValue: 64000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
+sources:
+    - https://www.databricks.com/product/pricing/anthropic-foundation-model-serving
 status: active
 supportedModes:
     - chat

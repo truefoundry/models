@@ -1,6 +1,5 @@
 costs:
-    - cache_creation_input_token_cost: 1.75e-6
-      cache_read_input_token_cost: 1.75e-7
+    - cache_read_input_token_cost: 1.75e-7
       input_cost_per_token: 1.75e-6
       output_cost_per_token: 0.000014
       region: "*"
@@ -26,6 +25,11 @@ model: databricks-gpt-5-3-codex
 params:
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
       type: string
 provisioning: serverless
 sources:
