@@ -1,0 +1,25 @@
+costs:
+    - input_cost_per_second: 0.0008333333333333334
+      region: global
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: realtime
+model: gpt-live-1-2026-09-10
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - response_format
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-live-1
+status: preview
+supportedModes:
+    - realtime
