@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - system_messages
 limits:
     context_window: 300000
     max_output_tokens: 5120
@@ -21,6 +22,7 @@ params:
     - key: top_k
 provisioning: serverless
 sources:
+    - https://openrouter.ai/amazon/nova-lite-v1
     - https://openrouter.ai/amazon/nova-lite-v1/api
 status: active
 supportedModes:
