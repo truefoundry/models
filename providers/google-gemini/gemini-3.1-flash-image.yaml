@@ -15,6 +15,7 @@ modalities:
     input:
         - text
         - image
+        - audio
         - video
     output:
         - text
@@ -39,7 +40,6 @@ provisioning: serverless
 sources:
     - https://deepmind.google/models/model-cards/gemini-3-1-flash-image/
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-image
-    - https://aistudio.google.com/models/gemini-3-1-flash-image
     - https://ai.google.dev/gemini-api/docs/image-generation
 status: active
 supportedModes:
