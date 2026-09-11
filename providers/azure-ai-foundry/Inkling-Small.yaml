@@ -1,0 +1,41 @@
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
+    - prompt_caching
+limits:
+    context_window: 1048576
+    max_output_tokens: 262144
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+mode: chat
+model: Inkling-Small
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 262144
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://thinkingmachines.ai/model-card/inkling-small/
+    - https://thinkingmachines.ai/news/inkling-small/
+    - https://huggingface.co/blog/thinkingmachines-inkling
+supportedModes:
+    - chat
+thinking: true
