@@ -1,0 +1,24 @@
+costs:
+    - cache_read_input_token_cost: 6e-9
+      input_cost_per_token: 2e-7
+      output_cost_per_token: 6e-7
+      region: "*"
+features:
+    - prompt_caching
+    - function_calling
+    - json_output
+limits:
+    context_window: 1048576
+    max_tokens: 1048576
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: deepseek-ai/DeepSeek-V4.1-Flash
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
