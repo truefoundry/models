@@ -1,7 +1,22 @@
+costs:
+    - input_cost_per_token: 0.0000015
+      output_cost_per_token: 0.0000075
+      region: "*"
 features:
     - function_calling
+    - system_messages
+    - tool_choice
+    - json_output
+    - structured_output
 limits:
     context_window: 262144
+modalities:
+    input:
+        - text
+        - code
+    output:
+        - text
+        - code
 mode: chat
 model: mistral-code-agent-latest
 params:
@@ -9,6 +24,10 @@ params:
       key: temperature
 removeParams:
     - reasoning_effort
+sources:
+    - https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5/
+    - https://mistral.ai/products/mistral-code
+    - https://docs.mistral.ai/inference/pricing
 status: active
 supportedModes:
     - chat

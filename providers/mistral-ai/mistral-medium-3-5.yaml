@@ -1,6 +1,9 @@
 costs:
-    - input_cost_per_token: 0.0000015
+    - cache_read_input_token_cost: 1.5e-7
+      input_cost_per_token: 0.0000015
+      input_cost_per_token_batches: 7.5e-7
       output_cost_per_token: 0.0000075
+      output_cost_per_token_batches: 0.00000375
       region: "*"
 features:
     - function_calling
@@ -31,6 +34,7 @@ sources:
     - https://docs.mistral.ai/capabilities/reasoning/
     - https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5
     - https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
+    - https://mistral.ai/pricing/api
 status: active
 supportedModes:
     - chat

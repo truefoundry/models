@@ -1,5 +1,6 @@
 costs:
-    - input_cost_per_token: 1.5e-7
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 1.5e-7
       input_cost_per_token_batches: 7.5e-8
       output_cost_per_token: 6e-7
       output_cost_per_token_batches: 3e-7
@@ -10,6 +11,9 @@ features:
     - structured_output
     - json_output
     - tool_choice
+    - system_messages
+    - assistant_prefill
+    - prompt_caching
 limits:
     context_window: 262144
 modalities:
