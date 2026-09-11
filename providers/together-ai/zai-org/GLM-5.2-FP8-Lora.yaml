@@ -9,7 +9,8 @@ features:
     - structured_output
     - prompt_caching
 limits:
-    context_window: 1048576
+    context_window: 1048575
+    max_output_tokens: 131072
 modalities:
     input:
         - text
@@ -18,6 +19,8 @@ modalities:
 mode: chat
 model: zai-org/GLM-5.2-FP8-Lora
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/glm-52
 status: active
