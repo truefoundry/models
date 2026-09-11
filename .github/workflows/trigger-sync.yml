@@ -10,6 +10,12 @@ permissions:
   id-token: write
   contents: read
 
+# Queue (never cancel) so runs publish to S3 in trigger order — an older run's upload can
+# never land after a newer run's, which would otherwise resurrect stale data/version pairs.
+concurrency:
+  group: model-config-publish-${{ github.ref }}
+  cancel-in-progress: false
+
 env:
   S3_IAM_ROLE_ARN: ${{ secrets.S3_IAM_ROLE_ARN }}
 
@@ -61,7 +67,9 @@ jobs:
           name: ai-models
           path: |
             dist/ai-models.json
+            dist/ai-models-version.json
             dist/provider-configs.json
+            dist/provider-configs-version.json
 
   upload:
     name: Upload to S3
@@ -86,16 +94,26 @@ jobs:
           BUCKET_NAME_WITH_DASHES=$(echo "$BUCKET_NAME" | sed 's/./&-/g' | sed 's/-$//')
           echo "b-u-c-k-e-t-n-a-m-e: $BUCKET_NAME_WITH_DASHES"
 
+      # Version file uploaded last (per destination): consumers only trust the version file
+      # once the data it describes is already durably in place at that destination.
       - name: Upload to S3 DevTest
-        run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/ai-models.json
+        run: |
+          aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/ai-models.json
+          aws s3 cp ai-models-version.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/ai-models-version.json
 
       - name: Upload to S3 Production
-        run: aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/ai-models.json
+        run: |
+          aws s3 cp ai-models.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/ai-models.json
+          aws s3 cp ai-models-version.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/ai-models-version.json
 
       - name: Upload provider configs to S3 DevTest
-        run: aws s3 cp provider-configs.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/provider-configs.json
+        run: |
+          aws s3 cp provider-configs.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/provider-configs.json
+          aws s3 cp provider-configs-version.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/devtest/provider-configs-version.json
 
       - name: Upload provider configs to S3 Production
-        run: aws s3 cp provider-configs.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/provider-configs.json
-   
+        run: |
+          aws s3 cp provider-configs.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/provider-configs.json
+          aws s3 cp provider-configs-version.json s3://${{ secrets.BUCKET_NAME }}/llm-gateway/v2/prod/provider-configs-version.json
+
    

@@ -3,11 +3,13 @@ import path from 'path';
 import yaml from 'js-yaml';
 import { PROVIDER_CONFIG_YAML } from './constants';
 import { UnifiedProviderConfig } from './types';
+import { writeVersionFile } from './versionFile';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const PROVIDERS_DIR = path.join(REPO_ROOT, 'providers');
 const OUTPUT_DIR = path.join(REPO_ROOT, 'dist');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'provider-configs.json');
+const VERSION_OUTPUT_FILE = path.join(OUTPUT_DIR, 'provider-configs-version.json');
 
 function main(): void {
   // Keyed by provider directory name. Providers without a provider-config.yaml
@@ -56,6 +58,8 @@ function main(): void {
   console.log(
     `\nWrote ${Object.keys(configs).length} provider configs to ${OUTPUT_FILE}`,
   );
+
+  writeVersionFile(VERSION_OUTPUT_FILE, configs, 'provider-configs.json');
 }
 
 main();
