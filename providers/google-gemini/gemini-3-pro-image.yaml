@@ -23,10 +23,15 @@ params:
     - defaultValue: 1
       key: temperature
       maxValue: 1
+      minValue: 0
     - defaultValue: 0.95
       key: top_p
+      maxValue: 1
+      minValue: 0
     - defaultValue: 64
       key: top_k
+      maxValue: 100
+      minValue: 0
 provisioning: serverless
 removeParams:
     - tool_choice

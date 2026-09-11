@@ -21,6 +21,9 @@ params:
     - key: max_tokens
       maxValue: 8192
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
+    - tool_choice
 sources:
     - https://huggingface.co/google/gemma-3-12b-it
     - https://ai.google.dev/gemma/docs/core/model_card_3
