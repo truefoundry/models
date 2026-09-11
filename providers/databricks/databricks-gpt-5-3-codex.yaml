@@ -26,6 +26,11 @@ model: databricks-gpt-5-3-codex
 params:
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
       type: string
 provisioning: serverless
 sources:

@@ -23,7 +23,12 @@ modalities:
         - text
 mode: chat
 model: system.ai.claude-opus-4-5
+params:
+    - key: thinking
+      type: json
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
     - https://learn.microsoft.com/en-us/azure/databricks/machine-learning/foundation-model-apis/limits
