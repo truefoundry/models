@@ -1,0 +1,17 @@
+features:
+    - function_calling
+modalities:
+    input:
+        - audio
+        - text
+    output:
+        - audio
+        - text
+mode: realtime
+model: gpt-live-1
+provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-live-1
+status: preview
+supportedModes:
+    - realtime
