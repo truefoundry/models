@@ -1,2 +1,28 @@
-mode: unknown
+costs:
+    - input_cost_per_second: 0.0008333333333333334
+      region: "*"
+features:
+    - function_calling
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: realtime
 model: gpt-live-1
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - parallel_tool_calls
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-live-1
+status: active
+supportedModes:
+    - realtime
