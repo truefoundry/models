@@ -8,6 +8,7 @@ features:
     - json_output
     - prompt_caching
     - structured_output
+    - system_messages
     - tool_choice
 limits:
     context_window: 131072
@@ -21,4 +22,9 @@ modalities:
         - text
 mode: chat
 model: inclusionai/ling-3.0-flash-vl
+provisioning: serverless
+sources:
+    - https://openrouter.ai/inclusionai/ling-3.0-flash-vl
+supportedModes:
+    - chat
 thinking: true
