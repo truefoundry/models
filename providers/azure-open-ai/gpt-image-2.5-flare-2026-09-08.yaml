@@ -1,2 +1,15 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: gpt-image-2.5-flare-2026-09-08
+provisioning: serverless
+retirementDate: "2027-09-09"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+status: active
+supportedModes:
+    - image
