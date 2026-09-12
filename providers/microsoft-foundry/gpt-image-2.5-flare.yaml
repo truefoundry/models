@@ -1,0 +1,32 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_image_token: 8e-6
+      input_cost_per_token: 5e-6
+      output_cost_per_image_token: 3e-5
+      region: global
+features:
+    - prompt_caching
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
+model: gpt-image-2.5-flare
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+retirementDate: "2027-09-09"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-image-2.5-flare
+    - https://developers.openai.com/api/docs/models/gpt-image-2.5-flare
+status: active
+supportedModes:
+    - image
