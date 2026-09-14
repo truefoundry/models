@@ -16,14 +16,22 @@ modalities:
     input:
         - text
         - image
-        - video
     output:
         - text
 mode: chat
 model: Qwen/Qwen3.8-Flash
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
-    - https://docs.together.ai/docs/serverless/models
+    - https://www.together.ai/models/qwen3-8-flash
+status: active
 supportedModes:
     - chat
 thinking: true
