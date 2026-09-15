@@ -1,5 +1,29 @@
+features:
+    - function_calling
+    - code_execution
+    - system_messages
+    - tool_choice
 limits:
+    context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: antigravity-preview-09-2026
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
+sources:
+    - https://ai.google.dev/gemini-api/docs/antigravity-agent
+    - https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026
+status: preview
+supportedModes:
+    - chat
+thinking: true
