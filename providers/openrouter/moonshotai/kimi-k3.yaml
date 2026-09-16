@@ -11,6 +11,8 @@ features:
     - tool_choice
 limits:
     context_window: 1048576
+    max_output_tokens: 943718
+    max_tokens: 943718
 modalities:
     input:
         - text
@@ -19,6 +21,9 @@ modalities:
         - text
 mode: chat
 model: moonshotai/kimi-k3
+params:
+    - key: max_tokens
+      maxValue: 943718
 provisioning: serverless
 sources:
     - https://openrouter.ai/moonshotai/kimi-k3
