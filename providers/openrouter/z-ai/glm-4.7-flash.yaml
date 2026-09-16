@@ -12,6 +12,7 @@ features:
 limits:
     context_window: 202752
     max_output_tokens: 117964
+    max_tokens: 117964
 modalities:
     input:
         - text
@@ -19,6 +20,9 @@ modalities:
         - text
 mode: chat
 model: z-ai/glm-4.7-flash
+params:
+    - key: max_tokens
+      maxValue: 117964
 provisioning: serverless
 sources:
     - https://openrouter.ai/z-ai/glm-4.7-flash

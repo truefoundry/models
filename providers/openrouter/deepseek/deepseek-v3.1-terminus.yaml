@@ -12,6 +12,7 @@ features:
 limits:
     context_window: 163840
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -19,6 +20,9 @@ modalities:
         - text
 mode: chat
 model: deepseek/deepseek-v3.1-terminus
+params:
+    - key: max_tokens
+      maxValue: 32768
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-v3.1-terminus

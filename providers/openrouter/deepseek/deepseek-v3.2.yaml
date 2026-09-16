@@ -13,6 +13,7 @@ limits:
     context_window: 163840
     max_input_tokens: 163840
     max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -21,6 +22,8 @@ modalities:
 mode: chat
 model: deepseek/deepseek-v3.2
 params:
+    - key: max_tokens
+      maxValue: 65536
     - defaultValue: 1
       key: temperature
     - defaultValue: 0.95
