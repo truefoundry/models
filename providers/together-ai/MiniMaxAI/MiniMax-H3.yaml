@@ -1,8 +1,22 @@
 costs:
-    - input_cost_per_token: 0.0
-      output_cost_per_token: 0.0
+    - input_cost_per_request: 0.1391
       region: "*"
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+    output:
+        - video
+        - audio
+mode: video
 model: MiniMaxAI/MiniMax-H3
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://www.together.ai/models/minimax-h3
+status: preview
 supportedModes:
     - video
