@@ -25,6 +25,14 @@ params:
       key: max_tokens
       maxValue: 16384
       minValue: 1
+    - defaultValue: default
+      key: reasoning_effort
+      supportedValues:
+          - default
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://console.groq.com/docs/model/qwen/qwen3.8-27b
