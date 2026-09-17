@@ -16,12 +16,13 @@ costs:
           pricing_mode: cumulative
 features:
     - function_calling
+    - parallel_function_calling
     - prompt_caching
     - structured_output
     - system_messages
     - tool_choice
 limits:
-    context_window: 200000
+    context_window: 1000000
 modalities:
     input:
         - text
