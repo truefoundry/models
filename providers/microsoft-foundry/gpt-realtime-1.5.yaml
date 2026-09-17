@@ -1,0 +1,38 @@
+costs:
+    - cache_read_input_audio_token_cost: 4e-7
+      cache_read_input_token_cost: 4e-7
+      input_cost_per_audio_token: 0.000032
+      input_cost_per_token: 0.000004
+      output_cost_per_audio_token: 0.000064
+      output_cost_per_token: 0.000016
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+limits:
+    max_input_tokens: 32000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+        - audio
+    output:
+        - text
+        - audio
+mode: realtime
+model: gpt-realtime-1.5
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+retirementDate: "2027-08-24"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/realtime-audio
+    - https://ai.azure.com/catalog/models/gpt-realtime-1.5
+status: active
+supportedModes:
+    - realtime
