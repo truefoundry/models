@@ -3,6 +3,7 @@ costs:
       output_cost_per_token: 9e-6
       output_cost_per_video_token: 1.75e-5
       region: "*"
+isDeprecated: true
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -26,6 +27,7 @@ removeParams:
     - reasoning_effort
     - stop
     - tool_choice
+retirementDate: "2026-09-30"
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash
     - https://ai.google.dev/gemini-api/docs/omni
