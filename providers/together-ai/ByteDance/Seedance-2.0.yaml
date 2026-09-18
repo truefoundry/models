@@ -8,6 +8,7 @@ modalities:
         - text
         - image
         - video
+        - audio
     output:
         - video
 mode: video
@@ -16,6 +17,7 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 sources:
+    - https://www.together.ai/models/seedance-2-0
     - https://www.together.ai/pricing
 status: active
 supportedModes:

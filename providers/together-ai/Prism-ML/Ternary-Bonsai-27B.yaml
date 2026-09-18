@@ -17,6 +17,16 @@ modalities:
         - text
 mode: chat
 model: Prism-ML/Ternary-Bonsai-27B
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models/prism-ml-ternary-bonsai-27b
