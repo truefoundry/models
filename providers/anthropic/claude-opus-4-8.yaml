@@ -16,7 +16,6 @@ features:
     - prompt_caching
     - assistant_prefill
     - code_execution
-    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -41,6 +40,8 @@ removeParams:
     - top_p
     - top_k
 retirementDate: "2027-05-28"
+sources:
+    - https://platform.claude.com/docs/en/models/opus-4-8/overview
 status: active
 supportedModes:
     - chat
