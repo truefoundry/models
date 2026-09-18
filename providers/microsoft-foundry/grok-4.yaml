@@ -7,10 +7,21 @@ features:
     - tool_choice
     - structured_output
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 4096
+    max_input_tokens: 262000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: grok-4
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+    - https://ai.azure.com/catalog/models/grok-4
+status: active
 supportedModes:
     - chat

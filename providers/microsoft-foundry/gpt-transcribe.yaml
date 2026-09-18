@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_second: 7.5e-5 # $0.0045 per minute
+      region: "*"
 modalities:
     input:
         - audio
@@ -9,5 +12,6 @@ model: gpt-transcribe
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-transcribe
+status: active
 supportedModes:
     - audio_transcription

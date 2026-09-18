@@ -4,8 +4,6 @@ costs:
       region: "*"
 features:
     - system_messages
-    - function_calling
-    - tool_choice
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -33,8 +31,10 @@ removeParams:
     - parallel_tool_calls
     - reasoning_effort
     - response_format
+    - tool_choice
 sources:
     - https://ai.azure.com/catalog/models/Llama-3.3-70B-Instruct
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/llama/
 status: active
 supportedModes:
     - chat

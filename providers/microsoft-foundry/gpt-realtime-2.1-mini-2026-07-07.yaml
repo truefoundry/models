@@ -4,8 +4,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 32000
-    max_input_tokens: 32000
+    context_window: 128000
     max_output_tokens: 4096
     max_tokens: 4096
 modalities:
@@ -37,7 +36,4 @@ supportedModes:
 thinking: true
 
 # costs: not found in official docs
-# limits: not found in official docs
-# features: not found in official docs
-# modalities: not found in official docs
-# status: not found in official docs (model not listed in Microsoft Foundry retirement schedule)
+# features: partially confirmed by official docs (structured output mentioned in docs but refers to response phasing, not JSON schema enforcement)
