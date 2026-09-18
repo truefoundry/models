@@ -18,9 +18,19 @@ modalities:
         - text
 mode: chat
 model: meta-models/Muse-Glimmer-30B
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/meta-models/Muse-Glimmer-30B
 status: active
 supportedModes:
     - chat
+thinking: true
