@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_second: 0.0008
       region: global
+deprecationDate: "2026-09-14"
+isDeprecated: true
 modalities:
     input:
         - video
@@ -14,12 +16,13 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
+retirementDate: "2027-09-14"
 sources:
     - https://cloud.google.com/video-intelligence/pricing
-status: active
+status: deprecated
 supportedModes:
     - audio_transcription
