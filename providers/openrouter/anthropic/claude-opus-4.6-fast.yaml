@@ -1,7 +1,7 @@
 costs:
-    - cache_creation_input_token_cost: 0.0000375
-      cache_read_input_token_cost: 0.000003
-      input_cost_per_token: 0.00003
+    - cache_creation_input_token_cost: 3.75e-5
+      cache_read_input_token_cost: 3e-6
+      input_cost_per_token: 3e-5
       output_cost_per_token: 0.00015
       region: "*"
 deprecationDate: "2026-06-29"
@@ -12,6 +12,7 @@ features:
     - prompt_caching
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -33,7 +34,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-opus-4.6-fast
     - https://openrouter.ai/anthropic/claude-opus-4.6-fast/api
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
