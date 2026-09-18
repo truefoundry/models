@@ -7,6 +7,8 @@ costs:
       region: europe-west1
     - input_cost_per_second: 0.0025
       region: asia-east1
+deprecationDate: "2026-09-14"
+isDeprecated: true
 modalities:
     input:
         - video
@@ -19,13 +21,14 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
+retirementDate: "2027-09-14"
 sources:
     - https://docs.cloud.google.com/video-intelligence/docs/text-detection
     - https://cloud.google.com/video-intelligence/pricing
-status: active
+status: deprecated
 supportedModes:
     - video

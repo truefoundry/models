@@ -5,6 +5,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 262144
 modalities:
@@ -27,8 +28,9 @@ params:
       minValue: 0.95
 provisioning: serverless
 removeParams:
-    - "n"
-status: active
+    - n
+retirementDate: "2026-08-31"
+status: retired
 supportedModes:
     - chat
 thinking: true
