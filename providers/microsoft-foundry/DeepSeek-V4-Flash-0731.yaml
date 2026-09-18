@@ -1,3 +1,7 @@
+# costs: not found in official docs (Azure Foundry pricing page lists this model with placeholder "$-")
+features:
+    - function_calling
+    - json_output
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -12,8 +16,10 @@ model: DeepSeek-V4-Flash-0731
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-12-03"
 sources:
     - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash-0731
 status: preview
 supportedModes:
     - chat
+thinking: true

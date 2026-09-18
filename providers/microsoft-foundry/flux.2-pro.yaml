@@ -1,4 +1,31 @@
+limits:
+    max_input_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
 mode: image
 model: flux.2-pro
+provisioning: serverless
+# costs not found in official docs — Microsoft's pricing page publishes per-megapixel rates
+# (Initial MP / MP / Ref MP) rather than a flat per-image price, but the actual numbers
+# are not exposed on the official Azure pricing page and no #Cost field maps cleanly to
+# per-megapixel billing.
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-flux
+    - https://ai.azure.com/catalog/models/FLUX.2-pro
+    - https://azure.microsoft.com/en-in/pricing/details/ai-foundry-models/black-forest-labs/
+status: active
 supportedModes:
     - image

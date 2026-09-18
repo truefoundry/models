@@ -30,7 +30,8 @@ features:
     - system_messages
     - tool_choice
 limits:
-    max_input_tokens: 1050000
+    context_window: 1050000
+    max_input_tokens: 922000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
@@ -51,6 +52,8 @@ provisioning: serverless
 removeParams:
     - max_tokens
 retirementDate: "2027-09-02"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
     - chat
