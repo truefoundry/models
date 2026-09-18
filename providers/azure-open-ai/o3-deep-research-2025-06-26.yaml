@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 0.0000025
-      input_cost_per_token: 0.00001
-      output_cost_per_token: 0.00004
+    - cache_read_input_token_cost: 2.5e-6
+      input_cost_per_token: 1e-5
+      output_cost_per_token: 4e-5
       region: "*"
 features:
     - function_calling
@@ -10,6 +10,7 @@ features:
     - structured_output
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -34,10 +35,10 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - tool_choice
     - parallel_tool_calls
-retirementDate: "2026-12-26"
+retirementDate: "2026-11-19"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/deep-research
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models

@@ -1,6 +1,7 @@
 costs:
     - output_cost_per_second: 0.1
       region: "*"
+isDeprecated: true
 modalities:
     input:
         - text
@@ -17,7 +18,7 @@ removeParams:
     - temperature
     - stop
     - top_p
-    - "n"
+    - n
     - response_format
     - stream
     - tool_choice
@@ -27,6 +28,6 @@ retirementDate: "2026-09-15"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/video-generation
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
-status: preview
+status: retired
 supportedModes:
     - video
