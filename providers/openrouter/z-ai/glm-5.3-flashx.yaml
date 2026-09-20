@@ -1,0 +1,28 @@
+costs:
+    - cache_read_input_token_cost: 7.5e-8
+      input_cost_per_token: 3.7e-7
+      output_cost_per_token: 1.25e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: z-ai/glm-5.3-flashx
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+thinking: true
