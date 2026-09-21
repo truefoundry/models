@@ -1,0 +1,30 @@
+features:
+    - function_calling
+    - system_messages
+limits:
+    context_window: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: Muse-Glimmer-30B
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: provisioned
+sources:
+    - https://developer.meta.com/ai/models/muse-glimmer/
+    - https://huggingface.co/meta-models/Muse-Glimmer-30B
+    - https://learn.microsoft.com/en-us/azure/foundry/how-to/deploy-models-managed
+supportedModes:
+    - chat
+thinking: true
