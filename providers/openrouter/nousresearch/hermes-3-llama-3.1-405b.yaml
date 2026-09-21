@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - json_output
+    - structured_output
 limits:
     context_window: 131072
     max_output_tokens: 16384
@@ -17,7 +18,7 @@ mode: chat
 model: nousresearch/hermes-3-llama-3.1-405b
 provisioning: serverless
 sources:
-    - https://openrouter.ai/nousresearch/hermes-3-llama-3.1-405b/api
+    - https://openrouter.ai/nousresearch/hermes-3-llama-3.1-405b
 status: active
 supportedModes:
     - chat
