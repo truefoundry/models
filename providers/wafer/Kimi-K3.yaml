@@ -6,6 +6,8 @@ costs:
 features:
     - function_calling
     - prompt_caching
+    - json_output
+    - structured_output
 limits:
     context_window: 1048576
 modalities:
@@ -16,6 +18,13 @@ modalities:
         - text
 mode: chat
 model: Kimi-K3
+params:
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - high
+          - max
 provisioning: serverless
 sources:
     - https://pass.wafer.ai/v1/models
