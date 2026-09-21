@@ -1,8 +1,8 @@
 costs:
-    - cache_creation_input_token_cost: 2.5e-7
-      cache_read_input_token_cost: 2e-8
-      input_cost_per_token: 2e-7
-      output_cost_per_token: 0.0000012
+    - cache_creation_input_token_cost: 1.24999e-6
+      cache_read_input_token_cost: 1.0003e-7
+      input_cost_per_token: 1.00002e-6
+      output_cost_per_token: 5.99998e-6
       region: "*"
       tiered_pricing:
           cache_read:
@@ -27,6 +27,7 @@ features:
     - json_output
 limits:
     context_window: 1050000
+    max_input_tokens: 922000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
