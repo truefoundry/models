@@ -11,7 +11,19 @@ limits:
     max_input_tokens: 163840
     max_output_tokens: 163840
     max_tokens: 163840
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: deepseek-v3.2-speciale
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V3.2-Speciale
+    - https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-deepseek-v3-2-and-deepseek-v3-2-speciale-in-microsoft-foundry/4477549
+status: active
 supportedModes:
     - chat
+thinking: true

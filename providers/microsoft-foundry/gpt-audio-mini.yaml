@@ -9,6 +9,7 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
+    - prompt_caching
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -27,6 +28,8 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 retirementDate: "2027-06-15"
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-audio-mini
 status: active
 supportedModes:
     - chat

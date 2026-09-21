@@ -1,11 +1,11 @@
 costs:
     - cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000022
-      output_cost_per_token: 0.0000088
+      input_cost_per_token: 2.2e-6
+      output_cost_per_token: 8.8e-6
       region: datazone_us
     - cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000008
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 8e-6
       region: "*"
 features:
     - function_calling
@@ -13,6 +13,7 @@ features:
     - prompt_caching
     - structured_output
     - system_messages
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -43,8 +44,8 @@ removeParams:
     - temperature
     - top_p
     - parallel_tool_calls
-retirementDate: "2026-10-21"
-status: active
+retirementDate: "2026-11-19"
+status: deprecated
 supportedModes:
     - chat
     - responses

@@ -4,14 +4,19 @@ costs:
       region: "*"
 limits:
     max_input_tokens: 512
-    max_tokens: 4096
     output_vector_size: 1024
 modalities:
     input:
+        - text
         - image
 mode: embedding
 model: Cohere-embed-v3-english
+provisioning: serverless
 removeParams:
     - max_tokens
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners
+    - https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cohere.cohere-embed-v3-english-offer
+status: active
 supportedModes:
     - embedding

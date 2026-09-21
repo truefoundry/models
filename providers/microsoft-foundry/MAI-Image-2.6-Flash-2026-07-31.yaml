@@ -1,3 +1,5 @@
+limits:
+    context_window: 32000
 modalities:
     input:
         - text
@@ -8,7 +10,6 @@ mode: image
 model: MAI-Image-2.6-Flash-2026-07-31
 provisioning: serverless
 # costs: not found in official docs
-# limits: not found in official docs for MAI-Image-2.6-Flash
 removeParams:
     - max_tokens
     - temperature

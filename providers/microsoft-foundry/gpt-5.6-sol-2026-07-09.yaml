@@ -1,47 +1,59 @@
 costs:
-    - cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000055
-      output_cost_per_token: 0.000033
+    - cache_creation_input_token_cost: 5.5e-6
+      cache_read_input_token_cost: 4.4e-7
+      input_cost_per_token: 4.4e-6
+      output_cost_per_token: 2.2e-5
       region: datazone_us
       tiered_pricing:
           cache_read:
-              - cost_per_token: 0.0000011
+              - cost_per_token: 8.8e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 1.1e-5
                 from: 272000
           input:
-              - cost_per_token: 0.000011
+              - cost_per_token: 8.8e-6
                 from: 272000
           output:
-              - cost_per_token: 0.0000495
+              - cost_per_token: 3.3e-5
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000055
-      output_cost_per_token: 0.000033
+    - cache_creation_input_token_cost: 5.5e-6
+      cache_read_input_token_cost: 4.4e-7
+      input_cost_per_token: 4.4e-6
+      output_cost_per_token: 2.2e-5
       region: datazone_eu
       tiered_pricing:
           cache_read:
-              - cost_per_token: 0.0000011
+              - cost_per_token: 8.8e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 1.1e-5
                 from: 272000
           input:
-              - cost_per_token: 0.000011
+              - cost_per_token: 8.8e-6
                 from: 272000
           output:
-              - cost_per_token: 0.0000495
+              - cost_per_token: 3.3e-5
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 5e-7
-      input_cost_per_token: 0.000005
-      output_cost_per_token: 0.00003
+    - cache_creation_input_token_cost: 5e-6
+      cache_read_input_token_cost: 4e-7
+      input_cost_per_token: 4e-6
+      output_cost_per_token: 2e-5
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 0.000001
+              - cost_per_token: 8e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 1e-5
                 from: 272000
           input:
-              - cost_per_token: 0.00001
+              - cost_per_token: 8e-6
                 from: 272000
           output:
-              - cost_per_token: 0.000045
+              - cost_per_token: 3e-5
                 from: 272000
           pricing_mode: cumulative
 features:
@@ -76,6 +88,7 @@ params:
           - medium
           - high
           - xhigh
+          - max
       type: string
 provisioning: serverless
 removeParams:

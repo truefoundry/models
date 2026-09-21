@@ -11,7 +11,12 @@ modalities:
         - image
 mode: embedding
 model: Cohere-embed-v3-multilingual
+provisioning: serverless
 removeParams:
     - max_tokens
+sources:
+    - https://ai.azure.com/catalog/models/Cohere-embed-v3-multilingual
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners
+status: active
 supportedModes:
     - embedding

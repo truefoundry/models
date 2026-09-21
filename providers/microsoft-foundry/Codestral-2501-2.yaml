@@ -15,6 +15,10 @@ modalities:
 mode: chat
 model: Codestral-2501-2
 provisioning: serverless
+removeParams:
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners
     - https://ai.azure.com/explore/models/Codestral-2501/version/2/registry/azureml-mistral

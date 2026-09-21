@@ -43,6 +43,14 @@ model: gpt-5.1-codex-2025-11-13
 params:
     - key: max_completion_tokens
       maxValue: 128000
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens

@@ -1,3 +1,5 @@
+limits:
+    context_window: 32000
 modalities:
     input:
         - text
@@ -7,8 +9,20 @@ modalities:
 mode: image
 model: MAI-Image-2.6
 provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability
 status: preview
 supportedModes:
     - image
