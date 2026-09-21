@@ -1,13 +1,13 @@
 costs:
-    - cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
+    - cache_read_input_token_cost: 2.1e-7
+      input_cost_per_token: 2.1e-6
+      output_cost_per_token: 1.095e-5
       region: "*"
 features:
     - function_calling
     - prompt_caching
 limits:
-    context_window: 912384
+    context_window: 1048576
 modalities:
     input:
         - text
