@@ -3,10 +3,12 @@ costs:
       input_cost_per_token: 1e-6
       output_cost_per_token: 5e-6
       region: "*"
+deprecationDate: "2026-06-26"
 features:
     - prompt_caching
     - function_calling
     - json_output
+isDeprecated: true
 limits:
     context_window: 262144
     max_tokens: 262144
@@ -21,6 +23,7 @@ model: nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16
 provisioning: serverless
 sources:
     - https://deepinfra.com/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16
-status: active
+status: deprecated
 supportedModes:
     - chat
+thinking: true
