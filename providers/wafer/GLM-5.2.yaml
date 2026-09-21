@@ -20,10 +20,11 @@ modalities:
 mode: chat
 model: GLM-5.2
 params:
-    - defaultValue: max
+    - defaultValue: low
       key: reasoning_effort
       supportedValues:
           - none
+          - low
           - high
           - max
 provisioning: serverless
