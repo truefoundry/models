@@ -28,10 +28,7 @@ modalities:
 mode: chat
 model: o3-2025-04-16
 params:
-    - defaultValue: 128
-      key: max_tokens
-      maxValue: 100000
-      minValue: 1
+    - key: max_completion_tokens
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -41,11 +38,12 @@ params:
       type: string
 provisioning: serverless
 removeParams:
+    - max_tokens
     - temperature
     - top_p
     - parallel_tool_calls
 retirementDate: "2026-11-19"
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses

@@ -23,9 +23,12 @@ modalities:
 mode: chat
 model: model-router
 params:
+    - key: max_completion_tokens
     - key: reasoning_effort
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-05-20"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router
