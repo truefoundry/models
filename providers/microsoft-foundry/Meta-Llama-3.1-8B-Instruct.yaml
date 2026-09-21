@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 128000
@@ -17,9 +18,10 @@ modalities:
 mode: chat
 model: Meta-Llama-3.1-8B-Instruct
 provisioning: serverless
+retirementDate: "2026-06-13"
 sources:
     - https://ai.azure.com/catalog/models/Meta-Llama-3.1-8B-Instruct
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-from-partners
-status: active
+status: retired
 supportedModes:
     - chat
