@@ -1,0 +1,51 @@
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - json_output
+limits:
+    context_window: 500000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: grok-4.6
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/grok-4-6-comes-to-microsoft-foundry-models-built-for-long-horizon-reasoning-and-/4547578
+    - https://docs.x.ai/developers/models
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
+status: preview
+supportedModes:
+    - chat
+thinking: true
