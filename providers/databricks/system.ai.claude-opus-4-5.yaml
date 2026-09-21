@@ -1,5 +1,6 @@
 costs:
     - cache_creation_input_token_cost: 6.25e-6
+      cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
@@ -23,12 +24,7 @@ modalities:
         - text
 mode: chat
 model: system.ai.claude-opus-4-5
-params:
-    - key: thinking
-      type: json
 provisioning: serverless
-removeParams:
-    - reasoning_effort
 sources:
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
     - https://learn.microsoft.com/en-us/azure/databricks/machine-learning/foundation-model-apis/limits
