@@ -8,6 +8,8 @@ features:
     - json_output
     - prompt_caching
     - tool_choice
+    - structured_output
+    - system_messages
 limits:
     context_window: 1048576
     max_output_tokens: 512000
@@ -28,6 +30,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m3
+status: active
 supportedModes:
     - chat
 thinking: true

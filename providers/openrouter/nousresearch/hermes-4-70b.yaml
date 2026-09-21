@@ -4,6 +4,8 @@ costs:
       region: "*"
 features:
     - json_output
+    - structured_output
+isDeprecated: true
 limits:
     context_window: 131072
 modalities:
@@ -19,7 +21,8 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/nousresearch/hermes-4-70b/api
-status: active
+    - https://openrouter.ai/nousresearch/hermes-4-70b
+status: retired
 supportedModes:
     - chat
 thinking: true

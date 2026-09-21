@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - tool_choice
+    - json_output
 limits:
     context_window: 256000
     max_output_tokens: 128000
@@ -22,6 +23,7 @@ params:
       maxValue: 128000
 provisioning: serverless
 sources:
+    - https://openrouter.ai/relace/relace-search
     - https://openrouter.ai/relace/relace-search/api
 status: active
 supportedModes:
