@@ -1,7 +1,35 @@
 costs:
+    - input_cost_per_token: 0.000033
+      input_cost_per_token_batches: 0.0000165
+      output_cost_per_token: 0.000198
+      output_cost_per_token_batches: 0.000099
+      region: datazone_us
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000066
+                from: 272000
+          output:
+              - cost_per_token: 0.000297
+                from: 272000
+          pricing_mode: cumulative
+    - input_cost_per_token: 0.000033
+      input_cost_per_token_batches: 0.0000165
+      output_cost_per_token: 0.000198
+      output_cost_per_token_batches: 0.000099
+      region: datazone_eu
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000066
+                from: 272000
+          output:
+              - cost_per_token: 0.000297
+                from: 272000
+          pricing_mode: cumulative
     - cache_read_input_token_cost: 0.000003
       input_cost_per_token: 0.00003
+      input_cost_per_token_batches: 0.000015
       output_cost_per_token: 0.00018
+      output_cost_per_token_batches: 0.00009
       region: "*"
       tiered_pricing:
           cache_read:

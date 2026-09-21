@@ -11,6 +11,9 @@ features:
     - prompt_caching
 limits:
     context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -20,9 +23,12 @@ modalities:
 mode: chat
 model: model-router
 params:
+    - key: max_completion_tokens
     - key: reasoning_effort
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-05-20"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router

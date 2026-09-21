@@ -11,7 +11,6 @@ costs:
       output_cost_per_token: 1.6e-6
       output_cost_per_token_batches: 8e-7
       region: "*"
-deprecationDate: "2026-10-14"
 features:
     - function_calling
     - parallel_function_calling
@@ -19,6 +18,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 1047576
     max_input_tokens: 1047576
@@ -39,7 +39,7 @@ provisioning: serverless
 retirementDate: "2027-04-14"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses
