@@ -1,4 +1,25 @@
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+    - json_output
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: DeepSeek-V4.1-Flash
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V4.1-Flash-2026-09-10
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
+status: active
 supportedModes:
     - chat
+
+# costs: not found in official docs (Microsoft Foundry pricing page shows placeholder "$-" for DeepSeek-V4.1-Flash)

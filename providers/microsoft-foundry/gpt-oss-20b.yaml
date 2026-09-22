@@ -20,6 +20,13 @@ params:
       key: max_tokens
       maxValue: 131072
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: provisioned
 sources:
     - https://ai.azure.com/catalog/models/gpt-oss-20b
