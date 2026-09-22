@@ -10,7 +10,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 1000000
+    context_window: 1048576
     max_output_tokens: 131072
     max_tokens: 131072
 modalities:
@@ -26,6 +26,8 @@ removeParams:
 sources:
     - https://www.together.ai/models/glm-52
     - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/serverless-models
+    - https://docs.together.ai/docs/inference/chat/reasoning
 status: active
 supportedModes:
     - chat
