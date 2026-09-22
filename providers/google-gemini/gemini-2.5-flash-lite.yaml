@@ -40,6 +40,12 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite
