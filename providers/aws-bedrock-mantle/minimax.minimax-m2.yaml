@@ -26,6 +26,7 @@ costs:
     - input_cost_per_token: 3.6e-7
       output_cost_per_token: 1.44e-6
       region: eu-central-1
+    - region: ap-southeast-4 # pricing not published on official pricing page
     - input_cost_per_token: 3.6e-7
       output_cost_per_token: 1.44e-6
       region: ap-southeast-3
@@ -40,6 +41,7 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
