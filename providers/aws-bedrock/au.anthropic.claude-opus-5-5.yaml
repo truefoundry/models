@@ -1,0 +1,51 @@
+costs:
+    - cache_creation_input_token_cost: 0.0000055
+      cache_creation_input_token_cost_per_hour: 0.0000088
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000044
+      output_cost_per_token: 0.000022
+      region: ap-southeast-4
+    - cache_creation_input_token_cost: 0.0000055
+      cache_creation_input_token_cost_per_hour: 0.0000088
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000044
+      output_cost_per_token: 0.000022
+      region: ap-southeast-2
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - cache_control
+    - tool_choice
+    - system_messages
+    - mid_conversation_system_messages
+    - assistant_prefill
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: au.anthropic.claude-opus-5-5
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5-5.html
+status: active
+supportedModes:
+    - chat
+thinking: true
