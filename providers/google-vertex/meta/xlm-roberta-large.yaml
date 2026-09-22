@@ -2,8 +2,8 @@ modalities:
     input:
         - text
     output:
-        - text
-mode: unknown
+        - embedding
+mode: embedding
 model: meta/xlm-roberta-large
 provisioning: provisioned
 removeParams:
@@ -19,4 +19,4 @@ sources:
     - https://huggingface.co/FacebookAI/xlm-roberta-large
 status: active
 supportedModes:
-    - unknown
+    - embedding
