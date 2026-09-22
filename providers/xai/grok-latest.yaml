@@ -34,6 +34,16 @@ modalities:
         - text
 mode: chat
 model: grok-latest
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://docs.x.ai/developers/models/grok-4.3
