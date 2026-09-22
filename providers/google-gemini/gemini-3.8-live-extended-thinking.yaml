@@ -1,0 +1,42 @@
+costs:
+    - input_cost_per_audio_token: 0.000003
+      input_cost_per_image_token: 1e-6
+      input_cost_per_token: 7.5e-7
+      input_cost_per_video_token: 1e-6
+      output_cost_per_audio_token: 0.000012
+      output_cost_per_token: 0.0000045
+      region: "*"
+features:
+    - function_calling
+    - system_messages
+limits:
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 65536
+    max_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+    output:
+        - text
+        - audio
+mode: realtime
+model: gemini-3.8-live-extended-thinking
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking
+status: active
+supportedModes:
+    - realtime
+thinking: true
