@@ -2,6 +2,7 @@ costs:
     - input_cost_per_token: 5e-8
       output_cost_per_token: 2e-7
       region: "*"
+deprecationDate: "2026-09-14"
 features:
     - function_calling
     - parallel_function_calling
@@ -9,6 +10,7 @@ features:
     - structured_output
     - tool_choice
     - json_output
+isDeprecated: true
 limits:
     context_window: 128000
 messages:
@@ -32,13 +34,13 @@ params:
           - high
       type: string
 provisioning: serverless
-retirementDate: "2026-09-14"
+retirementDate: "2026-09-15"
 sources:
     - https://www.together.ai/models/gpt-oss-20b
     - https://docs.together.ai/docs/gpt-oss
     - https://docs.together.ai/docs/function-calling
     - https://docs.together.ai/docs/json-mode
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true

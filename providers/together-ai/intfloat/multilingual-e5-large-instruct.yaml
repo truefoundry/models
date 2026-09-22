@@ -1,6 +1,7 @@
 costs:
     - input_cost_per_token: 2e-8
       region: "*"
+isDeprecated: true
 limits:
     context_window: 514
     output_vector_size: 1024
@@ -17,7 +18,7 @@ removeParams:
     - reasoning_effort
 retirementDate: "2026-09-14"
 sources:
-    - https://www.together.ai/models/multilingual-e5-large-instruct
-status: active
+    - https://docs.together.ai/docs/serverless-models
+status: retired
 supportedModes:
     - embedding

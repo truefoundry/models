@@ -5,6 +5,7 @@ costs:
 features:
     - function_calling
     - json_output
+    - structured_output
 limits:
     context_window: 128000
 modalities:
@@ -16,10 +17,9 @@ mode: chat
 model: LiquidAI/LFM2.5-8B-A1B
 provisioning: serverless
 sources:
-    - https://www.together.ai/models/liquid-lfm2-5-8b-a1b
-    - https://www.together.ai/pricing
     - https://www.liquid.ai/blog/lfm2-5-8b-a1b
     - https://docs.liquid.ai/lfm/models/lfm25-8b-a1b
+    - https://www.together.ai/models/liquid-lfm2-5-8b-a1b
 status: active
 supportedModes:
     - chat
