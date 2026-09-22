@@ -3,28 +3,34 @@ costs:
       cache_creation_input_token_cost_per_hour: 0.000008
       cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.000004
-      input_cost_per_token_batches: 0.000002
       output_cost_per_token: 0.00002
-      output_cost_per_token_batches: 0.00001
-      region: "*"
+      region: us-gov-west-1
+    - cache_creation_input_token_cost: 0.000005
+      cache_creation_input_token_cost_per_hour: 0.000008
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000004
+      output_cost_per_token: 0.00002
+      region: us-east-1
+    - cache_creation_input_token_cost: 0.000005
+      cache_creation_input_token_cost_per_hour: 0.000008
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000004
+      output_cost_per_token: 0.00002
+      region: ap-southeast-4
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /anthropic
 features:
     - function_calling
     - parallel_function_calling
-    - system_messages
-    - tool_choice
     - prompt_caching
     - cache_control
-    - structured_output
+    - system_messages
     - assistant_prefill
-    - json_output
-    - code_execution
     - mid_conversation_system_messages
 limits:
     context_window: 1000000
-    max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
-    tool_use_system_prompt_tokens: 286
 modalities:
     input:
         - text
@@ -32,12 +38,8 @@ modalities:
     output:
         - text
 mode: chat
-model: claude-opus-5-5
+model: anthropic.claude-opus-5-5
 params:
-    - defaultValue: 256
-      key: max_tokens
-      maxValue: 128000
-      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -48,12 +50,8 @@ params:
           - max
       type: string
 provisioning: serverless
-removeParams:
-    - temperature
-    - top_p
-    - top_k
-retirementDate: "2027-09-22"
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5-5.html
     - https://platform.claude.com/docs/en/models/opus-5-5/overview
 status: active
 supportedModes:
