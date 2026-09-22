@@ -9,7 +9,7 @@ modalities:
         - pdf
     output:
         - text
-mode: unknown # Google Cloud Vision OCR/text-detection has no matching #Mode enum value
+mode: ocr # Google Cloud Vision OCR/text-detection has no matching #Mode enum value
 model: google/text-detector
 provisioning: serverless
 removeParams:
@@ -25,4 +25,4 @@ sources:
     - https://docs.cloud.google.com/vision/docs/ocr
 status: active
 supportedModes:
-    - unknown
+    - ocr

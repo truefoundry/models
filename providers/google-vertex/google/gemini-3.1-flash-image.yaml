@@ -6,7 +6,8 @@ costs:
       output_cost_per_token: 0.0000033
       output_cost_per_token_batches: 0.00000165
       region: us
-    - cache_read_input_token_cost: 5e-8
+    - cache_creation_input_token_cost_per_hour: 0.000001
+      cache_read_input_token_cost: 5e-8
       input_cost_per_token: 5e-7
       input_cost_per_token_batches: 2.5e-7
       output_cost_per_image_token: 0.00006
