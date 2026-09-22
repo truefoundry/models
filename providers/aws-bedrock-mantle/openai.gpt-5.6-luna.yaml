@@ -18,6 +18,44 @@ costs:
               - cost_per_token: 0.00000198
                 from: 272000
           pricing_mode: cumulative
+    - cache_creation_input_token_cost: 3.3e-7
+      cache_read_input_token_cost: 2.64e-8
+      input_cost_per_token: 2.64e-7
+      output_cost_per_token: 0.000001584
+      region: us-gov-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 5.28e-8
+                from: 272000
+          cache_write:
+              - cost_per_token: 6.6e-7
+                from: 272000
+          input:
+              - cost_per_token: 5.28e-7
+                from: 272000
+          output:
+              - cost_per_token: 0.000002376
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 3.3e-7
+      cache_read_input_token_cost: 2.64e-8
+      input_cost_per_token: 2.64e-7
+      output_cost_per_token: 0.000001584
+      region: us-gov-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 5.28e-8
+                from: 272000
+          cache_write:
+              - cost_per_token: 6.6e-7
+                from: 272000
+          input:
+              - cost_per_token: 5.28e-7
+                from: 272000
+          output:
+              - cost_per_token: 0.000002376
+                from: 272000
+          pricing_mode: cumulative
     - cache_creation_input_token_cost: 2.75e-7
       cache_read_input_token_cost: 2.2e-8
       input_cost_per_token: 2.2e-7
