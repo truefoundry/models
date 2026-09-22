@@ -7,9 +7,6 @@ costs:
       region: "*"
 features:
     - system_messages
-    - function_calling
-    - structured_output
-    - code_execution
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
@@ -19,7 +16,6 @@ modalities:
         - text
         - image
         - video
-        - audio
     output:
         - text
         - image
