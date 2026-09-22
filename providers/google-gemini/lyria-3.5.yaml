@@ -1,0 +1,31 @@
+costs:
+    - input_cost_per_request: 0.08
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - audio
+        - text
+mode: unsupported # Music generation model
+model: lyria-3.5
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - stop
+    - tool_choice
+    - reasoning_effort
+sources:
+    - https://ai.google.dev/gemini-api/docs/music-generation
+status: active
+supportedModes:
+    - text_to_speech
