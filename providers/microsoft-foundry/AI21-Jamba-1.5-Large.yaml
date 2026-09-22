@@ -2,6 +2,7 @@ features:
     - function_calling
     - json_output
     - structured_output
+isDeprecated: true
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -15,8 +16,9 @@ modalities:
 mode: chat
 model: AI21-Jamba-1.5-Large
 provisioning: serverless
+retirementDate: "2025-08-01"
 sources:
     - https://learn.microsoft.com/en-us/azure/machine-learning/concept-models-featured?view=azureml-api-2
-status: active
+status: retired
 supportedModes:
     - chat

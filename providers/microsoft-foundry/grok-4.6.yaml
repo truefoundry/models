@@ -22,7 +22,9 @@ features:
     - prompt_caching
     - json_output
 limits:
-    context_window: 500000
+    context_window: 200000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -45,7 +47,10 @@ sources:
     - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/grok-4-6-comes-to-microsoft-foundry-models-built-for-long-horizon-reasoning-and-/4547578
     - https://docs.x.ai/developers/models
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-grok
 status: preview
 supportedModes:
     - chat
+    - responses
 thinking: true
