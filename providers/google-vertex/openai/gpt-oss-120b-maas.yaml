@@ -22,8 +22,8 @@ features:
 limits:
     context_window: 131072
     max_input_tokens: 131072
-    max_output_tokens: 32768
-    max_tokens: 32768
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -34,7 +34,7 @@ model: openai/gpt-oss-120b-maas
 params:
     - defaultValue: 256
       key: max_tokens
-      maxValue: 32768
+      maxValue: 131072
       minValue: 1
 provisioning: serverless
 sources:
