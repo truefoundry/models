@@ -1,0 +1,29 @@
+costs:
+    - cache_read_input_token_cost: 4e-7
+      input_cost_per_token: 1.6e-6
+      output_cost_per_token: 4.8e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 500000
+    max_output_tokens: 450000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: x-ai/grok-4.7
+params:
+    - defaultValue: 0.7
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+thinking: true
