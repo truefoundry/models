@@ -1,9 +1,37 @@
 costs:
     - region: us-gov-west-1
-    - region: us-east-1
-    - region: eu-west-1
-    - region: eu-north-1
-    - region: ap-southeast-4
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: us-east-1
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: eu-west-1
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: eu-north-1
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
+      output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
+      region: ap-southeast-4
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /anthropic
 features:
@@ -14,6 +42,7 @@ features:
     - prompt_caching
     - cache_control
     - assistant_prefill
+    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
