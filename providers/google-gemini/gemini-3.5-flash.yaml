@@ -40,14 +40,6 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - minimal
-          - low
-          - medium
-          - high
-      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash
