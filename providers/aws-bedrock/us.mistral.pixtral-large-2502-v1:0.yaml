@@ -13,7 +13,6 @@ features:
     - tool_choice
     - system_messages
     - json_output
-isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -35,10 +34,9 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
-retirementDate: "2026-04-08"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-pixtral-large.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-pixtral-large.html
-status: retired
+status: active
 supportedModes:
     - chat
