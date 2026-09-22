@@ -9,7 +9,7 @@ features:
     - prompt_caching
     - structured_output
 limits:
-    context_window: 1000000
+    context_window: 524288
 modalities:
     input:
         - text
@@ -25,6 +25,7 @@ removeParams:
 sources:
     - https://www.together.ai/models/minimax-m3
     - https://www.minimax.io/models/text/m3
+    - https://www.together.ai/pricing
 status: preview
 supportedModes:
     - chat

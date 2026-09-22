@@ -10,8 +10,11 @@ modalities:
 mode: image
 model: Rundiffusion/Juggernaut-Lightning-Flux
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/juggernaut-lightning-flux
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - image
