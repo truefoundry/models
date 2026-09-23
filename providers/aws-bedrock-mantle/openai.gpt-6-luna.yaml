@@ -1,4 +1,70 @@
 costs:
-    - region: us-east-1
-mode: unknown
+    - cache_creation_input_token_cost: 0.0000001375
+      cache_read_input_token_cost: 0.000000011
+      input_cost_per_token: 0.00000011
+      output_cost_per_token: 0.00000055
+      region: us-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000000022
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000000275
+                from: 272000
+          input:
+              - cost_per_token: 0.00000022
+                from: 272000
+          output:
+              - cost_per_token: 0.000000825
+                from: 272000
+          pricing_mode: cumulative
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /openai
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+    - json_output
+    - prompt_caching
+    - cache_control
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: responses
 model: openai.gpt-6-luna
+params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-6-luna
+    - https://aws.amazon.com/blogs/machine-learning/bring-more-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock/
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
