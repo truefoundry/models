@@ -1,3 +1,22 @@
+costs:
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.00001
+      region: global
+    - cache_creation_input_token_cost: 0.00000275
+      cache_creation_input_token_cost_per_hour: 0.0000044
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.000011
+      region: datazone_us
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.00001
+      region: "*"
 mode: chat
 model: claude-sonnet-5-2
 supportedModes:
