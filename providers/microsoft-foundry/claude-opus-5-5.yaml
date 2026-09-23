@@ -3,14 +3,26 @@ costs:
       cache_creation_input_token_cost_per_hour: 0.000008
       cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.000004
+      input_cost_per_token_batches: 0.000002
       output_cost_per_token: 0.00002
+      output_cost_per_token_batches: 0.00001
       region: global
     - cache_creation_input_token_cost: 0.0000055
       cache_creation_input_token_cost_per_hour: 0.0000088
       cache_read_input_token_cost: 2.2e-7
       input_cost_per_token: 0.0000044
+      input_cost_per_token_batches: 0.0000022
       output_cost_per_token: 0.000022
+      output_cost_per_token_batches: 0.000011
       region: datazone_us
+    - cache_creation_input_token_cost: 0.000005
+      cache_creation_input_token_cost_per_hour: 0.000008
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000004
+      input_cost_per_token_batches: 0.000002
+      output_cost_per_token: 0.00002
+      output_cost_per_token_batches: 0.00001
+      region: "*"
 features:
     - function_calling
     - parallel_function_calling
