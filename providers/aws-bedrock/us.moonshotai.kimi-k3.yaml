@@ -23,15 +23,13 @@ costs:
       cache_read_input_token_cost: 3.3e-7
       input_cost_per_token: 0.0000033
       output_cost_per_token: 0.0000165
-      region: ca-west-1
-    - cache_creation_input_token_cost: 0.000004125
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      output_cost_per_token: 0.0000165
       region: ca-central-1
 features:
     - function_calling
+    - tool_choice
+    - system_messages
     - prompt_caching
+    - cache_control
     - structured_output
 limits:
     context_window: 1000000
@@ -50,3 +48,5 @@ sources:
 status: active
 supportedModes:
     - chat
+    - responses
+thinking: true
