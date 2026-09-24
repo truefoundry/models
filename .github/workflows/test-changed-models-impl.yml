@@ -22,6 +22,7 @@ permissions:
   contents: read
   pull-requests: write
   issues: write
+  id-token: write
 
 jobs:
   test-changed-models:
@@ -58,6 +59,15 @@ jobs:
 
       - name: Install truefoundry
         run: pipx install truefoundry
+
+      - name: Join tailnet
+        # TFY_HOST is tailnet-only. GitHub OIDC → Tailscale; no secret.
+        uses: tailscale/github-action@306e68a486fd2350f2bfc3b19fcd143891a4a2d8 # v4.1.2
+        with:
+          oauth-client-id: ${{ vars.TS_CI_PR_CLIENT_ID }}
+          audience: ${{ vars.TS_CI_PR_AUDIENCE }}
+          tags: tag:ci-internal
+          hostname: gh-${{ github.event.repository.name }}-${{ github.run_id }}
 
       - name: Login to TrueFoundry
         run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
