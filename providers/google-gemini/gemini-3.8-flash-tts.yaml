@@ -1,0 +1,13 @@
+limits:
+    max_input_tokens: 8192
+    max_output_tokens: 16384
+mode: unknown
+model: gemini-3.8-flash-tts
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
