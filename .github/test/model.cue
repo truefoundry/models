@@ -289,6 +289,7 @@ package model
 	"audio_translation" |
 	"chat" |
 	"completion" |
+	"decision" |
 	"embedding" |
 	"image" |
 	"moderation" |
