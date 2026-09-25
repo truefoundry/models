@@ -6,7 +6,6 @@ costs:
 features:
     - structured_output
     - system_messages
-isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -16,14 +15,15 @@ modalities:
     output:
         - text
 mode: chat
-model: sonar
+model: perplexity/sonar
 provisioning: serverless
 removeParams:
     - stop
-retirementDate: "2026-09-27"
 sources:
+    - https://docs.perplexity.ai/docs/agent-api/models
     - https://docs.perplexity.ai/docs/sonar/models/sonar
-    - https://docs.perplexity.ai/docs/sonar/capabilities/structured-outputs
-status: deprecated
+    - https://docs.perplexity.ai/docs/getting-started/pricing
+status: active
 supportedModes:
     - chat
+    - responses
