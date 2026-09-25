@@ -41,8 +41,14 @@ jobs:
       (contains(github.event.pull_request.title, '[Community] Update model:') ||
        contains(github.event.pull_request.title, 'update model YAMLs [bot]')) &&
       github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
     uses: ./.github/workflows/test-changed-models-impl.yml
     with:
       pr_number: ${{ github.event.pull_request.number }}
       comment_id: ${{ needs.comment.outputs.comment_id }}
+      tailscale_role: pr
     secrets: inherit

@@ -11,12 +11,24 @@ anthropic_betas:
         computer-use-2025-11-24: computer-use-2025-11-24
         context-1m-2025-08-07: context-1m-2025-08-07
         context-management-2025-06-27: context-management-2025-06-27
+        # Claude Code auto mode sends safeguards with this beta; without it Mantle 400s the field.
+        dangerous-tool-use-2026-09-03: dangerous-tool-use-2026-09-03
         # dev-full-thinking, interleaved-thinking, output-128k and token-efficient-tools all work here today.
         dev-full-thinking-2025-05-14: dev-full-thinking-2025-05-14
         effort-2025-11-24: effort-2025-11-24
         fine-grained-tool-streaming-2025-05-14: fine-grained-tool-streaming-2025-05-14
         interleaved-thinking-2025-05-14: interleaved-thinking-2025-05-14
         output-128k-2025-02-19: output-128k-2025-02-19
+        # Enables thinking.block_binding (opencode sends it for Claude 5.1+); without it Mantle 400s the field.
+        thinking-binding-controls-2026-08-01: thinking-binding-controls-2026-08-01
         token-efficient-tools-2025-02-19: token-efficient-tools-2025-02-19
         tool-examples-2025-10-29: tool-examples-2025-10-29
         tool-search-tool-2025-10-19: tool-search-tool-2025-10-19
+# AWS rejects Anthropic server-side web_search / web_fetch on Mantle the same as InvokeModel.
+# https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-tool-use.html
+anthropic_server_tools:
+    default:
+        web_fetch_20250910:
+            type: null
+        web_search_20250305:
+            type: null

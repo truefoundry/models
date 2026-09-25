@@ -10,6 +10,14 @@ on:
         required: false
         type: string
         default: ''
+      # GitHub OIDC sub is ref:refs/heads/* for issue_comment / push-like runs,
+      # but pull_request for pull_request and pull_request_target. Match the
+      # Tailscale federated identity (TS_CI_APPLY_* vs TS_CI_PR_*).
+      tailscale_role:
+        description: 'Tailscale CI role: apply (ref) or pr (pull_request)'
+        required: false
+        type: string
+        default: 'apply'
     secrets:
       TFY_API_KEY:
         required: true
@@ -22,6 +30,7 @@ permissions:
   contents: read
   pull-requests: write
   issues: write
+  id-token: write
 
 jobs:
   test-changed-models:
@@ -58,6 +67,16 @@ jobs:
 
       - name: Install truefoundry
         run: pipx install truefoundry
+
+      - name: Join tailnet
+        # TFY_HOST is tailnet-only. GitHub OIDC → Tailscale; no secret.
+        # apply = refs/heads/*; pr = pull_request (incl. pull_request_target).
+        uses: tailscale/github-action@306e68a486fd2350f2bfc3b19fcd143891a4a2d8 # v4.1.2
+        with:
+          oauth-client-id: ${{ inputs.tailscale_role == 'pr' && vars.TS_CI_PR_CLIENT_ID || vars.TS_CI_APPLY_CLIENT_ID }}
+          audience: ${{ inputs.tailscale_role == 'pr' && vars.TS_CI_PR_AUDIENCE || vars.TS_CI_APPLY_AUDIENCE }}
+          tags: tag:ci-internal
+          hostname: gh-${{ github.event.repository.name }}-${{ github.run_id }}
 
       - name: Login to TrueFoundry
         run: tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
