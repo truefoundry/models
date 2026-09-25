@@ -73,7 +73,7 @@ mode: <mode>                 # The model's primary capability (see values below)
 
 Valid `mode` values:
 
-`audio_transcription`, `audio_translation`, `chat`, `completion`, `embedding`, `image`, `moderation`, `realtime`, `rerank`, `text_to_speech`, `unknown`, `video`
+`audio_transcription`, `audio_translation`, `chat`, `completion`, `decision`, `embedding`, `image`, `moderation`, `realtime`, `rerank`, `text_to_speech`, `unknown`, `video`
 
 ### 3. Optional Fields
 

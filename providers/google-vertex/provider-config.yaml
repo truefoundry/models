@@ -13,6 +13,8 @@ anthropic_betas:
         fine-grained-tool-streaming-2025-05-14: fine-grained-tool-streaming-2025-05-14
         interleaved-thinking-2025-05-14: interleaved-thinking-2025-05-14
         structured-outputs-2025-11-13: structured-outputs-2025-11-13
+        # Enables thinking.block_binding (opencode sends it for Claude 5.1+); without it Vertex 400s the field.
+        thinking-binding-controls-2026-08-01: thinking-binding-controls-2026-08-01
         tool-search-tool-2025-10-19: tool-search-tool-2025-10-19
         # Web search 400s as a beta header (anthropics/claude-code#12429).
         web-search-2025-03-05: null
