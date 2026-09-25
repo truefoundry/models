@@ -22,3 +22,11 @@ anthropic_betas:
         token-efficient-tools-2025-02-19: token-efficient-tools-2025-02-19
         tool-examples-2025-10-29: tool-examples-2025-10-29
         tool-search-tool-2025-10-19: tool-search-tool-2025-10-19
+# AWS rejects Anthropic server-side web_search / web_fetch on Mantle the same as InvokeModel.
+# https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-tool-use.html
+anthropic_server_tools:
+    default:
+        web_fetch_20250910:
+            type: null
+        web_search_20250305:
+            type: null
