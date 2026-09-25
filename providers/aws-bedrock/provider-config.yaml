@@ -51,12 +51,6 @@ anthropic_betas:
         tool-search-tool-2025-10-19: tool-search-tool-2025-10-19
 anthropic_server_tools:
     # Converse does not support Anthropic server-side tool search.
-    # AWS also rejects Anthropic server-side web_search / web_fetch on every Bedrock API
-    # (accepted Anthropic-defined types are bash_*, text_editor_*, computer_*, custom).
-    # Exact type match; list every documented dated type (Claude Code may bump the suffix).
-    # https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-tool-use.html
-    # https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool
-    # https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-fetch-tool
     converse:
         tool_search_tool_bm25:
             type: null
@@ -65,20 +59,6 @@ anthropic_server_tools:
         tool_search_tool_regex:
             type: null
         tool_search_tool_regex_20251119:
-            type: null
-        web_fetch_20250910:
-            type: null
-        web_fetch_20260209:
-            type: null
-        web_fetch_20260309:
-            type: null
-        web_fetch_20260318:
-            type: null
-        web_search_20250305:
-            type: null
-        web_search_20260209:
-            type: null
-        web_search_20260318:
             type: null
     # InvokeModel expects the unversioned regex type and does not support BM25.
     invoke:
@@ -96,17 +76,3 @@ anthropic_server_tools:
                 - tool-examples-2025-10-29
                 - tool-search-tool-2025-10-19
             type: tool_search_tool_regex
-        web_fetch_20250910:
-            type: null
-        web_fetch_20260209:
-            type: null
-        web_fetch_20260309:
-            type: null
-        web_fetch_20260318:
-            type: null
-        web_search_20250305:
-            type: null
-        web_search_20260209:
-            type: null
-        web_search_20260318:
-            type: null
