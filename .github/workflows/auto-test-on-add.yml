@@ -50,4 +50,5 @@ jobs:
     with:
       pr_number: ${{ github.event.pull_request.number }}
       comment_id: ${{ needs.comment.outputs.comment_id }}
+      tailscale_role: pr
     secrets: inherit
