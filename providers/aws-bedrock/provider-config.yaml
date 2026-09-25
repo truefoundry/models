@@ -15,6 +15,8 @@ anthropic_betas:
         context-1m-2025-08-07: context-1m-2025-08-07
         # AWS documents this with no API restriction, so Converse accepts it too.
         context-management-2025-06-27: context-management-2025-06-27
+        # Claude Code auto mode sends safeguards with this beta; without it Bedrock 400s the field.
+        dangerous-tool-use-2026-09-03: dangerous-tool-use-2026-09-03
         # dev-full-thinking, interleaved-thinking, output-128k and token-efficient-tools all work here today.
         dev-full-thinking-2025-05-14: dev-full-thinking-2025-05-14
         effort-2025-11-24: effort-2025-11-24
@@ -36,6 +38,7 @@ anthropic_betas:
         computer-use-2025-11-24: computer-use-2025-11-24
         context-1m-2025-08-07: context-1m-2025-08-07
         context-management-2025-06-27: context-management-2025-06-27
+        dangerous-tool-use-2026-09-03: dangerous-tool-use-2026-09-03
         # dev-full-thinking, interleaved-thinking, output-128k and token-efficient-tools all work here today.
         dev-full-thinking-2025-05-14: dev-full-thinking-2025-05-14
         effort-2025-11-24: effort-2025-11-24

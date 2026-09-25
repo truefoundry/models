@@ -9,6 +9,8 @@ anthropic_betas:
         computer-use-2025-11-24: computer-use-2025-11-24
         context-1m-2025-08-07: context-1m-2025-08-07
         context-management-2025-06-27: context-management-2025-06-27
+        # Claude Code auto mode sends safeguards with this beta; without it Vertex 400s the field.
+        dangerous-tool-use-2026-09-03: dangerous-tool-use-2026-09-03
         # GA on Google Cloud per Anthropic's feature matrix.
         fine-grained-tool-streaming-2025-05-14: fine-grained-tool-streaming-2025-05-14
         interleaved-thinking-2025-05-14: interleaved-thinking-2025-05-14
