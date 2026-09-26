@@ -1,4 +1,11 @@
 mode: chat
 model: jais-30b-chat-3
+provisioning: serverless
+# Model not found in current Microsoft Foundry Models catalog, Azure OpenAI pricing pages,
+# or the Microsoft Foundry Models retirement schedule. No explicit deprecation notice
+# was located, so lifecycle status is left unspecified pending official confirmation.
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-jais
 supportedModes:
     - chat
