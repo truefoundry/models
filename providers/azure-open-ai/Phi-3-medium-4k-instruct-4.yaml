@@ -1,0 +1,23 @@
+limits:
+    context_window: 4096
+    max_input_tokens: 4096
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: Phi-3-medium-4k-instruct-4
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://learn.microsoft.com/en-us/azure/machine-learning/concept-models-featured?view=azureml-api-2
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-from-partners
+status: active
+supportedModes:
+    - chat
