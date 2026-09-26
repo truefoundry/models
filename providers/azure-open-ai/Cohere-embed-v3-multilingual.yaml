@@ -1,2 +1,30 @@
-mode: unknown
+limits:
+    max_input_tokens: 512
+    output_vector_size: 1024
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - embedding
+mode: embedding
 model: Cohere-embed-v3-multilingual
+provisioning: serverless
+# Pricing not published on official Microsoft/Azure Foundry documentation pages for this partner (Azure Marketplace) model
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://docs.cohere.com/docs/cohere-embed
+    - https://docs.cohere.com/docs/models
+status: active
+supportedModes:
+    - embedding
