@@ -1,2 +1,22 @@
-mode: unknown
+costs:
+    - input_cost_per_image_token: 2.5e-6
+      input_cost_per_token: 1.75e-6
+      output_cost_per_image_token: 1.9e-5
+      region: global
+limits:
+    context_window: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: MAI-Image-2.6-Flash-2026-07-31
+provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+    - https://ai.azure.com/catalog/models/MAI-Image-2.6-Flash?publisher=microsoft
+status: preview
+supportedModes:
+    - image
