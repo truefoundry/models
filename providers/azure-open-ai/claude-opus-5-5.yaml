@@ -1,4 +1,42 @@
+costs:
+    - cache_creation_input_token_cost: 5e-6
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 4e-6
+      output_cost_per_token: 2e-5
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: claude-opus-5-5
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+status: active
 supportedModes:
     - chat
+thinking: true
