@@ -1,4 +1,27 @@
+costs:
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 2.5e-6
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+    - structured_output
+limits:
+    max_input_tokens: 262000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: grok-4-20-non-reasoning
+provisioning: serverless
+retirementDate: "2027-04-06"
+status: preview
 supportedModes:
     - chat
