@@ -1,2 +1,16 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: MAI-Image-2.5-Flash-2026-06-02
+provisioning: serverless
+retirementDate: "2026-10-01"
+# costs not found in official docs — Azure OpenAI pricing page does not list MAI-Image models
+sources:
+    - https://ai.azure.com/catalog/models/MAI-Image-2.5-Flash
+status: preview
+supportedModes:
+    - image
