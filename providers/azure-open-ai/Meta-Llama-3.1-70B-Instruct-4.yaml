@@ -1,4 +1,27 @@
+costs:
+    - input_cost_per_token: 2.68e-6
+      output_cost_per_token: 3.54e-6
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 2048
+    max_tokens: 2048
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: Meta-Llama-3.1-70B-Instruct-4
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - parallel_tool_calls
+status: active
 supportedModes:
     - chat
