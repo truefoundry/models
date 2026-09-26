@@ -1,4 +1,34 @@
+costs:
+    - cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+      region: "*"
+features:
+    - function_calling
+    - tool_choice
+    - prompt_caching
+limits:
+    max_input_tokens: 1048576
+    max_output_tokens: 131072
+    max_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: Kimi-K3
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
+provisioning: serverless
+status: active
 supportedModes:
     - chat
+thinking: true
