@@ -1,0 +1,27 @@
+limits:
+    context_window: 131072
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - embedding
+mode: embedding
+model: embed-v-4-0
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/embed-v-4-0
+status: active
+supportedModes:
+    - embedding
