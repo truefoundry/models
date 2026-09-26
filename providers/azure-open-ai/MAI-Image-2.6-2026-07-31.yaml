@@ -1,2 +1,27 @@
-mode: unknown
+limits:
+    context_window: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: MAI-Image-2.6-2026-07-31
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/MAI-Image-2.6
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image
+status: preview
+supportedModes:
+    - image
