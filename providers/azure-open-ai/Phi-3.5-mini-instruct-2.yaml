@@ -1,0 +1,13 @@
+limits:
+    context_window: 131072 # from Microsoft Phi-3.5-mini-instruct model card (128K)
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: Phi-3.5-mini-instruct-2
+sources:
+    - https://huggingface.co/microsoft/Phi-3.5-mini-instruct
+supportedModes:
+    - chat
