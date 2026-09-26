@@ -1,4 +1,28 @@
+costs:
+    - input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+      region: "*"
+features:
+    - function_calling
+    - structured_output
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 262000
+    max_input_tokens: 262000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: grok-4
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+status: active
 supportedModes:
     - chat
+thinking: true
