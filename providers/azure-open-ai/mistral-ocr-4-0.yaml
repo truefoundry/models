@@ -1,2 +1,20 @@
-mode: unknown
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - pdf
+        - image
+    output:
+        - text
+mode: chat
 model: mistral-ocr-4-0
+provisioning: serverless
+# costs: not found in official docs — Azure pricing page lists "Mistral OCR 4 Global" with placeholder $-/1K pages
+sources:
+    - https://ai.azure.com/catalog/models/mistral-ocr-4-0
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/mistral-ai/
+status: preview
+supportedModes:
+    - chat
