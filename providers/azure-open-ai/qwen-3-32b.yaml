@@ -1,4 +1,20 @@
+features:
+    - system_messages
+    - function_calling
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: qwen-3-32b
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/qwen3-32b
+status: active
 supportedModes:
     - chat
+thinking: true
+
+# costs: not found in official docs
+# limits: exact numeric context/output limits not found in official Azure docs
