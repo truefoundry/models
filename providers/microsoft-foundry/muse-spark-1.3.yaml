@@ -1,4 +1,42 @@
+costs:
+    - cache_read_input_token_cost: 1.5e-7
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 4.25e-6
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 1048576
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+        - pdf
+    output:
+        - text
 mode: chat
 model: muse-spark-1.3
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://dev.meta.ai/models/muse-spark/
+    - https://www.truefoundry.com/blog/muse-spark-1-3
+status: active
 supportedModes:
     - chat
+thinking: true
