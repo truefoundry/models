@@ -1,2 +1,28 @@
-mode: unknown
+costs:
+    - output_cost_per_image: 0.04
+      region: "*"
+limits:
+    max_input_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: FLUX.2-pro
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+status: active
+supportedModes:
+    - image
