@@ -1,2 +1,19 @@
-mode: unknown
+costs:
+    - region: "*"
+      # Pricing published as per-megapixel ($0.05 / megapixel input); no matching per-pixel field exists in the schema
+limits:
+    max_input_tokens: 32000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: FLUX.2-flex
+provisioning: serverless
+sources:
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/black-forest-labs/
+status: active
+supportedModes:
+    - image
