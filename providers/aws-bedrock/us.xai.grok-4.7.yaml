@@ -5,5 +5,17 @@ costs:
     - region: us-east-1
     - region: ca-west-1
     - region: ca-central-1
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: us.xai.grok-4.7
+provisioning: serverless
+sources:
+    - https://docs.x.ai/developers/models
+supportedModes:
+    - chat
+thinking: true
