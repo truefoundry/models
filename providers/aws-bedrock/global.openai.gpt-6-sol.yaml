@@ -595,6 +595,7 @@ features:
     - system_messages
     - prompt_caching
     - json_output
+    - structured_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -608,17 +609,6 @@ modalities:
         - text
 mode: chat
 model: global.openai.gpt-6-sol
-params:
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - none
-          - low
-          - medium
-          - high
-          - xhigh
-          - max
-      type: string
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-6-sol
