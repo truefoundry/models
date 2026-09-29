@@ -1,2 +1,15 @@
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: Stable-Image-Ultra
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/Stable-Image-Ultra
+    - https://ai.azure.com/explore/models/Stable-Image-Ultra/version/1/registry/azureml-stabilityai
+status: active
+supportedModes:
+    - image
