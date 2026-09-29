@@ -35,6 +35,8 @@ permissions:
 jobs:
   test-changed-models:
     name: Trigger gateway tests for changed models
+    # Re-enable once the SDK is ready (tfy-llm-gateway/packages/ai-gateway-sdk).
+    if: false
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
