@@ -1,8 +1,10 @@
 name: Auto Test on Model Add PR
 
+# Re-enable once the SDK is ready (tfy-llm-gateway/packages/ai-gateway-sdk).
 on:
-  pull_request_target:
-    types: [synchronize]
+  workflow_dispatch:
+  # pull_request_target:
+  #   types: [synchronize]
 
 permissions:
   contents: read

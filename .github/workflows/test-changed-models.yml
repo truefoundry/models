@@ -1,8 +1,10 @@
 name: Test Changed Models on PR Comment
 
+# Re-enable once the SDK is ready (tfy-llm-gateway/packages/ai-gateway-sdk).
 on:
-  issue_comment:
-    types: [created]
+  workflow_dispatch:
+  # issue_comment:
+  #   types: [created]
 
 permissions:
   contents: read

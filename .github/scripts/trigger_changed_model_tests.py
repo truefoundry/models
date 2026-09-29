@@ -51,8 +51,10 @@ def _run(cmd: List[str], check: bool = True) -> str:
     """Run a command and return its stdout, stripped."""
     result = subprocess.run(cmd, capture_output=True, text=True)
     if check and result.returncode != 0:
+        # tfy prints API errors with Rich on stdout; stderr is often empty.
         sys.exit(
             f"::error::Command failed ({result.returncode}): {' '.join(cmd)}\n"
+            f"stdout: {result.stdout.strip()}\n"
             f"stderr: {result.stderr.strip()}"
         )
     return result.stdout.strip()
