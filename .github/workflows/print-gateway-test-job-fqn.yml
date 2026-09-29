@@ -13,4 +13,5 @@ jobs:
       - name: Print FQN
         env:
           GATEWAY_TEST_JOB_V2_FQN: ${{ secrets.GATEWAY_TEST_JOB_V2_FQN }}
-        run: python -c 'import os; v=os.environ["GATEWAY_TEST_JOB_V2_FQN"]; print(" : ".join(v.split(":")))'
+        run: |
+          python -c 'import os; v=os.environ["GATEWAY_TEST_JOB_V2_FQN"]; print(" : ".join(v.split(":")))'
