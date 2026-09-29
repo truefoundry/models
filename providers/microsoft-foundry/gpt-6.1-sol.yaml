@@ -20,6 +20,44 @@ costs:
               - cost_per_token: 0.000015
                 from: 272000
           pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00000275
+      cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.000011
+      region: datazone_us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.2e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000055
+                from: 272000
+          input:
+              - cost_per_token: 0.0000044
+                from: 272000
+          output:
+              - cost_per_token: 0.0000165
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.000003
+      cache_read_input_token_cost: 1.2e-7
+      input_cost_per_token: 0.0000024
+      output_cost_per_token: 0.000012
+      region: datazone_eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2.4e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000006
+                from: 272000
+          input:
+              - cost_per_token: 0.0000048
+                from: 272000
+          output:
+              - cost_per_token: 0.000018
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
@@ -45,10 +83,12 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
+          - none
           - low
           - medium
           - high
           - xhigh
+          - max
       type: string
     - defaultValue: 128
       key: max_completion_tokens
