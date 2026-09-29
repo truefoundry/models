@@ -1,2 +1,27 @@
-mode: unknown
+limits:
+    max_input_tokens: 1000
+modalities:
+    input:
+        - text
+    output:
+        - image
+mode: image
 model: Stable-Image-Core
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://learn.microsoft.com/en-us/azure/machine-learning/deploy-stability-models
+    - https://ai.azure.com/explore/models/Stable-Image-Core/version/1/registry/azureml-stabilityai
+status: active
+supportedModes:
+    - image
