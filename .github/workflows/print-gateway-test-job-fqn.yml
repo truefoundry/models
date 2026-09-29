@@ -1,0 +1,16 @@
+name: Print gateway test job FQN
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/print-gateway-test-job-fqn.yml
+
+jobs:
+  print-fqn:
+    name: Print GATEWAY_TEST_JOB_V2_FQN
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print FQN
+        env:
+          GATEWAY_TEST_JOB_V2_FQN: ${{ secrets.GATEWAY_TEST_JOB_V2_FQN }}
+        run: python -c 'import os; v=os.environ["GATEWAY_TEST_JOB_V2_FQN"]; print(" : ".join(v.split(":")))'
