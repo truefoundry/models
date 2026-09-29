@@ -1,10 +1,21 @@
 features:
     - structured_output
 limits:
-    context_window: 32768
+    context_window: 16000
+    max_output_tokens: 16000
+    max_tokens: 16000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: completion
 model: north-small-translate-09-2026
 provisioning: serverless
+sources:
+    - https://docs.cohere.com/docs/north-small-translate-1.0
+    - https://docs.cohere.com/changelog/north-small-translate-1-0
+status: active
 supportedModes:
     - completion
     - chat
