@@ -30,5 +30,14 @@ costs:
     - region: ap-northeast-1
     - region: ap-east-2
     - region: af-south-1
-mode: unknown
+mode: chat
 model: global.openai.gpt-6.1-sol
+provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-6.1-sol
+supportedModes:
+    - chat
+
+# AWS Bedrock model card for global.openai.gpt-6.1-sol not found in official docs;
+# only global.openai.gpt-6-sol is currently documented on AWS Bedrock.
+# Pricing, limits, and Bedrock-specific features not published — omitted per rules.
