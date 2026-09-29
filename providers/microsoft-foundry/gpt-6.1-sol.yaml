@@ -50,7 +50,15 @@ params:
           - high
           - xhigh
       type: string
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - max_tokens
 sources:
     - https://ai.azure.com/catalog/models/gpt-6.1-sol
     - https://developers.openai.com/api/docs/models/gpt-6.1-sol
