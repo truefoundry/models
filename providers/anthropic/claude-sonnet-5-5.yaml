@@ -10,19 +10,21 @@ costs:
 features:
     - function_calling
     - parallel_function_calling
+    - tool_choice
+    - system_messages
     - prompt_caching
     - cache_control
-    - system_messages
-    - mid_conversation_system_messages
-    - tool_choice
-    - structured_output
     - assistant_prefill
+    - structured_output
+    - json_output
+    - code_execution
+    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
-    tool_use_system_prompt_tokens: 286
+    tool_use_system_prompt_tokens: 354
 modalities:
     input:
         - text
@@ -36,6 +38,15 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
@@ -44,6 +55,7 @@ removeParams:
 retirementDate: "2027-09-28"
 sources:
     - https://platform.claude.com/docs/en/models/sonnet-5-5/overview
+    - https://www.anthropic.com/claude-sonnet-5-5
 status: active
 supportedModes:
     - chat
