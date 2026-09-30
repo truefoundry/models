@@ -147,6 +147,14 @@ removeParams: [<param-key>, ...]
 # Param keys that must always be provided by callers
 requiredParams: [<param-key>, ...]
 
+# Whether the model supports extended thinking / reasoning
+thinking: true
+
+# When true, inbound Chat Completions stay on /chat/completions unless a
+# responses-only model or an existing trigger (header / reasoning / Cursor).
+# Omit on new models so Chat Completions is always served via Responses.
+preferChatCompletions: true
+
 # Provider-specific escape-hatch configuration. Only set a key here when the
 # behaviour cannot be expressed through the generic fields above, and only on
 # models belonging to the provider that owns the key.
