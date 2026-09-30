@@ -27,6 +27,7 @@ model: gpt-chat-latest-2026-06-24
 params:
     - key: max_completion_tokens
       maxValue: 16384
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - max_tokens
@@ -36,4 +37,3 @@ supportedModes:
     - chat
     - responses
 thinking: true
-preferChatCompletions: true

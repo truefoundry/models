@@ -20,6 +20,7 @@ mode: chat
 model: gpt-chat-latest-2026-08-06
 params:
     - key: max_completion_tokens
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - max_tokens
@@ -33,6 +34,5 @@ supportedModes:
     - chat
     - responses
 thinking: true
-preferChatCompletions: true
 
 # costs: not found in official docs — Microsoft Foundry pricing page renders values dynamically

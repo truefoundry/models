@@ -30,6 +30,7 @@ mode: chat
 model: gpt-chat-latest
 params:
     - key: max_completion_tokens
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - max_tokens
@@ -40,4 +41,3 @@ supportedModes:
     - chat
     - responses
 thinking: true
-preferChatCompletions: true

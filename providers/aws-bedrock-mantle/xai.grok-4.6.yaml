@@ -39,6 +39,7 @@ params:
     - defaultValue: 131072
       key: max_completion_tokens
       type: number
+preferChatCompletions: true
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
@@ -47,4 +48,3 @@ supportedModes:
     - chat
     - responses
 thinking: true
-preferChatCompletions: true

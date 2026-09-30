@@ -39,6 +39,7 @@ model: gpt-4o-2024-11-20
 params:
     - key: max_tokens
       maxValue: 16384
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - reasoning_effort
@@ -49,4 +50,3 @@ status: deprecated
 supportedModes:
     - chat
     - responses
-preferChatCompletions: true

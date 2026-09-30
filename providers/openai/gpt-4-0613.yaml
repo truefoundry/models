@@ -23,6 +23,7 @@ model: gpt-4-0613
 params:
     - key: max_tokens
       maxValue: 8192
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - tool_choice
@@ -37,4 +38,3 @@ status: deprecated
 supportedModes:
     - chat
     - responses
-preferChatCompletions: true

@@ -29,6 +29,7 @@ params:
       key: max_completion_tokens
       maxValue: 16384
       minValue: 1
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - max_tokens
@@ -42,4 +43,3 @@ supportedModes:
     - chat
     - responses
 thinking: true
-preferChatCompletions: true
