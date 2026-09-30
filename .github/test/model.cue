@@ -144,6 +144,7 @@ package model
 	cache_creation_input_token_cost?:          number & >= 0
 	cache_creation_input_token_cost_per_hour?: number & >= 0
 	cache_read_input_audio_token_cost?:        number & >= 0
+	cache_read_input_image_token_cost?:        number & >= 0
 	cache_read_input_token_cost?:              number & >= 0
 	input_cost_per_annotated_page?:         number & >= 0
 	input_cost_per_audio_token?:            number & >= 0
