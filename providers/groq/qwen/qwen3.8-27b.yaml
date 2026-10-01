@@ -10,7 +10,7 @@ features:
     - system_messages
     - prompt_caching
 limits:
-    context_window: 131042
+    context_window: 131072
     max_output_tokens: 16384
 modalities:
     input:
@@ -25,14 +25,6 @@ params:
       key: max_tokens
       maxValue: 16384
       minValue: 1
-    - defaultValue: default
-      key: reasoning_effort
-      supportedValues:
-          - default
-          - low
-          - medium
-          - high
-      type: string
 provisioning: serverless
 sources:
     - https://console.groq.com/docs/model/qwen/qwen3.8-27b
