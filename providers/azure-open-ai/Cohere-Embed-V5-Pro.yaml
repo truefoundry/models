@@ -1,2 +1,29 @@
-mode: unknown
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    output_vector_size: 2048
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - embedding
+mode: embedding
 model: Cohere-Embed-V5-Pro
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://docs.cohere.com/docs/cohere-embed
+supportedModes:
+    - embedding
