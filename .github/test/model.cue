@@ -341,6 +341,10 @@ package model
 	supportedModes?: [...#Mode]
 	// Whether the model supports extended thinking / reasoning
 	thinking?: bool
+	// When true, inbound Chat Completions stay on /chat/completions unless a
+	// responses-only model or an existing trigger (header / reasoning / Cursor).
+	// Omit on new models so Chat Completions is always served via Responses.
+	preferChatCompletions?: bool
 }
 
 #PricingTier: {
