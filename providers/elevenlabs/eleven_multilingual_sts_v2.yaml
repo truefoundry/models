@@ -6,9 +6,12 @@ modalities:
         - audio
     output:
         - audio
-mode: unknown
+mode: audio_translation
 model: eleven_multilingual_sts_v2
 provisioning: serverless
+sources:
+    - https://elevenlabs.io/docs/capabilities/voice-changer
+    - https://elevenlabs.io/docs/api-reference/speech-to-speech/convert
 status: active
 supportedModes:
-    - unknown
+    - audio_translation
