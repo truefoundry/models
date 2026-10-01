@@ -5,6 +5,7 @@ costs:
       region: global
 limits:
     context_window: 1048576
+    max_input_tokens: 1048576
 modalities:
     input:
         - text
@@ -20,6 +21,7 @@ sources:
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash
     - https://ai.google.dev/gemini-api/docs/omni
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash
 status: preview
 supportedModes:
     - video
