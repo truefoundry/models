@@ -1,0 +1,28 @@
+costs:
+    - input_cost_per_token: 1.3e-7
+      output_cost_per_token: 5.2e-7
+      region: "*"
+features:
+    - system_messages
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: Phi-3.5-vision-instruct-2
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+sources:
+    - https://ai.azure.com/catalog/models/Phi-3.5-vision-instruct
+    - https://ai.azure.com/explore/models/Phi-3.5-vision-instruct/version/2/registry/azureml
+    - https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-phi-3-5-vision
+status: active
+supportedModes:
+    - chat
