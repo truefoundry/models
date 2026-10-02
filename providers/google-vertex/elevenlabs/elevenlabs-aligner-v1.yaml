@@ -1,0 +1,15 @@
+modalities:
+    input:
+        - audio
+        - text
+    output:
+        - text
+mode: audio_transcription
+model: elevenlabs/elevenlabs-aligner-v1
+provisioning: serverless
+sources:
+    - https://elevenlabs.io/docs/cookbooks/forced-alignment
+    - https://elevenlabs.io/docs/api-reference/forced-alignment/create
+    - https://elevenlabs.io/docs/overview/capabilities/forced-alignment
+supportedModes:
+    - audio_transcription
