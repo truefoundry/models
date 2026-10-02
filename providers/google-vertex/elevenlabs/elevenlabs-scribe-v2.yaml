@@ -1,2 +1,22 @@
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: elevenlabs/elevenlabs-scribe-v2
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - tool_choice
+sources:
+    - https://elevenlabs.io/docs/models
+supportedModes:
+    - audio_transcription
+
+# costs: not found in official docs
+# limits: not found in official docs
