@@ -1,0 +1,57 @@
+costs:
+    - cache_creation_input_token_cost: 2.5e-6
+      cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 1e-5
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2e-7
+                from: 272000
+          cache_write:
+              - cost_per_token: 5e-6
+                from: 272000
+          input:
+              - cost_per_token: 4e-6
+                from: 272000
+          output:
+              - cost_per_token: 1.5e-5
+                from: 272000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+limits:
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: gpt-6.1-sol-2026-09-29
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
