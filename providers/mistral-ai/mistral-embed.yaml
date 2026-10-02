@@ -3,6 +3,13 @@ costs:
       region: "*"
 limits:
     context_window: 8192
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
 model: mistral-embed
+sources:
+    - https://mistral.ai/pricing/api
 status: active
