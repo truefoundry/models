@@ -1,0 +1,27 @@
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - embedding
+mode: embedding
+model: Cohere-Embed-V5-Pro
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stream
+    - stop
+sources:
+    - https://docs.cohere.com/changelog/embed-v5
+    - https://docs.cohere.com/docs/cohere-embed
+    - https://docs.cohere.com/v2/docs/cohere-embed
+status: preview
+supportedModes:
+    - embedding
