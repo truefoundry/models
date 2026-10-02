@@ -1,0 +1,23 @@
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+messages:
+    options:
+        - user
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - embedding
+mode: embedding
+model: Cohere-Embed-V5-Fast
+provisioning: serverless
+sources:
+    - https://docs.cohere.com/changelog/embed-v5
+    - https://docs.cohere.com/docs/cohere-on-microsoft-azure
+status: active
+supportedModes:
+    - embedding
+
+# pricing not found in official docs
