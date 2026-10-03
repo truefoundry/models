@@ -1,0 +1,22 @@
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
+model: elevenlabs/elevenlabs-tts-multilingual-v2
+provisioning: serverless
+# costs: not found in official Vertex AI pricing documentation for ElevenLabs partner model
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://elevenlabs.io/docs/overview/models
+status: active
+supportedModes:
+    - text_to_speech
