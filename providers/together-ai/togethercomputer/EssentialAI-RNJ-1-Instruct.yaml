@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_token: 1.5e-7
+      input_cost_per_token_batches: 1.5e-7
       output_cost_per_token: 1.5e-7
+      output_cost_per_token_batches: 1.5e-7
       region: "*"
 features:
     - function_calling
@@ -18,6 +20,7 @@ model: togethercomputer/EssentialAI-RNJ-1-Instruct
 provisioning: provisioned
 sources:
     - https://www.together.ai/models/rnj-1-instruct
+    - https://www.together.ai/pricing
 status: active
 supportedModes:
     - chat
