@@ -20,7 +20,17 @@ modalities:
         - text
 mode: chat
 model: gpt-oss-120b
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/openai--gpt-oss-120b
 status: active
 supportedModes:
     - chat
