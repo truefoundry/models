@@ -1,12 +1,14 @@
 costs:
     - cache_read_input_token_cost: 1.4e-7
-      input_cost_per_token: 0.0000014
-      output_cost_per_token: 0.0000044
+      input_cost_per_token: 1.4e-6
+      output_cost_per_token: 4.4e-6
       region: "*"
+deprecationDate: "2026-09-29"
 features:
     - function_calling
     - structured_output
     - assistant_prefill
+isDeprecated: true
 limits:
     context_window: 1048576
 modalities:
@@ -16,8 +18,9 @@ modalities:
         - text
 mode: chat
 model: zai-glm-5-2
+retirementDate: "2026-10-31"
 sources:
     - https://docs.mistral.ai/models/zai-glm-5-2
-status: preview
+status: deprecated
 supportedModes:
     - chat
