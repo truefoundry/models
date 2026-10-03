@@ -1,18 +1,16 @@
+deprecationDate: null
+features: [] # no function calling, JSON mode, or tools
+isDeprecated: false
 limits:
-    context_window: 1024
+    context_window: 1024 # from HF config.json max_position_embeddings
+    max_output_tokens: null # not explicitly documented; bounded by context_window
 modalities:
-    input:
-        - text
-    output:
-        - text
+    input: [text]
+    output: [text]
 mode: completion
 model: microsoft/bio-gpt
 provisioning: provisioned
-sources:
-    - https://huggingface.co/microsoft/biogpt
-    - https://huggingface.co/microsoft/biogpt/blob/main/config.json
-    - https://console.cloud.google.com/vertex-ai/publishers/microsoft/model-garden/bio-gpt
-    - https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_biogpt_serve.ipynb
+regionalAvailability: self-deployed # any Vertex AI region with V100 or L4 GPU quota
+retirementDate: null
 status: active
-supportedModes:
-    - completion
+supportedModes: [completion]
