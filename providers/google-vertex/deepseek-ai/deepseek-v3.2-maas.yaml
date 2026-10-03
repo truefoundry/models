@@ -2,15 +2,17 @@ costs:
     - cache_read_input_token_cost: 5.6e-8
       input_cost_per_token: 5.6e-7
       input_cost_per_token_batches: 2.8e-7
-      output_cost_per_token: 0.00000168
+      output_cost_per_token: 1.68e-6
       output_cost_per_token_batches: 8.4e-7
       region: global
+deprecationDate: "2026-07-21"
 features:
     - function_calling
     - system_messages
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 163840
     max_output_tokens: 65536
@@ -29,10 +31,11 @@ params:
       maxValue: 65536
       minValue: 1
 provisioning: serverless
+retirementDate: "2026-10-21"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek/deepseek-v32
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/deepseek
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

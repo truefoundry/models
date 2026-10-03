@@ -12,6 +12,12 @@ modalities:
         - text
 mode: chat
 model: tencent/tencent-hy3
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
 provisioning: provisioned
 sources:
     - https://github.com/Tencent-Hunyuan/Hy3

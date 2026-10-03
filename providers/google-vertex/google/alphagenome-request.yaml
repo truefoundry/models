@@ -1,10 +1,14 @@
+modalities:
+    input:
+        - text
 mode: unknown
 model: google/alphagenome-request
-provisioning: serverless
+provisioning: provisioned
 sources:
     - https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/
     - https://www.alphagenomedocs.com/
     - https://github.com/google-deepmind/alphagenome
-status: preview
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome
+status: active
 supportedModes:
     - unknown

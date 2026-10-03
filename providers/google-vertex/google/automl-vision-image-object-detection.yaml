@@ -1,6 +1,8 @@
 costs:
-    - output_cost_per_second: 0.000556111 # $2.002 per node-hour deployment & online prediction
+    - output_cost_per_second: 0.000556111
       region: global
+deprecationDate: "2023-01-23"
+isDeprecated: true
 modalities:
     input:
         - image
@@ -13,12 +15,13 @@ removeParams:
     - max_tokens
     - temperature
     - top_p
-    - "n"
+    - n
     - stop
     - stream
     - tool_choice
+retirementDate: "2024-07-31"
 sources:
     - https://cloud.google.com/vision/automl/pricing
-status: active
+status: retired
 supportedModes:
     - image
