@@ -14,9 +14,9 @@ costs:
               - cost_per_token: 2.475e-5
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 3.3e-6
-      output_cost_per_token: 1.98e-5
+    - cache_read_input_token_cost: 3.375e-7
+      input_cost_per_token: 3.375e-6
+      output_cost_per_token: 2.025e-5
       region: us-gov-west-1
     - cache_read_input_token_cost: 2.75e-7
       input_cost_per_token: 2.75e-6
@@ -58,7 +58,9 @@ features:
     - tool_choice
     - json_output
 limits:
-    context_window: 1000000
+    context_window: 1050000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text

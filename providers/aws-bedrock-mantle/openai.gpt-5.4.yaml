@@ -14,9 +14,9 @@ costs:
               - cost_per_token: 0.00002475
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      output_cost_per_token: 0.0000198
+    - cache_read_input_token_cost: 3.375e-7
+      input_cost_per_token: 0.000003375
+      output_cost_per_token: 0.00002025
       region: us-gov-west-1
     - cache_read_input_token_cost: 2.75e-7
       input_cost_per_token: 0.00000275
@@ -84,8 +84,6 @@ params:
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-54.html
-    - https://developers.openai.com/api/docs/models/gpt-5.4
-    - https://aws.amazon.com/blogs/aws/get-started-with-openai-gpt-5-5-gpt-5-4-models-and-codex-on-amazon-bedrock/
 status: active
 supportedModes:
     - responses
