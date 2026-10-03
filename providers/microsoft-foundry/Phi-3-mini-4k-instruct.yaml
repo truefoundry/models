@@ -4,6 +4,7 @@ costs:
       region: "*"
 features:
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 4096
     max_input_tokens: 4096
@@ -17,8 +18,9 @@ modalities:
 mode: chat
 model: Phi-3-mini-4k-instruct
 provisioning: serverless
+retirementDate: "2025-08-30"
 sources:
     - https://ai.azure.com/catalog/models/Phi-3-mini-4k-instruct
-status: active
+status: retired
 supportedModes:
     - chat

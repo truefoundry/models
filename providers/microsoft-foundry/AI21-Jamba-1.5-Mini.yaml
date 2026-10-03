@@ -7,6 +7,7 @@ features:
     - system_messages
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 256000
 modalities:
@@ -17,10 +18,11 @@ modalities:
 mode: chat
 model: AI21-Jamba-1.5-Mini
 provisioning: serverless
+retirementDate: "2025-08-01"
 sources:
     - https://ai.azure.com/catalog/models/AI21-Jamba-1.5-Mini
     - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-ai21-labs-jamba-1-5-large-and-jamba-1-5-mini-on-azure-ai-models-as-a/4220040
     - https://www.ai21.com/blog/announcing-jamba-model-family/
-status: active
+status: retired
 supportedModes:
     - chat

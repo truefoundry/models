@@ -7,6 +7,7 @@ features:
     - tool_choice
     - structured_output
 limits:
+    context_window: 256000
     max_input_tokens: 256000
     max_output_tokens: 8192
     max_tokens: 8192
@@ -18,6 +19,8 @@ modalities:
 mode: chat
 model: grok-code-fast-1
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://ai.azure.com/catalog/models/grok-code-fast-1
 status: active
