@@ -1,2 +1,15 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000025
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+mode: chat
 model: anthropic/claude-opus-4-5
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
+thinking: true
