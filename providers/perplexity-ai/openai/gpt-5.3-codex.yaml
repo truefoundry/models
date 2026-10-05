@@ -1,6 +1,12 @@
+# Costs from LiteLLM gpt-5.3-codex (no perplexity/* key in LiteLLM).
+costs:
+    - cache_read_input_token_cost: 1.75e-7
+      input_cost_per_token: 1.75e-6
+      output_cost_per_token: 1.4e-5
+      region: "*"
 mode: chat
-# Model not listed in official Perplexity Agent API docs — pricing/limits omitted.
 model: openai/gpt-5.3-codex
 provisioning: serverless
+status: active
 supportedModes:
     - chat
