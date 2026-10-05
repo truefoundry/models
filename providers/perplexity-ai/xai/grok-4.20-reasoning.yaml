@@ -1,2 +1,27 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 2.5e-6
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 2.5e-6
+                from: 200000
+          output:
+              - cost_per_token: 5e-6
+                from: 200000
+features:
+    - prompt_caching
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: xai/grok-4.20-reasoning
+provisioning: serverless
+sources:
+    - https://docs.perplexity.ai/api-reference/models-get
+supportedModes:
+    - chat
+thinking: true
