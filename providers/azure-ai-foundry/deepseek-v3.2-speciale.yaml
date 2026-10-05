@@ -4,14 +4,24 @@ costs:
       region: "*"
 features:
     - function_calling
-    - tool_choice
     - prompt_caching
-    - assistant_prefill
+    - system_messages
+    - tool_choice
 limits:
-    max_input_tokens: 163840
+    context_window: 163840
     max_output_tokens: 163840
     max_tokens: 163840
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
-model: deepseek-v3.2-speciale
+model: DeepSeek-V3.2-Speciale
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V3.2-Speciale
+status: active
 supportedModes:
     - chat
+thinking: true
