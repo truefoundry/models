@@ -1,8 +1,13 @@
+# Costs from LiteLLM perplexity/openai/gpt-5.1.
+# Perplexity Agent docs do not list this model.
+costs:
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1e-5
+      region: "*"
 mode: chat
 model: openai/gpt-5.1
+provisioning: serverless
+status: active
 supportedModes:
     - chat
-
-# Model not found in official Perplexity Agent API documentation
-# (current OpenAI catalog on Perplexity starts at gpt-5.5).
-# Pricing, limits, features, and modalities omitted — not found in official docs.
