@@ -1,2 +1,23 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.00001
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.000004
+                from: 272000
+          output:
+              - cost_per_token: 0.000015
+                from: 272000
+          pricing_mode: cumulative
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: openai/gpt-6.1-sol
+provisioning: serverless
+supportedModes:
+    - chat
