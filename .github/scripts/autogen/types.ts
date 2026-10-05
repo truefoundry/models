@@ -32,6 +32,7 @@ export interface components {
             cache_creation_input_token_cost?: number;
             cache_creation_input_token_cost_per_hour?: number;
             cache_read_input_audio_token_cost?: number;
+            cache_read_input_image_token_cost?: number;
             cache_read_input_token_cost?: number;
             input_cost_per_annotated_page?: number;
             input_cost_per_audio_token?: number;
