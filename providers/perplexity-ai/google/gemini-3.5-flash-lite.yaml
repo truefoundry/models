@@ -1,0 +1,11 @@
+costs:
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 3e-7
+      output_cost_per_token: 2.5e-6
+      region: "*"
+mode: chat
+model: google/gemini-3.5-flash-lite
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
