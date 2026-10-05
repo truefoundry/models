@@ -1,0 +1,18 @@
+costs:
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.0000025
+      region: "*"
+      tiered_pricing:
+          input:
+              - cost_per_token: 0.0000025
+                from: 199999
+          output:
+              - cost_per_token: 0.000005
+                from: 199999
+mode: chat
+model: xai/grok-4.20-multi-agent
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
