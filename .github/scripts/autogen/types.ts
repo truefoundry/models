@@ -158,6 +158,12 @@ export interface components {
             supportedModes?: components["schemas"]["Mode"][];
             /** @description Whether the model supports extended thinking / reasoning */
             thinking?: boolean;
+            /**
+             * @description When true, inbound Chat Completions stay on /chat/completions unless a
+             *     responses-only model or an existing trigger (header / reasoning / Cursor).
+             *     Omit on new models so Chat Completions is always served via Responses.
+             */
+            preferChatCompletions?: boolean;
         };
         ModelParam: {
             defaultValue?: (string | number | boolean) | null;
