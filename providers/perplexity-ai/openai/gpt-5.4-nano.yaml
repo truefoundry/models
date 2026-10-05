@@ -1,2 +1,37 @@
-mode: unknown
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+    - system_messages
+    - tool_choice
+# costs: not found in Perplexity Agent API official docs for this model
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: openai/gpt-5.4-nano
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-5.4-nano
+supportedModes:
+    - chat
+    - responses
+thinking: true
