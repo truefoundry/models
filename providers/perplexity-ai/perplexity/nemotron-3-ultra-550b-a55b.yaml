@@ -1,2 +1,11 @@
-mode: unknown
+costs:
+    - cache_read_input_token_cost: 2.5e-7
+      input_cost_per_token: 2.5e-7
+      output_cost_per_token: 0.0000025
+      region: "*"
+mode: chat
 model: perplexity/nemotron-3-ultra-550b-a55b
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
