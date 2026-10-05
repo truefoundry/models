@@ -1,2 +1,9 @@
-mode: unknown
+# openai/gpt-5.2 is not listed in Perplexity's official Agent API model catalog
+# (https://docs.perplexity.ai/docs/agent-api/models). The documented OpenAI
+# variants are gpt-5.5, gpt-5.6-sol/terra/luna, gpt-6-sol/luna, and gpt-6.1-sol.
+# No pricing, limits, or features for gpt-5.2 could be confirmed from official docs.
+mode: chat # not found in official docs; inferred from the GPT-5 family naming
 model: openai/gpt-5.2
+provisioning: serverless
+supportedModes:
+    - chat
