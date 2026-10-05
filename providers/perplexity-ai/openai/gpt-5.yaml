@@ -1,10 +1,13 @@
-# Model openai/gpt-5 is not listed in current Perplexity Agent API documentation
-# (https://docs.perplexity.ai/docs/agent-api/models or
-# https://docs.perplexity.ai/docs/getting-started/pricing). The documented
-# OpenAI models on Perplexity's Agent API begin at openai/gpt-5.5. No pricing,
-# limits, features, or lifecycle data could be confirmed from official sources.
-mode: unknown
+# Costs from LiteLLM perplexity/openai/gpt-5.
+# Perplexity Agent docs do not list this model.
+costs:
+    - cache_read_input_token_cost: 1.25e-7
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 1e-5
+      region: "*"
+mode: chat
 model: openai/gpt-5
 provisioning: serverless
+status: active
 supportedModes:
-    - unknown
+    - chat
