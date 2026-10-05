@@ -2,26 +2,46 @@ name: Trigger Updation Job on Addition Bot PR
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened]
+  issue_comment:
+    types: [created]
 
 jobs:
   trigger-updation-from-pr:
     name: Trigger updation job for PR changes
     runs-on: ubuntu-latest
-    # Only run for the bot's "add new models" PRs, and only when the PR is from
-    # this repo (not a fork) so we never expose secrets to untrusted code.
+    # Automatic: an "add new models [bot]" PR from this repo is opened or reopened.
+    # On demand: an owner, member, or collaborator comments `/update-models`.
+    # Fork PRs are excluded on the automatic path so secrets never reach untrusted code.
     if: >-
-      contains(github.event.pull_request.title, 'add new models [bot]') &&
-      github.event.pull_request.head.repo.full_name == github.repository
+      (github.event_name == 'pull_request' &&
+       contains(github.event.pull_request.title, 'add new models [bot]') &&
+       github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'issue_comment' &&
+       github.event.issue.pull_request != null &&
+       startsWith(github.event.comment.body, '/update-models') &&
+       contains(fromJson('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))
     permissions:
       id-token: write
+      issues: write
+      pull-requests: write
     env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
       TFY_HOST: ${{ secrets.TFY_HOST }}
       TFY_PR_JOB_FQN: ${{ secrets.TFY_PR_JOB_FQN }}
-      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
+      COMMENT_ID: ${{ github.event_name == 'issue_comment' && github.event.comment.id || '' }}
 
     steps:
+      - name: React eyes
+        if: github.event_name == 'issue_comment'
+        run: |
+          gh api --method POST \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${{ github.repository }}/issues/comments/${COMMENT_ID}/reactions" \
+            -f content='eyes' || true
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -31,11 +51,12 @@ jobs:
         run: pipx install truefoundry
 
       - name: Join tailnet
-        # TFY_HOST is tailnet-only. GitHub OIDC → Tailscale; no secret.
+        # TFY_HOST is tailnet-only. OIDC sub is pull_request for the PR event and
+        # ref:refs/heads/main for issue_comment, so the Tailscale identity differs.
         uses: tailscale/github-action@306e68a486fd2350f2bfc3b19fcd143891a4a2d8 # v4.1.2
         with:
-          oauth-client-id: ${{ vars.TS_CI_PR_CLIENT_ID }}
-          audience: ${{ vars.TS_CI_PR_AUDIENCE }}
+          oauth-client-id: ${{ github.event_name == 'pull_request' && vars.TS_CI_PR_CLIENT_ID || vars.TS_CI_APPLY_CLIENT_ID }}
+          audience: ${{ github.event_name == 'pull_request' && vars.TS_CI_PR_AUDIENCE || vars.TS_CI_APPLY_AUDIENCE }}
           tags: tag:ci-internal
           hostname: gh-${{ github.event.repository.name }}-${{ github.run_id }}
 
@@ -45,3 +66,19 @@ jobs:
           tfy trigger job \
             --application-fqn "$TFY_PR_JOB_FQN" \
             --command "python job.py --pr-number $PR_NUMBER"
+
+      - name: React rocket
+        if: success() && github.event_name == 'issue_comment'
+        run: |
+          gh api --method POST \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${{ github.repository }}/issues/comments/${COMMENT_ID}/reactions" \
+            -f content='rocket' || true
+
+      - name: React confused
+        if: failure() && github.event_name == 'issue_comment'
+        run: |
+          gh api --method POST \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${{ github.repository }}/issues/comments/${COMMENT_ID}/reactions" \
+            -f content='confused' || true
