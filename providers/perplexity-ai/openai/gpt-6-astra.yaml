@@ -1,4 +1,27 @@
-mode: unknown # not found in official docs — model does not appear in Perplexity Agent API model catalog
+# Costs from LiteLLM gpt-6-astra (no perplexity/* key in LiteLLM).
+costs:
+    - cache_creation_input_token_cost: 1.25e-5
+      cache_read_input_token_cost: 1e-6
+      input_cost_per_token: 1e-5
+      output_cost_per_token: 5e-5
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2e-6
+                from: 272000
+          cache_write:
+              - cost_per_token: 2.5e-5
+                from: 272000
+          input:
+              - cost_per_token: 2e-5
+                from: 272000
+          output:
+              - cost_per_token: 7.5e-5
+                from: 272000
+          pricing_mode: cumulative
+mode: chat
 model: openai/gpt-6-astra
+provisioning: serverless
+status: active
 supportedModes:
-    - unknown
+    - chat
