@@ -1,9 +1,13 @@
-# openai/gpt-5.2 is not listed in Perplexity's official Agent API model catalog
-# (https://docs.perplexity.ai/docs/agent-api/models). The documented OpenAI
-# variants are gpt-5.5, gpt-5.6-sol/terra/luna, gpt-6-sol/luna, and gpt-6.1-sol.
-# No pricing, limits, or features for gpt-5.2 could be confirmed from official docs.
-mode: chat # not found in official docs; inferred from the GPT-5 family naming
+# Costs from LiteLLM perplexity/openai/gpt-5.2.
+# Perplexity Agent docs do not list this model.
+costs:
+    - cache_read_input_token_cost: 1.75e-7
+      input_cost_per_token: 1.75e-6
+      output_cost_per_token: 1.4e-5
+      region: "*"
+mode: chat
 model: openai/gpt-5.2
 provisioning: serverless
+status: active
 supportedModes:
     - chat
