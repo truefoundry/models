@@ -1,0 +1,11 @@
+costs:
+    - cache_read_input_token_cost: 5e-9
+      input_cost_per_token: 5e-8
+      output_cost_per_token: 4e-7
+      region: "*"
+mode: chat
+model: openai/gpt-5-nano
+provisioning: serverless
+status: active
+supportedModes:
+    - chat
