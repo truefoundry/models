@@ -1,2 +1,29 @@
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: MAI-Transcribe-2-Streaming
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - response_format
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+# costs: not found in official docs — Azure Foundry Models pricing page does not list MAI-Transcribe-2-Streaming, and the Azure Speech pricing page only lists the non-streaming MAI Transcribe-2 variant.
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-services/speech-service/mai-transcribe-2-streaming
+    - https://learn.microsoft.com/en-us/azure/ai-services/speech-service/mai-transcribe-2-streaming-realtime
+    - https://learn.microsoft.com/en-us/azure/ai-services/speech-service/mai-transcribe-2-streaming-speech-sdk
+    - https://ai.azure.com/catalog/models/MAI-Transcribe-2-Streaming
+    - https://azure.microsoft.com/en-us/pricing/details/speech/
+status: preview
+supportedModes:
+    - audio_transcription
