@@ -1,2 +1,29 @@
-mode: unknown
+costs:
+    - input_cost_per_second: 0.00015 # $0.54 per hour of audio (introductory preview price) / 3600s
+      region: global
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: MAI-Transcribe-2-Streaming-2026-08-06
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-services/speech-service/mai-transcribe-2-streaming
+    - https://ai.azure.com/catalog/models/MAI-Transcribe-2-Streaming?publisher=microsoft
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/build-expressive-voice-experiences-with-new-mai-models-in-microsoft-foundry/4524637
+status: preview
+supportedModes:
+    - audio_transcription
+    - realtime
