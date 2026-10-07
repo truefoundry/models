@@ -33,7 +33,7 @@ const PROVIDER_META: Record<string, ProviderMeta> = {
   'perplexity-ai': { name: 'Perplexity', description: 'Search-augmented models' },
   'sambanova': { name: 'SambaNova', description: 'Enterprise AI models' },
   'together-ai': { name: 'Together AI', description: 'Open source model hosting' },
-  'truefoundry-models': { name: 'TrueFoundry Models', description: 'Curated models served by a TrueFoundry gateway' },
+  'truefoundry-models': { name: 'TrueFoundry Models', description: 'Open and frontier models provided by TrueFoundry' },
   'xai': { name: 'xAI', description: 'Grok models' },
 };
 
