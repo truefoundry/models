@@ -1,5 +1,5 @@
 costs:
-    - cache_read_input_token_cost: 2.8e-9
+    - cache_read_input_token_cost: 3e-8
       input_cost_per_token: 1.4e-7
       output_cost_per_token: 2.8e-7
       region: "*"
@@ -11,26 +11,17 @@ features:
     - tool_choice
 limits:
     context_window: 1048576
-    max_output_tokens: 131072
+    max_output_tokens: 384000
 modalities:
     input:
         - text
-        - image
-        - video
-        - audio
     output:
         - text
 mode: chat
-model: truerouter-curated/mimo-v2.6-flash
-params:
-    - defaultValue: 1
-      key: temperature
-    - defaultValue: 0.95
-      key: top_p
+model: tfy-managed/deepseek-v4-flash-0731
 provisioning: serverless
 sources:
-    - https://openrouter.ai/xiaomi/mimo-v2.6-flash
-status: active
+    - https://openrouter.ai/deepseek/deepseek-v4-flash-0731
 supportedModes:
     - chat
 thinking: true

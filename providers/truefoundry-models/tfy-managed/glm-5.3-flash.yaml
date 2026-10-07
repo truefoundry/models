@@ -1,18 +1,17 @@
 costs:
-    - cache_read_input_token_cost: 6e-8
-      input_cost_per_token: 3e-7
-      output_cost_per_token: 1.2e-6
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 5e-7
       region: "*"
 features:
     - function_calling
     - json_output
     - prompt_caching
-    - tool_choice
     - structured_output
-    - system_messages
+    - tool_choice
 limits:
-    context_window: 1048576
-    max_output_tokens: 512000
+    context_window: 1310720
+    max_output_tokens: 131072
 modalities:
     input:
         - text
@@ -21,15 +20,22 @@ modalities:
     output:
         - text
 mode: chat
-model: truerouter-curated/minimax-m3
+model: tfy-managed/glm-5.3-flash
 params:
     - defaultValue: 1
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
-    - https://openrouter.ai/minimax/minimax-m3
+    - https://openrouter.ai/z-ai/glm-5.3-flash
 status: active
 supportedModes:
     - chat
