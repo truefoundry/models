@@ -1,77 +1,469 @@
 costs:
-    - cache_read_input_token_cost: 2.75e-7
-      input_cost_per_token: 2.75e-6
-      output_cost_per_token: 1.65e-5
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
       region: us-west-2
       tiered_pricing:
           cache_read:
-              - cost_per_token: 5.5e-7
+              - cost_per_token: 0.0000005
                 from: 272000
           input:
-              - cost_per_token: 5.5e-6
+              - cost_per_token: 0.000005
                 from: 272000
           output:
-              - cost_per_token: 2.475e-5
+              - cost_per_token: 0.0000225
                 from: 272000
           pricing_mode: cumulative
-    - region: us-west-1
-    - cache_read_input_token_cost: 2.75e-7
-      input_cost_per_token: 2.75e-6
-      output_cost_per_token: 1.65e-5
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: us-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
       region: us-east-2
       tiered_pricing:
           cache_read:
-              - cost_per_token: 5.5e-7
+              - cost_per_token: 0.0000005
                 from: 272000
           input:
-              - cost_per_token: 5.5e-6
+              - cost_per_token: 0.000005
                 from: 272000
           output:
-              - cost_per_token: 2.475e-5
+              - cost_per_token: 0.0000225
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 2.75e-7
-      input_cost_per_token: 2.75e-6
-      output_cost_per_token: 1.65e-5
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
       region: us-east-1
       tiered_pricing:
           cache_read:
-              - cost_per_token: 5.5e-7
+              - cost_per_token: 0.0000005
                 from: 272000
           input:
-              - cost_per_token: 5.5e-6
+              - cost_per_token: 0.000005
                 from: 272000
           output:
-              - cost_per_token: 2.475e-5
+              - cost_per_token: 0.0000225
                 from: 272000
           pricing_mode: cumulative
-    - region: sa-east-1
-    - region: mx-central-1
-    - region: il-central-1
-    - region: eu-west-3
-    - region: eu-west-2
-    - region: eu-west-1
-    - region: eu-south-2
-    - region: eu-south-1
-    - region: eu-north-1
-    - region: eu-central-2
-    - region: eu-central-1
-    - region: ca-west-1
-    - region: ca-central-1
-    - region: ap-southeast-7
-    - region: ap-southeast-6
-    - region: ap-southeast-5
-    - region: ap-southeast-4
-    - region: ap-southeast-3
-    - region: ap-southeast-2
-    - region: ap-southeast-1
-    - region: ap-south-2
-    - region: ap-south-1
-    - region: ap-northeast-3
-    - region: ap-northeast-2
-    - region: ap-northeast-1
-    - region: ap-east-2
-    - region: af-south-1
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: sa-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: mx-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: il-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-west-3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-west-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-south-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-south-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-north-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-central-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: eu-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ca-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ca-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-southeast-7
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-southeast-6
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-southeast-5
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-southeast-4
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-southeast-3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-southeast-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-southeast-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-south-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-south-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-northeast-3
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-northeast-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-northeast-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: ap-east-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 0.00000025
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.000015
+      region: af-south-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000005
+                from: 272000
+          input:
+              - cost_per_token: 0.000005
+                from: 272000
+          output:
+              - cost_per_token: 0.0000225
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - prompt_caching
