@@ -1,5 +1,9 @@
 features:
     - function_calling
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
 modalities:
     input:
         - audio
@@ -12,6 +16,8 @@ model: gpt-live-1
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-live-1
+    - https://ai.azure.com/catalog/models/gpt-live-1
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-live
 status: preview
 supportedModes:
     - realtime
