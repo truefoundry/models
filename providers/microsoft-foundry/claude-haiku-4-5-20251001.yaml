@@ -41,8 +41,10 @@ modalities:
 mode: chat
 model: claude-haiku-4-5-20251001
 params:
-    - key: max_tokens
+    - defaultValue: 256
+      key: max_tokens
       maxValue: 64000
+      minValue: 1
 provisioning: serverless
 removeParams:
     - reasoning_effort

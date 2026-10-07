@@ -1,3 +1,12 @@
+costs:
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      output_cost_per_token: 0.000033
+      region: datazone_us
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.00003
+      region: "*"
 features:
     - function_calling
     - parallel_function_calling
@@ -19,7 +28,10 @@ modalities:
 mode: chat
 model: gpt-chat-latest-2026-08-06
 params:
-    - key: max_completion_tokens
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
 preferChatCompletions: true
 provisioning: serverless
 removeParams:
@@ -34,5 +46,3 @@ supportedModes:
     - chat
     - responses
 thinking: true
-
-# costs: not found in official docs — Microsoft Foundry pricing page renders values dynamically

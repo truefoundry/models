@@ -63,6 +63,10 @@ params:
           - max
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
