@@ -23,6 +23,10 @@ modalities:
 mode: chat
 model: truerouter-curated/mimo-v2.6-pro
 params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
     - defaultValue: 1
       key: temperature
     - defaultValue: 0.95

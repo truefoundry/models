@@ -19,6 +19,11 @@ modalities:
         - text
 mode: chat
 model: truerouter-curated/hy4-preview
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 64000
+      minValue: 1
 provisioning: serverless
 sources:
     - https://openrouter.ai/tencent/hy4-preview

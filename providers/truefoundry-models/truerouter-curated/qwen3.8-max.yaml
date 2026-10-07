@@ -22,6 +22,11 @@ modalities:
         - text
 mode: chat
 model: truerouter-curated/qwen3.8-max
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.8-max
