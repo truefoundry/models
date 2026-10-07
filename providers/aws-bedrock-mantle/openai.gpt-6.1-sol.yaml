@@ -42,6 +42,10 @@ modalities:
 mode: chat
 model: openai.gpt-6.1-sol
 params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -52,6 +56,8 @@ params:
           - max
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-6.1-sol
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html
