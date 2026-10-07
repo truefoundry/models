@@ -8,8 +8,8 @@ features:
 limits:
     context_window: 32768
     max_input_tokens: 32768
-    max_output_tokens: 4096
-    max_tokens: 4096
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -20,6 +20,7 @@ model: Phi-4-reasoning
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/Phi-4-reasoning
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/
 status: active
 supportedModes:
     - chat

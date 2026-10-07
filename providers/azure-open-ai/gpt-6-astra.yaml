@@ -37,23 +37,23 @@ costs:
               - cost_per_token: 0.0000825
                 from: 272000
           pricing_mode: cumulative
-    - cache_creation_input_token_cost: 0.00001375
-      cache_read_input_token_cost: 0.0000011
-      input_cost_per_token: 0.000011
-      output_cost_per_token: 0.000055
+    - cache_creation_input_token_cost: 0.000015
+      cache_read_input_token_cost: 0.0000012
+      input_cost_per_token: 0.000012
+      output_cost_per_token: 0.00006
       region: datazone_eu
       tiered_pricing:
           cache_read:
-              - cost_per_token: 0.0000022
+              - cost_per_token: 0.0000024
                 from: 272000
           cache_write:
-              - cost_per_token: 0.0000275
+              - cost_per_token: 0.00003
                 from: 272000
           input:
-              - cost_per_token: 0.000022
+              - cost_per_token: 0.000024
                 from: 272000
           output:
-              - cost_per_token: 0.0000825
+              - cost_per_token: 0.00009
                 from: 272000
           pricing_mode: cumulative
 features:

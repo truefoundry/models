@@ -133,17 +133,6 @@ modalities:
         - text
 mode: chat
 model: us.openai.gpt-6-sol
-params:
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - none
-          - low
-          - medium
-          - high
-          - xhigh
-          - max
-      type: string
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-6-sol

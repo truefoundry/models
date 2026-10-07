@@ -1,0 +1,22 @@
+features:
+    - function_calling
+    - structured_output
+    - system_messages
+limits:
+    context_window: 1048576
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: nvidia/nemotron-3.5
+provisioning: provisioned
+sources:
+    - https://build.nvidia.com/nvidia/nemotron-3.5-lightning-30b-a3b
+    - https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/
+    - https://cloud.google.com/blog/products/compute/google-cloud-ai-infrastructure-at-nvidia-gtc-2026
+status: preview
+supportedModes:
+    - chat
+thinking: true

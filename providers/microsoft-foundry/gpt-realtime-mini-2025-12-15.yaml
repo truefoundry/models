@@ -13,6 +13,7 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
+    - prompt_caching
 limits:
     context_window: 32000
     max_input_tokens: 32000
@@ -33,6 +34,8 @@ removeParams:
     - "n"
     - response_format
 retirementDate: "2027-06-15"
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-realtime-mini
 status: active
 supportedModes:
     - realtime

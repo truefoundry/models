@@ -7,10 +7,11 @@ features:
     - tool_choice
     - prompt_caching
     - assistant_prefill
+    - json_output
 limits:
-    max_input_tokens: 163840
-    max_output_tokens: 163840
-    max_tokens: 163840
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -18,11 +19,17 @@ modalities:
         - text
 mode: chat
 model: deepseek-v3.2-speciale
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/DeepSeek-V3.2-Speciale
     - https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale
     - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-deepseek-v3-2-and-deepseek-v3-2-speciale-in-microsoft-foundry/4477549
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
 status: active
 supportedModes:
     - chat

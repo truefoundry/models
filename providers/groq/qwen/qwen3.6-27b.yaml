@@ -7,6 +7,7 @@ features:
     - json_output
     - structured_output
     - system_messages
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 16384
@@ -26,9 +27,10 @@ params:
           - default
       type: string
 provisioning: serverless
+retirementDate: "2026-09-14"
 sources:
     - https://console.groq.com/docs/model/qwen/qwen3.6-27b
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true

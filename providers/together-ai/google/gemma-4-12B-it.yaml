@@ -1,5 +1,9 @@
 # Model not found in Together AI official documentation (serverless-models,
 # pricing, changelog, or deprecations). Pricing left at 0.0 pending official listing.
+# Note: google/gemma-4-12B-it was later confirmed in the Together AI changelog
+# (added 2026-07-14, serverless, 262,144-token context length). Per-token pricing
+# is still not published on the Together AI pricing page (only the 31B variant is
+# listed), so costs remain at 0.0 pending an official listing.
 costs:
     - cache_read_input_token_cost: 0.0
       input_cost_per_token: 0.0
@@ -10,5 +14,6 @@ limits:
 mode: chat
 model: google/gemma-4-12B-it
 provisioning: provisioned
+status: active
 supportedModes:
     - chat

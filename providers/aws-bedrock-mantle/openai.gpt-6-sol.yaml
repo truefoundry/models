@@ -1,12 +1,12 @@
 costs:
     - cache_creation_input_token_cost: 0.00000275
-      cache_read_input_token_cost: 0.00000022
+      cache_read_input_token_cost: 2.2e-7
       input_cost_per_token: 0.0000022
       output_cost_per_token: 0.000011
       region: us-east-1
       tiered_pricing:
           cache_read:
-              - cost_per_token: 0.00000044
+              - cost_per_token: 4.4e-7
                 from: 272000
           cache_write:
               - cost_per_token: 0.0000055

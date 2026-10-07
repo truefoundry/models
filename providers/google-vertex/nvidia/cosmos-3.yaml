@@ -1,0 +1,19 @@
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+    output:
+        - video
+        - image
+        - audio
+        - text
+mode: video
+model: nvidia/cosmos-3
+provisioning: provisioned
+sources:
+    - https://huggingface.co/nvidia/Cosmos3-Super
+status: preview
+supportedModes:
+    - video

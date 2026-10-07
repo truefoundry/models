@@ -1,0 +1,28 @@
+features:
+    - function_calling
+    - structured_output
+limits:
+    context_window: 524288
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: xai/grok-4.7
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+provisioning: serverless
+sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7
+status: preview
+supportedModes:
+    - chat
+thinking: true
