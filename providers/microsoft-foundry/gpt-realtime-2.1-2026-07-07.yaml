@@ -32,6 +32,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
+    - structured_output
 limits:
     max_input_tokens: 32000
     max_output_tokens: 4096
@@ -54,10 +55,12 @@ params:
           - low
           - medium
           - high
-          - xhigh
       type: string
 provisioning: serverless
 retirementDate: "2027-06-25"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/realtime-audio
+    - https://ai.azure.com/catalog/models/gpt-realtime-2.1
 status: preview
 supportedModes:
     - realtime

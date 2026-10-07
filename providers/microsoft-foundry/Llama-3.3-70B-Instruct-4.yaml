@@ -15,8 +15,14 @@ modalities:
 mode: chat
 model: Llama-3.3-70B-Instruct-4
 provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - tool_choice
+    - parallel_tool_calls
 sources:
     - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/llama/
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
 status: active
 supportedModes:
     - chat

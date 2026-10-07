@@ -14,6 +14,7 @@ features:
     - parallel_function_calling
     - system_messages
     - tool_choice
+    - prompt_caching
 limits:
     max_input_tokens: 32000
     max_output_tokens: 4096
@@ -32,6 +33,10 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 retirementDate: "2027-06-25"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/realtime-2
+    - https://ai.azure.com/catalog/models/gpt-realtime-2.1
+    - https://developers.openai.com/api/docs/models/gpt-realtime-2.1
 status: preview
 supportedModes:
     - realtime
