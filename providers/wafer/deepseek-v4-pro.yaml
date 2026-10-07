@@ -1,19 +1,12 @@
 costs:
-    - cache_read_input_token_cost: 3.2e-10
-      input_cost_per_token: 2.3e-10
-      output_cost_per_token: 3.49e-9
+    - cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 1.2e-6
+      output_cost_per_token: 2.4e-6
       region: "*"
 features:
     - function_calling
-    - json_output
-    - structured_output
 limits:
-    context_window: 1048576
-modalities:
-    input:
-        - text
-    output:
-        - text
+    context_window: 1000000
 mode: chat
 model: deepseek-v4-pro
 params:
@@ -21,13 +14,12 @@ params:
       supportedValues:
           - none
           - low
+          - medium
           - high
           - max
 provisioning: serverless
 sources:
     - https://docs.wafer.ai/serverless/api-reference
-    - https://docs.wafer.ai/serverless/models
-    - https://pass.wafer.ai/v1/models
 status: active
 supportedModes:
     - chat
