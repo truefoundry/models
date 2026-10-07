@@ -32,6 +32,10 @@ modalities:
 mode: responses
 model: gpt-5.1-codex-mini
 params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -41,6 +45,8 @@ params:
           - high
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 retirementDate: "2027-05-15"
 sources:
     - https://ai.azure.com/catalog/models/gpt-5.1-codex-mini
