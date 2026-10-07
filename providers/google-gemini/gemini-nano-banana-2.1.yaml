@@ -1,0 +1,17 @@
+limits:
+    max_input_tokens: 65536
+    max_output_tokens: 65536
+mode: unknown # not found in official docs
+model: gemini-nano-banana-2.1
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 1
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+provisioning: serverless
+supportedModes:
+    - unknown
+thinking: true
