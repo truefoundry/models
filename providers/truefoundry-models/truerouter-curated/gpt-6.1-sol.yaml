@@ -1,23 +1,23 @@
 costs:
-    - cache_creation_input_token_cost: 0.0000025
+    - cache_creation_input_token_cost: 2.5e-6
       cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_token: 0.00001
-      output_cost_per_token_batches: 0.000005
+      input_cost_per_token: 2e-6
+      input_cost_per_token_batches: 1e-6
+      output_cost_per_token: 1e-5
+      output_cost_per_token_batches: 5e-6
       region: "*"
       tiered_pricing:
           cache_read:
               - cost_per_token: 2e-7
                 from: 272000
           cache_write:
-              - cost_per_token: 0.000005
+              - cost_per_token: 5e-6
                 from: 272000
           input:
-              - cost_per_token: 0.000004
+              - cost_per_token: 4e-6
                 from: 272000
           output:
-              - cost_per_token: 0.000015
+              - cost_per_token: 1.5e-5
                 from: 272000
           pricing_mode: cumulative
 features:
@@ -49,7 +49,6 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
