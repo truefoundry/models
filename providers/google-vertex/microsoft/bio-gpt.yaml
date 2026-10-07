@@ -1,16 +1,16 @@
 deprecationDate: null
-features: [] # no function calling, JSON mode, or tools
+features: []
 isDeprecated: false
 limits:
-    context_window: 1024 # from HF config.json max_position_embeddings
-    max_output_tokens: null # not explicitly documented; bounded by context_window
+    context_window: 1024
+    max_output_tokens: null
 modalities:
     input: [text]
     output: [text]
 mode: completion
 model: microsoft/bio-gpt
 provisioning: provisioned
-regionalAvailability: self-deployed # any Vertex AI region with V100 or L4 GPU quota
+regionalAvailability: self-deployed
 retirementDate: null
 status: active
 supportedModes: [completion]
