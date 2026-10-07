@@ -1,6 +1,107 @@
 costs:
-    - region: us-west-1
-    - region: us-east-2
-    - region: ca-central-1
-mode: unknown
+    - cache_creation_input_token_cost: 1.375e-7
+      cache_creation_input_token_cost_per_hour: 2.2e-7
+      cache_read_input_token_cost: 1.1e-8
+      # Pricing for us.* geo endpoint = Anthropic base price × 1.1 (documented 10% geo premium on AWS Bedrock for Claude 4.5+ models). AWS Bedrock pricing page has not yet published explicit Haiku 5.5 numbers; values derived from Anthropic Claude API base pricing per https://platform.claude.com/docs/en/about-claude/pricing.
+      input_cost_per_token: 1.1e-7
+      input_cost_per_token_batches: 5.5e-8
+      output_cost_per_token: 5.5e-7
+      output_cost_per_token_batches: 2.75e-7
+      region: us-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 5.5e-8
+                from: 100000
+          cache_write:
+              - cost_per_token: 6.875e-7
+                from: 100000
+          input:
+              - cost_per_token: 5.5e-7
+                from: 100000
+          output:
+              - cost_per_token: 2.75e-6
+                from: 100000
+    - cache_creation_input_token_cost: 1.375e-7
+      cache_creation_input_token_cost_per_hour: 2.2e-7
+      cache_read_input_token_cost: 1.1e-8
+      input_cost_per_token: 1.1e-7
+      input_cost_per_token_batches: 5.5e-8
+      output_cost_per_token: 5.5e-7
+      output_cost_per_token_batches: 2.75e-7
+      region: us-east-2
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 5.5e-8
+                from: 100000
+          cache_write:
+              - cost_per_token: 6.875e-7
+                from: 100000
+          input:
+              - cost_per_token: 5.5e-7
+                from: 100000
+          output:
+              - cost_per_token: 2.75e-6
+                from: 100000
+    - cache_creation_input_token_cost: 1.375e-7
+      cache_creation_input_token_cost_per_hour: 2.2e-7
+      cache_read_input_token_cost: 1.1e-8
+      input_cost_per_token: 1.1e-7
+      input_cost_per_token_batches: 5.5e-8
+      output_cost_per_token: 5.5e-7
+      output_cost_per_token_batches: 2.75e-7
+      region: ca-central-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 5.5e-8
+                from: 100000
+          cache_write:
+              - cost_per_token: 6.875e-7
+                from: 100000
+          input:
+              - cost_per_token: 5.5e-7
+                from: 100000
+          output:
+              - cost_per_token: 2.75e-6
+                from: 100000
+features:
+    - function_calling
+    - parallel_function_calling
+    - cache_control
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - assistant_prefill
+    - mid_conversation_system_messages
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: us.anthropic.claude-haiku-5-5
+params:
+    - defaultValue: 512
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
+provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+sources:
+    - https://platform.claude.com/docs/en/models/haiku-5-5/overview
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/about-claude/models/overview
+    - https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-anthropic.html
+status: active
+supportedModes:
+    - chat
+thinking: true
