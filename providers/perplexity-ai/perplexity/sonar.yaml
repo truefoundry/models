@@ -6,6 +6,7 @@ costs:
 features:
     - structured_output
     - system_messages
+    - json_output
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -19,10 +20,12 @@ model: perplexity/sonar
 provisioning: serverless
 removeParams:
     - stop
+    - top_k
 sources:
     - https://docs.perplexity.ai/docs/agent-api/models
     - https://docs.perplexity.ai/docs/sonar/models/sonar
     - https://docs.perplexity.ai/docs/getting-started/pricing
+    - https://docs.perplexity.ai/api-reference/sonar-post
 status: active
 supportedModes:
     - chat
