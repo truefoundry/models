@@ -30,5 +30,31 @@ costs:
     - region: ap-northeast-1
     - region: ap-east-2
     - region: af-south-1
-mode: unknown
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - system_messages
+    - tool_choice
+    - structured_output
+    - json_output
+limits:
+    context_window: 1050000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: global.openai.gpt-5.5
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-55.html
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
