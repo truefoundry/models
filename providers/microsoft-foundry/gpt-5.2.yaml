@@ -47,6 +47,15 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 preferChatCompletions: true
 provisioning: serverless
 removeParams:

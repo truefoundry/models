@@ -3,19 +3,25 @@ costs:
       cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
       output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
       region: global
     - cache_creation_input_token_cost: 0.000006875
       cache_creation_input_token_cost_per_hour: 0.000011
       cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
       output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
       region: datazone_us
     - cache_creation_input_token_cost: 0.00000625
       cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
       output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
       region: "*"
 features:
     - function_calling
@@ -52,9 +58,15 @@ params:
           - xhigh
           - max
       type: string
-    - key: max_tokens
+    - defaultValue: 256
+      key: max_tokens
       maxValue: 128000
+      minValue: 1
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing

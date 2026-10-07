@@ -29,6 +29,7 @@ features:
     - structured_output
     - system_messages
     - tool_choice
+    - json_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -48,6 +49,15 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens
