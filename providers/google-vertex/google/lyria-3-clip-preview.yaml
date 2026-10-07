@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_request: 0.04
+      region: global
 limits:
     context_window: 131072
     max_input_tokens: 131072
@@ -7,7 +10,7 @@ modalities:
         - image
     output:
         - audio
-mode: unknown # correct mode is music, but that is not supported yet
+mode: unknown
 model: lyria-3-clip-preview
 provisioning: serverless
 removeParams:
