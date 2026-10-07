@@ -1,4 +1,12 @@
+# Claude Haiku 5.5 has been announced by Anthropic but is not yet
+# available on AWS Bedrock. The AWS Bedrock model-cards catalog does
+# not list a Claude Haiku 5.5 model card, and the AWS Bedrock pricing
+# page has no entry for it. Pricing, limits, features, and modalities
+# are therefore not found in official docs and are omitted here.
 costs:
-    - region: ap-southeast-2
-mode: unknown
+    - region: ap-southeast-2 # pricing not found in official docs
+mode: chat
 model: au.anthropic.claude-haiku-5-5
+provisioning: serverless
+supportedModes:
+    - chat
