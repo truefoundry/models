@@ -79,6 +79,25 @@ costs:
       cache_read_input_token_cost: 0.0000011
       input_cost_per_token: 0.000011
       output_cost_per_token: 0.000055
+      region: ca-west-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000022
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.0000275
+                from: 272000
+          input:
+              - cost_per_token: 0.000022
+                from: 272000
+          output:
+              - cost_per_token: 0.0000825
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.00001375
+      cache_read_input_token_cost: 0.0000011
+      input_cost_per_token: 0.000011
+      output_cost_per_token: 0.000055
       region: ca-central-1
       tiered_pricing:
           cache_read:
@@ -101,6 +120,7 @@ features:
     - system_messages
     - prompt_caching
     - json_output
+    - structured_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
