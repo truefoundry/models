@@ -1,0 +1,33 @@
+costs:
+    - input_cost_per_token: 2e-8
+      input_cost_per_token_batches: 1e-8
+      output_cost_per_token: 0
+      output_cost_per_token_batches: 0
+      region: "*"
+limits:
+    max_input_tokens: 8192
+    output_vector_size: 1536
+modalities:
+    input:
+        - text
+    output:
+        - embedding
+mode: embedding
+model: truerouter-curated/text-embedding-3-small
+provisioning: serverless
+removeParams:
+    - temperature
+    - stop
+    - top_p
+    - "n"
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - max_tokens
+    - reasoning_effort
+sources:
+    - https://developers.openai.com/docs/guides/embeddings
+    - https://developers.openai.com/api/docs/models/text-embedding-3-small
+status: active
+supportedModes:
+    - embedding
