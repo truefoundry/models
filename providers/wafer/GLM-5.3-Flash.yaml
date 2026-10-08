@@ -12,8 +12,8 @@ features:
     - prompt_caching
 limits:
     context_window: 1048576
-    max_output_tokens: 32768
-    max_tokens: 32768
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -31,6 +31,7 @@ params:
           - low
           - high
           - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.z.ai/guides/vlm/glm-5.3-flash
