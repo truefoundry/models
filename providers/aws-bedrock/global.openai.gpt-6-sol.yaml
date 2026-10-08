@@ -595,6 +595,7 @@ features:
     - system_messages
     - prompt_caching
     - json_output
+    - structured_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -612,6 +613,7 @@ provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-6-sol
     - https://aws.amazon.com/blogs/machine-learning/bring-more-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-sol.html
 status: active
 supportedModes:
     - chat
