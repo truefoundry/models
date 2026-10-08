@@ -1,7 +1,13 @@
 costs:
     - input_cost_per_audio_token: 0.0000035
       output_cost_per_token: 0.000021
+      region: us
+    - input_cost_per_audio_token: 0.0000035
+      output_cost_per_token: 0.000021
       region: global
+    - input_cost_per_audio_token: 0.0000035
+      output_cost_per_token: 0.000021
+      region: eu
 limits:
     context_window: 96000
     max_input_tokens: 96000
@@ -17,6 +23,7 @@ mode: audio_transcription
 model: google/gemini-3.5-transcribe-live-preview
 provisioning: serverless
 sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://ai.google.dev/gemini-api/docs/transcribe
     - https://deepmind.google/models/gemini-audio/ai-transcription/
