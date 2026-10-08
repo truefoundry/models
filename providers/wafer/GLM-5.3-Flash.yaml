@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 2e-8
-      input_cost_per_token: 1e-7
-      output_cost_per_token: 3.5e-7
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 5e-7
       region: "*"
 features:
     - function_calling
@@ -12,8 +12,8 @@ features:
     - prompt_caching
 limits:
     context_window: 1048576
-    max_output_tokens: 131072
-    max_tokens: 131072
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -23,10 +23,19 @@ modalities:
         - text
 mode: chat
 model: GLM-5.3-Flash
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
 provisioning: serverless
 sources:
     - https://docs.z.ai/guides/vlm/glm-5.3-flash
-    - https://docs.wafer.ai/serverless/setup
+    - https://docs.z.ai/guides/overview/pricing
+    - https://pass.wafer.ai/v1/models
 status: active
 supportedModes:
     - chat
