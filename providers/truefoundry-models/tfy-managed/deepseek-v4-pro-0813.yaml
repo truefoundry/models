@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 2.8e-9
-      input_cost_per_token: 1.4e-7
-      output_cost_per_token: 2.8e-7
+    - cache_read_input_token_cost: 1.32e-7
+      input_cost_per_token: 1.32e-6
+      output_cost_per_token: 3.96e-6
       region: "*"
 features:
     - function_calling
@@ -18,10 +18,16 @@ modalities:
     output:
         - text
 mode: chat
-model: truerouter-curated/deepseek-v4-flash-0731
+model: tfy-managed/deepseek-v4-pro-0813
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 1
+      key: top_p
 provisioning: serverless
 sources:
-    - https://openrouter.ai/deepseek/deepseek-v4-flash-0731
+    - https://openrouter.ai/deepseek/deepseek-v4-pro-0813
+status: active
 supportedModes:
     - chat
 thinking: true

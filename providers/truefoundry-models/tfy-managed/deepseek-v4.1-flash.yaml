@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
+    - cache_read_input_token_cost: 7e-9
+      input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
       region: "*"
 features:
     - function_calling
@@ -9,11 +9,9 @@ features:
     - prompt_caching
     - structured_output
     - tool_choice
-    - system_messages
 limits:
     context_window: 1048576
-    max_output_tokens: 943718
-    max_tokens: 943718
+    max_output_tokens: 384000
 modalities:
     input:
         - text
@@ -21,14 +19,10 @@ modalities:
     output:
         - text
 mode: chat
-model: truerouter-curated/kimi-k3
-params:
-    - key: max_tokens
-      maxValue: 943718
+model: tfy-managed/deepseek-v4.1-flash
 provisioning: serverless
 sources:
-    - https://openrouter.ai/moonshotai/kimi-k3
-status: active
+    - https://openrouter.ai/deepseek/deepseek-v4.1-flash
 supportedModes:
     - chat
 thinking: true

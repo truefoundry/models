@@ -1,8 +1,7 @@
 costs:
-    - cache_creation_input_token_cost: 2.5e-6
-      cache_read_input_token_cost: 2.5e-7
-      input_cost_per_token: 2e-6
-      output_cost_per_token: 6e-6
+    - cache_read_input_token_cost: 4e-9
+      input_cost_per_token: 4.56e-7
+      output_cost_per_token: 9.18e-7
       region: "*"
 features:
     - function_calling
@@ -11,20 +10,26 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 1000000
+    context_window: 1048576
     max_output_tokens: 131072
 modalities:
     input:
         - text
         - image
         - video
+        - audio
     output:
         - text
 mode: chat
-model: truerouter-curated/qwen3.8-max
+model: tfy-managed/mimo-v2.6-pro
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
 provisioning: serverless
 sources:
-    - https://openrouter.ai/qwen/qwen3.8-max
+    - https://openrouter.ai/xiaomi/mimo-v2.6-pro
 status: active
 supportedModes:
     - chat
