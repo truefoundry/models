@@ -20,17 +20,16 @@ costs:
           output:
               - cost_per_token: 2.5e-6
                 from: 100000
-          pricing_mode: marginal
+          pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
-    - prompt_caching
-    - cache_control
+    - tool_choice
     - system_messages
     - mid_conversation_system_messages
-    - tool_choice
+    - prompt_caching
+    - cache_control
     - structured_output
-    - assistant_prefill
     - json_output
 limits:
     context_window: 1000000
@@ -68,6 +67,8 @@ removeParams:
 retirementDate: "2027-10-07"
 sources:
     - https://platform.claude.com/docs/en/models/haiku-5-5/overview
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages
 status: active
 supportedModes:
     - chat
