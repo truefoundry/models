@@ -32,6 +32,7 @@ features:
     - prompt_caching
     - assistant_prefill
     - structured_output
+    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -58,6 +59,10 @@ params:
           - xhigh
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 retirementDate: "2027-12-05"
 sources:
     - https://platform.claude.com/docs/en/models/fable-5/overview

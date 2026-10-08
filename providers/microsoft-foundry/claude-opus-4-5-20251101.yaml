@@ -42,6 +42,13 @@ params:
       key: max_tokens
       maxValue: 64000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 retirementDate: "2026-11-24"
 sources:

@@ -1,0 +1,15 @@
+costs:
+    - input_cost_per_token: 2.4e-7
+      output_cost_per_token: 0.0
+      region: "*"
+limits:
+    context_window: 65536
+modalities:
+    input:
+        - text
+        - image
+mode: decision
+model: cloudflare/clef
+provisioning: serverless
+supportedModes:
+    - decision

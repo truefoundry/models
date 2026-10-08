@@ -25,8 +25,10 @@ modalities:
 mode: chat
 model: gpt-5.4-mini
 params:
-    - key: max_completion_tokens
+    - defaultValue: 128
+      key: max_completion_tokens
       maxValue: 128000
+      minValue: 1
     - defaultValue: none
       key: reasoning_effort
       supportedValues:

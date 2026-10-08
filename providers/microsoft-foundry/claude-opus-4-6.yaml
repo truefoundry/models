@@ -46,6 +46,19 @@ modalities:
         - text
 mode: chat
 model: claude-opus-4-6
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry

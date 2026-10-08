@@ -1,0 +1,34 @@
+costs:
+    - cache_read_input_token_cost: 1.9e-7
+      input_cost_per_token: 9.5e-7
+      output_cost_per_token: 4e-6
+      region: "*"
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 262144
+    max_output_tokens: 235929
+    max_tokens: 235929
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: truerouter-curated/kimi-k2.7-code
+params:
+    - key: max_tokens
+      maxValue: 235929
+provisioning: serverless
+sources:
+    - https://openrouter.ai/moonshotai/kimi-k2.7-code
+status: active
+supportedModes:
+    - chat
+thinking: true

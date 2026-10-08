@@ -33,6 +33,7 @@ features:
     - structured_output
     - json_output
     - assistant_prefill
+    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -55,9 +56,15 @@ params:
           - high
           - xhigh
       type: string
-    - key: max_tokens
+    - defaultValue: 256
+      key: max_tokens
       maxValue: 128000
+      minValue: 1
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 retirementDate: "2027-12-05"
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models

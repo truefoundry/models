@@ -2,7 +2,9 @@ costs:
     - cache_creation_input_token_cost: 1.25e-7
       cache_read_input_token_cost: 1e-8
       input_cost_per_token: 1e-7
+      input_cost_per_token_batches: 5e-8
       output_cost_per_token: 5e-7
+      output_cost_per_token_batches: 2.5e-7
       region: global
       tiered_pricing:
           cache_read:
@@ -21,7 +23,9 @@ costs:
     - cache_creation_input_token_cost: 1.375e-7
       cache_read_input_token_cost: 1.1e-8
       input_cost_per_token: 1.1e-7
+      input_cost_per_token_batches: 5.5e-8
       output_cost_per_token: 5.5e-7
+      output_cost_per_token_batches: 2.75e-7
       region: datazone_us
       tiered_pricing:
           cache_read:
@@ -40,7 +44,9 @@ costs:
     - cache_creation_input_token_cost: 1.5e-7
       cache_read_input_token_cost: 1.2e-8
       input_cost_per_token: 1.2e-7
+      input_cost_per_token_batches: 6e-8
       output_cost_per_token: 6e-7
+      output_cost_per_token_batches: 3e-7
       region: datazone_eu
       tiered_pricing:
           cache_read:
@@ -54,6 +60,27 @@ costs:
                 from: 272000
           output:
               - cost_per_token: 9e-7
+                from: 272000
+          pricing_mode: cumulative
+    - cache_creation_input_token_cost: 1.25e-7
+      cache_read_input_token_cost: 1e-8
+      input_cost_per_token: 1e-7
+      input_cost_per_token_batches: 5e-8
+      output_cost_per_token: 5e-7
+      output_cost_per_token_batches: 2.5e-7
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 2e-8
+                from: 272000
+          cache_write:
+              - cost_per_token: 2.5e-7
+                from: 272000
+          input:
+              - cost_per_token: 2e-7
+                from: 272000
+          output:
+              - cost_per_token: 7.5e-7
                 from: 272000
           pricing_mode: cumulative
 features:
