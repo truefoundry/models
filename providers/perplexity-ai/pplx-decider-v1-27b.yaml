@@ -1,0 +1,19 @@
+costs:
+    - input_cost_per_token: 2e-8
+      output_cost_per_token: 0
+      region: "*"
+limits:
+    context_window: 262144
+modalities:
+    input:
+        - text
+        - image
+mode: decision
+model: pplx-decider-v1-27b
+provisioning: serverless
+sources:
+    - https://docs.perplexity.ai/docs/decisions/quickstart
+    - https://docs.perplexity.ai/docs/resources/changelog
+status: active
+supportedModes:
+    - decision
