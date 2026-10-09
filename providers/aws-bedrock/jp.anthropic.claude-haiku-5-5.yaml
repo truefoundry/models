@@ -21,6 +21,28 @@ costs:
               - cost_per_token: 2.75e-6
                 from: 100000
           pricing_mode: cumulative
+    - cache_creation_input_token_cost: 1.375e-7
+      cache_creation_input_token_cost_per_hour: 2.2e-7
+      cache_read_input_token_cost: 1.1e-8
+      input_cost_per_token: 1.1e-7
+      input_cost_per_token_batches: 5.5e-8
+      output_cost_per_token: 5.5e-7
+      output_cost_per_token_batches: 2.75e-7
+      region: ap-northeast-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 5.5e-8
+                from: 100000
+          cache_write:
+              - cost_per_token: 6.875e-7
+                from: 100000
+          input:
+              - cost_per_token: 5.5e-7
+                from: 100000
+          output:
+              - cost_per_token: 2.75e-6
+                from: 100000
+          pricing_mode: cumulative
 features:
     - function_calling
     - parallel_function_calling
@@ -29,7 +51,6 @@ features:
     - mid_conversation_system_messages
     - prompt_caching
     - cache_control
-    - structured_output
     - json_output
 limits:
     context_window: 1000000
