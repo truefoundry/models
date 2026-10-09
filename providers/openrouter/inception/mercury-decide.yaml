@@ -1,0 +1,20 @@
+costs:
+    - cache_read_input_token_cost: 0.0
+      input_cost_per_token: 2e-8
+      output_cost_per_token: 0.0
+      region: "*"
+features:
+    - prompt_caching
+limits:
+    context_window: 65536
+modalities:
+    input:
+        - text
+mode: decision
+model: inception/mercury-decide
+provisioning: serverless
+sources:
+    - https://openrouter.ai/inception/mercury-decide/api
+status: active
+supportedModes:
+    - decision
