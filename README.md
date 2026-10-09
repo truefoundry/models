@@ -20,7 +20,7 @@ See [Supported Providers](#supported-providers) below for the current list.
 
 LLM model configs change often — prices drop, features expand, limits shift. This repository provides up-to-date information across providers and makes updating stale data easy.
 
-- **Unified Schema** — Consistent model configuration format across 24 providers
+- **Unified Schema** — Consistent model configuration format across 26 providers
 - **Up-to-Date Pricing** — Current cost information for input/output tokens, batch processing, and caching
 - **Feature Tracking** — Know exactly what each model supports (vision, tools, structured output, etc.)
 - **Open Source** — Community-driven updates ensure accuracy and coverage
@@ -31,30 +31,32 @@ This is the complete set of providers the gateway supports. If a provider isn't 
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 977 | Unified API for open source models |
-| Microsoft Foundry | 476 | OpenAI and Foundry catalog models on Microsoft Foundry |
-| Google Vertex AI | 437 | Gemini, PaLM on GCP |
-| Together AI | 388 | Open source model hosting |
-| DeepInfra | 270 | Open source model hosting |
-| Azure OpenAI | 244 | OpenAI models on Azure |
-| AWS Bedrock | 233 | Claude, Llama, Titan, Mistral on AWS |
-| Azure AI Foundry | 233 | Azure AI models |
-| OpenAI | 161 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
+| OpenRouter | 1031 | Unified API for open source models |
+| Microsoft Foundry | 505 | OpenAI and Foundry catalog models on Microsoft Foundry |
+| Google Vertex AI | 457 | Gemini, PaLM on GCP |
+| Together AI | 390 | Open source model hosting |
+| DeepInfra | 275 | Open source model hosting |
+| AWS Bedrock | 271 | Claude, Llama, Titan, Mistral on AWS |
+| Azure OpenAI | 254 | OpenAI models on Azure |
+| Azure AI Foundry | 239 | Azure AI models |
+| OpenAI | 164 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Deepgram | 144 | Speech-to-text and text-to-speech models |
-| Mistral AI | 107 | Mistral, Mixtral, Codestral |
-| xAI | 93 | Grok models |
-| Google Gemini | 87 | Gemini Pro, Ultra, Flash |
+| Mistral AI | 109 | Mistral, Mixtral, Codestral |
+| xAI | 94 | Grok models |
+| Google Gemini | 91 | Gemini Pro, Ultra, Flash |
+| Perplexity | 75 | Search-augmented models |
 | Databricks | 68 | Databricks-hosted models |
-| Aws Bedrock Mantle | 56 |  |
-| Cohere | 40 | Command, Embed models |
+| Aws Bedrock Mantle | 60 |  |
+| Cohere | 42 | Command, Embed models |
+| Anthropic | 31 | Claude 3, Claude 3.5, Claude 4 |
 | SambaNova | 31 | Enterprise AI models |
-| Anthropic | 28 | Claude 3, Claude 3.5, Claude 4 |
 | Groq | 24 | Fast inference models |
-| Perplexity | 24 | Search-augmented models |
-| Wafer | 20 |  |
+| TrueFoundry Models | 22 | Open and frontier models provided by TrueFoundry |
+| Wafer | 21 |  |
+| ElevenLabs | 14 | Voice synthesis and text-to-speech models |
 | AI21 | 12 | Jamba models |
-| ElevenLabs | 12 | Voice synthesis and text-to-speech models |
 | Cerebras | 7 | Fast inference models |
+| Typesafe | 1 |  |
 
 ## Installation
 
