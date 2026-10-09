@@ -21,6 +21,10 @@ modalities:
 mode: chat
 model: tfy-managed/glm-5.3
 params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
     - defaultValue: 1
       key: temperature
     - defaultValue: 0.95

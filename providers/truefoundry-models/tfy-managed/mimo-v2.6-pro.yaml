@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 4e-9
-      input_cost_per_token: 4.56e-7
-      output_cost_per_token: 9.18e-7
+    - cache_read_input_token_cost: 3.6e-9
+      input_cost_per_token: 4.35e-7
+      output_cost_per_token: 8.7e-7
       region: "*"
 features:
     - function_calling
@@ -23,6 +23,10 @@ modalities:
 mode: chat
 model: tfy-managed/mimo-v2.6-pro
 params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 131072
+      minValue: 1
     - defaultValue: 1
       key: temperature
     - defaultValue: 0.95
