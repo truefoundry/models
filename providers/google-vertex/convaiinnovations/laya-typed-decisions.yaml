@@ -1,0 +1,23 @@
+limits:
+    context_window: 1024
+modalities:
+    input:
+        - text
+mode: decision
+model: convaiinnovations/laya-typed-decisions
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+sources:
+    - https://huggingface.co/convaiinnovations/laya
+    - https://www.gradually.ai/en/ai-models/laya-typed-decisions/
+    - https://www.llmreference.com/model/laya-typed-decisions
+status: active
+supportedModes:
+    - decision

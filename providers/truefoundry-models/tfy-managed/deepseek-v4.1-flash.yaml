@@ -19,7 +19,12 @@ modalities:
     output:
         - text
 mode: chat
-model: truerouter-curated/deepseek-v4.1-flash
+model: tfy-managed/deepseek-v4.1-flash
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 384000
+      minValue: 1
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-v4.1-flash

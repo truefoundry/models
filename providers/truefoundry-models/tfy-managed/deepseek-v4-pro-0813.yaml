@@ -1,7 +1,7 @@
 costs:
-    - cache_read_input_token_cost: 3.96e-8
-      input_cost_per_token: 1.188e-6
-      output_cost_per_token: 3.564e-6
+    - cache_read_input_token_cost: 1.3e-7
+      input_cost_per_token: 1.32e-6
+      output_cost_per_token: 3.96e-6
       region: "*"
 features:
     - function_calling
@@ -18,8 +18,12 @@ modalities:
     output:
         - text
 mode: chat
-model: truerouter-curated/deepseek-v4-pro-0813
+model: tfy-managed/deepseek-v4-pro-0813
 params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 384000
+      minValue: 1
     - defaultValue: 1
       key: temperature
     - defaultValue: 1

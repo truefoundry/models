@@ -13,13 +13,13 @@ modalities:
     output:
         - embedding
 mode: embedding
-model: truerouter-curated/text-embedding-3-small
+model: tfy-managed/text-embedding-3-small
 provisioning: serverless
 removeParams:
     - temperature
     - stop
     - top_p
-    - "n"
+    - n
     - stream
     - tool_choice
     - parallel_tool_calls
