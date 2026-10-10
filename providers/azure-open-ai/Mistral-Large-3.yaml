@@ -1,4 +1,26 @@
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - structured_output
+    - json_output
+    - system_messages
+limits:
+    context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: Mistral-Large-3
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+# costs not found in official docs
+sources:
+    - https://docs.mistral.ai/models/mistral-large-3-25-12
+status: preview
 supportedModes:
     - chat
