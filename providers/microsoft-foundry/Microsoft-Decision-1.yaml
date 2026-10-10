@@ -1,2 +1,27 @@
-mode: unknown
+costs:
+    - input_cost_per_token: 4.2e-8
+      output_cost_per_token: 0
+      region: global
+features:
+    - structured_output
+    - json_output
+limits:
+    context_window: 32768
+    max_input_tokens: 32768
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: decision
 model: Microsoft-Decision-1
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - tool_choice
+    - parallel_tool_calls
+sources:
+    - https://ai.azure.com/catalog/models/Microsoft-Decision-1
+status: active
+supportedModes:
+    - decision
