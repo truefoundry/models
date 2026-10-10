@@ -1,0 +1,16 @@
+costs:
+    - input_cost_per_token: 4.2e-8
+      output_cost_per_token: 0.0
+      region: "*"
+limits:
+    context_window: 32768
+modalities:
+    input:
+        - text
+mode: decision
+model: microsoft/microsoft-decision-1
+provisioning: serverless
+sources:
+    - https://openrouter.ai/microsoft/microsoft-decision-1
+supportedModes:
+    - decision
