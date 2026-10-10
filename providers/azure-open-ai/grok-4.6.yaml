@@ -1,0 +1,52 @@
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 6e-6
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1e-6
+                from: 200000
+          input:
+              - cost_per_token: 4e-6
+                from: 200000
+          output:
+              - cost_per_token: 1.2e-5
+                from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - prompt_caching
+    - structured_output
+    - tool_choice
+    - json_output
+limits:
+    context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: grok-4.6
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+provisioning: serverless
+sources:
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/grok/
+    - https://docs.x.ai/developers/models
+status: preview
+supportedModes:
+    - chat
+thinking: true
