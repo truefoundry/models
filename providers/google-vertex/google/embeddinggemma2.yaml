@@ -1,0 +1,27 @@
+limits:
+    context_window: 8192
+    max_input_tokens: 8192
+    output_vector_size: 768
+modalities:
+    input:
+        - text
+        - code
+        - image
+        - audio
+        - video
+    output:
+        - embedding
+mode: embedding
+model: google/embeddinggemma2
+provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+status: active
+supportedModes:
+    - embedding

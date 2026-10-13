@@ -1,0 +1,17 @@
+costs:
+    - input_cost_per_token: 4e-8
+      output_cost_per_token: 0.0
+      region: "*"
+limits:
+    context_window: 131072
+modalities:
+    input:
+        - text
+mode: decision
+model: nace-ai/drex-v1.5
+provisioning: serverless
+sources:
+    - https://openrouter.ai/nace-ai/drex-v1.5/api
+status: active
+supportedModes:
+    - decision
