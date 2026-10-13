@@ -1,10 +1,33 @@
 costs:
-    - region: us-west-2
-    - region: us-west-1
-    - region: us-east-2
-    - region: us-east-1
-    - region: ca-west-1
-    - region: ca-central-1
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-west-2
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-west-1
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-east-2
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: us-east-1
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: ca-west-1
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: ca-central-1
+features:
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 500000
 modalities:
     input:
         - text
@@ -13,9 +36,21 @@ modalities:
         - text
 mode: chat
 model: us.xai.grok-4.7
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-7.html
     - https://docs.x.ai/developers/models
+status: active
 supportedModes:
     - chat
+    - responses
 thinking: true
