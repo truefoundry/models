@@ -20,7 +20,8 @@ modalities:
 mode: chat
 model: GLM-5.3
 params:
-    - key: reasoning_effort
+    - defaultValue: low
+      key: reasoning_effort
       supportedValues:
           - none
           - low
@@ -30,6 +31,7 @@ params:
 provisioning: serverless
 sources:
     - https://pass.wafer.ai/v1/models
+    - https://docs.wafer.ai/serverless/models.md
     - https://docs.wafer.ai/serverless/api-reference.md
 status: active
 supportedModes:
