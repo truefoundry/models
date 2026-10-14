@@ -1,0 +1,93 @@
+costs:
+    - cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000022
+      input_cost_per_token_batches: 0.0000011
+      output_cost_per_token: 0.000011
+      output_cost_per_token_batches: 0.0000055
+      region: us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1.98e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.00000396
+                from: 200000
+          output:
+              - cost_per_token: 0.0000198
+                from: 200000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1.8e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.0000036
+                from: 200000
+          output:
+              - cost_per_token: 0.000018
+                from: 200000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 1.1e-7
+      input_cost_per_token: 0.0000022
+      input_cost_per_token_batches: 0.0000011
+      output_cost_per_token: 0.000011
+      output_cost_per_token_batches: 0.0000055
+      region: eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1.98e-7
+                from: 200000
+          input:
+              - cost_per_token: 0.00000396
+                from: 200000
+          output:
+              - cost_per_token: 0.0000198
+                from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+    - prompt_caching
+    - structured_output
+    - code_execution
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 1048576
+    max_tokens: 1048576
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+    output:
+        - text
+mode: chat
+model: google/gemini-4-argon
+params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 1048576
+      minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+provisioning: serverless
+sources:
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon
+    - https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
+status: active
+supportedModes:
+    - chat
+thinking: true
