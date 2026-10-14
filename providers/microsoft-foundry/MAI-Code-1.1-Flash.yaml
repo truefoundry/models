@@ -1,4 +1,22 @@
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: MAI-Code-1.1-Flash
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/MAI-Code-1.1-Flash
+    - https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF
+status: active
 supportedModes:
     - chat
+thinking: true
