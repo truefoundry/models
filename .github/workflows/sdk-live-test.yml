@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     # Same-repo only (fork PRs get no provider secrets).
     if: >-
-      (github.event_name == 'workflow_dispatch') ||
+      github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request' &&
         github.event.pull_request.head.repo.full_name == github.repository)
 
@@ -47,23 +47,10 @@ jobs:
       GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
 
     steps:
-      - name: Resolve PR ref
-        id: ref
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "pr=${{ github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
-            echo "head=${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
-            echo "base=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "pr=" >> "$GITHUB_OUTPUT"
-            echo "head=${{ github.sha }}" >> "$GITHUB_OUTPUT"
-            echo "base=${{ github.sha }}" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Checkout PR head
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ steps.ref.outputs.head }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
       - name: Set up Node
@@ -80,17 +67,15 @@ jobs:
       - name: List changed model yamls
         id: changed
         run: |
-          if [ -z "${{ steps.ref.outputs.pr }}" ]; then
-            echo "No PR context — workflow_dispatch smoke via --model inputs."
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
             touch changed-files.txt
             echo "count=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          # PR file set without the REST API: fetch base, then three-dot diff
-          # (merge-base…head). ACMR = added/copied/modified/renamed (no deletes).
+          # Three-dot diff (merge-base…head). ACMR = added/copied/modified/renamed (no deletes).
           git fetch --no-tags origin "${{ github.base_ref }}"
           git diff --name-only --diff-filter=ACMR \
-            "${{ steps.ref.outputs.base }}...${{ steps.ref.outputs.head }}" \
+            "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" \
             -- providers \
             | grep -E '^providers/.+\.yaml$' \
             | grep -vE '/(default|provider-config)\.yaml$' \
@@ -110,7 +95,6 @@ jobs:
 
       # PR: full scenario matrix for every changed model YAML.
       - name: Run SDK live scenarios (PR changed models)
-        id: live
         if: steps.changed.outputs.count != '0'
         working-directory: .github/scripts/sdk-live-test
         run: |
@@ -126,12 +110,8 @@ jobs:
           models="${{ github.event.inputs.models }}"
           args=(--catalogue "${{ github.workspace }}/dist/ai-models.json")
           if [ -n "$models" ]; then
-            for m in $models; do
-              args+=(--model "$m")
-            done
-            echo "Smoke models (override): $models"
+            for m in $models; do args+=(--model "$m"); done
           else
             args+=(--smoke-with-secrets)
-            echo "Smoke: one model per provider with a set API key secret"
           fi
           npm run test:live -- "${args[@]}"

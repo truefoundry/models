@@ -4,8 +4,8 @@
  *
  * Modes:
  *   --smoke-with-secrets
- *     One cheap chat model per providers.ts entry whose API key env is set.
- *     Example: OPENAI_API_KEY set → openai/gpt-4o-mini (baseline only).
+ *     One chat model per providers.ts entry whose API key env is set.
+ *     Example: OPENAI_API_KEY set → first openai chat row in catalogue (baseline only).
  *
  *   --model provider/modelId …
  *     Explicit targets. Example: --model anthropic/claude-haiku-5-5
@@ -56,13 +56,10 @@ function targetsFromModelFlags(flags: string[]): Target[] {
 }
 
 function targetsFromFilesList(listPath: string): Target[] {
-  const lines = fs
-    .readFileSync(listPath, 'utf8')
-    .split('\n')
-    .map((l) => l.trim())
-    .filter(Boolean);
   const out: Target[] = [];
-  for (const filePath of lines) {
+  for (const line of fs.readFileSync(listPath, 'utf8').split('\n')) {
+    const filePath = line.trim();
+    if (!filePath) continue;
     const parsed = parseProviderModelPath(filePath);
     if (!parsed) continue;
     const modelId = modelIdFromYamlFile(REPO_ROOT, filePath);
@@ -82,7 +79,7 @@ async function main() {
     process.exit(2);
   }
 
-  let targets: Target[] = [];
+  let targets: Target[];
   if (args.smokeWithSecrets) {
     targets = targetsWithSecrets(loadCatalogue(args.catalogue));
   } else if (args.models.length) {
@@ -90,7 +87,7 @@ async function main() {
   } else if (args.filesList) {
     targets = targetsFromFilesList(args.filesList);
   } else {
-    console.error('Pass --smoke-with-secrets, --model provider/id, and/or --files-list');
+    console.error('Pass --smoke-with-secrets, --model provider/id, or --files-list');
     process.exit(2);
   }
 
@@ -103,13 +100,12 @@ async function main() {
   const results = await runTargets(args.catalogue, targets, {
     baselineOnly: args.smokeWithSecrets,
   });
+
   let failed = 0;
   for (const r of results) {
-    const line = `${r.status.toUpperCase()} ${r.provider}/${r.modelId} ${r.scenario}: ${r.detail}`;
-    console.log(line);
+    console.log(`${r.status.toUpperCase()} ${r.provider}/${r.modelId} ${r.scenario}: ${r.detail}`);
     if (r.status === 'fail') failed++;
   }
-
   if (failed > 0) {
     console.error(`\n${failed} scenario(s) failed`);
     process.exit(1);

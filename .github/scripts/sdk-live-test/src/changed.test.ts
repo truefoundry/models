@@ -2,14 +2,12 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { parseProviderModelPath } from './changed.js';
 import { planScenarios } from './scenarios.js';
-import { smokeScore, targetsWithSecrets } from './smoke.js';
+import { targetsWithSecrets } from './smoke.js';
 
 describe('parseProviderModelPath', () => {
   it('parses model yaml', () => {
     assert.deepEqual(parseProviderModelPath('providers/openai/gpt-4o.yaml'), {
       provider: 'openai',
-      modelFileStem: 'gpt-4o',
-      path: 'providers/openai/gpt-4o.yaml',
     });
   });
   it('skips default.yaml', () => {
@@ -164,62 +162,21 @@ describe('planScenarios', () => {
 });
 
 describe('smoke-with-secrets', () => {
-  it('prefers cheap chat models', () => {
-    assert.ok(
-      smokeScore({ provider: 'openai', model: 'gpt-4o-mini', mode: 'chat' }) >
-        smokeScore({ provider: 'openai', model: 'gpt-4o', mode: 'chat' }),
-    );
-  });
-
-  it('picks only providers with env set', () => {
+  it('picks first chat model only for providers with env set', () => {
     const prev = process.env.OPENAI_API_KEY;
     delete process.env.ANTHROPIC_API_KEY;
     process.env.OPENAI_API_KEY = 'sk-test';
     try {
       const targets = targetsWithSecrets([
-        { provider: 'openai', model: 'codex-mini-latest', mode: 'chat' },
-        { provider: 'openai', model: 'gpt-4o-mini', mode: 'chat' },
         { provider: 'openai', model: 'gpt-4o', mode: 'chat' },
-        { provider: 'anthropic', model: 'claude-haiku-4-5', mode: 'chat' },
+        { provider: 'openai', model: 'gpt-4o-mini', mode: 'chat' },
+        { provider: 'openai', model: 'text-embedding-3-small', mode: 'embedding' },
+        { provider: 'anthropic', model: 'claude-haiku-5-5', mode: 'chat' },
       ]);
-      assert.deepEqual(targets, [{ provider: 'openai', modelId: 'gpt-4o-mini' }]);
+      assert.deepEqual(targets, [{ provider: 'openai', modelId: 'gpt-4o' }]);
     } finally {
       if (prev === undefined) delete process.env.OPENAI_API_KEY;
       else process.env.OPENAI_API_KEY = prev;
-    }
-  });
-
-  it('prefers current anthropic haiku', () => {
-    const prev = process.env.ANTHROPIC_API_KEY;
-    process.env.ANTHROPIC_API_KEY = 'sk-test';
-    delete process.env.OPENAI_API_KEY;
-    try {
-      const targets = targetsWithSecrets([
-        { provider: 'anthropic', model: 'claude-haiku-4-5-20251001', mode: 'chat', status: 'active' },
-        { provider: 'anthropic', model: 'claude-haiku-5-5', mode: 'chat', status: 'active' },
-      ]);
-      assert.deepEqual(targets, [{ provider: 'anthropic', modelId: 'claude-haiku-5-5' }]);
-    } finally {
-      if (prev === undefined) delete process.env.ANTHROPIC_API_KEY;
-      else process.env.ANTHROPIC_API_KEY = prev;
-    }
-  });
-
-  it('prefers current xai text model over deprecated', () => {
-    const prev = process.env.XAI_API_KEY;
-    process.env.XAI_API_KEY = 'xai-test';
-    delete process.env.OPENAI_API_KEY;
-    delete process.env.ANTHROPIC_API_KEY;
-    try {
-      const targets = targetsWithSecrets([
-        { provider: 'xai', model: 'grok-2-1212', mode: 'chat' },
-        { provider: 'xai', model: 'grok-3-mini', mode: 'chat', status: 'retired' },
-        { provider: 'xai', model: 'grok-4.3', mode: 'chat', status: 'active' },
-      ]);
-      assert.deepEqual(targets, [{ provider: 'xai', modelId: 'grok-4.3' }]);
-    } finally {
-      if (prev === undefined) delete process.env.XAI_API_KEY;
-      else process.env.XAI_API_KEY = prev;
     }
   });
 });

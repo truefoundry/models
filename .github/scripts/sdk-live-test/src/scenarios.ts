@@ -12,7 +12,12 @@
  */
 import type { Endpoint } from '@truefoundry/ai-gateway-sdk';
 import type { CatalogueModel, ModelParam } from './catalogue.js';
-import { sampleImageDataUrl, samplePdfBase64 } from './fixtures.js';
+import {
+  sampleImageDataUrl,
+  samplePdfBase64,
+  sampleWavBase64,
+  sampleWavBytes,
+} from './fixtures.js';
 
 export type Scenario = {
   id: string;
@@ -34,7 +39,7 @@ const FEATURE_KEYS = [
   'cache_control',
 ] as const;
 
-// Responses API has no `messages`; only these chat features map cleanly onto `input`.
+/** Responses API has no `messages`; only these chat features map cleanly onto `input`. */
 const RESPONSES_FEATURE_KEYS = new Set([
   'structured_output',
   'json_output',
@@ -76,37 +81,6 @@ const WEATHER_TOOLS = [
 ];
 
 const CACHE_PAD = 'Cache pad. '.repeat(200);
-
-// Minimal silent WAV for audio_transcription / chat audio modality.
-function minimalWavBytes(): Uint8Array {
-  const sampleRate = 8000;
-  const numSamples = 800;
-  const dataSize = numSamples * 2;
-  const buf = new ArrayBuffer(44 + dataSize);
-  const view = new DataView(buf);
-  const writeStr = (off: number, s: string) => {
-    for (let i = 0; i < s.length; i++) view.setUint8(off + i, s.charCodeAt(i));
-  };
-  writeStr(0, 'RIFF');
-  view.setUint32(4, 36 + dataSize, true);
-  writeStr(8, 'WAVE');
-  writeStr(12, 'fmt ');
-  view.setUint32(16, 16, true);
-  view.setUint16(20, 1, true);
-  view.setUint16(22, 1, true);
-  view.setUint32(24, sampleRate, true);
-  view.setUint32(28, sampleRate * 2, true);
-  view.setUint16(32, 2, true);
-  view.setUint16(34, 16, true);
-  writeStr(36, 'data');
-  view.setUint32(40, dataSize, true);
-  return new Uint8Array(buf);
-}
-
-function wavBase64(): string {
-  const wav = minimalWavBytes();
-  return Buffer.from(wav.buffer, wav.byteOffset, wav.byteLength).toString('base64');
-}
 
 function streamFlags(mode: string): boolean[] {
   return STREAMING_MODES.has(mode) ? [false, true] : [false];
@@ -273,13 +247,12 @@ function chatFeatureNames(model: CatalogueModel): string[] {
   const ids = ['baseline'];
   const seen = new Set<string>(ids);
   for (const f of model.features ?? []) {
-    if ((FEATURE_KEYS as readonly string[]).includes(f) && !seen.has(f)) {
-      // Same request body for both catalogue names — emit one feature id.
-      if (f === 'cache_control' && seen.has('prompt_caching')) continue;
-      if (f === 'prompt_caching' && seen.has('cache_control')) continue;
-      ids.push(f);
-      seen.add(f);
-    }
+    if (!(FEATURE_KEYS as readonly string[]).includes(f) || seen.has(f)) continue;
+    // Same request body for both catalogue names — emit one feature id.
+    if (f === 'cache_control' && seen.has('prompt_caching')) continue;
+    if (f === 'prompt_caching' && seen.has('cache_control')) continue;
+    ids.push(f);
+    seen.add(f);
   }
   if (reasoningEffortValue(model) != null) ids.push('reasoning');
   return ids;
@@ -336,7 +309,7 @@ function audioChatBody(model: CatalogueModel): Record<string, unknown> {
           { type: 'text', text: 'Transcribe or describe this audio briefly.' },
           {
             type: 'input_audio',
-            input_audio: { data: wavBase64(), format: 'wav' },
+            input_audio: { data: sampleWavBase64(), format: 'wav' },
           },
         ],
       },
@@ -396,15 +369,15 @@ function pushChatLike(
       });
     }
   }
+
   const params = mergeParams(model);
   if (Object.keys(params).length > 0) {
     for (const stream of streamFlags(model.mode)) {
-      const body = buildBody('baseline', stream);
       out.push({
         id: label(`${model.mode}/params`, stream),
         endpoint,
         path,
-        body: { ...body, ...params },
+        body: { ...buildBody('baseline', stream), ...params },
       });
     }
   }
@@ -415,10 +388,12 @@ function pushChatLike(
 function audioForm(modelId: string): FormData {
   const fd = new FormData();
   fd.set('model', modelId);
-  const wav = minimalWavBytes();
+  const wav = sampleWavBytes();
   fd.set(
     'file',
-    new Blob([wav.buffer.slice(wav.byteOffset, wav.byteOffset + wav.byteLength)], { type: 'audio/wav' }),
+    new Blob([wav.buffer.slice(wav.byteOffset, wav.byteOffset + wav.byteLength)], {
+      type: 'audio/wav',
+    }),
     'sample.wav',
   );
   return fd;
@@ -453,6 +428,7 @@ function decisionBody(model: CatalogueModel): Record<string, unknown> {
   };
 }
 
+/** Chat-shaped body → Responses API (`messages` → `input`). */
 function responsesModalityBody(chatBody: Record<string, unknown>): Record<string, unknown> {
   const {
     messages,

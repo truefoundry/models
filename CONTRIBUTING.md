@@ -293,7 +293,7 @@ Pass bar is HTTP 2xx only (no deep response-shape asserts). Not covered: cloud-a
 
 Manual re-run: push a new commit, or Actions → **SDK live model tests** → Run workflow (optional `models=` override).
 
-Secrets smoke (one cheap baseline per provider with a key): Actions → **SDK live model tests** → Run workflow (leave `models` empty).
+Secrets smoke (one chat baseline per provider with a key): Actions → **SDK live model tests** → Run workflow (leave `models` empty).
 
 ### Required GitHub secrets (provider API keys)
 

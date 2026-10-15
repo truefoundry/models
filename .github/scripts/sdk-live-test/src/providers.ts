@@ -30,7 +30,6 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/anthropic',
     accountType: 'provider-account/anthropic',
     apiKeyEnv: 'ANTHROPIC_API_KEY',
-    // SDK appends /messages to base_url as-is → must include /v1.
     baseUrl: 'https://api.anthropic.com/v1',
   },
   groq: {
