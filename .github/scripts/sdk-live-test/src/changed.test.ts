@@ -161,16 +161,21 @@ describe('smoke-with-secrets', () => {
     }
   });
 
-  it('prefers curated id over heuristic mini', () => {
+  it('prefers curated dated anthropic id', () => {
     const prev = process.env.ANTHROPIC_API_KEY;
     process.env.ANTHROPIC_API_KEY = 'sk-test';
     delete process.env.OPENAI_API_KEY;
     try {
       const targets = targetsWithSecrets([
-        { provider: 'anthropic', model: 'claude-3-5-haiku-20241022', mode: 'chat' },
-        { provider: 'anthropic', model: 'claude-haiku-4-5', mode: 'chat' },
+        { provider: 'anthropic', model: 'claude-haiku-4-5', mode: 'chat', status: 'active' },
+        {
+          provider: 'anthropic',
+          model: 'claude-haiku-4-5-20251001',
+          mode: 'chat',
+          status: 'active',
+        },
       ]);
-      assert.deepEqual(targets, [{ provider: 'anthropic', modelId: 'claude-haiku-4-5' }]);
+      assert.deepEqual(targets, [{ provider: 'anthropic', modelId: 'claude-haiku-4-5-20251001' }]);
     } finally {
       if (prev === undefined) delete process.env.ANTHROPIC_API_KEY;
       else process.env.ANTHROPIC_API_KEY = prev;

@@ -8,19 +8,18 @@ import type { Target } from './run.js';
  */
 const SMOKE_PREFERRED: Record<string, string[]> = {
   openai: ['gpt-4o-mini', 'gpt-4o-mini-2024-07-18', 'gpt-4.1-mini'],
-  anthropic: ['claude-haiku-4-5', 'claude-haiku-4-5-20251001', 'claude-haiku-5-5'],
-  groq: [
-    'meta-llama/llama-4-maverick-17b-128e-instruct',
-    'qwen/qwen3.6-27b',
-    'openai/gpt-oss-20b',
-    'gemma-7b-it',
-  ],
+  // Dated id — bare `claude-haiku-4-5` 404s on some Anthropic keys.
+  anthropic: ['claude-haiku-4-5-20251001', 'claude-haiku-4-5', 'claude-haiku-5-5'],
+  groq: ['openai/gpt-oss-20b', 'openai/gpt-oss-120b', 'allam-2-7b', 'gemma-7b-it'],
   xai: ['grok-3-mini', 'grok-2-1212'],
-  cerebras: ['llama3.1-70b', 'qwen-3.8-27b', 'gpt-oss-120b', 'gemma-4-31b'],
+  cerebras: ['qwen-3.8-27b', 'gpt-oss-120b', 'llama3.1-70b'],
+  // Prefer Together serverless Turbo / small instruct — many Llama 3.1 Turbo ids are dedicated-only.
   'together-ai': [
-    'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo',
-    'meta-llama/Llama-3.2-3B-Instruct-Turbo',
-    'meta-llama/Meta-Llama-3.1-8B-Instruct',
+    'Qwen/Qwen2.5-7B-Instruct-Turbo',
+    'openai/gpt-oss-20b',
+    'meta-llama/Llama-3.3-70B-Instruct-Turbo',
+    'LiquidAI/LFM2.5-8B-A1B',
+    'arize-ai/qwen-2-1.5b-instruct',
   ],
   deepinfra: ['anthropic/claude-haiku-4-5', 'google/gemini-2.5-flash'],
   'mistral-ai': ['mistral-small-latest', 'ministral-8b-latest', 'open-mistral-nemo'],
@@ -49,21 +48,28 @@ export function smokeScore(model: CatalogueModel): number {
 }
 
 function pickModel(provider: string, candidates: CatalogueModel[]): CatalogueModel | undefined {
-  const chatish = candidates.filter(
+  const usable = candidates.filter(
     (m) =>
       (m.mode === 'chat' || m.mode === 'completion') &&
-      (m.status as string | undefined) !== 'deprecated' &&
+      !['deprecated', 'retired'].includes(String(m.status ?? '')) &&
       !SMOKE_BAN.test(m.model),
   );
-  const pool = chatish.length ? chatish : candidates;
+  const pool = usable.length ? usable : candidates;
   const preferred = SMOKE_PREFERRED[provider] ?? [];
   for (const id of preferred) {
     const hit = pool.find((m) => m.model === id);
     if (hit) return hit;
   }
-  const sorted = [...pool].sort(
-    (a, b) => smokeScore(b) - smokeScore(a) || a.model.localeCompare(b.model),
-  );
+  // Prefer catalogue serverless + active when falling back.
+  const sorted = [...pool].sort((a, b) => {
+    const aSrv = a.provisioning === 'serverless' ? 1 : 0;
+    const bSrv = b.provisioning === 'serverless' ? 1 : 0;
+    if (bSrv !== aSrv) return bSrv - aSrv;
+    const aAct = a.status === 'active' ? 1 : 0;
+    const bAct = b.status === 'active' ? 1 : 0;
+    if (bAct !== aAct) return bAct - aAct;
+    return smokeScore(b) - smokeScore(a) || a.model.localeCompare(b.model);
+  });
   return sorted[0];
 }
 
