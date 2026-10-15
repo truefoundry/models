@@ -1,21 +1,23 @@
+/**
+ * Secrets smoke: one model per registered provider that has its API key env set.
+ *
+ * Pick order for openai with OPENAI_API_KEY:
+ *   1. First SMOKE_PREFERRED id present in the catalogue (gpt-4o-mini, …)
+ *   2. Else highest score among active serverless chat/completion models
+ *
+ * Smoke runs baseline scenarios only (see runTargets baselineOnly).
+ */
 import type { CatalogueModel } from './catalogue.js';
 import { getProviderSpec, listRegisteredProviders } from './providers.js';
 import type { Target } from './run.js';
 
-/**
- * Curated cheap chat IDs for CI smoke (first hit in catalogue wins).
- * Heuristic "mini" picks (codex-mini, retired haiku, etc.) are unreliable.
- */
-/** Curated from provider docs + live /models (2026-10); first catalogue hit wins. */
+/** Curated from provider docs + live /models; first catalogue hit wins. */
 const SMOKE_PREFERRED: Record<string, string[]> = {
   openai: ['gpt-4o-mini', 'gpt-4o-mini-2024-07-18', 'gpt-4.1-mini'],
-  // Anthropic current Haiku: https://docs.anthropic.com/en/docs/about-claude/models
   anthropic: ['claude-haiku-5-5', 'claude-haiku-4-5-20251001', 'claude-haiku-4-5'],
   groq: ['openai/gpt-oss-20b', 'qwen/qwen3.8-27b', 'openai/gpt-oss-120b', 'allam-2-7b'],
-  // xAI current text models: https://docs.x.ai/docs/models (grok-4.3 cheapest active)
   xai: ['grok-4.3', 'grok-4.5', 'grok-4.7', 'grok-latest'],
   cerebras: ['qwen-3.8-27b', 'gpt-oss-120b'],
-  // Together serverless chat: https://docs.together.ai/docs/serverless-models
   'together-ai': [
     'Qwen/Qwen3.5-9B',
     'Prism-ML/Ternary-Bonsai-27B',
@@ -49,19 +51,20 @@ export function smokeScore(model: CatalogueModel): number {
 }
 
 function pickModel(provider: string, candidates: CatalogueModel[]): CatalogueModel | undefined {
-  const usable = candidates.filter(
+  const pool = candidates.filter(
     (m) =>
       (m.mode === 'chat' || m.mode === 'completion') &&
       !['deprecated', 'retired'].includes(String(m.status ?? '')) &&
       !SMOKE_BAN.test(m.model),
   );
-  const pool = usable.length ? usable : candidates;
+  if (pool.length === 0) return undefined;
+
   const preferred = SMOKE_PREFERRED[provider] ?? [];
   for (const id of preferred) {
     const hit = pool.find((m) => m.model === id);
     if (hit) return hit;
   }
-  // Prefer catalogue serverless + active when falling back.
+
   const sorted = [...pool].sort((a, b) => {
     const aSrv = a.provisioning === 'serverless' ? 1 : 0;
     const bSrv = b.provisioning === 'serverless' ? 1 : 0;
@@ -74,7 +77,6 @@ function pickModel(provider: string, candidates: CatalogueModel[]): CatalogueMod
   return sorted[0];
 }
 
-/** One model per registered provider that has its API key env set. */
 export function targetsWithSecrets(catalogue: CatalogueModel[]): Target[] {
   const out: Target[] = [];
   for (const provider of listRegisteredProviders()) {

@@ -1,9 +1,20 @@
+/**
+ * Build the live request matrix for one catalogue model.
+ *
+ * Chat example (features: [json_output], thinking: true):
+ *   chat/baseline/{non-stream,stream}
+ *   chat/json_output/{non-stream,stream}
+ *   chat/reasoning/{non-stream,stream}
+ *   chat/params/{…} when catalogue params have defaults
+ *   chat/vision|pdf|audio/non-stream when modalities.input declares them
+ *
+ * Unsupported modes (realtime, video, …) return id `unsupported/<mode>` → fail in run.ts.
+ */
 import type { Endpoint } from '@truefoundry/ai-gateway-sdk';
 import type { CatalogueModel } from './catalogue.js';
 import { sampleImageDataUrl, samplePdfBase64 } from './fixtures.js';
 
 export type Scenario = {
-  /** e.g. chat/json_output/stream or embed/baseline */
   id: string;
   endpoint: Endpoint;
   path: string;
@@ -23,7 +34,7 @@ const FEATURE_KEYS = [
   'cache_control',
 ] as const;
 
-/** Features whose chat body still applies after stripping `messages` for Responses. */
+// Responses API has no `messages`; only these chat features map cleanly onto `input`.
 const RESPONSES_FEATURE_KEYS = new Set([
   'structured_output',
   'json_output',
@@ -66,7 +77,7 @@ const WEATHER_TOOLS = [
 
 const CACHE_PAD = 'Cache pad. '.repeat(200);
 
-/** ~0.1s of silence; enough for whisper-style transcription. */
+// Minimal silent WAV for audio_transcription / chat audio modality.
 function minimalWavBytes(): Uint8Array {
   const sampleRate = 8000;
   const numSamples = 800;
@@ -238,7 +249,7 @@ function chatFeatureNames(model: CatalogueModel): string[] {
   const seen = new Set<string>(ids);
   for (const f of model.features ?? []) {
     if ((FEATURE_KEYS as readonly string[]).includes(f) && !seen.has(f)) {
-      // prompt_caching and cache_control share one body; run once.
+      // Same request body for both catalogue names — emit one feature id.
       if (f === 'cache_control' && seen.has('prompt_caching')) continue;
       if (f === 'prompt_caching' && seen.has('cache_control')) continue;
       ids.push(f);
@@ -392,7 +403,7 @@ function audioForm(modelId: string): FormData {
 
 function decisionBody(model: CatalogueModel): Record<string, unknown> {
   const modelId = model.model;
-  // OpenAI Decisions dialect; System One for openrouter / perplexity-ai.
+  // openai → Decisions API; openrouter / perplexity-ai → System One (`state` + noul).
   if (model.provider === 'openai') {
     return {
       model: modelId,
@@ -429,10 +440,6 @@ function responsesModalityBody(chatBody: Record<string, unknown>): Record<string
   };
 }
 
-/**
- * Build the full SDK-live scenario matrix for a catalogue model.
- * Unsupported modes return a single fail-marker scenario (id starts with unsupported/).
- */
 export function planScenarios(model: CatalogueModel): Scenario[] {
   const modelId = model.model;
   const mode = model.mode;

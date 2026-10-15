@@ -1,11 +1,7 @@
 name: SDK live model tests
 
 on:
-  # UI "Run workflow" only appears after this file exists on the default branch.
-  # Until then, push this branch (or use the branch filter below) to smoke live.
-  push:
-    branches:
-      - 'ci/sdk-live-model-json-checks'
+  # Actions → SDK live model tests → Run workflow (optional models= "openai/gpt-4o-mini …")
   workflow_dispatch:
     inputs:
       models:
@@ -35,7 +31,6 @@ jobs:
     # Same-repo only (fork PRs get no provider secrets). /test-models: OWNER/MEMBER/COLLABORATOR.
     if: >-
       (github.event_name == 'workflow_dispatch') ||
-      (github.event_name == 'push') ||
       (github.event_name == 'pull_request' &&
         github.event.pull_request.head.repo.full_name == github.repository) ||
       (github.event_name == 'issue_comment' &&
@@ -137,23 +132,14 @@ jobs:
           cat changed-files.txt || true
 
       - name: Install SDK live harness
-        if: >-
-          steps.changed.outputs.count != '0' ||
-          github.event_name == 'workflow_dispatch' ||
-          github.event_name == 'push' ||
-          (github.event_name == 'pull_request' && github.head_ref == 'ci/sdk-live-model-json-checks')
         working-directory: .github/scripts/sdk-live-test
         run: npm ci
 
       - name: Run unit checks
-        if: >-
-          steps.changed.outputs.count != '0' ||
-          github.event_name == 'workflow_dispatch' ||
-          github.event_name == 'push' ||
-          (github.event_name == 'pull_request' && github.head_ref == 'ci/sdk-live-model-json-checks')
         working-directory: .github/scripts/sdk-live-test
         run: npm run test:unit
 
+      # PR / /test-models: full scenario matrix for significantly changed models only.
       - name: Run SDK live scenarios (PR changed models)
         id: live
         if: steps.changed.outputs.count != '0'
@@ -164,13 +150,9 @@ jobs:
             --files-list "${{ github.workspace }}/changed-files.txt" \
             --base-dir "${{ github.workspace }}/.base-checkout"
 
-      # Smoke: all providers with secrets. PR greens on this branch previously skipped this
-      # (event=pull_request, no model YAML diff). Push runs already execute it.
+      # Manual: one baseline per provider with a secret, or explicit --model list.
       - name: Run SDK live smoke (secrets)
-        if: >-
-          github.event_name == 'workflow_dispatch' ||
-          github.event_name == 'push' ||
-          (github.event_name == 'pull_request' && github.head_ref == 'ci/sdk-live-model-json-checks')
+        if: github.event_name == 'workflow_dispatch'
         working-directory: .github/scripts/sdk-live-test
         run: |
           models="${{ github.event.inputs.models }}"
@@ -185,5 +167,3 @@ jobs:
             echo "Smoke: one model per provider with a set API key secret"
           fi
           npm run test:live -- "${args[@]}"
-
-

@@ -21,6 +21,7 @@ export type CatalogueModel = {
   [key: string]: unknown;
 };
 
+/** Load dist/ai-models.json produced by `npm run build:json`. */
 export function loadCatalogue(path: string): CatalogueModel[] {
   const raw = JSON.parse(fs.readFileSync(path, 'utf8')) as CatalogueModel[];
   if (!Array.isArray(raw)) {
@@ -29,6 +30,7 @@ export function loadCatalogue(path: string): CatalogueModel[] {
   return raw;
 }
 
+/** Nested map the SDK expects: modelConfig[provider][modelId] = catalogue row. */
 export function toModelConfigMap(models: CatalogueModel[]): ProviderModelConfigs {
   const out: ProviderModelConfigs = {};
   for (const m of models) {

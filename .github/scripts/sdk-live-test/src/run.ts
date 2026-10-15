@@ -1,3 +1,12 @@
+/**
+ * Execute planned scenarios through LlmGatewaySdk against the real provider API.
+ *
+ * Flow for openai/gpt-4o-mini + chat/baseline/non-stream:
+ *   1. Look up catalogue row + OPENAI_API_KEY
+ *   2. Build fake providerAccount (api-key + base_url) and model FQN
+ *   3. sdk.execute → SDK maps OpenAI-shaped body to provider HTTP
+ *   4. Pass = response.ok (2xx)
+ */
 import {
   LlmGatewaySdk,
   type Endpoint,
@@ -34,10 +43,6 @@ function memoryCache() {
   };
 }
 
-function modelTypesForMode(mode: string): string[] {
-  return [mode];
-}
-
 function buildCall(
   model: CatalogueModel,
   apiKey: string,
@@ -46,6 +51,8 @@ function buildCall(
   const spec = getProviderSpec(model.provider);
   if (!spec) throw new Error(`No provider spec for ${model.provider}`);
 
+  // Synthetic account — same shape the gateway would load from control-plane.
+  // Example FQN: sdk-live-openai/gpt-4o-mini
   const accountName = `sdk-live-${model.provider}`;
   const providerOptions = {
     model: {
@@ -55,7 +62,7 @@ function buildCall(
         name: model.model,
         type: spec.modelIntegrationType,
         model_id: model.model,
-        model_types: modelTypesForMode(model.mode),
+        model_types: [model.mode],
       },
     },
     providerAccount: {

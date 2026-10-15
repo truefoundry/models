@@ -1,4 +1,19 @@
 #!/usr/bin/env node
+/**
+ * CLI entry for SDK live checks.
+ *
+ * Modes:
+ *   --smoke-with-secrets
+ *     One cheap chat model per providers.ts entry whose API key env is set.
+ *     Example: OPENAI_API_KEY set → openai/gpt-4o-mini (baseline only).
+ *
+ *   --model provider/modelId …
+ *     Explicit targets. Example: --model anthropic/claude-haiku-5-5
+ *
+ *   --files-list changed.txt [--base-dir /tmp/base]
+ *     PR path: each providers/<p>/<file>.yaml with a significant YAML delta.
+ *     Example line: providers/openai/gpt-4o.yaml → full scenario matrix for that model.
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -61,6 +76,7 @@ function targetsFromFilesList(listPath: string, baseDir: string | undefined): Ta
       baseDir && fs.existsSync(path.join(baseDir, filePath))
         ? fs.readFileSync(path.join(baseDir, filePath), 'utf8')
         : null;
+    // Cost-only edits are skipped; features/mode/params changes run live.
     if (!isSignificantYamlChange(before, after)) {
       console.log(`skip insignificant: ${filePath}`);
       continue;

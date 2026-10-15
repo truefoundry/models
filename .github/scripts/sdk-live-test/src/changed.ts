@@ -1,10 +1,17 @@
+/**
+ * PR targeting: map changed YAML paths → models, and skip cost-only edits.
+ *
+ * Significant: features/mode/params/thinking/… change → run live.
+ * Insignificant: only costs.* change → skip (no SDK behavior delta).
+ *
+ * Example: providers/openai/gpt-4o.yaml with features += json_output → test it.
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 
 const NON_MODEL = new Set(['default.yaml', 'provider-config.yaml']);
 
-/** YAML keys that affect SDK routing / feature scenarios. */
 const SIGNIFICANT_KEYS = new Set([
   'model',
   'mode',
@@ -49,7 +56,7 @@ function stableJson(v: unknown): string {
   return JSON.stringify(v === undefined ? null : v);
 }
 
-/** Resolve catalogue `model` id from a YAML file on disk. */
+/** Catalogue `model:` id from a YAML file on disk. */
 export function modelIdFromYamlFile(repoRoot: string, filePath: string): string | undefined {
   const abs = path.join(repoRoot, filePath);
   if (!fs.existsSync(abs)) return undefined;

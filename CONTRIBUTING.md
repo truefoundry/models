@@ -293,6 +293,8 @@ Pass bar is HTTP 2xx only (no deep response-shape asserts). Not covered: cloud-a
 
 Manual re-run: comment `/test-models` on the PR (OWNER / MEMBER / COLLABORATOR).
 
+Secrets smoke (one cheap baseline per provider with a key): Actions → **SDK live model tests** → Run workflow.
+
 ### Required GitHub secrets (provider API keys)
 
 Each changed model’s provider must be registered in `.github/scripts/sdk-live-test/src/providers.ts` and have its API key secret set. Missing registry entry or secret **fails the PR check**:

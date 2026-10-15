@@ -1,6 +1,12 @@
-/** API-key providers the harness can call. Unlisted providers fail the PR check. */
+/**
+ * API-key providers this harness can call live.
+ * Directory name under providers/ must match the key (e.g. providers/together-ai/).
+ *
+ * Unlisted providers (Bedrock, Azure, Vertex, audio-only, …) fail the PR check
+ * when a changed model targets them — add a row + GitHub secret to opt in.
+ */
 export type ProviderSpec = {
-  /** SDK Providers index + modelConfig key (matches models-repo directory for these). */
+  /** SDK Providers index + modelConfig key. */
   sdkProvider: string;
   modelIntegrationType: string;
   accountType: string;
@@ -24,7 +30,7 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/anthropic',
     accountType: 'provider-account/anthropic',
     apiKeyEnv: 'ANTHROPIC_API_KEY',
-    // Must include /v1 — SDK appends /messages to base_url as-is.
+    // SDK appends /messages to base_url as-is → must include /v1.
     baseUrl: 'https://api.anthropic.com/v1',
   },
   groq: {
@@ -107,7 +113,6 @@ export function getProviderSpec(providerDir: string): ProviderSpec | undefined {
   return SPECS[providerDir];
 }
 
-/** Registered provider directory names (models-repo `providers/<name>/`). */
 export function listRegisteredProviders(): string[] {
   return Object.keys(SPECS);
 }
