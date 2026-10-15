@@ -149,6 +149,7 @@ describe('smoke-with-secrets', () => {
     process.env.OPENAI_API_KEY = 'sk-test';
     try {
       const targets = targetsWithSecrets([
+        { provider: 'openai', model: 'codex-mini-latest', mode: 'chat' },
         { provider: 'openai', model: 'gpt-4o-mini', mode: 'chat' },
         { provider: 'openai', model: 'gpt-4o', mode: 'chat' },
         { provider: 'anthropic', model: 'claude-haiku-4-5', mode: 'chat' },
@@ -157,6 +158,22 @@ describe('smoke-with-secrets', () => {
     } finally {
       if (prev === undefined) delete process.env.OPENAI_API_KEY;
       else process.env.OPENAI_API_KEY = prev;
+    }
+  });
+
+  it('prefers curated id over heuristic mini', () => {
+    const prev = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'sk-test';
+    delete process.env.OPENAI_API_KEY;
+    try {
+      const targets = targetsWithSecrets([
+        { provider: 'anthropic', model: 'claude-3-5-haiku-20241022', mode: 'chat' },
+        { provider: 'anthropic', model: 'claude-haiku-4-5', mode: 'chat' },
+      ]);
+      assert.deepEqual(targets, [{ provider: 'anthropic', modelId: 'claude-haiku-4-5' }]);
+    } finally {
+      if (prev === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = prev;
     }
   });
 });

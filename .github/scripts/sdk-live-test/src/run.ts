@@ -92,9 +92,15 @@ function buildCall(
   };
 }
 
+export type RunTargetsOptions = {
+  /** Smoke: only scenario ids containing "baseline" (credential + harness check). */
+  baselineOnly?: boolean;
+};
+
 export async function runTargets(
   cataloguePath: string,
   targets: Target[],
+  options: RunTargetsOptions = {},
 ): Promise<ScenarioResult[]> {
   const catalogue = loadCatalogue(cataloguePath);
   const sdk = new LlmGatewaySdk({
@@ -142,7 +148,10 @@ export async function runTargets(
       continue;
     }
 
-    const scenarios = planScenarios(model);
+    let scenarios = planScenarios(model);
+    if (options.baselineOnly) {
+      scenarios = scenarios.filter((s) => s.id.includes('baseline'));
+    }
     for (const scenario of scenarios) {
       if (scenario.id.startsWith('unsupported/')) {
         results.push({

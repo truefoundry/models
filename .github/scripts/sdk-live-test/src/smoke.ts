@@ -2,17 +2,69 @@ import type { CatalogueModel } from './catalogue.js';
 import { getProviderSpec, listRegisteredProviders } from './providers.js';
 import type { Target } from './run.js';
 
-/** Prefer cheap chat models for workflow_dispatch smoke. */
+/**
+ * Curated cheap chat IDs for CI smoke (first hit in catalogue wins).
+ * Heuristic "mini" picks (codex-mini, retired haiku, etc.) are unreliable.
+ */
+const SMOKE_PREFERRED: Record<string, string[]> = {
+  openai: ['gpt-4o-mini', 'gpt-4o-mini-2024-07-18', 'gpt-4.1-mini'],
+  anthropic: ['claude-haiku-4-5', 'claude-haiku-4-5-20251001', 'claude-haiku-5-5'],
+  groq: [
+    'meta-llama/llama-4-maverick-17b-128e-instruct',
+    'qwen/qwen3.6-27b',
+    'openai/gpt-oss-20b',
+    'gemma-7b-it',
+  ],
+  xai: ['grok-3-mini', 'grok-2-1212'],
+  cerebras: ['llama3.1-70b', 'qwen-3.8-27b', 'gpt-oss-120b', 'gemma-4-31b'],
+  'together-ai': [
+    'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo',
+    'meta-llama/Llama-3.2-3B-Instruct-Turbo',
+    'meta-llama/Meta-Llama-3.1-8B-Instruct',
+  ],
+  deepinfra: ['anthropic/claude-haiku-4-5', 'google/gemini-2.5-flash'],
+  'mistral-ai': ['mistral-small-latest', 'ministral-8b-latest', 'open-mistral-nemo'],
+  sambanova: ['Meta-Llama-3.1-8B-Instruct', 'MiniMax-M2.7'],
+  cohere: ['command-r7b-12-2024', 'command-r-08-2024', 'command-a-03-2025'],
+  'perplexity-ai': ['sonar', 'sonar-pro'],
+  openrouter: ['openai/gpt-4o-mini', 'anthropic/claude-haiku-4.5'],
+  ai21: ['jamba-mini', 'jamba-mini-1.6-2025-03'],
+  'google-gemini': ['gemini-2.0-flash', 'gemini-2.5-flash', 'gemini-1.5-flash'],
+};
+
+const SMOKE_BAN = /(codex|realtime|image|embed|tts|whisper|guard|moderation)/i;
+
+/** Fallback score when no preferred ID exists in the catalogue. */
 export function smokeScore(model: CatalogueModel): number {
   const id = model.model.toLowerCase();
   let score = 0;
   if (model.mode === 'chat') score += 100;
   else if (model.mode === 'completion') score += 40;
   else score -= 50;
-  if (/(mini|haiku|flash|small|lite|nano)/.test(id)) score += 30;
-  if (/(opus|ultra|pro|o1|o3|realtime|image|embed|tts|whisper)/.test(id)) score -= 20;
-  if ((model.status as string | undefined) === 'deprecated') score -= 40;
+  if (SMOKE_BAN.test(id)) score -= 100;
+  if (/(mini|haiku|flash|small|lite|nano|8b|instant)/.test(id)) score += 30;
+  if (/(opus|ultra|pro|o1|o3|120b|70b)/.test(id)) score -= 20;
+  if ((model.status as string | undefined) === 'deprecated') score -= 80;
   return score;
+}
+
+function pickModel(provider: string, candidates: CatalogueModel[]): CatalogueModel | undefined {
+  const chatish = candidates.filter(
+    (m) =>
+      (m.mode === 'chat' || m.mode === 'completion') &&
+      (m.status as string | undefined) !== 'deprecated' &&
+      !SMOKE_BAN.test(m.model),
+  );
+  const pool = chatish.length ? chatish : candidates;
+  const preferred = SMOKE_PREFERRED[provider] ?? [];
+  for (const id of preferred) {
+    const hit = pool.find((m) => m.model === id);
+    if (hit) return hit;
+  }
+  const sorted = [...pool].sort(
+    (a, b) => smokeScore(b) - smokeScore(a) || a.model.localeCompare(b.model),
+  );
+  return sorted[0];
 }
 
 /** One model per registered provider that has its API key env set. */
@@ -29,8 +81,11 @@ export function targetsWithSecrets(catalogue: CatalogueModel[]): Target[] {
       console.log(`smoke skip ${provider}: no models in catalogue`);
       continue;
     }
-    candidates.sort((a, b) => smokeScore(b) - smokeScore(a) || a.model.localeCompare(b.model));
-    const pick = candidates[0]!;
+    const pick = pickModel(provider, candidates);
+    if (!pick) {
+      console.log(`smoke skip ${provider}: no suitable model`);
+      continue;
+    }
     console.log(`smoke pick ${provider}/${pick.model} (mode=${pick.mode}) via ${spec.apiKeyEnv}`);
     out.push({ provider, modelId: pick.model });
   }

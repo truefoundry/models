@@ -100,7 +100,9 @@ async function main() {
   }
 
   console.log(`Testing ${targets.length} model(s) via @truefoundry/ai-gateway-sdk`);
-  const results = await runTargets(args.catalogue, targets);
+  const results = await runTargets(args.catalogue, targets, {
+    baselineOnly: args.smokeWithSecrets,
+  });
   let failed = 0;
   for (const r of results) {
     const line = `${r.status.toUpperCase()} ${r.provider}/${r.modelId} ${r.scenario}: ${r.detail}`;
