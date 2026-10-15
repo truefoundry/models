@@ -29,12 +29,12 @@ function writeSummaryMarkdown(results: ScenarioResult[]): void {
   if (!outPath) return;
 
   const failed = results.filter((r) => r.status === 'fail');
-  const byModel = new Map<string, { pass: number; fail: number }>();
+  const warned = results.filter((r) => r.status === 'warn');
+  const byModel = new Map<string, { pass: number; warn: number; fail: number }>();
   for (const r of results) {
     const key = `${r.provider}/${r.modelId}`;
-    const row = byModel.get(key) ?? { pass: 0, fail: 0 };
-    if (r.status === 'pass') row.pass++;
-    else row.fail++;
+    const row = byModel.get(key) ?? { pass: 0, warn: 0, fail: 0 };
+    row[r.status]++;
     byModel.set(key, row);
   }
 
@@ -56,14 +56,20 @@ function writeSummaryMarkdown(results: ScenarioResult[]): void {
   if (byModel.size > 0) {
     lines.push(
       '',
-      '| Model | Pass | Fail |',
-      '| --- | ---: | ---: |',
-      ...[...byModel.entries()].map(([model, c]) => `| \`${model}\` | ${c.pass} | ${c.fail} |`),
+      '| Model | Pass | Warn | Fail |',
+      '| --- | ---: | ---: | ---: |',
+      ...[...byModel.entries()].map(
+        ([model, c]) => `| \`${model}\` | ${c.pass} | ${c.warn} | ${c.fail} |`,
+      ),
     );
   }
-  if (failed.length > 0) {
-    lines.push('', '### Failures', '');
-    for (const r of failed) {
+  for (const [title, rows] of [
+    ['Failures', failed],
+    ['Undeclared but working (consider adding to `features`)', warned],
+  ] as const) {
+    if (rows.length === 0) continue;
+    lines.push('', `### ${title}`, '');
+    for (const r of rows) {
       lines.push(`- \`${r.provider}/${r.modelId}\` \`${r.scenario}\`: ${r.detail.replace(/\s+/g, ' ')}`);
     }
   }
@@ -152,8 +158,11 @@ async function main() {
   });
 
   const failed = results.filter((r) => r.status === 'fail').length;
-  const passed = results.length - failed;
-  console.log(`\nDone: ${passed} passed, ${failed} failed (${results.length} scenario(s))`);
+  const warned = results.filter((r) => r.status === 'warn').length;
+  const passed = results.length - failed - warned;
+  console.log(
+    `\nDone: ${passed} passed, ${warned} warned, ${failed} failed (${results.length} scenario(s))`,
+  );
   writeSummaryMarkdown(results);
   if (failed > 0) {
     process.exit(1);
