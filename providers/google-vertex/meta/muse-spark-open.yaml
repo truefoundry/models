@@ -1,2 +1,20 @@
-mode: unknown
+features:
+    - function_calling
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+    output:
+        - text
+mode: chat
 model: meta/muse-spark-open
+provisioning: provisioned
+sources:
+    - https://research.meta.ai/blog/muse-spark-open
+    - https://thenewstack.io/meta-muse-spark-open/
+supportedModes:
+    - chat
