@@ -19,7 +19,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
 
 jobs:
   sdk-live:
@@ -46,7 +45,6 @@ jobs:
       AI21_API_KEY: ${{ secrets.AI21_API_KEY }}
       COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
       GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Resolve PR ref
@@ -68,14 +66,6 @@ jobs:
           ref: ${{ steps.ref.outputs.head }}
           fetch-depth: 0
 
-      - name: Checkout base for significance diff
-        if: steps.ref.outputs.pr != ''
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ steps.ref.outputs.base }}
-          path: .base-checkout
-          fetch-depth: 1
-
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -96,18 +86,15 @@ jobs:
             echo "count=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          gh api --paginate \
-            "repos/${{ github.repository }}/pulls/${{ steps.ref.outputs.pr }}/files" \
-            --jq '.[].filename' \
+          # PR file set without the REST API: fetch base, then three-dot diff
+          # (merge-base…head). ACMR = added/copied/modified/renamed (no deletes).
+          git fetch --no-tags origin "${{ github.base_ref }}"
+          git diff --name-only --diff-filter=ACMR \
+            "${{ steps.ref.outputs.base }}...${{ steps.ref.outputs.head }}" \
+            -- providers \
             | grep -E '^providers/.+\.yaml$' \
             | grep -vE '/(default|provider-config)\.yaml$' \
             > changed-files.txt || true
-          # Drop deleted paths
-          tmp=$(mktemp)
-          while IFS= read -r f; do
-            [ -f "$f" ] && echo "$f" >> "$tmp"
-          done < changed-files.txt
-          mv "$tmp" changed-files.txt
           count=$(wc -l < changed-files.txt | tr -d ' ')
           echo "count=$count" >> "$GITHUB_OUTPUT"
           echo "Changed files ($count):"
@@ -121,7 +108,7 @@ jobs:
         working-directory: .github/scripts/sdk-live-test
         run: npm run test:unit
 
-      # PR: full scenario matrix for significantly changed models only.
+      # PR: full scenario matrix for every changed model YAML.
       - name: Run SDK live scenarios (PR changed models)
         id: live
         if: steps.changed.outputs.count != '0'
@@ -129,8 +116,7 @@ jobs:
         run: |
           npm run test:live -- \
             --catalogue "${{ github.workspace }}/dist/ai-models.json" \
-            --files-list "${{ github.workspace }}/changed-files.txt" \
-            --base-dir "${{ github.workspace }}/.base-checkout"
+            --files-list "${{ github.workspace }}/changed-files.txt"
 
       # Manual: one baseline per provider with a secret, or explicit --model list.
       - name: Run SDK live smoke (secrets)

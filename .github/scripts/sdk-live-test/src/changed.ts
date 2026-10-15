@@ -1,31 +1,13 @@
 /**
- * PR targeting: map changed YAML paths → models, and skip cost-only edits.
+ * PR targeting: map changed YAML paths → catalogue model ids.
  *
- * Significant: features/mode/params/thinking/… change → run live.
- * Insignificant: only costs.* change → skip (no SDK behavior delta).
- *
- * Example: providers/openai/gpt-4o.yaml with features += json_output → test it.
+ * Example: providers/openai/gpt-4o.yaml → provider openai, model from YAML `model:`.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 
 const NON_MODEL = new Set(['default.yaml', 'provider-config.yaml']);
-
-const SIGNIFICANT_KEYS = new Set([
-  'model',
-  'mode',
-  'features',
-  'params',
-  'removeParams',
-  'requiredParams',
-  'thinking',
-  'messages',
-  'supportedModes',
-  'modalities',
-  'preferChatCompletions',
-  'extra_configuration',
-]);
 
 export type ChangedModel = { provider: string; modelFileStem: string; path: string };
 
@@ -40,20 +22,6 @@ export function parseProviderModelPath(filePath: string): ChangedModel | undefin
   const modelFileStem = rel.slice(slash + 1, -'.yaml'.length);
   if (!provider || !modelFileStem) return undefined;
   return { provider, modelFileStem, path: filePath };
-}
-
-export function isSignificantYamlChange(beforeRaw: string | null, afterRaw: string): boolean {
-  if (beforeRaw == null) return true;
-  const before = yaml.load(beforeRaw) as Record<string, unknown>;
-  const after = yaml.load(afterRaw) as Record<string, unknown>;
-  for (const key of SIGNIFICANT_KEYS) {
-    if (stableJson(before?.[key]) !== stableJson(after?.[key])) return true;
-  }
-  return false;
-}
-
-function stableJson(v: unknown): string {
-  return JSON.stringify(v === undefined ? null : v);
 }
 
 /** Catalogue `model:` id from a YAML file on disk. */

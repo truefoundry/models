@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { isSignificantYamlChange, parseProviderModelPath } from './changed.js';
+import { parseProviderModelPath } from './changed.js';
 import { planScenarios } from './scenarios.js';
 import { smokeScore, targetsWithSecrets } from './smoke.js';
 
@@ -14,24 +14,6 @@ describe('parseProviderModelPath', () => {
   });
   it('skips default.yaml', () => {
     assert.equal(parseProviderModelPath('providers/openai/default.yaml'), undefined);
-  });
-});
-
-describe('isSignificantYamlChange', () => {
-  it('treats new file as significant', () => {
-    assert.equal(isSignificantYamlChange(null, 'model: x\nmode: chat\n'), true);
-  });
-  it('ignores cost-only edits', () => {
-    const before =
-      'model: x\nmode: chat\nfeatures:\n  - json_output\ncosts:\n  - region: "*"\n    input_cost_per_token: 1\n';
-    const after =
-      'model: x\nmode: chat\nfeatures:\n  - json_output\ncosts:\n  - region: "*"\n    input_cost_per_token: 2\n';
-    assert.equal(isSignificantYamlChange(before, after), false);
-  });
-  it('flags feature edits', () => {
-    const before = 'model: x\nmode: chat\nfeatures:\n  - json_output\n';
-    const after = 'model: x\nmode: chat\nfeatures:\n  - json_output\n  - function_calling\n';
-    assert.equal(isSignificantYamlChange(before, after), true);
   });
 });
 

@@ -270,7 +270,7 @@ Common updates include:
 Same-repo PRs that change `providers/**/*.yaml` run **SDK live** checks (`.github/workflows/sdk-live-test.yml`):
 
 1. Build `dist/ai-models.json` from the PR head
-2. For each significantly changed model (mode / features / params / thinking / messages — not cost-only edits), run scenarios through `@truefoundry/ai-gateway-sdk` against the real provider
+2. For each changed model YAML, run scenarios through `@truefoundry/ai-gateway-sdk` against the real provider
 3. Fail the check on any scenario failure (blocks merge)
 
 ### Coverage (SDK only)
