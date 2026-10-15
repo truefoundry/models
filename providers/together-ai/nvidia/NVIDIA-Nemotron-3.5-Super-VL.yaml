@@ -5,7 +5,18 @@ costs:
       region: "*"
 limits:
     context_window: 262144
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
 model: nvidia/NVIDIA-Nemotron-3.5-Super-VL
+provisioning: serverless
+sources:
+    - https://www.together.ai/pricing
+    - https://docs.nvidia.com/nemo/automodel/model-coverage/omni/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16
+    - https://docs.nvidia.com/nemo/megatron-bridge/nightly/models/nemotron/nemotron3.5-super-vl.html
 supportedModes:
     - chat
