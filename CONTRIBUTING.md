@@ -291,9 +291,9 @@ Same-repo PRs that change `providers/**/*.yaml` run **SDK live** checks (`.githu
 
 Pass bar is HTTP 2xx only (no deep response-shape asserts). Not covered: cloud-auth providers (Bedrock, Azure, Vertex, …), `code_execution`, stream × vision/PDF, gateway **adapter SDKs** (boto3, etc.).
 
-Manual re-run: comment `/test-models` on the PR (OWNER / MEMBER / COLLABORATOR).
+Manual re-run: push a new commit, or Actions → **SDK live model tests** → Run workflow (optional `models=` override).
 
-Secrets smoke (one cheap baseline per provider with a key): Actions → **SDK live model tests** → Run workflow.
+Secrets smoke (one cheap baseline per provider with a key): Actions → **SDK live model tests** → Run workflow (leave `models` empty).
 
 ### Required GitHub secrets (provider API keys)
 

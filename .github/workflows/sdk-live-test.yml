@@ -16,27 +16,20 @@ on:
       - 'providers/**/*.yaml'
       - '.github/scripts/sdk-live-test/**'
       - '.github/workflows/sdk-live-test.yml'
-  issue_comment:
-    types: [created]
 
 permissions:
   contents: read
-  pull-requests: write
-  issues: write
+  pull-requests: read
 
 jobs:
   sdk-live:
     name: SDK live feature checks
     runs-on: ubuntu-latest
-    # Same-repo only (fork PRs get no provider secrets). /test-models: OWNER/MEMBER/COLLABORATOR.
+    # Same-repo only (fork PRs get no provider secrets).
     if: >-
       (github.event_name == 'workflow_dispatch') ||
       (github.event_name == 'pull_request' &&
-        github.event.pull_request.head.repo.full_name == github.repository) ||
-      (github.event_name == 'issue_comment' &&
-        github.event.issue.pull_request != null &&
-        startsWith(github.event.comment.body, '/test-models') &&
-        contains(fromJson('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))
+        github.event.pull_request.head.repo.full_name == github.repository)
 
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -59,18 +52,7 @@ jobs:
       - name: Resolve PR ref
         id: ref
         run: |
-          if [ "${{ github.event_name }}" = "issue_comment" ]; then
-            pr="${{ github.event.issue.number }}"
-            meta=$(gh api "repos/${{ github.repository }}/pulls/${pr}")
-            head_repo=$(echo "$meta" | jq -r .head.repo.full_name)
-            if [ "$head_repo" != "${{ github.repository }}" ]; then
-              echo "::error::Refusing /test-models on fork PR ($head_repo)"
-              exit 1
-            fi
-            echo "pr=$pr" >> "$GITHUB_OUTPUT"
-            echo "head=$(echo "$meta" | jq -r .head.sha)" >> "$GITHUB_OUTPUT"
-            echo "base=$(echo "$meta" | jq -r .base.sha)" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
             echo "pr=${{ github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
             echo "head=${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
             echo "base=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
@@ -139,7 +121,7 @@ jobs:
         working-directory: .github/scripts/sdk-live-test
         run: npm run test:unit
 
-      # PR / /test-models: full scenario matrix for significantly changed models only.
+      # PR: full scenario matrix for significantly changed models only.
       - name: Run SDK live scenarios (PR changed models)
         id: live
         if: steps.changed.outputs.count != '0'
