@@ -137,12 +137,20 @@ jobs:
           cat changed-files.txt || true
 
       - name: Install SDK live harness
-        if: steps.changed.outputs.count != '0' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        if: >-
+          steps.changed.outputs.count != '0' ||
+          github.event_name == 'workflow_dispatch' ||
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.head_ref == 'ci/sdk-live-model-json-checks')
         working-directory: .github/scripts/sdk-live-test
         run: npm ci
 
       - name: Run unit checks
-        if: steps.changed.outputs.count != '0' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        if: >-
+          steps.changed.outputs.count != '0' ||
+          github.event_name == 'workflow_dispatch' ||
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.head_ref == 'ci/sdk-live-model-json-checks')
         working-directory: .github/scripts/sdk-live-test
         run: npm run test:unit
 
@@ -156,8 +164,13 @@ jobs:
             --files-list "${{ github.workspace }}/changed-files.txt" \
             --base-dir "${{ github.workspace }}/.base-checkout"
 
-      - name: Run SDK live smoke (dispatch / branch push)
-        if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+      # Smoke: all providers with secrets. PR greens on this branch previously skipped this
+      # (event=pull_request, no model YAML diff). Push runs already execute it.
+      - name: Run SDK live smoke (secrets)
+        if: >-
+          github.event_name == 'workflow_dispatch' ||
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.head_ref == 'ci/sdk-live-model-json-checks')
         working-directory: .github/scripts/sdk-live-test
         run: |
           models="${{ github.event.inputs.models }}"
@@ -172,4 +185,5 @@ jobs:
             echo "Smoke: one model per provider with a set API key secret"
           fi
           npm run test:live -- "${args[@]}"
+
 
