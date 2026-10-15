@@ -1,3 +1,34 @@
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+          pricing_mode: cumulative
 features:
     - function_calling
     - structured_output
@@ -22,6 +53,7 @@ params:
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7
+    - https://docs.x.ai/developers/models
 status: preview
 supportedModes:
     - chat
