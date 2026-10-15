@@ -6,20 +6,21 @@ import type { Target } from './run.js';
  * Curated cheap chat IDs for CI smoke (first hit in catalogue wins).
  * Heuristic "mini" picks (codex-mini, retired haiku, etc.) are unreliable.
  */
+/** Curated from provider docs + live /models (2026-10); first catalogue hit wins. */
 const SMOKE_PREFERRED: Record<string, string[]> = {
   openai: ['gpt-4o-mini', 'gpt-4o-mini-2024-07-18', 'gpt-4.1-mini'],
-  // Dated id — bare `claude-haiku-4-5` 404s on some Anthropic keys.
-  anthropic: ['claude-haiku-4-5-20251001', 'claude-haiku-4-5', 'claude-haiku-5-5'],
-  groq: ['openai/gpt-oss-20b', 'openai/gpt-oss-120b', 'allam-2-7b', 'gemma-7b-it'],
-  xai: ['grok-3-mini', 'grok-2-1212'],
-  cerebras: ['qwen-3.8-27b', 'gpt-oss-120b', 'llama3.1-70b'],
-  // Prefer Together serverless Turbo / small instruct — many Llama 3.1 Turbo ids are dedicated-only.
+  // Anthropic current Haiku: https://docs.anthropic.com/en/docs/about-claude/models
+  anthropic: ['claude-haiku-5-5', 'claude-haiku-4-5-20251001', 'claude-haiku-4-5'],
+  groq: ['openai/gpt-oss-20b', 'qwen/qwen3.8-27b', 'openai/gpt-oss-120b', 'allam-2-7b'],
+  // xAI current text models: https://docs.x.ai/docs/models (grok-4.3 cheapest active)
+  xai: ['grok-4.3', 'grok-4.5', 'grok-4.7', 'grok-latest'],
+  cerebras: ['qwen-3.8-27b', 'gpt-oss-120b'],
+  // Together serverless chat: https://docs.together.ai/docs/serverless-models
   'together-ai': [
-    'Qwen/Qwen2.5-7B-Instruct-Turbo',
-    'openai/gpt-oss-20b',
-    'meta-llama/Llama-3.3-70B-Instruct-Turbo',
-    'LiquidAI/LFM2.5-8B-A1B',
-    'arize-ai/qwen-2-1.5b-instruct',
+    'Qwen/Qwen3.5-9B',
+    'Prism-ML/Ternary-Bonsai-27B',
+    'zai-org/GLM-5.3-Flash',
+    'openai/gpt-oss-120b',
   ],
   deepinfra: ['anthropic/claude-haiku-4-5', 'google/gemini-2.5-flash'],
   'mistral-ai': ['mistral-small-latest', 'ministral-8b-latest', 'open-mistral-nemo'],

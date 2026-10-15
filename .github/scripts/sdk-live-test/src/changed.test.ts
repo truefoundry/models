@@ -161,24 +161,37 @@ describe('smoke-with-secrets', () => {
     }
   });
 
-  it('prefers curated dated anthropic id', () => {
+  it('prefers current anthropic haiku', () => {
     const prev = process.env.ANTHROPIC_API_KEY;
     process.env.ANTHROPIC_API_KEY = 'sk-test';
     delete process.env.OPENAI_API_KEY;
     try {
       const targets = targetsWithSecrets([
-        { provider: 'anthropic', model: 'claude-haiku-4-5', mode: 'chat', status: 'active' },
-        {
-          provider: 'anthropic',
-          model: 'claude-haiku-4-5-20251001',
-          mode: 'chat',
-          status: 'active',
-        },
+        { provider: 'anthropic', model: 'claude-haiku-4-5-20251001', mode: 'chat', status: 'active' },
+        { provider: 'anthropic', model: 'claude-haiku-5-5', mode: 'chat', status: 'active' },
       ]);
-      assert.deepEqual(targets, [{ provider: 'anthropic', modelId: 'claude-haiku-4-5-20251001' }]);
+      assert.deepEqual(targets, [{ provider: 'anthropic', modelId: 'claude-haiku-5-5' }]);
     } finally {
       if (prev === undefined) delete process.env.ANTHROPIC_API_KEY;
       else process.env.ANTHROPIC_API_KEY = prev;
+    }
+  });
+
+  it('prefers current xai text model over deprecated', () => {
+    const prev = process.env.XAI_API_KEY;
+    process.env.XAI_API_KEY = 'xai-test';
+    delete process.env.OPENAI_API_KEY;
+    delete process.env.ANTHROPIC_API_KEY;
+    try {
+      const targets = targetsWithSecrets([
+        { provider: 'xai', model: 'grok-2-1212', mode: 'chat' },
+        { provider: 'xai', model: 'grok-3-mini', mode: 'chat', status: 'retired' },
+        { provider: 'xai', model: 'grok-4.3', mode: 'chat', status: 'active' },
+      ]);
+      assert.deepEqual(targets, [{ provider: 'xai', modelId: 'grok-4.3' }]);
+    } finally {
+      if (prev === undefined) delete process.env.XAI_API_KEY;
+      else process.env.XAI_API_KEY = prev;
     }
   });
 });
