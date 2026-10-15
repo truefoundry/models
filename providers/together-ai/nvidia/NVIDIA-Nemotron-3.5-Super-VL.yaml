@@ -1,0 +1,11 @@
+costs:
+    - cache_read_input_token_cost: 2e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 5e-7
+      region: "*"
+limits:
+    context_window: 262144
+mode: unknown
+model: nvidia/NVIDIA-Nemotron-3.5-Super-VL
+supportedModes:
+    - chat
