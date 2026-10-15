@@ -97,8 +97,9 @@ function findParam(model: CatalogueModel, key: string): ModelParam | undefined {
   );
 }
 
-/** Catalogue default or first supported value; undefined → no reasoning scenario. */
+/** Effort for reasoning scenario; requires catalogue `thinking: true` (not default.yaml alone). */
 function reasoningEffortValue(model: CatalogueModel): string | undefined {
+  if (!model.thinking) return undefined;
   if ((model.removeParams ?? []).includes('reasoning_effort')) return undefined;
   const param = findParam(model, 'reasoning_effort');
   if (!param) return undefined;

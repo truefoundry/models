@@ -33,6 +33,11 @@ export type ScenarioResult = {
   detail: string;
 };
 
+function pushResult(results: ScenarioResult[], r: ScenarioResult): void {
+  results.push(r);
+  console.log(`${r.status.toUpperCase()} ${r.provider}/${r.modelId} ${r.scenario}: ${r.detail}`);
+}
+
 function memoryCache() {
   const store = new Map<string, unknown>();
   return {
@@ -119,10 +124,13 @@ export async function runTargets(
 
   const results: ScenarioResult[] = [];
 
-  for (const t of targets) {
+  for (let i = 0; i < targets.length; i++) {
+    const t = targets[i]!;
+    console.log(`\n[${i + 1}/${targets.length}] ${t.provider}/${t.modelId}`);
+
     const spec = getProviderSpec(t.provider);
     if (!spec) {
-      results.push({
+      pushResult(results, {
         provider: t.provider,
         modelId: t.modelId,
         scenario: 'setup',
@@ -133,7 +141,7 @@ export async function runTargets(
     }
     const apiKey = process.env[spec.apiKeyEnv];
     if (!apiKey) {
-      results.push({
+      pushResult(results, {
         provider: t.provider,
         modelId: t.modelId,
         scenario: 'setup',
@@ -145,7 +153,7 @@ export async function runTargets(
 
     const model = findCatalogueModel(catalogue, t.provider, t.modelId);
     if (!model) {
-      results.push({
+      pushResult(results, {
         provider: t.provider,
         modelId: t.modelId,
         scenario: 'setup',
@@ -161,7 +169,7 @@ export async function runTargets(
     }
     for (const scenario of scenarios) {
       if (scenario.id.startsWith('unsupported/')) {
-        results.push({
+        pushResult(results, {
           provider: t.provider,
           modelId: t.modelId,
           scenario: scenario.id,
@@ -176,7 +184,7 @@ export async function runTargets(
         const text = await response.text();
         await executionReport;
         if (!response.ok) {
-          results.push({
+          pushResult(results, {
             provider: t.provider,
             modelId: t.modelId,
             scenario: scenario.id,
@@ -184,7 +192,7 @@ export async function runTargets(
             detail: `HTTP ${response.status}: ${text.slice(0, 400)}`,
           });
         } else {
-          results.push({
+          pushResult(results, {
             provider: t.provider,
             modelId: t.modelId,
             scenario: scenario.id,
@@ -193,7 +201,7 @@ export async function runTargets(
           });
         }
       } catch (err) {
-        results.push({
+        pushResult(results, {
           provider: t.provider,
           modelId: t.modelId,
           scenario: scenario.id,

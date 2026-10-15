@@ -37,9 +37,11 @@ function parseArgs(argv: string[]) {
     else if (a === '--smoke-with-secrets') smokeWithSecrets = true;
     else if (a === '--help' || a === '-h') {
       console.log(`Usage:
-  tsx src/index.ts --catalogue dist/ai-models.json --model openai/gpt-4o
-  tsx src/index.ts --catalogue dist/ai-models.json --smoke-with-secrets
+  tsx src/index.ts --model openai/gpt-4o
+  tsx src/index.ts --smoke-with-secrets
   tsx src/index.ts --files-list changed.txt
+  # --catalogue defaults to <repo>/dist/ai-models.json; if set, use an absolute path
+  # (relative paths resolve from process cwd, not repo root)
 `);
       process.exit(0);
     }
@@ -101,13 +103,10 @@ async function main() {
     baselineOnly: args.smokeWithSecrets,
   });
 
-  let failed = 0;
-  for (const r of results) {
-    console.log(`${r.status.toUpperCase()} ${r.provider}/${r.modelId} ${r.scenario}: ${r.detail}`);
-    if (r.status === 'fail') failed++;
-  }
+  const failed = results.filter((r) => r.status === 'fail').length;
+  const passed = results.length - failed;
+  console.log(`\nDone: ${passed} passed, ${failed} failed (${results.length} scenario(s))`);
   if (failed > 0) {
-    console.error(`\n${failed} scenario(s) failed`);
     process.exit(1);
   }
 }

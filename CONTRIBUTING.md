@@ -305,7 +305,8 @@ Local:
 
 ```bash
 npm run build:json
-npm run test:sdk-live -- --catalogue dist/ai-models.json --model openai/gpt-4o
+# omits --catalogue → default repo-root dist/ai-models.json
+npm run test:sdk-live -- --model openai/gpt-4o
 ```
 
 This path does **not** use `TFY_API_KEY` / Tailscale / gateway-test-job-v2. Merge → S3 publish (`trigger-sync.yml`) is unchanged.

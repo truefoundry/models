@@ -21,6 +21,7 @@ describe('planScenarios', () => {
       provider: 'openai',
       model: 'gpt',
       mode: 'chat',
+      thinking: true,
       features: ['json_output', 'function_calling', 'tool_choice', 'system_messages'],
       params: [
         { key: 'temperature', defaultValue: 0.2 },
@@ -61,11 +62,24 @@ describe('planScenarios', () => {
     assert.ok(!ids.some((id) => id.includes('/reasoning/')));
   });
 
+  it('skips reasoning when only provider-default reasoning_effort (no thinking)', () => {
+    const ids = planScenarios({
+      provider: 'openai',
+      model: 'gpt-4-turbo',
+      mode: 'chat',
+      defaultProviderParams: {
+        params: [{ key: 'reasoning_effort', defaultValue: 'medium', supportedValues: ['medium', 'high'] }],
+      },
+    }).map((s) => s.id);
+    assert.ok(!ids.some((id) => id.includes('/reasoning/')));
+  });
+
   it('uses catalogue reasoning_effort default', () => {
     const body = planScenarios({
       provider: 'openai',
       model: 'gpt',
       mode: 'chat',
+      thinking: true,
       params: [{ key: 'reasoning_effort', defaultValue: 'medium', supportedValues: ['medium', 'high'] }],
     }).find((s) => s.id === 'chat/reasoning/non-stream')!.body as Record<string, unknown>;
     assert.equal(body.reasoning_effort, 'medium');
