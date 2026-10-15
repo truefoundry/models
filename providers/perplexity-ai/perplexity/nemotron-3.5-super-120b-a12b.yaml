@@ -1,2 +1,24 @@
-mode: unknown
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - doc
+    output:
+        - text
+mode: chat
 model: perplexity/nemotron-3.5-super-120b-a12b
+provisioning: serverless
+sources:
+    - https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/
+status: active
+supportedModes:
+    - chat
+thinking: true
+
+# costs: not found in official Perplexity Agent API docs
+# limits: not found in official Perplexity Agent API docs
