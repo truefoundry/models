@@ -103,6 +103,8 @@ function reasoningEffortValue(model: CatalogueModel): string | undefined {
   if ((model.removeParams ?? []).includes('reasoning_effort')) return undefined;
   const param = findParam(model, 'reasoning_effort');
   if (!param) return undefined;
+  // Prefer low — cheaper live calls and smaller thinking budgets vs max_tokens.
+  if (param.supportedValues?.includes('low')) return 'low';
   if (param.defaultValue != null) return String(param.defaultValue);
   return param.supportedValues?.[0];
 }
@@ -116,6 +118,10 @@ function mergeParams(model: CatalogueModel): Record<string, unknown> {
     if (PARAM_KEYS.has(p.key) && p.defaultValue != null) merged[p.key] = p.defaultValue;
   }
   for (const key of model.removeParams ?? []) delete merged[key];
+  // Own scenario; bundling it enables thinking and conflicts with temperature/top_k.
+  delete merged.reasoning_effort;
+  // Several providers reject temperature + top_p in one request.
+  if (merged.temperature != null && merged.top_p != null) delete merged.top_p;
   if (typeof merged.max_tokens === 'number') merged.max_tokens = Math.min(merged.max_tokens, 64);
   if (typeof merged.max_completion_tokens === 'number') {
     merged.max_completion_tokens = Math.min(merged.max_completion_tokens, 64);
@@ -233,10 +239,12 @@ function chatFeatureBody(model: CatalogueModel, feature: string): Record<string,
     case 'reasoning': {
       const effort = reasoningEffortValue(model);
       if (effort == null) throw new Error(`reasoning scenario without reasoning_effort for ${modelId}`);
+      // Must exceed provider thinking.budget_tokens (withCap default 64 is too small).
       return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'What is 2+2? Reply with the number only.' }],
         reasoning_effort: effort,
+        max_tokens: 4096,
       });
     }
     default:
