@@ -3,7 +3,7 @@
  *
  * Flow:
  *   "providers/openai/gpt-4o.yaml"
- *     → parseProviderModelPath → { provider: "openai" }
+ *     → parseProviderPath → { provider: "openai" }
  *     → modelIdFromYamlFile    → "gpt-4o"  (from YAML `model:` field)
  */
 import fs from 'node:fs';
@@ -12,7 +12,7 @@ import yaml from 'js-yaml';
 
 const NON_MODEL_FILES = new Set(['default.yaml', 'provider-config.yaml']);
 
-export type ChangedModel = { provider: string };
+export type ChangedProvider = { provider: string };
 
 /**
  * Parse a repo-relative model YAML path.
@@ -23,7 +23,7 @@ export type ChangedModel = { provider: string };
  *   "providers/openai/provider-config.yaml" → undefined
  *   "README.md"                             → undefined
  */
-export function parseProviderModelPath(filePath: string): ChangedModel | undefined {
+export function parseProviderPath(filePath: string): ChangedProvider | undefined {
   if (!filePath.startsWith('providers/') || !filePath.endsWith('.yaml')) return undefined;
   if (NON_MODEL_FILES.has(path.basename(filePath))) return undefined;
 

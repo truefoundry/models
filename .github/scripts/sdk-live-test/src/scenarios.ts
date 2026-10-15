@@ -4,7 +4,7 @@
  * Chat example (features: [json_output], params include reasoning_effort):
  *   chat/baseline/{non-stream,stream}
  *   chat/json_output/{non-stream,stream}
- *   chat/reasoning/{non-stream,stream}
+ *   chat/reasoning/<effort>/non-stream for each catalogue supportedValues (or defaultValue alone)
  *   chat/params/{…} when catalogue params have defaults
  *   chat/vision|pdf|audio/non-stream when modalities.input declares them
  *
@@ -36,7 +36,6 @@ const FEATURE_KEYS = [
   'assistant_prefill',
   'mid_conversation_system_messages',
   'prompt_caching',
-  'cache_control',
 ] as const;
 
 /** Responses API has no `messages`; only these chat features map cleanly onto `input`. */
@@ -46,7 +45,6 @@ const RESPONSES_FEATURE_KEYS = new Set([
   'function_calling',
   'parallel_function_calling',
   'tool_choice',
-  'reasoning',
 ]);
 
 const STREAMING_MODES = new Set(['chat', 'completion', 'responses']);
@@ -97,16 +95,19 @@ function findParam(model: CatalogueModel, key: string): ModelParam | undefined {
   );
 }
 
-/** Effort for reasoning scenario; requires catalogue `thinking: true` (not default.yaml alone). */
-function reasoningEffortValue(model: CatalogueModel): string | undefined {
-  if (!model.thinking) return undefined;
-  if ((model.removeParams ?? []).includes('reasoning_effort')) return undefined;
+/** Requires catalogue `thinking: true`. All `supportedValues`, else `defaultValue` alone. */
+function reasoningEffortValues(model: CatalogueModel): string[] {
+  if (!model.thinking) return [];
+  if ((model.removeParams ?? []).includes('reasoning_effort')) return [];
   const param = findParam(model, 'reasoning_effort');
-  if (!param) return undefined;
-  // Prefer low — cheaper live calls and smaller thinking budgets vs max_tokens.
-  if (param.supportedValues?.includes('low')) return 'low';
-  if (param.defaultValue != null) return String(param.defaultValue);
-  return param.supportedValues?.[0];
+  if (!param) return [];
+  if (param.supportedValues?.length) return [...param.supportedValues];
+  if (param.defaultValue != null) return [String(param.defaultValue)];
+  return [];
+}
+
+function parseReasoningFeature(feature: string): string | undefined {
+  return feature.startsWith('reasoning:') ? feature.slice('reasoning:'.length) : undefined;
 }
 
 function mergeParams(model: CatalogueModel): Record<string, unknown> {
@@ -234,36 +235,35 @@ function chatFeatureBody(model: CatalogueModel, feature: string): Record<string,
         ],
       });
     case 'prompt_caching':
-    case 'cache_control':
       return cacheControlMessages(model);
-    case 'reasoning': {
-      const effort = reasoningEffortValue(model);
-      if (effort == null) throw new Error(`reasoning scenario without reasoning_effort for ${modelId}`);
-      // Must exceed provider thinking.budget_tokens (withCap default 64 is too small).
-      return withCap(model, {
-        model: modelId,
-        messages: [{ role: 'user', content: 'What is 2+2? Reply with the number only.' }],
-        reasoning_effort: effort,
-        max_tokens: 4096,
-      });
-    }
-    default:
+    default: {
+      const effort = parseReasoningFeature(feature);
+      if (effort != null) {
+        // Must exceed provider thinking.budget_tokens (withCap default 64 is too small).
+        return withCap(model, {
+          model: modelId,
+          messages: [{ role: 'user', content: 'What is 2+2? Reply with the number only.' }],
+          reasoning_effort: effort,
+          max_tokens: 4096,
+        });
+      }
       throw new Error(`unknown chat feature ${feature}`);
+    }
   }
 }
 
 function chatFeatureNames(model: CatalogueModel): string[] {
   const ids = ['baseline'];
   const seen = new Set<string>(ids);
-  for (const f of model.features ?? []) {
+  for (const raw of model.features ?? []) {
+    const f = raw === 'cache_control' ? 'prompt_caching' : raw;
     if (!(FEATURE_KEYS as readonly string[]).includes(f) || seen.has(f)) continue;
-    // Same request body for both catalogue names — emit one feature id.
-    if (f === 'cache_control' && seen.has('prompt_caching')) continue;
-    if (f === 'prompt_caching' && seen.has('cache_control')) continue;
     ids.push(f);
     seen.add(f);
   }
-  if (reasoningEffortValue(model) != null) ids.push('reasoning');
+  for (const effort of reasoningEffortValues(model)) {
+    ids.push(`reasoning:${effort}`);
+  }
   return ids;
 }
 
@@ -369,9 +369,14 @@ function pushChatLike(
   buildBody: (feature: string, stream: boolean) => Record<string, unknown>,
 ): void {
   for (const feature of chatFeatureNames(model)) {
-    for (const stream of streamFlags(model.mode)) {
+    const effort = parseReasoningFeature(feature);
+    // Effort matrix: non-stream only (stream × N efforts is too costly).
+    const streams = effort != null ? [false] : streamFlags(model.mode);
+    for (const stream of streams) {
+      const kind =
+        effort != null ? `${model.mode}/reasoning/${effort}` : `${model.mode}/${feature}`;
       out.push({
-        id: label(`${model.mode}/${feature}`, stream),
+        id: label(kind, stream),
         endpoint,
         path,
         body: buildBody(feature, stream),
@@ -515,11 +520,14 @@ export function planScenarios(model: CatalogueModel): Scenario[] {
         });
       }
       for (const feature of chatFeatureNames(model).filter(
-        (f) => f !== 'baseline' && RESPONSES_FEATURE_KEYS.has(f),
+        (f) => f !== 'baseline' && (RESPONSES_FEATURE_KEYS.has(f) || parseReasoningFeature(f) != null),
       )) {
-        for (const stream of streamFlags(mode)) {
+        const effort = parseReasoningFeature(feature);
+        const streams = effort != null ? [false] : streamFlags(mode);
+        for (const stream of streams) {
+          const kind = effort != null ? `responses/reasoning/${effort}` : `responses/${feature}`;
           out.push({
-            id: label(`responses/${feature}`, stream),
+            id: label(kind, stream),
             endpoint: 'createModelResponse',
             path: '/v1/responses',
             body: {

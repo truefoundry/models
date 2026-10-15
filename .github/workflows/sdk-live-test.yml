@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   sdk-live:
@@ -45,6 +46,7 @@ jobs:
       AI21_API_KEY: ${{ secrets.AI21_API_KEY }}
       COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
       GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
+      SDK_LIVE_SUMMARY_PATH: ${{ github.workspace }}/sdk-live-summary.md
 
     steps:
       - name: Checkout
@@ -93,9 +95,10 @@ jobs:
         working-directory: .github/scripts/sdk-live-test
         run: npm run test:unit
 
-      # PR: full scenario matrix for every changed model YAML.
+      # PR: full scenario matrix. continue-on-error so live failures do not block merge.
       - name: Run SDK live scenarios (PR changed models)
         if: steps.changed.outputs.count != '0'
+        continue-on-error: true
         working-directory: .github/scripts/sdk-live-test
         run: |
           npm run test:live -- \
@@ -115,3 +118,14 @@ jobs:
             args+=(--smoke-with-secrets)
           fi
           npm run test:live -- "${args[@]}"
+
+      - name: PR summary comment
+        if: github.event_name == 'pull_request' && always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          [ -f "$SDK_LIVE_SUMMARY_PATH" ] || exit 0
+          gh pr comment "$PR" --body-file "$SDK_LIVE_SUMMARY_PATH" --edit-last \
+            || gh pr comment "$PR" --body-file "$SDK_LIVE_SUMMARY_PATH"

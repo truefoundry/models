@@ -1,17 +1,40 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it } from 'node:test';
-import { parseProviderModelPath } from './changed.js';
-import { planScenarios } from './scenarios.js';
-import { targetsWithSecrets } from './smoke.js';
+import { modelIdFromYamlFile, parseProviderPath } from '../src/changed.js';
+import { planScenarios } from '../src/scenarios.js';
+import { targetsWithSecrets } from '../src/smoke.js';
 
-describe('parseProviderModelPath', () => {
+describe('parseProviderPath', () => {
   it('parses model yaml', () => {
-    assert.deepEqual(parseProviderModelPath('providers/openai/gpt-4o.yaml'), {
+    assert.deepEqual(parseProviderPath('providers/openai/gpt-4o.yaml'), {
       provider: 'openai',
     });
   });
+  it('parses nested provider dirs', () => {
+    assert.deepEqual(parseProviderPath('providers/openrouter/meta/muse-glimmer-30b.yaml'), {
+      provider: 'openrouter',
+    });
+  });
   it('skips default.yaml', () => {
-    assert.equal(parseProviderModelPath('providers/openai/default.yaml'), undefined);
+    assert.equal(parseProviderPath('providers/openai/default.yaml'), undefined);
+  });
+});
+
+describe('modelIdFromYamlFile', () => {
+  it('keeps directory-prefixed model ids', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'sdk-live-'));
+    const rel = 'providers/vertex/meta/llama-72b.yaml';
+    const abs = path.join(root, rel);
+    fs.mkdirSync(path.dirname(abs), { recursive: true });
+    fs.writeFileSync(abs, 'model: meta/llama-72b\n');
+    try {
+      assert.equal(modelIdFromYamlFile(root, rel), 'meta/llama-72b');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 });
 
@@ -35,7 +58,7 @@ describe('planScenarios', () => {
     assert.ok(ids.includes('chat/function_calling/non-stream'));
     assert.ok(ids.includes('chat/tool_choice/non-stream'));
     assert.ok(ids.includes('chat/system_messages/stream'));
-    assert.ok(ids.includes('chat/reasoning/stream'));
+    assert.ok(ids.includes('chat/reasoning/medium/non-stream'));
     assert.ok(ids.includes('chat/params/non-stream'));
     assert.ok(ids.includes('chat/params/stream'));
   });
@@ -74,18 +97,38 @@ describe('planScenarios', () => {
     assert.ok(!ids.some((id) => id.includes('/reasoning/')));
   });
 
-  it('uses catalogue reasoning_effort default', () => {
-    const body = planScenarios({
+  it('emits one reasoning scenario per supportedValues entry', () => {
+    const scenarios = planScenarios({
       provider: 'openai',
       model: 'gpt',
       mode: 'chat',
       thinking: true,
       params: [{ key: 'reasoning_effort', defaultValue: 'medium', supportedValues: ['medium', 'high'] }],
-    }).find((s) => s.id === 'chat/reasoning/non-stream')!.body as Record<string, unknown>;
-    assert.equal(body.reasoning_effort, 'medium');
+    });
+    const reasoning = scenarios.filter((s) => s.id.includes('/reasoning/'));
+    assert.deepEqual(
+      reasoning.map((s) => s.id),
+      ['chat/reasoning/medium/non-stream', 'chat/reasoning/high/non-stream'],
+    );
+    assert.equal((reasoning[0]!.body as Record<string, unknown>).reasoning_effort, 'medium');
+    assert.equal((reasoning[1]!.body as Record<string, unknown>).reasoning_effort, 'high');
   });
 
-  it('chat: prompt_caching and cache_control dedupe', () => {
+  it('single reasoning scenario when only defaultValue', () => {
+    const ids = planScenarios({
+      provider: 'openai',
+      model: 'gpt',
+      mode: 'chat',
+      thinking: true,
+      params: [{ key: 'reasoning_effort', defaultValue: 'medium' }],
+    }).map((s) => s.id);
+    assert.deepEqual(
+      ids.filter((id) => id.includes('/reasoning/')),
+      ['chat/reasoning/medium/non-stream'],
+    );
+  });
+
+  it('chat: cache_control aliases to prompt_caching', () => {
     const ids = planScenarios({
       provider: 'anthropic',
       model: 'claude',
@@ -93,7 +136,7 @@ describe('planScenarios', () => {
       features: ['prompt_caching', 'cache_control'],
     }).map((s) => s.id);
     const cacheIds = ids.filter((id) => id.includes('prompt_caching') || id.includes('cache_control'));
-    assert.equal(cacheIds.length, 2); // stream + non-stream for one feature name
+    assert.deepEqual(cacheIds, ['chat/prompt_caching/non-stream', 'chat/prompt_caching/stream']);
   });
 
   it('embedding baseline + multimodal', () => {

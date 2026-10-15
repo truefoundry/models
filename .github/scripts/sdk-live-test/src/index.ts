@@ -18,11 +18,58 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadCatalogue } from './catalogue.js';
-import { modelIdFromYamlFile, parseProviderModelPath } from './changed.js';
-import { runTargets, type Target } from './run.js';
+import { modelIdFromYamlFile, parseProviderPath } from './changed.js';
+import { runTargets, type ScenarioResult, type Target } from './run.js';
 import { targetsWithSecrets } from './smoke.js';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../..');
+
+function writeSummaryMarkdown(results: ScenarioResult[]): void {
+  const outPath = process.env.SDK_LIVE_SUMMARY_PATH;
+  if (!outPath) return;
+
+  const failed = results.filter((r) => r.status === 'fail');
+  const byModel = new Map<string, { pass: number; fail: number }>();
+  for (const r of results) {
+    const key = `${r.provider}/${r.modelId}`;
+    const row = byModel.get(key) ?? { pass: 0, fail: 0 };
+    if (r.status === 'pass') row.pass++;
+    else row.fail++;
+    byModel.set(key, row);
+  }
+
+  const resultLine =
+    results.length === 0
+      ? '**Result:** skipped — no models to test.'
+      : failed.length === 0
+        ? `**Result:** passed (${results.length} scenarios)`
+        : `**Result:** failed (${failed.length}/${results.length} scenarios)`;
+
+  const lines = [
+    '<!-- sdk-live-summary -->',
+    '## SDK live feature checks',
+    '',
+    resultLine,
+    '',
+    '_Informational — does not block merge._',
+  ];
+  if (byModel.size > 0) {
+    lines.push(
+      '',
+      '| Model | Pass | Fail |',
+      '| --- | ---: | ---: |',
+      ...[...byModel.entries()].map(([model, c]) => `| \`${model}\` | ${c.pass} | ${c.fail} |`),
+    );
+  }
+  if (failed.length > 0) {
+    lines.push('', '### Failures', '');
+    for (const r of failed) {
+      lines.push(`- \`${r.provider}/${r.modelId}\` \`${r.scenario}\`: ${r.detail.replace(/\s+/g, ' ')}`);
+    }
+  }
+  lines.push('');
+  fs.writeFileSync(outPath, lines.join('\n'));
+}
 
 function parseArgs(argv: string[]) {
   let catalogue = path.join(REPO_ROOT, 'dist/ai-models.json');
@@ -62,7 +109,7 @@ function targetsFromFilesList(listPath: string): Target[] {
   for (const line of fs.readFileSync(listPath, 'utf8').split('\n')) {
     const filePath = line.trim();
     if (!filePath) continue;
-    const parsed = parseProviderModelPath(filePath);
+    const parsed = parseProviderPath(filePath);
     if (!parsed) continue;
     const modelId = modelIdFromYamlFile(REPO_ROOT, filePath);
     if (!modelId) {
@@ -95,6 +142,7 @@ async function main() {
 
   if (targets.length === 0) {
     console.log('No models to test.');
+    writeSummaryMarkdown([]);
     process.exit(0);
   }
 
@@ -106,6 +154,7 @@ async function main() {
   const failed = results.filter((r) => r.status === 'fail').length;
   const passed = results.length - failed;
   console.log(`\nDone: ${passed} passed, ${failed} failed (${results.length} scenario(s))`);
+  writeSummaryMarkdown(results);
   if (failed > 0) {
     process.exit(1);
   }
