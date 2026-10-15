@@ -1,7 +1,19 @@
 name: SDK live model tests
 
 on:
+  # UI "Run workflow" only appears after this file exists on the default branch.
+  # Until then, push this branch (or use the branch filter below) to smoke live.
+  push:
+    branches:
+      - 'ci/sdk-live-model-json-checks'
   workflow_dispatch:
+    inputs:
+      models:
+        description: >-
+          Optional space-separated provider/modelId overrides. Leave empty to smoke
+          one cheap model per registered provider that has its API key secret set.
+        required: false
+        default: ''
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
@@ -23,6 +35,7 @@ jobs:
     # Same-repo only (fork PRs get no provider secrets). /test-models: OWNER/MEMBER/COLLABORATOR.
     if: >-
       (github.event_name == 'workflow_dispatch') ||
+      (github.event_name == 'push') ||
       (github.event_name == 'pull_request' &&
         github.event.pull_request.head.repo.full_name == github.repository) ||
       (github.event_name == 'issue_comment' &&
@@ -101,7 +114,7 @@ jobs:
         id: changed
         run: |
           if [ -z "${{ steps.ref.outputs.pr }}" ]; then
-            echo "No PR context; pass models via workflow_dispatch locally."
+            echo "No PR context — workflow_dispatch smoke via --model inputs."
             touch changed-files.txt
             echo "count=0" >> "$GITHUB_OUTPUT"
             exit 0
@@ -124,16 +137,16 @@ jobs:
           cat changed-files.txt || true
 
       - name: Install SDK live harness
-        if: steps.changed.outputs.count != '0'
+        if: steps.changed.outputs.count != '0' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
         working-directory: .github/scripts/sdk-live-test
         run: npm ci
 
       - name: Run unit checks
-        if: steps.changed.outputs.count != '0'
+        if: steps.changed.outputs.count != '0' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
         working-directory: .github/scripts/sdk-live-test
         run: npm run test:unit
 
-      - name: Run SDK live scenarios
+      - name: Run SDK live scenarios (PR changed models)
         id: live
         if: steps.changed.outputs.count != '0'
         working-directory: .github/scripts/sdk-live-test
@@ -142,3 +155,21 @@ jobs:
             --catalogue "${{ github.workspace }}/dist/ai-models.json" \
             --files-list "${{ github.workspace }}/changed-files.txt" \
             --base-dir "${{ github.workspace }}/.base-checkout"
+
+      - name: Run SDK live smoke (dispatch / branch push)
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        working-directory: .github/scripts/sdk-live-test
+        run: |
+          models="${{ github.event.inputs.models }}"
+          args=(--catalogue "${{ github.workspace }}/dist/ai-models.json")
+          if [ -n "$models" ]; then
+            for m in $models; do
+              args+=(--model "$m")
+            done
+            echo "Smoke models (override): $models"
+          else
+            args+=(--smoke-with-secrets)
+            echo "Smoke: one model per provider with a set API key secret"
+          fi
+          npm run test:live -- "${args[@]}"
+

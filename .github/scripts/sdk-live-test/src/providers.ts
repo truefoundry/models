@@ -105,3 +105,8 @@ const SPECS: Record<string, ProviderSpec> = {
 export function getProviderSpec(providerDir: string): ProviderSpec | undefined {
   return SPECS[providerDir];
 }
+
+/** Registered provider directory names (models-repo `providers/<name>/`). */
+export function listRegisteredProviders(): string[] {
+  return Object.keys(SPECS);
+}

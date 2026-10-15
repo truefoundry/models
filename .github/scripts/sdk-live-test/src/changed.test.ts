@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { isSignificantYamlChange, parseProviderModelPath } from './changed.js';
 import { planScenarios } from './scenarios.js';
+import { smokeScore, targetsWithSecrets } from './smoke.js';
 
 describe('parseProviderModelPath', () => {
   it('parses model yaml', () => {
@@ -133,3 +134,30 @@ describe('planScenarios', () => {
     assert.ok(ids.includes('responses/vision/non-stream'));
   });
 });
+
+describe('smoke-with-secrets', () => {
+  it('prefers cheap chat models', () => {
+    assert.ok(
+      smokeScore({ provider: 'openai', model: 'gpt-4o-mini', mode: 'chat' }) >
+        smokeScore({ provider: 'openai', model: 'gpt-4o', mode: 'chat' }),
+    );
+  });
+
+  it('picks only providers with env set', () => {
+    const prev = process.env.OPENAI_API_KEY;
+    delete process.env.ANTHROPIC_API_KEY;
+    process.env.OPENAI_API_KEY = 'sk-test';
+    try {
+      const targets = targetsWithSecrets([
+        { provider: 'openai', model: 'gpt-4o-mini', mode: 'chat' },
+        { provider: 'openai', model: 'gpt-4o', mode: 'chat' },
+        { provider: 'anthropic', model: 'claude-haiku-4-5', mode: 'chat' },
+      ]);
+      assert.deepEqual(targets, [{ provider: 'openai', modelId: 'gpt-4o-mini' }]);
+    } finally {
+      if (prev === undefined) delete process.env.OPENAI_API_KEY;
+      else process.env.OPENAI_API_KEY = prev;
+    }
+  });
+});
+

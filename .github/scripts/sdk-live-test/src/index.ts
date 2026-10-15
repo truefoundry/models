@@ -2,12 +2,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadCatalogue } from './catalogue.js';
 import {
   isSignificantYamlChange,
   modelIdFromYamlFile,
   parseProviderModelPath,
 } from './changed.js';
 import { runTargets, type Target } from './run.js';
+import { targetsWithSecrets } from './smoke.js';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../..');
 
@@ -15,6 +17,7 @@ function parseArgs(argv: string[]) {
   let catalogue = path.join(REPO_ROOT, 'dist/ai-models.json');
   let filesList: string | undefined;
   let baseDir: string | undefined;
+  let smokeWithSecrets = false;
   const models: string[] = [];
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -22,15 +25,17 @@ function parseArgs(argv: string[]) {
     else if (a === '--files-list') filesList = path.resolve(argv[++i]!);
     else if (a === '--base-dir') baseDir = path.resolve(argv[++i]!);
     else if (a === '--model') models.push(argv[++i]!);
+    else if (a === '--smoke-with-secrets') smokeWithSecrets = true;
     else if (a === '--help' || a === '-h') {
       console.log(`Usage:
   tsx src/index.ts --catalogue dist/ai-models.json --model openai/gpt-4o
+  tsx src/index.ts --catalogue dist/ai-models.json --smoke-with-secrets
   tsx src/index.ts --files-list changed.txt [--base-dir /tmp/base-checkout]
 `);
       process.exit(0);
     }
   }
-  return { catalogue, filesList, baseDir, models };
+  return { catalogue, filesList, baseDir, models, smokeWithSecrets };
 }
 
 function targetsFromModelFlags(flags: string[]): Target[] {
@@ -78,10 +83,14 @@ async function main() {
   }
 
   let targets: Target[] = [];
-  if (args.models.length) targets = targetsFromModelFlags(args.models);
-  else if (args.filesList) targets = targetsFromFilesList(args.filesList, args.baseDir);
-  else {
-    console.error('Pass --model provider/id and/or --files-list');
+  if (args.smokeWithSecrets) {
+    targets = targetsWithSecrets(loadCatalogue(args.catalogue));
+  } else if (args.models.length) {
+    targets = targetsFromModelFlags(args.models);
+  } else if (args.filesList) {
+    targets = targetsFromFilesList(args.filesList, args.baseDir);
+  } else {
+    console.error('Pass --smoke-with-secrets, --model provider/id, and/or --files-list');
     process.exit(2);
   }
 
