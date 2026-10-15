@@ -42,8 +42,11 @@ describe('planScenarios', () => {
       model: 'gpt',
       mode: 'chat',
       features: ['json_output', 'function_calling', 'tool_choice', 'system_messages'],
-      thinking: true,
-      params: [{ key: 'temperature', defaultValue: 0.2 }, { key: 'top_p', defaultValue: 0.9 }],
+      params: [
+        { key: 'temperature', defaultValue: 0.2 },
+        { key: 'top_p', defaultValue: 0.9 },
+        { key: 'reasoning_effort', defaultValue: 'medium' },
+      ],
     }).map((s) => s.id);
     assert.ok(ids.includes('chat/baseline/non-stream'));
     assert.ok(ids.includes('chat/baseline/stream'));
@@ -54,6 +57,38 @@ describe('planScenarios', () => {
     assert.ok(ids.includes('chat/reasoning/stream'));
     assert.ok(ids.includes('chat/params/non-stream'));
     assert.ok(ids.includes('chat/params/stream'));
+  });
+
+  it('caps with max_completion_tokens when max_tokens removed', () => {
+    const body = planScenarios({
+      provider: 'openai',
+      model: 'gpt',
+      mode: 'chat',
+      removeParams: ['max_tokens'],
+    }).find((s) => s.id === 'chat/baseline/non-stream')!.body as Record<string, unknown>;
+    assert.equal(body.max_completion_tokens, 64);
+    assert.equal(body.max_tokens, undefined);
+  });
+
+  it('skips reasoning without catalogue reasoning_effort', () => {
+    const ids = planScenarios({
+      provider: 'anthropic',
+      model: 'claude',
+      mode: 'chat',
+      thinking: true,
+      removeParams: ['reasoning_effort'],
+    }).map((s) => s.id);
+    assert.ok(!ids.some((id) => id.includes('/reasoning/')));
+  });
+
+  it('uses catalogue reasoning_effort default', () => {
+    const body = planScenarios({
+      provider: 'openai',
+      model: 'gpt',
+      mode: 'chat',
+      params: [{ key: 'reasoning_effort', defaultValue: 'medium', supportedValues: ['medium', 'high'] }],
+    }).find((s) => s.id === 'chat/reasoning/non-stream')!.body as Record<string, unknown>;
+    assert.equal(body.reasoning_effort, 'medium');
   });
 
   it('chat: prompt_caching and cache_control dedupe', () => {
@@ -132,6 +167,17 @@ describe('planScenarios', () => {
     assert.ok(ids.includes('responses/json_output/stream'));
     assert.ok(!ids.some((id) => id.includes('system_messages')));
     assert.ok(ids.includes('responses/vision/non-stream'));
+  });
+
+  it('responses features keep chat messages as input', () => {
+    const body = planScenarios({
+      provider: 'openai',
+      model: 'r',
+      mode: 'responses',
+      features: ['json_output'],
+    }).find((s) => s.id === 'responses/json_output/non-stream')!.body as Record<string, unknown>;
+    assert.ok(Array.isArray(body.input));
+    assert.equal(body.response_format && (body.response_format as { type: string }).type, 'json_object');
   });
 });
 

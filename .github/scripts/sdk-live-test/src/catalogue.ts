@@ -4,6 +4,7 @@ import type { ProviderModelConfigs } from '@truefoundry/ai-gateway-sdk';
 export type ModelParam = {
   key: string;
   defaultValue?: unknown;
+  supportedValues?: string[];
 };
 
 export type CatalogueModel = {

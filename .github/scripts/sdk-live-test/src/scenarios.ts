@@ -1,7 +1,7 @@
 /**
  * Build the live request matrix for one catalogue model.
  *
- * Chat example (features: [json_output], thinking: true):
+ * Chat example (features: [json_output], params include reasoning_effort):
  *   chat/baseline/{non-stream,stream}
  *   chat/json_output/{non-stream,stream}
  *   chat/reasoning/{non-stream,stream}
@@ -11,7 +11,7 @@
  * Unsupported modes (realtime, video, …) return id `unsupported/<mode>` → fail in run.ts.
  */
 import type { Endpoint } from '@truefoundry/ai-gateway-sdk';
-import type { CatalogueModel } from './catalogue.js';
+import type { CatalogueModel, ModelParam } from './catalogue.js';
 import { sampleImageDataUrl, samplePdfBase64 } from './fixtures.js';
 
 export type Scenario = {
@@ -116,6 +116,22 @@ function label(kind: string, stream: boolean): string {
   return stream ? `${kind}/stream` : `${kind}/non-stream`;
 }
 
+function findParam(model: CatalogueModel, key: string): ModelParam | undefined {
+  return (
+    model.params?.find((p) => p.key === key) ??
+    model.defaultProviderParams?.params?.find((p) => p.key === key)
+  );
+}
+
+/** Catalogue default or first supported value; undefined → no reasoning scenario. */
+function reasoningEffortValue(model: CatalogueModel): string | undefined {
+  if ((model.removeParams ?? []).includes('reasoning_effort')) return undefined;
+  const param = findParam(model, 'reasoning_effort');
+  if (!param) return undefined;
+  if (param.defaultValue != null) return String(param.defaultValue);
+  return param.supportedValues?.[0];
+}
+
 function mergeParams(model: CatalogueModel): Record<string, unknown> {
   const merged: Record<string, unknown> = {};
   for (const p of model.defaultProviderParams?.params ?? []) {
@@ -133,13 +149,18 @@ function mergeParams(model: CatalogueModel): Record<string, unknown> {
   return merged;
 }
 
-function withCap(body: Record<string, unknown>): Record<string, unknown> {
-  return { max_tokens: 64, ...body };
+/** Cheap output cap; honor removeParams (gpt-4.1* → max_completion_tokens). */
+function withCap(model: CatalogueModel, body: Record<string, unknown>): Record<string, unknown> {
+  const removed = new Set(model.removeParams ?? []);
+  const cap: Record<string, number> = {};
+  if (!removed.has('max_tokens')) cap.max_tokens = 64;
+  else if (!removed.has('max_completion_tokens')) cap.max_completion_tokens = 64;
+  return { ...cap, ...body };
 }
 
-function cacheControlMessages(modelId: string): Record<string, unknown> {
-  return withCap({
-    model: modelId,
+function cacheControlMessages(model: CatalogueModel): Record<string, unknown> {
+  return withCap(model, {
+    model: model.model,
     messages: [
       {
         role: 'system',
@@ -150,21 +171,22 @@ function cacheControlMessages(modelId: string): Record<string, unknown> {
   });
 }
 
-function chatFeatureBody(modelId: string, feature: string): Record<string, unknown> {
+function chatFeatureBody(model: CatalogueModel, feature: string): Record<string, unknown> {
+  const modelId = model.model;
   switch (feature) {
     case 'baseline':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'Reply with the single word: ok' }],
       });
     case 'json_output':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'Return JSON with key answer set to ok' }],
         response_format: { type: 'json_object' },
       });
     case 'structured_output':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'Return answer=ok' }],
         response_format: {
@@ -182,14 +204,14 @@ function chatFeatureBody(modelId: string, feature: string): Record<string, unkno
         },
       });
     case 'function_calling':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'What is the weather in Paris? Use the tool.' }],
         tools: WEATHER_TOOLS,
         tool_choice: 'auto',
       });
     case 'parallel_function_calling':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [
           { role: 'user', content: 'Weather in Paris and London. Call the tool for each.' },
@@ -199,14 +221,14 @@ function chatFeatureBody(modelId: string, feature: string): Record<string, unkno
         parallel_tool_calls: true,
       });
     case 'tool_choice':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'What is the weather in Paris?' }],
         tools: WEATHER_TOOLS,
         tool_choice: { type: 'function', function: { name: 'get_weather' } },
       });
     case 'system_messages':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [
           { role: 'system', content: 'You reply with a single word.' },
@@ -214,7 +236,7 @@ function chatFeatureBody(modelId: string, feature: string): Record<string, unkno
         ],
       });
     case 'assistant_prefill':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [
           { role: 'user', content: 'Complete with the word ok only.' },
@@ -222,7 +244,7 @@ function chatFeatureBody(modelId: string, feature: string): Record<string, unkno
         ],
       });
     case 'mid_conversation_system_messages':
-      return withCap({
+      return withCap(model, {
         model: modelId,
         messages: [
           { role: 'user', content: 'Hi' },
@@ -232,13 +254,16 @@ function chatFeatureBody(modelId: string, feature: string): Record<string, unkno
       });
     case 'prompt_caching':
     case 'cache_control':
-      return cacheControlMessages(modelId);
-    case 'reasoning':
-      return withCap({
+      return cacheControlMessages(model);
+    case 'reasoning': {
+      const effort = reasoningEffortValue(model);
+      if (effort == null) throw new Error(`reasoning scenario without reasoning_effort for ${modelId}`);
+      return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'What is 2+2? Reply with the number only.' }],
-        reasoning_effort: 'low',
+        reasoning_effort: effort,
       });
+    }
     default:
       throw new Error(`unknown chat feature ${feature}`);
   }
@@ -256,9 +281,7 @@ function chatFeatureNames(model: CatalogueModel): string[] {
       seen.add(f);
     }
   }
-  if (model.thinking && !(model.removeParams ?? []).includes('reasoning_effort')) {
-    ids.push('reasoning');
-  }
+  if (reasoningEffortValue(model) != null) ids.push('reasoning');
   return ids;
 }
 
@@ -266,9 +289,9 @@ function inputModalities(model: CatalogueModel): Set<string> {
   return new Set(model.modalities?.input ?? []);
 }
 
-function visionBody(modelId: string): Record<string, unknown> {
-  return withCap({
-    model: modelId,
+function visionBody(model: CatalogueModel): Record<string, unknown> {
+  return withCap(model, {
+    model: model.model,
     messages: [
       {
         role: 'user',
@@ -281,9 +304,9 @@ function visionBody(modelId: string): Record<string, unknown> {
   });
 }
 
-function pdfBody(modelId: string): Record<string, unknown> {
-  return withCap({
-    model: modelId,
+function pdfBody(model: CatalogueModel): Record<string, unknown> {
+  return withCap(model, {
+    model: model.model,
     messages: [
       {
         role: 'user',
@@ -303,9 +326,9 @@ function pdfBody(modelId: string): Record<string, unknown> {
   });
 }
 
-function audioChatBody(modelId: string): Record<string, unknown> {
-  return withCap({
-    model: modelId,
+function audioChatBody(model: CatalogueModel): Record<string, unknown> {
+  return withCap(model, {
+    model: model.model,
     messages: [
       {
         role: 'user',
@@ -334,7 +357,7 @@ function pushModalitySmokes(
       id: `${model.mode}/vision/non-stream`,
       endpoint,
       path,
-      body: toBody(visionBody(model.model)),
+      body: toBody(visionBody(model)),
     });
   }
   if (inputs.has('pdf') || inputs.has('doc')) {
@@ -343,7 +366,7 @@ function pushModalitySmokes(
       id: `${model.mode}/${kind}/non-stream`,
       endpoint,
       path,
-      body: toBody(pdfBody(model.model)),
+      body: toBody(pdfBody(model)),
     });
   }
   if (inputs.has('audio')) {
@@ -351,7 +374,7 @@ function pushModalitySmokes(
       id: `${model.mode}/audio/non-stream`,
       endpoint,
       path,
-      body: toBody(audioChatBody(model.model)),
+      body: toBody(audioChatBody(model)),
     });
   }
 }
@@ -431,7 +454,13 @@ function decisionBody(model: CatalogueModel): Record<string, unknown> {
 }
 
 function responsesModalityBody(chatBody: Record<string, unknown>): Record<string, unknown> {
-  const { messages, max_tokens: _t, model, ...rest } = chatBody;
+  const {
+    messages,
+    max_tokens: _t,
+    max_completion_tokens: _c,
+    model,
+    ...rest
+  } = chatBody;
   return {
     ...rest,
     model,
@@ -448,7 +477,7 @@ export function planScenarios(model: CatalogueModel): Scenario[] {
   switch (mode) {
     case 'chat':
       pushChatLike(out, model, 'chatComplete', '/v1/chat/completions', (feature, stream) => ({
-        ...chatFeatureBody(modelId, feature),
+        ...chatFeatureBody(model, feature),
         ...(stream ? { stream: true } : {}),
       }));
       return out;
@@ -459,7 +488,7 @@ export function planScenarios(model: CatalogueModel): Scenario[] {
           id: label('completion/baseline', stream),
           endpoint: 'complete',
           path: '/v1/completions',
-          body: withCap({
+          body: withCap(model, {
             model: modelId,
             prompt: 'Say ok',
             ...(stream ? { stream: true } : {}),
@@ -474,7 +503,7 @@ export function planScenarios(model: CatalogueModel): Scenario[] {
               id: label('completion/params', stream),
               endpoint: 'complete',
               path: '/v1/completions',
-              body: withCap({
+              body: withCap(model, {
                 model: modelId,
                 prompt: 'Say ok',
                 ...params,
@@ -504,17 +533,12 @@ export function planScenarios(model: CatalogueModel): Scenario[] {
         (f) => f !== 'baseline' && RESPONSES_FEATURE_KEYS.has(f),
       )) {
         for (const stream of streamFlags(mode)) {
-          const chat = chatFeatureBody(modelId, feature);
-          const { messages: _m, max_tokens: _t, ...rest } = chat;
           out.push({
             id: label(`responses/${feature}`, stream),
             endpoint: 'createModelResponse',
             path: '/v1/responses',
             body: {
-              ...rest,
-              model: modelId,
-              input: 'ok',
-              max_output_tokens: 64,
+              ...responsesModalityBody(chatFeatureBody(model, feature)),
               ...(stream ? { stream: true } : {}),
             },
           });
