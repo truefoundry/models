@@ -6,6 +6,14 @@ costs:
       input_cost_per_token_batches: 0.0000011
       output_cost_per_token: 0.000011
       output_cost_per_token_batches: 0.0000055
+      region: eu-west-2
+    - cache_creation_input_token_cost: 0.00000275
+      cache_creation_input_token_cost_per_hour: 0.0000044
+      cache_read_input_token_cost: 2.2e-7
+      input_cost_per_token: 0.0000022
+      input_cost_per_token_batches: 0.0000011
+      output_cost_per_token: 0.000011
+      output_cost_per_token_batches: 0.0000055
       region: ap-southeast-1
     - cache_creation_input_token_cost: 0.00000275
       cache_creation_input_token_cost_per_hour: 0.0000044
@@ -20,9 +28,9 @@ features:
     - parallel_function_calling
     - cache_control
     - system_messages
+    - mid_conversation_system_messages
     - tool_choice
     - prompt_caching
-    - assistant_prefill
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
