@@ -5,7 +5,16 @@ costs:
       region: "*"
 limits:
     context_window: 1048576
-mode: unknown
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: reflection/Beam-1.0-501B-A23B
+sources:
+    - https://www.together.ai/models/reflection-beam
+    - https://together.ai/models
 supportedModes:
     - chat
+thinking: true
