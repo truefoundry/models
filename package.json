@@ -12,6 +12,8 @@
     "sort:yaml": "ts-node --project .github/scripts/tsconfig.json .github/scripts/sort-yaml-keys.ts",
     "lint:yaml:fix": "npm run sort:yaml && prettier --write --log-level silent --tab-width 4 --print-width 256 'providers/**/*.yaml'",
     "update:readme": "ts-node --project .github/scripts/tsconfig.json .github/scripts/update-readme-counts.ts",
+    "test:sdk-live": "npm --prefix .github/scripts/sdk-live-test ci && npm --prefix .github/scripts/sdk-live-test run test:live --",
+    "test:sdk-live-unit": "npm --prefix .github/scripts/sdk-live-test ci && npm --prefix .github/scripts/sdk-live-test run test:unit",
     "prepare": "husky"
   },
   "devDependencies": {
