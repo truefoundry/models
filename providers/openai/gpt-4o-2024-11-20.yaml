@@ -1,14 +1,15 @@
 costs:
-    - cache_read_input_token_cost: 0.00000125
-      input_cost_per_token: 0.0000025
-      input_cost_per_token_batches: 0.00000125
-      output_cost_per_token: 0.00001
-      output_cost_per_token_batches: 0.000005
+    - cache_read_input_token_cost: 1.25e-6
+      input_cost_per_token: 2.5e-6
+      input_cost_per_token_batches: 1.25e-6
+      output_cost_per_token: 1e-5
+      output_cost_per_token_batches: 5e-6
       priority_pricing:
-          cache_read_input_token_cost: 0.000002125
-          input_cost_per_token: 0.00000425
-          output_cost_per_token: 0.000017
+          cache_read_input_token_cost: 2.125e-6
+          input_cost_per_token: 4.25e-6
+          output_cost_per_token: 1.7e-5
       region: "*"
+deprecationDate: "2026-10-14"
 features:
     - function_calling
     - parallel_function_calling
@@ -17,6 +18,7 @@ features:
     - prompt_caching
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -40,9 +42,10 @@ preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-01-14"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses
