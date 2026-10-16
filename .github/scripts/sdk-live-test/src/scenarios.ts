@@ -299,7 +299,7 @@ function pdfBody(model: CatalogueModel): Record<string, unknown> {
           {
             type: 'file',
             file: {
-              file_data: samplePdfBase64(),
+              file_data: `data:application/pdf;base64,${samplePdfBase64()}`,
               filename: 'sample.pdf',
               mime_type: 'application/pdf',
             },
@@ -444,21 +444,113 @@ function decisionBody(model: CatalogueModel): Record<string, unknown> {
   };
 }
 
-/** Chat-shaped body → Responses API (`messages` → `input`). */
-function responsesModalityBody(chatBody: Record<string, unknown>): Record<string, unknown> {
-  const {
-    messages,
-    max_tokens: _t,
-    max_completion_tokens: _c,
-    model,
-    ...rest
-  } = chatBody;
-  return {
-    ...rest,
-    model,
-    input: messages,
-    max_output_tokens: 64,
+/** Chat Completions → Responses: flatten nested `function` tools. */
+function toResponsesTools(tools: unknown): unknown {
+  if (!Array.isArray(tools)) return tools;
+  return tools.map((tool: any) => {
+    const fn = tool?.type === 'function' ? tool.function : undefined;
+    if (!fn) return tool;
+    return {
+      type: 'function',
+      name: fn.name,
+      description: fn.description,
+      parameters: fn.parameters,
+      strict: fn.strict ?? false,
+    };
+  });
+}
+
+/** Chat Completions → Responses: `{ type, function: { name } }` → `{ type, name }`. */
+function toResponsesToolChoice(toolChoice: unknown): unknown {
+  if (toolChoice == null || typeof toolChoice === 'string') return toolChoice;
+  const named = toolChoice as { type?: string; function?: { name?: string } };
+  if (named.type === 'function' && named.function?.name) {
+    return { type: 'function', name: named.function.name };
+  }
+  return toolChoice;
+}
+
+/** Chat Completions → Responses: `response_format` → `text.format`. */
+function toResponsesText(responseFormat: unknown): { format: Record<string, unknown> } | undefined {
+  const rf = responseFormat as {
+    type?: string;
+    json_schema?: { name?: string; schema?: unknown; strict?: boolean };
+  } | null;
+  if (!rf?.type) return undefined;
+  if (rf.type === 'json_schema' && rf.json_schema) {
+    return {
+      format: {
+        type: 'json_schema',
+        name: rf.json_schema.name || 'response',
+        schema: rf.json_schema.schema,
+        strict: rf.json_schema.strict ?? false,
+      },
+    };
+  }
+  return { format: { type: rf.type } };
+}
+
+/** Chat message content parts → Responses `input_*` parts. */
+function toResponsesContentPart(part: any): Record<string, unknown> {
+  switch (part?.type) {
+    case 'text':
+      return { type: 'input_text', text: part.text ?? '' };
+    case 'image_url':
+      return { type: 'input_image', image_url: part.image_url?.url };
+    case 'file':
+      return {
+        type: 'input_file',
+        filename: part.file?.filename,
+        file_data: part.file?.file_data,
+        file_id: part.file?.file_id,
+      };
+    default:
+      return part;
+  }
+}
+
+function toResponsesInput(messages: unknown): unknown {
+  if (!Array.isArray(messages)) return messages;
+  return messages.map((msg: any) => {
+    if (typeof msg.content === 'string') {
+      return { type: 'message', role: msg.role, content: msg.content };
+    }
+    if (Array.isArray(msg.content)) {
+      return {
+        type: 'message',
+        role: msg.role,
+        content: msg.content.map(toResponsesContentPart),
+      };
+    }
+    return msg;
+  });
+}
+
+function setIfDefined(target: Record<string, unknown>, key: string, value: unknown): void {
+  if (value != null) target[key] = value;
+}
+
+/** Chat Completions body → Responses API body. */
+function responsesModalityBody(chat: Record<string, unknown>): Record<string, unknown> {
+  const maxOut = Math.max(Number(chat.max_completion_tokens ?? chat.max_tokens ?? 64), 16);
+  const body: Record<string, unknown> = {
+    model: chat.model,
+    input: toResponsesInput(chat.messages),
+    max_output_tokens: maxOut,
   };
+
+  setIfDefined(body, 'stream', chat.stream);
+  setIfDefined(body, 'parallel_tool_calls', chat.parallel_tool_calls);
+  setIfDefined(body, 'temperature', chat.temperature);
+  setIfDefined(body, 'top_p', chat.top_p);
+  setIfDefined(body, 'user', chat.user);
+
+  if (chat.tools != null) body.tools = toResponsesTools(chat.tools);
+  if (chat.tool_choice != null) body.tool_choice = toResponsesToolChoice(chat.tool_choice);
+  if (chat.response_format != null) setIfDefined(body, 'text', toResponsesText(chat.response_format));
+  if (chat.reasoning_effort != null) body.reasoning = { effort: chat.reasoning_effort };
+
+  return body;
 }
 
 const HARNESSED_MODES = new Set([
@@ -488,6 +580,8 @@ function modesToPlan(model: CatalogueModel): string[] {
 }
 
 function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
+  // Scope mode so scenario ids / stream flags match the planned mode (not primary catalogue mode).
+  model = { ...model, mode };
   const modelId = model.model;
   const out: Scenario[] = [];
 
@@ -573,10 +667,13 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
               endpoint: 'createModelResponse',
               path: '/v1/responses',
               body: {
-                model: modelId,
-                input: 'Reply with the single word: ok',
-                max_output_tokens: 64,
-                ...params,
+                ...responsesModalityBody(
+                  withCap(model, {
+                    model: modelId,
+                    messages: [{ role: 'user', content: 'Reply with the single word: ok' }],
+                    ...params,
+                  }),
+                ),
                 ...(stream ? { stream: true } : {}),
               },
             });

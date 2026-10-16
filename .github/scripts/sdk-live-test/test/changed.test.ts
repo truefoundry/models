@@ -229,15 +229,38 @@ describe('planScenarios', () => {
     assert.ok(ids.includes('responses/vision/non-stream'));
   });
 
-  it('responses features keep chat messages as input', () => {
+  it('responses features map chat tools and response_format', () => {
     const body = planScenarios({
       provider: 'openai',
       model: 'r',
       mode: 'responses',
-      features: ['json_output'],
+      features: ['json_output', 'function_calling'],
     }).find((s) => s.id === 'responses/json_output/non-stream')!.body as Record<string, unknown>;
     assert.ok(Array.isArray(body.input));
-    assert.equal(body.response_format && (body.response_format as { type: string }).type, 'json_object');
+    assert.equal(body.response_format, undefined);
+    assert.equal((body.text as { format: { type: string } }).format.type, 'json_object');
+
+    const toolsBody = planScenarios({
+      provider: 'openai',
+      model: 'r',
+      mode: 'responses',
+      features: ['function_calling'],
+    }).find((s) => s.id === 'responses/function_calling/non-stream')!.body as Record<string, unknown>;
+    const tools = toolsBody.tools as Array<{ type: string; name: string }>;
+    assert.equal(tools[0]?.name, 'get_weather');
+  });
+
+  it('chat+responses supportedModes uses responses/ ids for modality smokes', () => {
+    const ids = planScenarios({
+      provider: 'openai',
+      model: 'gpt',
+      mode: 'chat',
+      supportedModes: ['chat', 'responses'],
+      modalities: { input: ['text', 'image', 'pdf'], output: ['text'] },
+    }).map((s) => s.id);
+    assert.ok(ids.includes('chat/vision/non-stream'));
+    assert.ok(ids.includes('responses/vision/non-stream'));
+    assert.ok(ids.includes('responses/pdf/non-stream'));
   });
 });
 
