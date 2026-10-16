@@ -6,6 +6,9 @@
  *   2. Build fake providerAccount (api-key + base_url) and model FQN
  *   3. sdk.execute → SDK maps OpenAI-shaped body to provider HTTP
  *   4. Pass = response.ok (2xx)
+ *
+ * Vertex (google-vertex): VERTEX_KEY_FILE = SA JSON → auth_data type key-file;
+ * project_id from that JSON; region from provider spec (europe-west4).
  */
 import {
   LlmGatewaySdk,
@@ -20,7 +23,7 @@ import {
   toModelConfigMap,
   type CatalogueModel,
 } from './catalogue.js';
-import { getProviderSpec } from './providers.js';
+import { getProviderSpec, projectIdFromKeyFile, type ProviderSpec } from './providers.js';
 import { planScenarios, type Scenario } from './scenarios.js';
 
 export type Target = { provider: string; modelId: string };
@@ -48,9 +51,19 @@ function memoryCache() {
   };
 }
 
+function authData(spec: ProviderSpec, credential: string) {
+  if (spec.authType === 'key-file') {
+    return { type: 'key-file' as const, key_file_content: credential };
+  }
+  return {
+    type: 'api-key' as const,
+    [spec.authKeyField ?? 'api_key']: credential,
+  };
+}
+
 function buildCall(
   model: CatalogueModel,
-  apiKey: string,
+  credential: string,
   scenario: Scenario,
 ): SdkCallInputs {
   const spec = getProviderSpec(model.provider);
@@ -59,6 +72,13 @@ function buildCall(
   // Synthetic account — same shape the gateway would load from control-plane.
   // Example FQN: sdk-live-openai/gpt-4o-mini
   const accountName = `sdk-live-${model.provider}`;
+  const keyFileExtras =
+    spec.authType === 'key-file'
+      ? {
+          project_id: projectIdFromKeyFile(credential),
+          region: spec.region ?? 'europe-west4',
+        }
+      : {};
   const providerOptions = {
     model: {
       fqn: `${accountName}/${model.model}`,
@@ -79,10 +99,8 @@ function buildCall(
         type: spec.accountType,
         name: accountName,
         ...(spec.baseUrl ? { base_url: spec.baseUrl } : {}),
-        auth_data: {
-          type: 'api-key',
-          [spec.authKeyField ?? 'api_key']: apiKey,
-        },
+        ...keyFileExtras,
+        auth_data: authData(spec, credential),
         integrations: [],
       },
     },
@@ -139,8 +157,8 @@ export async function runTargets(
       });
       continue;
     }
-    const apiKey = process.env[spec.apiKeyEnv];
-    if (!apiKey) {
+    const credential = process.env[spec.apiKeyEnv];
+    if (!credential) {
       pushResult(results, {
         provider: t.provider,
         modelId: t.modelId,
@@ -179,7 +197,7 @@ export async function runTargets(
         continue;
       }
       try {
-        const call = buildCall(model, apiKey, scenario);
+        const call = buildCall(model, credential, scenario);
         const { response, executionReport } = await sdk.execute(call);
         const text = await response.text();
         await executionReport;

@@ -8,7 +8,9 @@
  *   chat/params/{…} when catalogue params have defaults
  *   chat/vision|pdf|audio/non-stream when modalities.input declares them
  *
- * Unsupported modes (realtime, video, …) return id `unsupported/<mode>` → fail in run.ts.
+ * Plans every harnessed mode in `mode` ∪ `supportedModes` (e.g. chat+responses).
+ * Unharnessed extras (realtime, video, ocr, …) are skipped when another mode runs;
+ * if none are harnessed, returns id `unsupported/<mode>` → fail in run.ts.
  */
 import type { Endpoint } from '@truefoundry/ai-gateway-sdk';
 import type { CatalogueModel, ModelParam } from './catalogue.js';
@@ -459,9 +461,34 @@ function responsesModalityBody(chatBody: Record<string, unknown>): Record<string
   };
 }
 
-export function planScenarios(model: CatalogueModel): Scenario[] {
+const HARNESSED_MODES = new Set([
+  'chat',
+  'completion',
+  'responses',
+  'embedding',
+  'rerank',
+  'text_to_speech',
+  'audio_transcription',
+  'audio_translation',
+  'image',
+  'moderation',
+  'decision',
+]);
+
+/** Primary `mode` first, then any extra `supportedModes` (deduped). */
+function modesToPlan(model: CatalogueModel): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const mode of [model.mode, ...(model.supportedModes ?? [])]) {
+    if (!mode || seen.has(mode)) continue;
+    seen.add(mode);
+    out.push(mode);
+  }
+  return out;
+}
+
+function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
   const modelId = model.model;
-  const mode = model.mode;
   const out: Scenario[] = [];
 
   switch (mode) {
@@ -662,12 +689,23 @@ export function planScenarios(model: CatalogueModel): Scenario[] {
       return out;
 
     default:
-      out.push({
-        id: `unsupported/${mode}`,
-        endpoint: 'chatComplete',
-        path: '/v1/chat/completions',
-        body: { model: modelId },
-      });
-      return out;
+      return [];
   }
+}
+
+export function planScenarios(model: CatalogueModel): Scenario[] {
+  const out: Scenario[] = [];
+  for (const mode of modesToPlan(model)) {
+    if (!HARNESSED_MODES.has(mode)) continue;
+    out.push(...planOneMode(model, mode));
+  }
+  if (out.length > 0) return out;
+  return [
+    {
+      id: `unsupported/${model.mode}`,
+      endpoint: 'chatComplete',
+      path: '/v1/chat/completions',
+      body: { model: model.model },
+    },
+  ];
 }

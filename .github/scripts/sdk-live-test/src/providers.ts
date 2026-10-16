@@ -1,8 +1,8 @@
 /**
- * API-key providers this harness can call live.
+ * Providers this harness can call live.
  * Directory name under providers/ must match the key (e.g. providers/together-ai/).
  *
- * Unlisted providers (Bedrock, Azure, Vertex, audio-only, …) fail the PR check
+ * Unlisted providers (Bedrock, Azure, audio-only, …) fail the PR check
  * when a changed model targets them — add a row + GitHub secret to opt in.
  */
 export type ProviderSpec = {
@@ -10,11 +10,15 @@ export type ProviderSpec = {
   sdkProvider: string;
   modelIntegrationType: string;
   accountType: string;
-  /** Env var holding the API key GitHub secret. */
+  /** Env var holding the credential GitHub secret (API key or Vertex SA JSON). */
   apiKeyEnv: string;
   baseUrl?: string;
   /** auth_data field name; default api_key (Gemini uses apiKey). */
   authKeyField?: 'api_key' | 'apiKey';
+  /** Default api-key. Vertex uses key-file (SA JSON in apiKeyEnv). */
+  authType?: 'api-key' | 'key-file';
+  /** Account region for key-file providers (matches gateway test-job default). */
+  region?: string;
 };
 
 const SPECS: Record<string, ProviderSpec> = {
@@ -106,7 +110,33 @@ const SPECS: Record<string, ProviderSpec> = {
     apiKeyEnv: 'GOOGLE_GEMINI_API_KEY',
     authKeyField: 'apiKey',
   },
+  'google-vertex': {
+    sdkProvider: 'google-vertex',
+    modelIntegrationType: 'integration/model/vertex',
+    accountType: 'provider-account/google-vertex',
+    apiKeyEnv: 'VERTEX_KEY_FILE',
+    authType: 'key-file',
+    region: 'europe-west4',
+  },
 };
+
+/** project_id from a Google service-account JSON string (Vertex key-file secret). */
+export function projectIdFromKeyFile(raw: string): string {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error('key-file credential is not valid JSON');
+  }
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error('key-file credential must be a JSON object');
+  }
+  const projectId = (parsed as { project_id?: unknown }).project_id;
+  if (typeof projectId !== 'string' || !projectId) {
+    throw new Error('key-file credential JSON missing project_id');
+  }
+  return projectId;
+}
 
 export function getProviderSpec(providerDir: string): ProviderSpec | undefined {
   return SPECS[providerDir];

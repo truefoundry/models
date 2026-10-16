@@ -1,7 +1,7 @@
 /**
- * Secrets smoke: one chat model per registered provider that has its API key env set.
+ * Secrets smoke: one chat model per registered provider that has its credential env set.
  *
- * `spec.apiKeyEnv` is the env *name* (e.g. "OPENAI_API_KEY").
+ * `spec.apiKeyEnv` is the env *name* (e.g. "OPENAI_API_KEY" or "VERTEX_KEY_FILE").
  * `process.env[spec.apiKeyEnv]` is the secret *value* (never logged).
  *
  * Example: OPENAI_API_KEY set → first openai chat row in the catalogue

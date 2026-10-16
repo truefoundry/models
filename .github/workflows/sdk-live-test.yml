@@ -7,7 +7,7 @@ on:
       models:
         description: >-
           Optional space-separated provider/modelId overrides. Leave empty to smoke
-          one cheap model per registered provider that has its API key secret set.
+          one cheap model per registered provider that has its credential secret set.
         required: false
         default: ''
   pull_request:
@@ -46,6 +46,7 @@ jobs:
       AI21_API_KEY: ${{ secrets.AI21_API_KEY }}
       COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
       GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
+      VERTEX_KEY_FILE: ${{ secrets.VERTEX_KEY_FILE }}
       SDK_LIVE_SUMMARY_PATH: ${{ github.workspace }}/sdk-live-summary.md
 
     steps:

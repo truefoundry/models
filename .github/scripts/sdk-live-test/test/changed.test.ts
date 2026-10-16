@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, it } from 'node:test';
 import { modelIdFromYamlFile, parseProviderPath } from '../src/changed.js';
+import { getProviderSpec, projectIdFromKeyFile } from '../src/providers.js';
 import { planScenarios } from '../src/scenarios.js';
 import { targetsWithSecrets } from '../src/smoke.js';
 
@@ -170,6 +171,28 @@ describe('planScenarios', () => {
     );
   });
 
+  it('plans every harnessed supportedModes entry', () => {
+    const ids = planScenarios({
+      provider: 'openai',
+      model: 'gpt',
+      mode: 'chat',
+      supportedModes: ['chat', 'responses'],
+    }).map((s) => s.id);
+    assert.ok(ids.includes('chat/baseline/non-stream'));
+    assert.ok(ids.includes('responses/baseline/non-stream'));
+  });
+
+  it('skips unharnessed supportedModes when another mode is covered', () => {
+    const ids = planScenarios({
+      provider: 'openai',
+      model: 'gpt',
+      mode: 'chat',
+      supportedModes: ['chat', 'unsupported', 'realtime'],
+    }).map((s) => s.id);
+    assert.ok(ids.includes('chat/baseline/non-stream'));
+    assert.ok(!ids.some((id) => id.startsWith('unsupported/')));
+  });
+
   it('unsupported mode fails marker', () => {
     for (const mode of ['realtime', 'video', 'ocr', 'unknown']) {
       assert.deepEqual(
@@ -215,6 +238,23 @@ describe('planScenarios', () => {
     }).find((s) => s.id === 'responses/json_output/non-stream')!.body as Record<string, unknown>;
     assert.ok(Array.isArray(body.input));
     assert.equal(body.response_format && (body.response_format as { type: string }).type, 'json_object');
+  });
+});
+
+describe('google-vertex key-file', () => {
+  it('is registered as key-file auth', () => {
+    const spec = getProviderSpec('google-vertex');
+    assert.ok(spec);
+    assert.equal(spec.authType, 'key-file');
+    assert.equal(spec.apiKeyEnv, 'VERTEX_KEY_FILE');
+    assert.equal(spec.accountType, 'provider-account/google-vertex');
+  });
+
+  it('reads project_id from SA JSON', () => {
+    assert.equal(
+      projectIdFromKeyFile(JSON.stringify({ type: 'service_account', project_id: 'truefoundry-devtest' })),
+      'truefoundry-devtest',
+    );
   });
 });
 
