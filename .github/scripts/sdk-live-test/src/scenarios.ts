@@ -26,7 +26,43 @@ export type Scenario = {
   endpoint: Endpoint;
   path: string;
   body: Record<string, unknown> | FormData;
+  /** Chat feature this scenario exercises (FEATURE_KEYS), when there is one. */
+  feature?: string;
+  stream?: boolean;
+  /** Request param this scenario probes (absent-param probes only). */
+  param?: string;
+  /** `absent`: the catalogue does NOT declare `feature` / `param`; see expectations.ts. */
+  expect?: 'absent';
 };
+
+/**
+ * Params worth probing when the catalogue says the model does not take them: undeclared
+ * `reasoning_effort`, and anything listed in `removeParams`.
+ *
+ * Not here: `max_tokens` / `max_completion_tokens`. The SDK always rewrites one into the other
+ * from the catalogue (`normalizeMaxTokensParam`), so a probe through it never reaches the
+ * provider as sent; a wrong choice already shows up as a failed baseline call.
+ */
+const PARAM_PROBE_VALUES: Record<string, unknown> = {
+  reasoning_effort: 'low',
+  temperature: 0.5,
+  top_p: 0.9,
+  top_k: 40,
+  seed: 1,
+  stop: ['\n\n'],
+};
+
+/**
+ * Mirror of the SDK's `isBaseGpt5ReasoningModel` + `GPT5_UNSUPPORTED_SAMPLING_PARAMS`
+ * (dist/globals.js, not exported): the SDK drops these params for that family, so probing
+ * them would report "accepted" for a param that never left the gateway.
+ */
+const GPT5_SDK_DROPPED = new Set(['temperature', 'top_p', 'presence_penalty', 'stop']);
+function sdkDropsParam(model: CatalogueModel, param: string): boolean {
+  const id = model.model;
+  const baseGpt5 = id.includes('gpt-5') && !/gpt-5\.\d/.test(id) && !id.includes('gpt-5-chat');
+  return baseGpt5 && GPT5_SDK_DROPPED.has(param);
+}
 
 const FEATURE_KEYS = [
   'structured_output',
@@ -39,6 +75,9 @@ const FEATURE_KEYS = [
   'mid_conversation_system_messages',
   'prompt_caching',
 ] as const;
+
+/** A 2xx on these says nothing about support (caching is silent), so they are never probed as absent. */
+const NO_ABSENT_PROBE = new Set(['prompt_caching']);
 
 /** Responses API has no `messages`; only these chat features map cleanly onto `input`. */
 const RESPONSES_FEATURE_KEYS = new Set([
@@ -80,7 +119,26 @@ const WEATHER_TOOLS = [
   },
 ];
 
+/** Second tool the prompt never asks for: forcing it is the only way to see tool_choice honored. */
+const TIME_TOOL = {
+  type: 'function',
+  function: {
+    name: 'get_time',
+    description: 'Get local time for a city',
+    parameters: {
+      type: 'object',
+      properties: { city: { type: 'string' } },
+      required: ['city'],
+    },
+  },
+};
+
 const CACHE_PAD = 'Cache pad. '.repeat(200);
+
+/** Feature probes need room for the evidence; reasoning models spend the cap on thinking first. */
+function featureCap(model: CatalogueModel): number {
+  return model.thinking ? 1024 : 256;
+}
 
 function streamFlags(mode: string): boolean[] {
   return STREAMING_MODES.has(mode) ? [false, true] : [false];
@@ -134,11 +192,15 @@ function mergeParams(model: CatalogueModel): Record<string, unknown> {
 }
 
 /** Cheap output cap; honor removeParams (gpt-4.1* → max_completion_tokens). */
-function withCap(model: CatalogueModel, body: Record<string, unknown>): Record<string, unknown> {
+function withCap(
+  model: CatalogueModel,
+  body: Record<string, unknown>,
+  tokens = 64,
+): Record<string, unknown> {
   const removed = new Set(model.removeParams ?? []);
   const cap: Record<string, number> = {};
-  if (!removed.has('max_tokens')) cap.max_tokens = 64;
-  else if (!removed.has('max_completion_tokens')) cap.max_completion_tokens = 64;
+  if (!removed.has('max_tokens')) cap.max_tokens = tokens;
+  else if (!removed.has('max_completion_tokens')) cap.max_completion_tokens = tokens;
   return { ...cap, ...body };
 }
 
@@ -155,8 +217,13 @@ function cacheControlMessages(model: CatalogueModel): Record<string, unknown> {
   });
 }
 
-function chatFeatureBody(model: CatalogueModel, feature: string): Record<string, unknown> {
+function chatFeatureBody(
+  model: CatalogueModel,
+  feature: string,
+  absent = false,
+): Record<string, unknown> {
   const modelId = model.model;
+  const cap = featureCap(model);
   switch (feature) {
     case 'baseline':
       return withCap(model, {
@@ -164,11 +231,21 @@ function chatFeatureBody(model: CatalogueModel, feature: string): Record<string,
         messages: [{ role: 'user', content: 'Reply with the single word: ok' }],
       });
     case 'json_output':
-      return withCap(model, {
-        model: modelId,
-        messages: [{ role: 'user', content: 'Return JSON with key answer set to ok' }],
-        response_format: { type: 'json_object' },
-      });
+      return withCap(
+        model,
+        {
+          model: modelId,
+          // Absent probe must not ask for JSON in words, or any model "passes" without response_format.
+          messages: [
+            {
+              role: 'user',
+              content: absent ? 'Name the capital of France.' : 'Return JSON with key answer set to ok',
+            },
+          ],
+          response_format: { type: 'json_object' },
+        },
+        cap,
+      );
     case 'structured_output':
       return withCap(model, {
         model: modelId,
@@ -186,14 +263,14 @@ function chatFeatureBody(model: CatalogueModel, feature: string): Record<string,
             },
           },
         },
-      });
+      }, cap);
     case 'function_calling':
       return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'What is the weather in Paris? Use the tool.' }],
         tools: WEATHER_TOOLS,
         tool_choice: 'auto',
-      });
+      }, cap);
     case 'parallel_function_calling':
       return withCap(model, {
         model: modelId,
@@ -203,14 +280,15 @@ function chatFeatureBody(model: CatalogueModel, feature: string): Record<string,
         tools: WEATHER_TOOLS,
         tool_choice: 'auto',
         parallel_tool_calls: true,
-      });
+      }, cap);
     case 'tool_choice':
+      // Forces get_time on a weather question: a model that ignores tool_choice calls get_weather.
       return withCap(model, {
         model: modelId,
         messages: [{ role: 'user', content: 'What is the weather in Paris?' }],
-        tools: WEATHER_TOOLS,
-        tool_choice: { type: 'function', function: { name: 'get_weather' } },
-      });
+        tools: [...WEATHER_TOOLS, TIME_TOOL],
+        tool_choice: { type: 'function', function: { name: 'get_time' } },
+      }, cap);
     case 'system_messages':
       return withCap(model, {
         model: modelId,
@@ -267,6 +345,35 @@ function chatFeatureNames(model: CatalogueModel): string[] {
     ids.push(`reasoning:${effort}`);
   }
   return ids;
+}
+
+/** Chat features the catalogue does not declare; each gets one non-stream probe. */
+function absentFeatureNames(model: CatalogueModel): string[] {
+  const declared = new Set(
+    (model.features ?? []).map((f) => (f === 'cache_control' ? 'prompt_caching' : f)),
+  );
+  return FEATURE_KEYS.filter((f) => !declared.has(f) && !NO_ABSENT_PROBE.has(f));
+}
+
+/** Params the catalogue says the model does not take; each gets one non-stream probe. */
+export function absentParamNames(model: CatalogueModel): string[] {
+  const removed = new Set(model.removeParams ?? []);
+  const out = [...removed].filter((k) => k in PARAM_PROBE_VALUES);
+  if (!removed.has('reasoning_effort') && !findParam(model, 'reasoning_effort')) out.push('reasoning_effort');
+  return out.filter((k) => !sdkDropsParam(model, k));
+}
+
+function paramProbeBody(model: CatalogueModel, param: string): Record<string, unknown> {
+  const body = withCap(
+    model,
+    {
+      model: model.model,
+      messages: [{ role: 'user', content: 'What is 17 * 23? Reply with the number only.' }],
+    },
+    // Must exceed the provider's thinking budget, as the declared reasoning probe does.
+    param === 'reasoning_effort' ? 4096 : 64,
+  );
+  return { ...body, [param]: PARAM_PROBE_VALUES[param] };
 }
 
 function inputModalities(model: CatalogueModel): Set<string> {
@@ -368,7 +475,7 @@ function pushChatLike(
   model: CatalogueModel,
   endpoint: Endpoint,
   path: string,
-  buildBody: (feature: string, stream: boolean) => Record<string, unknown>,
+  buildBody: (feature: string, stream: boolean, absent?: boolean) => Record<string, unknown>,
 ): void {
   for (const feature of chatFeatureNames(model)) {
     const effort = parseReasoningFeature(feature);
@@ -382,6 +489,34 @@ function pushChatLike(
         endpoint,
         path,
         body: buildBody(feature, stream),
+        ...(effort == null && feature !== 'baseline' ? { feature } : {}),
+        stream,
+      });
+    }
+  }
+
+  for (const feature of absentFeatureNames(model)) {
+    out.push({
+      id: label(`${model.mode}/absent/${feature}`, false),
+      endpoint,
+      path,
+      body: buildBody(feature, false, true),
+      feature,
+      stream: false,
+      expect: 'absent',
+    });
+  }
+
+  if (model.mode === 'chat') {
+    for (const param of absentParamNames(model)) {
+      out.push({
+        id: label(`${model.mode}/absent-param/${param}`, false),
+        endpoint,
+        path,
+        body: paramProbeBody(model, param),
+        param,
+        stream: false,
+        expect: 'absent',
       });
     }
   }
@@ -587,8 +722,8 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
 
   switch (mode) {
     case 'chat':
-      pushChatLike(out, model, 'chatComplete', '/v1/chat/completions', (feature, stream) => ({
-        ...chatFeatureBody(model, feature),
+      pushChatLike(out, model, 'chatComplete', '/v1/chat/completions', (feature, stream, absent) => ({
+        ...chatFeatureBody(model, feature, absent),
         ...(stream ? { stream: true } : {}),
       }));
       return out;
