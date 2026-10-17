@@ -5,6 +5,9 @@ modalities:
         - text
 mode: audio_transcription
 model: elevenlabs/elevenlabs-scribe-v2-turbo
-provisioning: serverless
+provisioning: provisioned
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/elevenlabs/model-garden/elevenlabs-scribe-v2-turbo
+status: active
 supportedModes:
     - audio_transcription
