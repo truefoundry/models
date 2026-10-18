@@ -9,7 +9,7 @@ costs:
       output_cost_per_image: 0.055 # per megapixel of generated image
       region: datazone_eu
 limits:
-    max_input_tokens: 32000
+    max_input_tokens: 32768
 modalities:
     input:
         - text
@@ -33,6 +33,7 @@ removeParams:
 sources:
     - https://ai.azure.com/catalog/models/FLUX.2-flex
     - https://prices.azure.com/api/retail/prices
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/black-forest-labs/
 status: active
 supportedModes:
     - image

@@ -3,13 +3,14 @@ costs:
       output_cost_per_token: 0.00000348
       region: global
 features:
+    - function_calling
     - system_messages
     - json_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 128000
-    max_tokens: 128000
+    max_output_tokens: 384000
+    max_tokens: 384000
 modalities:
     input:
         - text
@@ -24,6 +25,7 @@ removeParams:
 retirementDate: "2028-02-20"
 sources:
     - https://ai.azure.com/catalog/models/DeepSeek-V4-Pro
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
 status: active
 supportedModes:
     - chat

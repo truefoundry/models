@@ -1,7 +1,9 @@
 costs:
     - cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 5.5e-6
+      input_cost_per_token_batches: 2.75e-6
       output_cost_per_token: 3.3e-5
+      output_cost_per_token_batches: 1.65e-5
       region: datazone_us
       tiered_pricing:
           cache_read:
@@ -16,7 +18,9 @@ costs:
           pricing_mode: cumulative
     - cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 5.5e-6
+      input_cost_per_token_batches: 2.75e-6
       output_cost_per_token: 3.3e-5
+      output_cost_per_token_batches: 1.65e-5
       region: datazone_eu
       tiered_pricing:
           cache_read:
@@ -31,7 +35,9 @@ costs:
           pricing_mode: cumulative
     - cache_read_input_token_cost: 5e-7
       input_cost_per_token: 5e-6
+      input_cost_per_token_batches: 2.5e-6
       output_cost_per_token: 3e-5
+      output_cost_per_token_batches: 1.5e-5
       region: "*"
       tiered_pricing:
           cache_read:
