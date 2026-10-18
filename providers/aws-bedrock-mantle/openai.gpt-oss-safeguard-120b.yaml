@@ -33,9 +33,11 @@ costs:
     - input_cost_per_token: 1.545e-7
       output_cost_per_token: 6.18e-7
       region: ap-southeast-2
+    - region: ap-southeast-1 # pricing not published on AWS Bedrock pricing page
     - input_cost_per_token: 1.8e-7
       output_cost_per_token: 7.1e-7
       region: ap-south-1
+    - region: ap-northeast-2 # pricing not published on AWS Bedrock pricing page
     - input_cost_per_token: 1.8e-7
       output_cost_per_token: 7.1e-7
       region: ap-northeast-1
@@ -70,4 +72,5 @@ sources:
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true
