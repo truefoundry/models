@@ -1,46 +1,46 @@
 costs:
-    - cache_creation_input_token_cost: 0.000004125
-      cache_creation_input_token_cost_per_hour: 0.0000066
+    - cache_creation_input_token_cost: 4.125e-6
+      cache_creation_input_token_cost_per_hour: 6.6e-6
       cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
+      input_cost_per_token: 3.3e-6
+      input_cost_per_token_batches: 1.65e-6
+      output_cost_per_token: 1.65e-5
+      output_cost_per_token_batches: 8.25e-6
       region: ap-northeast-3
       tiered_pricing:
           cache_read:
               - cost_per_token: 6.6e-7
                 from: 200000
           cache_write:
-              - cost_per_token: 0.00000825
+              - cost_per_token: 8.25e-6
                 from: 200000
           input:
-              - cost_per_token: 0.0000066
+              - cost_per_token: 6.6e-6
                 from: 200000
           output:
-              - cost_per_token: 0.00002475
+              - cost_per_token: 2.475e-5
                 from: 200000
           pricing_mode: marginal
-    - cache_creation_input_token_cost: 0.000004125
-      cache_creation_input_token_cost_per_hour: 0.0000066
+    - cache_creation_input_token_cost: 4.125e-6
+      cache_creation_input_token_cost_per_hour: 6.6e-6
       cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
+      input_cost_per_token: 3.3e-6
+      input_cost_per_token_batches: 1.65e-6
+      output_cost_per_token: 1.65e-5
+      output_cost_per_token_batches: 8.25e-6
       region: ap-northeast-1
       tiered_pricing:
           cache_read:
               - cost_per_token: 6.6e-7
                 from: 200000
           cache_write:
-              - cost_per_token: 0.00000825
+              - cost_per_token: 8.25e-6
                 from: 200000
           input:
-              - cost_per_token: 0.0000066
+              - cost_per_token: 6.6e-6
                 from: 200000
           output:
-              - cost_per_token: 0.00002475
+              - cost_per_token: 2.475e-5
                 from: 200000
           pricing_mode: marginal
 features:
@@ -50,6 +50,7 @@ features:
     - tool_choice
     - assistant_prefill
     - structured_output
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -73,6 +74,7 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-04-08"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-4-5.html

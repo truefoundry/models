@@ -59,9 +59,15 @@ model: nvidia.nemotron-nano-3-30b
 params:
     - key: max_tokens
       maxValue: 8192
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
-removeParams:
-    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-nano-3-30b.html
 status: active

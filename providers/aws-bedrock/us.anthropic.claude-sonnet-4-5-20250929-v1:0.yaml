@@ -1,44 +1,45 @@
 costs:
-    - cache_creation_input_token_cost: 0.000004125
-      cache_creation_input_token_cost_per_hour: 0.0000066
+    - cache_creation_input_token_cost: 4.125e-6
+      cache_creation_input_token_cost_per_hour: 6.6e-6
       cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
+      input_cost_per_token: 3.3e-6
+      input_cost_per_token_batches: 1.65e-6
+      output_cost_per_token: 1.65e-5
+      output_cost_per_token_batches: 8.25e-6
       region: us-west-2
-    - cache_creation_input_token_cost: 0.000004125
-      cache_creation_input_token_cost_per_hour: 0.0000066
+    - cache_creation_input_token_cost: 4.125e-6
+      cache_creation_input_token_cost_per_hour: 6.6e-6
       cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
+      input_cost_per_token: 3.3e-6
+      input_cost_per_token_batches: 1.65e-6
+      output_cost_per_token: 1.65e-5
+      output_cost_per_token_batches: 8.25e-6
       region: us-west-1
-    - cache_creation_input_token_cost: 0.000004125
-      cache_creation_input_token_cost_per_hour: 0.0000066
+    - cache_creation_input_token_cost: 4.125e-6
+      cache_creation_input_token_cost_per_hour: 6.6e-6
       cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
+      input_cost_per_token: 3.3e-6
+      input_cost_per_token_batches: 1.65e-6
+      output_cost_per_token: 1.65e-5
+      output_cost_per_token_batches: 8.25e-6
       region: us-east-2
-    - cache_creation_input_token_cost: 0.000004125
-      cache_creation_input_token_cost_per_hour: 0.0000066
+    - cache_creation_input_token_cost: 4.125e-6
+      cache_creation_input_token_cost_per_hour: 6.6e-6
       cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
+      input_cost_per_token: 3.3e-6
+      input_cost_per_token_batches: 1.65e-6
+      output_cost_per_token: 1.65e-5
+      output_cost_per_token_batches: 8.25e-6
       region: us-east-1
-    - cache_creation_input_token_cost: 0.000004125
-      cache_creation_input_token_cost_per_hour: 0.0000066
+    - cache_creation_input_token_cost: 4.125e-6
+      cache_creation_input_token_cost_per_hour: 6.6e-6
       cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 0.0000033
-      input_cost_per_token_batches: 0.00000165
-      output_cost_per_token: 0.0000165
-      output_cost_per_token_batches: 0.00000825
+      input_cost_per_token: 3.3e-6
+      input_cost_per_token_batches: 1.65e-6
+      output_cost_per_token: 1.65e-5
+      output_cost_per_token_batches: 8.25e-6
       region: ca-central-1
+deprecationDate: "2026-10-08"
 features:
     - assistant_prefill
     - cache_control
@@ -47,6 +48,7 @@ features:
     - structured_output
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 200000
     max_input_tokens: 200000
@@ -75,12 +77,13 @@ provisioning: serverless
 removeParams:
     - top_p
     - reasoning_effort
+retirementDate: "2027-04-08"
 sources:
     - https://platform.claude.com/docs/en/docs/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-4-5.html
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

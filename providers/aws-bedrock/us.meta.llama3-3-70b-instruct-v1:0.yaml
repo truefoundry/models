@@ -17,6 +17,7 @@ costs:
 features:
     - function_calling
     - system_messages
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -37,6 +38,7 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-3-70b-instruct.html
 status: active

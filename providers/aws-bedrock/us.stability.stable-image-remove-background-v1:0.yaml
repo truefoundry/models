@@ -11,6 +11,7 @@ messages:
 modalities:
     input:
         - image
+        - text
     output:
         - image
 mode: image
@@ -24,8 +25,6 @@ removeParams:
     - stop
     - stream
     - reasoning_effort
-sources:
-    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-stability-ai-stable-image-remove-background.html
 status: active
 supportedModes:
     - image
