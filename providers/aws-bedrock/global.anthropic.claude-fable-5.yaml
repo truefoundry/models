@@ -272,6 +272,7 @@ features:
     - cache_control
     - assistant_prefill
     - mid_conversation_system_messages
+    - structured_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -311,11 +312,13 @@ params:
 provisioning: serverless
 removeParams:
     - temperature
+retirementDate: "2027-06-09"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
     - https://platform.claude.com/docs/en/about-claude/models/overview
     - https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/about-claude/model-deprecations
     - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:

@@ -274,8 +274,8 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 64000
-    max_tokens: 64000
+    max_output_tokens: 128000
+    max_tokens: 128000
     tool_use_system_prompt_tokens: 497
 modalities:
     input:
@@ -289,7 +289,7 @@ model: global.anthropic.claude-sonnet-4-6
 params:
     - defaultValue: 8192
       key: max_tokens
-      maxValue: 64000
+      maxValue: 128000
       minValue: 1
     - defaultValue: high
       key: reasoning_effort
@@ -301,9 +301,10 @@ params:
           - max
       type: string
 provisioning: serverless
+retirementDate: "2027-02-17"
 sources:
-    - https://platform.claude.com/docs/en/docs/about-claude/models
-    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/models/sonnet-4-6/overview
+    - https://platform.claude.com/docs/en/about-claude/model-deprecations
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-4-6.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
 status: active

@@ -91,6 +91,13 @@ params:
       minValue: 1
     - key: thinking
       type: json
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - "n"
@@ -100,6 +107,8 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+    - https://platform.claude.com/docs/en/models/opus-4-7/overview
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-adaptive-thinking.html
 status: active
 supportedModes:
     - chat

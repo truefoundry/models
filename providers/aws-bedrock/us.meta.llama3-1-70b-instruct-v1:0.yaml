@@ -14,9 +14,11 @@ costs:
       output_cost_per_token: 7.2e-7
       output_cost_per_token_batches: 3.6e-7
       region: us-east-1
+deprecationDate: "2026-09-30"
 features:
     - function_calling
     - system_messages
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -37,11 +39,12 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-1-70b-instruct.html
-status: active
+status: deprecated
 supportedModes:
     - chat
