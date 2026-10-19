@@ -78,9 +78,17 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-5-flash
     - https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash
     - https://ai.google.dev/gemini-api/docs/pricing
