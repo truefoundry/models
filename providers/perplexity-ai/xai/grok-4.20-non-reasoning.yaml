@@ -4,12 +4,22 @@ costs:
       output_cost_per_token: 0.0000025
       region: "*"
       tiered_pricing:
+          cache_read:
+              - cost_per_token: 4e-7
+                from: 200000
           input:
               - cost_per_token: 0.0000025
                 from: 200000
           output:
               - cost_per_token: 0.000005
                 from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -20,6 +30,9 @@ model: xai/grok-4.20-non-reasoning
 provisioning: serverless
 removeParams:
     - reasoning_effort
+sources:
+    - https://docs.x.ai/developers/models/grok-4.20-non-reasoning
+    - https://docs.x.ai/developers/models
 status: active
 supportedModes:
     - chat

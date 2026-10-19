@@ -15,6 +15,10 @@ costs:
                 from: 200000
 features:
     - prompt_caching
+    - function_calling
+    - structured_output
+limits:
+    context_window: 500000
 modalities:
     input:
         - text
@@ -23,6 +27,9 @@ modalities:
 mode: chat
 model: xai/grok-4.7
 provisioning: serverless
+sources:
+    - https://docs.x.ai/developers/models
 status: active
 supportedModes:
     - chat
+thinking: true

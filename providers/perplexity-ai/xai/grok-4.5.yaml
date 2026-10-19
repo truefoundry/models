@@ -17,6 +17,8 @@ features:
     - function_calling
     - tool_choice
     - system_messages
+limits:
+    context_window: 500000
 modalities:
     input:
         - text
@@ -27,6 +29,7 @@ model: xai/grok-4.5
 provisioning: serverless
 sources:
     - https://docs.perplexity.ai/docs/agent-api
+    - https://docs.x.ai/developers/models
 status: active
 supportedModes:
     - responses
