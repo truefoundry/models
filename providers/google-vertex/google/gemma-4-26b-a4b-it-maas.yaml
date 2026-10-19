@@ -2,6 +2,10 @@ costs:
     - cache_read_input_token_cost: 1.5e-8
       input_cost_per_token: 1.5e-7
       output_cost_per_token: 6e-7
+      region: us
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6e-7
       region: global
 features:
     - function_calling
@@ -17,7 +21,6 @@ modalities:
     input:
         - text
         - image
-        - pdf
     output:
         - text
 mode: chat
@@ -32,4 +35,3 @@ sources:
 status: preview
 supportedModes:
     - chat
-thinking: true

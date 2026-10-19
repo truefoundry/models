@@ -226,8 +226,8 @@ features:
 limits:
     context_window: 1048576
     max_input_tokens: 1048576
-    max_output_tokens: 65535
-    max_tokens: 65535
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -241,7 +241,7 @@ mode: chat
 model: gemini-2.5-flash
 params:
     - key: max_tokens
-      maxValue: 65535
+      maxValue: 65536
     - defaultValue: 1
       key: temperature
     - defaultValue: 0.95
@@ -252,9 +252,10 @@ params:
     - defaultValue: null
       key: thinking
 provisioning: serverless
-retirementDate: "2026-10-16"
+retirementDate: "2026-10-20"
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
+    - https://ai.google.dev/gemini-api/docs/pricing
 status: active
 supportedModes:
     - chat

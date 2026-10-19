@@ -3,6 +3,7 @@ features:
     - tool_choice
     - system_messages
     - structured_output
+    - prompt_caching
 limits:
     context_window: 1000000
 modalities:
@@ -15,6 +16,7 @@ model: nvidia/nemotron-3.5-lightning
 provisioning: provisioned
 sources:
     - https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+    - https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/
 status: preview
 supportedModes:
     - chat

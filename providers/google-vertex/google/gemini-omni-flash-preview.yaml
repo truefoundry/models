@@ -4,8 +4,9 @@ costs:
       output_cost_per_video_token: 0.0000175
       region: global
 limits:
-    context_window: 1048576
-    max_input_tokens: 1048576
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 57920
 messages:
     options:
         - user
@@ -27,12 +28,12 @@ removeParams:
     - temperature
     - top_p
     - stop
+retirementDate: "2027-06-30"
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview
     - https://deepmind.google/models/model-cards/gemini-omni-flash/
-    - https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash
-    - https://ai.google.dev/gemini-api/docs/omni
-    - https://cloud.google.com/blog/products/ai-machine-learning/nano-banana-2-lite-and-gemini-omni-flash-available/
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/omni-flash-preview
 status: preview
 supportedModes:
     - video
+thinking: true
