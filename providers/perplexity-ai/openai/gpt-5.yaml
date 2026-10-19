@@ -3,9 +3,45 @@ costs:
       input_cost_per_token: 1.25e-6
       output_cost_per_token: 1e-5
       region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - structured_output
+    - system_messages
+    - tool_choice
+    - json_output
+limits:
+    context_window: 400000
+    max_input_tokens: 272000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: openai/gpt-5
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
+    - defaultValue: 128000
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
 provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-5
+    - https://developers.openai.com/api/docs/deprecations
 status: active
 supportedModes:
     - chat
+thinking: true
