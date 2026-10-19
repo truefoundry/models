@@ -20,6 +20,13 @@ costs:
       output_cost_per_token: 2.75e-6
       output_cost_per_token_batches: 1.375e-6
       region: eu
+    - cache_creation_input_token_cost_per_hour: 1.1e-6
+      cache_read_input_token_cost: 3.3e-8
+      input_cost_per_token: 3.3e-7
+      input_cost_per_token_batches: 1.65e-7
+      output_cost_per_token: 2.75e-6
+      output_cost_per_token_batches: 1.375e-6
+      region: asia-south1
 features:
     - function_calling
     - system_messages
@@ -49,6 +56,7 @@ params:
       maxValue: 65536
       minValue: 1
 provisioning: serverless
+retirementDate: "2027-07-21"
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite
     - https://ai.google.dev/gemini-api/docs/pricing

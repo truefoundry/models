@@ -4,8 +4,10 @@ costs:
       output_cost_per_video_token: 0.0000175
       region: global
 limits:
-    context_window: 1048576
-    max_input_tokens: 1048576
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 57920
+    max_tokens: 57920
 messages:
     options:
         - user
@@ -14,12 +16,10 @@ modalities:
     input:
         - text
         - image
-        - audio
         - video
     output:
-        - video
-        - audio
         - text
+        - video
 mode: video
 model: google/gemini-omni-flash-preview
 provisioning: serverless
@@ -27,6 +27,7 @@ removeParams:
     - temperature
     - top_p
     - stop
+retirementDate: "2027-06-30"
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview
     - https://deepmind.google/models/model-cards/gemini-omni-flash/
@@ -36,3 +37,4 @@ sources:
 status: preview
 supportedModes:
     - video
+thinking: true

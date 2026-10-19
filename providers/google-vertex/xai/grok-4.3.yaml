@@ -22,7 +22,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 1000000
+    context_window: 200000
 modalities:
     input:
         - text
@@ -45,6 +45,7 @@ sources:
     - https://docs.x.ai/developers/models/grok-4.3
     - https://docs.x.ai/developers/community/google-cloud-vertex-ai
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-3
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/grok
 status: preview
 supportedModes:
     - chat
