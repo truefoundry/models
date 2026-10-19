@@ -1,5 +1,6 @@
 costs:
-    - cache_creation_input_token_cost: 0.000003
+    - cache_creation_input_token_cost: 0.00000375
+      cache_creation_input_token_cost_per_hour: 0.000006
       cache_read_input_token_cost: 3e-7
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
@@ -10,6 +11,10 @@ features:
     - structured_output
     - system_messages
     - tool_choice
+limits:
+    context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -19,6 +24,8 @@ modalities:
 mode: chat
 model: anthropic/claude-sonnet-4-6
 provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/models/sonnet-4-6/overview
 status: active
 supportedModes:
     - chat

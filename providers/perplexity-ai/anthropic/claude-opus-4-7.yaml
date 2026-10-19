@@ -3,9 +3,26 @@ costs:
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
       region: "*"
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: anthropic/claude-opus-4-7
 provisioning: serverless
+sources:
+    - https://developers.cloudflare.com/ai/models/anthropic/claude-opus-4.7/index.md
+    - https://mastra.ai/models/providers/perplexity-agent.md
 status: active
 supportedModes:
     - chat
+thinking: true
