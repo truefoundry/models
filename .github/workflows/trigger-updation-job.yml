@@ -12,6 +12,7 @@ jobs:
     name: Trigger updation job
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       id-token: write
     env:
       TFY_API_KEY: ${{ secrets.TFY_API_KEY }}
@@ -19,15 +20,49 @@ jobs:
       TFY_JOB_FQN: ${{ secrets.TFY_JOB_FQN }}
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find the providers this push changed
+        id: changed
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          # A bot update PR is the updation job's own output. Re-running on its merge starts
+          # the next run, which opens the next bot PR: the loop feeds itself. Match the
+          # subject only: addition PR squash bodies list "update model YAMLs [bot]" commits.
+          subject=$(git log -1 --format=%s)
+          if [[ "$subject" == *"update model YAMLs [bot]"* ]]; then
+            echo "providers=" >> "$GITHUB_OUTPUT"
+            echo "Skipped: bot update merge ($subject)"
+            exit 0
+          fi
+
+          # Diff against the commit before the push, so a multi-commit push is covered too.
+          # A failed fetch or diff fails the step instead of looking like "nothing changed".
+          git fetch --no-tags --depth=1 origin "$BEFORE"
+          git diff --name-only "$BEFORE" "$GITHUB_SHA" -- providers/ > "$RUNNER_TEMP/changed.txt"
+          providers=$( { grep -E '^providers/[^/]+/.+\.ya?ml$' "$RUNNER_TEMP/changed.txt" || true; } \
+            | { grep -v -E '/(default|provider-config)\.yaml$' || true; } \
+            | cut -d/ -f2 \
+            | { grep -E '^[a-z0-9][a-z0-9-]*$' || true; } \
+            | sort -u | tr '\n' ' ')
+          providers="${providers% }"
+          echo "providers=$providers" >> "$GITHUB_OUTPUT"
+          echo "Changed providers: ${providers:-none}"
+
       - name: Set up Python
+        if: steps.changed.outputs.providers != ''
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: Install truefoundry
+        if: steps.changed.outputs.providers != ''
         run: pipx install truefoundry
 
       - name: Join tailnet
+        if: steps.changed.outputs.providers != ''
         # TFY_HOST is tailnet-only. GitHub OIDC → Tailscale; no secret.
         uses: tailscale/github-action@306e68a486fd2350f2bfc3b19fcd143891a4a2d8 # v4.1.2
         with:
@@ -37,8 +72,13 @@ jobs:
           hostname: gh-${{ github.event.repository.name }}-${{ github.run_id }}
 
       - name: Trigger updation job
+        if: steps.changed.outputs.providers != ''
+        env:
+          PROVIDERS: ${{ steps.changed.outputs.providers }}
+        # Only the providers this merge touched. The job drops the ones it doesn't update
+        # and takes a lock per provider, so an overlapping run skips instead of repeating work.
         run: |
           tfy login --api-key "$TFY_API_KEY" --host "$TFY_HOST"
           tfy trigger job \
             --application-fqn "$TFY_JOB_FQN" \
-            --command "python job.py"
+            --command "python job.py --providers $PROVIDERS"
