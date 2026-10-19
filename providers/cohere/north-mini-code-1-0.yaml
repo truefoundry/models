@@ -3,9 +3,7 @@ costs:
       output_cost_per_token: 0.0
       region: "*"
 features:
-    - tool_choice
     - function_calling
-    - structured_output
     # - json_output is not supported
 limits:
     context_window: 256000
@@ -14,7 +12,6 @@ limits:
 modalities:
     input:
         - text
-        - image
     output:
         - text
 mode: chat
