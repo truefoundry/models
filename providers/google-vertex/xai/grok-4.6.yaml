@@ -2,6 +2,21 @@ costs:
     - cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
+      region: us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
       region: global
       tiered_pricing:
           cache_read:
@@ -23,7 +38,7 @@ features:
     - structured_output
     - json_output
 limits:
-    context_window: 500000
+    context_window: 524288
 modalities:
     input:
         - text
@@ -47,6 +62,7 @@ sources:
     - https://docs.x.ai/developers/models
     - https://docs.x.ai/developers/community/google-cloud-vertex-ai
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6
 status: active
 supportedModes:
     - chat
