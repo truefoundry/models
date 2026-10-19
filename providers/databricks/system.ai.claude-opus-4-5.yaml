@@ -24,6 +24,14 @@ modalities:
         - text
 mode: chat
 model: system.ai.claude-opus-4-5
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving

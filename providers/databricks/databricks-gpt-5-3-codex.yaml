@@ -1,6 +1,5 @@
 costs:
-    - cache_creation_input_token_cost: 1.75e-6
-      cache_read_input_token_cost: 1.75e-7
+    - cache_read_input_token_cost: 1.75e-7
       input_cost_per_token: 1.75e-6
       output_cost_per_token: 0.000014
       region: "*"
@@ -35,7 +34,7 @@ params:
 preferChatCompletions: true
 provisioning: serverless
 sources:
-    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
+    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
     - https://developers.openai.com/api/docs/models/gpt-5.3-codex
