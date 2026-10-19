@@ -6,6 +6,7 @@ costs:
 features:
     - function_calling
     - prompt_caching
+    - structured_output
 limits:
     context_window: 256000
 modalities:
@@ -24,7 +25,7 @@ removeParams:
     - reasoning_effort
 sources:
     - https://docs.mistral.ai/api/endpoint/fim
-    - https://docs.mistral.ai/inference/pricing
+    - https://docs.mistral.ai/models/codestral
 status: active
 supportedModes:
     - completion
