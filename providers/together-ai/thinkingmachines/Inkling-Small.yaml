@@ -5,6 +5,7 @@ costs:
       region: "*"
 features:
     - function_calling
+isDeprecated: true
 limits:
     context_window: 524288
 modalities:
@@ -27,11 +28,12 @@ params:
           - xhigh
       type: string
 provisioning: serverless
+retirementDate: "2026-09-14"
 sources:
     - https://www.together.ai/models/inkling-small
     - https://www.together.ai/pricing
     - https://thinkingmachines.ai/news/inkling-small/
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true
