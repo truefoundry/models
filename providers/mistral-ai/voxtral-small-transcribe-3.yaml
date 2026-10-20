@@ -1,6 +1,11 @@
 limits:
     context_window: 65536
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: voxtral-small-transcribe-3
 params:
     - defaultValue: 0.0
