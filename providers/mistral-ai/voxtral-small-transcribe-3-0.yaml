@@ -1,6 +1,11 @@
 limits:
     context_window: 65536
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: voxtral-small-transcribe-3-0
 params:
     - defaultValue: 0.0
@@ -8,3 +13,5 @@ params:
 status: active
 supportedModes:
     - audio_transcription
+
+# costs not found in official docs
