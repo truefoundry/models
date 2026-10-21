@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Apply reviewed canonical_external_ids.yaml to every file in each canonical group."""
+"""Optional bulk helper: apply a local external-id map onto provider model YAML files.
+
+Day-to-day workflow edits external_ids directly in provider YAML and reviews it
+in the PR. Use this script only for bulk bootstrap from a local mapping file.
+"""
 
 from __future__ import annotations
 
 import argparse
 import sys
+from pathlib import Path
 
 from model_identity_lib import (
-    load_aliases,
     load_external_id_map,
     load_language_models,
     update_model_yaml_fields,
@@ -16,13 +20,24 @@ from model_identity_lib import (
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--from",
+        dest="external_ids_path",
+        type=Path,
+        required=True,
+        help="Local YAML mapping of canonical_model -> external_ids",
+    )
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--clear-missing",
+        action="store_true",
+        help="Remove external_ids from models whose canonical_model is absent from the map",
+    )
     args = parser.parse_args()
 
-    aliases = load_aliases()
-    external_map = load_external_id_map()
+    external_map = load_external_id_map(args.external_ids_path)
     if not external_map:
-        print("No external IDs found in canonical_external_ids.yaml", file=sys.stderr)
+        print(f"No external IDs found in {args.external_ids_path}", file=sys.stderr)
         return 1
 
     updated = 0
@@ -30,14 +45,13 @@ def main() -> int:
     skipped_no_canonical = 0
 
     for entry in load_language_models():
-        canonical = aliases.get(entry.model) or entry.canonical_model
+        canonical = entry.canonical_model
         if not canonical:
             skipped_no_canonical += 1
             continue
         ids = external_map.get(canonical)
         if not ids:
-            # Reviewed source has no row — ensure provider file omits external_ids.
-            if entry.external_ids:
+            if args.clear_missing and entry.external_ids:
                 if args.dry_run:
                     print(f"CLEAR {entry.rel_path}")
                     updated += 1
@@ -49,7 +63,7 @@ def main() -> int:
                 unchanged += 1
             continue
 
-        if entry.external_ids == ids and entry.canonical_model == canonical:
+        if entry.external_ids == ids:
             unchanged += 1
             continue
 
@@ -58,11 +72,7 @@ def main() -> int:
             updated += 1
             continue
 
-        if update_model_yaml_fields(
-            entry.path,
-            canonical_model=canonical if entry.canonical_model != canonical else None,
-            external_ids=ids,
-        ):
+        if update_model_yaml_fields(entry.path, external_ids=ids):
             updated += 1
         else:
             unchanged += 1

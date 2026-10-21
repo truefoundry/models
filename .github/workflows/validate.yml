@@ -36,3 +36,31 @@ jobs:
       - name: Run validation
         run: ./.github/test/validate.sh
 
+  identity:
+    name: Validate model identity
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install identity script dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Check canonical_model / external_ids consistency
+        run: python3 scripts/check_model_identity.py
+
+      - name: Verify Artificial Analysis IDs on changed files
+        env:
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch --no-tags --depth=1 origin "${GITHUB_BASE_REF}"
+          python3 scripts/verify_changed_external_ids.py --base "origin/${GITHUB_BASE_REF}"

@@ -76,7 +76,9 @@ Valid `mode` values:
 
 `audio_transcription`, `audio_translation`, `chat`, `completion`, `decision`, `embedding`, `image`, `moderation`, `realtime`, `rerank`, `text_to_speech`, `unknown`, `video`
 
-For `chat` and `completion` models, also set a reviewed `canonical_model` (or add a path + reason under `canonical_exceptions.yaml` when the creator/foundation model is genuinely unknown). Do not skip canonical naming only because Artificial Analysis has no row.
+For `chat` and `completion` models, also set a reviewed `canonical_model` on the model YAML (or add a path + reason under `canonical_exceptions.yaml` when the creator/foundation model is genuinely unknown). Do not skip canonical naming only because Artificial Analysis has no row.
+
+When you add or change `external_ids`, CI verifies the Artificial Analysis `id`/`slug` pair against the live catalog for files changed in the PR. Repository secret `AA_API_KEY` must be configured for that check.
 
 ### 3. Optional Fields
 

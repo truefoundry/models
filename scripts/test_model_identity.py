@@ -166,41 +166,97 @@ class ApplyIdempotencyTests(unittest.TestCase):
                 "mode: chat\nmodel: claude-test\nlimits:\n    max_tokens: 1\n",
                 encoding="utf-8",
             )
-            aliases = root / "canonical_aliases.yaml"
-            aliases.write_text(
-                "aliases:\n  claude-test: anthropic/claude-test\n",
-                encoding="utf-8",
-            )
-            external = root / "canonical_external_ids.yaml"
-            external.write_text(
-                "external_ids:\n  anthropic/claude-test:\n"
-                "    artificial_analysis_id: 11111111-1111-1111-1111-111111111111\n"
-                "    artificial_analysis_slug: claude-test\n",
-                encoding="utf-8",
-            )
 
+            first = lib.update_model_yaml_fields(
+                model_path, canonical_model="anthropic/claude-test"
+            )
+            second = lib.update_model_yaml_fields(
+                model_path, canonical_model="anthropic/claude-test"
+            )
+            self.assertTrue(first)
+            self.assertFalse(second)
+
+            ids = {
+                "artificial_analysis_id": "11111111-1111-1111-1111-111111111111",
+                "artificial_analysis_slug": "claude-test",
+            }
+            third = lib.update_model_yaml_fields(model_path, external_ids=ids)
+            fourth = lib.update_model_yaml_fields(model_path, external_ids=ids)
+            self.assertTrue(third)
+            self.assertFalse(fourth)
+
+
+class VerifyChangedExternalIdsTests(unittest.TestCase):
+    def test_accepts_matching_catalog_row(self):
+        import verify_changed_external_ids as verify
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "providers" / "anthropic" / "claude-test.yaml"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                "canonical_model: anthropic/claude-test\n"
+                "external_ids:\n"
+                "    artificial_analysis_id: 11111111-1111-1111-1111-111111111111\n"
+                "    artificial_analysis_slug: claude-test\n"
+                "mode: chat\n"
+                "model: claude-test\n",
+                encoding="utf-8",
+            )
             with mock.patch.object(lib, "REPO_ROOT", root), mock.patch.object(
                 lib, "PROVIDERS_DIR", root / "providers"
-            ), mock.patch.object(lib, "ALIASES_PATH", aliases), mock.patch.object(
-                lib, "EXTERNAL_IDS_PATH", external
-            ), mock.patch.object(lib, "EXCEPTIONS_PATH", root / "canonical_exceptions.yaml"):
-                first = lib.update_model_yaml_fields(
-                    model_path, canonical_model="anthropic/claude-test"
+            ):
+                errors, checked = verify.verify_entries(
+                    [path],
+                    {
+                        "11111111-1111-1111-1111-111111111111": {
+                            "id": "11111111-1111-1111-1111-111111111111",
+                            "slug": "claude-test",
+                        }
+                    },
                 )
-                second = lib.update_model_yaml_fields(
-                    model_path, canonical_model="anthropic/claude-test"
-                )
-                self.assertTrue(first)
-                self.assertFalse(second)
+            self.assertEqual(errors, [])
+            self.assertEqual(checked, 1)
 
-                ids = {
-                    "artificial_analysis_id": "11111111-1111-1111-1111-111111111111",
-                    "artificial_analysis_slug": "claude-test",
-                }
-                third = lib.update_model_yaml_fields(model_path, external_ids=ids)
-                fourth = lib.update_model_yaml_fields(model_path, external_ids=ids)
-                self.assertTrue(third)
-                self.assertFalse(fourth)
+    def test_rejects_slug_mismatch_and_unknown_id(self):
+        import verify_changed_external_ids as verify
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            bad_slug = root / "providers" / "anthropic" / "a.yaml"
+            unknown = root / "providers" / "anthropic" / "b.yaml"
+            bad_slug.parent.mkdir(parents=True)
+            bad_slug.write_text(
+                "canonical_model: anthropic/a\n"
+                "external_ids:\n"
+                "    artificial_analysis_id: 11111111-1111-1111-1111-111111111111\n"
+                "    artificial_analysis_slug: wrong-slug\n"
+                "mode: chat\nmodel: a\n",
+                encoding="utf-8",
+            )
+            unknown.write_text(
+                "canonical_model: anthropic/b\n"
+                "external_ids:\n"
+                "    artificial_analysis_id: 99999999-9999-9999-9999-999999999999\n"
+                "    artificial_analysis_slug: missing\n"
+                "mode: chat\nmodel: b\n",
+                encoding="utf-8",
+            )
+            with mock.patch.object(lib, "REPO_ROOT", root), mock.patch.object(
+                lib, "PROVIDERS_DIR", root / "providers"
+            ):
+                errors, checked = verify.verify_entries(
+                    [bad_slug, unknown],
+                    {
+                        "11111111-1111-1111-1111-111111111111": {
+                            "id": "11111111-1111-1111-1111-111111111111",
+                            "slug": "claude-test",
+                        }
+                    },
+                )
+            self.assertEqual(checked, 2)
+            self.assertTrue(any("slug mismatch" in e for e in errors))
+            self.assertTrue(any("not found" in e for e in errors))
 
 
 if __name__ == "__main__":

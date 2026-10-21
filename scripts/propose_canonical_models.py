@@ -28,17 +28,23 @@ def main() -> int:
     parser.add_argument(
         "--unmapped-only",
         action="store_true",
-        help="Only propose for model IDs missing from canonical_aliases.yaml",
+        help="Only propose for models that do not already have canonical_model set",
+    )
+    parser.add_argument(
+        "--aliases-from",
+        type=Path,
+        default=None,
+        help="Optional local YAML alias map to prefer over heuristics",
     )
     args = parser.parse_args()
 
-    aliases = load_aliases()
+    aliases = load_aliases(args.aliases_from) if args.aliases_from else {}
     entries = load_language_models()
     proposals = []
     groups: dict[str, list[str]] = defaultdict(list)
 
     for entry in entries:
-        if args.unmapped_only and entry.model in aliases:
+        if args.unmapped_only and entry.canonical_model:
             continue
         if entry.model in aliases:
             proposed = aliases[entry.model]
@@ -50,6 +56,15 @@ def main() -> int:
                 "creator": creator,
                 "proposed_canonical": proposed,
                 "rule": rule,
+            }
+        elif entry.canonical_model:
+            proposed = entry.canonical_model
+            prop = {
+                "path": entry.rel_path,
+                "provider_id": entry.model,
+                "creator": proposed.split("/", 1)[0] if "/" in proposed else "",
+                "proposed_canonical": proposed,
+                "rule": "existing_yaml",
             }
         else:
             p = propose_canonical(entry.provider, entry.model, entry.path)

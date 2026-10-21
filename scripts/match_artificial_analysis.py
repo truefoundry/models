@@ -11,7 +11,6 @@ from pathlib import Path
 from model_identity_lib import (
     REPORTS_DIR,
     fetch_aa_language_models,
-    load_aliases,
     load_external_id_map,
     load_language_models,
     match_aa_for_canonical,
@@ -33,17 +32,28 @@ def main() -> int:
         default=None,
         help="Write fetched AA models JSON to this path",
     )
+    parser.add_argument(
+        "--reviewed-from",
+        type=Path,
+        default=None,
+        help="Optional local YAML of already-reviewed canonical -> external_ids",
+    )
     args = parser.parse_args()
 
-    aliases = load_aliases()
-    reviewed = load_external_id_map()
+    reviewed = load_external_id_map(args.reviewed_from) if args.reviewed_from else {}
+    # Also treat ids already present on model YAML as reviewed.
     entries = load_language_models()
+    for entry in entries:
+        if entry.canonical_model and entry.external_ids:
+            reviewed.setdefault(entry.canonical_model, {
+                k: str(v)
+                for k, v in entry.external_ids.items()
+                if v is not None and str(v).strip() != ""
+            })
 
     canonicals: set[str] = set()
     for entry in entries:
-        if entry.model in aliases:
-            canonicals.add(aliases[entry.model])
-        elif entry.canonical_model:
+        if entry.canonical_model:
             canonicals.add(entry.canonical_model)
 
     if args.aa_cache and args.aa_cache.exists():

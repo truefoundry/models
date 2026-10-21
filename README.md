@@ -111,7 +111,7 @@ sources:
 
 `canonical_model` is `<creator>/<foundation-model>` (lowercase). Provider hosts such as Bedrock, Vertex, Azure, OpenRouter, and Databricks are not creators. TrueFoundry `costs` remain the billing source; Artificial Analysis IDs are optional cross-references only.
 
-Reviewed mappings live in `canonical_aliases.yaml` and `canonical_external_ids.yaml`. See [scripts/README.md](scripts/README.md) and the [Contributing Guide](CONTRIBUTING.md) for the full field list and workflow.
+Set these fields on the model YAML and review them in the PR. CI validates identity consistency and re-checks Artificial Analysis IDs for changed files. See [scripts/README.md](scripts/README.md) and the [Contributing Guide](CONTRIBUTING.md).
 
 ## Directory Structure
 

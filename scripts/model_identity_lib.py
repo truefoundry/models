@@ -16,8 +16,6 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PROVIDERS_DIR = REPO_ROOT / "providers"
-ALIASES_PATH = REPO_ROOT / "canonical_aliases.yaml"
-EXTERNAL_IDS_PATH = REPO_ROOT / "canonical_external_ids.yaml"
 EXCEPTIONS_PATH = REPO_ROOT / "canonical_exceptions.yaml"
 REPORTS_DIR = REPO_ROOT / "reports"
 
@@ -206,7 +204,8 @@ def iter_model_files(providers_dir: Path = PROVIDERS_DIR) -> Iterator[Path]:
         yield path
 
 
-def load_model_entry(path: Path, providers_dir: Path = PROVIDERS_DIR) -> ModelEntry | None:
+def load_model_entry(path: Path, providers_dir: Path | None = None) -> ModelEntry | None:
+    providers_dir = providers_dir or PROVIDERS_DIR
     data = load_yaml(path)
     if not isinstance(data, dict):
         return None
@@ -238,7 +237,7 @@ def load_language_models(providers_dir: Path = PROVIDERS_DIR) -> list[ModelEntry
     return entries
 
 
-def load_aliases(path: Path = ALIASES_PATH) -> dict[str, str]:
+def load_aliases(path: Path) -> dict[str, str]:
     if not path.exists():
         return {}
     data = load_yaml(path) or {}
@@ -251,7 +250,7 @@ def load_aliases(path: Path = ALIASES_PATH) -> dict[str, str]:
     return {str(k): str(v) for k, v in aliases.items()}
 
 
-def load_external_id_map(path: Path = EXTERNAL_IDS_PATH) -> dict[str, dict[str, str]]:
+def load_external_id_map(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
         return {}
     data = load_yaml(path) or {}

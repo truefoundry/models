@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "./.github/test/validate.sh",
     "validate:identity": "python3 scripts/check_model_identity.py",
+    "validate:aa-changed": "python3 scripts/verify_changed_external_ids.py",
     "generate:types": "ts-node --project .github/scripts/tsconfig.json .github/scripts/generate-types.ts",
     "build:json": "ts-node --project .github/scripts/tsconfig.json .github/scripts/build-unified-json.ts",
     "build:provider-configs": "ts-node --project .github/scripts/tsconfig.json .github/scripts/build-provider-configs.ts",
