@@ -1,5 +1,12 @@
+costs:
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 0.00000136
+      output_cost_per_token: 0.00000418
+      region: "*"
 features:
     - function_calling
+    - structured_output
+    - assistant_prefill
 limits:
     context_window: 524288
 modalities:
@@ -13,6 +20,9 @@ model: mistral-large-4
 params:
     - defaultValue: 1.0
       key: temperature
+sources:
+    - https://docs.mistral.ai/models/mistral-large-4-0
+    - https://docs.mistral.ai/inference/pricing
 status: active
 supportedModes:
     - chat
