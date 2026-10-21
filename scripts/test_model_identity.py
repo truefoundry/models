@@ -3,7 +3,8 @@
 
 from __future__ import annotations
 
-import json
+import os
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -187,6 +188,34 @@ class ApplyIdempotencyTests(unittest.TestCase):
 
 
 class VerifyChangedExternalIdsTests(unittest.TestCase):
+    def test_missing_api_key_skips_when_external_ids_present(self):
+        import verify_changed_external_ids as verify
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "providers" / "anthropic" / "claude-test.yaml"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                "canonical_model: anthropic/claude-test\n"
+                "external_ids:\n"
+                "    artificial_analysis_id: 11111111-1111-1111-1111-111111111111\n"
+                "    artificial_analysis_slug: claude-test\n"
+                "mode: chat\n"
+                "model: claude-test\n",
+                encoding="utf-8",
+            )
+            argv = ["verify_changed_external_ids.py", "--files", str(path.relative_to(root))]
+            env_patch = mock.patch.dict("os.environ", {"AA_API_KEY": ""}, clear=False)
+            with mock.patch.object(lib, "REPO_ROOT", root), mock.patch.object(
+                lib, "PROVIDERS_DIR", root / "providers"
+            ), mock.patch.object(verify, "REPO_ROOT", root), mock.patch(
+                "sys.argv", argv
+            ), env_patch:
+                # Explicit empty key (GitHub Actions unset secret behavior).
+                os.environ["AA_API_KEY"] = ""
+                code = verify.main()
+            self.assertEqual(code, 0)
+
     def test_accepts_matching_catalog_row(self):
         import verify_changed_external_ids as verify
 

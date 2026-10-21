@@ -12,7 +12,8 @@ Identity fields live on each provider model YAML and are reviewed in PRs:
 2. CI runs:
    - `scripts/check_model_identity.py` — format, required fields, group consistency
    - `scripts/verify_changed_external_ids.py` — live AA check for changed files that set `external_ids`
-3. Repository secret `AA_API_KEY` is required when a PR adds or changes `external_ids`.
+3. Repository secret `AA_API_KEY` enables live AA verification for changed `external_ids`.
+   If the secret is missing, CI still passes identity structure checks and emits a warning.
 
 ## Optional local helpers
 

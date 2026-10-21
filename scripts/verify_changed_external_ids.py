@@ -162,12 +162,16 @@ def main() -> int:
         aa_models = json.loads(args.aa_cache.read_text(encoding="utf-8"))
     else:
         if not os.environ.get("AA_API_KEY"):
-            print(
-                "ERROR: AA_API_KEY is required to verify external_ids on changed files. "
-                "Set the repository secret AA_API_KEY, or pass --aa-cache.",
-                file=sys.stderr,
+            # In CI, missing repo secret should not hard-fail structure validation.
+            # Emit a workflow warning so maintainers know live AA checks are inactive.
+            message = (
+                f"AA_API_KEY is not configured; skipped live Artificial Analysis "
+                f"verification for {len(with_ids)} changed file(s) with external_ids. "
+                f"Add repository secret AA_API_KEY to enable this check."
             )
-            return 2
+            print(f"::warning::{message}")
+            print(message, file=sys.stderr)
+            return 0
         try:
             aa_models = fetch_aa_language_models()
         except RuntimeError as exc:

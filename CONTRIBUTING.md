@@ -78,7 +78,7 @@ Valid `mode` values:
 
 For `chat` and `completion` models, also set a reviewed `canonical_model` on the model YAML (or add a path + reason under `canonical_exceptions.yaml` when the creator/foundation model is genuinely unknown). Do not skip canonical naming only because Artificial Analysis has no row.
 
-When you add or change `external_ids`, CI verifies the Artificial Analysis `id`/`slug` pair against the live catalog for files changed in the PR. Repository secret `AA_API_KEY` must be configured for that check.
+When you add or change `external_ids`, CI verifies the Artificial Analysis `id`/`slug` pair against the live catalog for files changed in the PR when repository secret `AA_API_KEY` is configured. Without the secret, CI skips the live check with a warning.
 
 ### 3. Optional Fields
 
