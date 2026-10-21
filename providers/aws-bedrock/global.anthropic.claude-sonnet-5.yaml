@@ -1,6 +1,4 @@
-# Global inference profile — uniform base pricing across all source regions.
-# Rates below are the introductory launch pricing ($2/$10 per MTok) in effect
-# through 2026-08-31; standard pricing ($3/$15 per MTok) takes effect 2026-09-01.
+canonical_model: anthropic/claude-sonnet-5
 costs:
     - cache_creation_input_token_cost: 0.0000025
       cache_creation_input_token_cost_per_hour: 0.000004
@@ -266,6 +264,9 @@ costs:
       output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
       region: af-south-1
+external_ids:
+    artificial_analysis_id: 23c86e4a-c769-43c0-a056-79e3cd15834f
+    artificial_analysis_slug: claude-sonnet-5
 features:
     - function_calling
     - parallel_function_calling

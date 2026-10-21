@@ -1,3 +1,4 @@
+canonical_model: google/gemini-2-5-pro
 costs:
     - cache_creation_input_token_cost_per_hour: 0.0000045
       cache_read_input_token_cost: 1.25e-7
@@ -16,6 +17,9 @@ costs:
           output:
               - cost_per_token: 0.000015
                 from: 200000
+external_ids:
+    artificial_analysis_id: 27202e5f-c82d-4710-92e9-4317877d4883
+    artificial_analysis_slug: gemini-2-5-pro
 features:
     - function_calling
     - system_messages
@@ -37,10 +41,10 @@ model: gemini-2.5-pro
 params:
     - key: max_tokens
       maxValue: 65536
-    - defaultValue: null
+    - defaultValue:
       key: response_format
       type: string
-    - defaultValue: null
+    - defaultValue:
       key: thinking
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro

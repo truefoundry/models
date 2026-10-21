@@ -1,3 +1,4 @@
+canonical_model: google/gemini-3-flash-preview
 costs:
     - cache_creation_input_token_cost_per_hour: 0.000001
       cache_read_input_audio_token_cost: 1e-7
@@ -39,10 +40,10 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
-    - defaultValue: null
+    - defaultValue:
       key: response_format
       type: string
-    - defaultValue: null
+    - defaultValue:
       key: thinking
     - key: reasoning_effort
       supportedValues:

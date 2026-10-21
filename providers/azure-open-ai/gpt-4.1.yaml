@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-4-1
 costs:
     - cache_read_input_token_cost: 5e-7
       input_cost_per_token: 2e-6
@@ -17,6 +18,9 @@ costs:
       output_cost_per_token: 8.8e-6
       output_cost_per_token_batches: 4.4e-6
       region: datazone_eu
+external_ids:
+    artificial_analysis_id: 3b608b70-6434-4baa-99ad-45d499703c67
+    artificial_analysis_slug: gpt-4-1
 features:
     - function_calling
     - parallel_function_calling
@@ -43,7 +47,7 @@ params:
       key: max_completion_tokens
       maxValue: 32768
       minValue: 1
-    - defaultValue: null
+    - defaultValue:
       key: response_format
       type: string
 preferChatCompletions: true

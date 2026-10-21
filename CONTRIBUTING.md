@@ -76,9 +76,23 @@ Valid `mode` values:
 
 `audio_transcription`, `audio_translation`, `chat`, `completion`, `decision`, `embedding`, `image`, `moderation`, `realtime`, `rerank`, `text_to_speech`, `unknown`, `video`
 
+For `chat` and `completion` models, also set a reviewed `canonical_model` (or add a path + reason under `canonical_exceptions.yaml` when the creator/foundation model is genuinely unknown). Do not skip canonical naming only because Artificial Analysis has no row.
+
 ### 3. Optional Fields
 
 ```yaml
+# Stable foundation-model identity: <creator>/<foundation-model> (lowercase).
+# Use the model creator, not the host (anthropic, not bedrock/vertex/azure/openrouter).
+# Provider deployments of the same weights share one canonical name.
+canonical_model: openai/gpt-5-4-mini
+
+# Verified Artificial Analysis identifiers only. Omit the object when unmatched.
+# Never invent, null, or guess values. All files in a canonical group must share
+# the same external_ids (or all omit them).
+external_ids:
+    artificial_analysis_slug: gpt-5-4-mini
+    artificial_analysis_id: 00000000-0000-0000-0000-000000000000
+
 # Pricing — an array of cost entries, each with a region ("*" for global pricing)
 costs:
     - region: "*"

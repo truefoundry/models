@@ -1,3 +1,4 @@
+canonical_model: google/gemini-3-pro-preview
 costs:
     - cache_creation_input_token_cost_per_hour: 0.0000045
       cache_read_input_token_cost: 2e-7
@@ -37,9 +38,9 @@ model: gemini-3-pro-preview
 params:
     - key: max_tokens
       maxValue: 65536
-    - defaultValue: null
+    - defaultValue:
       key: response_format
       type: string
-    - defaultValue: null
+    - defaultValue:
       key: thinking
 thinking: true

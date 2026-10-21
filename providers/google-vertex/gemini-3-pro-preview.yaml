@@ -1,3 +1,4 @@
+canonical_model: google/gemini-3-pro-preview
 costs:
     - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.000002
@@ -508,10 +509,10 @@ model: gemini-3-pro-preview
 params:
     - key: max_tokens
       maxValue: 65536
-    - defaultValue: null
+    - defaultValue:
       key: response_format
       type: string
-    - defaultValue: null
+    - defaultValue:
       key: thinking
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro

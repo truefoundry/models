@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-sonnet-5
 costs:
     - cache_creation_input_token_cost: 0.0000025
       cache_creation_input_token_cost_per_hour: 0.000004
@@ -31,6 +32,9 @@ costs:
       output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
       region: ap-southeast-4
+external_ids:
+    artificial_analysis_id: 23c86e4a-c769-43c0-a056-79e3cd15834f
+    artificial_analysis_slug: claude-sonnet-5
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /anthropic
 features:

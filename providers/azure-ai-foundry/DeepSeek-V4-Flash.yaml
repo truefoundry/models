@@ -1,3 +1,7 @@
+canonical_model: deepseek/deepseek-v4-flash
+external_ids:
+    artificial_analysis_id: fe4c0848-e284-4e52-a79d-cdc28392f1a9
+    artificial_analysis_slug: deepseek-v4-flash
 features:
     - system_messages
     - json_output
@@ -19,7 +23,6 @@ params:
       maxValue: 384000
       minValue: 1
 provisioning: serverless
-# costs: not found in official docs — the Microsoft Foundry pricing page for DeepSeek does not publish per-token rates for DeepSeek-V4-Flash at the time of writing
 sources:
     - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure

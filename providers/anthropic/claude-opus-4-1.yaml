@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-opus-4-1
 costs:
     - cache_creation_input_token_cost: 1.875e-5
       cache_creation_input_token_cost_per_hour: 3e-5
@@ -35,7 +36,7 @@ model: claude-opus-4-1
 params:
     - key: max_tokens
       maxValue: 32000
-    - defaultValue: null
+    - defaultValue:
       key: thinking
 provisioning: serverless
 removeParams:
