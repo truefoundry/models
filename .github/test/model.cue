@@ -312,7 +312,7 @@ package model
 }
 
 #ModelConfig: {
-	// Stable foundation-model identity: <creator>/<foundation-model>
+	// Optional foundation-model identity: <creator>/<foundation-model>
 	canonical_model?: string
 	// Pricing entries per region; use "*" for global/uniform pricing
 	costs?: [...#CostWithRegion]
@@ -320,7 +320,7 @@ package model
 	deprecationDate?: string & =~"^\\d{4}-\\d{2}-\\d{2}$"
 	// Provider-specific escape-hatch configuration
 	extra_configuration?: #ExtraConfiguration
-	// Verified Artificial Analysis id/slug; omit when unmatched
+	// Optional verified Artificial Analysis id/slug; omit when unmatched
 	external_ids?: #ExternalIds
 	// Feature flags for capabilities like function calling, prompt caching, etc.
 	features?: [...#Feature]

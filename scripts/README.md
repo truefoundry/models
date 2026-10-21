@@ -1,23 +1,20 @@
 # Model identity scripts
 
-Identity fields live on each provider model YAML and are reviewed in PRs:
+Identity fields are optional on each provider model YAML and are reviewed in PRs:
 
-- `canonical_model` — `<creator>/<foundation-model>`
-- `external_ids` — optional verified Artificial Analysis `id` + `slug`
-- `canonical_exceptions.yaml` — paths exempt from requiring `canonical_model`
+- `canonical_model` — `<creator>/<foundation-model>` when known
+- `external_ids` — optional verified Artificial Analysis `id` + `slug` (requires `canonical_model`)
 
 ## PR workflow
 
-1. Edit `canonical_model` / `external_ids` on the model YAML in the PR.
+1. Optionally set `canonical_model` / `external_ids` on the model YAML in the PR.
 2. CI runs:
-   - `scripts/check_model_identity.py` — format, required fields, group consistency
+   - `scripts/check_model_identity.py` — format and group consistency when fields are present
    - `scripts/verify_changed_external_ids.py` — live AA check for changed files that set `external_ids`
 3. Repository secret `AA_API_KEY` enables live AA verification for changed `external_ids`.
    If the secret is missing, CI still passes identity structure checks and emits a warning.
 
 ## Optional local helpers
-
-These never need to be committed as mapping sources of truth:
 
 ```bash
 # Propose canonical names for review (writes reports/)

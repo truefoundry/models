@@ -16,7 +16,6 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PROVIDERS_DIR = REPO_ROOT / "providers"
-EXCEPTIONS_PATH = REPO_ROOT / "canonical_exceptions.yaml"
 REPORTS_DIR = REPO_ROOT / "reports"
 
 LANGUAGE_MODES = frozenset({"chat", "completion"})
@@ -273,27 +272,6 @@ def load_external_id_map(path: Path) -> dict[str, dict[str, str]]:
         }
         if cleaned:
             out[str(canonical)] = cleaned
-    return out
-
-
-def load_exceptions(path: Path = EXCEPTIONS_PATH) -> dict[str, str]:
-    if not path.exists():
-        return {}
-    data = load_yaml(path) or []
-    if isinstance(data, dict) and "exceptions" in data:
-        rows = data["exceptions"] or []
-    else:
-        rows = data
-    if not isinstance(rows, list):
-        raise ValueError(f"Invalid exceptions file: {path}")
-    out: dict[str, str] = {}
-    for row in rows:
-        if not isinstance(row, dict):
-            continue
-        model_path = row.get("path")
-        reason = row.get("reason")
-        if isinstance(model_path, str) and isinstance(reason, str):
-            out[model_path.replace("\\", "/")] = reason
     return out
 
 
