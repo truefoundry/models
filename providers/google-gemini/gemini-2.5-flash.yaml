@@ -34,10 +34,10 @@ model: gemini-2.5-flash
 params:
     - key: max_tokens
       maxValue: 65536
-    - defaultValue:
+    - defaultValue: null
       key: response_format
       type: string
-    - defaultValue:
+    - defaultValue: null
       key: thinking
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash
