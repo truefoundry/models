@@ -27,15 +27,12 @@ model: kimi-k3
 params:
     - key: max_tokens
       maxValue: 943718
-    - defaultValue: medium
+    - defaultValue: max
       key: reasoning_effort
       supportedValues:
-          - none
-          - minimal
           - low
-          - medium
           - high
-          - xhigh
+          - max
       type: string
 provisioning: serverless
 sources:

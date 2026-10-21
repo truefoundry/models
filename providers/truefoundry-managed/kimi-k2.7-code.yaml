@@ -27,17 +27,9 @@ model: kimi-k2.7-code
 params:
     - key: max_tokens
       maxValue: 235929
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - none
-          - minimal
-          - low
-          - medium
-          - high
-          - xhigh
-      type: string
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://openrouter.ai/moonshotai/kimi-k2.7-code
 status: active

@@ -31,17 +31,9 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
-    - defaultValue: medium
-      key: reasoning_effort
-      supportedValues:
-          - none
-          - minimal
-          - low
-          - medium
-          - high
-          - xhigh
-      type: string
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://openrouter.ai/minimax/minimax-m3
 status: active
