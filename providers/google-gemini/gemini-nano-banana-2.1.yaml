@@ -1,17 +1,46 @@
+costs:
+    - input_cost_per_token: 1.5e-6
+      input_cost_per_token_batches: 7.5e-7
+      output_cost_per_image_token: 3e-5
+      output_cost_per_token: 7.5e-6
+      output_cost_per_token_batches: 3.75e-6
+      region: "*"
+features:
+    - system_messages
 limits:
-    max_input_tokens: 65536
-    max_output_tokens: 65536
-mode: unknown # not found in official docs
+    context_window: 131072
+    max_input_tokens: 131072
+    max_output_tokens: 32768
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - pdf
+    output:
+        - text
+        - image
+mode: image
 model: gemini-nano-banana-2.1
 params:
-    - defaultValue: 1
-      key: temperature
-      maxValue: 1
-    - defaultValue: 0.95
-      key: top_p
-    - defaultValue: 64
-      key: top_k
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - medium
+          - high
+      type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
+    - seed
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1
+    - https://ai.google.dev/gemini-api/docs/nanobanana
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1
 supportedModes:
-    - unknown
+    - image
+    - chat
 thinking: true
