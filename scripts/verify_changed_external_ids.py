@@ -27,24 +27,40 @@ from model_identity_lib import (
 
 
 def git_changed_provider_files(base: str) -> list[Path]:
-    cmd = [
-        "git",
-        "diff",
-        "--name-only",
-        "--diff-filter=ACMR",
-        f"{base}...HEAD",
-        "--",
-        "providers",
+    """Return changed provider YAML paths vs base.
+
+    Prefer three-dot (merge-base...HEAD) for PR semantics. If merge-base cannot
+    be resolved (e.g. incomplete fetch), fall back to a direct tree diff.
+    """
+    common = ["git", "diff", "--name-only", "--diff-filter=ACMR"]
+    attempts = [
+        [f"{base}...HEAD"],
+        [base, "HEAD"],
     ]
-    result = subprocess.run(
-        cmd,
-        cwd=REPO_ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
+    last_error = ""
+    stdout = ""
+    for index, rev_args in enumerate(attempts):
+        result = subprocess.run(
+            [*common, *rev_args, "--", "providers"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 0:
+            stdout = result.stdout
+            if index > 0:
+                print(
+                    f"warning: three-dot diff against {base} failed; "
+                    f"using direct tree diff {base} HEAD",
+                    file=sys.stderr,
+                )
+            break
+        last_error = result.stderr.strip() or result.stdout.strip() or f"exit {result.returncode}"
+    else:
+        raise RuntimeError(f"git diff failed against {base}: {last_error}")
+
     paths: list[Path] = []
-    for line in result.stdout.splitlines():
+    for line in stdout.splitlines():
         line = line.strip()
         if not line.endswith(".yaml"):
             continue
@@ -141,8 +157,8 @@ def main() -> int:
         base = resolve_base_ref(args.base)
         try:
             paths = git_changed_provider_files(base)
-        except subprocess.CalledProcessError as exc:
-            print(f"ERROR: git diff failed: {exc.stderr or exc}", file=sys.stderr)
+        except (subprocess.CalledProcessError, RuntimeError) as exc:
+            print(f"ERROR: git diff failed: {exc}", file=sys.stderr)
             return 2
 
     with_ids = []
