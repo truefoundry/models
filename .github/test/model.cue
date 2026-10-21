@@ -179,6 +179,8 @@ package model
 	region: "*" | #AWSRegion | #GCPRegion | #AzureRegion | #VertexRegion
 	#Cost
 	priority_pricing?: #Cost
+	flex_pricing?:     #Cost
+	ultrafast_pricing?: #Cost
 }
 
 // Provider-specific configuration that cannot be expressed through the generic
