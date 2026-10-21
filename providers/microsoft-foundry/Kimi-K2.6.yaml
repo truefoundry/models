@@ -1,11 +1,13 @@
 costs:
-    - input_cost_per_token: 9.5e-7
+    - cache_read_input_token_cost: 1.6e-7
+      input_cost_per_token: 9.5e-7
       output_cost_per_token: 4e-6
       region: global
 features:
     - function_calling
     - system_messages
     - tool_choice
+    - prompt_caching
 limits:
     context_window: 262144
     max_input_tokens: 262144
@@ -29,6 +31,7 @@ retirementDate: "2027-04-16"
 sources:
     - https://ai.azure.com/catalog/models/Kimi-K2.6
     - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-kimi-k2-6-in-microsoft-foundry/4513125
+    - https://azure.microsoft.com/en-gb/pricing/details/ai-foundry-models/kimi/
 status: preview
 supportedModes:
     - chat

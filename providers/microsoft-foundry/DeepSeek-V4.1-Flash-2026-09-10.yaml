@@ -7,24 +7,21 @@ features:
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 384000
-    max_tokens: 384000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
-        - image
     output:
         - text
 mode: chat
 model: DeepSeek-V4.1-Flash-2026-09-10
 provisioning: serverless
+# costs: not published by Azure for DeepSeek-V4.1-Flash (pricing page shows "$-")
 sources:
-    - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash
-    - https://www.deepseek.com/en/news/deepseek-v4-1-flash/
-    - https://api-docs.deepseek.com/quick_start/pricing
-status: active
+    - https://ai.azure.com/catalog/models/DeepSeek-V4.1-Flash
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
+status: preview
 supportedModes:
     - chat
 thinking: true
-
-# costs: not published by Azure for DeepSeek-V4.1-Flash (pricing page shows "$-")

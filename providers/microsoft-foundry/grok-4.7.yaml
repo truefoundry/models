@@ -1,5 +1,76 @@
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000006
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000001
+                from: 200000
+          input:
+              - cost_per_token: 0.000004
+                from: 200000
+          output:
+              - cost_per_token: 0.000012
+                from: 200000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: datazone_us
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000011
+                from: 200000
+          input:
+              - cost_per_token: 0.0000044
+                from: 200000
+          output:
+              - cost_per_token: 0.0000132
+                from: 200000
+          pricing_mode: cumulative
+    - cache_read_input_token_cost: 6e-7
+      input_cost_per_token: 0.0000024
+      output_cost_per_token: 0.0000072
+      region: datazone_eu
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.0000012
+                from: 200000
+          input:
+              - cost_per_token: 0.0000048
+                from: 200000
+          output:
+              - cost_per_token: 0.0000144
+                from: 200000
+          pricing_mode: cumulative
+features:
+    - function_calling
+    - tool_choice
+    - structured_output
+    - json_output
+    - prompt_caching
+    - system_messages
+limits:
+    context_window: 500000
+    max_input_tokens: 500000
+    max_output_tokens: 500000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
 mode: chat
 model: grok-4.7
 provisioning: serverless
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-grok
+    - https://ai.azure.com/catalog/models/grok-4.7
+    - https://docs.x.ai/developers/grok-4-7
+    - https://docs.x.ai/developers/pricing
+status: active
 supportedModes:
     - chat
+    - responses
+thinking: true
