@@ -1,21 +1,33 @@
 costs:
     - cache_read_input_token_cost: 1.925e-7
-      input_cost_per_token: 0.000001925
+      input_cost_per_token: 1.925e-6
       input_cost_per_token_batches: 9.625e-7
-      output_cost_per_token: 0.0000154
-      output_cost_per_token_batches: 0.0000077
+      output_cost_per_token: 1.54e-5
+      output_cost_per_token_batches: 7.7e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.85e-7
+          input_cost_per_token: 3.85e-6
+          output_cost_per_token: 3.08e-5
       region: datazone_us
     - cache_read_input_token_cost: 1.925e-7
-      input_cost_per_token: 0.000001925
+      input_cost_per_token: 1.925e-6
       input_cost_per_token_batches: 9.625e-7
-      output_cost_per_token: 0.0000154
-      output_cost_per_token_batches: 0.0000077
+      output_cost_per_token: 1.54e-5
+      output_cost_per_token_batches: 7.7e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.85e-7
+          input_cost_per_token: 3.85e-6
+          output_cost_per_token: 3.08e-5
       region: datazone_eu
     - cache_read_input_token_cost: 1.75e-7
-      input_cost_per_token: 0.00000175
+      input_cost_per_token: 1.75e-6
       input_cost_per_token_batches: 8.75e-7
-      output_cost_per_token: 0.000014
-      output_cost_per_token_batches: 0.000007
+      output_cost_per_token: 1.4e-5
+      output_cost_per_token_batches: 7e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 3.5e-6
+          output_cost_per_token: 2.8e-5
       region: "*"
 features:
     - function_calling

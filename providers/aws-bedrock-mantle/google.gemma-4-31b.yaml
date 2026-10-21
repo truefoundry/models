@@ -1,15 +1,39 @@
 costs:
-    - input_cost_per_token: 1.4e-7
+    - flex_pricing:
+          input_cost_per_token: 7e-8
+          output_cost_per_token: 2e-7
+      input_cost_per_token: 1.4e-7
       output_cost_per_token: 4e-7
+      priority_pricing:
+          input_cost_per_token: 2.45e-7
+          output_cost_per_token: 7e-7
       region: us-west-2
-    - input_cost_per_token: 1.4e-7
+    - flex_pricing:
+          input_cost_per_token: 7e-8
+          output_cost_per_token: 2e-7
+      input_cost_per_token: 1.4e-7
       output_cost_per_token: 4e-7
+      priority_pricing:
+          input_cost_per_token: 2.45e-7
+          output_cost_per_token: 7e-7
       region: us-east-2
-    - input_cost_per_token: 1.4e-7
+    - flex_pricing:
+          input_cost_per_token: 7e-8
+          output_cost_per_token: 2e-7
+      input_cost_per_token: 1.4e-7
       output_cost_per_token: 4e-7
+      priority_pricing:
+          input_cost_per_token: 2.45e-7
+          output_cost_per_token: 7e-7
       region: us-east-1
-    - input_cost_per_token: 1.68e-7
+    - flex_pricing:
+          input_cost_per_token: 8.4e-8
+          output_cost_per_token: 2.4e-7
+      input_cost_per_token: 1.68e-7
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 2.94e-7
+          output_cost_per_token: 8.4e-7
       region: eu-central-1
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /openai

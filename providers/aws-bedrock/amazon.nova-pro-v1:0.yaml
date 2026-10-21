@@ -1,97 +1,265 @@
 costs:
-    - input_cost_per_token: 8e-7
-      input_cost_per_token_batches: 4e-7
-      output_cost_per_token: 0.0000032
-      output_cost_per_token_batches: 0.0000016
-      region: us-west-2
-    - input_cost_per_token: 0.00000103
-      output_cost_per_token: 0.00000412
-      region: us-west-1
-    - input_cost_per_token: 9.6e-7
-      input_cost_per_token_batches: 4.8e-7
-      output_cost_per_token: 0.00000384
-      output_cost_per_token_batches: 0.00000192
-      region: us-gov-west-1
-    - input_cost_per_token: 8e-7
-      input_cost_per_token_batches: 4e-7
-      output_cost_per_token: 0.0000032
-      output_cost_per_token_batches: 0.0000016
-      region: us-east-2
-    - cache_read_input_token_cost: 2e-7
+    - flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 1.6e-6
       input_cost_per_token: 8e-7
       input_cost_per_token_batches: 4e-7
-      output_cost_per_token: 0.0000032
-      output_cost_per_token_batches: 0.0000016
-      region: us-east-1
-    - input_cost_per_token: 8e-7
-      input_cost_per_token_batches: 4e-7
-      output_cost_per_token: 0.0000032
-      output_cost_per_token_batches: 0.0000016
-      region: me-central-1
-    - input_cost_per_token: 0.000001
-      input_cost_per_token_batches: 5e-7
-      output_cost_per_token: 0.000004
-      output_cost_per_token_batches: 0.000002
-      region: il-central-1
-    - input_cost_per_token: 0.00000118
-      input_cost_per_token_batches: 5.9e-7
-      output_cost_per_token: 0.00000472
-      output_cost_per_token_batches: 0.00000236
-      region: eu-west-3
-    - input_cost_per_token: 0.00000113
-      output_cost_per_token: 0.00000452
-      region: eu-west-2
-    - input_cost_per_token: 9.2e-7
-      input_cost_per_token_batches: 4.6e-7
-      output_cost_per_token: 0.00000368
-      output_cost_per_token_batches: 0.00000184
-      region: eu-west-1
-    - input_cost_per_token: 8.8e-7
-      output_cost_per_token: 0.00000352
-      region: eu-south-2
-    - input_cost_per_token: 0.00000128
-      output_cost_per_token: 0.00000521
-      region: eu-south-1
-    - input_cost_per_token: 8.7e-7
-      input_cost_per_token_batches: 4.35e-7
-      output_cost_per_token: 0.00000348
-      output_cost_per_token_batches: 0.00000174
-      region: eu-north-1
-    - input_cost_per_token: 0.00000105
-      input_cost_per_token_batches: 5.25e-7
-      output_cost_per_token: 0.0000042
-      output_cost_per_token_batches: 0.0000021
-      region: eu-central-1
-    - input_cost_per_token: 8.7e-7
-      input_cost_per_token_batches: 4.35e-7
-      output_cost_per_token: 0.00000348
-      output_cost_per_token_batches: 0.00000174
-      region: ap-southeast-4
-    - region: ap-southeast-3
-    - input_cost_per_token: 8.4e-7
-      input_cost_per_token_batches: 4.2e-7
-      output_cost_per_token: 0.00000336
-      output_cost_per_token_batches: 0.00000168
-      region: ap-southeast-2
-    - input_cost_per_token: 0.00000108
-      input_cost_per_token_batches: 5.4e-7
-      output_cost_per_token: 0.00000432
-      output_cost_per_token_batches: 0.00000216
-      region: ap-southeast-1
-    - input_cost_per_token: 9.4e-7
-      input_cost_per_token_batches: 4.7e-7
-      output_cost_per_token: 0.00000376
-      output_cost_per_token_batches: 0.00000188
-      region: ap-south-1
-    - input_cost_per_token: 9.5e-7
-      input_cost_per_token_batches: 4.75e-7
-      output_cost_per_token: 0.0000038
-      output_cost_per_token_batches: 0.0000019
-      region: ap-northeast-2
-    - input_cost_per_token: 9.6e-7
+      output_cost_per_token: 3.2e-6
+      output_cost_per_token_batches: 1.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 1.4e-6
+          output_cost_per_token: 5.6e-6
+      region: us-west-2
+    - flex_pricing:
+          cache_read_input_token_cost: 1.2875e-7
+          input_cost_per_token: 5.15e-7
+          output_cost_per_token: 2.06e-6
+      input_cost_per_token: 1.03e-6
+      output_cost_per_token: 4.12e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.50625e-7
+          input_cost_per_token: 1.8025e-6
+          output_cost_per_token: 7.21e-6
+      region: us-west-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.2e-7
+          input_cost_per_token: 4.8e-7
+          output_cost_per_token: 1.92e-6
+      input_cost_per_token: 9.6e-7
       input_cost_per_token_batches: 4.8e-7
-      output_cost_per_token: 0.00000384
-      output_cost_per_token_batches: 0.00000192
+      output_cost_per_token: 3.84e-6
+      output_cost_per_token_batches: 1.92e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.2e-7
+          input_cost_per_token: 1.68e-6
+          output_cost_per_token: 6.72e-6
+      region: us-gov-west-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 1.6e-6
+      input_cost_per_token: 8e-7
+      input_cost_per_token_batches: 4e-7
+      output_cost_per_token: 3.2e-6
+      output_cost_per_token_batches: 1.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 1.4e-6
+          output_cost_per_token: 5.6e-6
+      region: us-east-2
+    - cache_read_input_token_cost: 2e-7
+      flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 1.6e-6
+      input_cost_per_token: 8e-7
+      input_cost_per_token_batches: 4e-7
+      output_cost_per_token: 3.2e-6
+      output_cost_per_token_batches: 1.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 1.4e-6
+          output_cost_per_token: 5.6e-6
+      region: us-east-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 1.6e-6
+      input_cost_per_token: 8e-7
+      input_cost_per_token_batches: 4e-7
+      output_cost_per_token: 3.2e-6
+      output_cost_per_token_batches: 1.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 1.4e-6
+          output_cost_per_token: 5.6e-6
+      region: me-central-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.25e-7
+          input_cost_per_token: 5e-7
+          output_cost_per_token: 2e-6
+      input_cost_per_token: 1e-6
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_token: 4e-6
+      output_cost_per_token_batches: 2e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.375e-7
+          input_cost_per_token: 1.75e-6
+          output_cost_per_token: 7e-6
+      region: il-central-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.475e-7
+          input_cost_per_token: 5.9e-7
+          output_cost_per_token: 2.36e-6
+      input_cost_per_token: 1.18e-6
+      input_cost_per_token_batches: 5.9e-7
+      output_cost_per_token: 4.72e-6
+      output_cost_per_token_batches: 2.36e-6
+      priority_pricing:
+          cache_read_input_token_cost: 5.1625e-7
+          input_cost_per_token: 2.065e-6
+          output_cost_per_token: 8.26e-6
+      region: eu-west-3
+    - flex_pricing:
+          cache_read_input_token_cost: 1.4125e-7
+          input_cost_per_token: 5.65e-7
+          output_cost_per_token: 2.26e-6
+      input_cost_per_token: 1.13e-6
+      output_cost_per_token: 4.52e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.94375e-7
+          input_cost_per_token: 1.9775e-6
+          output_cost_per_token: 7.91e-6
+      region: eu-west-2
+    - flex_pricing:
+          cache_read_input_token_cost: 1.15e-7
+          input_cost_per_token: 4.6e-7
+          output_cost_per_token: 1.84e-6
+      input_cost_per_token: 9.2e-7
+      input_cost_per_token_batches: 4.6e-7
+      output_cost_per_token: 3.68e-6
+      output_cost_per_token_batches: 1.84e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.025e-7
+          input_cost_per_token: 1.61e-6
+          output_cost_per_token: 6.44e-6
+      region: eu-west-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.1e-7
+          input_cost_per_token: 4.4e-7
+          output_cost_per_token: 1.76e-6
+      input_cost_per_token: 8.8e-7
+      output_cost_per_token: 3.52e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.85e-7
+          input_cost_per_token: 1.54e-6
+          output_cost_per_token: 6.16e-6
+      region: eu-south-2
+    - flex_pricing:
+          cache_read_input_token_cost: 1.6e-7
+          input_cost_per_token: 6.4e-7
+          output_cost_per_token: 2.56e-6
+      input_cost_per_token: 1.28e-6
+      output_cost_per_token: 5.21e-6
+      priority_pricing:
+          cache_read_input_token_cost: 5.6e-7
+          input_cost_per_token: 2.24e-6
+          output_cost_per_token: 8.96e-6
+      region: eu-south-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.0875e-7
+          input_cost_per_token: 4.35e-7
+          output_cost_per_token: 1.74e-6
+      input_cost_per_token: 8.7e-7
+      input_cost_per_token_batches: 4.35e-7
+      output_cost_per_token: 3.48e-6
+      output_cost_per_token_batches: 1.74e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.80625e-7
+          input_cost_per_token: 1.5225e-6
+          output_cost_per_token: 6.09e-6
+      region: eu-north-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.3125e-7
+          input_cost_per_token: 5.25e-7
+          output_cost_per_token: 2.1e-6
+      input_cost_per_token: 1.05e-6
+      input_cost_per_token_batches: 5.25e-7
+      output_cost_per_token: 4.2e-6
+      output_cost_per_token_batches: 2.1e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.59375e-7
+          input_cost_per_token: 1.8375e-6
+          output_cost_per_token: 7.35e-6
+      region: eu-central-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.0875e-7
+          input_cost_per_token: 4.35e-7
+          output_cost_per_token: 1.74e-6
+      input_cost_per_token: 8.7e-7
+      input_cost_per_token_batches: 4.35e-7
+      output_cost_per_token: 3.48e-6
+      output_cost_per_token_batches: 1.74e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.80625e-7
+          input_cost_per_token: 1.5225e-6
+          output_cost_per_token: 6.09e-6
+      region: ap-southeast-4
+    - flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 1.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 1.4e-6
+          output_cost_per_token: 5.6e-6
+      region: ap-southeast-3
+    - flex_pricing:
+          cache_read_input_token_cost: 1.05e-7
+          input_cost_per_token: 4.2e-7
+          output_cost_per_token: 1.68e-6
+      input_cost_per_token: 8.4e-7
+      input_cost_per_token_batches: 4.2e-7
+      output_cost_per_token: 3.36e-6
+      output_cost_per_token_batches: 1.68e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.675e-7
+          input_cost_per_token: 1.47e-6
+          output_cost_per_token: 5.88e-6
+      region: ap-southeast-2
+    - flex_pricing:
+          cache_read_input_token_cost: 1.35e-7
+          input_cost_per_token: 5.4e-7
+          output_cost_per_token: 2.16e-6
+      input_cost_per_token: 1.08e-6
+      input_cost_per_token_batches: 5.4e-7
+      output_cost_per_token: 4.32e-6
+      output_cost_per_token_batches: 2.16e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.725e-7
+          input_cost_per_token: 1.89e-6
+          output_cost_per_token: 7.56e-6
+      region: ap-southeast-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.175e-7
+          input_cost_per_token: 4.7e-7
+          output_cost_per_token: 1.88e-6
+      input_cost_per_token: 9.4e-7
+      input_cost_per_token_batches: 4.7e-7
+      output_cost_per_token: 3.76e-6
+      output_cost_per_token_batches: 1.88e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.1125e-7
+          input_cost_per_token: 1.645e-6
+          output_cost_per_token: 6.58e-6
+      region: ap-south-1
+    - flex_pricing:
+          cache_read_input_token_cost: 1.1875e-7
+          input_cost_per_token: 4.75e-7
+          output_cost_per_token: 1.9e-6
+      input_cost_per_token: 9.5e-7
+      input_cost_per_token_batches: 4.75e-7
+      output_cost_per_token: 3.8e-6
+      output_cost_per_token_batches: 1.9e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.15625e-7
+          input_cost_per_token: 1.6625e-6
+          output_cost_per_token: 6.65e-6
+      region: ap-northeast-2
+    - flex_pricing:
+          cache_read_input_token_cost: 1.2e-7
+          input_cost_per_token: 4.8e-7
+          output_cost_per_token: 1.92e-6
+      input_cost_per_token: 9.6e-7
+      input_cost_per_token_batches: 4.8e-7
+      output_cost_per_token: 3.84e-6
+      output_cost_per_token_batches: 1.92e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.2e-7
+          input_cost_per_token: 1.68e-6
+          output_cost_per_token: 6.72e-6
       region: ap-northeast-1
 features:
     - function_calling
