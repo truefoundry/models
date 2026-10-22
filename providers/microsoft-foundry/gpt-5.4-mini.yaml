@@ -1,8 +1,16 @@
 canonical_model: openai/gpt-5-4-mini
 costs:
     - cache_read_input_token_cost: 7.5e-8
+      flex_pricing:
+          cache_read_input_token_cost: 3.75e-8
+          input_cost_per_token: 3.75e-7
+          output_cost_per_token: 2.25e-6
       input_cost_per_token: 7.5e-7
       output_cost_per_token: 4.5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 1.5e-7
+          input_cost_per_token: 1.5e-6
+          output_cost_per_token: 9e-6
       region: "*"
 external_ids:
     artificial_analysis_id: ba242e40-83b7-4cd3-a0e0-b56237984914
