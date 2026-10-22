@@ -7,9 +7,14 @@ costs:
 external_ids:
     artificial_analysis_id: b8fc61f7-5e9a-49e6-8547-6ac56db24627
     artificial_analysis_slug: claude-opus-5
+limits:
+    # Perplexity publishes no separate context limit; this is Anthropic's model specification.
+    context_window: 1000000
 mode: chat
 model: anthropic/claude-opus-5
 provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/models/opus-5/overview
 status: active
 supportedModes:
     - chat
