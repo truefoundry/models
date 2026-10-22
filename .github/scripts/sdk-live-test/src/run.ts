@@ -23,7 +23,12 @@ import {
   toModelConfigMap,
   type CatalogueModel,
 } from './catalogue.js';
-import { getProviderSpec, projectIdFromKeyFile, type ProviderSpec } from './providers.js';
+import {
+  getProviderSpec,
+  missingAccountEnv,
+  projectIdFromKeyFile,
+  type ProviderSpec,
+} from './providers.js';
 import { planScenarios, type Scenario } from './scenarios.js';
 
 export type Target = { provider: string; modelId: string };
@@ -58,13 +63,6 @@ function accountEnvFields(spec: ProviderSpec): Record<string, string> {
     if (value) fields[field] = value;
   }
   return fields;
-}
-
-function missingAccountEnv(spec: ProviderSpec): string | undefined {
-  for (const envName of Object.values(spec.accountEnv ?? {})) {
-    if (!process.env[envName]) return envName;
-  }
-  return undefined;
 }
 
 function authData(spec: ProviderSpec, credential: string) {

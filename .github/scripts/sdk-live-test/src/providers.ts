@@ -171,6 +171,13 @@ export function projectIdFromKeyFile(raw: string): string {
   return projectId;
 }
 
+export function missingAccountEnv(spec: ProviderSpec): string | undefined {
+  for (const envName of Object.values(spec.accountEnv ?? {})) {
+    if (!process.env[envName]) return envName;
+  }
+  return undefined;
+}
+
 export function getProviderSpec(providerDir: string): ProviderSpec | undefined {
   return SPECS[providerDir];
 }
