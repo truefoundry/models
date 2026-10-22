@@ -1,8 +1,12 @@
+canonical_model: mistral/devstral-medium
 costs:
     - cache_read_input_token_cost: 4e-8
       input_cost_per_token: 4e-7
       output_cost_per_token: 0.000002
       region: "*"
+external_ids:
+    artificial_analysis_id: aba82268-2bb7-4a0f-80be-9b7722e2145b
+    artificial_analysis_slug: devstral-medium
 features:
     - function_calling
     - tool_choice
