@@ -11,6 +11,7 @@ Thank you for your interest in contributing to the TrueFoundry Models Registry! 
 - [Requesting a New Provider](#requesting-a-new-provider)
 - [Updating an Existing Model](#updating-an-existing-model)
 - [Pull Request Process](#pull-request-process)
+- [SDK live model tests](#sdk-live-model-tests)
 - [Style Guide](#style-guide)
 
 ## What Belongs Here
@@ -75,9 +76,25 @@ Valid `mode` values:
 
 `audio_transcription`, `audio_translation`, `chat`, `completion`, `decision`, `embedding`, `image`, `moderation`, `realtime`, `rerank`, `text_to_speech`, `unknown`, `video`
 
+`canonical_model` and `external_ids` are optional. When you know the foundation model, set `canonical_model` on the YAML. Add `external_ids` only for a verified Artificial Analysis match (requires `canonical_model`).
+
+When you add or change `external_ids`, CI verifies the Artificial Analysis `id`/`slug` pair against the live catalog for files changed in the PR when repository secret `AA_API_KEY` is configured. Without the secret, CI skips the live check with a warning.
+
 ### 3. Optional Fields
 
 ```yaml
+# Optional stable foundation-model identity: <creator>/<foundation-model> (lowercase).
+# Use the model creator, not the host (anthropic, not bedrock/vertex/azure/openrouter).
+# Provider deployments of the same weights share one canonical name.
+canonical_model: openai/gpt-5-4-mini
+
+# Optional verified Artificial Analysis identifiers. Omit when unmatched.
+# Never invent, null, or guess values. Requires canonical_model. All files in a
+# canonical group must share the same external_ids (or all omit them).
+external_ids:
+    artificial_analysis_slug: gpt-5-4-mini
+    artificial_analysis_id: 00000000-0000-0000-0000-000000000000
+
 # Pricing — an array of cost entries, each with a region ("*" for global pricing)
 costs:
     - region: "*"
@@ -263,6 +280,52 @@ Common updates include:
 4. **Merge**:
   - PRs are merged once approved
   - Squash merge is preferred for clean history
+
+## SDK live model tests
+
+Same-repo PRs that change `providers/**/*.yaml` run **SDK live** checks (`.github/workflows/sdk-live-test.yml`):
+
+1. Build `dist/ai-models.json` from the PR head
+2. For each changed model YAML, run scenarios through `@truefoundry/ai-gateway-sdk` against the real provider
+3. Fail the check on any scenario failure (blocks merge)
+
+### Coverage (SDK only)
+
+| Mode | What runs |
+|------|-----------|
+| `chat` | baseline + declared features (`structured_output`, `json_output`, `function_calling`, `parallel_function_calling`, `tool_choice`, `system_messages`, `assistant_prefill`, `mid_conversation_system_messages`, `prompt_caching` / `cache_control`) + `reasoning` when `thinking`; each × **stream and non-stream**; **params** (defaults for `max_tokens`, `max_completion_tokens`, `temperature`, `top_p`, `top_k`, `seed`, `verbosity`, `n`, `stop`, `min_tokens`, `reasoning_effort`) × stream; if `modalities.input` includes **image** / **pdf** / **doc** / **audio**, non-stream smokes with fixtures under `.github/scripts/sdk-live-test/fixtures/` |
+| `completion` | baseline (+ params) × stream / non-stream |
+| `responses` | baseline + mappable features (`structured_output`, `json_output`, tools / `tool_choice`, `reasoning`) × stream / non-stream; params; vision / pdf / doc / audio smokes |
+| `embedding` | baseline embed; multimodal image / pdf when declared |
+| `rerank` | baseline rerank |
+| `text_to_speech` | baseline speech |
+| `audio_transcription` / `audio_translation` | baseline with a tiny WAV via FormData |
+| `image` | baseline `imageGenerate` |
+| `moderation` | baseline `createModeration` |
+| `decision` | baseline `decision` (OpenAI dialect for `openai`; System One for others) |
+| `realtime` / `video` / `ocr` / `unknown` / `unsupported` | **fail** (no SDK live harness yet) |
+
+Pass bar is HTTP 2xx only (no deep response-shape asserts). Each model’s primary `mode` plus any harnessed entries in `supportedModes` are planned (e.g. chat+responses). Not covered: `realtime` / `video` / `ocr` / `unknown` / `unsupported`, other cloud-auth providers (Bedrock, Azure, …), `code_execution`, stream × vision/PDF, gateway **adapter SDKs** (boto3, etc.). Vertex uses SA JSON (`VERTEX_KEY_FILE`), not an API key.
+
+Manual re-run: push a new commit, or Actions → **SDK live model tests** → Run workflow (optional `models=` override).
+
+Secrets smoke (one chat baseline per provider with a key): Actions → **SDK live model tests** → Run workflow (leave `models` empty).
+
+### Required GitHub secrets (provider credentials)
+
+Each changed model’s provider must be registered in `.github/scripts/sdk-live-test/src/providers.ts` and have its credential secret set. Missing registry entry or secret **fails the PR check**:
+
+`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GROQ_API_KEY`, `XAI_API_KEY`, `CEREBRAS_API_KEY`, `TOGETHER_AI_API_KEY`, `DEEPINFRA_API_KEY`, `MISTRAL_AI_API_KEY`, `PERPLEXITY_AI_API_KEY`, `OPENROUTER_API_KEY`, `SAMBANOVA_API_KEY`, `AI21_API_KEY`, `COHERE_API_KEY`, `GOOGLE_GEMINI_API_KEY`, `VERTEX_KEY_FILE` (GCP service-account JSON)
+
+Local:
+
+```bash
+npm run build:json
+# omits --catalogue → default repo-root dist/ai-models.json
+npm run test:sdk-live -- --model openai/gpt-4o
+```
+
+This path does **not** use `TFY_API_KEY` / Tailscale / gateway-test-job-v2. Merge → S3 publish (`trigger-sync.yml`) is unchanged.
 
 ## Style Guide
 
