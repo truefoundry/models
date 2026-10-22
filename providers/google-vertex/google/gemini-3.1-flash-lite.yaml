@@ -1,31 +1,58 @@
 canonical_model: google/gemini-3-1-flash-lite
 costs:
-    - cache_creation_input_token_cost_per_hour: 0.0000011
+    - cache_creation_input_token_cost_per_hour: 1.1e-6
       cache_read_input_audio_token_cost: 5.5e-8
       cache_read_input_token_cost: 2.75e-8
+      flex_pricing:
+          cache_read_input_token_cost: 1.375e-8
+          input_cost_per_token: 1.375e-7
+          output_cost_per_token: 8.25e-7
       input_cost_per_audio_token: 5.5e-7
       input_cost_per_token: 2.75e-7
       input_cost_per_token_batches: 1.375e-7
-      output_cost_per_token: 0.00000165
+      output_cost_per_token: 1.65e-6
       output_cost_per_token_batches: 8.25e-7
+      priority_pricing:
+          cache_read_input_token_cost: 4.95e-8
+          input_cost_per_audio_token: 9.9e-7
+          input_cost_per_token: 4.95e-7
+          output_cost_per_token: 2.97e-6
       region: us
-    - cache_creation_input_token_cost_per_hour: 0.000001
+    - cache_creation_input_token_cost_per_hour: 1e-6
       cache_read_input_audio_token_cost: 5e-8
       cache_read_input_token_cost: 2.5e-8
+      flex_pricing:
+          cache_read_input_token_cost: 1.25e-8
+          input_cost_per_token: 1.25e-7
+          output_cost_per_token: 7.5e-7
       input_cost_per_audio_token: 5e-7
       input_cost_per_token: 2.5e-7
       input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.0000015
+      output_cost_per_token: 1.5e-6
       output_cost_per_token_batches: 7.5e-7
+      priority_pricing:
+          cache_read_input_token_cost: 4.5e-8
+          input_cost_per_audio_token: 9e-7
+          input_cost_per_token: 4.5e-7
+          output_cost_per_token: 2.7e-6
       region: global
-    - cache_creation_input_token_cost_per_hour: 0.0000011
+    - cache_creation_input_token_cost_per_hour: 1.1e-6
       cache_read_input_audio_token_cost: 5.5e-8
       cache_read_input_token_cost: 2.75e-8
+      flex_pricing:
+          cache_read_input_token_cost: 1.375e-8
+          input_cost_per_token: 1.375e-7
+          output_cost_per_token: 8.25e-7
       input_cost_per_audio_token: 5.5e-7
       input_cost_per_token: 2.75e-7
       input_cost_per_token_batches: 1.375e-7
-      output_cost_per_token: 0.00000165
+      output_cost_per_token: 1.65e-6
       output_cost_per_token_batches: 8.25e-7
+      priority_pricing:
+          cache_read_input_token_cost: 4.95e-8
+          input_cost_per_audio_token: 9.9e-7
+          input_cost_per_token: 4.95e-7
+          output_cost_per_token: 2.97e-6
       region: eu
 features:
     - function_calling
