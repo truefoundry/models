@@ -1,3 +1,4 @@
+canonical_model: google/gemini-3-6-flash
 costs:
     - cache_creation_input_token_cost_per_hour: 5e-7
       cache_read_input_token_cost: 7.5e-8
@@ -20,6 +21,9 @@ costs:
       output_cost_per_token: 3.75e-6
       output_cost_per_token_batches: 1.875e-6
       region: eu
+external_ids:
+    artificial_analysis_id: 78332c88-fe60-42c8-af9d-3617e44cf1f5
+    artificial_analysis_slug: gemini-3-6-flash
 features:
     - function_calling
     - parallel_function_calling
