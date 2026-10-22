@@ -1,0 +1,29 @@
+features:
+    - function_calling
+    - parallel_function_calling
+    - structured_output
+    - system_messages
+    - tool_choice
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: reflection/beam
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://reflection.ai/blog/beam-is-available
+status: preview
+supportedModes:
+    - chat
+thinking: true

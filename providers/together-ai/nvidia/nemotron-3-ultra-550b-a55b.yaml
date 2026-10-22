@@ -8,6 +8,7 @@ features:
     - function_calling
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 1000000
 modalities:
@@ -20,9 +21,10 @@ model: nvidia/nemotron-3-ultra-550b-a55b
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-08-27"
 sources:
     - https://www.together.ai/models/nvidia-nemotron-3-ultra
-status: active
+status: retired
 supportedModes:
     - chat
 thinking: true
