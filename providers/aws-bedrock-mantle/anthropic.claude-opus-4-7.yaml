@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-opus-4-7
 costs:
     - cache_creation_input_token_cost: 6.25e-6
       cache_creation_input_token_cost_per_hour: 0.00001
@@ -39,6 +40,9 @@ costs:
       output_cost_per_token: 0.000025
       output_cost_per_token_batches: 0.0000125
       region: ap-northeast-1
+external_ids:
+    artificial_analysis_id: e9a09db3-8fd6-41dd-ba2f-20e0a2bff7f2
+    artificial_analysis_slug: claude-opus-4-7
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /anthropic
 features:
@@ -49,7 +53,6 @@ features:
     - prompt_caching
     - cache_control
     # - structured_output is not supported
-    - assistant_prefill
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
