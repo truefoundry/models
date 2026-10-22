@@ -1,3 +1,4 @@
+canonical_model: xai/grok-4-3
 costs:
     - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 1.25e-6
@@ -10,6 +11,9 @@ costs:
           output:
               - cost_per_token: 5e-6
                 from: 200000
+external_ids:
+    artificial_analysis_id: 948892b5-db03-4118-a4a8-ccd51ed871ea
+    artificial_analysis_slug: grok-4-3
 mode: chat
 model: xai/grok-4.3
 provisioning: serverless

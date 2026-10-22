@@ -1,8 +1,12 @@
+canonical_model: perplexity/sonar-pro
 costs:
     - input_cost_per_query: 0.005
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: "*"
+external_ids:
+    artificial_analysis_id: 3435db18-9227-45a5-8e79-9546b14b5aaa
+    artificial_analysis_slug: sonar-pro
 limits:
     context_window: 200000
     max_output_tokens: 8000
