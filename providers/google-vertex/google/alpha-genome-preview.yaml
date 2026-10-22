@@ -6,6 +6,14 @@ modalities:
 mode: unknown
 model: google/alpha-genome-preview
 provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/
     - https://github.com/google-deepmind/alphagenome

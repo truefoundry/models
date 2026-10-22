@@ -1,0 +1,132 @@
+name: SDK live model tests
+
+on:
+  # Actions → SDK live model tests → Run workflow (optional models= "openai/gpt-4o-mini …")
+  workflow_dispatch:
+    inputs:
+      models:
+        description: >-
+          Optional space-separated provider/modelId overrides. Leave empty to smoke
+          one cheap model per registered provider that has its credential secret set.
+        required: false
+        default: ''
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - 'providers/**/*.yaml'
+      - '.github/scripts/sdk-live-test/**'
+      - '.github/workflows/sdk-live-test.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  sdk-live:
+    name: SDK live feature checks
+    runs-on: ubuntu-latest
+    # Same-repo only (fork PRs get no provider secrets).
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' &&
+        github.event.pull_request.head.repo.full_name == github.repository)
+
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+      CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+      TOGETHER_AI_API_KEY: ${{ secrets.TOGETHER_AI_API_KEY }}
+      DEEPINFRA_API_KEY: ${{ secrets.DEEPINFRA_API_KEY }}
+      MISTRAL_AI_API_KEY: ${{ secrets.MISTRAL_AI_API_KEY }}
+      PERPLEXITY_AI_API_KEY: ${{ secrets.PERPLEXITY_AI_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      SAMBANOVA_API_KEY: ${{ secrets.SAMBANOVA_API_KEY }}
+      AI21_API_KEY: ${{ secrets.AI21_API_KEY }}
+      COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+      GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
+      VERTEX_KEY_FILE: ${{ secrets.VERTEX_KEY_FILE }}
+      SDK_LIVE_SUMMARY_PATH: ${{ github.workspace }}/sdk-live-summary.md
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install repo + build catalogue
+        run: |
+          npm ci
+          npm run build:json
+
+      - name: List changed model yamls
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            touch changed-files.txt
+            echo "count=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Three-dot diff (merge-base…head). ACMR = added/copied/modified/renamed (no deletes).
+          git fetch --no-tags origin "${{ github.base_ref }}"
+          git diff --name-only --diff-filter=ACMR \
+            "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" \
+            -- providers \
+            | grep -E '^providers/.+\.yaml$' \
+            | grep -vE '/(default|provider-config)\.yaml$' \
+            > changed-files.txt || true
+          count=$(wc -l < changed-files.txt | tr -d ' ')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Changed files ($count):"
+          cat changed-files.txt || true
+
+      - name: Install SDK live harness
+        working-directory: .github/scripts/sdk-live-test
+        run: npm ci
+
+      - name: Run unit checks
+        working-directory: .github/scripts/sdk-live-test
+        run: npm run test:unit
+
+      # PR: full scenario matrix. continue-on-error so live failures do not block merge.
+      - name: Run SDK live scenarios (PR changed models)
+        if: steps.changed.outputs.count != '0'
+        continue-on-error: true
+        working-directory: .github/scripts/sdk-live-test
+        run: |
+          npm run test:live -- \
+            --catalogue "${{ github.workspace }}/dist/ai-models.json" \
+            --files-list "${{ github.workspace }}/changed-files.txt"
+
+      # Manual: one baseline per provider with a secret, or explicit --model list.
+      - name: Run SDK live smoke (secrets)
+        if: github.event_name == 'workflow_dispatch'
+        working-directory: .github/scripts/sdk-live-test
+        run: |
+          models="${{ github.event.inputs.models }}"
+          args=(--catalogue "${{ github.workspace }}/dist/ai-models.json")
+          if [ -n "$models" ]; then
+            for m in $models; do args+=(--model "$m"); done
+          else
+            args+=(--smoke-with-secrets)
+          fi
+          npm run test:live -- "${args[@]}"
+
+      - name: PR summary comment
+        if: github.event_name == 'pull_request' && always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          [ -f "$SDK_LIVE_SUMMARY_PATH" ] || exit 0
+          gh pr comment "$PR" --body-file "$SDK_LIVE_SUMMARY_PATH" --edit-last \
+            || gh pr comment "$PR" --body-file "$SDK_LIVE_SUMMARY_PATH"
