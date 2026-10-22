@@ -1,3 +1,4 @@
+canonical_model: xai/grok-4-1-fast
 costs:
     - cache_read_input_token_cost: 5e-8
       input_cost_per_token: 2e-7
@@ -14,6 +15,9 @@ costs:
                 from: 128000
           pricing_mode: marginal
 deprecationDate: "2026-05-15"
+external_ids:
+    artificial_analysis_id: 49fd01f9-887d-4479-b8ce-771a81ecef4e
+    artificial_analysis_slug: grok-4-1-fast
 features:
     - function_calling
     - tool_choice
