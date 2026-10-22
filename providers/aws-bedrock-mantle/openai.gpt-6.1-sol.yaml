@@ -1,24 +1,43 @@
 canonical_model: openai/gpt-6-1-sol
 costs:
-    - cache_creation_input_token_cost: 0.00000275
+    - cache_creation_input_token_cost: 2.75e-6
       cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 0.0000022
-      output_cost_per_token: 0.000011
+      input_cost_per_token: 2.2e-6
+      output_cost_per_token: 1.1e-5
       region: us-east-1
       tiered_pricing:
           cache_read:
               - cost_per_token: 2.2e-7
                 from: 272000
           cache_write:
-              - cost_per_token: 0.0000055
+              - cost_per_token: 5.5e-6
                 from: 272000
           input:
-              - cost_per_token: 0.0000044
+              - cost_per_token: 4.4e-6
                 from: 272000
           output:
-              - cost_per_token: 0.0000165
+              - cost_per_token: 1.65e-5
                 from: 272000
           pricing_mode: cumulative
+      ultrafast_pricing:
+          cache_creation_input_token_cost: 1.65e-5
+          cache_read_input_token_cost: 6.6e-7
+          input_cost_per_token: 1.32e-5
+          output_cost_per_token: 6.6e-5
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 1.32e-6
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 3.3e-5
+                    from: 272000
+              input:
+                  - cost_per_token: 2.64e-5
+                    from: 272000
+              output:
+                  - cost_per_token: 9.9e-5
+                    from: 272000
+              pricing_mode: cumulative
 external_ids:
     artificial_analysis_id: b25ac058-1e33-4c31-bbc9-a20c3ad0717a
     artificial_analysis_slug: gpt-6-1-sol
