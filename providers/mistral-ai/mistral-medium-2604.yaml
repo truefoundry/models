@@ -1,3 +1,4 @@
+canonical_model: mistral/mistral-medium-2604
 costs:
     - cache_read_input_token_cost: 1.5e-7
       input_cost_per_token: 0.0000015
@@ -31,6 +32,9 @@ params:
           - high
 sources:
     - https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
+    - https://docs.mistral.ai/capabilities/reasoning
+    - https://docs.mistral.ai/inference/pricing
 status: active
 supportedModes:
     - chat
+thinking: true
