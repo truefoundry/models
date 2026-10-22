@@ -1,0 +1,21 @@
+features:
+    - function_calling
+    - structured_output
+    - code_execution
+    - system_messages
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+        - pdf
+    output:
+        - text
+mode: chat
+model: google/gemini-4-argon
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-4-argon
+supportedModes:
+    - chat
+thinking: true
