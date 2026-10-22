@@ -1,8 +1,12 @@
+canonical_model: alibaba/qwen3-8-27b
 costs:
-    - cache_read_input_token_cost: 1.99e-8
-      input_cost_per_token: 2e-8
-      output_cost_per_token: 4.4e-6
+    - cache_read_input_token_cost: 9e-8
+      input_cost_per_token: 4.2e-7
+      output_cost_per_token: 2.55e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: b01dee41-c62b-48ed-8d16-984adc405e5c
+    artificial_analysis_slug: qwen3-8-27b
 features:
     - function_calling
     - tool_choice

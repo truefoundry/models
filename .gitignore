@@ -38,5 +38,13 @@ dist/
 .extras/
 temp/
 
-# Local scripts (not tracked)
-/scripts/
+# Generated identity / AA review reports (not source of truth)
+/reports/
+/aa_models_cache.json
+
+# Local ad-hoc scripts (not tracked). Identity tooling under scripts/ is tracked.
+/scripts/*
+!/scripts/*.py
+!/scripts/README.md
+!/scripts/requirements.txt
+.artifacts/
