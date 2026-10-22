@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-haiku-5-5
 costs:
     - cache_creation_input_token_cost: 1.25e-7
       cache_creation_input_token_cost_per_hour: 2e-7
@@ -725,6 +726,9 @@ costs:
               - cost_per_token: 2.5e-6
                 from: 100000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 7d064a11-6e78-4030-b535-cdf940615041
+    artificial_analysis_slug: claude-haiku-5-5
 features:
     - function_calling
     - parallel_function_calling

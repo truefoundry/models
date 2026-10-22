@@ -1,3 +1,4 @@
+canonical_model: mistral/mistral-small
 costs:
     - cache_read_input_token_cost: 1.5e-8
       input_cost_per_token: 1.5e-7
@@ -5,6 +6,9 @@ costs:
       output_cost_per_token: 6e-7
       output_cost_per_token_batches: 3e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 7c045ca0-b331-488d-af31-df0fd331dfd1
+    artificial_analysis_slug: mistral-small
 features:
     - function_calling
     - parallel_function_calling
