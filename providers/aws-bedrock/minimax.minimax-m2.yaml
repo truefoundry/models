@@ -1,45 +1,46 @@
 canonical_model: minimax/minimax-m2
 costs:
     - input_cost_per_token: 3e-7
-      output_cost_per_token: 0.0000012
+      output_cost_per_token: 1.2e-6
       region: us-west-2
     - input_cost_per_token: 3e-7
-      output_cost_per_token: 0.0000012
+      output_cost_per_token: 1.2e-6
       region: us-east-2
     - input_cost_per_token: 3e-7
-      output_cost_per_token: 0.0000012
+      output_cost_per_token: 1.2e-6
       region: us-east-1
     - input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000145
+      output_cost_per_token: 1.45e-6
       region: sa-east-1
     - input_cost_per_token: 4.7e-7
-      output_cost_per_token: 0.00000186
+      output_cost_per_token: 1.86e-6
       region: eu-west-2
     - input_cost_per_token: 3.5e-7
-      output_cost_per_token: 0.00000141
+      output_cost_per_token: 1.41e-6
       region: eu-west-1
     - input_cost_per_token: 3.5e-7
-      output_cost_per_token: 0.00000141
+      output_cost_per_token: 1.41e-6
       region: eu-south-1
     - input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000144
+      output_cost_per_token: 1.44e-6
       region: eu-north-1
     - input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000144
+      output_cost_per_token: 1.44e-6
       region: eu-central-1
     - region: ap-southeast-4
     - input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000144
+      output_cost_per_token: 1.44e-6
       region: ap-southeast-3
     - input_cost_per_token: 3.09e-7
-      output_cost_per_token: 0.000001236
+      output_cost_per_token: 1.236e-6
       region: ap-southeast-2
     - input_cost_per_token: 3.5e-7
-      output_cost_per_token: 0.00000141
+      output_cost_per_token: 1.41e-6
       region: ap-south-1
     - input_cost_per_token: 3.6e-7
-      output_cost_per_token: 0.00000145
+      output_cost_per_token: 1.45e-6
       region: ap-northeast-1
+deprecationDate: "2026-09-30"
 external_ids:
     artificial_analysis_id: f74ea286-cd29-4eb4-af14-1389b19c21e5
     artificial_analysis_slug: minimax-m2
@@ -48,6 +49,7 @@ features:
     - tool_choice
     - system_messages
     - structured_output
+isDeprecated: true
 limits:
     context_window: 1000000
     max_output_tokens: 8000
@@ -67,8 +69,9 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2.html
-status: active
+status: deprecated
 supportedModes:
     - chat

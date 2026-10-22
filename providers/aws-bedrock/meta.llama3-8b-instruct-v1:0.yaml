@@ -20,6 +20,7 @@ costs:
       region: ap-south-1
 features:
     - system_messages
+isDeprecated: true
 limits:
     context_window: 8192
     max_input_tokens: 8192
@@ -35,6 +36,7 @@ model: meta.llama3-8b-instruct-v1:0
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-8b-instruct.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html

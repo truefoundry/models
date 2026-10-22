@@ -16,6 +16,7 @@ features:
     - function_calling
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 10000000
     max_output_tokens: 8000
@@ -36,6 +37,7 @@ params:
 provisioning: serverless
 removeParams:
     - stream
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-4-scout-17b-instruct.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
