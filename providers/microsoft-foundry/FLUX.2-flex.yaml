@@ -1,15 +1,15 @@
 costs:
-    - input_cost_per_image: 0.05 # per megapixel of reference image
-      output_cost_per_image: 0.05 # per megapixel of generated image
+    - input_cost_per_image: 0.05
+      output_cost_per_image: 0.05
       region: global
-    - input_cost_per_image: 0.055 # per megapixel of reference image
-      output_cost_per_image: 0.055 # per megapixel of generated image
+    - input_cost_per_image: 0.055
+      output_cost_per_image: 0.055
       region: datazone_us
-    - input_cost_per_image: 0.055 # per megapixel of reference image
-      output_cost_per_image: 0.055 # per megapixel of generated image
+    - input_cost_per_image: 0.055
+      output_cost_per_image: 0.055
       region: datazone_eu
 limits:
-    max_input_tokens: 32000
+    max_input_tokens: 32768
 modalities:
     input:
         - text
@@ -33,6 +33,7 @@ removeParams:
 sources:
     - https://ai.azure.com/catalog/models/FLUX.2-flex
     - https://prices.azure.com/api/retail/prices
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/black-forest-labs/
 status: active
 supportedModes:
     - image
