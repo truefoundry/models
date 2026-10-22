@@ -1,8 +1,12 @@
+canonical_model: alibaba/qwen3-coder-next
 costs:
     - cache_read_input_token_cost: 1.2e-7
       input_cost_per_token: 1.5e-7
       output_cost_per_token: 8e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: fc92f822-04b7-420d-9c07-a21af5e9aac7
+    artificial_analysis_slug: qwen3-coder-next
 features:
     - function_calling
     - json_output

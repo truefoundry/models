@@ -1,3 +1,6 @@
+costs:
+    - output_cost_per_image: 0.06
+      region: global
 modalities:
     input:
         - image
@@ -23,5 +26,4 @@ status: active
 supportedModes:
     - image
 
-# costs: not found in official docs (Imagen virtual-try-on pricing not listed on the public Vertex AI pricing page)
 # limits: not applicable — image-only model with no documented token limits

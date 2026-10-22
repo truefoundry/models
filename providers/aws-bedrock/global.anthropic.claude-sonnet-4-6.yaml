@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-sonnet-4-6
 costs:
     - cache_creation_input_token_cost: 0.00000375
       cache_creation_input_token_cost_per_hour: 0.000006
@@ -263,13 +264,15 @@ costs:
       output_cost_per_token: 0.000015
       output_cost_per_token_batches: 0.0000075
       region: af-south-1
+external_ids:
+    artificial_analysis_id: 2e40e695-3cec-43da-83f9-615af30b8e91
+    artificial_analysis_slug: claude-sonnet-4-6
 features:
     - function_calling
     - tool_choice
     - prompt_caching
     - cache_control
     - system_messages
-    - assistant_prefill
     - structured_output
 limits:
     context_window: 1000000
