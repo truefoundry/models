@@ -28,12 +28,18 @@ modalities:
 mode: chat
 model: gpt-chat-latest-2026-10-07
 params:
+    - defaultValue: 128
+      key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
           - medium
       type: string
 provisioning: serverless
+removeParams:
+    - max_tokens
 status: preview
 supportedModes:
     - chat
