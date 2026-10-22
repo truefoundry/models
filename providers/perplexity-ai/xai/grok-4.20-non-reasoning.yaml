@@ -1,3 +1,4 @@
+canonical_model: xai/grok-4-20-non-reasoning
 costs:
     - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.00000125
@@ -10,6 +11,9 @@ costs:
           output:
               - cost_per_token: 0.000005
                 from: 200000
+external_ids:
+    artificial_analysis_id: 64312f37-3701-4243-a4c9-7c07a58cd6b9
+    artificial_analysis_slug: grok-4-20-non-reasoning
 modalities:
     input:
         - text

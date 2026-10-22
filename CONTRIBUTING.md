@@ -76,9 +76,25 @@ Valid `mode` values:
 
 `audio_transcription`, `audio_translation`, `chat`, `completion`, `decision`, `embedding`, `image`, `moderation`, `realtime`, `rerank`, `text_to_speech`, `unknown`, `video`
 
+`canonical_model` and `external_ids` are optional. When you know the foundation model, set `canonical_model` on the YAML. Add `external_ids` only for a verified Artificial Analysis match (requires `canonical_model`).
+
+When you add or change `external_ids`, CI verifies the Artificial Analysis `id`/`slug` pair against the live catalog for files changed in the PR when repository secret `AA_API_KEY` is configured. Without the secret, CI skips the live check with a warning.
+
 ### 3. Optional Fields
 
 ```yaml
+# Optional stable foundation-model identity: <creator>/<foundation-model> (lowercase).
+# Use the model creator, not the host (anthropic, not bedrock/vertex/azure/openrouter).
+# Provider deployments of the same weights share one canonical name.
+canonical_model: openai/gpt-5-4-mini
+
+# Optional verified Artificial Analysis identifiers. Omit when unmatched.
+# Never invent, null, or guess values. Requires canonical_model. All files in a
+# canonical group must share the same external_ids (or all omit them).
+external_ids:
+    artificial_analysis_slug: gpt-5-4-mini
+    artificial_analysis_id: 00000000-0000-0000-0000-000000000000
+
 # Pricing — an array of cost entries, each with a region ("*" for global pricing)
 costs:
     - region: "*"
