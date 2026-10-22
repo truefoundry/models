@@ -1,0 +1,30 @@
+costs:
+    - cache_read_input_token_cost: 2e-8
+      input_cost_per_token: 2e-7
+      output_cost_per_token: 1.2e-6
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+    - json_output
+    - prompt_caching
+limits:
+    context_window: 256000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: MAI-Code-1.1-Flash-2026-09-15
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/MAI-Code-1.1-Flash
+    - https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF
+status: preview
+supportedModes:
+    - chat
