@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-5-5
 costs:
     - cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 5.5e-6
@@ -50,6 +51,9 @@ costs:
               - cost_per_token: 4.5e-5
                 from: 272000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 1f054429-397e-4fdb-9e71-67bc92c1735e
+    artificial_analysis_slug: gpt-5-5
 features:
     - function_calling
     - parallel_function_calling

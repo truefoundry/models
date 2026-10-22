@@ -1,3 +1,4 @@
+canonical_model: alibaba/qwen3-max-thinking
 costs:
     - input_cost_per_token: 7.8e-7
       output_cost_per_token: 0.0000039
@@ -14,6 +15,9 @@ costs:
               - cost_per_token: 0.00000975
                 from: 128000
           pricing_mode: marginal
+external_ids:
+    artificial_analysis_id: 806032ff-6252-4c22-ba99-a126e411b7a4
+    artificial_analysis_slug: qwen3-max-thinking
 features:
     - function_calling
     - json_output
