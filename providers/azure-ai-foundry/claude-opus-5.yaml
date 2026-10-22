@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-opus-5
 costs:
     - cache_creation_input_token_cost: 0.00000625
       cache_creation_input_token_cost_per_hour: 0.00001
@@ -17,6 +18,9 @@ costs:
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
       region: "*"
+external_ids:
+    artificial_analysis_id: b8fc61f7-5e9a-49e6-8547-6ac56db24627
+    artificial_analysis_slug: claude-opus-5
 features:
     - function_calling
     - parallel_function_calling

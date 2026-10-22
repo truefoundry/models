@@ -1,3 +1,4 @@
+canonical_model: google/gemini-2-5-flash-lite
 costs:
     - cache_creation_input_token_cost: 8.33e-8
       cache_read_input_audio_token_cost: 3e-8
@@ -6,6 +7,9 @@ costs:
       input_cost_per_token: 1e-7
       output_cost_per_token: 4e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 1d81aa1c-64c8-442a-9c41-81b37e407b91
+    artificial_analysis_slug: gemini-2-5-flash-lite
 features:
     - function_calling
     - json_output
