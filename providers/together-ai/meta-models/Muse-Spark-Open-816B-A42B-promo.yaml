@@ -1,0 +1,28 @@
+costs:
+    - cache_read_input_token_cost: 0.0
+      input_cost_per_token: 0.0
+      output_cost_per_token: 0.0
+      region: "*"
+features:
+    - function_calling
+    - system_messages
+    - prompt_caching
+limits:
+    context_window: 1048576
+modalities:
+    input:
+        - text
+        - image
+        - audio
+        - video
+    output:
+        - text
+mode: chat
+model: meta-models/Muse-Spark-Open-816B-A42B-promo
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/muse-spark-open
+status: active
+supportedModes:
+    - chat
+thinking: true
