@@ -1,8 +1,10 @@
+deprecationDate: "2025-10-31"
 features:
     - function_calling
     - tool_choice
     - json_output
     - system_messages
+isDeprecated: true
 limits:
     context_window: 8192
     max_input_tokens: 8192
@@ -18,8 +20,9 @@ model: jais-30b-chat-2
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2026-01-30"
 sources:
     - https://learn.microsoft.com/en-us/azure/machine-learning/concept-models-featured
-status: active
+status: retired
 supportedModes:
     - chat
