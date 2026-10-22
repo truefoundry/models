@@ -1,0 +1,19 @@
+{
+  "name": "sdk-live-test",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:live": "tsx src/index.ts",
+    "test:unit": "tsx --test test/**/*.test.ts"
+  },
+  "dependencies": {
+    "@truefoundry/ai-gateway-sdk": "0.0.6",
+    "js-yaml": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.15.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
