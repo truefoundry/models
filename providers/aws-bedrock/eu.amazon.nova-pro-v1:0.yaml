@@ -1,42 +1,70 @@
 canonical_model: amazon/nova-pro
 costs:
     - cache_read_input_token_cost: 2.5e-7
-      input_cost_per_token: 0.000001
+      flex_pricing:
+          cache_read_input_token_cost: 1.25e-7
+          input_cost_per_token: 5e-7
+          output_cost_per_token: 2e-6
+      input_cost_per_token: 1e-6
       input_cost_per_token_batches: 5e-7
-      output_cost_per_token: 0.000004
-      output_cost_per_token_batches: 0.000002
+      output_cost_per_token: 4e-6
+      output_cost_per_token_batches: 2e-6
       region: il-central-1
     - cache_read_input_token_cost: 2.95e-7
-      input_cost_per_token: 0.00000118
+      flex_pricing:
+          cache_read_input_token_cost: 1.475e-7
+          input_cost_per_token: 5.9e-7
+          output_cost_per_token: 2.36e-6
+      input_cost_per_token: 1.18e-6
       input_cost_per_token_batches: 5.9e-7
-      output_cost_per_token: 0.00000472
-      output_cost_per_token_batches: 0.00000236
+      output_cost_per_token: 4.72e-6
+      output_cost_per_token_batches: 2.36e-6
       region: eu-west-3
     - cache_read_input_token_cost: 2.3e-7
+      flex_pricing:
+          cache_read_input_token_cost: 1.15e-7
+          input_cost_per_token: 4.6e-7
+          output_cost_per_token: 1.84e-6
       input_cost_per_token: 9.2e-7
       input_cost_per_token_batches: 4.6e-7
-      output_cost_per_token: 0.00000368
-      output_cost_per_token_batches: 0.00000184
+      output_cost_per_token: 3.68e-6
+      output_cost_per_token_batches: 1.84e-6
       region: eu-west-1
     - cache_read_input_token_cost: 2.2e-7
+      flex_pricing:
+          cache_read_input_token_cost: 1.1e-7
+          input_cost_per_token: 4.4e-7
+          output_cost_per_token: 1.76e-6
       input_cost_per_token: 8.8e-7
-      output_cost_per_token: 0.00000352
+      output_cost_per_token: 3.52e-6
       region: eu-south-2
     - cache_read_input_token_cost: 3.2e-7
-      input_cost_per_token: 0.00000128
-      output_cost_per_token: 0.00000521
+      flex_pricing:
+          cache_read_input_token_cost: 1.6e-7
+          input_cost_per_token: 6.4e-7
+          output_cost_per_token: 2.56e-6
+      input_cost_per_token: 1.28e-6
+      output_cost_per_token: 5.21e-6
       region: eu-south-1
     - cache_read_input_token_cost: 2.175e-7
+      flex_pricing:
+          cache_read_input_token_cost: 1.0875e-7
+          input_cost_per_token: 4.35e-7
+          output_cost_per_token: 1.74e-6
       input_cost_per_token: 8.7e-7
       input_cost_per_token_batches: 4.35e-7
-      output_cost_per_token: 0.00000348
-      output_cost_per_token_batches: 0.00000174
+      output_cost_per_token: 3.48e-6
+      output_cost_per_token_batches: 1.74e-6
       region: eu-north-1
     - cache_read_input_token_cost: 2.625e-7
-      input_cost_per_token: 0.00000105
+      flex_pricing:
+          cache_read_input_token_cost: 1.3125e-7
+          input_cost_per_token: 5.25e-7
+          output_cost_per_token: 2.1e-6
+      input_cost_per_token: 1.05e-6
       input_cost_per_token_batches: 5.25e-7
-      output_cost_per_token: 0.0000042
-      output_cost_per_token_batches: 0.0000021
+      output_cost_per_token: 4.2e-6
+      output_cost_per_token_batches: 2.1e-6
       region: eu-central-1
 external_ids:
     artificial_analysis_id: 546ec53f-273c-4af7-b13f-b88c41f45905
