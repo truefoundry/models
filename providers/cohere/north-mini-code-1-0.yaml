@@ -3,8 +3,8 @@ costs:
       output_cost_per_token: 0.0
       region: "*"
 features:
+    - tool_choice
     - function_calling
-    # - json_output is not supported
 limits:
     context_window: 256000
     max_output_tokens: 64000
