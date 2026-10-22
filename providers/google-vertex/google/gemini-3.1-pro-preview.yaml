@@ -1,3 +1,4 @@
+canonical_model: google/gemini-3-1-pro-preview
 costs:
     - cache_creation_input_token_cost_per_hour: 4.5e-6
       cache_read_input_token_cost: 2e-7
@@ -35,6 +36,9 @@ costs:
               - cost_per_token: 1.8e-5
                 from: 200000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: bbd93ebe-80da-4594-bb19-61e69d0331df
+    artificial_analysis_slug: gemini-3-1-pro-preview
 features:
     - function_calling
     - system_messages

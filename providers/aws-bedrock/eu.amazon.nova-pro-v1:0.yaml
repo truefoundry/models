@@ -1,3 +1,4 @@
+canonical_model: amazon/nova-pro
 costs:
     - cache_read_input_token_cost: 2.5e-7
       flex_pricing:
@@ -65,6 +66,9 @@ costs:
       output_cost_per_token: 4.2e-6
       output_cost_per_token_batches: 2.1e-6
       region: eu-central-1
+external_ids:
+    artificial_analysis_id: 546ec53f-273c-4af7-b13f-b88c41f45905
+    artificial_analysis_slug: nova-pro
 features:
     - function_calling
     - prompt_caching

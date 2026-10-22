@@ -1,3 +1,4 @@
+canonical_model: xai/grok-4-3
 costs:
     - cache_read_input_token_cost: 2e-7
       flex_pricing:
@@ -47,6 +48,9 @@ costs:
           input_cost_per_token: 2.1875e-6
           output_cost_per_token: 4.375e-6
       region: us-east-1
+external_ids:
+    artificial_analysis_id: 948892b5-db03-4118-a4a8-ccd51ed871ea
+    artificial_analysis_slug: grok-4-3
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /openai
 features:
