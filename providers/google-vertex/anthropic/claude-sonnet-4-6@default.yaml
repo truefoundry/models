@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-sonnet-4-6
 costs:
     - cache_creation_input_token_cost: 0.000004125
       cache_creation_input_token_cost_per_hour: 0.0000066
@@ -47,6 +48,17 @@ costs:
       output_cost_per_token: 0.0000165
       output_cost_per_token_batches: 0.00000825
       region: asia-southeast1
+    - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: asia-east1
+external_ids:
+    artificial_analysis_id: 2e40e695-3cec-43da-83f9-615af30b8e91
+    artificial_analysis_slug: claude-sonnet-4-6
 features:
     - function_calling
     - parallel_function_calling
@@ -54,7 +66,6 @@ features:
     - prompt_caching
     - cache_control
     - structured_output
-    - assistant_prefill
     - system_messages
 limits:
     context_window: 1000000
@@ -83,18 +94,19 @@ params:
           - low
           - medium
           - high
-          - xhigh
           - max
       type: string
 provisioning: serverless
 removeParams:
     - "n"
+retirementDate: "2027-02-17"
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
     - https://platform.claude.com/docs/en/about-claude/models/overview
     - https://platform.claude.com/docs/en/about-claude/model-deprecations
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-chat
 costs:
     - cache_read_input_token_cost: 1.25e-7
       input_cost_per_token: 1.25e-6
@@ -10,6 +11,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 111616
@@ -25,13 +27,16 @@ modalities:
 mode: chat
 model: gpt-chat-latest-2026-06-24
 params:
-    - key: max_completion_tokens
+    - defaultValue: 128
+      key: max_completion_tokens
       maxValue: 16384
+      minValue: 1
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - max_tokens
 retirementDate: "2026-09-24"
-status: preview
+status: retired
 supportedModes:
     - chat
     - responses

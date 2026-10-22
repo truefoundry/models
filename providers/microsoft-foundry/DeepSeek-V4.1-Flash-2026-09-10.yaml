@@ -1,0 +1,34 @@
+canonical_model: deepseek/deepseek-v4-1-flash
+external_ids:
+    artificial_analysis_id: dbe7c625-3100-4463-b479-a228c41f75dd
+    artificial_analysis_slug: deepseek-v4-1-flash
+features:
+    - function_calling
+    - tool_choice
+    - json_output
+    - structured_output
+    - system_messages
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 384000
+    max_tokens: 384000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: DeepSeek-V4.1-Flash-2026-09-10
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V4-Flash
+    - https://www.deepseek.com/en/news/deepseek-v4-1-flash/
+    - https://api-docs.deepseek.com/quick_start/pricing
+status: active
+supportedModes:
+    - chat
+thinking: true
+
+# costs: not published by Azure for DeepSeek-V4.1-Flash (pricing page shows "$-")

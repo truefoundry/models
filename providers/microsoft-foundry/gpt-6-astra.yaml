@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-6-astra
 costs:
     - cache_creation_input_token_cost: 0.0000125
       cache_read_input_token_cost: 0.000001
@@ -37,6 +38,28 @@ costs:
               - cost_per_token: 0.0000825
                 from: 272000
           pricing_mode: cumulative
+    - cache_creation_input_token_cost: 0.0000125
+      cache_read_input_token_cost: 0.000001
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00005
+      region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 0.000002
+                from: 272000
+          cache_write:
+              - cost_per_token: 0.000025
+                from: 272000
+          input:
+              - cost_per_token: 0.00002
+                from: 272000
+          output:
+              - cost_per_token: 0.000075
+                from: 272000
+          pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 2f339a97-9a0d-499a-9cb5-e0db665bfa25
+    artificial_analysis_slug: gpt-6-astra
 features:
     - function_calling
     - parallel_function_calling

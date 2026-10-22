@@ -1,0 +1,33 @@
+costs:
+    - input_cost_per_second: 0.000833333333333
+      region: "*"
+features:
+    - function_calling
+limits:
+    context_window: 128000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - text
+        - audio
+    output:
+        - text
+        - audio
+mode: realtime
+model: gpt-live-1
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - parallel_tool_calls
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-live-1
+    - https://ai.azure.com/catalog/models/gpt-live-1
+status: active
+supportedModes:
+    - realtime

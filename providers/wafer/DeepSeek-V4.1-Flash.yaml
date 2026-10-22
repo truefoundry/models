@@ -1,0 +1,42 @@
+canonical_model: deepseek/deepseek-v4-1-flash
+costs:
+    - cache_read_input_token_cost: 6e-9
+      input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
+      region: "*"
+external_ids:
+    artificial_analysis_id: dbe7c625-3100-4463-b479-a228c41f75dd
+    artificial_analysis_slug: deepseek-v4-1-flash
+features:
+    - function_calling
+    - prompt_caching
+    - json_output
+    - structured_output
+limits:
+    context_window: 1048576
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: DeepSeek-V4.1-Flash
+params:
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://pass.wafer.ai/v1/models
+    - https://docs.wafer.ai/serverless/models
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true

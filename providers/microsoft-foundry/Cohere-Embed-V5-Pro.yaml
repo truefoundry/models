@@ -1,0 +1,32 @@
+limits:
+    context_window: 128000
+    max_input_tokens: 128000
+    output_vector_size: 2048
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - embedding
+mode: embedding
+model: Cohere-Embed-V5-Pro
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - stop
+    - "n"
+    - response_format
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
+    - stream
+sources:
+    - https://docs.cohere.com/docs/models
+    - https://docs.cohere.com/changelog/embed-v5
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-cohere-embed
+status: active
+supportedModes:
+    - embedding

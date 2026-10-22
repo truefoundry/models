@@ -31,30 +31,30 @@ This is the complete set of providers the gateway supports. If a provider isn't 
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 930 | Unified API for open source models |
-| Google Vertex AI | 431 | Gemini, PaLM on GCP |
-| Together AI | 384 | Open source model hosting |
-| Microsoft Foundry | 299 | OpenAI and Foundry catalog models on Microsoft Foundry |
-| DeepInfra | 262 | Open source model hosting |
-| Azure OpenAI | 230 | OpenAI models on Azure |
-| AWS Bedrock | 229 | Claude, Llama, Titan, Mistral on AWS |
-| Azure AI Foundry | 220 | Azure AI models |
-| OpenAI | 151 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
-| Deepgram | 143 | Speech-to-text and text-to-speech models |
-| Mistral AI | 103 | Mistral, Mixtral, Codestral |
-| xAI | 92 | Grok models |
-| Google Gemini | 80 | Gemini Pro, Ultra, Flash |
+| OpenRouter | 977 | Unified API for open source models |
+| Microsoft Foundry | 476 | OpenAI and Foundry catalog models on Microsoft Foundry |
+| Google Vertex AI | 437 | Gemini, PaLM on GCP |
+| Together AI | 388 | Open source model hosting |
+| DeepInfra | 270 | Open source model hosting |
+| Azure OpenAI | 244 | OpenAI models on Azure |
+| AWS Bedrock | 233 | Claude, Llama, Titan, Mistral on AWS |
+| Azure AI Foundry | 233 | Azure AI models |
+| OpenAI | 161 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
+| Deepgram | 144 | Speech-to-text and text-to-speech models |
+| Mistral AI | 107 | Mistral, Mixtral, Codestral |
+| xAI | 93 | Grok models |
+| Google Gemini | 87 | Gemini Pro, Ultra, Flash |
 | Databricks | 68 | Databricks-hosted models |
-| Aws Bedrock Mantle | 55 |  |
-| Cohere | 39 | Command, Embed models |
-| SambaNova | 30 | Enterprise AI models |
-| Anthropic | 27 | Claude 3, Claude 3.5, Claude 4 |
+| Aws Bedrock Mantle | 56 |  |
+| Cohere | 40 | Command, Embed models |
+| SambaNova | 31 | Enterprise AI models |
+| Anthropic | 28 | Claude 3, Claude 3.5, Claude 4 |
+| Groq | 24 | Fast inference models |
 | Perplexity | 24 | Search-augmented models |
-| Groq | 23 | Fast inference models |
-| Wafer | 17 |  |
+| Wafer | 20 |  |
 | AI21 | 12 | Jamba models |
-| ElevenLabs | 11 | Voice synthesis and text-to-speech models |
-| Cerebras | 6 | Fast inference models |
+| ElevenLabs | 12 | Voice synthesis and text-to-speech models |
+| Cerebras | 7 | Fast inference models |
 
 ## Installation
 
@@ -72,6 +72,14 @@ Each model YAML file follows this schema (validated by [CUE](.github/test/model.
 # Required
 model: gpt-5.4-mini-2026-03-17        # Model identifier used by the provider's API
 mode: chat                             # Primary capability (chat, embedding, image, text_to_speech, etc.)
+
+# Optional stable foundation-model identity shared across provider deployments
+canonical_model: openai/gpt-5-4-mini
+
+# Optional verified Artificial Analysis identifiers (omit when unmatched)
+external_ids:
+    artificial_analysis_slug: gpt-5-4-mini
+    artificial_analysis_id: 00000000-0000-0000-0000-000000000000
 
 # Pricing — array of cost entries, each with a region ("*" for global)
 costs:
@@ -101,7 +109,9 @@ sources:
     - https://developers.openai.com/api/docs/pricing
 ```
 
-See the [Contributing Guide](CONTRIBUTING.md) for the full list of fields, valid values, and more examples.
+`canonical_model` and `external_ids` are optional. When set, `canonical_model` is `<creator>/<foundation-model>` (lowercase). Provider hosts such as Bedrock, Vertex, Azure, OpenRouter, and Databricks are not creators. TrueFoundry `costs` remain the billing source; Artificial Analysis IDs are optional cross-references only.
+
+Set these fields on the model YAML when known and review them in the PR. CI validates identity consistency when present and re-checks Artificial Analysis IDs for changed files. See [scripts/README.md](scripts/README.md) and the [Contributing Guide](CONTRIBUTING.md).
 
 ## Directory Structure
 

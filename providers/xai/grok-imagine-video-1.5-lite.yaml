@@ -1,0 +1,15 @@
+costs:
+    - output_cost_per_second: 0.02
+      region: "*"
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - video
+mode: video
+model: grok-imagine-video-1.5-lite
+provisioning: serverless
+status: active
+supportedModes:
+    - video

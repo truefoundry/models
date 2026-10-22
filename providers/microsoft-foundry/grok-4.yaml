@@ -1,16 +1,30 @@
+canonical_model: xai/grok-4
 costs:
     - input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
       region: "*"
+external_ids:
+    artificial_analysis_id: 5ea94a4a-55ac-4ea1-8898-2b3971e94af6
+    artificial_analysis_slug: grok-4
 features:
     - function_calling
     - tool_choice
     - structured_output
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 4096
+    max_input_tokens: 262000
+    max_output_tokens: 8192
+    max_tokens: 8192
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: grok-4
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/grok-4
+status: active
 supportedModes:
     - chat
+thinking: true

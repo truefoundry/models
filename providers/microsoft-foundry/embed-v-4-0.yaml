@@ -3,15 +3,25 @@ costs:
       output_cost_per_token: 0
       region: "*"
 limits:
-    max_input_tokens: 128000
+    max_input_tokens: 131072
     max_tokens: 4096
-    output_vector_size: 3072
+    output_vector_size: 1536
 modalities:
     input:
+        - text
         - image
+        - pdf
+    output:
+        - embedding
 mode: embedding
 model: embed-v-4-0
+provisioning: serverless
 removeParams:
     - max_tokens
+sources:
+    - https://ai.azure.com/catalog/models/embed-v-4-0
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/cohere/
+    - https://docs.cohere.com/docs/cohere-embed
+status: active
 supportedModes:
     - embedding

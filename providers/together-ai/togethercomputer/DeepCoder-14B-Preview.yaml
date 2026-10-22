@@ -1,3 +1,4 @@
+canonical_model: togethercomputer/deepcoder-14b-preview
 limits:
     context_window: 131072
 modalities:
@@ -10,6 +11,8 @@ modalities:
 mode: chat
 model: togethercomputer/DeepCoder-14B-Preview
 provisioning: provisioned
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/blog/deepcoder
     - https://huggingface.co/agentica-org/DeepCoder-14B-Preview

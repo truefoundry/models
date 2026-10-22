@@ -24,15 +24,19 @@ params:
       key: max_completion_tokens
       maxValue: 272000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
     - top_p
-    - n
+    - "n"
     - parallel_tool_calls
     - max_tokens
     - max_completion_tokens
-    - reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-pro
 status: active

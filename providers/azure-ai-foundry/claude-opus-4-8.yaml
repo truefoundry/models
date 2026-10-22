@@ -1,16 +1,32 @@
+canonical_model: anthropic/claude-opus-4-8
 costs:
     - cache_creation_input_token_cost: 0.00000625
       cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
       output_cost_per_token: 0.000025
+      output_cost_per_token_batches: 0.0000125
       region: global
+    - cache_creation_input_token_cost: 0.000006875
+      cache_creation_input_token_cost_per_hour: 0.000011
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000055
+      input_cost_per_token_batches: 0.00000275
+      output_cost_per_token: 0.0000275
+      output_cost_per_token_batches: 0.00001375
+      region: datazone_us
     - cache_creation_input_token_cost: 0.00000625
       cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
+      input_cost_per_token_batches: 0.0000025
       output_cost_per_token: 0.000025
-      region: datazone_us
+      output_cost_per_token_batches: 0.0000125
+      region: "*"
+external_ids:
+    artificial_analysis_id: 992b7b84-5069-4c6a-9295-834252553d50
+    artificial_analysis_slug: claude-opus-4-8
 features:
     - function_calling
     - parallel_function_calling
@@ -19,7 +35,6 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
-    - assistant_prefill
     - json_output
     - mid_conversation_system_messages
 limits:

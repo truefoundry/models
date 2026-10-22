@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-4o-mini
 costs:
     - input_cost_per_token: 1.5e-7
       output_cost_per_token: 6e-7
@@ -14,6 +15,9 @@ costs:
       input_cost_per_token: 1.65e-7
       output_cost_per_token: 6.6e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: b5c1c91a-7474-4409-9a9c-9c2ac45d9eb6
+    artificial_analysis_slug: gpt-4o-mini
 features:
     - function_calling
     - parallel_function_calling
@@ -40,6 +44,7 @@ params:
       key: max_tokens
       maxValue: 16384
       minValue: 1
+preferChatCompletions: true
 provisioning: serverless
 retirementDate: "2027-04-14"
 sources:

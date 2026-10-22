@@ -1,0 +1,18 @@
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
+model: elevenlabs/elevenlabs-stt-v1
+provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
+supportedModes:
+    - audio_transcription

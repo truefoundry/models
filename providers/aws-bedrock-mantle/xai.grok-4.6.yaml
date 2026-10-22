@@ -1,8 +1,16 @@
+canonical_model: xai/grok-4-6
 costs:
     - cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000022
       output_cost_per_token: 0.0000066
       region: us-west-2
+    - cache_read_input_token_cost: 6.6e-7
+      input_cost_per_token: 0.00000264
+      output_cost_per_token: 0.00000792
+      region: us-gov-east-1
+external_ids:
+    artificial_analysis_id: c8adc5cf-fd5a-407b-af51-dc3bede3e49c
+    artificial_analysis_slug: grok-4-6
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /openai
 features:
@@ -35,10 +43,10 @@ params:
     - defaultValue: 131072
       key: max_completion_tokens
       type: number
+preferChatCompletions: true
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
-    - https://docs.x.ai/developers/grok-4-6
 status: active
 supportedModes:
     - chat

@@ -1,6 +1,7 @@
 costs:
     - input_cost_per_image: 0.0027
       region: "*"
+isDeprecated: true
 modalities:
     input:
         - text
@@ -9,8 +10,9 @@ modalities:
 mode: image
 model: black-forest-labs/FLUX.1-schnell
 provisioning: serverless
+retirementDate: "2026-08-19"
 sources:
     - https://docs.together.ai/docs/serverless-models
-status: active
+status: retired
 supportedModes:
     - image

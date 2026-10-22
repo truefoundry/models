@@ -1,7 +1,10 @@
+canonical_model: core42/jais-30b-chat-3
 costs:
     - input_cost_per_token: 3.2e-6
       output_cost_per_token: 9.71e-6
       region: "*"
+features:
+    - system_messages
 limits:
     context_window: 8192
     max_input_tokens: 8192

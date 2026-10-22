@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-sonnet-5
 costs:
     - cache_creation_input_token_cost: 0.0000025
       cache_creation_input_token_cost_per_hour: 0.000004
@@ -15,6 +16,17 @@ costs:
       output_cost_per_token: 0.000011
       output_cost_per_token_batches: 0.0000055
       region: datazone_us
+    - cache_creation_input_token_cost: 0.0000025
+      cache_creation_input_token_cost_per_hour: 0.000004
+      cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
+      input_cost_per_token_batches: 0.000001
+      output_cost_per_token: 0.00001
+      output_cost_per_token_batches: 0.000005
+      region: "*"
+external_ids:
+    artificial_analysis_id: 23c86e4a-c769-43c0-a056-79e3cd15834f
+    artificial_analysis_slug: claude-sonnet-5
 features:
     - function_calling
     - parallel_function_calling
@@ -51,9 +63,15 @@ params:
           - xhigh
           - max
       type: string
-    - key: max_tokens
+    - defaultValue: 256
+      key: max_tokens
       maxValue: 128000
+      minValue: 1
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing

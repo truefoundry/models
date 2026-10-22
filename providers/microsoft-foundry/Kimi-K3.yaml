@@ -1,0 +1,35 @@
+canonical_model: kimi/kimi-k3
+costs:
+    - cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      output_cost_per_token: 0.0000165
+      region: datazone_us
+    - cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      output_cost_per_token: 0.0000165
+      region: datazone_eu
+external_ids:
+    artificial_analysis_id: f7d2fc3e-1f7b-405f-818c-07952a4af78f
+    artificial_analysis_slug: kimi-k3
+features:
+    - function_calling
+    - system_messages
+limits:
+    context_window: 1048576
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: Kimi-K3
+provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/FW-Kimi-K3
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-kimi-k3-through-fireworks-ai-on-microsoft-foundry/4540187
+    - https://learn.microsoft.com/en-us/answers/questions/5968433/what-is-the-pricing-for-the-fw-kimi-k3-by-firework
+status: active
+supportedModes:
+    - chat
+thinking: true

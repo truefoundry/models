@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-4-1-nano
 costs:
     - cache_read_input_token_cost: 2.5e-8
       input_cost_per_token: 1.1e-7
@@ -11,6 +12,9 @@ costs:
       output_cost_per_token: 4e-7
       output_cost_per_token_batches: 2e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 72c358fd-7d45-4d68-89aa-699743710924
+    artificial_analysis_slug: gpt-4-1-nano
 features:
     - function_calling
     - parallel_function_calling
@@ -18,6 +22,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 1047576
     max_input_tokens: 1047576
@@ -36,13 +41,14 @@ params:
       key: max_tokens
       maxValue: 32768
       minValue: 1
+preferChatCompletions: true
 removeParams:
     - reasoning_effort
 retirementDate: "2027-04-14"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/retired-models
     - https://raw.githubusercontent.com/BerriAI/litellm/refs/heads/main/model_prices_and_context_window.json
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses

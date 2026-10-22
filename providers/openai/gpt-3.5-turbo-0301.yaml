@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-3-5-turbo-0301
 costs:
     - input_cost_per_token: 0.0000015
       output_cost_per_token: 0.000002
@@ -15,6 +16,7 @@ model: gpt-3.5-turbo-0301
 params:
     - key: max_tokens
       maxValue: 4096
+preferChatCompletions: true
 supportedModes:
     - chat
     - responses

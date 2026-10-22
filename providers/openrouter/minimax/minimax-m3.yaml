@@ -1,13 +1,19 @@
+canonical_model: minimax/minimax-m3
 costs:
     - cache_read_input_token_cost: 6e-8
       input_cost_per_token: 3e-7
       output_cost_per_token: 1.2e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: 277f939a-985b-4b37-859d-b3eabc7c0b26
+    artificial_analysis_slug: minimax-m3
 features:
     - function_calling
     - json_output
     - prompt_caching
     - tool_choice
+    - structured_output
+    - system_messages
 limits:
     context_window: 1048576
     max_output_tokens: 512000
@@ -28,6 +34,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m3
+status: active
 supportedModes:
     - chat
 thinking: true

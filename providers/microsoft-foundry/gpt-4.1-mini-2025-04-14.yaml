@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-4-1-mini
 costs:
     - cache_read_input_token_cost: 1.1e-7
       input_cost_per_token: 4.4e-7
@@ -12,6 +13,9 @@ costs:
       output_cost_per_token_batches: 8e-7
       region: "*"
 deprecationDate: "2026-10-14"
+external_ids:
+    artificial_analysis_id: 9f7c7566-a704-49a2-a383-cb3181da33a4
+    artificial_analysis_slug: gpt-4-1-mini
 features:
     - function_calling
     - parallel_function_calling
@@ -19,6 +23,7 @@ features:
     - tool_choice
     - prompt_caching
     - structured_output
+isDeprecated: true
 limits:
     context_window: 1047576
     max_input_tokens: 1047576
@@ -35,11 +40,12 @@ model: gpt-4.1-mini-2025-04-14
 params:
     - key: max_tokens
       maxValue: 32768
+preferChatCompletions: true
 provisioning: serverless
 retirementDate: "2027-04-14"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses

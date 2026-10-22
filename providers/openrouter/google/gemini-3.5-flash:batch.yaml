@@ -1,3 +1,4 @@
+canonical_model: google/gemini-3-5-flash:batch
 costs:
     - cache_read_input_audio_token_cost: 1.5e-7
       cache_read_input_token_cost: 7.5e-8
@@ -29,6 +30,7 @@ model: google/gemini-3.5-flash:batch
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-3.5-flash:batch
+status: active
 supportedModes:
     - chat
 thinking: true

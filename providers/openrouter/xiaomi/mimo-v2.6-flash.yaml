@@ -1,0 +1,40 @@
+canonical_model: xiaomi/mimo-v2-6-flash
+costs:
+    - cache_read_input_token_cost: 2.8e-9
+      input_cost_per_token: 1.4e-7
+      output_cost_per_token: 2.8e-7
+      region: "*"
+external_ids:
+    artificial_analysis_id: 127de816-57d3-4037-8484-480a613cd413
+    artificial_analysis_slug: mimo-v2-6-flash
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 131072
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+    output:
+        - text
+mode: chat
+model: xiaomi/mimo-v2.6-flash
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+provisioning: serverless
+sources:
+    - https://openrouter.ai/xiaomi/mimo-v2.6-flash
+status: active
+supportedModes:
+    - chat
+thinking: true

@@ -1,7 +1,21 @@
+canonical_model: mistral/mistral-code-agent
+costs:
+    - cache_read_input_token_cost: 4e-8
+      input_cost_per_token: 4e-7
+      output_cost_per_token: 0.000002
+      region: "*"
 features:
     - function_calling
+    - structured_output
+    - prompt_caching
+    - assistant_prefill
 limits:
     context_window: 262144
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mistral-code-agent-latest
 params:
@@ -9,6 +23,10 @@ params:
       key: temperature
 removeParams:
     - reasoning_effort
+sources:
+    - https://mistral.ai/news/devstral-2-vibe-cli/
+    - https://docs.mistral.ai/models/devstral-medium-latest
+    - https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5/
 status: active
 supportedModes:
     - chat

@@ -1,8 +1,12 @@
+canonical_model: kimi/kimi-k2-7-code
 costs:
     - cache_read_input_token_cost: 1.9e-7
       input_cost_per_token: 9.5e-7
       output_cost_per_token: 4e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: 8d0cb231-7303-452c-9923-a9620b948475
+    artificial_analysis_slug: kimi-k2-7-code
 features:
     - function_calling
     - prompt_caching
@@ -10,6 +14,7 @@ features:
     - json_output
     - tool_choice
     - system_messages
+isDeprecated: true
 limits:
     context_window: 262144
 modalities:
@@ -24,7 +29,7 @@ provisioning: serverless
 sources:
     - https://pass.wafer.ai/v1/models
     - https://docs.wafer.ai/serverless/setup
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

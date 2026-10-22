@@ -22,7 +22,7 @@ features:
     - tool_choice
 limits:
     context_window: 1050000
-    max_input_tokens: 1050000
+    max_input_tokens: 922000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
@@ -35,8 +35,10 @@ modalities:
 mode: responses
 model: gpt-5.4-pro
 params:
-    - key: max_completion_tokens
+    - defaultValue: 128
+      key: max_completion_tokens
       maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
@@ -50,6 +52,8 @@ provisioning: serverless
 removeParams:
     - max_tokens
 retirementDate: "2027-09-07"
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-5.4-pro
 status: active
 supportedModes:
     - responses

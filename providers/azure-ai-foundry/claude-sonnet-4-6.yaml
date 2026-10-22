@@ -1,9 +1,37 @@
+canonical_model: anthropic/claude-sonnet-4-6
+costs:
+    - cache_creation_input_token_cost: 0.00000375
+      cache_creation_input_token_cost_per_hour: 0.000006
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: global
+    - cache_creation_input_token_cost: 0.000004125
+      cache_creation_input_token_cost_per_hour: 0.0000066
+      cache_read_input_token_cost: 3.3e-7
+      input_cost_per_token: 0.0000033
+      input_cost_per_token_batches: 0.00000165
+      output_cost_per_token: 0.0000165
+      output_cost_per_token_batches: 0.00000825
+      region: datazone_us
+    - cache_creation_input_token_cost: 0.00000375
+      cache_creation_input_token_cost_per_hour: 0.000006
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 0.000003
+      input_cost_per_token_batches: 0.0000015
+      output_cost_per_token: 0.000015
+      output_cost_per_token_batches: 0.0000075
+      region: "*"
+external_ids:
+    artificial_analysis_id: 2e40e695-3cec-43da-83f9-615af30b8e91
+    artificial_analysis_slug: claude-sonnet-4-6
 features:
     - function_calling
     - tool_choice
     - prompt_caching
     - structured_output
-    - assistant_prefill
 modalities:
     input:
         - image

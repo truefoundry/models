@@ -1,5 +1,7 @@
+canonical_model: openai/gpt-5-6-luna
 costs:
-    - cache_read_input_token_cost: 2.2e-8
+    - cache_creation_input_token_cost: 2.75e-7
+      cache_read_input_token_cost: 2.2e-8
       input_cost_per_token: 2.2e-7
       output_cost_per_token: 0.00000132
       region: datazone_us
@@ -7,6 +9,9 @@ costs:
           cache_read:
               - cost_per_token: 4.4e-8
                 from: 272000
+          cache_write:
+              - cost_per_token: 5.5e-7
+                from: 272000
           input:
               - cost_per_token: 4.4e-7
                 from: 272000
@@ -14,7 +19,8 @@ costs:
               - cost_per_token: 0.00000198
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 2.2e-8
+    - cache_creation_input_token_cost: 2.75e-7
+      cache_read_input_token_cost: 2.2e-8
       input_cost_per_token: 2.2e-7
       output_cost_per_token: 0.00000132
       region: datazone_eu
@@ -22,6 +28,9 @@ costs:
           cache_read:
               - cost_per_token: 4.4e-8
                 from: 272000
+          cache_write:
+              - cost_per_token: 5.5e-7
+                from: 272000
           input:
               - cost_per_token: 4.4e-7
                 from: 272000
@@ -29,13 +38,17 @@ costs:
               - cost_per_token: 0.00000198
                 from: 272000
           pricing_mode: cumulative
-    - cache_read_input_token_cost: 2e-8
+    - cache_creation_input_token_cost: 2.5e-7
+      cache_read_input_token_cost: 2e-8
       input_cost_per_token: 2e-7
       output_cost_per_token: 0.0000012
       region: "*"
       tiered_pricing:
           cache_read:
               - cost_per_token: 4e-8
+                from: 272000
+          cache_write:
+              - cost_per_token: 5e-7
                 from: 272000
           input:
               - cost_per_token: 4e-7
@@ -44,6 +57,9 @@ costs:
               - cost_per_token: 0.0000018
                 from: 272000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 426d24c8-49ae-482a-b4a8-20f1c53f21c1
+    artificial_analysis_slug: gpt-5-6-luna
 features:
     - function_calling
     - parallel_function_calling

@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-audio
 costs:
     - input_cost_per_audio_token: 0.00004
       input_cost_per_token: 0.0000025
@@ -6,6 +7,7 @@ costs:
       region: "*"
 features:
     - function_calling
+    - parallel_function_calling
     - system_messages
     - tool_choice
 limits:
@@ -29,6 +31,8 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 retirementDate: "2027-03-02"
+sources:
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
 status: active
 supportedModes:
     - chat

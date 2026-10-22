@@ -11,9 +11,10 @@ modalities:
 mode: video
 model: openai/sora-2
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/models/sora-2
-    - https://together.ai/pricing
 status: active
 supportedModes:
     - video

@@ -1,8 +1,12 @@
+canonical_model: zai/glm-5-1
 costs:
     - cache_read_input_token_cost: 1e-7
       input_cost_per_token: 1e-6
       output_cost_per_token: 3.2e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: 5aa1c578-af76-4b91-8699-cdd43582b3af
+    artificial_analysis_slug: glm-5-1
 features:
     - function_calling
     - parallel_function_calling
@@ -11,6 +15,7 @@ features:
     - structured_output
     - prompt_caching
     - system_messages
+isDeprecated: true
 limits:
     context_window: 202752
 modalities:
@@ -23,7 +28,7 @@ model: GLM-5.1
 provisioning: serverless
 sources:
     - https://pass.wafer.ai/v1/models
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

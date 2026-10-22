@@ -1,7 +1,12 @@
+canonical_model: mistral/devstral-small
 costs:
     - input_cost_per_token: 1e-7
       output_cost_per_token: 3e-7
       region: "*"
+deprecationDate: "2026-02-27"
+external_ids:
+    artificial_analysis_id: 9eae4ec4-61b8-48bc-9843-3edd506ae933
+    artificial_analysis_slug: devstral-small
 features:
     - function_calling
     - parallel_function_calling
@@ -20,8 +25,9 @@ modalities:
         - text
 mode: chat
 model: devstral-small-latest
+retirementDate: "2026-03-31"
 sources:
     - https://docs.mistral.ai/models/devstral-small-2-25-12
-status: preview
+status: retired
 supportedModes:
     - completion

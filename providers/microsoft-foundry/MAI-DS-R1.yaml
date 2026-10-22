@@ -1,3 +1,4 @@
+canonical_model: microsoft/mai-ds-r1
 costs:
     - input_cost_per_token: 0.00000135
       output_cost_per_token: 0.0000054
@@ -8,7 +9,16 @@ limits:
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: MAI-DS-R1
+provisioning: serverless
+sources:
+    - https://huggingface.co/microsoft/MAI-DS-R1
 supportedModes:
     - chat
+thinking: true

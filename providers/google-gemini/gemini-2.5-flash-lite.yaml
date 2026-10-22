@@ -1,3 +1,4 @@
+canonical_model: google/gemini-2-5-flash-lite
 costs:
     - cache_creation_input_token_cost_per_hour: 0.000001
       cache_read_input_audio_token_cost: 3e-8
@@ -8,6 +9,9 @@ costs:
       output_cost_per_token: 4e-7
       output_cost_per_token_batches: 2e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 1d81aa1c-64c8-442a-9c41-81b37e407b91
+    artificial_analysis_slug: gemini-2-5-flash-lite
 features:
     - function_calling
     - parallel_function_calling
@@ -40,6 +44,12 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite

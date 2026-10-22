@@ -1,0 +1,30 @@
+canonical_model: deepseek/deepseek-v4-1-flash
+costs:
+    - cache_read_input_token_cost: 6e-9
+      input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
+      region: "*"
+external_ids:
+    artificial_analysis_id: dbe7c625-3100-4463-b479-a228c41f75dd
+    artificial_analysis_slug: deepseek-v4-1-flash
+features:
+    - function_calling
+    - structured_output
+    - prompt_caching
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: deepseek-ai/DeepSeek-V4.1-Flash
+provisioning: serverless
+sources:
+    - https://www.together.ai/models/deepseek-v4-1-flash
+status: active
+supportedModes:
+    - chat
+thinking: true

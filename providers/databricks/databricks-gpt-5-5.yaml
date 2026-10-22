@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-5-5
 costs:
     - cache_creation_input_token_cost: 0.000005
       cache_read_input_token_cost: 5e-7
@@ -18,6 +19,9 @@ costs:
               - cost_per_token: 0.000045
                 from: 272000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 1f054429-397e-4fdb-9e71-67bc92c1735e
+    artificial_analysis_slug: gpt-5-5
 features:
     - function_calling
     - tool_choice
@@ -41,17 +45,15 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
           - xhigh
+          - max
       type: string
 provisioning: serverless
 sources:
-    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
-    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
     - https://developers.openai.com/api/docs/models/gpt-5.5

@@ -1,3 +1,4 @@
+canonical_model: openai/o3-mini
 costs:
     - cache_read_input_token_cost: 6.05e-7
       input_cost_per_token: 1.21e-6
@@ -16,6 +17,9 @@ costs:
       output_cost_per_token: 4.4e-6
       region: "*"
 deprecationDate: "2026-08-02"
+external_ids:
+    artificial_analysis_id: 2dad8957-4c16-4e74-bf2d-8b21514e0ae9
+    artificial_analysis_slug: o3-mini
 features:
     - function_calling
     - tool_choice
@@ -50,6 +54,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - temperature

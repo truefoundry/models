@@ -1,8 +1,12 @@
+canonical_model: xai/grok-4-1-fast-reasoning
 costs:
     - cache_read_input_token_cost: 5e-8
       input_cost_per_token: 2e-7
       output_cost_per_token: 5e-7
       region: global
+external_ids:
+    artificial_analysis_id: 23149f9b-c904-43e2-9ec4-afa2bf843941
+    artificial_analysis_slug: grok-4-1-fast-reasoning
 features:
     - function_calling
     - structured_output
@@ -22,7 +26,7 @@ retirementDate: "2026-08-20"
 sources:
     - https://docs.x.ai/developers/models#models-and-pricing
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/grok/grok-4-1-fast
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true

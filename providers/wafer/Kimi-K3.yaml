@@ -1,13 +1,21 @@
+canonical_model: kimi/kimi-k3
 costs:
     - cache_read_input_token_cost: 3e-7
-      input_cost_per_token: 3e-6
-      output_cost_per_token: 1.5e-5
+      input_cost_per_token: 1.44e-6
+      output_cost_per_token: 9e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: f7d2fc3e-1f7b-405f-818c-07952a4af78f
+    artificial_analysis_slug: kimi-k3
 features:
     - function_calling
     - prompt_caching
+    - json_output
+    - structured_output
 limits:
-    context_window: 912384
+    context_window: 1048576
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -16,8 +24,18 @@ modalities:
         - text
 mode: chat
 model: Kimi-K3
+params:
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - high
+          - max
+provisioning: serverless
 sources:
     - https://pass.wafer.ai/v1/models
+status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

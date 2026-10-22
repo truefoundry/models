@@ -4,11 +4,13 @@ import yaml from 'js-yaml';
 import { DefaultConfig, ModelConfig } from './autogen/types';
 import { NON_MODEL_YAML } from './constants';
 import { UnifiedModelConfig } from './types';
+import { writeVersionFile } from './versionFile';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const PROVIDERS_DIR = path.join(REPO_ROOT, 'providers');
 const OUTPUT_DIR = path.join(REPO_ROOT, 'dist');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'ai-models.json');
+const VERSION_OUTPUT_FILE = path.join(OUTPUT_DIR, 'ai-models-version.json');
 
 function collectModelFiles(dir: string): string[] {
   const results: string[] = [];
@@ -111,6 +113,8 @@ function main(): void {
   fs.writeFileSync(OUTPUT_FILE, json, 'utf-8');
 
   console.log(`\nWrote ${configs.length} models to ${OUTPUT_FILE}`);
+
+  writeVersionFile(VERSION_OUTPUT_FILE, configs, 'ai-models.json');
 }
 
 main();

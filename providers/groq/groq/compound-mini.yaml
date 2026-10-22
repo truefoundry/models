@@ -1,6 +1,9 @@
+canonical_model: groq/compound-mini
+deprecationDate: "2026-08-24"
 features:
     - system_messages
     - code_execution
+isDeprecated: true
 limits:
     context_window: 131072
     max_output_tokens: 8192
@@ -16,8 +19,9 @@ params:
     - key: max_tokens
       maxValue: 8192
 provisioning: serverless
+retirementDate: "2026-09-21"
 sources:
     - https://console.groq.com/docs/compound
-status: active
+status: retired
 supportedModes:
     - chat

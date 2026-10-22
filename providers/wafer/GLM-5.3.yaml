@@ -1,14 +1,19 @@
+canonical_model: zai/glm-5-3
 costs:
-    - cache_read_input_token_cost: 2.6e-7
-      input_cost_per_token: 1.4e-6
-      output_cost_per_token: 4.4e-6
+    - cache_read_input_token_cost: 1.775e-7
+      input_cost_per_token: 2.2e-7
+      output_cost_per_token: 3.39e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: cd684ea4-b475-4269-b001-d469d06d8a7a
+    artificial_analysis_slug: glm-5-3
 features:
     - function_calling
     - tool_choice
     - system_messages
     - json_output
     - structured_output
+    - prompt_caching
 limits:
     context_window: 1048576
 modalities:
@@ -19,19 +24,21 @@ modalities:
 mode: chat
 model: GLM-5.3
 params:
-    - key: reasoning_effort
+    - defaultValue: low
+      key: reasoning_effort
       supportedValues:
           - none
           - low
-          - medium
           - high
           - max
       type: string
 provisioning: serverless
 sources:
     - https://pass.wafer.ai/v1/models
+    - https://docs.wafer.ai/serverless/models.md
     - https://docs.wafer.ai/serverless/api-reference.md
 status: active
 supportedModes:
     - chat
+    - responses
 thinking: true

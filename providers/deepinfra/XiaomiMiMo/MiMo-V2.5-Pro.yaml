@@ -1,12 +1,15 @@
+canonical_model: xiaomimimo/mimo-v2-5-pro
 costs:
     - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 1e-6
       output_cost_per_token: 3e-6
       region: "*"
+deprecationDate: "2026-09-29"
 features:
     - prompt_caching
     - function_calling
     - json_output
+isDeprecated: true
 limits:
     context_window: 1048576
     max_tokens: 1048576
@@ -20,6 +23,6 @@ model: XiaomiMiMo/MiMo-V2.5-Pro
 provisioning: serverless
 sources:
     - https://deepinfra.com/XiaomiMiMo/MiMo-V2.5-Pro
-status: active
+status: deprecated
 supportedModes:
     - chat

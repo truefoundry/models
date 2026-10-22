@@ -1,0 +1,30 @@
+canonical_model: kimi/kimi-k3
+costs:
+    - region: ap-south-2 # India CRIS pricing not documented in official docs
+    - region: ap-south-1 # India CRIS pricing not documented in official docs
+external_ids:
+    artificial_analysis_id: f7d2fc3e-1f7b-405f-818c-07952a4af78f
+    artificial_analysis_slug: kimi-k3
+features:
+    - function_calling
+    - prompt_caching
+    - cache_control
+    - structured_output
+    - system_messages
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: in.moonshotai.kimi-k3
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k3.html
+status: active
+supportedModes:
+    - chat
+    - responses

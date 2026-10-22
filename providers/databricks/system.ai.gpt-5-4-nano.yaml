@@ -1,9 +1,13 @@
+canonical_model: openai/gpt-5-4-nano
 costs:
     - cache_creation_input_token_cost: 2e-7
       cache_read_input_token_cost: 2e-8
       input_cost_per_token: 2e-7
       output_cost_per_token: 0.00000125
       region: "*"
+external_ids:
+    artificial_analysis_id: d4fc3f33-f2b0-4da1-88ee-f1f82bd4de31
+    artificial_analysis_slug: gpt-5-4-nano
 features:
     - function_calling
     - structured_output
@@ -35,7 +39,6 @@ params:
       type: string
 provisioning: serverless
 sources:
-    - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/supported-models
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-openai-responses
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving

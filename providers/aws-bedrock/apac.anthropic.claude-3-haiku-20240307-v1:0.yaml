@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-3-haiku
 costs:
     - input_cost_per_token: 2.5e-7
       input_cost_per_token_batches: 1.25e-7
@@ -25,6 +26,9 @@ costs:
       output_cost_per_token_batches: 6.25e-7
       region: ap-northeast-1
 deprecationDate: "2026-03-10"
+external_ids:
+    artificial_analysis_id: 1fc54cef-d179-48b1-a27d-046874e9b208
+    artificial_analysis_slug: claude-3-haiku
 features:
     - function_calling
     - system_messages
@@ -52,4 +56,4 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
-status: active
+status: deprecated

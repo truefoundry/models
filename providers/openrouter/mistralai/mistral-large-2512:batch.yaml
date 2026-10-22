@@ -1,3 +1,4 @@
+canonical_model: mistral/mistral-large-2512:batch
 costs:
     - cache_read_input_token_cost: 5e-8
       input_cost_per_token: 5e-7
@@ -8,6 +9,7 @@ features:
     - json_output
     - prompt_caching
     - structured_output
+    - system_messages
     - tool_choice
 limits:
     context_window: 262144

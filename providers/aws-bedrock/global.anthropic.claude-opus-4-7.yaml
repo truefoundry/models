@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-opus-4-7
 costs:
     - cache_creation_input_token_cost: 0.00000625
       cache_creation_input_token_cost_per_hour: 0.00001
@@ -29,6 +30,18 @@ costs:
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
       region: sa-east-1
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000025
+      region: mx-central-1
+    - cache_creation_input_token_cost: 0.00000625
+      cache_creation_input_token_cost_per_hour: 0.00001
+      cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000025
+      region: me-south-1
     - cache_creation_input_token_cost: 0.00000625
       cache_creation_input_token_cost_per_hour: 0.00001
       cache_read_input_token_cost: 5e-7
@@ -185,12 +198,14 @@ costs:
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
       region: af-south-1
+external_ids:
+    artificial_analysis_id: e9a09db3-8fd6-41dd-ba2f-20e0a2bff7f2
+    artificial_analysis_slug: claude-opus-4-7
 features:
     - function_calling
     - system_messages
     - prompt_caching
     - cache_control
-    # - structured_output is not supported in bedrock-converse
     - tool_choice
 limits:
     context_window: 1000000

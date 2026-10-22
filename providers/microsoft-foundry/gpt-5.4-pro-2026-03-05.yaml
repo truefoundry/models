@@ -20,6 +20,7 @@ features:
     - system_messages
     - tool_choice
     - prompt_caching
+    - structured_output
 limits:
     context_window: 1050000
     max_input_tokens: 922000
@@ -39,10 +40,10 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: null
+    - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - minimal
+          - none
           - low
           - medium
           - high
@@ -53,6 +54,8 @@ removeParams:
     - max_tokens
     - parallel_tool_calls
 retirementDate: "2027-09-07"
+sources:
+    - https://ai.azure.com/catalog/models/gpt-5.4-pro
 status: active
 supportedModes:
     - responses

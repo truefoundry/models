@@ -1,15 +1,22 @@
+canonical_model: deepseek/deepseek-v3-0324
 costs:
-    - input_cost_per_token: 0.00000114
-      output_cost_per_token: 0.00000456
+    - input_cost_per_token: 1.14e-6
+      output_cost_per_token: 4.56e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: 75e1c197-f239-4361-a9d6-66dccfead236
+    artificial_analysis_slug: deepseek-v3-0324
 features:
     - function_calling
     - tool_choice
+isDeprecated: true
 limits:
     max_input_tokens: 128000
     max_output_tokens: 8192
     max_tokens: 8192
 mode: chat
 model: deepseek-v3-0324
+retirementDate: "2026-07-13"
+status: retired
 supportedModes:
     - chat

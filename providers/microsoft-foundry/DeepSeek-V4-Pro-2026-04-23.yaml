@@ -1,0 +1,40 @@
+canonical_model: deepseek/deepseek-v4-pro
+costs:
+    - input_cost_per_token: 0.00000174
+      output_cost_per_token: 0.00000348
+      region: "*"
+external_ids:
+    artificial_analysis_id: 83173329-c09a-41f1-a028-a282a5f908d7
+    artificial_analysis_slug: deepseek-v4-pro
+features:
+    - system_messages
+    - json_output
+    - function_calling
+limits:
+    context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 384000
+    max_tokens: 384000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
+model: DeepSeek-V4-Pro-2026-04-23
+params:
+    - defaultValue: 128
+      key: max_tokens
+      maxValue: 384000
+      minValue: 1
+provisioning: serverless
+removeParams:
+    - tool_choice
+    - parallel_tool_calls
+retirementDate: "2028-02-20"
+sources:
+    - https://ai.azure.com/catalog/models/DeepSeek-V4-Pro
+status: active
+supportedModes:
+    - chat
+thinking: true

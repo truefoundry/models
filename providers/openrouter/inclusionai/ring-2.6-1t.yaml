@@ -1,14 +1,19 @@
+canonical_model: inclusionai/ring-2-6-1t
 costs:
     - cache_read_input_token_cost: 1.5e-8
       input_cost_per_token: 7.5e-8
       output_cost_per_token: 6.25e-7
       region: "*"
 deprecationDate: "2026-08-24"
+external_ids:
+    artificial_analysis_id: eb4ba465-3fcd-4065-9fe2-e8225e7b2c6c
+    artificial_analysis_slug: ring-2-6-1t
 features:
     - function_calling
     - json_output
     - prompt_caching
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 262144
     max_output_tokens: 65536
@@ -22,7 +27,7 @@ model: inclusionai/ring-2.6-1t
 provisioning: serverless
 sources:
     - https://openrouter.ai/inclusionai/ring-2.6-1t
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

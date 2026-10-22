@@ -1,3 +1,4 @@
+canonical_model: openai/o4-mini
 costs:
     - cache_read_input_token_cost: 2.75e-7
       input_cost_per_token: 1.1e-6
@@ -6,6 +7,9 @@ costs:
       output_cost_per_token_batches: 2.2e-6
       region: "*"
 deprecationDate: "2026-04-22"
+external_ids:
+    artificial_analysis_id: 84b49308-6b93-47aa-a4f6-776ee1a1e8cd
+    artificial_analysis_slug: o4-mini
 features:
     - function_calling
     - tool_choice
@@ -43,6 +47,7 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       type: string
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - top_p

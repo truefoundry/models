@@ -1,0 +1,33 @@
+canonical_model: anthropic/claude-mulberry-trn2-208k
+costs:
+    - region: ap-south-1 # bedrock-mantle in-region availability confirmed; pricing not yet published
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /anthropic
+features:
+    - function_calling
+    - parallel_function_calling
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - tool_choice
+    - assistant_prefill
+limits:
+    context_window: 208000
+    max_input_tokens: 208000
+    max_output_tokens: 64000
+    max_tokens: 64000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: anthropic.claude-mulberry-trn2-208k-20251001
+provisioning: serverless
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-anthropic.html
+status: active
+supportedModes:
+    - chat
+thinking: true

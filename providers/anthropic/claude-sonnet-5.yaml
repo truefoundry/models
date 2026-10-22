@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-sonnet-5
 costs:
     - cache_creation_input_token_cost: 0.0000025
       cache_creation_input_token_cost_per_hour: 0.000004
@@ -9,6 +10,9 @@ costs:
       output_cost_per_token: 0.00001
       output_cost_per_token_batches: 0.000005
       region: "*"
+external_ids:
+    artificial_analysis_id: 23c86e4a-c769-43c0-a056-79e3cd15834f
+    artificial_analysis_slug: claude-sonnet-5
 features:
     - function_calling
     - parallel_function_calling
@@ -16,11 +20,9 @@ features:
     - system_messages
     - prompt_caching
     - cache_control
-    - assistant_prefill
     - structured_output
     - json_output
     - code_execution
-    - mid_conversation_system_messages
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -36,6 +38,16 @@ modalities:
         - text
 mode: chat
 model: claude-sonnet-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 removeParams:
     - temperature

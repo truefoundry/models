@@ -24,6 +24,9 @@ params:
     - defaultValue: 64
       key: top_k
 provisioning: serverless
+removeParams:
+    - reasoning_effort
+    - tool_choice
 sources:
     - https://deepmind.google/models/model-cards/gemini-3-5-audio/
     - https://ai.google.dev/gemini-api/docs/transcribe

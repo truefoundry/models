@@ -1,4 +1,13 @@
+canonical_model: deepseek/deepseek-v3-2-speciale
+costs:
+    - input_cost_per_token: 5.8e-7
+      output_cost_per_token: 0.00000168
+      region: "*"
+external_ids:
+    artificial_analysis_id: 527e943a-adc6-4e69-93af-d1608e1b5fed
+    artificial_analysis_slug: deepseek-v3-2-speciale
 features:
+    - function_calling
     - json_output
 limits:
     context_window: 128000
@@ -13,10 +22,9 @@ modalities:
 mode: chat
 model: DeepSeek-V3.2-Speciale
 provisioning: serverless
-# costs: not found in official docs — Azure Foundry DeepSeek pricing page renders prices client-side and returned only "$-" placeholders
 sources:
     - https://ai.azure.com/catalog/models/DeepSeek-V3.2-Speciale
-    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
+    - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-deepseek-v3-2-and-deepseek-v3-2-speciale-in-microsoft-foundry/4477549
 status: active
 supportedModes:
     - chat

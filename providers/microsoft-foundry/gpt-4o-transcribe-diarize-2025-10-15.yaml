@@ -4,10 +4,12 @@ costs:
       output_cost_per_token: 1e-5
       region: "*"
 limits:
+    context_window: 16000
     max_input_tokens: 16000
     max_output_tokens: 2000
 modalities:
     input:
+        - text
         - audio
     output:
         - text
@@ -26,6 +28,7 @@ removeParams:
 retirementDate: "2027-04-15"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://ai.azure.com/catalog/models/gpt-4o-transcribe-diarize
 status: active
 supportedModes:
     - audio_transcription

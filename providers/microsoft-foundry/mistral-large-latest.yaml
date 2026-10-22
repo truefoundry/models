@@ -1,15 +1,31 @@
+canonical_model: mistral/mistral-large
 costs:
     - input_cost_per_token: 0.000002
       output_cost_per_token: 0.000006
       region: "*"
+external_ids:
+    artificial_analysis_id: 5e4e4590-a77e-4b66-95f8-f3960a1a7c68
+    artificial_analysis_slug: mistral-large
 features:
     - function_calling
     - tool_choice
+    - json_output
 limits:
     max_input_tokens: 128000
     max_output_tokens: 4096
     max_tokens: 4096
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: mistral-large-latest
+provisioning: serverless
+sources:
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/mistral-ai/
+    - https://learn.microsoft.com/en-us/azure/machine-learning/concept-models-featured?view=azureml-api-2
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-mistral
+status: active
 supportedModes:
     - chat

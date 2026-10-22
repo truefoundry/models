@@ -1,16 +1,23 @@
+canonical_model: xai/grok-4-fast-reasoning
 costs:
     - input_cost_per_token: 2e-7
       output_cost_per_token: 5e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 573bbd93-114c-4b71-9ede-a73a7d4bdf84
+    artificial_analysis_slug: grok-4-fast-reasoning
 features:
     - function_calling
     - tool_choice
     - structured_output
+isDeprecated: true
 limits:
     max_input_tokens: 131072
     max_output_tokens: 131072
     max_tokens: 4096
 mode: chat
 model: grok-4-fast-reasoning
+retirementDate: "2026-05-01"
+status: retired
 supportedModes:
     - chat

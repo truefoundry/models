@@ -1,9 +1,13 @@
+canonical_model: openai/gpt-4o
 costs:
     - cache_read_input_token_cost: 1.25e-6
       input_cost_per_token: 2.5e-6
       output_cost_per_token: 1e-5
       region: "*"
 deprecationDate: "2026-04-22"
+external_ids:
+    artificial_analysis_id: c1045dc0-4fd3-4adb-9548-18763e0d051f
+    artificial_analysis_slug: gpt-4o
 features:
     - function_calling
     - parallel_function_calling
@@ -32,6 +36,7 @@ params:
     - defaultValue: null
       key: response_format
       type: string
+preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - reasoning_effort

@@ -1,3 +1,4 @@
+canonical_model: tencent/tencent-hy3
 features:
     - function_calling
     - tool_choice
@@ -12,9 +13,16 @@ modalities:
         - text
 mode: chat
 model: tencent/tencent-hy3
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
 provisioning: provisioned
 sources:
     - https://github.com/Tencent-Hunyuan/Hy3
+status: active
 supportedModes:
     - chat
 thinking: true

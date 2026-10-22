@@ -1,7 +1,11 @@
+canonical_model: google/gemma-4-31b
 costs:
     - input_cost_per_token: 9.9e-7
       output_cost_per_token: 1.49e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: cd26a386-4873-46ff-b853-d239050025a2
+    artificial_analysis_slug: gemma-4-31b
 features:
     - function_calling
     - parallel_function_calling
@@ -9,6 +13,7 @@ features:
     - prompt_caching
     - system_messages
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131000
     max_input_tokens: 131000
@@ -32,9 +37,10 @@ params:
           - high
       type: string
 provisioning: serverless
+retirementDate: "2026-09-03"
 sources:
     - https://inference-docs.cerebras.ai/models/gemma-4-31b
-status: preview
+status: retired
 supportedModes:
     - chat
 thinking: true

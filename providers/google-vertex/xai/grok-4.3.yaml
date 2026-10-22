@@ -1,3 +1,4 @@
+canonical_model: xai/grok-4-3
 costs:
     - cache_read_input_token_cost: 2e-7
       input_cost_per_token: 0.00000125
@@ -14,14 +15,18 @@ costs:
               - cost_per_token: 0.000005
                 from: 200000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 948892b5-db03-4118-a4a8-ccd51ed871ea
+    artificial_analysis_slug: grok-4-3
 features:
     - function_calling
+    - parallel_function_calling
     - prompt_caching
     - structured_output
     - system_messages
     - tool_choice
 limits:
-    context_window: 200000
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -30,6 +35,15 @@ modalities:
         - text
 mode: chat
 model: xai/grok-4.3
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
 provisioning: serverless
 sources:
     - https://docs.x.ai/developers/models/grok-4.3

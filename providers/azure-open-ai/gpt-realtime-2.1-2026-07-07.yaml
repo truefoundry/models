@@ -1,5 +1,6 @@
 costs:
     - cache_read_input_audio_token_cost: 4e-7
+      cache_read_input_image_token_cost: 5e-7
       cache_read_input_token_cost: 4e-7
       input_cost_per_audio_token: 3.2e-5
       input_cost_per_image_token: 5e-6
@@ -8,6 +9,7 @@ costs:
       output_cost_per_token: 2.4e-5
       region: global
     - cache_read_input_audio_token_cost: 4.4e-7
+      cache_read_input_image_token_cost: 5.5e-7
       cache_read_input_token_cost: 4.4e-7
       input_cost_per_audio_token: 3.52e-5
       input_cost_per_image_token: 5.5e-6
@@ -16,6 +18,7 @@ costs:
       output_cost_per_token: 2.64e-5
       region: datazone_us
     - cache_read_input_audio_token_cost: 4.4e-7
+      cache_read_input_image_token_cost: 5.5e-7
       cache_read_input_token_cost: 4.4e-7
       input_cost_per_audio_token: 3.52e-5
       input_cost_per_image_token: 5.5e-6
@@ -55,7 +58,7 @@ params:
       type: string
 provisioning: serverless
 retirementDate: "2027-06-25"
-status: preview
+status: active
 supportedModes:
     - realtime
 thinking: true
