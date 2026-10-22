@@ -1,2 +1,24 @@
-mode: unknown
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 262144
+    max_input_tokens: 262144
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
 model: qwen/qwen3.8
+params:
+    - key: reasoning_effort
+provisioning: provisioned
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3.8
+supportedModes:
+    - chat
+thinking: true
