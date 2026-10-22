@@ -1,3 +1,4 @@
+canonical_model: amazon/nova-lite
 costs:
     - cache_read_input_token_cost: 1.5e-8
       input_cost_per_token: 6e-8
@@ -39,6 +40,9 @@ costs:
     - input_cost_per_token: 7.2e-8
       output_cost_per_token: 2.88e-7
       region: ap-east-2
+external_ids:
+    artificial_analysis_id: 5c3dd927-48a3-4f3c-8045-9b135f62dfbb
+    artificial_analysis_slug: nova-lite
 features:
     - function_calling
     - prompt_caching

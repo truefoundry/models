@@ -1,8 +1,12 @@
+canonical_model: mistral/devstral-small
 costs:
     - cache_read_input_token_cost: 1e-8
       input_cost_per_token: 1e-7
       output_cost_per_token: 3e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 9eae4ec4-61b8-48bc-9843-3edd506ae933
+    artificial_analysis_slug: devstral-small
 features:
     - function_calling
     - json_output
