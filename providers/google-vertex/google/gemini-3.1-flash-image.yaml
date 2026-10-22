@@ -1,25 +1,49 @@
 costs:
     - cache_read_input_token_cost: 5.5e-8
+      flex_pricing:
+          cache_read_input_token_cost: 2.75e-8
+          input_cost_per_token: 2.75e-7
+          output_cost_per_token: 1.65e-6
       input_cost_per_token: 5.5e-7
       input_cost_per_token_batches: 2.75e-7
-      output_cost_per_image_token: 0.000066
-      output_cost_per_token: 0.0000033
-      output_cost_per_token_batches: 0.00000165
+      output_cost_per_image_token: 6.6e-5
+      output_cost_per_token: 3.3e-6
+      output_cost_per_token_batches: 1.65e-6
+      priority_pricing:
+          cache_read_input_token_cost: 9.9e-8
+          input_cost_per_token: 9.9e-7
+          output_cost_per_token: 5.94e-6
       region: us
-    - cache_creation_input_token_cost_per_hour: 0.000001
+    - cache_creation_input_token_cost_per_hour: 1e-6
       cache_read_input_token_cost: 5e-8
+      flex_pricing:
+          cache_read_input_token_cost: 2.5e-8
+          input_cost_per_token: 2.5e-7
+          output_cost_per_token: 1.5e-6
       input_cost_per_token: 5e-7
       input_cost_per_token_batches: 2.5e-7
-      output_cost_per_image_token: 0.00006
-      output_cost_per_token: 0.000003
-      output_cost_per_token_batches: 0.0000015
+      output_cost_per_image_token: 6e-5
+      output_cost_per_token: 3e-6
+      output_cost_per_token_batches: 1.5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 9e-8
+          input_cost_per_token: 9e-7
+          output_cost_per_token: 5.4e-6
       region: global
     - cache_read_input_token_cost: 5.5e-8
+      flex_pricing:
+          cache_read_input_token_cost: 2.75e-8
+          input_cost_per_token: 2.75e-7
+          output_cost_per_token: 1.65e-6
       input_cost_per_token: 5.5e-7
       input_cost_per_token_batches: 2.75e-7
-      output_cost_per_image_token: 0.000066
-      output_cost_per_token: 0.0000033
-      output_cost_per_token_batches: 0.00000165
+      output_cost_per_image_token: 6.6e-5
+      output_cost_per_token: 3.3e-6
+      output_cost_per_token_batches: 1.65e-6
+      priority_pricing:
+          cache_read_input_token_cost: 9.9e-8
+          input_cost_per_token: 9.9e-7
+          output_cost_per_token: 5.94e-6
       region: eu
 features:
     - system_messages

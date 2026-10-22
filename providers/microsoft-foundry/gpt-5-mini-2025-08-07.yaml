@@ -3,26 +3,42 @@ costs:
     - cache_read_input_token_cost: 2.5e-8
       input_cost_per_token: 2.5e-7
       input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.000002
-      output_cost_per_token_batches: 0.000001
+      output_cost_per_token: 2e-6
+      output_cost_per_token_batches: 1e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.5e-8
+          input_cost_per_token: 4.5e-7
+          output_cost_per_token: 3.6e-6
       region: global
     - cache_read_input_token_cost: 2.75e-8
       input_cost_per_token: 2.75e-7
       input_cost_per_token_batches: 1.375e-7
-      output_cost_per_token: 0.0000022
-      output_cost_per_token_batches: 0.0000011
+      output_cost_per_token: 2.2e-6
+      output_cost_per_token_batches: 1.1e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.95e-8
+          input_cost_per_token: 4.95e-7
+          output_cost_per_token: 3.96e-6
       region: datazone_us
     - cache_read_input_token_cost: 2.75e-8
       input_cost_per_token: 2.75e-7
       input_cost_per_token_batches: 1.375e-7
-      output_cost_per_token: 0.0000022
-      output_cost_per_token_batches: 0.0000011
+      output_cost_per_token: 2.2e-6
+      output_cost_per_token_batches: 1.1e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.95e-8
+          input_cost_per_token: 4.95e-7
+          output_cost_per_token: 3.96e-6
       region: datazone_eu
     - cache_read_input_token_cost: 2.5e-8
       input_cost_per_token: 2.5e-7
       input_cost_per_token_batches: 1.25e-7
-      output_cost_per_token: 0.000002
-      output_cost_per_token_batches: 0.000001
+      output_cost_per_token: 2e-6
+      output_cost_per_token_batches: 1e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.5e-8
+          input_cost_per_token: 4.5e-7
+          output_cost_per_token: 3.6e-6
       region: "*"
 external_ids:
     artificial_analysis_id: 29855680-7469-43eb-8b88-cd3fb1d99da3
