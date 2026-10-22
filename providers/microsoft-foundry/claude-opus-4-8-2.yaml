@@ -1,3 +1,4 @@
+canonical_model: anthropic/claude-opus-4-8-2
 costs:
     - cache_creation_input_token_cost: 0.00000625
       cache_creation_input_token_cost_per_hour: 0.00001
@@ -26,7 +27,6 @@ features:
     - tool_choice
     - structured_output
     - json_output
-    - assistant_prefill
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
