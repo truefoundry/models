@@ -73,6 +73,14 @@ Each model YAML file follows this schema (validated by [CUE](.github/test/model.
 model: gpt-5.4-mini-2026-03-17        # Model identifier used by the provider's API
 mode: chat                             # Primary capability (chat, embedding, image, text_to_speech, etc.)
 
+# Optional stable foundation-model identity shared across provider deployments
+canonical_model: openai/gpt-5-4-mini
+
+# Optional verified Artificial Analysis identifiers (omit when unmatched)
+external_ids:
+    artificial_analysis_slug: gpt-5-4-mini
+    artificial_analysis_id: 00000000-0000-0000-0000-000000000000
+
 # Pricing — array of cost entries, each with a region ("*" for global)
 costs:
     - region: "*"
@@ -101,7 +109,9 @@ sources:
     - https://developers.openai.com/api/docs/pricing
 ```
 
-See the [Contributing Guide](CONTRIBUTING.md) for the full list of fields, valid values, and more examples.
+`canonical_model` and `external_ids` are optional. When set, `canonical_model` is `<creator>/<foundation-model>` (lowercase). Provider hosts such as Bedrock, Vertex, Azure, OpenRouter, and Databricks are not creators. TrueFoundry `costs` remain the billing source; Artificial Analysis IDs are optional cross-references only.
+
+Set these fields on the model YAML when known and review them in the PR. CI validates identity consistency when present and re-checks Artificial Analysis IDs for changed files. See [scripts/README.md](scripts/README.md) and the [Contributing Guide](CONTRIBUTING.md).
 
 ## Directory Structure
 
