@@ -1,0 +1,13 @@
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
+model: google/gemini-3.5-transcribe
+provisioning: serverless
+sources:
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-5-transcribe
+status: active
+supportedModes:
+    - audio_transcription
