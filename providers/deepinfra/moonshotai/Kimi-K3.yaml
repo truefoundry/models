@@ -1,3 +1,4 @@
+canonical_model: kimi/kimi-k3
 costs:
     - cache_creation_input_token_cost: 3.5625e-6
       cache_creation_input_token_cost_per_hour: 5.7e-6
@@ -5,6 +6,9 @@ costs:
       input_cost_per_token: 2.85e-6
       output_cost_per_token: 1.425e-5
       region: "*"
+external_ids:
+    artificial_analysis_id: f7d2fc3e-1f7b-405f-818c-07952a4af78f
+    artificial_analysis_slug: kimi-k3
 features:
     - prompt_caching
     - function_calling
