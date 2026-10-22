@@ -1,7 +1,13 @@
 costs:
-    - region: us # pricing not found in official docs
-    - region: global # pricing not found in official docs
-    - region: eu # pricing not found in official docs
+    - input_cost_per_audio_token: 0.0000035
+      output_cost_per_token: 0.000021
+      region: us
+    - input_cost_per_audio_token: 0.0000035
+      output_cost_per_token: 0.000021
+      region: global
+    - input_cost_per_audio_token: 0.0000035
+      output_cost_per_token: 0.000021
+      region: eu
 modalities:
     input:
         - audio
