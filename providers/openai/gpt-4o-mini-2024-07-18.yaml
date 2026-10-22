@@ -6,6 +6,7 @@ costs:
       output_cost_per_token: 6e-7
       output_cost_per_token_batches: 3e-7
       region: "*"
+deprecationDate: "2026-10-14"
 external_ids:
     artificial_analysis_id: b5c1c91a-7474-4409-9a9c-9c2ac45d9eb6
     artificial_analysis_slug: gpt-4o-mini
@@ -17,6 +18,7 @@ features:
     - prompt_caching
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -40,9 +42,10 @@ preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-01-14"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o-mini
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses

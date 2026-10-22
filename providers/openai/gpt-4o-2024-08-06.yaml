@@ -6,6 +6,7 @@ costs:
       output_cost_per_token: 1e-5
       output_cost_per_token_batches: 5e-6
       region: "*"
+deprecationDate: "2026-10-14"
 external_ids:
     artificial_analysis_id: c1045dc0-4fd3-4adb-9548-18763e0d051f
     artificial_analysis_slug: gpt-4o
@@ -17,6 +18,7 @@ features:
     - prompt_caching
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -38,9 +40,10 @@ params:
       type: string
 preferChatCompletions: true
 provisioning: serverless
+retirementDate: "2027-01-14"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses
