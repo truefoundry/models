@@ -1,3 +1,4 @@
+canonical_model: kimi/kimi-k2-7-code
 costs:
     - cache_creation_input_token_cost: 8.5e-7
       cache_creation_input_token_cost_per_hour: 1.36e-6
@@ -5,6 +6,9 @@ costs:
       input_cost_per_token: 9.5e-7
       output_cost_per_token: 4e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: 8d0cb231-7303-452c-9923-a9620b948475
+    artificial_analysis_slug: kimi-k2-7-code
 features:
     - function_calling
     - json_output
@@ -28,6 +32,8 @@ params:
     - key: max_tokens
       maxValue: 235929
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://openrouter.ai/moonshotai/kimi-k2.7-code
 status: active
