@@ -1,8 +1,12 @@
+canonical_model: nvidia/nvidia-nemotron-3-ultra-550b-a55b
 costs:
     - cache_read_input_token_cost: 1e-7
       input_cost_per_token: 5e-7
       output_cost_per_token: 2.2e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: 5b52def2-ac9b-4465-ad80-91ea8079e253
+    artificial_analysis_slug: nvidia-nemotron-3-ultra-550b-a55b
 features:
     - prompt_caching
     - function_calling
