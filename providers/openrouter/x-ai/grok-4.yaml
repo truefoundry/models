@@ -1,3 +1,4 @@
+canonical_model: xai/grok-4
 costs:
     - cache_read_input_token_cost: 7.5e-7
       input_cost_per_token: 0.000003
@@ -12,6 +13,9 @@ costs:
                 from: 128000
           pricing_mode: marginal
 deprecationDate: "2026-06-01"
+external_ids:
+    artificial_analysis_id: 5ea94a4a-55ac-4ea1-8898-2b3971e94af6
+    artificial_analysis_slug: grok-4
 features:
     - function_calling
     - json_output
