@@ -1,3 +1,4 @@
+canonical_model: amazon/nova-lite
 costs:
     - region: ca-west-1
     - cache_creation_input_token_cost: 0
@@ -7,6 +8,9 @@ costs:
       output_cost_per_token: 2.56e-7
       output_cost_per_token_batches: 1.28e-7
       region: ca-central-1
+external_ids:
+    artificial_analysis_id: 5c3dd927-48a3-4f3c-8045-9b135f62dfbb
+    artificial_analysis_slug: nova-lite
 features:
     - function_calling
     - prompt_caching
