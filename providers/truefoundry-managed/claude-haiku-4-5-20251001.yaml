@@ -1,0 +1,47 @@
+canonical_model: anthropic/claude-haiku-4-5
+costs:
+    - cache_creation_input_token_cost: 1.25e-6
+      cache_creation_input_token_cost_per_hour: 2e-6
+      cache_read_input_token_cost: 1e-7
+      input_cost_per_token: 1e-6
+      input_cost_per_token_batches: 5e-7
+      output_cost_per_token: 5e-6
+      output_cost_per_token_batches: 2.5e-6
+      region: "*"
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - prompt_caching
+    - cache_control
+    - system_messages
+    - structured_output
+    - assistant_prefill
+limits:
+    context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 64000
+    max_tokens: 64000
+    tool_use_system_prompt_tokens: 496
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
+mode: chat
+model: claude-haiku-4-5-20251001
+params:
+    - key: max_tokens
+      maxValue: 64000
+    - defaultValue: null
+      key: thinking
+provisioning: serverless
+removeParams:
+    - top_p
+    - reasoning_effort
+status: active
+supportedModes:
+    - chat
+thinking: true
