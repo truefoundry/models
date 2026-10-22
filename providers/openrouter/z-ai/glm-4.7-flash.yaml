@@ -1,8 +1,12 @@
+canonical_model: zai/glm-4-7-flash
 costs:
     - cache_read_input_token_cost: 1e-8
       input_cost_per_token: 6e-8
       output_cost_per_token: 4e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 2c4394a2-b443-470a-908e-5c4a271b780c
+    artificial_analysis_slug: glm-4-7-flash
 features:
     - function_calling
     - json_output

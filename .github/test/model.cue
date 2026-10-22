@@ -303,13 +303,25 @@ package model
 	"unsupported" | // Model is not supported by the gateway
 	"video"
 
+// Verified Artificial Analysis identifiers for a foundation model.
+// Omit the whole object when there is no reviewed match.
+#ExternalIds: {
+	artificial_analysis_id?:   string
+	artificial_analysis_slug?: string
+	...
+}
+
 #ModelConfig: {
+	// Optional foundation-model identity: <creator>/<foundation-model>
+	canonical_model?: string
 	// Pricing entries per region; use "*" for global/uniform pricing
 	costs?: [...#CostWithRegion]
 	// Date after which the model is considered deprecated (YYYY-MM-DD)
 	deprecationDate?: string & =~"^\\d{4}-\\d{2}-\\d{2}$"
 	// Provider-specific escape-hatch configuration
 	extra_configuration?: #ExtraConfiguration
+	// Optional verified Artificial Analysis id/slug; omit when unmatched
+	external_ids?: #ExternalIds
 	// Feature flags for capabilities like function calling, prompt caching, etc.
 	features?: [...#Feature]
 	// Whether the model is deprecated

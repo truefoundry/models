@@ -1,0 +1,37 @@
+canonical_model: google/gemini-4-argon
+costs:
+    - cache_creation_input_token_cost: 1.875e-7
+      cache_read_input_token_cost: 1e-7
+      input_cost_per_image: 2e-6
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 1e-5
+      region: "*"
+external_ids:
+    artificial_analysis_id: d366dfa1-d940-4788-aa73-d298c45699b3
+    artificial_analysis_slug: gemini-4-argon
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 65536
+modalities:
+    input:
+        - audio
+        - pdf
+        - image
+        - text
+        - video
+    output:
+        - text
+mode: chat
+model: google/gemini-4-argon
+provisioning: serverless
+sources:
+    - https://openrouter.ai/google/gemini-4-argon
+supportedModes:
+    - chat
+thinking: true
