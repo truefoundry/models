@@ -1,9 +1,13 @@
+canonical_model: alibaba/qwen3-8-max
 costs:
     - cache_creation_input_token_cost: 2.5e-6
       cache_read_input_token_cost: 2.5e-7
       input_cost_per_token: 2e-6
       output_cost_per_token: 6e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: b112af07-3bd5-4647-b09f-b23204361bb2
+    artificial_analysis_slug: qwen3-8-max
 features:
     - function_calling
     - json_output
@@ -27,6 +31,13 @@ params:
       key: max_tokens
       maxValue: 131072
       minValue: 1
+    - defaultValue: xhigh
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.8-max
