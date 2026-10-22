@@ -1,3 +1,4 @@
+canonical_model: openai/gpt-5-4
 costs:
     - cache_read_input_token_cost: 2.75e-7
       input_cost_per_token: 2.75e-6
@@ -50,6 +51,9 @@ costs:
               - cost_per_token: 2.25e-5
                 from: 272000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: a89c4b28-2d8c-456e-88ea-255fb51fd2b6
+    artificial_analysis_slug: gpt-5-4
 features:
     - function_calling
     - parallel_function_calling
@@ -75,6 +79,16 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens

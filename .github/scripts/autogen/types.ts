@@ -71,6 +71,14 @@ export interface components {
             tool_pricing?: components["schemas"]["ToolPricing"];
         };
         /**
+         * @description Verified Artificial Analysis identifiers for a foundation model.
+         *     Omit the whole object when there is no reviewed match.
+         */
+        ExternalIds: {
+            artificial_analysis_id?: string;
+            artificial_analysis_slug?: string;
+        };
+        /**
          * @description Provider-specific configuration that cannot be expressed through the generic
          *     fields above. Each key is owned by exactly one provider.
          */
@@ -127,10 +135,13 @@ export interface components {
          */
         Mode: "audio_transcription" | "audio_translation" | "chat" | "completion" | "decision" | "embedding" | "image" | "moderation" | "ocr" | "realtime" | "rerank" | "responses" | "text_to_speech" | "unknown" | "unsupported" | "video";
         ModelConfig: {
+            /** @description Stable foundation-model identity: <creator>/<foundation-model> */
+            canonical_model?: string;
             /** @description Pricing entries per region; use "*" for global/uniform pricing */
             costs?: components["schemas"]["CostWithRegion"][];
             /** @description Date after which the model is considered deprecated (YYYY-MM-DD) */
             deprecationDate?: string;
+            external_ids?: components["schemas"]["ExternalIds"];
             extra_configuration?: components["schemas"]["ExtraConfiguration"];
             /** @description Feature flags for capabilities like function calling, prompt caching, etc. */
             features?: components["schemas"]["Feature"][];
@@ -144,6 +155,12 @@ export interface components {
             model: string;
             /** @description Param overrides or additions relative to the provider default */
             params?: components["schemas"]["ModelParam"][];
+            /**
+             * @description When true, inbound Chat Completions stay on /chat/completions unless a
+             *     responses-only model or an existing trigger (header / reasoning / Cursor).
+             *     Omit on new models so Chat Completions is always served via Responses.
+             */
+            preferChatCompletions?: boolean;
             provisioning?: components["schemas"]["Provisioning"];
             /** @description Param keys to remove from the provider default */
             removeParams?: components["schemas"]["ModelParamKey"][];
@@ -158,12 +175,6 @@ export interface components {
             supportedModes?: components["schemas"]["Mode"][];
             /** @description Whether the model supports extended thinking / reasoning */
             thinking?: boolean;
-            /**
-             * @description When true, inbound Chat Completions stay on /chat/completions unless a
-             *     responses-only model or an existing trigger (header / reasoning / Cursor).
-             *     Omit on new models so Chat Completions is always served via Responses.
-             */
-            preferChatCompletions?: boolean;
         };
         ModelParam: {
             defaultValue?: (string | number | boolean) | null;
@@ -253,6 +264,7 @@ export type BetaColumn = components['schemas']['BetaColumn'];
 export type Cost = components['schemas']['Cost'];
 export type CostWithRegion = components['schemas']['CostWithRegion'];
 export type DefaultConfig = components['schemas']['DefaultConfig'];
+export type ExternalIds = components['schemas']['ExternalIds'];
 export type ExtraConfiguration = components['schemas']['ExtraConfiguration'];
 export type Feature = components['schemas']['Feature'];
 export type GCPRegion = components['schemas']['GCPRegion'];
