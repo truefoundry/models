@@ -264,6 +264,19 @@ describe('planScenarios', () => {
   });
 });
 
+describe('new provider credentials', () => {
+  it('registers bedrock, mantle, databricks, and microsoft-foundry', () => {
+    assert.equal(getProviderSpec('aws-bedrock')?.apiKeyEnv, 'AWS_BEDROCK_API_KEY');
+    assert.equal(getProviderSpec('aws-bedrock')?.region, 'us-east-1');
+    assert.equal(getProviderSpec('aws-bedrock-mantle')?.apiKeyEnv, 'AWS_BEDROCK_MANTLE_API_KEY');
+    assert.equal(getProviderSpec('databricks')?.accountEnv?.base_url, 'DATABRICKS_BASE_URL');
+    assert.equal(
+      getProviderSpec('microsoft-foundry')?.accountEnv?.openai_endpoint,
+      'MICROSOFT_FOUNDRY_OPENAI_ENDPOINT',
+    );
+  });
+});
+
 describe('google-vertex key-file', () => {
   it('is registered as key-file auth', () => {
     const spec = getProviderSpec('google-vertex');

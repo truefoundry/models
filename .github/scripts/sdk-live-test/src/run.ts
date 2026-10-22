@@ -51,6 +51,22 @@ function memoryCache() {
   };
 }
 
+function accountEnvFields(spec: ProviderSpec): Record<string, string> {
+  const fields: Record<string, string> = {};
+  for (const [field, envName] of Object.entries(spec.accountEnv ?? {})) {
+    const value = process.env[envName];
+    if (value) fields[field] = value;
+  }
+  return fields;
+}
+
+function missingAccountEnv(spec: ProviderSpec): string | undefined {
+  for (const envName of Object.values(spec.accountEnv ?? {})) {
+    if (!process.env[envName]) return envName;
+  }
+  return undefined;
+}
+
 function authData(spec: ProviderSpec, credential: string) {
   if (spec.authType === 'key-file') {
     return { type: 'key-file' as const, key_file_content: credential };
@@ -99,6 +115,8 @@ function buildCall(
         type: spec.accountType,
         name: accountName,
         ...(spec.baseUrl ? { base_url: spec.baseUrl } : {}),
+        ...(spec.region && spec.authType !== 'key-file' ? { region: spec.region } : {}),
+        ...accountEnvFields(spec),
         ...keyFileExtras,
         auth_data: authData(spec, credential),
         integrations: [],
@@ -165,6 +183,17 @@ export async function runTargets(
         scenario: 'setup',
         status: 'fail',
         detail: `missing GitHub secret / env ${spec.apiKeyEnv}`,
+      });
+      continue;
+    }
+    const missingEnv = missingAccountEnv(spec);
+    if (missingEnv) {
+      pushResult(results, {
+        provider: t.provider,
+        modelId: t.modelId,
+        scenario: 'setup',
+        status: 'fail',
+        detail: `missing GitHub secret / env ${missingEnv}`,
       });
       continue;
     }

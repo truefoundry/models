@@ -2,7 +2,7 @@
  * Providers this harness can call live.
  * Directory name under providers/ must match the key (e.g. providers/together-ai/).
  *
- * Unlisted providers (Bedrock, Azure, audio-only, …) fail the PR check
+ * Unlisted providers (Azure, audio-only, …) fail the PR check
  * when a changed model targets them — add a row + GitHub secret to opt in.
  */
 export type ProviderSpec = {
@@ -17,8 +17,10 @@ export type ProviderSpec = {
   authKeyField?: 'api_key' | 'apiKey';
   /** Default api-key. Vertex uses key-file (SA JSON in apiKeyEnv). */
   authType?: 'api-key' | 'key-file';
-  /** Account region for key-file providers (matches gateway test-job default). */
+  /** Account region. Vertex key-file uses europe-west4; Bedrock API-key accounts use us-east-1. */
   region?: string;
+  /** Account manifest fields whose values come from env (Databricks base_url, Foundry endpoints). */
+  accountEnv?: Record<string, string>;
 };
 
 const SPECS: Record<string, ProviderSpec> = {
@@ -117,6 +119,37 @@ const SPECS: Record<string, ProviderSpec> = {
     apiKeyEnv: 'VERTEX_KEY_FILE',
     authType: 'key-file',
     region: 'europe-west4',
+  },
+  'aws-bedrock': {
+    sdkProvider: 'aws-bedrock',
+    modelIntegrationType: 'integration/model/bedrock',
+    accountType: 'provider-account/aws-bedrock',
+    apiKeyEnv: 'AWS_BEDROCK_API_KEY',
+    region: 'us-east-1',
+  },
+  'aws-bedrock-mantle': {
+    sdkProvider: 'aws-bedrock-mantle',
+    modelIntegrationType: 'integration/model/bedrock-mantle',
+    accountType: 'provider-account/aws-bedrock-mantle',
+    apiKeyEnv: 'AWS_BEDROCK_MANTLE_API_KEY',
+    region: 'us-east-1',
+  },
+  databricks: {
+    sdkProvider: 'databricks',
+    modelIntegrationType: 'integration/model/databricks',
+    accountType: 'provider-account/databricks',
+    apiKeyEnv: 'DATABRICKS_API_KEY',
+    accountEnv: { base_url: 'DATABRICKS_BASE_URL' },
+  },
+  'microsoft-foundry': {
+    sdkProvider: 'microsoft-foundry',
+    modelIntegrationType: 'integration/model/microsoft-foundry',
+    accountType: 'provider-account/microsoft-foundry',
+    apiKeyEnv: 'MICROSOFT_FOUNDRY_API_KEY',
+    accountEnv: {
+      openai_endpoint: 'MICROSOFT_FOUNDRY_OPENAI_ENDPOINT',
+      project_endpoint: 'MICROSOFT_FOUNDRY_PROJECT_ENDPOINT',
+    },
   },
 };
 
