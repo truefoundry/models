@@ -10,9 +10,15 @@ external_ids:
 features:
     - function_calling
     - prompt_caching
+limits:
+    # Perplexity publishes no separate context limit; this is Anthropic's model specification.
+    context_window: 200000
 mode: chat
 model: anthropic/claude-opus-4-5
 provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/models/opus-4-5/overview
+    - https://docs.perplexity.ai/docs/resources/changelog
 status: active
 supportedModes:
     - chat

@@ -7,9 +7,14 @@ costs:
 external_ids:
     artificial_analysis_id: cd55210d-358e-4df1-ba9c-9acb5f186cc9
     artificial_analysis_slug: claude-fable-5
+limits:
+    # Perplexity publishes no separate context limit; this is Anthropic's model specification.
+    context_window: 1000000
 mode: chat
 model: anthropic/claude-fable-5
 provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/models/fable-5/overview
 status: active
 supportedModes:
     - chat
