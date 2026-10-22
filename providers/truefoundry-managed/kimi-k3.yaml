@@ -1,0 +1,47 @@
+canonical_model: kimi/kimi-k3
+costs:
+    - cache_creation_input_token_cost: 3.5625e-6
+      cache_creation_input_token_cost_per_hour: 5.7e-6
+      cache_read_input_token_cost: 3e-7
+      input_cost_per_token: 3e-6
+      output_cost_per_token: 1.5e-5
+      region: "*"
+external_ids:
+    artificial_analysis_id: f7d2fc3e-1f7b-405f-818c-07952a4af78f
+    artificial_analysis_slug: kimi-k3
+features:
+    - function_calling
+    - json_output
+    - prompt_caching
+    - structured_output
+    - tool_choice
+    - system_messages
+limits:
+    context_window: 1048576
+    max_output_tokens: 943718
+    max_tokens: 943718
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: kimi-k3
+params:
+    - key: max_tokens
+      maxValue: 943718
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://openrouter.ai/moonshotai/kimi-k3
+status: active
+supportedModes:
+    - chat
+thinking: true
