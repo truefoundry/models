@@ -73,3 +73,19 @@ jobs:
           # When AA_API_KEY is unset the script warns and skips live checks.
           # Once the repository secret is configured, changed external_ids are verified.
           python3 scripts/verify_changed_external_ids.py --base "${BASE}"
+
+  publish-guard:
+    name: Test publish guard
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run publish guard tests
+        run: python3 scripts/test_publish_guard.py
