@@ -1,3 +1,4 @@
+canonical_model: mistral/mistral-medium-3-5
 costs:
     - cache_read_input_token_cost: 1.5e-7
       input_cost_per_token: 0.0000015
@@ -5,6 +6,9 @@ costs:
       output_cost_per_token: 0.0000075
       output_cost_per_token_batches: 0.00000375
       region: "*"
+external_ids:
+    artificial_analysis_id: dd059b25-d82a-4ead-82a4-4adceaaec48b
+    artificial_analysis_slug: mistral-medium-3-5
 features:
     - function_calling
     - structured_output
