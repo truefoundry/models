@@ -1,5 +1,5 @@
 costs:
-    - input_cost_per_character: 0.000016
+    - input_cost_per_character: 0.000013
       region: "*"
 limits:
     context_window: 4096
@@ -16,5 +16,7 @@ params:
 removeParams:
     - reasoning_effort
 sources:
-    - https://docs.mistral.ai/models/voxtral-tts-26-03
+    - https://docs.mistral.ai/models/voxtral-mini-tts-3-0
 status: active
+supportedModes:
+    - text_to_speech
