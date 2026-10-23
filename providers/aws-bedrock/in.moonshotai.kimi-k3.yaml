@@ -2,13 +2,33 @@ canonical_model: kimi/kimi-k3
 costs:
     - cache_creation_input_token_cost: 4.125e-6
       cache_read_input_token_cost: 3.3e-7
+      flex_pricing:
+          cache_creation_input_token_cost: 2.0625e-6
+          cache_read_input_token_cost: 1.65e-7
+          input_cost_per_token: 1.65e-6
+          output_cost_per_token: 8.25e-6
       input_cost_per_token: 3.3e-6
       output_cost_per_token: 1.65e-5
+      priority_pricing:
+          cache_creation_input_token_cost: 7.21875e-6
+          cache_read_input_token_cost: 5.775e-7
+          input_cost_per_token: 5.775e-6
+          output_cost_per_token: 2.8875e-5
       region: ap-south-2
     - cache_creation_input_token_cost: 4.125e-6
       cache_read_input_token_cost: 3.3e-7
+      flex_pricing:
+          cache_creation_input_token_cost: 2.0625e-6
+          cache_read_input_token_cost: 1.65e-7
+          input_cost_per_token: 1.65e-6
+          output_cost_per_token: 8.25e-6
       input_cost_per_token: 3.3e-6
       output_cost_per_token: 1.65e-5
+      priority_pricing:
+          cache_creation_input_token_cost: 7.21875e-6
+          cache_read_input_token_cost: 5.775e-7
+          input_cost_per_token: 5.775e-6
+          output_cost_per_token: 2.8875e-5
       region: ap-south-1
 external_ids:
     artificial_analysis_id: f7d2fc3e-1f7b-405f-818c-07952a4af78f

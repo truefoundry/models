@@ -305,7 +305,7 @@ Same-repo PRs that change `providers/**/*.yaml` run **SDK live** checks (`.githu
 | `decision` | baseline `decision` (OpenAI dialect for `openai`; System One for others) |
 | `realtime` / `video` / `ocr` / `unknown` / `unsupported` | **fail** (no SDK live harness yet) |
 
-Pass bar is HTTP 2xx only (no deep response-shape asserts). Each model’s primary `mode` plus any harnessed entries in `supportedModes` are planned (e.g. chat+responses). Not covered: `realtime` / `video` / `ocr` / `unknown` / `unsupported`, other cloud-auth providers (Bedrock, Azure, …), `code_execution`, stream × vision/PDF, gateway **adapter SDKs** (boto3, etc.). Vertex uses SA JSON (`VERTEX_KEY_FILE`), not an API key.
+Pass bar is HTTP 2xx only (no deep response-shape asserts). Each model’s primary `mode` plus any harnessed entries in `supportedModes` are planned (e.g. chat+responses). Not covered: `realtime` / `video` / `ocr` / `unknown` / `unsupported`, Azure OpenAI / Azure AI Foundry, `code_execution`, stream × vision/PDF, gateway **adapter SDKs** (boto3, etc.). Vertex uses SA JSON (`VERTEX_KEY_FILE`), not an API key. Bedrock and Bedrock Mantle use API keys with region `us-east-1`. Databricks also needs `DATABRICKS_BASE_URL`. Microsoft Foundry also needs `MICROSOFT_FOUNDRY_OPENAI_ENDPOINT` and `MICROSOFT_FOUNDRY_PROJECT_ENDPOINT`.
 
 Manual re-run: push a new commit, or Actions → **SDK live model tests** → Run workflow (optional `models=` override).
 
@@ -315,7 +315,7 @@ Secrets smoke (one chat baseline per provider with a key): Actions → **SDK liv
 
 Each changed model’s provider must be registered in `.github/scripts/sdk-live-test/src/providers.ts` and have its credential secret set. Missing registry entry or secret **fails the PR check**:
 
-`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GROQ_API_KEY`, `XAI_API_KEY`, `CEREBRAS_API_KEY`, `TOGETHER_AI_API_KEY`, `DEEPINFRA_API_KEY`, `MISTRAL_AI_API_KEY`, `PERPLEXITY_AI_API_KEY`, `OPENROUTER_API_KEY`, `SAMBANOVA_API_KEY`, `AI21_API_KEY`, `COHERE_API_KEY`, `GOOGLE_GEMINI_API_KEY`, `VERTEX_KEY_FILE` (GCP service-account JSON)
+`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GROQ_API_KEY`, `XAI_API_KEY`, `CEREBRAS_API_KEY`, `TOGETHER_AI_API_KEY`, `DEEPINFRA_API_KEY`, `MISTRAL_AI_API_KEY`, `PERPLEXITY_AI_API_KEY`, `OPENROUTER_API_KEY`, `SAMBANOVA_API_KEY`, `AI21_API_KEY`, `COHERE_API_KEY`, `GOOGLE_GEMINI_API_KEY`, `VERTEX_KEY_FILE` (GCP service-account JSON), `AWS_BEDROCK_API_KEY`, `AWS_BEDROCK_MANTLE_API_KEY`, `DATABRICKS_API_KEY`, `DATABRICKS_BASE_URL`, `MICROSOFT_FOUNDRY_API_KEY`, `MICROSOFT_FOUNDRY_OPENAI_ENDPOINT`, `MICROSOFT_FOUNDRY_PROJECT_ENDPOINT`
 
 Local:
 

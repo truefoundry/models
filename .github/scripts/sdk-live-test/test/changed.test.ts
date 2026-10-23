@@ -264,6 +264,19 @@ describe('planScenarios', () => {
   });
 });
 
+describe('new provider credentials', () => {
+  it('registers bedrock, mantle, databricks, and microsoft-foundry', () => {
+    assert.equal(getProviderSpec('aws-bedrock')?.apiKeyEnv, 'AWS_BEDROCK_API_KEY');
+    assert.equal(getProviderSpec('aws-bedrock')?.region, 'us-east-1');
+    assert.equal(getProviderSpec('aws-bedrock-mantle')?.apiKeyEnv, 'AWS_BEDROCK_MANTLE_API_KEY');
+    assert.equal(getProviderSpec('databricks')?.accountEnv?.base_url, 'DATABRICKS_BASE_URL');
+    assert.equal(
+      getProviderSpec('microsoft-foundry')?.accountEnv?.openai_endpoint,
+      'MICROSOFT_FOUNDRY_OPENAI_ENDPOINT',
+    );
+  });
+});
+
 describe('google-vertex key-file', () => {
   it('is registered as key-file auth', () => {
     const spec = getProviderSpec('google-vertex');
@@ -297,6 +310,46 @@ describe('smoke-with-secrets', () => {
     } finally {
       if (prev === undefined) delete process.env.OPENAI_API_KEY;
       else process.env.OPENAI_API_KEY = prev;
+    }
+  });
+
+  it('skips databricks and foundry until account env is set', () => {
+    const keys = [
+      'DATABRICKS_API_KEY',
+      'DATABRICKS_BASE_URL',
+      'MICROSOFT_FOUNDRY_API_KEY',
+      'MICROSOFT_FOUNDRY_OPENAI_ENDPOINT',
+      'MICROSOFT_FOUNDRY_PROJECT_ENDPOINT',
+      'AWS_BEDROCK_API_KEY',
+    ] as const;
+    const prev = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
+    const catalogue = [
+      { provider: 'databricks', model: 'llama', mode: 'chat' },
+      { provider: 'microsoft-foundry', model: 'gpt', mode: 'chat' },
+      { provider: 'aws-bedrock', model: 'claude', mode: 'chat' },
+    ];
+    process.env.DATABRICKS_API_KEY = 'db-test';
+    delete process.env.DATABRICKS_BASE_URL;
+    process.env.MICROSOFT_FOUNDRY_API_KEY = 'foundry-test';
+    process.env.MICROSOFT_FOUNDRY_OPENAI_ENDPOINT = 'https://example.openai.azure.com';
+    delete process.env.MICROSOFT_FOUNDRY_PROJECT_ENDPOINT;
+    process.env.AWS_BEDROCK_API_KEY = 'bedrock-test';
+    try {
+      assert.deepEqual(targetsWithSecrets(catalogue), [
+        { provider: 'aws-bedrock', modelId: 'claude' },
+      ]);
+      process.env.DATABRICKS_BASE_URL = 'https://example.cloud.databricks.com';
+      process.env.MICROSOFT_FOUNDRY_PROJECT_ENDPOINT = 'https://example.services.ai.azure.com';
+      assert.deepEqual(targetsWithSecrets(catalogue), [
+        { provider: 'aws-bedrock', modelId: 'claude' },
+        { provider: 'databricks', modelId: 'llama' },
+        { provider: 'microsoft-foundry', modelId: 'gpt' },
+      ]);
+    } finally {
+      for (const key of keys) {
+        if (prev[key] === undefined) delete process.env[key];
+        else process.env[key] = prev[key];
+      }
     }
   });
 });
