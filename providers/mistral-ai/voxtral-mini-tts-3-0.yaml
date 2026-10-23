@@ -1,0 +1,22 @@
+costs:
+    - input_cost_per_character: 0.000013
+      region: "*"
+limits:
+    context_window: 4096
+modalities:
+    input:
+        - text
+    output:
+        - audio
+mode: text_to_speech
+model: voxtral-mini-tts-3-0
+params:
+    - defaultValue: 0.3
+      key: temperature
+removeParams:
+    - reasoning_effort
+sources:
+    - https://docs.mistral.ai/models/voxtral-mini-tts-3-0
+status: active
+supportedModes:
+    - text_to_speech
