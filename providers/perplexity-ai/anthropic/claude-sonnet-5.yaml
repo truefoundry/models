@@ -12,7 +12,6 @@ features:
     - structured_output
     - system_messages
 limits:
-    # Perplexity publishes no separate context limit; this is Anthropic's model specification.
     context_window: 1000000
 modalities:
     input:
@@ -22,6 +21,8 @@ modalities:
 mode: chat
 model: anthropic/claude-sonnet-5
 provisioning: serverless
+requiredParams:
+    - max_tokens
 sources:
     - https://platform.claude.com/docs/en/models/sonnet-5/overview
 status: active
