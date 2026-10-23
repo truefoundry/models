@@ -10,7 +10,7 @@ external_ids:
 features:
     - function_calling
 limits:
-    context_window: 524288
+    context_window: 1048576
 modalities:
     input:
         - text
@@ -24,6 +24,6 @@ params:
       key: temperature
 sources:
     - https://docs.mistral.ai/models/mistral-large-4
-status: active
+status: preview
 supportedModes:
     - chat
