@@ -1,43 +1,121 @@
 canonical_model: alibaba/qwen3-vl-235b-a22b-instruct
 costs:
-    - input_cost_per_token: 5.3e-7
-      output_cost_per_token: 0.00000266
+    - flex_pricing:
+          input_cost_per_token: 2.6e-7
+          output_cost_per_token: 1.33e-6
+      input_cost_per_token: 5.3e-7
+      output_cost_per_token: 2.66e-6
+      priority_pricing:
+          input_cost_per_token: 9.3e-7
+          output_cost_per_token: 4.66e-6
       region: us-west-2
-    - input_cost_per_token: 5.3e-7
-      output_cost_per_token: 0.00000266
+    - flex_pricing:
+          input_cost_per_token: 2.6e-7
+          output_cost_per_token: 1.33e-6
+      input_cost_per_token: 5.3e-7
+      output_cost_per_token: 2.66e-6
+      priority_pricing:
+          input_cost_per_token: 9.3e-7
+          output_cost_per_token: 4.66e-6
       region: us-east-2
-    - input_cost_per_token: 5.3e-7
-      output_cost_per_token: 0.00000266
+    - flex_pricing:
+          input_cost_per_token: 2.6e-7
+          output_cost_per_token: 1.33e-6
+      input_cost_per_token: 5.3e-7
+      output_cost_per_token: 2.66e-6
+      priority_pricing:
+          input_cost_per_token: 9.3e-7
+          output_cost_per_token: 4.66e-6
       region: us-east-1
-    - input_cost_per_token: 6.4e-7
-      output_cost_per_token: 0.00000322
+    - flex_pricing:
+          input_cost_per_token: 3.13962264150943e-7
+          output_cost_per_token: 1.60603773584906e-6
+      input_cost_per_token: 6.4e-7
+      output_cost_per_token: 3.22e-6
+      priority_pricing:
+          input_cost_per_token: 1.12301886792453e-6
+          output_cost_per_token: 5.62716981132076e-6
       region: sa-east-1
-    - input_cost_per_token: 8.2e-7
-      output_cost_per_token: 0.00000412
+    - flex_pricing:
+          input_cost_per_token: 4.02264150943396e-7
+          output_cost_per_token: 2.0577358490566e-6
+      input_cost_per_token: 8.2e-7
+      output_cost_per_token: 4.12e-6
+      priority_pricing:
+          input_cost_per_token: 1.4388679245283e-6
+          output_cost_per_token: 7.20981132075472e-6
       region: eu-west-2
-    - input_cost_per_token: 6.2e-7
-      output_cost_per_token: 0.00000313
+    - flex_pricing:
+          input_cost_per_token: 3.04150943396226e-7
+          output_cost_per_token: 1.55584905660377e-6
+      input_cost_per_token: 6.2e-7
+      output_cost_per_token: 3.13e-6
+      priority_pricing:
+          input_cost_per_token: 1.08792452830189e-6
+          output_cost_per_token: 5.45132075471698e-6
       region: eu-west-1
-    - input_cost_per_token: 6.2e-7
-      output_cost_per_token: 0.00000313
+    - flex_pricing:
+          input_cost_per_token: 3.04150943396226e-7
+          output_cost_per_token: 1.55584905660377e-6
+      input_cost_per_token: 6.2e-7
+      output_cost_per_token: 3.13e-6
+      priority_pricing:
+          input_cost_per_token: 1.08792452830189e-6
+          output_cost_per_token: 5.45132075471698e-6
       region: eu-south-1
-    - input_cost_per_token: 6.36e-7
-      output_cost_per_token: 0.000003192
+    - flex_pricing:
+          input_cost_per_token: 3.12e-7
+          output_cost_per_token: 1.596e-6
+      input_cost_per_token: 6.36e-7
+      output_cost_per_token: 3.192e-6
+      priority_pricing:
+          input_cost_per_token: 1.116e-6
+          output_cost_per_token: 5.592e-6
       region: eu-north-1
-    - input_cost_per_token: 6.36e-7
-      output_cost_per_token: 0.000003192
+    - flex_pricing:
+          input_cost_per_token: 3.12e-7
+          output_cost_per_token: 1.596e-6
+      input_cost_per_token: 6.36e-7
+      output_cost_per_token: 3.192e-6
+      priority_pricing:
+          input_cost_per_token: 1.116e-6
+          output_cost_per_token: 5.592e-6
       region: eu-central-1
-    - input_cost_per_token: 6.36e-7
-      output_cost_per_token: 0.000003192
+    - flex_pricing:
+          input_cost_per_token: 3.12e-7
+          output_cost_per_token: 1.596e-6
+      input_cost_per_token: 6.36e-7
+      output_cost_per_token: 3.192e-6
+      priority_pricing:
+          input_cost_per_token: 1.116e-6
+          output_cost_per_token: 5.592e-6
       region: ap-southeast-3
-    - input_cost_per_token: 5.459e-7
-      output_cost_per_token: 0.0000027398
+    - flex_pricing:
+          input_cost_per_token: 2.678e-7
+          output_cost_per_token: 1.3699e-6
+      input_cost_per_token: 5.459e-7
+      output_cost_per_token: 2.7398e-6
+      priority_pricing:
+          input_cost_per_token: 9.579e-7
+          output_cost_per_token: 4.7998e-6
       region: ap-southeast-2
-    - input_cost_per_token: 6.2e-7
-      output_cost_per_token: 0.00000313
+    - flex_pricing:
+          input_cost_per_token: 3.04150943396226e-7
+          output_cost_per_token: 1.55584905660377e-6
+      input_cost_per_token: 6.2e-7
+      output_cost_per_token: 3.13e-6
+      priority_pricing:
+          input_cost_per_token: 1.08792452830189e-6
+          output_cost_per_token: 5.45132075471698e-6
       region: ap-south-1
-    - input_cost_per_token: 6.4e-7
-      output_cost_per_token: 0.00000322
+    - flex_pricing:
+          input_cost_per_token: 3.13962264150943e-7
+          output_cost_per_token: 1.60603773584906e-6
+      input_cost_per_token: 6.4e-7
+      output_cost_per_token: 3.22e-6
+      priority_pricing:
+          input_cost_per_token: 1.12301886792453e-6
+          output_cost_per_token: 5.62716981132076e-6
       region: ap-northeast-1
 external_ids:
     artificial_analysis_id: d58cf573-1bd3-4d1f-9182-5482a460f570
