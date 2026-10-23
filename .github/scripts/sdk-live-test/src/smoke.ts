@@ -1,5 +1,5 @@
 /**
- * Secrets smoke: one chat model per registered provider that has its credential env set.
+ * Secrets smoke: one chat model per registered provider whose credential and account env are set.
  *
  * `spec.apiKeyEnv` is the env *name* (e.g. "OPENAI_API_KEY" or "VERTEX_KEY_FILE").
  * `process.env[spec.apiKeyEnv]` is the secret *value* (never logged).
@@ -10,7 +10,7 @@
  * Smoke runs baseline scenarios only (see runTargets baselineOnly).
  */
 import type { CatalogueModel } from './catalogue.js';
-import { getProviderSpec, listRegisteredProviders } from './providers.js';
+import { getProviderSpec, listRegisteredProviders, missingAccountEnv } from './providers.js';
 import type { Target } from './run.js';
 
 export function targetsWithSecrets(catalogue: CatalogueModel[]): Target[] {
@@ -19,6 +19,11 @@ export function targetsWithSecrets(catalogue: CatalogueModel[]): Target[] {
     const spec = getProviderSpec(provider)!;
     if (!process.env[spec.apiKeyEnv]) {
       console.log(`smoke skip ${provider}: missing env ${spec.apiKeyEnv}`);
+      continue;
+    }
+    const missingEnv = missingAccountEnv(spec);
+    if (missingEnv) {
+      console.log(`smoke skip ${provider}: missing env ${missingEnv}`);
       continue;
     }
     const pick = catalogue.find((m) => m.provider === provider && m.mode === 'chat');
