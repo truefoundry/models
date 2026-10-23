@@ -24,4 +24,9 @@ model: moonshotai/kimi-k3.1-pro
 params:
     - defaultValue: 0.95
       key: top_p
+provisioning: serverless
+sources:
+    - https://openrouter.ai/moonshotai/kimi-k3.1-pro
+supportedModes:
+    - chat
 thinking: true
