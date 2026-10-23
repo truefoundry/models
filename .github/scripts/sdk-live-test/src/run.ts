@@ -23,7 +23,12 @@ import {
   toModelConfigMap,
   type CatalogueModel,
 } from './catalogue.js';
-import { getProviderSpec, projectIdFromKeyFile, type ProviderSpec } from './providers.js';
+import {
+  getProviderSpec,
+  missingAccountEnv,
+  projectIdFromKeyFile,
+  type ProviderSpec,
+} from './providers.js';
 import { planScenarios, type Scenario } from './scenarios.js';
 
 export type Target = { provider: string; modelId: string };
@@ -49,6 +54,15 @@ function memoryCache() {
       store.set(key, value);
     },
   };
+}
+
+function accountEnvFields(spec: ProviderSpec): Record<string, string> {
+  const fields: Record<string, string> = {};
+  for (const [field, envName] of Object.entries(spec.accountEnv ?? {})) {
+    const value = process.env[envName];
+    if (value) fields[field] = value;
+  }
+  return fields;
 }
 
 function authData(spec: ProviderSpec, credential: string) {
@@ -99,6 +113,8 @@ function buildCall(
         type: spec.accountType,
         name: accountName,
         ...(spec.baseUrl ? { base_url: spec.baseUrl } : {}),
+        ...(spec.region && spec.authType !== 'key-file' ? { region: spec.region } : {}),
+        ...accountEnvFields(spec),
         ...keyFileExtras,
         auth_data: authData(spec, credential),
         integrations: [],
@@ -165,6 +181,17 @@ export async function runTargets(
         scenario: 'setup',
         status: 'fail',
         detail: `missing GitHub secret / env ${spec.apiKeyEnv}`,
+      });
+      continue;
+    }
+    const missingEnv = missingAccountEnv(spec);
+    if (missingEnv) {
+      pushResult(results, {
+        provider: t.provider,
+        modelId: t.modelId,
+        scenario: 'setup',
+        status: 'fail',
+        detail: `missing GitHub secret / env ${missingEnv}`,
       });
       continue;
     }
