@@ -11,6 +11,8 @@ features:
     - prompt_caching
     - structured_output
     - system_messages
+limits:
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -21,6 +23,8 @@ model: anthropic/claude-fable-5
 provisioning: serverless
 requiredParams:
     - max_tokens
+sources:
+    - https://platform.claude.com/docs/en/models/fable-5/overview
 status: active
 supportedModes:
     - chat

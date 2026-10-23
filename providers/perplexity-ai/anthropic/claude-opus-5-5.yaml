@@ -7,6 +7,8 @@ costs:
 external_ids:
     artificial_analysis_id: 2f3c4dc9-a450-4303-8697-0237257cf08f
     artificial_analysis_slug: claude-opus-5-5
+limits:
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -17,6 +19,8 @@ model: anthropic/claude-opus-5-5
 provisioning: serverless
 requiredParams:
     - max_tokens
+sources:
+    - https://platform.claude.com/docs/en/models/opus-5-5/overview
 status: active
 supportedModes:
     - chat
