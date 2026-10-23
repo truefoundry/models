@@ -1,4 +1,20 @@
 canonical_model: xai/grok-4-7
+costs:
+    - cache_read_input_token_cost: 5e-7
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 6e-6
+      region: global
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1e-6
+                from: 200000
+          input:
+              - cost_per_token: 4e-6
+                from: 200000
+          output:
+              - cost_per_token: 1.2e-5
+                from: 200000
+          pricing_mode: cumulative
 external_ids:
     artificial_analysis_id: 59627802-1546-422c-9a65-65b61c022d36
     artificial_analysis_slug: grok-4-7
@@ -21,6 +37,9 @@ modalities:
 mode: chat
 model: grok-4.7
 provisioning: serverless
+sources:
+    - https://ai.azure.com/catalog/models/grok-4.7
+    - https://docs.x.ai/developers/models
 status: active
 supportedModes:
     - chat
