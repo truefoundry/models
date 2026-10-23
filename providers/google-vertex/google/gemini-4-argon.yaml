@@ -1,55 +1,86 @@
+canonical_model: google/gemini-4-argon
 costs:
     - cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 0.0000022
-      input_cost_per_token_batches: 0.0000011
-      output_cost_per_token: 0.000011
-      output_cost_per_token_batches: 0.0000055
+      flex_pricing:
+          cache_read_input_token_cost: 5.5e-8
+          input_cost_per_token: 1.1e-6
+          output_cost_per_token: 5.5e-6
+      input_cost_per_token: 2.2e-6
+      input_cost_per_token_batches: 1.1e-6
+      output_cost_per_token: 1.1e-5
+      output_cost_per_token_batches: 5.5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 1.98e-7
+          input_cost_per_audio_token: 3.96e-6
+          input_cost_per_token: 3.96e-6
+          output_cost_per_token: 1.98e-5
       region: us
       tiered_pricing:
           cache_read:
               - cost_per_token: 1.98e-7
                 from: 200000
           input:
-              - cost_per_token: 0.00000396
+              - cost_per_token: 3.96e-6
                 from: 200000
           output:
-              - cost_per_token: 0.0000198
+              - cost_per_token: 1.98e-5
                 from: 200000
           pricing_mode: cumulative
     - cache_read_input_token_cost: 1e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_token: 0.00001
-      output_cost_per_token_batches: 0.000005
+      flex_pricing:
+          cache_read_input_token_cost: 5e-8
+          input_cost_per_token: 1e-6
+          output_cost_per_token: 5e-6
+      input_cost_per_token: 2e-6
+      input_cost_per_token_batches: 1e-6
+      output_cost_per_token: 1e-5
+      output_cost_per_token_batches: 5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 1.8e-7
+          input_cost_per_audio_token: 3.6e-6
+          input_cost_per_token: 3.6e-6
+          output_cost_per_token: 1.8e-5
       region: global
       tiered_pricing:
           cache_read:
               - cost_per_token: 1.8e-7
                 from: 200000
           input:
-              - cost_per_token: 0.0000036
+              - cost_per_token: 3.6e-6
                 from: 200000
           output:
-              - cost_per_token: 0.000018
+              - cost_per_token: 1.8e-5
                 from: 200000
           pricing_mode: cumulative
     - cache_read_input_token_cost: 1.1e-7
-      input_cost_per_token: 0.0000022
-      input_cost_per_token_batches: 0.0000011
-      output_cost_per_token: 0.000011
-      output_cost_per_token_batches: 0.0000055
+      flex_pricing:
+          cache_read_input_token_cost: 5.5e-8
+          input_cost_per_token: 1.1e-6
+          output_cost_per_token: 5.5e-6
+      input_cost_per_token: 2.2e-6
+      input_cost_per_token_batches: 1.1e-6
+      output_cost_per_token: 1.1e-5
+      output_cost_per_token_batches: 5.5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 1.98e-7
+          input_cost_per_audio_token: 3.96e-6
+          input_cost_per_token: 3.96e-6
+          output_cost_per_token: 1.98e-5
       region: eu
       tiered_pricing:
           cache_read:
               - cost_per_token: 1.98e-7
                 from: 200000
           input:
-              - cost_per_token: 0.00000396
+              - cost_per_token: 3.96e-6
                 from: 200000
           output:
-              - cost_per_token: 0.0000198
+              - cost_per_token: 1.98e-5
                 from: 200000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: d366dfa1-d940-4788-aa73-d298c45699b3
+    artificial_analysis_slug: gemini-4-argon
 features:
     - function_calling
     - system_messages

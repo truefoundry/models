@@ -1,9 +1,25 @@
+canonical_model: google/gemini-3-pro-image-preview
 costs:
     - input_cost_per_token: 2e-6
       input_cost_per_token_batches: 1e-6
       output_cost_per_image_token: 0.00012
       output_cost_per_token: 1.2e-5
       output_cost_per_token_batches: 6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.6e-7
+          input_cost_per_token: 3.6e-6
+          output_cost_per_token: 2.16e-5
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 7.2e-7
+                    from: 200000
+              input:
+                  - cost_per_token: 7.2e-6
+                    from: 200000
+              output:
+                  - cost_per_token: 3.24e-5
+                    from: 200000
+              pricing_mode: cumulative
       region: global
 features:
     - system_messages

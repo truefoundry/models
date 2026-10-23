@@ -1,14 +1,24 @@
+canonical_model: anthropic/claude-opus-4-5
 costs:
     - cache_read_input_token_cost: 5e-7
       input_cost_per_token: 0.000005
       output_cost_per_token: 0.000025
       region: "*"
+external_ids:
+    artificial_analysis_id: 4077490a-bbfb-404e-979a-a97a20e3b5de
+    artificial_analysis_slug: claude-opus-4-5
 features:
     - function_calling
     - prompt_caching
+limits:
+    # Perplexity publishes no separate context limit; this is Anthropic's model specification.
+    context_window: 200000
 mode: chat
 model: anthropic/claude-opus-4-5
 provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/models/opus-4-5/overview
+    - https://docs.perplexity.ai/docs/resources/changelog
 status: active
 supportedModes:
     - chat

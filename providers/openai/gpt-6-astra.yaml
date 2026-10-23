@@ -1,6 +1,26 @@
+canonical_model: openai/gpt-6-astra
 costs:
     - cache_creation_input_token_cost: 0.0000125
       cache_read_input_token_cost: 0.000001
+      flex_pricing:
+          cache_creation_input_token_cost: 0.00000625
+          cache_read_input_token_cost: 5e-7
+          input_cost_per_token: 0.000005
+          output_cost_per_token: 0.000025
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 0.000001
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 0.0000125
+                    from: 272000
+              input:
+                  - cost_per_token: 0.00001
+                    from: 272000
+              output:
+                  - cost_per_token: 0.0000375
+                    from: 272000
+              pricing_mode: cumulative
       input_cost_per_token: 0.000010
       input_cost_per_token_batches: 0.000005
       output_cost_per_token: 0.000050
@@ -10,6 +30,20 @@ costs:
           cache_read_input_token_cost: 0.000002
           input_cost_per_token: 0.000020
           output_cost_per_token: 0.000100
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 0.000004
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 0.00005
+                    from: 272000
+              input:
+                  - cost_per_token: 0.00004
+                    from: 272000
+              output:
+                  - cost_per_token: 0.00015
+                    from: 272000
+              pricing_mode: cumulative
       region: "*"
       tiered_pricing:
           cache_read:
@@ -25,6 +59,28 @@ costs:
               - cost_per_token: 0.000075
                 from: 272000
           pricing_mode: cumulative
+      ultrafast_pricing:
+          cache_creation_input_token_cost: 0.000075
+          cache_read_input_token_cost: 0.000006
+          input_cost_per_token: 0.00006
+          output_cost_per_token: 0.0003
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 0.000012
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 0.00015
+                    from: 272000
+              input:
+                  - cost_per_token: 0.00012
+                    from: 272000
+              output:
+                  - cost_per_token: 0.00045
+                    from: 272000
+              pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 2f339a97-9a0d-499a-9cb5-e0db665bfa25
+    artificial_analysis_slug: gpt-6-astra
 features:
     - function_calling
     - structured_output

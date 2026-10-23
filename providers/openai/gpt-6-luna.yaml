@@ -1,6 +1,26 @@
+canonical_model: openai/gpt-6-luna
 costs:
     - cache_creation_input_token_cost: 1.25e-7
       cache_read_input_token_cost: 1e-8
+      flex_pricing:
+          cache_creation_input_token_cost: 6.25e-8
+          cache_read_input_token_cost: 5e-9
+          input_cost_per_token: 5e-8
+          output_cost_per_token: 2.5e-7
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 1e-8
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 1.25e-7
+                    from: 272000
+              input:
+                  - cost_per_token: 1e-7
+                    from: 272000
+              output:
+                  - cost_per_token: 3.75e-7
+                    from: 272000
+              pricing_mode: cumulative
       input_cost_per_token: 1e-7
       input_cost_per_token_batches: 5e-8
       output_cost_per_token: 5e-7
@@ -10,6 +30,20 @@ costs:
           cache_read_input_token_cost: 2e-8
           input_cost_per_token: 2e-7
           output_cost_per_token: 0.000001
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 4e-8
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 5e-7
+                    from: 272000
+              input:
+                  - cost_per_token: 4e-7
+                    from: 272000
+              output:
+                  - cost_per_token: 0.0000015
+                    from: 272000
+              pricing_mode: cumulative
       region: "*"
       tiered_pricing:
           cache_read:
@@ -25,6 +59,9 @@ costs:
               - cost_per_token: 7.5e-7
                 from: 272000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: 6fb13851-40ce-4bda-ad3f-6b38e0c5daa7
+    artificial_analysis_slug: gpt-6-luna
 features:
     - function_calling
     - parallel_function_calling

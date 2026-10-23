@@ -1,16 +1,28 @@
+canonical_model: openai/gpt-4-1-mini
 costs:
     - cache_read_input_token_cost: 1.1e-7
       input_cost_per_token: 4.4e-7
       input_cost_per_token_batches: 2.2e-7
       output_cost_per_token: 1.76e-6
       output_cost_per_token_batches: 8.8e-7
+      priority_pricing:
+          cache_read_input_token_cost: 1.925e-7
+          input_cost_per_token: 7.7e-7
+          output_cost_per_token: 3.08e-6
       region: datazone_us
     - cache_read_input_token_cost: 1e-7
       input_cost_per_token: 4e-7
       input_cost_per_token_batches: 2e-7
       output_cost_per_token: 1.6e-6
       output_cost_per_token_batches: 8e-7
+      priority_pricing:
+          cache_read_input_token_cost: 1.75e-7
+          input_cost_per_token: 7e-7
+          output_cost_per_token: 2.8e-6
       region: "*"
+external_ids:
+    artificial_analysis_id: 9f7c7566-a704-49a2-a383-cb3181da33a4
+    artificial_analysis_slug: gpt-4-1-mini
 features:
     - function_calling
     - parallel_function_calling

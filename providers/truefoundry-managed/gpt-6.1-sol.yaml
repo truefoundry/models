@@ -1,6 +1,26 @@
+canonical_model: openai/gpt-6-1-sol
 costs:
     - cache_creation_input_token_cost: 2.5e-6
       cache_read_input_token_cost: 1e-7
+      flex_pricing:
+          cache_creation_input_token_cost: 1.25e-6
+          cache_read_input_token_cost: 5e-8
+          input_cost_per_token: 1e-6
+          output_cost_per_token: 5e-6
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 1e-7
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 2.5e-6
+                    from: 272000
+              input:
+                  - cost_per_token: 2e-6
+                    from: 272000
+              output:
+                  - cost_per_token: 7.5e-6
+                    from: 272000
+              pricing_mode: cumulative
       input_cost_per_token: 2e-6
       input_cost_per_token_batches: 1e-6
       output_cost_per_token: 1e-5
@@ -10,6 +30,20 @@ costs:
           cache_read_input_token_cost: 2e-7
           input_cost_per_token: 4e-6
           output_cost_per_token: 2e-5
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 4e-7
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 1e-5
+                    from: 272000
+              input:
+                  - cost_per_token: 8e-6
+                    from: 272000
+              output:
+                  - cost_per_token: 3e-5
+                    from: 272000
+              pricing_mode: cumulative
       region: "*"
       tiered_pricing:
           cache_read:
@@ -25,6 +59,28 @@ costs:
               - cost_per_token: 1.5e-5
                 from: 272000
           pricing_mode: cumulative
+      ultrafast_pricing:
+          cache_creation_input_token_cost: 1.5e-5
+          cache_read_input_token_cost: 6e-7
+          input_cost_per_token: 1.2e-5
+          output_cost_per_token: 6e-5
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 1.2e-6
+                    from: 272000
+              cache_write:
+                  - cost_per_token: 3e-5
+                    from: 272000
+              input:
+                  - cost_per_token: 2.4e-5
+                    from: 272000
+              output:
+                  - cost_per_token: 9e-5
+                    from: 272000
+              pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: b25ac058-1e33-4c31-bbc9-a20c3ad0717a
+    artificial_analysis_slug: gpt-6-1-sol
 features:
     - function_calling
     - parallel_function_calling

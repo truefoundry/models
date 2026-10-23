@@ -1,3 +1,4 @@
+canonical_model: amazon/nova-micro
 costs:
     - cache_read_input_token_cost: 8.7e-9
       input_cost_per_token: 3.5e-8
@@ -28,6 +29,9 @@ costs:
       output_cost_per_token: 1.68e-7
       region: ap-northeast-1
     - region: ap-east-2
+external_ids:
+    artificial_analysis_id: 344c6718-c573-41d4-9556-10287a3fa1fc
+    artificial_analysis_slug: nova-micro
 features:
     - function_calling
     - prompt_caching

@@ -1,8 +1,12 @@
+canonical_model: nvidia/nvidia-nemotron-3-super-120b-a12b
 costs:
     - cache_read_input_token_cost: 4e-8
       input_cost_per_token: 8.5e-8
       output_cost_per_token: 4e-7
       region: "*"
+external_ids:
+    artificial_analysis_id: 63872e9c-3377-4a6b-b477-7bba244c38e9
+    artificial_analysis_slug: nvidia-nemotron-3-super-120b-a12b
 features:
     - prompt_caching
     - function_calling

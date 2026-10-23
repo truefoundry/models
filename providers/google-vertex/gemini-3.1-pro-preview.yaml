@@ -1,22 +1,44 @@
+canonical_model: google/gemini-3-1-pro-preview
 costs:
-    - cache_creation_input_token_cost_per_hour: 0.0000045
+    - cache_creation_input_token_cost_per_hour: 4.5e-6
       cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 0.000002
-      input_cost_per_token_batches: 0.000001
-      output_cost_per_token: 0.000012
-      output_cost_per_token_batches: 0.000006
+      flex_pricing:
+          input_cost_per_token: 1e-6
+          output_cost_per_token: 6e-6
+      input_cost_per_token: 2e-6
+      input_cost_per_token_batches: 1e-6
+      output_cost_per_token: 1.2e-5
+      output_cost_per_token_batches: 6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.6e-7
+          input_cost_per_token: 3.6e-6
+          output_cost_per_token: 2.16e-5
+          tiered_pricing:
+              cache_read:
+                  - cost_per_token: 7.2e-7
+                    from: 200000
+              input:
+                  - cost_per_token: 7.2e-6
+                    from: 200000
+              output:
+                  - cost_per_token: 3.24e-5
+                    from: 200000
+              pricing_mode: cumulative
       region: global
       tiered_pricing:
           cache_read:
               - cost_per_token: 4e-7
                 from: 200000
           input:
-              - cost_per_token: 0.000004
+              - cost_per_token: 4e-6
                 from: 200000
           output:
-              - cost_per_token: 0.000018
+              - cost_per_token: 1.8e-5
                 from: 200000
           pricing_mode: cumulative
+external_ids:
+    artificial_analysis_id: bbd93ebe-80da-4594-bb19-61e69d0331df
+    artificial_analysis_slug: gemini-3-1-pro-preview
 features:
     - function_calling
     - parallel_function_calling

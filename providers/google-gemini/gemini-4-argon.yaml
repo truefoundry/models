@@ -1,0 +1,54 @@
+costs:
+    - cache_read_input_token_cost: 1e-7
+      flex_pricing:
+          cache_read_input_token_cost: 5e-8
+          input_cost_per_token: 1e-6
+          output_cost_per_token: 5e-6
+      input_cost_per_token: 2e-6
+      output_cost_per_token: 1e-5
+      priority_pricing:
+          cache_read_input_token_cost: 1.8e-7
+          input_cost_per_token: 3.6e-6
+          output_cost_per_token: 1.8e-5
+      region: "*"
+features:
+    - code_execution
+    - function_calling
+    - prompt_caching
+    - structured_output
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+        - video
+        - audio
+        - pdf
+    output:
+        - text
+mode: chat
+model: gemini-4-argon
+params:
+    - defaultValue: 1
+      key: temperature
+      maxValue: 2
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 64
+      key: top_k
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+sources:
+    - https://deepmind.google/models/gemini/
+    - https://deepmind.google/models/gemini/cyber/
+    - https://deepmind.google/models/evals-methodology/gemini-4-argon
+status: preview
+supportedModes:
+    - chat
+thinking: true

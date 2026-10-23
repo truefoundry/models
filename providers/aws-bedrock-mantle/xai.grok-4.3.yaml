@@ -1,20 +1,56 @@
+canonical_model: xai/grok-4-3
 costs:
     - cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.0000025
+      flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 6.25e-7
+          output_cost_per_token: 1.25e-6
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 2.5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 2.1875e-6
+          output_cost_per_token: 4.375e-6
       region: us-west-2
     - cache_read_input_token_cost: 2.4e-7
-      input_cost_per_token: 0.0000015
-      output_cost_per_token: 0.000003
+      flex_pricing:
+          cache_read_input_token_cost: 1.2e-7
+          input_cost_per_token: 7.5e-7
+          output_cost_per_token: 1.5e-6
+      input_cost_per_token: 1.5e-6
+      output_cost_per_token: 3e-6
+      priority_pricing:
+          cache_read_input_token_cost: 4.2e-7
+          input_cost_per_token: 2.625e-6
+          output_cost_per_token: 5.25e-6
       region: us-gov-west-1
     - cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.0000025
+      flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 6.25e-7
+          output_cost_per_token: 1.25e-6
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 2.5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 2.1875e-6
+          output_cost_per_token: 4.375e-6
       region: us-east-2
     - cache_read_input_token_cost: 2e-7
-      input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.0000025
+      flex_pricing:
+          cache_read_input_token_cost: 1e-7
+          input_cost_per_token: 6.25e-7
+          output_cost_per_token: 1.25e-6
+      input_cost_per_token: 1.25e-6
+      output_cost_per_token: 2.5e-6
+      priority_pricing:
+          cache_read_input_token_cost: 3.5e-7
+          input_cost_per_token: 2.1875e-6
+          output_cost_per_token: 4.375e-6
       region: us-east-1
+external_ids:
+    artificial_analysis_id: 948892b5-db03-4118-a4a8-ccd51ed871ea
+    artificial_analysis_slug: grok-4-3
 extra_configuration:
     bedrock_mantle_adhoc_prefix: /openai
 features:

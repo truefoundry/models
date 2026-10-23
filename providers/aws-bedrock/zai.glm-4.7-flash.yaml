@@ -1,43 +1,125 @@
+canonical_model: zai/glm-4-7-flash
 costs:
-    - input_cost_per_token: 7e-8
+    - flex_pricing:
+          input_cost_per_token: 3.5e-8
+          output_cost_per_token: 2e-7
+      input_cost_per_token: 7e-8
       output_cost_per_token: 4e-7
+      priority_pricing:
+          input_cost_per_token: 1.225e-7
+          output_cost_per_token: 7e-7
       region: us-west-2
-    - input_cost_per_token: 7e-8
+    - flex_pricing:
+          input_cost_per_token: 3.5e-8
+          output_cost_per_token: 2e-7
+      input_cost_per_token: 7e-8
       output_cost_per_token: 4e-7
+      priority_pricing:
+          input_cost_per_token: 1.225e-7
+          output_cost_per_token: 7e-7
       region: us-east-2
-    - input_cost_per_token: 7e-8
+    - flex_pricing:
+          input_cost_per_token: 3.5e-8
+          output_cost_per_token: 2e-7
+      input_cost_per_token: 7e-8
       output_cost_per_token: 4e-7
+      priority_pricing:
+          input_cost_per_token: 1.225e-7
+          output_cost_per_token: 7e-7
       region: us-east-1
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: sa-east-1
-    - input_cost_per_token: 1.1e-7
+    - flex_pricing:
+          input_cost_per_token: 5.5e-8
+          output_cost_per_token: 3.14285714285714e-7
+      input_cost_per_token: 1.1e-7
       output_cost_per_token: 6.2e-7
+      priority_pricing:
+          input_cost_per_token: 1.925e-7
+          output_cost_per_token: 1.1e-6
       region: eu-west-2
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: eu-west-1
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: eu-south-1
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: eu-north-1
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: eu-central-1
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: ap-southeast-3
-    - input_cost_per_token: 7.21e-8
+    - flex_pricing:
+          input_cost_per_token: 3.605e-8
+          output_cost_per_token: 2.06e-7
+      input_cost_per_token: 7.21e-8
       output_cost_per_token: 4.12e-7
+      priority_pricing:
+          input_cost_per_token: 1.26175e-7
+          output_cost_per_token: 7.21e-7
       region: ap-southeast-2
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: ap-south-1
-    - input_cost_per_token: 8e-8
+    - flex_pricing:
+          input_cost_per_token: 4e-8
+          output_cost_per_token: 2.28571428571429e-7
+      input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
+      priority_pricing:
+          input_cost_per_token: 1.4e-7
+          output_cost_per_token: 8e-7
       region: ap-northeast-1
+external_ids:
+    artificial_analysis_id: 2c4394a2-b443-470a-908e-5c4a271b780c
+    artificial_analysis_slug: glm-4-7-flash
 features:
     - function_calling
     - structured_output

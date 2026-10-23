@@ -1,8 +1,12 @@
+canonical_model: amazon/nova-premier
 costs:
     - cache_read_input_token_cost: 6.25e-7
       input_cost_per_token: 0.0000025
       output_cost_per_token: 0.0000125
       region: "*"
+external_ids:
+    artificial_analysis_id: e58bbffd-fdc2-412a-b6d7-ca0e3f5d611a
+    artificial_analysis_slug: nova-premier
 features:
     - function_calling
     - prompt_caching
