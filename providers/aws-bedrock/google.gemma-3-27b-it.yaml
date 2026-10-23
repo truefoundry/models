@@ -1,37 +1,103 @@
 canonical_model: google/gemma-3-27b-it
 costs:
-    - input_cost_per_token: 2.3e-7
+    - flex_pricing:
+          input_cost_per_token: 1.2e-7
+          output_cost_per_token: 1.9e-7
+      input_cost_per_token: 2.3e-7
       output_cost_per_token: 3.8e-7
+      priority_pricing:
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 6.7e-7
       region: us-west-2
-    - input_cost_per_token: 2.3e-7
+    - flex_pricing:
+          input_cost_per_token: 1.2e-7
+          output_cost_per_token: 1.9e-7
+      input_cost_per_token: 2.3e-7
       output_cost_per_token: 3.8e-7
+      priority_pricing:
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 6.7e-7
       region: us-east-2
-    - input_cost_per_token: 2.3e-7
+    - flex_pricing:
+          input_cost_per_token: 1.2e-7
+          output_cost_per_token: 1.9e-7
+      input_cost_per_token: 2.3e-7
       output_cost_per_token: 3.8e-7
+      priority_pricing:
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 6.7e-7
       region: us-east-1
-    - input_cost_per_token: 2.8e-7
+    - flex_pricing:
+          input_cost_per_token: 1.46086956521739e-7
+          output_cost_per_token: 2.31304347826087e-7
+      input_cost_per_token: 2.8e-7
       output_cost_per_token: 4.6e-7
+      priority_pricing:
+          input_cost_per_token: 4.8695652173913e-7
+          output_cost_per_token: 8.15652173913044e-7
       region: sa-east-1
-    - input_cost_per_token: 3.6e-7
+    - flex_pricing:
+          input_cost_per_token: 1.87826086956522e-7
+          output_cost_per_token: 2.97391304347826e-7
+      input_cost_per_token: 3.6e-7
       output_cost_per_token: 5.9e-7
+      priority_pricing:
+          input_cost_per_token: 6.26086956521739e-7
+          output_cost_per_token: 1.04869565217391e-6
       region: eu-west-2
-    - input_cost_per_token: 2.7e-7
+    - flex_pricing:
+          input_cost_per_token: 1.40869565217391e-7
+          output_cost_per_token: 2.2304347826087e-7
+      input_cost_per_token: 2.7e-7
       output_cost_per_token: 4.5e-7
+      priority_pricing:
+          input_cost_per_token: 4.69565217391304e-7
+          output_cost_per_token: 7.86521739130435e-7
       region: eu-west-1
-    - input_cost_per_token: 2.7e-7
+    - flex_pricing:
+          input_cost_per_token: 1.40869565217391e-7
+          output_cost_per_token: 2.2304347826087e-7
+      input_cost_per_token: 2.7e-7
       output_cost_per_token: 4.5e-7
+      priority_pricing:
+          input_cost_per_token: 4.69565217391304e-7
+          output_cost_per_token: 7.86521739130435e-7
       region: eu-south-1
-    - input_cost_per_token: 2.3e-7
+    - flex_pricing:
+          input_cost_per_token: 1.2e-7
+          output_cost_per_token: 1.9e-7
+      input_cost_per_token: 2.3e-7
       output_cost_per_token: 3.8e-7
+      priority_pricing:
+          input_cost_per_token: 4e-7
+          output_cost_per_token: 6.7e-7
       region: eu-central-1
-    - input_cost_per_token: 2.369e-7
+    - flex_pricing:
+          input_cost_per_token: 1.236e-7
+          output_cost_per_token: 1.957e-7
+      input_cost_per_token: 2.369e-7
       output_cost_per_token: 3.914e-7
+      priority_pricing:
+          input_cost_per_token: 4.12e-7
+          output_cost_per_token: 6.901e-7
       region: ap-southeast-2
-    - input_cost_per_token: 2.7e-7
+    - flex_pricing:
+          input_cost_per_token: 1.40869565217391e-7
+          output_cost_per_token: 2.2304347826087e-7
+      input_cost_per_token: 2.7e-7
       output_cost_per_token: 4.5e-7
+      priority_pricing:
+          input_cost_per_token: 4.69565217391304e-7
+          output_cost_per_token: 7.86521739130435e-7
       region: ap-south-1
-    - input_cost_per_token: 2.8e-7
+    - flex_pricing:
+          input_cost_per_token: 1.46086956521739e-7
+          output_cost_per_token: 2.31304347826087e-7
+      input_cost_per_token: 2.8e-7
       output_cost_per_token: 4.6e-7
+      priority_pricing:
+          input_cost_per_token: 4.8695652173913e-7
+          output_cost_per_token: 8.15652173913044e-7
       region: ap-northeast-1
 features:
     - system_messages

@@ -8,6 +8,9 @@ features:
     - function_calling
     - structured_output
     - system_messages
+limits:
+    # Perplexity publishes no separate context limit; this is Anthropic's model specification.
+    context_window: 200000
 modalities:
     input:
         - text
@@ -16,6 +19,9 @@ modalities:
 mode: chat
 model: anthropic/claude-haiku-4-5
 provisioning: serverless
+sources:
+    - https://platform.claude.com/docs/en/models/haiku-4-5/overview
+    - https://docs.perplexity.ai/docs/resources/changelog
 status: active
 supportedModes:
     - chat
