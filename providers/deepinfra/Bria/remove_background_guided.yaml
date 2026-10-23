@@ -1,5 +1,16 @@
 costs:
     - input_cost_per_image: 0.03
       region: "*"
-mode: unknown
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - image
+mode: image
 model: Bria/remove_background_guided
+sources:
+    - https://deepinfra.com/Bria/remove_background_guided
+status: active
+supportedModes:
+    - image
