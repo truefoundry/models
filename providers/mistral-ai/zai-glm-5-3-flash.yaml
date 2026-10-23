@@ -19,6 +19,15 @@ modalities:
         - text
 mode: chat
 model: zai-glm-5-3-flash
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/zai-glm-5-3-flash
