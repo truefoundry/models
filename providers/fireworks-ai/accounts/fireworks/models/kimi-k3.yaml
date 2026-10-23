@@ -2,6 +2,10 @@ costs:
     - cache_read_input_token_cost: 3e-7
       input_cost_per_token: 3e-6
       output_cost_per_token: 1.5e-5
+      priority_pricing:
+          cache_read_input_token_cost: 3.75e-7
+          input_cost_per_token: 3.75e-6
+          output_cost_per_token: 1.875e-5
       region: "*"
 features:
     - function_calling
