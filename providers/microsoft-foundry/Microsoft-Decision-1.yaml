@@ -3,16 +3,28 @@ costs:
       output_cost_per_token: 0
       region: "*"
 limits:
-    context_window: 32768
-    max_input_tokens: 32768
+    context_window: 32000
+    max_input_tokens: 32000
 modalities:
     input:
         - text
 mode: decision
 model: Microsoft-Decision-1
 provisioning: serverless
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - response_format
+    - stop
+    - stream
+    - tool_choice
+    - parallel_tool_calls
+    - reasoning_effort
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-microsoft-decision
+    - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
     - decision
