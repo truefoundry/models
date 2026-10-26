@@ -1,4 +1,12 @@
 costs:
-    - region: us-east-1
-mode: unknown
+    - region: us-east-1 # pricing for GPT-6.1 Terra not found in official docs
+mode: chat
 model: openai.gpt-6.1-terra
+provisioning: serverless
+# No model card or pricing entry for openai.gpt-6.1-terra was found in the Bedrock docs, so limits, features, modalities and extra_configuration are omitted.
+# The Bedrock OpenAI model-card index says the OpenAI models listed there work with both the Responses API and Chat Completions on bedrock-mantle. That is the basis for mode chat and supportedModes chat and responses.
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html
+supportedModes:
+    - chat
+    - responses
