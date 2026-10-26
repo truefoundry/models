@@ -33,8 +33,8 @@ features:
 limits:
     context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 5000
-    max_tokens: 5000
+    max_output_tokens: 10000
+    max_tokens: 10000
 modalities:
     input:
         - text
@@ -45,7 +45,7 @@ model: us.amazon.nova-micro-v1:0
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 5000
+      maxValue: 10000
       minValue: 1
     - defaultValue: 0.7
       key: temperature

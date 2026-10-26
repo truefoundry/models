@@ -117,6 +117,7 @@ costs:
           input_cost_per_token: 6.3e-7
           output_cost_per_token: 2.52e-6
       region: ap-northeast-1
+deprecationDate: "2026-09-30"
 external_ids:
     artificial_analysis_id: 272ff333-442f-4169-a804-ac9177bc99d7
     artificial_analysis_slug: minimax-m2-1
@@ -126,6 +127,7 @@ features:
     - system_messages
     - structured_output
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 196000
     max_output_tokens: 8000
@@ -138,10 +140,11 @@ modalities:
 mode: chat
 model: minimax.minimax-m2.1
 provisioning: serverless
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2-1.html
     - https://platform.minimaxi.com/docs/api-reference/text-anthropic-api
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

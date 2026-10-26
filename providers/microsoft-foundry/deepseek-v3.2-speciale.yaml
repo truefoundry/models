@@ -7,12 +7,13 @@ external_ids:
     artificial_analysis_id: 527e943a-adc6-4e69-93af-d1608e1b5fed
     artificial_analysis_slug: deepseek-v3-2-speciale
 features:
-    - function_calling
     - tool_choice
+    - function_calling
     - prompt_caching
     - assistant_prefill
     - json_output
 limits:
+    context_window: 128000
     max_input_tokens: 128000
     max_output_tokens: 128000
     max_tokens: 128000
