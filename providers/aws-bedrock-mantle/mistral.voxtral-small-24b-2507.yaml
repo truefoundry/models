@@ -23,14 +23,14 @@ costs:
       region: eu-south-1
     - input_cost_per_token: 1.2e-7
       output_cost_per_token: 3.6e-7
-      region: eu-north-1 # not found in official docs
+      region: eu-north-1
     - input_cost_per_token: 1.2e-7
       output_cost_per_token: 3.6e-7
-      region: eu-central-1 # not found in official docs
-    - region: ap-southeast-4 # price not published in official docs
+      region: eu-central-1
+    - region: ap-southeast-4
     - input_cost_per_token: 1.2e-7
       output_cost_per_token: 3.6e-7
-      region: ap-southeast-3 # not found in official docs
+      region: ap-southeast-3
     - input_cost_per_token: 1.03e-7
       output_cost_per_token: 3.09e-7
       region: ap-southeast-2
@@ -40,9 +40,11 @@ costs:
     - input_cost_per_token: 1.2e-7
       output_cost_per_token: 3.6e-7
       region: ap-northeast-1
+deprecationDate: "2026-09-30"
 features:
     - function_calling
     - structured_output
+isDeprecated: true
 limits:
     context_window: 32000
 modalities:
@@ -54,8 +56,9 @@ modalities:
 mode: chat
 model: mistral.voxtral-small-24b-2507
 provisioning: serverless
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-voxtral-small-24b-2507.html
-status: active
+status: deprecated
 supportedModes:
     - chat

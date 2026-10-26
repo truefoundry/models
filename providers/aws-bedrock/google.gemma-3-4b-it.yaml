@@ -101,6 +101,7 @@ costs:
       region: ap-northeast-1
 features:
     - function_calling
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -120,8 +121,9 @@ params:
       maxValue: 8192
       minValue: 1
 provisioning: serverless
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-google-gemma-3-4b-it.html
-status: active
+status: deprecated
 supportedModes:
     - chat
