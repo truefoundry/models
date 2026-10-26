@@ -16,14 +16,16 @@ costs:
               - cost_per_token: 7.8e-7
                 from: 256000
           output:
-              - cost_per_token: 0.00000234
+              - cost_per_token: 2.34e-6
                 from: 256000
           pricing_mode: marginal
+deprecationDate: "2026-10-09"
 features:
     - function_calling
     - json_output
     - structured_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 1000000
     max_input_tokens: 995904
@@ -44,6 +46,6 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen-plus-2025-07-28/api
-status: active
+status: deprecated
 supportedModes:
     - chat

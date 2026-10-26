@@ -129,6 +129,7 @@ external_ids:
     artificial_analysis_slug: qwen3-coder-30b-a3b-instruct
 features:
     - function_calling
+isDeprecated: true
 limits:
     context_window: 256000
     max_output_tokens: 16000
@@ -141,8 +142,9 @@ modalities:
 mode: chat
 model: qwen.qwen3-coder-30b-a3b-instruct
 provisioning: serverless
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-30b-a3b-instruct.html
-status: active
+status: deprecated
 supportedModes:
     - chat

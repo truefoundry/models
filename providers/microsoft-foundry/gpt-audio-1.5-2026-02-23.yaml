@@ -1,8 +1,8 @@
 canonical_model: openai/gpt-audio-1-5
 costs:
-    - input_cost_per_audio_token: 0.00004
+    - input_cost_per_audio_token: 0.000032
       input_cost_per_token: 0.0000025
-      output_cost_per_audio_token: 0.00008
+      output_cost_per_audio_token: 0.000064
       output_cost_per_token: 0.00001
       region: "*"
 features:
@@ -31,6 +31,9 @@ provisioning: serverless
 removeParams:
     - reasoning_effort
 retirementDate: "2027-08-24"
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-audio-1.5
+    - https://ai.azure.com/catalog/models/gpt-audio-1.5
 status: active
 supportedModes:
     - chat

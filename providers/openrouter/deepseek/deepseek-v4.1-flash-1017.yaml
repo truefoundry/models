@@ -6,9 +6,7 @@ costs:
 features:
     - function_calling
     - json_output
-    - parallel_function_calling
     - prompt_caching
-    - structured_output
     - tool_choice
 limits:
     context_window: 1048576
@@ -21,4 +19,7 @@ modalities:
         - text
 mode: chat
 model: deepseek/deepseek-v4.1-flash-1017
+provisioning: serverless
+supportedModes:
+    - chat
 thinking: true

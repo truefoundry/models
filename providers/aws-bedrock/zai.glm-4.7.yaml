@@ -90,6 +90,7 @@ costs:
           input_cost_per_token: 1.26e-6
           output_cost_per_token: 4.62e-6
       region: ap-northeast-1
+deprecationDate: "2026-09-30"
 external_ids:
     artificial_analysis_id: 6fc35842-0165-44cf-8570-c484a92b3d8c
     artificial_analysis_slug: glm-4-7
@@ -98,6 +99,7 @@ features:
     - structured_output
     - system_messages
     - json_output
+isDeprecated: true
 limits:
     context_window: 203000
     max_output_tokens: 4000
@@ -117,11 +119,12 @@ params:
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-4-7.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
     - https://docs.z.ai/guides/llm/glm-4.7
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
