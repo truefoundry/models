@@ -1,8 +1,11 @@
+# GPT-6.1 Terra is not on the AWS Bedrock OpenAI model-card index (https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html). It is also not on the pricing page. The guessed card URL returned nothing usable. Pricing, limits, features and modalities are therefore omitted rather than guessed.
 costs:
     - region: us-west-2
     - region: us-west-1
     - region: us-east-2
     - region: us-east-1
     - region: ca-central-1
-mode: unknown
+mode: chat # other OpenAI models in the Bedrock OpenAI card index are served through the Responses and Chat Completions APIs
 model: us.openai.gpt-6.1-terra
+supportedModes:
+    - chat
