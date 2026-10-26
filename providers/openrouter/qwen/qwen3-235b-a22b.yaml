@@ -1,12 +1,14 @@
 canonical_model: alibaba/qwen3-235b-a22b
 costs:
     - input_cost_per_token: 4.55e-7
-      output_cost_per_token: 0.00000182
+      output_cost_per_token: 1.82e-6
       region: "*"
+deprecationDate: "2026-10-09"
 features:
     - function_calling
     - json_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 98304
@@ -27,7 +29,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-235b-a22b/api
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

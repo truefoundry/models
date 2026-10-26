@@ -1,8 +1,14 @@
 canonical_model: mistral/mistral-large-4-0
+costs:
+    - cache_read_input_token_cost: 1.4e-7
+      input_cost_per_token: 1.36e-6
+      output_cost_per_token: 4.18e-6
+      region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
-    context_window: 524288
+    context_window: 1048576
 modalities:
     input:
         - text
@@ -14,6 +20,8 @@ model: mistral-large-4-0
 params:
     - defaultValue: 1.0
       key: temperature
-status: active
+sources:
+    - https://docs.mistral.ai/models/mistral-large-4-0
+status: preview
 supportedModes:
     - chat

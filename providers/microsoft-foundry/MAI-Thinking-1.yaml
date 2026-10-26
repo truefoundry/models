@@ -1,6 +1,7 @@
 canonical_model: microsoft/mai-thinking-1
 costs:
-    - input_cost_per_token: 0.000002
+    - cache_read_input_token_cost: 2e-7
+      input_cost_per_token: 0.000002
       output_cost_per_token: 0.000008
       region: "*"
 features:
@@ -33,6 +34,7 @@ sources:
     - https://labs.ai.azure.com/innovations/mai-thinking-1/
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai-thinking
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/
 status: preview
 supportedModes:
     - chat

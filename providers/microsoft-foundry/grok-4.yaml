@@ -11,6 +11,7 @@ features:
     - tool_choice
     - structured_output
 limits:
+    context_window: 262000
     max_input_tokens: 262000
     max_output_tokens: 8192
     max_tokens: 8192
@@ -21,6 +22,11 @@ modalities:
         - text
 mode: chat
 model: grok-4
+params:
+    - defaultValue: 8192
+      key: max_tokens
+      maxValue: 8192
+      minValue: 1
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/grok-4
