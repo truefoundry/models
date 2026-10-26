@@ -53,8 +53,11 @@ params:
       type: string
     - defaultValue: null
       key: thinking
-    - key: reasoning_effort
+    - defaultValue: none
+      key: reasoning_effort
       supportedValues:
+          - none
+          - minimal
           - low
           - medium
           - high
@@ -62,6 +65,8 @@ params:
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite
+    - https://ai.google.dev/gemini-api/docs/generate-content/thinking
+    - https://ai.google.dev/gemini-api/docs/openai
 status: active
 supportedModes:
     - chat
