@@ -58,10 +58,22 @@ modalities:
         - text
 mode: chat
 model: anthropic.claude-sonnet-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-adaptive-thinking.html
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

@@ -222,8 +222,11 @@ params:
       maxValue: 128000
       minValue: 1
     - key: reasoning_effort
-      defaultValue: medium
+      defaultValue: none
+      type: string
+      supportedValues: [none, low, medium, high, xhigh]
 sources:
+    - https://developers.openai.com/api/docs/models/gpt-5.4-mini
     - https://developers.openai.com/api/docs/pricing
     - https://developers.openai.com/api/docs/deprecations
 ```
@@ -263,6 +266,15 @@ Common updates include:
 - New features
 - Token limit updates
 - Deprecation notices
+
+For a model that supports configurable reasoning effort, always include an
+explicit model-level `reasoning_effort` param with `type: string` and its complete
+`supportedValues`, even when these match the provider default. Include
+`defaultValue` only when the effort default is documented; dynamic thinking does
+not imply `medium`. Verify the exact model and host, cite official sources, and
+check aliases, dated snapshots, regional profiles, and Bedrock Mantle entries.
+Thinking support alone does not establish effort support. Use `removeParams` to
+suppress an inherited effort control on a model that rejects or ignores it.
 
 ## Pull Request Process
 

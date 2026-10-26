@@ -25,5 +25,17 @@ modalities:
         - pdf
 mode: chat
 model: claude-opus-4-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 supportedModes:
     - chat
+thinking: true
