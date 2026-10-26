@@ -1,32 +1,72 @@
 canonical_model: zai/glm-5-3
 costs:
-    - cache_creation_input_token_cost: 4.125e-6
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 3.3e-6
-      input_cost_per_token_batches: 1.65e-6
-      output_cost_per_token: 1.65e-5
-      output_cost_per_token_batches: 8.25e-6
+    - cache_creation_input_token_cost: 2.31e-6
+      cache_read_input_token_cost: 3.432e-7
+      flex_pricing:
+          cache_creation_input_token_cost: 1.155e-6
+          cache_read_input_token_cost: 1.716e-7
+          input_cost_per_token: 9.24e-7
+          output_cost_per_token: 2.904e-6
+      input_cost_per_token: 1.848e-6
+      input_cost_per_token_batches: 9.24e-7
+      output_cost_per_token: 5.808e-6
+      output_cost_per_token_batches: 2.904e-6
+      priority_pricing:
+          cache_creation_input_token_cost: 4.0425e-6
+          cache_read_input_token_cost: 6.006e-7
+          input_cost_per_token: 3.234e-6
+          output_cost_per_token: 1.0164e-5
       region: us-west-2
-    - cache_creation_input_token_cost: 4.125e-6
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 3.3e-6
-      input_cost_per_token_batches: 1.65e-6
-      output_cost_per_token: 1.65e-5
-      output_cost_per_token_batches: 8.25e-6
+    - cache_creation_input_token_cost: 2.31e-6
+      cache_read_input_token_cost: 3.432e-7
+      flex_pricing:
+          cache_creation_input_token_cost: 1.155e-6
+          cache_read_input_token_cost: 1.716e-7
+          input_cost_per_token: 9.24e-7
+          output_cost_per_token: 2.904e-6
+      input_cost_per_token: 1.848e-6
+      input_cost_per_token_batches: 9.24e-7
+      output_cost_per_token: 5.808e-6
+      output_cost_per_token_batches: 2.904e-6
+      priority_pricing:
+          cache_creation_input_token_cost: 4.0425e-6
+          cache_read_input_token_cost: 6.006e-7
+          input_cost_per_token: 3.234e-6
+          output_cost_per_token: 1.0164e-5
       region: us-west-1
-    - cache_creation_input_token_cost: 4.125e-6
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 3.3e-6
-      input_cost_per_token_batches: 1.65e-6
-      output_cost_per_token: 1.65e-5
-      output_cost_per_token_batches: 8.25e-6
+    - cache_creation_input_token_cost: 2.31e-6
+      cache_read_input_token_cost: 3.432e-7
+      flex_pricing:
+          cache_creation_input_token_cost: 1.155e-6
+          cache_read_input_token_cost: 1.716e-7
+          input_cost_per_token: 9.24e-7
+          output_cost_per_token: 2.904e-6
+      input_cost_per_token: 1.848e-6
+      input_cost_per_token_batches: 9.24e-7
+      output_cost_per_token: 5.808e-6
+      output_cost_per_token_batches: 2.904e-6
+      priority_pricing:
+          cache_creation_input_token_cost: 4.0425e-6
+          cache_read_input_token_cost: 6.006e-7
+          input_cost_per_token: 3.234e-6
+          output_cost_per_token: 1.0164e-5
       region: us-east-2
-    - cache_creation_input_token_cost: 4.125e-6
-      cache_read_input_token_cost: 3.3e-7
-      input_cost_per_token: 3.3e-6
-      input_cost_per_token_batches: 1.65e-6
-      output_cost_per_token: 1.65e-5
-      output_cost_per_token_batches: 8.25e-6
+    - cache_creation_input_token_cost: 2.31e-6
+      cache_read_input_token_cost: 3.432e-7
+      flex_pricing:
+          cache_creation_input_token_cost: 1.155e-6
+          cache_read_input_token_cost: 1.716e-7
+          input_cost_per_token: 9.24e-7
+          output_cost_per_token: 2.904e-6
+      input_cost_per_token: 1.848e-6
+      input_cost_per_token_batches: 9.24e-7
+      output_cost_per_token: 5.808e-6
+      output_cost_per_token_batches: 2.904e-6
+      priority_pricing:
+          cache_creation_input_token_cost: 4.0425e-6
+          cache_read_input_token_cost: 6.006e-7
+          input_cost_per_token: 3.234e-6
+          output_cost_per_token: 1.0164e-5
       region: us-east-1
 external_ids:
     artificial_analysis_id: cd684ea4-b475-4269-b001-d469d06d8a7a
@@ -49,6 +89,16 @@ modalities:
         - text
 mode: chat
 model: us.zai.glm-5.3
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-5-3.html

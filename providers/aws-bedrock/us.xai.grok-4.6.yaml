@@ -1,21 +1,61 @@
 canonical_model: xai/grok-4-6
 costs:
     - cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000022
-      output_cost_per_token: 0.0000066
+      flex_pricing:
+          cache_read_input_token_cost: 2.75e-7
+          input_cost_per_token: 1.1e-6
+          output_cost_per_token: 3.3e-6
+      input_cost_per_token: 2.2e-6
+      output_cost_per_token: 6.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 9.625e-7
+          input_cost_per_token: 3.85e-6
+          output_cost_per_token: 1.155e-5
       region: us-west-2
     - cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000022
-      output_cost_per_token: 0.0000066
+      flex_pricing:
+          cache_read_input_token_cost: 2.75e-7
+          input_cost_per_token: 1.1e-6
+          output_cost_per_token: 3.3e-6
+      input_cost_per_token: 2.2e-6
+      output_cost_per_token: 6.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 9.625e-7
+          input_cost_per_token: 3.85e-6
+          output_cost_per_token: 1.155e-5
       region: us-west-1
     - cache_read_input_token_cost: 5.5e-7
-      input_cost_per_token: 0.0000022
-      output_cost_per_token: 0.0000066
+      flex_pricing:
+          cache_read_input_token_cost: 2.75e-7
+          input_cost_per_token: 1.1e-6
+          output_cost_per_token: 3.3e-6
+      input_cost_per_token: 2.2e-6
+      output_cost_per_token: 6.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 9.625e-7
+          input_cost_per_token: 3.85e-6
+          output_cost_per_token: 1.155e-5
       region: us-east-2
+    - cache_read_input_token_cost: 5.5e-7
+      flex_pricing:
+          cache_read_input_token_cost: 2.75e-7
+          input_cost_per_token: 1.1e-6
+          output_cost_per_token: 3.3e-6
+      input_cost_per_token: 2.2e-6
+      output_cost_per_token: 6.6e-6
+      priority_pricing:
+          cache_read_input_token_cost: 9.625e-7
+          input_cost_per_token: 3.85e-6
+          output_cost_per_token: 1.155e-5
+      region: us-east-1
     - cache_read_input_token_cost: 5.5e-7
       input_cost_per_token: 0.0000022
       output_cost_per_token: 0.0000066
-      region: us-east-1
+      region: ca-west-1
+    - cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 0.0000022
+      output_cost_per_token: 0.0000066
+      region: ca-central-1
 external_ids:
     artificial_analysis_id: c8adc5cf-fd5a-407b-af51-dc3bede3e49c
     artificial_analysis_slug: grok-4-6

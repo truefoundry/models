@@ -7,9 +7,24 @@ costs:
 external_ids:
     artificial_analysis_id: cd55210d-358e-4df1-ba9c-9acb5f186cc9
     artificial_analysis_slug: claude-fable-5
+features:
+    - prompt_caching
+    - structured_output
+    - system_messages
+limits:
+    context_window: 1000000
+modalities:
+    input:
+        - text
+    output:
+        - text
 mode: chat
 model: anthropic/claude-fable-5
 provisioning: serverless
+requiredParams:
+    - max_tokens
+sources:
+    - https://platform.claude.com/docs/en/models/fable-5/overview
 status: active
 supportedModes:
     - chat

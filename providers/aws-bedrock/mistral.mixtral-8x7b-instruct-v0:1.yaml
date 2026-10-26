@@ -7,7 +7,7 @@ costs:
       output_cost_per_token: 7e-7
       region: us-east-1
     - input_cost_per_token: 7.6e-7
-      output_cost_per_token: 0.00000118
+      output_cost_per_token: 1.18e-6
       region: sa-east-1
     - input_cost_per_token: 5.9e-7
       output_cost_per_token: 9.1e-7
@@ -30,6 +30,7 @@ costs:
 external_ids:
     artificial_analysis_id: 3edcb2ed-6981-4f88-a556-563f7f8f00aa
     artificial_analysis_slug: mixtral-8x7b-instruct
+isDeprecated: true
 limits:
     context_window: 32000
     max_input_tokens: 32000
@@ -56,14 +57,15 @@ params:
       minValue: 1
 provisioning: serverless
 removeParams:
-    - "n"
+    - n
     - reasoning_effort
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mixtral-8x7b-instruct.html
     - https://docs.mistral.ai/getting-started/models/
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-text-completion.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-chat-completion.html
-status: active
+status: deprecated
 supportedModes:
     - chat

@@ -18,6 +18,13 @@ costs:
 external_ids:
     artificial_analysis_id: c50ea08c-88c0-4eb7-85b8-27f2bbf6d527
     artificial_analysis_slug: gpt-6-sol
+features:
+    - structured_output
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -26,6 +33,9 @@ modalities:
 mode: chat
 model: openai/gpt-6-sol
 provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-6-sol
 status: active
 supportedModes:
     - chat
+thinking: true

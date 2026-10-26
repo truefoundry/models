@@ -1,36 +1,103 @@
 canonical_model: kimi/kimi-k2-thinking
 costs:
-    - input_cost_per_token: 6e-7
-      output_cost_per_token: 0.0000025
+    - flex_pricing:
+          input_cost_per_token: 3e-7
+          output_cost_per_token: 1.25e-6
+      input_cost_per_token: 6e-7
+      output_cost_per_token: 2.5e-6
+      priority_pricing:
+          input_cost_per_token: 1.05e-6
+          output_cost_per_token: 4.38e-6
       region: us-west-2
-    - input_cost_per_token: 6e-7
-      output_cost_per_token: 0.0000025
+    - flex_pricing:
+          input_cost_per_token: 3e-7
+          output_cost_per_token: 1.25e-6
+      input_cost_per_token: 6e-7
+      output_cost_per_token: 2.5e-6
+      priority_pricing:
+          input_cost_per_token: 1.05e-6
+          output_cost_per_token: 4.38e-6
       region: us-east-2
-    - input_cost_per_token: 6e-7
-      output_cost_per_token: 0.0000025
+    - flex_pricing:
+          input_cost_per_token: 3e-7
+          output_cost_per_token: 1.25e-6
+      input_cost_per_token: 6e-7
+      output_cost_per_token: 2.5e-6
+      priority_pricing:
+          input_cost_per_token: 1.05e-6
+          output_cost_per_token: 4.38e-6
       region: us-east-1
-    - input_cost_per_token: 7.3e-7
-      output_cost_per_token: 0.00000303
+    - flex_pricing:
+          input_cost_per_token: 3.65e-7
+          output_cost_per_token: 1.52083333333333e-6
+      input_cost_per_token: 7.3e-7
+      output_cost_per_token: 3.03e-6
+      priority_pricing:
+          input_cost_per_token: 1.2775e-6
+          output_cost_per_token: 5.329e-6
       region: sa-east-1
-    - input_cost_per_token: 9.3e-7
-      output_cost_per_token: 0.000003875
+    - flex_pricing:
+          input_cost_per_token: 4.65e-7
+          output_cost_per_token: 1.9375e-6
+      input_cost_per_token: 9.3e-7
+      output_cost_per_token: 3.875e-6
+      priority_pricing:
+          input_cost_per_token: 1.6275e-6
+          output_cost_per_token: 6.789e-6
       region: eu-west-2
-    - input_cost_per_token: 7.2e-7
-      output_cost_per_token: 0.000003
+    - flex_pricing:
+          input_cost_per_token: 3.6e-7
+          output_cost_per_token: 1.5e-6
+      input_cost_per_token: 7.2e-7
+      output_cost_per_token: 3e-6
+      priority_pricing:
+          input_cost_per_token: 1.26e-6
+          output_cost_per_token: 5.256e-6
       region: eu-north-1
-    - region: ap-southeast-4 # pricing not yet published on AWS Bedrock pricing page
-    - input_cost_per_token: 7.2e-7
-      output_cost_per_token: 0.000003
+    - flex_pricing:
+          input_cost_per_token: 3e-7
+          output_cost_per_token: 1.25e-6
+      priority_pricing:
+          input_cost_per_token: 1.05e-6
+          output_cost_per_token: 4.38e-6
+      region: ap-southeast-4
+    - flex_pricing:
+          input_cost_per_token: 3.6e-7
+          output_cost_per_token: 1.5e-6
+      input_cost_per_token: 7.2e-7
+      output_cost_per_token: 3e-6
+      priority_pricing:
+          input_cost_per_token: 1.26e-6
+          output_cost_per_token: 5.256e-6
       region: ap-southeast-3
-    - input_cost_per_token: 6.18e-7
-      output_cost_per_token: 0.000002575
+    - flex_pricing:
+          input_cost_per_token: 3.09e-7
+          output_cost_per_token: 1.2875e-6
+      input_cost_per_token: 6.18e-7
+      output_cost_per_token: 2.575e-6
+      priority_pricing:
+          input_cost_per_token: 1.0815e-6
+          output_cost_per_token: 4.5114e-6
       region: ap-southeast-2
-    - input_cost_per_token: 7.1e-7
-      output_cost_per_token: 0.00000294
+    - flex_pricing:
+          input_cost_per_token: 3.55e-7
+          output_cost_per_token: 1.47916666666667e-6
+      input_cost_per_token: 7.1e-7
+      output_cost_per_token: 2.94e-6
+      priority_pricing:
+          input_cost_per_token: 1.2425e-6
+          output_cost_per_token: 5.183e-6
       region: ap-south-1
-    - input_cost_per_token: 7.3e-7
-      output_cost_per_token: 0.00000303
+    - flex_pricing:
+          input_cost_per_token: 3.65e-7
+          output_cost_per_token: 1.52083333333333e-6
+      input_cost_per_token: 7.3e-7
+      output_cost_per_token: 3.03e-6
+      priority_pricing:
+          input_cost_per_token: 1.2775e-6
+          output_cost_per_token: 5.329e-6
       region: ap-northeast-1
+deprecationDate: "2026-09-30"
 external_ids:
     artificial_analysis_id: bddebfd3-0a8d-47f5-b722-bc4c2ca5a5dc
     artificial_analysis_slug: kimi-k2-thinking
@@ -38,6 +105,7 @@ features:
     - function_calling
     - system_messages
     - structured_output
+isDeprecated: true
 limits:
     context_window: 256000
     max_input_tokens: 256000
@@ -51,9 +119,10 @@ modalities:
 mode: chat
 model: moonshotai.kimi-k2-thinking
 provisioning: serverless
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k2-thinking.html
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true

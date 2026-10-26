@@ -1,14 +1,25 @@
 costs:
-    - cache_read_input_token_cost: 0.000003
-      input_cost_per_token: 0.00003
+    - cache_read_input_token_cost: 3e-6
+      flex_pricing:
+          input_cost_per_token: 1.5e-5
+          output_cost_per_token: 9e-5
+          tiered_pricing:
+              input:
+                  - cost_per_token: 3e-5
+                    from: 272000
+              output:
+                  - cost_per_token: 0.000135
+                    from: 272000
+              pricing_mode: cumulative
+      input_cost_per_token: 3e-5
       output_cost_per_token: 0.00018
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 0.000006
+              - cost_per_token: 6e-6
                 from: 272000
           input:
-              - cost_per_token: 0.00006
+              - cost_per_token: 6e-5
                 from: 272000
           output:
               - cost_per_token: 0.00027
@@ -42,8 +53,6 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - minimal
-          - low
           - medium
           - high
           - xhigh

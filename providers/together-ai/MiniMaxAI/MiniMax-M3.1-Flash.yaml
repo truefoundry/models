@@ -1,0 +1,41 @@
+costs:
+    - cache_read_input_token_cost: 1.5e-8
+      input_cost_per_token: 1.5e-7
+      output_cost_per_token: 6e-7
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+    - system_messages
+    - tool_choice
+limits:
+    context_window: 1048576
+    max_output_tokens: 524288
+    max_tokens: 524288
+modalities:
+    input:
+        - text
+        - image
+        - video
+    output:
+        - text
+mode: chat
+model: MiniMaxAI/MiniMax-M3.1-Flash
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+sources:
+    - https://www.together.ai/models
+    - https://www.together.ai/models/minimax-m3-1-flash
+status: active
+supportedModes:
+    - chat
+thinking: true
