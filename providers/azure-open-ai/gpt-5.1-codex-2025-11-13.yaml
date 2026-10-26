@@ -59,6 +59,7 @@ model: gpt-5.1-codex-2025-11-13
 params:
     - key: max_completion_tokens
       maxValue: 128000
+    # Official model docs specify effort levels but not an effort default.
     - key: reasoning_effort
       supportedValues:
           - none

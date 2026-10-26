@@ -49,8 +49,8 @@ params:
       key: max_completion_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: medium
-      key: reasoning_effort
+    # Official model docs specify effort levels but not an effort default.
+    - key: reasoning_effort
       supportedValues:
           - low
           - medium
