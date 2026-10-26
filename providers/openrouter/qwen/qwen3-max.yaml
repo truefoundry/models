@@ -17,6 +17,7 @@ costs:
               - cost_per_token: 0.00000975
                 from: 128000
           pricing_mode: marginal
+deprecationDate: "2026-10-09"
 external_ids:
     artificial_analysis_id: 7ae943a9-9310-4472-a834-c61f0ab68485
     artificial_analysis_slug: qwen3-max
@@ -25,6 +26,7 @@ features:
     - json_output
     - prompt_caching
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 262144
     max_input_tokens: 258048
@@ -41,6 +43,6 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-max
     - https://openrouter.ai/qwen/qwen3-max/api
-status: active
+status: deprecated
 supportedModes:
     - chat
