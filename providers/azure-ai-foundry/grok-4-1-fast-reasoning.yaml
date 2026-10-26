@@ -12,10 +12,10 @@ features:
     - structured_output
     - system_messages
 limits:
-    context_window: 131072
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -27,12 +27,13 @@ model: grok-4-1-fast-reasoning
 params:
     - defaultValue: 256
       key: max_tokens
-      maxValue: 131072
+      maxValue: 128000
       minValue: 1
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/grok-4-1-fast-reasoning
     - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/grok/
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: active
 supportedModes:
     - chat

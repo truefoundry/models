@@ -21,7 +21,7 @@ features:
     - prompt_caching
     - structured_output
 limits:
-    context_window: 2000000
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -33,6 +33,8 @@ model: grok-4.20-experimental-beta-reasoning-latest
 provisioning: serverless
 removeParams:
     - reasoning_effort
+sources:
+    - https://docs.x.ai/developers/models/grok-4.20-0309-reasoning
 status: active
 supportedModes:
     - chat

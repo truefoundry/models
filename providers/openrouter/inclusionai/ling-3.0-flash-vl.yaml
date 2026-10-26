@@ -17,6 +17,7 @@ features:
 limits:
     context_window: 131072
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -29,6 +30,7 @@ model: inclusionai/ling-3.0-flash-vl
 provisioning: serverless
 sources:
     - https://openrouter.ai/inclusionai/ling-3.0-flash-vl
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

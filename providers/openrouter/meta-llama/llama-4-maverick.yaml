@@ -11,7 +11,7 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 1048576
+    context_window: 524288
     max_output_tokens: 16384
     max_tokens: 16384
 modalities:
@@ -26,6 +26,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-4-maverick
     - https://openrouter.ai/meta-llama/llama-4-maverick/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

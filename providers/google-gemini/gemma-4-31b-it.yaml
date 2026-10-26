@@ -33,10 +33,16 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+    - key: reasoning_effort
+      supportedValues:
+          - minimal
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemma/docs/core/model_card_4
     - https://ai.google.dev/gemma/docs/core/prompt-formatting-gemma4
+    - https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api
 status: active
 supportedModes:
     - chat

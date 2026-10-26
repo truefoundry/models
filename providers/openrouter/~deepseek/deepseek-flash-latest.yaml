@@ -13,6 +13,7 @@ features:
 limits:
     context_window: 1048576
     max_output_tokens: 943718
+    max_tokens: 943718
 modalities:
     input:
         - text
@@ -21,9 +22,19 @@ modalities:
         - text
 mode: chat
 model: ~deepseek/deepseek-flash-latest
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-v4.1-flash
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

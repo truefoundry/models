@@ -20,9 +20,19 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-sonnet-4-6
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/anthropic/claude-sonnet-4-6
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

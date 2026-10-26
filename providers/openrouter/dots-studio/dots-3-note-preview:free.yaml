@@ -10,7 +10,8 @@ features:
     - tool_choice
 limits:
     context_window: 512000
-    max_output_tokens: 512000
+    max_output_tokens: 460800
+    max_tokens: 460800
 modalities:
     input:
         - text
@@ -23,6 +24,7 @@ provisioning: serverless
 retirementDate: "2026-09-30"
 sources:
     - https://openrouter.ai/dots-studio/dots-3-note-preview:free
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

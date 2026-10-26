@@ -13,6 +13,8 @@ features:
     - system_messages
 limits:
     context_window: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -20,11 +22,24 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-fable-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 requiredParams:
     - max_tokens
 sources:
     - https://platform.claude.com/docs/en/models/fable-5/overview
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5
 status: active
 supportedModes:
     - chat
+thinking: true

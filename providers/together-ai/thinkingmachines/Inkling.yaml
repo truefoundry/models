@@ -19,11 +19,22 @@ modalities:
         - text
 mode: chat
 model: thinkingmachines/Inkling
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models/inkling
     - https://www.together.ai/blog/together-ai-brings-thinking-machines-labs-new-model-inkling-on-day-0
     - https://huggingface.co/thinkingmachines/Inkling
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

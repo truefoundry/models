@@ -129,6 +129,14 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash
@@ -137,6 +145,7 @@ sources:
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://deepmind.google/models/gemini/flash/
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-5-flash
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking
 status: active
 supportedModes:
     - chat

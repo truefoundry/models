@@ -11,9 +11,20 @@ costs:
           output:
               - cost_per_token: 0.000005
                 from: 199999
+limits:
+    context_window: 1000000
 mode: chat
 model: xai/grok-4.20-multi-agent
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 status: active
 supportedModes:
     - chat
+thinking: true

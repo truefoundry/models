@@ -16,9 +16,9 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 196608
-    max_output_tokens: 65536
-    max_tokens: 65536
+    context_window: 204800
+    max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -29,7 +29,7 @@ model: minimax/minimax-m2.5
 params:
     - defaultValue: 128
       key: max_tokens
-      maxValue: 65536
+      maxValue: 32768
       minValue: 1
     - defaultValue: true
       key: reasoning
@@ -38,6 +38,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m2.5
     - https://openrouter.ai/minimax/minimax-m2.5/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

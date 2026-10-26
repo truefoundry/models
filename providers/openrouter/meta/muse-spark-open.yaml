@@ -12,6 +12,7 @@ features:
 limits:
     context_window: 1048576
     max_output_tokens: 943718
+    max_tokens: 943718
 modalities:
     input:
         - text
@@ -23,9 +24,19 @@ modalities:
         - text
 mode: chat
 model: meta/muse-spark-open
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/meta/muse-spark-open
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

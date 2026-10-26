@@ -35,6 +35,15 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
@@ -42,6 +51,7 @@ removeParams:
     - top_k
 sources:
     - https://platform.claude.com/docs/en/models/fable-5-1/overview
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

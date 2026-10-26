@@ -8,8 +8,8 @@ features:
     - structured_output
 limits:
     context_window: 6144
-    max_output_tokens: 4096
-    max_tokens: 4096
+    max_output_tokens: 5529
+    max_tokens: 5529
 modalities:
     input:
         - text
@@ -21,6 +21,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/undi95/remm-slerp-l2-13b
     - https://openrouter.ai/undi95/remm-slerp-l2-13b/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

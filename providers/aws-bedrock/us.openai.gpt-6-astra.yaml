@@ -252,6 +252,9 @@ modalities:
 mode: chat
 model: us.openai.gpt-6-astra
 params:
+    - key: max_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:

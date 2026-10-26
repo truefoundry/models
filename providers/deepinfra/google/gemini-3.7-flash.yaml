@@ -11,7 +11,8 @@ features:
     - json_output
 limits:
     context_window: 1000000
-    max_tokens: 1000000
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -23,9 +24,18 @@ modalities:
         - text
 mode: chat
 model: google/gemini-3.7-flash
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/google/gemini-3.7-flash
+    - https://ai.google.dev/gemini-api/docs/thinking
 status: active
 supportedModes:
     - chat

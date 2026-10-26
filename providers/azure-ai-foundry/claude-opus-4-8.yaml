@@ -60,7 +60,8 @@ params:
       key: temperature
       maxValue: 1
       minValue: 0
-    - key: reasoning_effort
+    - defaultValue: high
+      key: reasoning_effort
       supportedValues:
           - low
           - medium
@@ -73,6 +74,7 @@ provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

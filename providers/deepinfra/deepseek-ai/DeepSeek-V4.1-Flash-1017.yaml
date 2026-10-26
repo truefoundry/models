@@ -9,7 +9,8 @@ features:
     - json_output
 limits:
     context_window: 1048576
-    max_tokens: 1048576
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -18,9 +19,21 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V4.1-Flash-1017
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-V4.1-Flash-1017
+    - https://docs.deepinfra.com/chat/reasoning
+    - https://api-docs.deepseek.com/guides/thinking_mode
 status: active
 supportedModes:
     - chat
+thinking: true

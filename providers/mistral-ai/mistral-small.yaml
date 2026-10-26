@@ -19,7 +19,7 @@ features:
     - system_messages
     - prompt_caching
 limits:
-    context_window: 128000
+    context_window: 262144
 modalities:
     input:
         - text
@@ -40,6 +40,7 @@ sources:
     - https://mistral.ai/news/mistral-small-4/
     - https://docs.mistral.ai/capabilities/vision
     - https://docs.mistral.ai/capabilities/function_calling
+    - https://docs.mistral.ai/models/mistral-small-4-0-26-03
 status: active
 supportedModes:
     - chat

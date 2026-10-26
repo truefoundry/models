@@ -73,11 +73,9 @@ params:
       key: reasoning_effort
       supportedValues:
           - none
-          - minimal
           - low
           - medium
           - high
-          - xhigh
       type: string
 preferChatCompletions: true
 provisioning: serverless
@@ -89,6 +87,7 @@ removeParams:
 retirementDate: "2027-05-15"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning
 status: active
 supportedModes:
     - chat

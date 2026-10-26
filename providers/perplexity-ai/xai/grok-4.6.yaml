@@ -22,9 +22,21 @@ limits:
     context_window: 500000
 mode: chat
 model: xai/grok-4.6
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://docs.x.ai/developers/models
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://docs.x.ai/developers/grok-4-6
+    - https://docs.x.ai/developers/pricing
 status: active
 supportedModes:
     - chat

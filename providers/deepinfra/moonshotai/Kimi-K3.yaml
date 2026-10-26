@@ -15,6 +15,7 @@ features:
     - json_output
 limits:
     context_window: 1048576
+    max_output_tokens: 1048576
     max_tokens: 1048576
 modalities:
     input:
@@ -25,9 +26,21 @@ modalities:
         - text
 mode: chat
 model: moonshotai/Kimi-K3
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/moonshotai/Kimi-K3
+    - https://docs.deepinfra.com/chat/reasoning
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
 status: active
 supportedModes:
     - chat
+thinking: true

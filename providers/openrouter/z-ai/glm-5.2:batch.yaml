@@ -24,9 +24,17 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/z-ai/glm-5.2:batch
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

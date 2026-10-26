@@ -23,7 +23,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 2000000
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -35,6 +35,8 @@ model: grok-4.20-experimental-beta-latest
 provisioning: serverless
 removeParams:
     - reasoning_effort
+sources:
+    - https://docs.x.ai/developers/models/grok-4.20-0309-reasoning
 status: preview
 supportedModes:
     - chat

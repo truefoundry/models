@@ -70,7 +70,6 @@ params:
           - low
           - medium
           - high
-          - xhigh
       type: string
 preferChatCompletions: true
 provisioning: serverless
@@ -80,6 +79,8 @@ removeParams:
     - "n"
     - max_tokens
 retirementDate: "2027-06-08"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning
 status: active
 supportedModes:
     - chat

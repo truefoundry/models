@@ -11,10 +11,14 @@ features:
     - tool_choice
     - structured_output
 limits:
-    max_input_tokens: 131072
-    max_output_tokens: 131072
-    max_tokens: 4096
+    context_window: 256000
+    max_input_tokens: 256000
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
 model: grok-code-fast-1
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
 supportedModes:
     - chat
+thinking: true

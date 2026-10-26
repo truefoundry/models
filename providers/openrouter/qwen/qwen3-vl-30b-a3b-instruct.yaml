@@ -12,10 +12,10 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 131072
+    context_window: 262144
     max_input_tokens: 129024
-    max_output_tokens: 32768
-    max_tokens: 32768
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - text
@@ -28,6 +28,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-vl-30b-a3b-instruct
     - https://openrouter.ai/qwen/qwen3-vl-30b-a3b-instruct/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

@@ -36,10 +36,21 @@ modalities:
         - text
 mode: chat
 model: grok-4.7
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/grok-4.7
     - https://docs.x.ai/developers/models
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-grok
 status: active
 supportedModes:
     - chat
+thinking: true

@@ -12,6 +12,7 @@ features:
 limits:
     context_window: 1000000
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -24,9 +25,17 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/z-ai/glm-5.3-prime
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

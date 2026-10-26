@@ -13,8 +13,9 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 65536
+    context_window: 131072
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - image
@@ -27,6 +28,7 @@ model: google/gemini-3-pro-image
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-3-pro-image
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
     - image

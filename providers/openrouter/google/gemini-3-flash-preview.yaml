@@ -31,10 +31,20 @@ model: google/gemini-3-flash-preview
 params:
     - key: max_tokens
       maxValue: 65536
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-3-flash-preview/api
     - https://openrouter.ai/google/gemini-3-flash-preview
+    - https://openrouter.ai/api/v1/models
 status: preview
 supportedModes:
     - chat

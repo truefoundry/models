@@ -9,7 +9,9 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 128000
+    context_window: 256000
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - image
@@ -23,6 +25,7 @@ sources:
     - https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct
     - https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct/api
     - https://docs.mistral.ai/models/mistral-small-3-2-25-06
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

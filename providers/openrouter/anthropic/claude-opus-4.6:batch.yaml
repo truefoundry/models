@@ -14,6 +14,7 @@ features:
 limits:
     context_window: 1000000
     max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -23,9 +24,20 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-opus-4.6:batch
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-opus-4.6
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

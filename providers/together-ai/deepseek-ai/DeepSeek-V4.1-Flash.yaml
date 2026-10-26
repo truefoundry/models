@@ -13,6 +13,8 @@ features:
     - prompt_caching
 limits:
     context_window: 1000000
+    max_output_tokens: 384000
+    max_tokens: 384000
 modalities:
     input:
         - text
@@ -21,9 +23,19 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V4.1-Flash
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models/deepseek-v4-1-flash
+    - https://docs.together.ai/docs/serverless-models
+    - https://docs.fireworks.ai/api-reference/post-chatcompletions
 status: active
 supportedModes:
     - chat

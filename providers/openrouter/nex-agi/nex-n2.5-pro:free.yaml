@@ -26,9 +26,17 @@ params:
       key: top_p
     - defaultValue: 40
       key: top_k
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/nex-agi/nex-n2.5-pro:free
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

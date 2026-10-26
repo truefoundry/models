@@ -20,9 +20,21 @@ modalities:
         - text
 mode: chat
 model: MiniMaxAI/MiniMax-M3.1-Flash
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models
+    - https://docs.together.ai/docs/serverless-models
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

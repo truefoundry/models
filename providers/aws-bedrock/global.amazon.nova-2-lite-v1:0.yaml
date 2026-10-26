@@ -234,7 +234,7 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
-    - defaultValue: medium
+    - defaultValue: none
       key: reasoning_effort
       supportedValues:
           - none
@@ -249,6 +249,7 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.html
     - https://docs.aws.amazon.com/ai/responsible-ai/nova-2-lite/overview.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
+    - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
 status: active
 supportedModes:
     - chat

@@ -5,8 +5,8 @@ costs:
       region: "*"
 limits:
     context_window: 1000192
-    max_output_tokens: 1000192
-    max_tokens: 1000192
+    max_output_tokens: 900172
+    max_tokens: 900172
 modalities:
     input:
         - text
@@ -19,6 +19,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-01/api
     - https://openrouter.ai/minimax/minimax-01
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

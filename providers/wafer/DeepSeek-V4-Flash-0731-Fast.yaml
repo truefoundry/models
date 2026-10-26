@@ -21,14 +21,17 @@ modalities:
 mode: chat
 model: DeepSeek-V4-Flash-0731-Fast
 params:
-    - key: reasoning_effort
+    - defaultValue: low
+      key: reasoning_effort
       supportedValues:
+          - none
           - low
           - high
           - max
 provisioning: serverless
 sources:
     - https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731
+    - https://pass.wafer.ai/v1/models
 status: active
 supportedModes:
     - chat

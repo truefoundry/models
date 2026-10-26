@@ -40,12 +40,24 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 removeParams:
     - temperature
     - top_p
     - top_k
 retirementDate: "2027-04-16"
+sources:
+    - https://platform.claude.com/docs/en/models/opus-4-7/overview
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

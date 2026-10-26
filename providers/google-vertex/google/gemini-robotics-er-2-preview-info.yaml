@@ -29,11 +29,21 @@ modalities:
         - text
 mode: chat
 model: google/gemini-robotics-er-2-preview-info
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://deepmind.google/models/model-cards/gemini-robotics-er-2/
+    - https://ai.google.dev/gemini-api/docs/thinking
 status: preview
 supportedModes:
     - chat

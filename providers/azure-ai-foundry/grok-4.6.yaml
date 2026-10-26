@@ -24,13 +24,24 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/grok-4.6
     - https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure
     - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/grok/
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-grok
+    - https://docs.x.ai/docs/guides/reasoning
 status: preview
 supportedModes:
     - chat
+thinking: true
 
 # costs: not found in official docs — grok-4.6 is in Preview and pricing is not yet published on the Azure Foundry Grok pricing page

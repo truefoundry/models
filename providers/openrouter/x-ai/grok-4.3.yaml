@@ -15,6 +15,8 @@ features:
     - tool_choice
 limits:
     context_window: 1000000
+    max_output_tokens: 900000
+    max_tokens: 900000
 modalities:
     input:
         - text
@@ -23,9 +25,19 @@ modalities:
         - text
 mode: chat
 model: x-ai/grok-4.3
+params:
+    - defaultValue: low
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/x-ai/grok-4.3
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

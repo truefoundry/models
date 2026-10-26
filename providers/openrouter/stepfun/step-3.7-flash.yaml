@@ -13,8 +13,9 @@ features:
     - prompt_caching
     - structured_output
 limits:
-    context_window: 256000
-    max_output_tokens: 256000
+    context_window: 262144
+    max_output_tokens: 230400
+    max_tokens: 230400
 modalities:
     input:
         - text
@@ -24,9 +25,18 @@ modalities:
         - text
 mode: chat
 model: stepfun/step-3.7-flash
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/stepfun/step-3.7-flash
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

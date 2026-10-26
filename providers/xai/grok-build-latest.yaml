@@ -23,7 +23,7 @@ features:
     - tool_choice
     - system_messages
 limits:
-    context_window: 256000
+    context_window: 500000
 modalities:
     input:
         - text
@@ -32,7 +32,19 @@ modalities:
         - text
 mode: chat
 model: grok-build-latest
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
+sources:
+    - https://docs.x.ai/developers/models/grok-4.5
+    - https://docs.x.ai/developers/model-capabilities/text/reasoning
 status: active
 supportedModes:
     - chat

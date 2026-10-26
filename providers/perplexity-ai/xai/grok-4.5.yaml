@@ -27,11 +27,23 @@ modalities:
         - text
 mode: responses
 model: xai/grok-4.5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://docs.perplexity.ai/docs/agent-api
     - https://docs.perplexity.ai/docs/agent-api/models
     - https://docs.x.ai/developers/models
+    - https://docs.x.ai/developers/models/grok-4.5
+    - https://docs.x.ai/developers/model-capabilities/text/reasoning
 status: active
 supportedModes:
     - responses
+thinking: true

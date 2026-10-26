@@ -13,6 +13,7 @@ features:
 limits:
     context_window: 400000
     max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -25,6 +26,7 @@ model: openai/gpt-chat-latest
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-chat-latest
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

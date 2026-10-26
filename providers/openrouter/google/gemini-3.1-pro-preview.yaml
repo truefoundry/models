@@ -47,10 +47,18 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-3.1-pro-preview
     - https://openrouter.ai/google/gemini-3.1-pro-preview/api
+    - https://openrouter.ai/api/v1/models
 status: preview
 supportedModes:
     - chat

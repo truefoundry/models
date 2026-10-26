@@ -36,12 +36,24 @@ modalities:
         - text
 mode: chat
 model: claude-opus-4-8-2
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/claude-opus-4-8
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
     - https://www.anthropic.com/news/claude-opus-4-8
     - https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: preview
 supportedModes:
     - chat
+thinking: true

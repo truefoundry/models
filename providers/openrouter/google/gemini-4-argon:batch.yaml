@@ -15,6 +15,7 @@ features:
 limits:
     context_window: 1048576
     max_output_tokens: 943718
+    max_tokens: 943718
 modalities:
     input:
         - audio
@@ -26,9 +27,18 @@ modalities:
         - text
 mode: chat
 model: google/gemini-4-argon:batch
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-4-argon:batch
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

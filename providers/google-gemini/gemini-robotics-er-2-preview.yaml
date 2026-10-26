@@ -38,10 +38,19 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/robotics-overview
     - https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview
+    - https://ai.google.dev/gemini-api/docs/thinking
 status: preview
 supportedModes:
     - chat

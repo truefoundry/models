@@ -12,6 +12,7 @@ features:
 limits:
     context_window: 128000
     max_output_tokens: 64000
+    max_tokens: 64000
 modalities:
     input:
         - image
@@ -29,6 +30,7 @@ provisioning: serverless
 sources:
     - https://docs.cohere.com/docs/command-a-plus
     - https://docs.cohere.com/reference/chat
+    - https://docs.cohere.com/docs/models
 status: active
 supportedModes:
     - chat

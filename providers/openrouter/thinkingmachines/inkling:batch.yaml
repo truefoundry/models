@@ -19,9 +19,21 @@ modalities:
         - text
 mode: chat
 model: thinkingmachines/inkling:batch
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/thinkingmachines/inkling:batch
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

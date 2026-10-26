@@ -13,8 +13,19 @@ features:
 limits:
     # Perplexity publishes no separate context limit; this is Anthropic's model specification.
     context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 64000
+    max_tokens: 64000
 mode: chat
 model: anthropic/claude-opus-4-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/models/opus-4-5/overview

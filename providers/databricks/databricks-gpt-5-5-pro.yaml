@@ -26,7 +26,7 @@ modalities:
 mode: responses
 model: databricks-gpt-5-5-pro
 params:
-    - defaultValue: high
+    - defaultValue: medium
       key: reasoning_effort
       supportedValues:
           - medium
@@ -39,6 +39,7 @@ sources:
     - https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/limits
     - https://www.databricks.com/product/pricing/proprietary-foundation-model-serving
     - https://developers.openai.com/api/docs/models/gpt-5.5-pro
+    - https://docs.databricks.com/aws/en/machine-learning/model-serving/query-reason-models
 status: active
 supportedModes:
     - responses

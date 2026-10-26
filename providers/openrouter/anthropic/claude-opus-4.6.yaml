@@ -34,10 +34,20 @@ params:
     - defaultValue: null
       key: top_k
       minValue: 0
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-opus-4.6
     - https://openrouter.ai/anthropic/claude-opus-4.6/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

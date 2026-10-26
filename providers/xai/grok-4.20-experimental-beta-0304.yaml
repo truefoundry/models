@@ -10,7 +10,7 @@ features:
     - function_calling
     - structured_output
 limits:
-    context_window: 2000000
+    context_window: 1000000
 modalities:
     input:
         - text
@@ -22,6 +22,9 @@ model: grok-4.20-experimental-beta-0304
 provisioning: serverless
 removeParams:
     - reasoning_effort
+sources:
+    - https://docs.x.ai/developers/models/grok-4.20-0309-reasoning
 status: preview
 supportedModes:
     - chat
+thinking: true

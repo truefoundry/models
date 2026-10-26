@@ -14,6 +14,8 @@ features:
     - prompt_caching
 limits:
     context_window: 1048576
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -21,9 +23,18 @@ modalities:
         - text
 mode: chat
 model: zai-glm-5
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 sources:
     - https://docs.mistral.ai/models/zai-glm-5-3
     - https://docs.mistral.ai/models/zai-glm-5-2
+    - https://docs.mistral.ai/studio/conversations/reasoning
 status: active
 supportedModes:
     - chat
+thinking: true

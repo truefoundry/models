@@ -15,7 +15,8 @@ features:
     - tool_choice
 limits:
     context_window: 1000000
-    max_output_tokens: 131072
+    max_output_tokens: 235929
+    max_tokens: 235929
 modalities:
     input:
         - text
@@ -26,6 +27,7 @@ model: nvidia/nemotron-3.5-lightning
 provisioning: serverless
 sources:
     - https://openrouter.ai/nvidia/nemotron-3.5-lightning
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

@@ -7,7 +7,8 @@ features:
     - prompt_caching
 limits:
     context_window: 1048576
-    max_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - image
@@ -19,3 +20,4 @@ sources:
 status: active
 supportedModes:
     - chat
+thinking: true

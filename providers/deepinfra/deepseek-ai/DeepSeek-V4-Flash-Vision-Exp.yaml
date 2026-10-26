@@ -10,7 +10,8 @@ features:
     - json_output
 limits:
     context_window: 1048576
-    max_tokens: 1048576
+    max_output_tokens: 262144
+    max_tokens: 262144
 modalities:
     input:
         - text
@@ -20,7 +21,7 @@ modalities:
 mode: chat
 model: deepseek-ai/DeepSeek-V4-Flash-Vision-Exp
 params:
-    - defaultValue: low
+    - defaultValue: high
       key: reasoning_effort
       supportedValues:
           - none
@@ -30,6 +31,8 @@ params:
       type: string
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp
+    - https://docs.deepinfra.com/chat/reasoning
+    - https://api-docs.deepseek.com/guides/thinking_mode
 status: active
 supportedModes:
     - chat

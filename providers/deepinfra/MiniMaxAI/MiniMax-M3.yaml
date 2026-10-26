@@ -10,7 +10,8 @@ features:
     - json_output
 limits:
     context_window: 524288
-    max_tokens: 524288
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -26,3 +27,4 @@ sources:
 status: active
 supportedModes:
     - chat
+thinking: true

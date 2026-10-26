@@ -49,6 +49,15 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
     - key: top_k
       minValue: 0
     - key: thinking
@@ -61,6 +70,7 @@ sources:
     - https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai
     - https://www.anthropic.com/news/claude-sonnet-5
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

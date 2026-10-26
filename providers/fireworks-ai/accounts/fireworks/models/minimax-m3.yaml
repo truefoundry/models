@@ -11,6 +11,8 @@ features:
     - function_calling
 limits:
     context_window: 512000
+    max_output_tokens: 512000
+    max_tokens: 512000
 modalities:
     input:
         - text
@@ -21,6 +23,9 @@ model: accounts/fireworks/models/minimax-m3
 provisioning: serverless
 sources:
     - https://docs.fireworks.ai/serverless/pricing
+    - https://docs.fireworks.ai/api-reference/post-chatcompletions
+    - https://fireworks.ai/models/fireworks/minimax-m3
 status: active
 supportedModes:
     - chat
+thinking: true

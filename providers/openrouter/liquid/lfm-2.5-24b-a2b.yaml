@@ -12,6 +12,7 @@ features:
 limits:
     context_window: 128000
     max_output_tokens: 8192
+    max_tokens: 8192
 modalities:
     input:
         - text
@@ -27,6 +28,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/liquid/lfm-2.5-24b-a2b
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

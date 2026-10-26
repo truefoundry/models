@@ -59,6 +59,14 @@ modalities:
         - text
 mode: chat
 model: nvidia.nemotron-super-3-120b
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-super-3-120b.html

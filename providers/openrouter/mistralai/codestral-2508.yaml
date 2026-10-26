@@ -12,6 +12,8 @@ features:
     - tool_choice
 limits:
     context_window: 256000
+    max_output_tokens: 204800
+    max_tokens: 204800
 modalities:
     input:
         - text
@@ -24,6 +26,7 @@ sources:
     - https://openrouter.ai/mistralai/codestral-2508
     - https://openrouter.ai/mistralai/codestral-2508/api
     - https://docs.mistral.ai/models/codestral-25-08
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

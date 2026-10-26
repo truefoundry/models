@@ -9,6 +9,7 @@ features:
 limits:
     context_window: 1000000
     max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -21,9 +22,17 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

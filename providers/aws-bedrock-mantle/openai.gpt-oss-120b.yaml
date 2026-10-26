@@ -157,7 +157,8 @@ modalities:
 mode: chat
 model: openai.gpt-oss-120b
 params:
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
       supportedValues:
           - low
           - medium
@@ -167,6 +168,7 @@ preferChatCompletions: true
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-120b.html
+    - https://developers.openai.com/api/docs/models/gpt-oss-120b
 status: active
 supportedModes:
     - chat

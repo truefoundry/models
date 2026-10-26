@@ -20,6 +20,7 @@ limits:
     context_window: 1048576
     max_input_tokens: 1048576
     max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -39,15 +40,19 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
       supportedValues:
           - low
           - medium
           - high
+      type: string
 sources:
     - https://deepmind.google/models/gemini/
     - https://deepmind.google/models/gemini/cyber/
     - https://deepmind.google/models/evals-methodology/gemini-4-argon
+    - https://ai.google.dev/gemini-api/docs/thinking
+    - https://ai.google.dev/gemini-api/docs/models/gemini-4-argon
 status: preview
 supportedModes:
     - chat

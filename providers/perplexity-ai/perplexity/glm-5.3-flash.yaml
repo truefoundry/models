@@ -10,6 +10,8 @@ features:
     - system_messages
 limits:
     context_window: 1048576
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -17,7 +19,19 @@ modalities:
         - text
 mode: chat
 model: perplexity/glm-5.3-flash
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
+sources:
+    - https://huggingface.co/zai-org/GLM-5.3-Flash
+    - https://docs.z.ai/guides/llm/glm-5.3
 status: active
 supportedModes:
     - chat
+thinking: true

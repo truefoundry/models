@@ -39,6 +39,10 @@ modalities:
 mode: chat
 model: claude-sonnet-5
 params:
+    - defaultValue: 256
+      key: max_tokens
+      maxValue: 128000
+      minValue: 1
     - defaultValue: high
       key: reasoning_effort
       supportedValues:
@@ -56,6 +60,7 @@ removeParams:
 retirementDate: "2027-06-30"
 sources:
     - https://platform.claude.com/docs/en/models/sonnet-5/overview
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

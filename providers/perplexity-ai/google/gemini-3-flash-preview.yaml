@@ -4,9 +4,27 @@ costs:
       input_cost_per_token: 5e-7
       output_cost_per_token: 3e-6
       region: "*"
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: google/gemini-3-flash-preview
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
+    - https://ai.google.dev/gemini-api/docs/thinking
 status: preview
 supportedModes:
     - chat
+thinking: true

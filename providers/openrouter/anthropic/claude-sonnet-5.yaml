@@ -17,6 +17,7 @@ features:
 limits:
     context_window: 1000000
     max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -26,9 +27,21 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-sonnet-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-sonnet-5
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

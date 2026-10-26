@@ -8,6 +8,8 @@ features:
     - system_messages
 limits:
     context_window: 131072
+    max_output_tokens: 117964
+    max_tokens: 117964
 modalities:
     input:
         - text
@@ -23,6 +25,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/nousresearch/hermes-4-405b
     - https://openrouter.ai/nousresearch/hermes-4-405b/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

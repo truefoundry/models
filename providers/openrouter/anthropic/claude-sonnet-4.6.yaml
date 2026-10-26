@@ -31,9 +31,19 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-sonnet-4.6
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

@@ -29,9 +29,18 @@ modalities:
         - text
 mode: chat
 model: google/gemini-4-argon
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-4-argon
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

@@ -6,6 +6,7 @@ costs:
 limits:
     context_window: 131072
     max_output_tokens: 117964
+    max_tokens: 117964
 modalities:
     input:
         - text
@@ -17,6 +18,7 @@ model: nvidia/nemotron-3.5-content-safety
 provisioning: serverless
 sources:
     - https://openrouter.ai/nvidia/nemotron-3.5-content-safety
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

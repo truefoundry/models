@@ -42,7 +42,7 @@ modalities:
 mode: chat
 model: claude-opus-4-8-2
 params:
-    - defaultValue: medium
+    - defaultValue: high
       key: reasoning_effort
       supportedValues:
           - low
@@ -56,6 +56,7 @@ params:
 provisioning: serverless
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://platform.claude.com/docs/en/build-with-claude/effort
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
     - https://platform.claude.com/docs/en/about-claude/pricing
 status: active

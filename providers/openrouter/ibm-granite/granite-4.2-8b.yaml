@@ -17,6 +17,7 @@ features:
 limits:
     context_window: 131072
     max_output_tokens: 117964
+    max_tokens: 117964
 modalities:
     input:
         - text
@@ -29,9 +30,17 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/ibm-granite/granite-4.2-8b
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

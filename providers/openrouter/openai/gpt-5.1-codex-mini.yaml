@@ -16,8 +16,8 @@ features:
 limits:
     context_window: 400000
     max_input_tokens: 300000
-    max_output_tokens: 100000
-    max_tokens: 100000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - image
@@ -28,15 +28,20 @@ mode: chat
 model: openai/gpt-5.1-codex-mini
 params:
     - key: max_tokens
-      maxValue: 100000
+      maxValue: 128000
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5.1-codex-mini
     - https://openrouter.ai/openai/gpt-5.1-codex-mini/api
     - https://developers.openai.com/docs/models/gpt-5.1-codex-mini
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

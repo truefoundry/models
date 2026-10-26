@@ -11,8 +11,9 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 1310720
+    context_window: 1048576
     max_output_tokens: 943718
+    max_tokens: 943718
 modalities:
     input:
         - text
@@ -27,9 +28,17 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/~z-ai/glm-flash-latest
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

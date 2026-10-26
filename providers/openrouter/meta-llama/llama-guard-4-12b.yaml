@@ -7,6 +7,8 @@ features:
     - json_output
 limits:
     context_window: 163840
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - image
@@ -19,6 +21,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-guard-4-12b
     - https://openrouter.ai/meta-llama/llama-guard-4-12b/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

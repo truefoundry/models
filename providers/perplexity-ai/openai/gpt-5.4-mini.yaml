@@ -27,9 +27,20 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-5.4-mini
+params:
+    - defaultValue: none
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.4-mini
+    - https://developers.openai.com/api/docs/guides/latest-model
 status: active
 supportedModes:
     - chat

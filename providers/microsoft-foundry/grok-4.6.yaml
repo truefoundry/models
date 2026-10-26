@@ -38,7 +38,7 @@ modalities:
 mode: chat
 model: grok-4.6
 params:
-    - defaultValue: low
+    - defaultValue: high
       key: reasoning_effort
       supportedValues:
           - low
@@ -54,6 +54,7 @@ sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-grok
+    - https://docs.x.ai/docs/guides/reasoning
 status: preview
 supportedModes:
     - chat

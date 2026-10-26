@@ -19,8 +19,10 @@ modalities:
 mode: chat
 model: deepseek-ai/DeepSeek-V4-Pro-0813
 params:
-    - key: reasoning_effort
+    - defaultValue: high
+      key: reasoning_effort
       supportedValues:
+          - none
           - low
           - high
           - max
@@ -28,6 +30,9 @@ params:
 provisioning: serverless
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-V4-Pro-0813
+    - https://docs.deepinfra.com/chat/reasoning
+    - https://api-docs.deepseek.com/guides/thinking_mode
 status: active
 supportedModes:
     - chat
+thinking: true

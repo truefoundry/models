@@ -21,9 +21,16 @@ modalities:
         - text
 mode: chat
 model: openai/o3-mini-high:batch
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/o3-mini-high
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

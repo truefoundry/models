@@ -9,9 +9,27 @@ external_ids:
     artificial_analysis_id: 0097ebf5-124f-42f6-9463-33b00e711f03
     artificial_analysis_slug: gemini-3-5-flash
 isDeprecated: true
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: google/gemini-3.5-flash
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
+sources:
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash
+    - https://ai.google.dev/gemini-api/docs/thinking
 status: deprecated
 supportedModes:
     - chat
+thinking: true

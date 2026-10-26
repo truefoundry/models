@@ -18,6 +18,7 @@ features:
 limits:
     context_window: 524288
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -25,9 +26,22 @@ modalities:
         - text
 mode: chat
 model: upstage/solar-mini4
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/upstage/solar-mini4
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

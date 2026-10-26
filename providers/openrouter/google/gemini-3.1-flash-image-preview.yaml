@@ -9,8 +9,8 @@ features:
     - structured_output
 limits:
     context_window: 65536
-    max_output_tokens: 65536
-    max_tokens: 65536
+    max_output_tokens: 58982
+    max_tokens: 58982
 modalities:
     input:
         - image
@@ -20,9 +20,18 @@ modalities:
         - text
 mode: chat
 model: google/gemini-3.1-flash-image-preview
+params:
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-3.1-flash-image-preview/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

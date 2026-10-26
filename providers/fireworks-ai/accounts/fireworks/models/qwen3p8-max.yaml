@@ -17,9 +17,22 @@ modalities:
         - text
 mode: chat
 model: accounts/fireworks/models/qwen3p8-max
+params:
+    - defaultValue: xhigh
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://docs.fireworks.ai/serverless/pricing
+    - https://docs.fireworks.ai/api-reference/post-chatcompletions
+    - https://fireworks.ai/models/fireworks/qwen3p8-max
 status: active
 supportedModes:
     - chat
+thinking: true

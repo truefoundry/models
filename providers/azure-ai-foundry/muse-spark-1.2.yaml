@@ -5,8 +5,11 @@ external_ids:
 mode: chat
 model: muse-spark-1.2
 provisioning: serverless
+sources:
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
+thinking: true
 
 # Not found in official Azure AI Foundry documentation:
 # - costs (no pricing listed on Microsoft Foundry pricing page for this model)

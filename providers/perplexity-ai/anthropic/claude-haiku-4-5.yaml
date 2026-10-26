@@ -11,6 +11,9 @@ features:
 limits:
     # Perplexity publishes no separate context limit; this is Anthropic's model specification.
     context_window: 200000
+    max_input_tokens: 200000
+    max_output_tokens: 64000
+    max_tokens: 64000
 modalities:
     input:
         - text
@@ -25,3 +28,4 @@ sources:
 status: active
 supportedModes:
     - chat
+thinking: true

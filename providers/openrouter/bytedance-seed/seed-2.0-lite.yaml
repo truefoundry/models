@@ -36,11 +36,18 @@ params:
       minValue: 1
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/bytedance-seed/seed-2.0-lite/api
     - https://openrouter.ai/bytedance-seed/seed-2.0-lite
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

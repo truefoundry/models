@@ -13,6 +13,7 @@ features:
 limits:
     context_window: 1047576
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - image
@@ -25,5 +26,6 @@ model: openai/gpt-4.1:batch
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-4.1
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat

@@ -18,9 +18,20 @@ external_ids:
     artificial_analysis_slug: glm-4-6
 mode: chat
 model: zai.glm-4.6
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
+sources:
+    - https://github.com/aws-samples/sample-per-model-bedrock/pull/192
 supportedModes:
     - chat
+thinking: true
 
 # Note: zai.glm-4.6 is not currently listed on the AWS Bedrock model cards page
 # (https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-zai.html) or on

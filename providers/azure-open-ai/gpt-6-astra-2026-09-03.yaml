@@ -89,11 +89,11 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
           - xhigh
+          - max
       type: string
 provisioning: serverless
 removeParams:
@@ -103,6 +103,8 @@ removeParams:
 sources:
     - https://developers.openai.com/api/docs/models/gpt-6-astra
     - https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning
+    - https://developers.openai.com/api/docs/guides/reasoning
 status: active
 supportedModes:
     - chat

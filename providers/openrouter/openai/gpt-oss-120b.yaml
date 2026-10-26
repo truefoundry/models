@@ -14,6 +14,8 @@ features:
 limits:
     context_window: 131072
     max_input_tokens: 131072
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -24,11 +26,16 @@ model: openai/gpt-oss-120b
 params:
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-oss-120b
     - https://openrouter.ai/openai/gpt-oss-120b/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

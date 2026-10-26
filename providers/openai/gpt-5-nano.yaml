@@ -45,6 +45,13 @@ params:
       key: verbosity
     - defaultValue: null
       key: reasoning
+    - key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 preferChatCompletions: true
 provisioning: serverless
 removeParams:
@@ -54,6 +61,8 @@ removeParams:
     - max_tokens
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-nano
+    - https://developers.openai.com/api/docs/models/gpt-5
+    - https://developers.openai.com/api/docs/guides/reasoning
 status: active
 supportedModes:
     - chat

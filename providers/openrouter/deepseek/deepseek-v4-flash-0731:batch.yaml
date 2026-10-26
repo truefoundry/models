@@ -20,9 +20,19 @@ modalities:
         - text
 mode: chat
 model: deepseek/deepseek-v4-flash-0731:batch
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/deepseek/deepseek-v4-flash-0731:batch
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

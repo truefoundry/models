@@ -10,7 +10,7 @@ features:
     - prompt_caching
     - tool_choice
 limits:
-    context_window: 1048576
+    context_window: 1050000
     max_output_tokens: 131072
 modalities:
     input:
@@ -30,6 +30,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/xiaomi/mimo-v2.5
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

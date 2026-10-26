@@ -47,9 +47,19 @@ modalities:
         - text
 mode: chat
 model: deepseek.v3.2
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-deepseek-deepseek-v3-2.html
+    - https://github.com/aws-samples/sample-per-model-bedrock/pull/291
 status: active
 supportedModes:
     - chat
+thinking: true

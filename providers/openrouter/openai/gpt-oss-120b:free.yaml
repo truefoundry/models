@@ -24,10 +24,15 @@ model: openai/gpt-oss-120b:free
 params:
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
       type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-oss-120b:free
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

@@ -8,8 +8,8 @@ features:
     - structured_output
 limits:
     context_window: 131072
-    max_output_tokens: 131072
-    max_tokens: 131072
+    max_output_tokens: 117964
+    max_tokens: 117964
 modalities:
     input:
         - text
@@ -20,6 +20,7 @@ model: tencent/hunyuan-a13b-instruct
 provisioning: serverless
 sources:
     - https://openrouter.ai/tencent/hunyuan-a13b-instruct
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

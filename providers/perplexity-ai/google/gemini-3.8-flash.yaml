@@ -7,9 +7,27 @@ costs:
 external_ids:
     artificial_analysis_id: 8a999846-4c1d-4ce7-a8b7-1310a7166fd7
     artificial_analysis_slug: gemini-3-8-flash
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 mode: chat
 model: google/gemini-3.8-flash
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
+sources:
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash
+    - https://deepmind.google/models/model-cards/gemini-3-8-flash/
 status: active
 supportedModes:
     - chat
+thinking: true

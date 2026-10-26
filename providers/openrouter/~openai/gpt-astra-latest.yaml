@@ -14,6 +14,7 @@ features:
 limits:
     context_window: 1050000
     max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - pdf
@@ -23,9 +24,20 @@ modalities:
         - text
 mode: chat
 model: ~openai/gpt-astra-latest
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/~openai/gpt-astra-latest
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

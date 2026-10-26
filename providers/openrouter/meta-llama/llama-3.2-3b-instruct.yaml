@@ -6,7 +6,9 @@ costs:
 features:
     - structured_output
 limits:
-    context_window: 80000
+    context_window: 131072
+    max_output_tokens: 72000
+    max_tokens: 72000
 modalities:
     input:
         - text
@@ -17,6 +19,7 @@ model: meta-llama/llama-3.2-3b-instruct
 provisioning: serverless
 sources:
     - https://openrouter.ai/meta-llama/llama-3.2-3b-instruct
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

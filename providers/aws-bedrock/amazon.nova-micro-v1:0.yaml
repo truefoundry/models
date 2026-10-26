@@ -31,8 +31,8 @@ features:
     - tool_choice
 limits:
     context_window: 128000
-    max_output_tokens: 5000
-    max_tokens: 5000
+    max_output_tokens: 10000
+    max_tokens: 10000
 modalities:
     input:
         - text
@@ -43,7 +43,7 @@ model: amazon.nova-micro-v1:0
 params:
     - defaultValue: 5000
       key: max_tokens
-      maxValue: 5000
+      maxValue: 10000
       minValue: 1
     - defaultValue: 0.7
       key: temperature

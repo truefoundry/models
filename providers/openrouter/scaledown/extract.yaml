@@ -5,6 +5,7 @@ costs:
 limits:
     context_window: 1000000
     max_output_tokens: 900000
+    max_tokens: 900000
 modalities:
     input:
         - text
@@ -17,5 +18,6 @@ model: scaledown/extract
 provisioning: serverless
 sources:
     - https://openrouter.ai/scaledown/extract
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat

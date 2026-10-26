@@ -9,6 +9,8 @@ external_ids:
     artificial_analysis_slug: sonar
 limits:
     context_window: 127072
+    max_output_tokens: 114364
+    max_tokens: 114364
 modalities:
     input:
         - text
@@ -25,6 +27,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/perplexity/sonar/api
     - https://openrouter.ai/perplexity/sonar
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

@@ -7,7 +7,8 @@ features:
     - json_output
 limits:
     context_window: 65536
-    max_output_tokens: 66000
+    max_output_tokens: 58982
+    max_tokens: 58982
 modalities:
     input:
         - image
@@ -17,9 +18,18 @@ modalities:
         - text
 mode: chat
 model: google/gemini-3.1-flash-lite-image
+params:
+    - defaultValue: minimal
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemini-3.1-flash-lite-image
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

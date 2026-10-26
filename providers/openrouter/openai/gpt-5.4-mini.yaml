@@ -29,11 +29,19 @@ model: openai/gpt-5.4-mini
 params:
     - key: max_tokens
       maxValue: 128000
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
       type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5.4-mini/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

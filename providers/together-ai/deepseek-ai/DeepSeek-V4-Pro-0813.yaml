@@ -22,7 +22,6 @@ params:
     - defaultValue: high
       key: reasoning_effort
       supportedValues:
-          - low
           - high
           - max
       type: string
@@ -30,6 +29,8 @@ provisioning: serverless
 sources:
     - https://www.together.ai/models/deepseek-v4-pro-0813
     - https://www.together.ai/pricing
+    - https://docs.together.ai/docs/inference/chat/reasoning
+    - https://docs.together.ai/docs/deepseek-v4-quickstart
 status: active
 supportedModes:
     - chat

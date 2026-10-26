@@ -22,8 +22,16 @@ model: mistral-large-4
 params:
     - defaultValue: 1.0
       key: temperature
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - high
+      type: string
 sources:
     - https://docs.mistral.ai/models/mistral-large-4
+    - https://docs.mistral.ai/models/mistral-large-4-0
+    - https://docs.mistral.ai/studio/conversations/reasoning
 status: preview
 supportedModes:
     - chat
+thinking: true

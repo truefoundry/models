@@ -27,9 +27,18 @@ params:
       key: max_tokens
       maxValue: 131072
       minValue: 1
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/bytedance-seed/seed-2.0-code
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

@@ -15,8 +15,8 @@ features:
 limits:
     context_window: 262144
     max_input_tokens: 258048
-    max_output_tokens: 65536
-    max_tokens: 65536
+    max_output_tokens: 81920
+    max_tokens: 81920
 modalities:
     input:
         - text
@@ -29,12 +29,13 @@ model: qwen/qwen3.5-35b-a3b
 params:
     - defaultValue: 65536
       key: max_tokens
-      maxValue: 65536
+      maxValue: 81920
       minValue: 1
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.5-35b-a3b
     - https://openrouter.ai/qwen/qwen3.5-35b-a3b/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

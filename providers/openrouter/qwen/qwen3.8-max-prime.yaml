@@ -13,6 +13,7 @@ features:
 limits:
     context_window: 1000000
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -22,9 +23,20 @@ modalities:
         - text
 mode: chat
 model: qwen/qwen3.8-max-prime
+params:
+    - defaultValue: xhigh
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.8-max-prime
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

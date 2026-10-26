@@ -13,8 +13,8 @@ features:
     - tool_choice
 limits:
     context_window: 4095
-    max_output_tokens: 4096
-    max_tokens: 4096
+    max_output_tokens: 3685
+    max_tokens: 3685
 modalities:
     input:
         - text
@@ -26,6 +26,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-3.5-turbo-0613/api
     - https://openrouter.ai/openai/gpt-3.5-turbo-0613
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

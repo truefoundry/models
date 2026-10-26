@@ -14,7 +14,8 @@ features:
     - json_output
 limits:
     context_window: 262144
-    max_output_tokens: 131072
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -27,9 +28,17 @@ params:
       key: temperature
     - defaultValue: 1
       key: top_p
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/tencent/hy3
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

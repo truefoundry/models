@@ -27,9 +27,17 @@ params:
       key: top_p
     - defaultValue: 20
       key: top_k
+    - defaultValue: xhigh
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3.8-2.4t-a95b:batch
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

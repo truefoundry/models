@@ -13,6 +13,9 @@ features:
     - tool_choice
 limits:
     context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -22,12 +25,23 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-opus-4-7
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/models/opus-4-7/overview
     - https://docs.perplexity.ai/docs/resources/changelog
     - https://developers.cloudflare.com/ai/models/anthropic/claude-opus-4.7/index.md
     - https://mastra.ai/models/providers/perplexity-agent.md
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

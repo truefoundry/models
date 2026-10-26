@@ -8,6 +8,7 @@ features:
     - json_output
 limits:
     context_window: 131072
+    max_output_tokens: 131072
     max_tokens: 131072
 modalities:
     input:
@@ -16,9 +17,18 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-oss-120b-Ultra
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/openai/gpt-oss-120b-Ultra
+    - https://developers.openai.com/api/docs/models/gpt-oss-120b
 status: active
 supportedModes:
     - chat

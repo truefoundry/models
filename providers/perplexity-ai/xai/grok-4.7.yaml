@@ -19,6 +19,8 @@ external_ids:
     artificial_analysis_slug: grok-4-7
 features:
     - prompt_caching
+limits:
+    context_window: 500000
 modalities:
     input:
         - text
@@ -26,7 +28,20 @@ modalities:
         - text
 mode: chat
 model: xai/grok-4.7
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
+sources:
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://docs.x.ai/developers/models
 status: active
 supportedModes:
     - chat
+thinking: true

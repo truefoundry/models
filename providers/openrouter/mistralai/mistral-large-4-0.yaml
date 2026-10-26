@@ -11,8 +11,9 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 524288
+    context_window: 1048576
     max_output_tokens: 262144
+    max_tokens: 262144
 modalities:
     input:
         - text
@@ -21,8 +22,17 @@ modalities:
         - text
 mode: chat
 model: mistralai/mistral-large-4-0
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/mistral-large-4-0
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
+thinking: true

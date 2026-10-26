@@ -15,6 +15,9 @@ features:
 limits:
     # Perplexity publishes no separate context limit; this is Anthropic's model specification.
     context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -22,9 +25,21 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-sonnet-5-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/models/sonnet-5-5/overview
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://www.anthropic.com/claude-sonnet-5-5
 supportedModes:
     - chat
 thinking: true

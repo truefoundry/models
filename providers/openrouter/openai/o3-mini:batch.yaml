@@ -13,6 +13,7 @@ features:
 limits:
     context_window: 200000
     max_output_tokens: 100000
+    max_tokens: 100000
 modalities:
     input:
         - text
@@ -24,6 +25,7 @@ model: openai/o3-mini:batch
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/o3-mini
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

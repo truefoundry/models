@@ -13,7 +13,7 @@ features:
     - structured_output
     - prompt_caching
 limits:
-    context_window: 1048576
+    context_window: 1048575
     max_output_tokens: 131072
     max_tokens: 131072
 modalities:
@@ -35,6 +35,7 @@ sources:
     - https://www.together.ai/models/glm-52
     - https://www.together.ai/pricing
     - https://docs.together.ai/docs/glm-5.2-quickstart
+    - https://docs.together.ai/docs/serverless-models
 status: active
 supportedModes:
     - chat

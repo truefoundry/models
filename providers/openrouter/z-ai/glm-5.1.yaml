@@ -12,7 +12,9 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 202752
+    context_window: 204800
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -29,6 +31,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/z-ai/glm-5.1
     - https://openrouter.ai/z-ai/glm-5.1/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

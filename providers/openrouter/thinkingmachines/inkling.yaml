@@ -10,6 +10,8 @@ features:
     - tool_choice
 limits:
     context_window: 524288
+    max_output_tokens: 471859
+    max_tokens: 471859
 modalities:
     input:
         - text
@@ -19,9 +21,21 @@ modalities:
         - text
 mode: chat
 model: thinkingmachines/inkling
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/thinkingmachines/inkling
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

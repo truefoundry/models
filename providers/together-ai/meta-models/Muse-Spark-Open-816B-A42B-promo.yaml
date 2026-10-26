@@ -19,9 +19,19 @@ modalities:
         - text
 mode: chat
 model: meta-models/Muse-Spark-Open-816B-A42B-promo
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://www.together.ai/models/muse-spark-open
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

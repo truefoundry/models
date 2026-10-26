@@ -12,9 +12,20 @@ modalities:
         - text
 mode: chat
 model: reflection/Beam-1.0-501B-A23B
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 sources:
     - https://www.together.ai/models/reflection-beam
     - https://together.ai/models
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

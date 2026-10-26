@@ -14,7 +14,10 @@ features:
     - assistant_prefill
     - json_output
 limits:
-    context_window: 256000
+    context_window: 128000
+    max_input_tokens: 128000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -27,6 +30,9 @@ provisioning: serverless
 sources:
     - https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
     - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/mistral-ai/
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://docs.mistral.ai/capabilities/reasoning/
 status: active
 supportedModes:
     - chat
+thinking: true

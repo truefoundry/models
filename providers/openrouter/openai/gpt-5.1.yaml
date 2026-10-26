@@ -30,6 +30,11 @@ model: openai/gpt-5.1
 params:
     - defaultValue: medium
       key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
       type: string
     - defaultValue: null
       key: seed
@@ -38,6 +43,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5.1
     - https://openrouter.ai/openai/gpt-5.1/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

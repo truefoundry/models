@@ -12,6 +12,7 @@ features:
 limits:
     context_window: 131072
     max_output_tokens: 32768
+    max_tokens: 32768
 modalities:
     input:
         - text
@@ -22,6 +23,7 @@ model: aion-labs/aion-3.0
 provisioning: serverless
 sources:
     - https://openrouter.ai/aion-labs/aion-3.0
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

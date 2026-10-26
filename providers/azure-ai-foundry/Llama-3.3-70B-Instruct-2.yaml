@@ -9,8 +9,8 @@ features:
     - system_messages
 limits:
     context_window: 128000
-    max_output_tokens: 2048
-    max_tokens: 2048
+    max_output_tokens: 8192
+    max_tokens: 8192
 modalities:
     input:
         - text
@@ -22,6 +22,7 @@ provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/Llama-3.3-70B-Instruct
     - https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/microsoft-azure-ai-foundry-welcomes-meta-llama-3-3-70b-model/4355199
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
 status: preview
 supportedModes:
     - chat

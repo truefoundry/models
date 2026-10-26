@@ -27,6 +27,7 @@ features:
 limits:
     context_window: 500000
     max_output_tokens: 450000
+    max_tokens: 450000
 modalities:
     input:
         - text
@@ -41,9 +42,18 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/x-ai/grok-4.7
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

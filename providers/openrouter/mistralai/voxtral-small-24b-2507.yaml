@@ -12,7 +12,9 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 32000
+    context_window: 32768
+    max_output_tokens: 26214
+    max_tokens: 26214
 modalities:
     input:
         - text
@@ -25,6 +27,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/voxtral-small-24b-2507
     - https://openrouter.ai/mistralai/voxtral-small-24b-2507/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

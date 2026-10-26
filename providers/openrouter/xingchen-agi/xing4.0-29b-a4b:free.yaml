@@ -10,6 +10,7 @@ features:
 limits:
     context_window: 262144
     max_output_tokens: 235929
+    max_tokens: 235929
 modalities:
     input:
         - text
@@ -25,6 +26,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/xingchen-agi/xing4.0-29b-a4b:free
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

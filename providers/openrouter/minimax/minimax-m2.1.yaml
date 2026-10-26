@@ -15,7 +15,7 @@ features:
     - system_messages
     - tool_choice
 limits:
-    context_window: 196608
+    context_window: 204800
     max_input_tokens: 196608
     max_output_tokens: 64000
     max_tokens: 64000
@@ -30,6 +30,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m2.1
     - https://openrouter.ai/minimax/minimax-m2.1/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

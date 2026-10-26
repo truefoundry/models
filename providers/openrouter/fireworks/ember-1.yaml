@@ -13,6 +13,7 @@ features:
 limits:
     context_window: 1048576
     max_output_tokens: 943718
+    max_tokens: 943718
 modalities:
     input:
         - text
@@ -21,9 +22,19 @@ modalities:
         - text
 mode: chat
 model: fireworks/ember-1
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/fireworks/ember-1
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

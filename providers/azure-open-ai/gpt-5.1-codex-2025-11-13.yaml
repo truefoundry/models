@@ -59,6 +59,13 @@ model: gpt-5.1-codex-2025-11-13
 params:
     - key: max_completion_tokens
       maxValue: 128000
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 removeParams:
     - max_tokens
@@ -66,6 +73,7 @@ retirementDate: "2027-05-15"
 sources:
     - https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models
     - https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning
 status: active
 supportedModes:
     - responses

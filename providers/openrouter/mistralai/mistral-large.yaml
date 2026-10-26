@@ -15,6 +15,8 @@ features:
     - tool_choice
 limits:
     context_window: 128000
+    max_output_tokens: 102400
+    max_tokens: 102400
 modalities:
     input:
         - text
@@ -25,6 +27,7 @@ model: mistralai/mistral-large
 provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/mistral-large/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

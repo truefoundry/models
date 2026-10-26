@@ -14,6 +14,7 @@ features:
 limits:
     context_window: 200000
     max_output_tokens: 32000
+    max_tokens: 32000
 modalities:
     input:
         - image
@@ -26,6 +27,7 @@ model: anthropic/claude-opus-4.1:batch
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-opus-4.1
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

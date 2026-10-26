@@ -18,6 +18,11 @@ costs:
 external_ids:
     artificial_analysis_id: b25ac058-1e33-4c31-bbc9-a20c3ad0717a
     artificial_analysis_slug: gpt-6-1-sol
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -25,7 +30,21 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-6.1-sol
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
+sources:
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://developers.openai.com/api/docs/models/gpt-6.1-sol
 status: active
 supportedModes:
     - chat
+thinking: true

@@ -3,6 +3,11 @@ features:
     - structured_output
     - code_execution
     - system_messages
+limits:
+    context_window: 1048576
+    max_input_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -14,8 +19,21 @@ modalities:
         - text
 mode: chat
 model: google/gemini-4-argon
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-4-argon
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://deepmind.google/models/gemini/
+    - https://deepmind.google/models/gemini/cyber/
+    - https://deepmind.google/models/evals-methodology/gemini-4-argon
+    - https://ai.google.dev/gemini-api/docs/thinking
 supportedModes:
     - chat
 thinking: true

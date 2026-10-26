@@ -15,6 +15,7 @@ features:
 limits:
     context_window: 1000000
     max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -24,9 +25,21 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-haiku-5.5:batch
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/anthropic/claude-haiku-5.5:batch
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

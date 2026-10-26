@@ -25,9 +25,18 @@ params:
       key: temperature
     - defaultValue: 1
       key: top_p
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/~deepseek/deepseek-pro-latest
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

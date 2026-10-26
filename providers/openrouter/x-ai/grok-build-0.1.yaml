@@ -12,6 +12,8 @@ features:
     - tool_choice
 limits:
     context_window: 256000
+    max_output_tokens: 230400
+    max_tokens: 230400
 modalities:
     input:
         - text
@@ -23,6 +25,7 @@ model: x-ai/grok-build-0.1
 provisioning: serverless
 sources:
     - https://openrouter.ai/x-ai/grok-build-0.1
+    - https://openrouter.ai/api/v1/models
 status: preview
 supportedModes:
     - chat

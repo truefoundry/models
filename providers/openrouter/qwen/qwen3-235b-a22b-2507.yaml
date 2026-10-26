@@ -11,6 +11,8 @@ features:
 limits:
     context_window: 262144
     max_input_tokens: 262144
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - text
@@ -22,6 +24,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-235b-a22b-2507/api
     - https://openrouter.ai/qwen/qwen3-235b-a22b-2507
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

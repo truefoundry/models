@@ -47,9 +47,17 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
+    - https://ai.google.dev/gemini-api/docs/thinking
 status: preview
 supportedModes:
     - chat

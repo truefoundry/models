@@ -33,7 +33,8 @@ features:
     - prompt_caching
     - structured_output
 limits:
-    max_input_tokens: 200000
+    context_window: 1000000
+    max_input_tokens: 1000000
     max_output_tokens: 128000
     max_tokens: 128000
     tool_use_system_prompt_tokens: 159
@@ -43,5 +44,18 @@ modalities:
         - pdf
 mode: chat
 model: claude-opus-4-6
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - max
+      type: string
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 supportedModes:
     - chat
+thinking: true

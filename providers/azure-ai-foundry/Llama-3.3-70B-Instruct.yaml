@@ -7,10 +7,13 @@ features:
     - function_calling
     - tool_choice
 limits:
+    context_window: 128000
     max_input_tokens: 128000
-    max_output_tokens: 2048
-    max_tokens: 4096
+    max_output_tokens: 8192
+    max_tokens: 8192
 mode: chat
 model: Llama-3.3-70B-Instruct
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
 supportedModes:
     - chat

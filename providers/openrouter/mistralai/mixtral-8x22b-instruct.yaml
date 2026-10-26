@@ -12,6 +12,8 @@ features:
     - tool_choice
 limits:
     context_window: 65536
+    max_output_tokens: 52428
+    max_tokens: 52428
 modalities:
     input:
         - text
@@ -22,6 +24,7 @@ model: mistralai/mixtral-8x22b-instruct
 provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/mixtral-8x22b-instruct
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

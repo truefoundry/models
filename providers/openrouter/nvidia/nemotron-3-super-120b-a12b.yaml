@@ -11,6 +11,8 @@ features:
     - system_messages
 limits:
     context_window: 262144
+    max_output_tokens: 235929
+    max_tokens: 235929
 modalities:
     input:
         - text
@@ -23,9 +25,17 @@ params:
       key: temperature
     - defaultValue: 0.95
       key: top_p
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

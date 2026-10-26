@@ -46,6 +46,13 @@ params:
       key: max_tokens
       maxValue: 64000
       minValue: 1
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 retirementDate: "2026-10-19"
 sources:
@@ -53,6 +60,7 @@ sources:
     - https://azure.microsoft.com/en-us/blog/introducing-claude-opus-4-5-in-microsoft-foundry/
     - https://platform.claude.com/docs/en/about-claude/models/overview
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: preview
 supportedModes:
     - chat

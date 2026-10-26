@@ -90,12 +90,18 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
-removeParams:
-    - reasoning_effort
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-5.html
     - https://docs.z.ai/guides/llm/glm-5
+    - https://github.com/aws-samples/sample-per-model-bedrock/pull/192
 status: active
 supportedModes:
     - chat

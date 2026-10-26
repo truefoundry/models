@@ -50,9 +50,18 @@ modalities:
         - text
 mode: chat
 model: zai.glm-5
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-5.html
+    - https://github.com/aws-samples/sample-per-model-bedrock/pull/192
 status: active
 supportedModes:
     - chat

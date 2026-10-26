@@ -13,7 +13,8 @@ features:
     - prompt_caching
 limits:
     context_window: 1048576
-    max_tokens: 1048576
+    max_output_tokens: 65536
+    max_tokens: 65536
 modalities:
     input:
         - text
@@ -26,12 +27,15 @@ params:
       key: reasoning_effort
       supportedValues:
           - none
+          - low
           - high
-          - xhigh
+          - max
       type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash
+    - https://docs.deepinfra.com/chat/reasoning
+    - https://api-docs.deepseek.com/guides/thinking_mode
 status: active
 supportedModes:
     - chat

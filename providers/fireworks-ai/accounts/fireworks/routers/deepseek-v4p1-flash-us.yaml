@@ -11,6 +11,8 @@ features:
     - function_calling
 limits:
     context_window: 1048576
+    max_output_tokens: 1048576
+    max_tokens: 1048576
 modalities:
     input:
         - text
@@ -19,10 +21,22 @@ modalities:
         - text
 mode: chat
 model: accounts/fireworks/routers/deepseek-v4p1-flash-us
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.fireworks.ai/serverless/pricing
+    - https://docs.fireworks.ai/api-reference/post-chatcompletions
+    - https://fireworks.ai/models/fireworks/deepseek-v4p1-flash
     - https://docs.fireworks.ai/serverless/us-only-serverless
 status: active
 supportedModes:
     - chat
+thinking: true

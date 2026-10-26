@@ -13,6 +13,7 @@ features:
 limits:
     context_window: 128000
     max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - text
@@ -25,5 +26,6 @@ model: openai/gpt-4o-mini:batch
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-4o-mini
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat

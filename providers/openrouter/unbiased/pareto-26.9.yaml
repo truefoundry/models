@@ -11,6 +11,7 @@ features:
 limits:
     context_window: 262144
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -22,5 +23,6 @@ model: unbiased/pareto-26.9
 provisioning: serverless
 sources:
     - https://openrouter.ai/unbiased/pareto-26.9
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat

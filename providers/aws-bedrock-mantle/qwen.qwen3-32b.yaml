@@ -140,9 +140,18 @@ modalities:
         - text
 mode: chat
 model: qwen.qwen3-32b
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-32b.html
+    - https://github.com/aws-samples/sample-per-model-bedrock/pull/279
 status: active
 supportedModes:
     - chat

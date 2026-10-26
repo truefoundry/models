@@ -15,7 +15,7 @@ features:
     - tool_choice
     - system_messages
 limits:
-    context_window: 202752
+    context_window: 204800
     max_input_tokens: 202752
     max_output_tokens: 65535
     max_tokens: 65535
@@ -30,6 +30,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/z-ai/glm-4.7
     - https://openrouter.ai/z-ai/glm-4.7/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

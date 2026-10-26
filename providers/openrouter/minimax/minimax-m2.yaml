@@ -14,10 +14,10 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 196608
+    context_window: 204800
     max_input_tokens: 196608
-    max_output_tokens: 196608
-    max_tokens: 196608
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -29,6 +29,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/minimax/minimax-m2/api
     - https://openrouter.ai/minimax/minimax-m2
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

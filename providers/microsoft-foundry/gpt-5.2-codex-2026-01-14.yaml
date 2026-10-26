@@ -40,7 +40,6 @@ params:
     - defaultValue: medium
       key: reasoning_effort
       supportedValues:
-          - none
           - low
           - medium
           - high
@@ -49,6 +48,8 @@ provisioning: serverless
 removeParams:
     - max_tokens
 retirementDate: "2027-07-13"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning
 status: active
 supportedModes:
     - responses

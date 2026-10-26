@@ -10,6 +10,7 @@ features:
 limits:
     context_window: 1048576
     max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -17,9 +18,20 @@ modalities:
         - text
 mode: chat
 model: reflection/beam-1.0-501b-a23b
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/reflection/beam-1.0-501b-a23b
+    - https://openrouter.ai/api/v1/models
 supportedModes:
     - chat
 thinking: true

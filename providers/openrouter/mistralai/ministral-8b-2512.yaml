@@ -13,6 +13,8 @@ features:
 limits:
     context_window: 262144
     max_input_tokens: 262144
+    max_output_tokens: 209715
+    max_tokens: 209715
 modalities:
     input:
         - text
@@ -25,6 +27,7 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/mistralai/ministral-8b-2512/api
     - https://openrouter.ai/mistralai/ministral-8b-2512
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

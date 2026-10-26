@@ -12,7 +12,7 @@ features:
     - structured_output
     - prompt_caching
 limits:
-    context_window: 1048576
+    context_window: 1048575
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
@@ -29,6 +29,7 @@ params:
       key: reasoning_effort
       supportedValues:
           - low
+          - medium
           - high
           - max
       type: string
@@ -36,6 +37,8 @@ provisioning: serverless
 sources:
     - https://www.together.ai/models/glm-5-3-flash
     - https://docs.z.ai/guides/vlm/glm-5.3-flash
+    - https://docs.together.ai/docs/glm-5.3-quickstart
+    - https://docs.together.ai/docs/serverless-models
 status: active
 supportedModes:
     - chat

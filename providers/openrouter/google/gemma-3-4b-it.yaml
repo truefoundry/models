@@ -8,6 +8,8 @@ features:
     - structured_output
 limits:
     context_window: 131072
+    max_output_tokens: 117964
+    max_tokens: 117964
 modalities:
     input:
         - text
@@ -19,6 +21,7 @@ model: google/gemma-3-4b-it
 provisioning: serverless
 sources:
     - https://openrouter.ai/google/gemma-3-4b-it
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

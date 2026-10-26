@@ -13,6 +13,8 @@ features:
     - function_calling
 limits:
     context_window: 131072
+    max_output_tokens: 131072
+    max_tokens: 131072
 modalities:
     input:
         - text
@@ -20,9 +22,20 @@ modalities:
         - text
 mode: chat
 model: accounts/fireworks/models/gpt-oss-120b
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.fireworks.ai/serverless/pricing
+    - https://docs.fireworks.ai/api-reference/post-chatcompletions
+    - https://fireworks.ai/models/fireworks/gpt-oss-120b
 status: active
 supportedModes:
     - chat
+thinking: true

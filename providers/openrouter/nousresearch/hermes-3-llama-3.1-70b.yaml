@@ -11,6 +11,8 @@ features:
     - structured_output
 limits:
     context_window: 131072
+    max_output_tokens: 16384
+    max_tokens: 16384
 modalities:
     input:
         - text
@@ -21,6 +23,7 @@ model: nousresearch/hermes-3-llama-3.1-70b
 provisioning: serverless
 sources:
     - https://openrouter.ai/nousresearch/hermes-3-llama-3.1-70b
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

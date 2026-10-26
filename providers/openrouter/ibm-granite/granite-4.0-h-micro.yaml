@@ -5,6 +5,8 @@ costs:
       region: "*"
 limits:
     context_window: 131000
+    max_output_tokens: 117900
+    max_tokens: 117900
 modalities:
     input:
         - text
@@ -15,6 +17,7 @@ model: ibm-granite/granite-4.0-h-micro
 provisioning: serverless
 sources:
     - https://openrouter.ai/ibm-granite/granite-4.0-h-micro/api
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

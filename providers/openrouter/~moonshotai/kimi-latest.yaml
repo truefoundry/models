@@ -22,9 +22,19 @@ modalities:
         - text
 mode: chat
 model: ~moonshotai/kimi-latest
+params:
+    - defaultValue: max
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - high
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/~moonshotai/kimi-latest
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

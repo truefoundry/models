@@ -9,7 +9,7 @@ features:
     - structured_output
     - tool_choice
 limits:
-    context_window: 128000
+    context_window: 65536
     max_output_tokens: 32768
 modalities:
     input:
@@ -26,6 +26,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/liquid/lfm-2.5-2.6b:free
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

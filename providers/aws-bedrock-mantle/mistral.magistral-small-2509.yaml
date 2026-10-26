@@ -62,9 +62,18 @@ modalities:
         - text
 mode: chat
 model: mistral.magistral-small-2509
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-magistral-small-2509.html
+    - https://github.com/aws-samples/sample-per-model-bedrock/pull/309
 status: active
 supportedModes:
     - chat

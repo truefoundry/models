@@ -27,12 +27,20 @@ modalities:
 mode: chat
 model: openai/gpt-5.4-nano
 params:
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
       type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-5.4-nano/api
     - https://openrouter.ai/openai/gpt-5.4-nano
+    - https://openrouter.ai/api/v1/models
 status: active
 supportedModes:
     - chat

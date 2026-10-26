@@ -26,6 +26,9 @@ features:
 limits:
     # Perplexity publishes no separate context limit; this is Anthropic's model specification.
     context_window: 1000000
+    max_input_tokens: 1000000
+    max_output_tokens: 128000
+    max_tokens: 128000
 modalities:
     input:
         - text
@@ -33,9 +36,22 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-haiku-5-5
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/models/haiku-5-5/overview
+    - https://docs.perplexity.ai/docs/agent-api/models
+    - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages
 status: active
 supportedModes:
     - chat

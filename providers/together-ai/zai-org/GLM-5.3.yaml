@@ -27,6 +27,7 @@ params:
       key: reasoning_effort
       supportedValues:
           - low
+          - medium
           - high
           - max
       type: string
@@ -34,6 +35,7 @@ provisioning: serverless
 sources:
     - https://www.together.ai/models/glm-5-3
     - https://docs.z.ai/guides/llm/glm-5.3
+    - https://docs.together.ai/docs/glm-5.3-quickstart
 status: active
 supportedModes:
     - chat

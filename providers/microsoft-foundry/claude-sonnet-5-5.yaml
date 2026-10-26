@@ -56,7 +56,7 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: medium
+    - defaultValue: high
       key: reasoning_effort
       supportedValues:
           - low
@@ -72,6 +72,7 @@ removeParams:
     - top_k
 sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models
+    - https://platform.claude.com/docs/en/build-with-claude/effort
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
     - https://platform.claude.com/docs/en/about-claude/pricing
     - https://ai.azure.com/catalog/models/claude-sonnet-5-5
