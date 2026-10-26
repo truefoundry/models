@@ -22,5 +22,8 @@ costs:
     - region: ap-northeast-1
     - region: ap-east-2
     - region: af-south-1
-mode: unknown
+mode: chat
+# GPT-6.1 Terra is not on the AWS Bedrock model card index or the pricing page, so pricing, limits and features are not found in official docs.
 model: global.openai.gpt-6.1-terra
+supportedModes:
+    - chat
