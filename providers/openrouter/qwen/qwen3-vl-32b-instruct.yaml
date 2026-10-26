@@ -3,6 +3,7 @@ costs:
     - input_cost_per_token: 1.04e-7
       output_cost_per_token: 4.16e-7
       region: "*"
+deprecationDate: "2026-10-09"
 external_ids:
     artificial_analysis_id: 6da314d3-a984-4734-8f31-47dd32fb4699
     artificial_analysis_slug: qwen3-vl-32b-instruct
@@ -11,6 +12,7 @@ features:
     - json_output
     - tool_choice
     - structured_output
+isDeprecated: true
 limits:
     context_window: 131072
     max_input_tokens: 129024
@@ -28,6 +30,6 @@ provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-vl-32b-instruct
     - https://openrouter.ai/qwen/qwen3-vl-32b-instruct/api
-status: active
+status: deprecated
 supportedModes:
     - chat

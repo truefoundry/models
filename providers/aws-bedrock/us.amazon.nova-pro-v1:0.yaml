@@ -55,13 +55,12 @@ features:
     - prompt_caching
     - system_messages
     - tool_choice
-    # - structured_output is not supported
     - assistant_prefill
 limits:
     context_window: 300000
     max_input_tokens: 300000
-    max_output_tokens: 5000
-    max_tokens: 5000
+    max_output_tokens: 10000
+    max_tokens: 10000
 modalities:
     input:
         - text
@@ -76,7 +75,7 @@ model: us.amazon.nova-pro-v1:0
 params:
     - defaultValue: 512
       key: max_tokens
-      maxValue: 5000
+      maxValue: 10000
       minValue: 1
     - defaultValue: 0.7
       key: temperature

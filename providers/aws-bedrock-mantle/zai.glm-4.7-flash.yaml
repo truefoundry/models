@@ -27,7 +27,7 @@ costs:
     - input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
       region: eu-central-1
-    - region: ap-southeast-4 # price not yet published on official pricing page
+    - region: ap-southeast-4
     - input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
       region: ap-southeast-3
@@ -40,6 +40,7 @@ costs:
     - input_cost_per_token: 8e-8
       output_cost_per_token: 4.8e-7
       region: ap-northeast-1
+deprecationDate: "2026-09-30"
 external_ids:
     artificial_analysis_id: 2c4394a2-b443-470a-908e-5c4a271b780c
     artificial_analysis_slug: glm-4-7-flash
@@ -47,6 +48,7 @@ features:
     - function_calling
     - system_messages
     - structured_output
+isDeprecated: true
 limits:
     context_window: 203000
     max_output_tokens: 4000
@@ -59,8 +61,9 @@ modalities:
 mode: chat
 model: zai.glm-4.7-flash
 provisioning: serverless
+retirementDate: "2027-03-30"
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-4-7-flash.html
-status: active
+status: deprecated
 supportedModes:
     - chat

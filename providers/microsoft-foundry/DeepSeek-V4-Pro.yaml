@@ -7,13 +7,14 @@ external_ids:
     artificial_analysis_id: 83173329-c09a-41f1-a028-a282a5f908d7
     artificial_analysis_slug: deepseek-v4-pro
 features:
+    - function_calling
     - system_messages
     - json_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
-    max_output_tokens: 128000
-    max_tokens: 128000
+    max_output_tokens: 384000
+    max_tokens: 384000
 modalities:
     input:
         - text
@@ -28,6 +29,7 @@ removeParams:
 retirementDate: "2028-02-20"
 sources:
     - https://ai.azure.com/catalog/models/DeepSeek-V4-Pro
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/deepseek/
 status: active
 supportedModes:
     - chat

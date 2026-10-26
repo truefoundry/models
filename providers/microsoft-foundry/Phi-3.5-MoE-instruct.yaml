@@ -3,9 +3,11 @@ costs:
     - input_cost_per_token: 1.6e-7
       output_cost_per_token: 6.4e-7
       region: "*"
+deprecationDate: "2025-06-30"
 features:
     - tool_choice
     - system_messages
+isDeprecated: true
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -19,8 +21,9 @@ modalities:
 mode: chat
 model: Phi-3.5-MoE-instruct
 provisioning: serverless
+retirementDate: "2025-08-30"
 sources:
     - https://huggingface.co/microsoft/Phi-3.5-MoE-instruct
-status: active
+status: retired
 supportedModes:
     - chat

@@ -1,12 +1,10 @@
 costs:
-    - cache_read_input_token_cost: 5e-8
-      input_cost_per_token: 2.5e-7
+    - input_cost_per_token: 2.5e-7
       output_cost_per_token: 1e-6
       region: "*"
 features:
     - function_calling
     - json_output
-    - prompt_caching
     - structured_output
     - tool_choice
 limits:
@@ -19,4 +17,9 @@ modalities:
         - text
 mode: chat
 model: reflection/beam-1.0-501b-a23b
+provisioning: serverless
+sources:
+    - https://openrouter.ai/reflection/beam-1.0-501b-a23b
+supportedModes:
+    - chat
 thinking: true

@@ -7,15 +7,28 @@ costs:
 external_ids:
     artificial_analysis_id: e9a09db3-8fd6-41dd-ba2f-20e0a2bff7f2
     artificial_analysis_slug: claude-opus-4-7
+features:
+    - function_calling
+    - system_messages
+    - tool_choice
 limits:
-    # Perplexity publishes no separate context limit; this is Anthropic's model specification.
     context_window: 1000000
+modalities:
+    input:
+        - text
+        - image
+        - pdf
+    output:
+        - text
 mode: chat
 model: anthropic/claude-opus-4-7
 provisioning: serverless
 sources:
     - https://platform.claude.com/docs/en/models/opus-4-7/overview
     - https://docs.perplexity.ai/docs/resources/changelog
+    - https://developers.cloudflare.com/ai/models/anthropic/claude-opus-4.7/index.md
+    - https://mastra.ai/models/providers/perplexity-agent.md
 status: active
 supportedModes:
     - chat
+thinking: true

@@ -15,6 +15,7 @@ costs:
               - cost_per_token: 0.00000975
                 from: 128000
           pricing_mode: marginal
+deprecationDate: "2026-10-09"
 external_ids:
     artificial_analysis_id: 806032ff-6252-4c22-ba99-a126e411b7a4
     artificial_analysis_slug: qwen3-max-thinking
@@ -23,6 +24,7 @@ features:
     - json_output
     - structured_output
     - tool_choice
+isDeprecated: true
 limits:
     context_window: 262144
     max_input_tokens: 258048
@@ -43,7 +45,7 @@ params:
 provisioning: serverless
 sources:
     - https://openrouter.ai/qwen/qwen3-max-thinking/api
-status: active
+status: deprecated
 supportedModes:
     - chat
 thinking: true
