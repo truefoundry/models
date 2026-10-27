@@ -173,6 +173,7 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/wafer',
     accountType: 'provider-account/wafer',
     apiKeyEnv: 'WAFER_API_KEY',
+    smokeModel: 'DeepSeek-V4-Flash-0423',
   },
   typesafe: {
     sdkProvider: 'typesafe',
