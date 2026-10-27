@@ -11,6 +11,8 @@ export type CatalogueModel = {
   provider: string;
   model: string;
   mode: string;
+  status?: string;
+  isDeprecated?: boolean;
   features?: string[];
   thinking?: boolean;
   removeParams?: string[];

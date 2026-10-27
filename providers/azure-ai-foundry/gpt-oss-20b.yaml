@@ -21,15 +21,19 @@ modalities:
 mode: chat
 model: gpt-oss-20b
 params:
+    # Official host/model docs do not specify a default effort.
     - key: reasoning_effort
       supportedValues:
           - low
           - medium
           - high
+      type: string
 provisioning: provisioned
 sources:
     - https://ai.azure.com/catalog/models/gpt-oss-20b
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure
+    - https://ai.azure.com/catalog/models/gpt-oss-20b
+    - https://developers.openai.com/api/docs/models/gpt-oss-20b
 status: preview
 supportedModes:
     - chat

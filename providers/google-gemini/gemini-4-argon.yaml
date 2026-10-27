@@ -39,15 +39,18 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
-    - key: reasoning_effort
+    - defaultValue: medium
+      key: reasoning_effort
       supportedValues:
           - low
           - medium
           - high
+      type: string
 sources:
     - https://deepmind.google/models/gemini/
     - https://deepmind.google/models/gemini/cyber/
     - https://deepmind.google/models/evals-methodology/gemini-4-argon
+    - https://ai.google.dev/gemini-api/docs/generate-content/thinking
 status: preview
 supportedModes:
     - chat

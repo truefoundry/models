@@ -55,7 +55,7 @@ params:
       key: max_tokens
       maxValue: 128000
       minValue: 1
-    - defaultValue: medium
+    - defaultValue: high
       key: reasoning_effort
       supportedValues:
           - low
@@ -69,6 +69,7 @@ sources:
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude
     - https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing
     - https://platform.claude.com/docs/en/about-claude/pricing
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

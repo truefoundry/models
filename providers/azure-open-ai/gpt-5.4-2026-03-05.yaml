@@ -171,7 +171,6 @@ params:
       key: reasoning_effort
       supportedValues:
           - none
-          - minimal
           - low
           - medium
           - high
@@ -181,6 +180,9 @@ provisioning: serverless
 removeParams:
     - max_tokens
 retirementDate: "2027-09-02"
+sources:
+    - https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning
+    - https://developers.openai.com/api/docs/models/gpt-5.4
 status: active
 supportedModes:
     - chat

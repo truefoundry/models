@@ -667,6 +667,14 @@ params:
       key: top_k
       maxValue: 100
       minValue: 1
+    # Dynamic thinking has no single documented effort-level default.
+    - key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 retirementDate: "2026-10-20"
 sources:
@@ -674,6 +682,8 @@ sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://ai.google.dev/gemini-api/docs/deprecations
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking
+    - https://ai.google.dev/gemini-api/docs/openai
 status: active
 supportedModes:
     - chat
