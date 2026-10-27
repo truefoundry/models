@@ -277,6 +277,47 @@ describe('new provider credentials', () => {
   });
 });
 
+describe('smoke skips deprecated models', () => {
+  it('falls back to first non-deprecated chat model when the pin is deprecated', () => {
+    const prev = process.env.XAI_API_KEY;
+    process.env.XAI_API_KEY = 'xai-test';
+    try {
+      const catalogue = [
+        { provider: 'xai', model: 'grok-4.3', mode: 'chat', isDeprecated: true },
+        { provider: 'xai', model: 'grok-old', mode: 'chat', isDeprecated: true },
+        { provider: 'xai', model: 'grok-gone', mode: 'chat', status: 'retired' },
+        { provider: 'xai', model: 'grok-sunset', mode: 'chat', status: 'deprecated' },
+        { provider: 'xai', model: 'grok-5', mode: 'chat' },
+      ];
+      assert.deepEqual(targetsWithSecrets(catalogue), [{ provider: 'xai', modelId: 'grok-5' }]);
+      assert.deepEqual(targetsWithSecrets(catalogue.slice(0, 4)), []);
+    } finally {
+      if (prev === undefined) delete process.env.XAI_API_KEY;
+      else process.env.XAI_API_KEY = prev;
+    }
+  });
+});
+
+describe('wafer, typesafe, elevenlabs', () => {
+  it('are registered with their secrets', () => {
+    assert.equal(getProviderSpec('wafer')?.apiKeyEnv, 'WAFER_API_KEY');
+    assert.equal(getProviderSpec('typesafe')?.apiKeyEnv, 'TYPESAFE_API_KEY');
+    assert.equal(getProviderSpec('elevenlabs')?.apiKeyEnv, 'ELEVENLABS_API_KEY');
+  });
+
+  it('elevenlabs tts uses the native proxy with a voice_id in the path', () => {
+    const [scenario, ...rest] = planScenarios({
+      provider: 'elevenlabs',
+      model: 'eleven_flash_v2_5',
+      mode: 'text_to_speech',
+    });
+    assert.equal(rest.length, 0);
+    assert.equal(scenario!.endpoint, 'tts-proxy');
+    assert.match(scenario!.path, /^\/tts\/elevenlabs\/v1\/text-to-speech\/[A-Za-z0-9]+$/);
+    assert.deepEqual(scenario!.body, { text: 'hello', model_id: 'eleven_flash_v2_5' });
+  });
+});
+
 describe('google-vertex key-file', () => {
   it('is registered as key-file auth', () => {
     const spec = getProviderSpec('google-vertex');
@@ -295,7 +336,7 @@ describe('google-vertex key-file', () => {
 });
 
 describe('smoke-with-secrets', () => {
-  it('picks first chat model only for providers with env set', () => {
+  it('picks pinned smoke model, else first chat model, only for providers with env set', () => {
     const prev = process.env.OPENAI_API_KEY;
     delete process.env.ANTHROPIC_API_KEY;
     process.env.OPENAI_API_KEY = 'sk-test';
@@ -306,7 +347,7 @@ describe('smoke-with-secrets', () => {
         { provider: 'openai', model: 'text-embedding-3-small', mode: 'embedding' },
         { provider: 'anthropic', model: 'claude-haiku-5-5', mode: 'chat' },
       ]);
-      assert.deepEqual(targets, [{ provider: 'openai', modelId: 'gpt-4o' }]);
+      assert.deepEqual(targets, [{ provider: 'openai', modelId: 'gpt-4o-mini' }]);
     } finally {
       if (prev === undefined) delete process.env.OPENAI_API_KEY;
       else process.env.OPENAI_API_KEY = prev;
@@ -324,9 +365,9 @@ describe('smoke-with-secrets', () => {
     ] as const;
     const prev = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
     const catalogue = [
-      { provider: 'databricks', model: 'llama', mode: 'chat' },
-      { provider: 'microsoft-foundry', model: 'gpt', mode: 'chat' },
-      { provider: 'aws-bedrock', model: 'claude', mode: 'chat' },
+      { provider: 'databricks', model: 'databricks-meta-llama-3-1-8b-instruct', mode: 'chat' },
+      { provider: 'microsoft-foundry', model: 'gpt-5.6-luna', mode: 'chat' },
+      { provider: 'aws-bedrock', model: 'us.anthropic.claude-haiku-4-5-20251001-v1:0', mode: 'chat' },
     ];
     process.env.DATABRICKS_API_KEY = 'db-test';
     delete process.env.DATABRICKS_BASE_URL;
@@ -336,14 +377,14 @@ describe('smoke-with-secrets', () => {
     process.env.AWS_BEDROCK_API_KEY = 'bedrock-test';
     try {
       assert.deepEqual(targetsWithSecrets(catalogue), [
-        { provider: 'aws-bedrock', modelId: 'claude' },
+        { provider: 'aws-bedrock', modelId: 'us.anthropic.claude-haiku-4-5-20251001-v1:0' },
       ]);
       process.env.DATABRICKS_BASE_URL = 'https://example.cloud.databricks.com';
       process.env.MICROSOFT_FOUNDRY_PROJECT_ENDPOINT = 'https://example.services.ai.azure.com';
       assert.deepEqual(targetsWithSecrets(catalogue), [
-        { provider: 'aws-bedrock', modelId: 'claude' },
-        { provider: 'databricks', modelId: 'llama' },
-        { provider: 'microsoft-foundry', modelId: 'gpt' },
+        { provider: 'aws-bedrock', modelId: 'us.anthropic.claude-haiku-4-5-20251001-v1:0' },
+        { provider: 'databricks', modelId: 'databricks-meta-llama-3-1-8b-instruct' },
+        { provider: 'microsoft-foundry', modelId: 'gpt-5.6-luna' },
       ]);
     } finally {
       for (const key of keys) {

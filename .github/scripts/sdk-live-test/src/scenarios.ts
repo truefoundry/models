@@ -80,6 +80,9 @@ const WEATHER_TOOLS = [
   },
 ];
 
+/** ElevenLabs is native-proxy only in the SDK and needs a real voice_id (Rachel). */
+const ELEVENLABS_VOICE_ID = '21m00Tcm4TlvDq8ikWAM';
+
 const CACHE_PAD = 'Cache pad. '.repeat(200);
 
 function streamFlags(mode: string): boolean[] {
@@ -732,6 +735,15 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
       return out;
 
     case 'text_to_speech':
+      if (model.provider === 'elevenlabs') {
+        out.push({
+          id: 'text_to_speech/baseline',
+          endpoint: 'tts-proxy',
+          path: `/tts/elevenlabs/v1/text-to-speech/${ELEVENLABS_VOICE_ID}`,
+          body: { text: 'hello', model_id: modelId },
+        });
+        return out;
+      }
       out.push({
         id: 'text_to_speech/baseline',
         endpoint: 'createSpeech',
