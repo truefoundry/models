@@ -126,6 +126,10 @@ function targetsFromFilesList(listPath: string): Target[] {
       console.warn(`skip (no model: field): ${filePath}`);
       continue;
     }
+    if (modelId.endsWith(':batch')) {
+      console.warn(`skip (batch variant, not callable via chat/completions): ${filePath}`);
+      continue;
+    }
     out.push({ provider: parsed.provider, modelId });
   }
   return out;
