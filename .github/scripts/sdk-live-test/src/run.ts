@@ -223,6 +223,8 @@ export async function runTargets(
         });
         continue;
       }
+      const started = performance.now();
+      const elapsed = () => `${((performance.now() - started) / 1000).toFixed(1)}s`;
       try {
         const call = buildCall(model, credential, scenario);
         const { response, executionReport } = await sdk.execute(call);
@@ -234,7 +236,7 @@ export async function runTargets(
             modelId: t.modelId,
             scenario: scenario.id,
             status: 'fail',
-            detail: `HTTP ${response.status}: ${text.slice(0, 400)}`,
+            detail: `HTTP ${response.status} (${elapsed()}): ${text.slice(0, 400)}`,
           });
         } else {
           pushResult(results, {
@@ -242,7 +244,7 @@ export async function runTargets(
             modelId: t.modelId,
             scenario: scenario.id,
             status: 'pass',
-            detail: `HTTP ${response.status}`,
+            detail: `HTTP ${response.status} (${elapsed()})`,
           });
         }
       } catch (err) {
@@ -251,7 +253,7 @@ export async function runTargets(
           modelId: t.modelId,
           scenario: scenario.id,
           status: 'fail',
-          detail: err instanceof Error ? err.message : String(err),
+          detail: `${err instanceof Error ? err.message : String(err)} (${elapsed()})`,
         });
       }
     }
