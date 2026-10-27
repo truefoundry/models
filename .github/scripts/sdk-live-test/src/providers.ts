@@ -130,7 +130,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/google-vertex',
     apiKeyEnv: 'VERTEX_KEY_FILE',
     authType: 'key-file',
-    region: 'europe-west4',
+    region: 'us-east5',
     smokeModel: 'anthropic/claude-haiku-4-5',
   },
   'aws-bedrock': {
