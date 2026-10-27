@@ -149,6 +149,9 @@ params:
           - max
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-luna.html
     - https://developers.openai.com/api/docs/models/gpt-5.6-luna
