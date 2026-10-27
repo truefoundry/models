@@ -10,6 +10,11 @@ on:
           one cheap model per registered provider that has its credential secret set.
         required: false
         default: ''
+      scenarios:
+        description: 'auto = baseline for smoke, all for explicit models'
+        type: choice
+        options: [auto, baseline, all]
+        default: auto
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
@@ -128,6 +133,8 @@ jobs:
           else
             args+=(--smoke-with-secrets)
           fi
+          scenarios="${{ github.event.inputs.scenarios }}"
+          if [ "$scenarios" != "auto" ]; then args+=(--scenarios "$scenarios"); fi
           npm run test:live -- "${args[@]}"
 
       - name: PR summary comment

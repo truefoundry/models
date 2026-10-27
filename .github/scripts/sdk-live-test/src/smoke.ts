@@ -1,5 +1,5 @@
 /**
- * Secrets smoke: one model per registered provider (spec.smokeModel, else first chat) whose credential and account env are set.
+ * Secrets smoke: one non-deprecated model per registered provider (spec.smokeModel, else first chat) whose credential and account env are set.
  *
  * `spec.apiKeyEnv` is the env *name* (e.g. "OPENAI_API_KEY" or "VERTEX_KEY_FILE").
  * `process.env[spec.apiKeyEnv]` is the secret *value* (never logged).
@@ -26,13 +26,11 @@ export function targetsWithSecrets(catalogue: CatalogueModel[]): Target[] {
       console.log(`smoke skip ${provider}: missing env ${missingEnv}`);
       continue;
     }
-    const pick = catalogue.find(
-      (m) =>
-        m.provider === provider &&
-        (spec.smokeModel ? m.model === spec.smokeModel : m.mode === 'chat'),
-    );
+    const live = catalogue.filter((m) => m.provider === provider && !m.isDeprecated);
+    const pick =
+      live.find((m) => m.model === spec.smokeModel) ?? live.find((m) => m.mode === 'chat');
     if (!pick) {
-      console.log(`smoke skip ${provider}: smoke model not in catalogue`);
+      console.log(`smoke skip ${provider}: no non-deprecated smoke model in catalogue`);
       continue;
     }
     console.log(`smoke pick ${provider}/${pick.model} via ${spec.apiKeyEnv}`);

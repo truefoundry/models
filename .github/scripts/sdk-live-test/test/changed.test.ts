@@ -277,6 +277,25 @@ describe('new provider credentials', () => {
   });
 });
 
+describe('smoke skips deprecated models', () => {
+  it('falls back to first non-deprecated chat model when the pin is deprecated', () => {
+    const prev = process.env.XAI_API_KEY;
+    process.env.XAI_API_KEY = 'xai-test';
+    try {
+      const catalogue = [
+        { provider: 'xai', model: 'grok-4.3', mode: 'chat', isDeprecated: true },
+        { provider: 'xai', model: 'grok-old', mode: 'chat', isDeprecated: true },
+        { provider: 'xai', model: 'grok-5', mode: 'chat' },
+      ];
+      assert.deepEqual(targetsWithSecrets(catalogue), [{ provider: 'xai', modelId: 'grok-5' }]);
+      assert.deepEqual(targetsWithSecrets(catalogue.slice(0, 2)), []);
+    } finally {
+      if (prev === undefined) delete process.env.XAI_API_KEY;
+      else process.env.XAI_API_KEY = prev;
+    }
+  });
+});
+
 describe('wafer, typesafe, elevenlabs', () => {
   it('are registered with their secrets', () => {
     assert.equal(getProviderSpec('wafer')?.apiKeyEnv, 'WAFER_API_KEY');

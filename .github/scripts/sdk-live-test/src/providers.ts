@@ -21,7 +21,7 @@ export type ProviderSpec = {
   region?: string;
   /** Account manifest fields whose values come from env (Databricks base_url, Foundry endpoints). */
   accountEnv?: Record<string, string>;
-  /** Model verified live for smoke; default is the first chat model in the catalogue. */
+  /** Model verified live for smoke; if deprecated or unset, the first non-deprecated chat model. */
   smokeModel?: string;
 };
 
@@ -55,7 +55,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/xai',
     apiKeyEnv: 'XAI_API_KEY',
     baseUrl: 'https://api.x.ai/v1',
-    smokeModel: 'grok-3-mini',
+    smokeModel: 'grok-4.3',
   },
   cerebras: {
     sdkProvider: 'cerebras',
@@ -75,7 +75,7 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/deepinfra',
     accountType: 'provider-account/deepinfra',
     apiKeyEnv: 'DEEPINFRA_API_KEY',
-    smokeModel: 'meta-llama/Meta-Llama-3.1-8B-Instruct',
+    smokeModel: 'meta-llama/Llama-3.3-70B-Instruct-Turbo',
   },
   'mistral-ai': {
     sdkProvider: 'mistral-ai',
@@ -122,6 +122,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/google-gemini',
     apiKeyEnv: 'GOOGLE_GEMINI_API_KEY',
     authKeyField: 'apiKey',
+    smokeModel: 'gemini-3.8-flash',
   },
   'google-vertex': {
     sdkProvider: 'google-vertex',
