@@ -285,10 +285,12 @@ describe('smoke skips deprecated models', () => {
       const catalogue = [
         { provider: 'xai', model: 'grok-4.3', mode: 'chat', isDeprecated: true },
         { provider: 'xai', model: 'grok-old', mode: 'chat', isDeprecated: true },
+        { provider: 'xai', model: 'grok-gone', mode: 'chat', status: 'retired' },
+        { provider: 'xai', model: 'grok-sunset', mode: 'chat', status: 'deprecated' },
         { provider: 'xai', model: 'grok-5', mode: 'chat' },
       ];
       assert.deepEqual(targetsWithSecrets(catalogue), [{ provider: 'xai', modelId: 'grok-5' }]);
-      assert.deepEqual(targetsWithSecrets(catalogue.slice(0, 2)), []);
+      assert.deepEqual(targetsWithSecrets(catalogue.slice(0, 4)), []);
     } finally {
       if (prev === undefined) delete process.env.XAI_API_KEY;
       else process.env.XAI_API_KEY = prev;

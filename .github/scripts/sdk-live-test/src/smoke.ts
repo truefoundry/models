@@ -26,7 +26,13 @@ export function targetsWithSecrets(catalogue: CatalogueModel[]): Target[] {
       console.log(`smoke skip ${provider}: missing env ${missingEnv}`);
       continue;
     }
-    const live = catalogue.filter((m) => m.provider === provider && !m.isDeprecated);
+    const live = catalogue.filter(
+      (m) =>
+        m.provider === provider &&
+        !m.isDeprecated &&
+        m.status !== 'deprecated' &&
+        m.status !== 'retired',
+    );
     const pick =
       live.find((m) => m.model === spec.smokeModel) ?? live.find((m) => m.mode === 'chat');
     if (!pick) {
