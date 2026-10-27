@@ -8,6 +8,9 @@ on:
 jobs:
   provision:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     env:
       DEVTEST_TFY_TOKEN: ${{ secrets.DEVTEST_TFY_TOKEN }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -23,6 +26,14 @@ jobs:
       COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
       CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
     steps:
+      - name: Join tailnet
+        uses: tailscale/github-action@306e68a486fd2350f2bfc3b19fcd143891a4a2d8 # v4.1.2
+        with:
+          oauth-client-id: ${{ vars.TS_CI_APPLY_CLIENT_ID }}
+          audience: ${{ vars.TS_CI_APPLY_AUDIENCE }}
+          tags: tag:ci-internal
+          hostname: gh-${{ github.event.repository.name }}-${{ github.run_id }}
+
       - name: Apply provider accounts
         shell: python
         run: |
