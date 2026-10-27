@@ -64,6 +64,15 @@ describe('planScenarios', () => {
     assert.ok(ids.includes('chat/params/stream'));
   });
 
+  it('foundry responses use /responses, others /v1/responses', () => {
+    const paths = (provider: string) =>
+      planScenarios({ provider, model: 'gpt', mode: 'responses' })
+        .filter((s) => s.id.startsWith('responses/baseline'))
+        .map((s) => s.path);
+    assert.deepEqual(paths('microsoft-foundry'), ['/responses', '/responses']);
+    assert.deepEqual(paths('openai'), ['/v1/responses', '/v1/responses']);
+  });
+
   it('caps with max_completion_tokens when max_tokens removed', () => {
     const body = planScenarios({
       provider: 'openai',
