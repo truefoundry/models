@@ -96,7 +96,7 @@ jobs:
               "gemini": dict(
                   t="google-gemini", it="gemini", key="GOOGLE_GEMINI_API_KEY",
                   auth=lambda: {"type": "api-key", "apiKey": e["GOOGLE_GEMINI_API_KEY"]},
-                  models=chat("gemini-2.5-flash", "gemini-2.5-pro", "gemini-3.5-flash", "gemini-3.1-flash-lite"),
+                  models=chat("gemini-3.5-flash", "gemini-3.1-flash-lite"),
               ),
               "together-ai": dict(
                   t="together-ai", key="TOGETHER_AI_API_KEY", auth=api_key("TOGETHER_AI_API_KEY"),
@@ -137,7 +137,7 @@ jobs:
                   extra=lambda: {"base_url": e["DATABRICKS_BASE_URL"]},
                   models=chat(
                       "databricks-claude-haiku-4-5", "databricks-claude-sonnet-4-5", "databricks-gpt-5-mini",
-                      "databricks-gpt-oss-120b", "databricks-gemini-2-5-flash",
+                      "databricks-gpt-oss-120b",
                   ),
               ),
               "openrouter": dict(
