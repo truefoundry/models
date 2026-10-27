@@ -781,7 +781,6 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
       return out;
 
     case 'image':
-      if (inputModalities(model).has('image')) return out;
       out.push({
         id: 'image/baseline',
         endpoint: 'imageGenerate',
