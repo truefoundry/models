@@ -137,11 +137,15 @@ function mergeParams(model: CatalogueModel): Record<string, unknown> {
 }
 
 /** Cheap output cap; honor removeParams (gpt-4.1* → max_completion_tokens). */
-function withCap(model: CatalogueModel, body: Record<string, unknown>): Record<string, unknown> {
+function withCap(
+  model: CatalogueModel,
+  body: Record<string, unknown>,
+  limit = 64,
+): Record<string, unknown> {
   const removed = new Set(model.removeParams ?? []);
   const cap: Record<string, number> = {};
-  if (!removed.has('max_tokens')) cap.max_tokens = 64;
-  else if (!removed.has('max_completion_tokens')) cap.max_completion_tokens = 64;
+  if (!removed.has('max_tokens')) cap.max_tokens = limit;
+  else if (!removed.has('max_completion_tokens')) cap.max_completion_tokens = limit;
   return { ...cap, ...body };
 }
 
@@ -173,23 +177,27 @@ function chatFeatureBody(model: CatalogueModel, feature: string): Record<string,
         response_format: { type: 'json_object' },
       });
     case 'structured_output':
-      return withCap(model, {
-        model: modelId,
-        messages: [{ role: 'user', content: 'Return answer=ok' }],
-        response_format: {
-          type: 'json_schema',
-          json_schema: {
-            name: 'answer',
-            strict: true,
-            schema: {
-              type: 'object',
-              properties: { answer: { type: 'string' } },
-              required: ['answer'],
-              additionalProperties: false,
+      return withCap(
+        model,
+        {
+          model: modelId,
+          messages: [{ role: 'user', content: 'Return answer=ok' }],
+          response_format: {
+            type: 'json_schema',
+            json_schema: {
+              name: 'answer',
+              strict: true,
+              schema: {
+                type: 'object',
+                properties: { answer: { type: 'string' } },
+                required: ['answer'],
+                additionalProperties: false,
+              },
             },
           },
         },
-      });
+        model.thinking ? 1024 : 64,
+      );
     case 'function_calling':
       return withCap(model, {
         model: modelId,
@@ -227,7 +235,9 @@ function chatFeatureBody(model: CatalogueModel, feature: string): Record<string,
         model: modelId,
         messages: [
           { role: 'user', content: 'Complete with the word ok only.' },
-          { role: 'assistant', content: 'ok' },
+          model.provider === 'mistral-ai'
+            ? { role: 'assistant', content: 'ok', prefix: true }
+            : { role: 'assistant', content: 'ok' },
         ],
       });
     case 'mid_conversation_system_messages':
@@ -771,6 +781,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
       return out;
 
     case 'image':
+      if (inputModalities(model).has('image')) return out;
       out.push({
         id: 'image/baseline',
         endpoint: 'imageGenerate',
