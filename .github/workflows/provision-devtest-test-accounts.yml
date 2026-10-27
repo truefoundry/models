@@ -25,6 +25,13 @@ jobs:
       DEEPINFRA_API_KEY: ${{ secrets.DEEPINFRA_API_KEY }}
       COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
       CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+      AWS_BEDROCK_MANTLE_API_KEY: ${{ secrets.AWS_BEDROCK_MANTLE_API_KEY }}
+      DATABRICKS_API_KEY: ${{ secrets.DATABRICKS_API_KEY }}
+      DATABRICKS_BASE_URL: ${{ secrets.DATABRICKS_BASE_URL }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      MICROSOFT_FOUNDRY_API_KEY: ${{ secrets.MICROSOFT_FOUNDRY_API_KEY }}
+      MICROSOFT_FOUNDRY_OPENAI_ENDPOINT: ${{ secrets.MICROSOFT_FOUNDRY_OPENAI_ENDPOINT }}
+      MICROSOFT_FOUNDRY_PROJECT_ENDPOINT: ${{ secrets.MICROSOFT_FOUNDRY_PROJECT_ENDPOINT }}
     steps:
       - name: Join tailnet
         uses: tailscale/github-action@306e68a486fd2350f2bfc3b19fcd143891a4a2d8 # v4.1.2
@@ -46,6 +53,21 @@ jobs:
           api_key = lambda var: (lambda: {"type": "api-key", "api_key": e[var]})
           keep_id = lambda m: m.replace(":", "-")
           slug = lambda m: re.sub(r"[^a-z0-9]+", "-", m.lower()).strip("-")
+
+          def foundry_deployments():
+              endpoint = e["MICROSOFT_FOUNDRY_OPENAI_ENDPOINT"].split("/openai")[0]
+              req = urllib.request.Request(
+                  endpoint + "/openai/deployments?api-version=2023-03-15-preview",
+                  headers={"api-key": e["MICROSOFT_FOUNDRY_API_KEY"]},
+              )
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  deployments = json.load(r)["data"]
+              skip = re.compile(r"embed|image|audio|realtime|tts|whisper|transcribe|rerank|document|decision|flux|parse", re.I)
+              return {
+                  d["id"]: CR if d["id"].startswith("gpt") else ["chat"]
+                  for d in deployments
+                  if d.get("status") == "succeeded" and not skip.search(d["id"])
+              }
 
           providers = {
               "openai": dict(
@@ -104,6 +126,36 @@ jobs:
                   t="cerebras", key="CEREBRAS_API_KEY", auth=api_key("CEREBRAS_API_KEY"),
                   models=chat("gpt-oss-120b", "qwen-3.8-27b"),
               ),
+              "bedrock-mantle": dict(
+                  t="aws-bedrock-mantle", it="bedrock-mantle", key="AWS_BEDROCK_MANTLE_API_KEY",
+                  auth=api_key("AWS_BEDROCK_MANTLE_API_KEY"), iname=keep_id,
+                  extra=lambda: {"region": "us-east-1"},
+                  models={**chat("anthropic.claude-haiku-4-5", "anthropic.claude-opus-4-8", "deepseek.v3.2"), "openai.gpt-5.5": CR},
+              ),
+              "databricks": dict(
+                  t="databricks", key="DATABRICKS_API_KEY", auth=api_key("DATABRICKS_API_KEY"), iname=keep_id,
+                  extra=lambda: {"base_url": e["DATABRICKS_BASE_URL"]},
+                  models=chat(
+                      "databricks-claude-haiku-4-5", "databricks-claude-sonnet-4-5", "databricks-gpt-5-mini",
+                      "databricks-gpt-oss-120b", "databricks-gemini-2-5-flash",
+                  ),
+              ),
+              "openrouter": dict(
+                  t="openrouter", key="OPENROUTER_API_KEY", auth=api_key("OPENROUTER_API_KEY"),
+                  models=chat(
+                      "openai/gpt-4o-mini", "anthropic/claude-haiku-4.5", "google/gemini-2.5-flash",
+                      "deepseek/deepseek-chat", "meta-llama/llama-3.3-70b-instruct",
+                  ),
+              ),
+              "microsoft-foundry": dict(
+                  t="microsoft-foundry", key="MICROSOFT_FOUNDRY_API_KEY", auth=api_key("MICROSOFT_FOUNDRY_API_KEY"),
+                  cost=private_cost, iname=keep_id,
+                  extra=lambda: {
+                      "openai_endpoint": e["MICROSOFT_FOUNDRY_OPENAI_ENDPOINT"],
+                      "project_endpoint": e["MICROSOFT_FOUNDRY_PROJECT_ENDPOINT"],
+                  },
+                  models=foundry_deployments,
+              ),
           }
 
           failed = []
@@ -124,7 +176,7 @@ jobs:
                           "name": iname(m), "model_id": m, "model_types": types,
                           "cost": c.get("cost", {"metric": "public_cost"}),
                       }
-                      for m, types in c["models"].items()
+                      for m, types in (c["models"]() if callable(c["models"]) else c["models"]).items()
                   ],
               }
               req = urllib.request.Request(
