@@ -1,0 +1,71 @@
+canonical_model: openai/gpt-6-1-terra
+costs:
+    - cache_creation_input_token_cost: 1.375e-06
+      cache_read_input_token_cost: 5.5e-08
+      input_cost_per_token: 1.1e-06
+      output_cost_per_token: 5.5e-06
+      region: us-east-1
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1.1e-07
+                from: 272000
+          cache_write:
+              - cost_per_token: 2.75e-06
+                from: 272000
+          input:
+              - cost_per_token: 2.2e-06
+                from: 272000
+          output:
+              - cost_per_token: 8.25e-06
+                from: 272000
+          pricing_mode: cumulative
+extra_configuration:
+    bedrock_mantle_adhoc_prefix: /openai
+features:
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
+    - system_messages
+    - structured_output
+    - json_output
+    - prompt_caching
+    - cache_control
+limits:
+    context_window: 1050000
+    max_input_tokens: 922000
+    max_output_tokens: 128000
+    max_tokens: 128000
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: responses
+model: openai.gpt-6.1-terra
+params:
+    - key: max_completion_tokens
+      maxValue: 128000
+      minValue: 1
+      type: number
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
+provisioning: serverless
+removeParams:
+    - max_tokens
+sources:
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html
+    - https://developers.openai.com/api/docs/models/gpt-6.1-terra
+status: active
+supportedModes:
+    - chat
+    - responses
+thinking: true
