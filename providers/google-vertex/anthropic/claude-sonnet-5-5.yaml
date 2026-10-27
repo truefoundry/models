@@ -58,6 +58,10 @@ params:
           - max
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/sonnet-5-5
     - https://platform.claude.com/docs/en/build-with-claude/effort
