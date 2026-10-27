@@ -302,6 +302,18 @@ describe('wafer, typesafe, elevenlabs', () => {
     assert.equal(getProviderSpec('typesafe')?.apiKeyEnv, 'TYPESAFE_API_KEY');
     assert.equal(getProviderSpec('elevenlabs')?.apiKeyEnv, 'ELEVENLABS_API_KEY');
   });
+
+  it('elevenlabs tts uses the native proxy with a voice_id in the path', () => {
+    const [scenario, ...rest] = planScenarios({
+      provider: 'elevenlabs',
+      model: 'eleven_flash_v2_5',
+      mode: 'text_to_speech',
+    });
+    assert.equal(rest.length, 0);
+    assert.equal(scenario!.endpoint, 'tts-proxy');
+    assert.match(scenario!.path, /^\/tts\/elevenlabs\/v1\/text-to-speech\/[A-Za-z0-9]+$/);
+    assert.deepEqual(scenario!.body, { text: 'hello', model_id: 'eleven_flash_v2_5' });
+  });
 });
 
 describe('google-vertex key-file', () => {
