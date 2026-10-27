@@ -1,0 +1,131 @@
+name: Provision devtest test provider accounts
+
+on:
+  push:
+    branches: [bhavesh/provision-test-accounts]
+  workflow_dispatch:
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    env:
+      DEVTEST_TFY_TOKEN: ${{ secrets.DEVTEST_TFY_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      AWS_BEDROCK_API_KEY: ${{ secrets.AWS_BEDROCK_API_KEY }}
+      VERTEX_KEY_FILE: ${{ secrets.VERTEX_KEY_FILE }}
+      GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
+      TOGETHER_AI_API_KEY: ${{ secrets.TOGETHER_AI_API_KEY }}
+      SAMBANOVA_API_KEY: ${{ secrets.SAMBANOVA_API_KEY }}
+      MISTRAL_AI_API_KEY: ${{ secrets.MISTRAL_AI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      DEEPINFRA_API_KEY: ${{ secrets.DEEPINFRA_API_KEY }}
+      COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+      CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+    steps:
+      - name: Apply provider accounts
+        shell: python
+        run: |
+          import json, os, re, urllib.request
+
+          e = os.environ
+          CR = ["chat", "responses"]
+          private_cost = {"metric": "per_1000_tokens", "value": {"input": 0.001, "output": 0.001}}
+          chat = lambda *ms: {m: ["chat"] for m in ms}
+          api_key = lambda var: (lambda: {"type": "api-key", "api_key": e[var]})
+          keep_id = lambda m: m.replace(":", "-")
+          slug = lambda m: re.sub(r"[^a-z0-9]+", "-", m.lower()).strip("-")
+
+          providers = {
+              "openai": dict(
+                  t="openai", key="OPENAI_API_KEY", auth=api_key("OPENAI_API_KEY"),
+                  models={**{m: CR for m in ("gpt-4o-mini", "gpt-4.1-mini", "gpt-5-mini", "gpt-5")}, "o3-pro": ["responses"]},
+              ),
+              "anthropic": dict(
+                  t="anthropic", key="ANTHROPIC_API_KEY", auth=api_key("ANTHROPIC_API_KEY"), iname=keep_id,
+                  models=chat("claude-haiku-4-5", "claude-haiku-4-5-20251001", "claude-haiku-5-5", "claude-opus-4-7", "claude-opus-4-8", "claude-sonnet-4-5"),
+              ),
+              "bedrock": dict(
+                  t="aws-bedrock", it="bedrock", key="AWS_BEDROCK_API_KEY", auth=api_key("AWS_BEDROCK_API_KEY"), iname=keep_id,
+                  extra=lambda: {"region": "us-east-1"},
+                  models=chat(
+                      "us.anthropic.claude-haiku-4-5-20251001-v1:0", "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+                      "us.anthropic.claude-haiku-5-5", "us.anthropic.claude-opus-4-7", "us.anthropic.claude-opus-4-8",
+                      "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+                  ),
+              ),
+              "vertex": dict(
+                  t="google-vertex", it="vertex", key="VERTEX_KEY_FILE", cost=private_cost,
+                  extra=lambda: {"project_id": json.loads(e["VERTEX_KEY_FILE"])["project_id"], "region": "us-central1"},
+                  auth=lambda: {"type": "key-file", "key_file_content": json.loads(e["VERTEX_KEY_FILE"])},
+                  models=chat("gemini-2.5-flash", "gemini-2.5-pro"),
+              ),
+              "gemini": dict(
+                  t="google-gemini", it="gemini", key="GOOGLE_GEMINI_API_KEY",
+                  auth=lambda: {"type": "api-key", "apiKey": e["GOOGLE_GEMINI_API_KEY"]},
+                  models=chat("gemini-2.5-flash", "gemini-2.5-pro", "gemini-3.5-flash", "gemini-3.1-flash-lite"),
+              ),
+              "together-ai": dict(
+                  t="together-ai", key="TOGETHER_AI_API_KEY", auth=api_key("TOGETHER_AI_API_KEY"),
+                  models=chat("Qwen/Qwen3-235B-A22B-Instruct-2507-FP8", "MiniMaxAI/MiniMax-M2.7"),
+              ),
+              "sambanova": dict(
+                  t="sambanova", key="SAMBANOVA_API_KEY", auth=api_key("SAMBANOVA_API_KEY"),
+                  models=chat("DeepSeek-V3.2", "Meta-Llama-3.3-70B-Instruct", "gpt-oss-120b"),
+              ),
+              "mistral-ai": dict(
+                  t="mistral-ai", key="MISTRAL_AI_API_KEY", auth=api_key("MISTRAL_AI_API_KEY"),
+                  models=chat("mistral-small-latest", "mistral-large-latest", "magistral-medium-latest", "codestral-latest", "ministral-8b-latest"),
+              ),
+              "groq": dict(
+                  t="groq", key="GROQ_API_KEY", auth=api_key("GROQ_API_KEY"),
+                  models=chat("openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b"),
+              ),
+              "deepinfra": dict(
+                  t="deepinfra", key="DEEPINFRA_API_KEY", auth=api_key("DEEPINFRA_API_KEY"),
+                  models=chat("Qwen/Qwen3-235B-A22B-Instruct-2507", "Qwen/Qwen3-32B", "anthropic/claude-haiku-4-5", "anthropic/claude-opus-4-8"),
+              ),
+              "cohere": dict(
+                  t="cohere", key="COHERE_API_KEY", auth=api_key("COHERE_API_KEY"),
+                  models=chat("command-a-03-2025", "command-r-plus-08-2024", "command-a-reasoning-08-2025"),
+              ),
+              "cerebras": dict(
+                  t="cerebras", key="CEREBRAS_API_KEY", auth=api_key("CEREBRAS_API_KEY"),
+                  models=chat("gpt-oss-120b", "qwen-3.8-27b"),
+              ),
+          }
+
+          failed = []
+          for name, c in providers.items():
+              if not e.get(c["key"]):
+                  print(f"skip {name}: {c['key']} not set")
+                  continue
+              iname = c.get("iname", slug)
+              manifest = {
+                  "type": "provider-account/" + c["t"],
+                  "name": "bhavesh-test-" + name,
+                  "auth_data": c["auth"](),
+                  **(c["extra"]() if "extra" in c else {}),
+                  "collaborators": [{"subject": "user:bhavesh@truefoundry.com", "role_id": "provider-account-manager"}],
+                  "integrations": [
+                      {
+                          "type": "integration/model/" + c.get("it", c["t"]),
+                          "name": iname(m), "model_id": m, "model_types": types,
+                          "cost": c.get("cost", {"metric": "public_cost"}),
+                      }
+                      for m, types in c["models"].items()
+                  ],
+              }
+              req = urllib.request.Request(
+                  "https://internal.devtest.truefoundry.tech/api/svc/v1/apply",
+                  data=json.dumps({"manifest": manifest}).encode(), method="PUT",
+                  headers={"Authorization": "Bearer " + e["DEVTEST_TFY_TOKEN"], "Content-Type": "application/json"},
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=90) as r:
+                      print(f"{name}: {json.load(r).get('action', r.status)}")
+              except urllib.error.HTTPError as err:
+                  failed.append(name)
+                  print(f"{name}: HTTP {err.code} {err.read().decode()[:300]}")
+          if failed:
+              raise SystemExit("failed: " + ", ".join(failed))
