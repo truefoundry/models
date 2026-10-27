@@ -139,7 +139,7 @@ function buildCall(
 }
 
 export type RunTargetsOptions = {
-  /** Smoke: only scenario ids containing "baseline" (credential + harness check). */
+  /** Only scenario ids containing "baseline" (credential + harness check). */
   baselineOnly?: boolean;
 };
 

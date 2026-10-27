@@ -21,6 +21,8 @@ export type ProviderSpec = {
   region?: string;
   /** Account manifest fields whose values come from env (Databricks base_url, Foundry endpoints). */
   accountEnv?: Record<string, string>;
+  /** Model verified live for smoke; if deprecated or unset, the first non-deprecated chat model. */
+  smokeModel?: string;
 };
 
 const SPECS: Record<string, ProviderSpec> = {
@@ -30,6 +32,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/openai',
     apiKeyEnv: 'OPENAI_API_KEY',
     baseUrl: 'https://api.openai.com/v1',
+    smokeModel: 'gpt-4o-mini',
   },
   anthropic: {
     sdkProvider: 'anthropic',
@@ -37,12 +40,14 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/anthropic',
     apiKeyEnv: 'ANTHROPIC_API_KEY',
     baseUrl: 'https://api.anthropic.com/v1',
+    smokeModel: 'claude-haiku-4-5-20251001',
   },
   groq: {
     sdkProvider: 'groq',
     modelIntegrationType: 'integration/model/groq',
     accountType: 'provider-account/groq',
     apiKeyEnv: 'GROQ_API_KEY',
+    smokeModel: 'openai/gpt-oss-20b',
   },
   xai: {
     sdkProvider: 'xai',
@@ -50,12 +55,14 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/xai',
     apiKeyEnv: 'XAI_API_KEY',
     baseUrl: 'https://api.x.ai/v1',
+    smokeModel: 'grok-4.3',
   },
   cerebras: {
     sdkProvider: 'cerebras',
     modelIntegrationType: 'integration/model/cerebras',
     accountType: 'provider-account/cerebras',
     apiKeyEnv: 'CEREBRAS_API_KEY',
+    smokeModel: 'gpt-oss-120b',
   },
   'together-ai': {
     sdkProvider: 'together-ai',
@@ -68,12 +75,14 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/deepinfra',
     accountType: 'provider-account/deepinfra',
     apiKeyEnv: 'DEEPINFRA_API_KEY',
+    smokeModel: 'meta-llama/Llama-3.3-70B-Instruct-Turbo',
   },
   'mistral-ai': {
     sdkProvider: 'mistral-ai',
     modelIntegrationType: 'integration/model/mistral-ai',
     accountType: 'provider-account/mistral-ai',
     apiKeyEnv: 'MISTRAL_AI_API_KEY',
+    smokeModel: 'mistral-small-latest',
   },
   'perplexity-ai': {
     sdkProvider: 'perplexity-ai',
@@ -92,6 +101,7 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/sambanova',
     accountType: 'provider-account/sambanova',
     apiKeyEnv: 'SAMBANOVA_API_KEY',
+    smokeModel: 'Meta-Llama-3.3-70B-Instruct',
   },
   ai21: {
     sdkProvider: 'ai21',
@@ -104,6 +114,7 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/cohere',
     accountType: 'provider-account/cohere',
     apiKeyEnv: 'COHERE_API_KEY',
+    smokeModel: 'command-r-08-2024',
   },
   'google-gemini': {
     sdkProvider: 'google-gemini',
@@ -111,6 +122,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/google-gemini',
     apiKeyEnv: 'GOOGLE_GEMINI_API_KEY',
     authKeyField: 'apiKey',
+    smokeModel: 'gemini-3.8-flash',
   },
   'google-vertex': {
     sdkProvider: 'google-vertex',
@@ -119,6 +131,7 @@ const SPECS: Record<string, ProviderSpec> = {
     apiKeyEnv: 'VERTEX_KEY_FILE',
     authType: 'key-file',
     region: 'europe-west4',
+    smokeModel: 'anthropic/claude-haiku-4-5',
   },
   'aws-bedrock': {
     sdkProvider: 'aws-bedrock',
@@ -126,6 +139,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/aws-bedrock',
     apiKeyEnv: 'AWS_BEDROCK_API_KEY',
     region: 'us-east-1',
+    smokeModel: 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
   },
   'aws-bedrock-mantle': {
     sdkProvider: 'aws-bedrock-mantle',
@@ -133,6 +147,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/aws-bedrock-mantle',
     apiKeyEnv: 'AWS_BEDROCK_MANTLE_API_KEY',
     region: 'us-east-1',
+    smokeModel: 'anthropic.claude-haiku-4-5',
   },
   databricks: {
     sdkProvider: 'databricks',
@@ -140,6 +155,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/databricks',
     apiKeyEnv: 'DATABRICKS_API_KEY',
     accountEnv: { base_url: 'DATABRICKS_BASE_URL' },
+    smokeModel: 'databricks-meta-llama-3-1-8b-instruct',
   },
   'microsoft-foundry': {
     sdkProvider: 'microsoft-foundry',
@@ -150,6 +166,27 @@ const SPECS: Record<string, ProviderSpec> = {
       openai_endpoint: 'MICROSOFT_FOUNDRY_OPENAI_ENDPOINT',
       project_endpoint: 'MICROSOFT_FOUNDRY_PROJECT_ENDPOINT',
     },
+    smokeModel: 'gpt-5.6-luna',
+  },
+  wafer: {
+    sdkProvider: 'wafer',
+    modelIntegrationType: 'integration/model/wafer',
+    accountType: 'provider-account/wafer',
+    apiKeyEnv: 'WAFER_API_KEY',
+  },
+  typesafe: {
+    sdkProvider: 'typesafe',
+    modelIntegrationType: 'integration/model/typesafe',
+    accountType: 'provider-account/typesafe',
+    apiKeyEnv: 'TYPESAFE_API_KEY',
+    smokeModel: 'jev-1.13.0',
+  },
+  elevenlabs: {
+    sdkProvider: 'elevenlabs',
+    modelIntegrationType: 'integration/model/elevenlabs',
+    accountType: 'provider-account/elevenlabs',
+    apiKeyEnv: 'ELEVENLABS_API_KEY',
+    smokeModel: 'eleven_flash_v2_5',
   },
 };
 
