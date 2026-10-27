@@ -1,17 +1,34 @@
+canonical_model: openai/gpt-6-1-terra-pro
 costs:
-    - cache_creation_input_token_cost: 1.25e-6
-      cache_read_input_token_cost: 5e-8
-      input_cost_per_token: 1e-6
-      output_cost_per_token: 5e-6
+    - cache_creation_input_token_cost: 1.25e-06
+      cache_read_input_token_cost: 5e-08
+      input_cost_per_token: 1e-06
+      output_cost_per_token: 5e-06
       region: "*"
+      tiered_pricing:
+          cache_read:
+              - cost_per_token: 1e-07
+                from: 272000
+          cache_write:
+              - cost_per_token: 2.5e-06
+                from: 272000
+          input:
+              - cost_per_token: 2e-06
+                from: 272000
+          output:
+              - cost_per_token: 7.5e-06
+                from: 272000
+          pricing_mode: cumulative
 features:
     - function_calling
     - json_output
     - prompt_caching
     - structured_output
+    - system_messages
     - tool_choice
 limits:
     context_window: 1050000
+    max_input_tokens: 922000
     max_output_tokens: 128000
 modalities:
     input:
@@ -22,9 +39,22 @@ modalities:
         - text
 mode: chat
 model: openai/gpt-6.1-terra-pro
+params:
+    - defaultValue: medium
+      key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/openai/gpt-6.1-terra-pro
+    - https://developers.openai.com/api/docs/models/gpt-6.1-terra
+status: active
 supportedModes:
     - chat
 thinking: true
