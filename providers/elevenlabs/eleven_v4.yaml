@@ -1,6 +1,8 @@
 costs:
     - input_cost_per_character: 0.00008
       region: "*"
+limits:
+    max_input_tokens: 10000 # documented as 10,000 characters per request, not tokens; kept out of limits
 modalities:
     input:
         - text
