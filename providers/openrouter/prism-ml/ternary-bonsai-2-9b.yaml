@@ -1,0 +1,28 @@
+costs:
+    - cache_read_input_token_cost: 4e-8
+      input_cost_per_token: 8e-8
+      output_cost_per_token: 1.3e-7
+      region: "*"
+features:
+    - function_calling
+    - prompt_caching
+    - tool_choice
+limits:
+    context_window: 262144
+    max_output_tokens: 65536
+modalities:
+    input:
+        - text
+        - image
+    output:
+        - text
+mode: chat
+model: prism-ml/ternary-bonsai-2-9b
+params:
+    - defaultValue: 1
+      key: temperature
+    - defaultValue: 0.95
+      key: top_p
+    - defaultValue: 20
+      key: top_k
+thinking: true
