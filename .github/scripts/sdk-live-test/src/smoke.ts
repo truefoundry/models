@@ -1,11 +1,11 @@
 /**
- * Secrets smoke: one chat model per registered provider whose credential and account env are set.
+ * Secrets smoke: one model per registered provider (spec.smokeModel, else first chat) whose credential and account env are set.
  *
  * `spec.apiKeyEnv` is the env *name* (e.g. "OPENAI_API_KEY" or "VERTEX_KEY_FILE").
  * `process.env[spec.apiKeyEnv]` is the secret *value* (never logged).
  *
- * Example: OPENAI_API_KEY set → first openai chat row in the catalogue
- *   → [{ provider: "openai", modelId: "…" }]
+ * Example: OPENAI_API_KEY set → openai/gpt-4o-mini
+ *   → [{ provider: "openai", modelId: "gpt-4o-mini" }]
  *
  * Smoke runs baseline scenarios only (see runTargets baselineOnly).
  */
@@ -26,9 +26,13 @@ export function targetsWithSecrets(catalogue: CatalogueModel[]): Target[] {
       console.log(`smoke skip ${provider}: missing env ${missingEnv}`);
       continue;
     }
-    const pick = catalogue.find((m) => m.provider === provider && m.mode === 'chat');
+    const pick = catalogue.find(
+      (m) =>
+        m.provider === provider &&
+        (spec.smokeModel ? m.model === spec.smokeModel : m.mode === 'chat'),
+    );
     if (!pick) {
-      console.log(`smoke skip ${provider}: no chat model in catalogue`);
+      console.log(`smoke skip ${provider}: smoke model not in catalogue`);
       continue;
     }
     console.log(`smoke pick ${provider}/${pick.model} via ${spec.apiKeyEnv}`);
