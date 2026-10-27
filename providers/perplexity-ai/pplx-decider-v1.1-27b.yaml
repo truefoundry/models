@@ -4,6 +4,7 @@ costs:
       region: "*"
 limits:
     context_window: 262144
+    max_input_tokens: 262144
 modalities:
     input:
         - text
@@ -13,6 +14,7 @@ model: pplx-decider-v1.1-27b
 provisioning: serverless
 sources:
     - https://docs.perplexity.ai/docs/decisions/quickstart
+    - https://docs.perplexity.ai/docs/getting-started/pricing
 status: active
 supportedModes:
     - decision
