@@ -4,6 +4,8 @@ features:
     - tool_choice
 limits:
     context_window: 256000
+    max_output_tokens: 64000
+    max_tokens: 64000
 modalities:
     input:
         - text
@@ -16,7 +18,11 @@ provisioning: serverless
 sources:
     - https://ai.azure.com/catalog/models/MAI-Code-1.1-Flash
     - https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF
-status: active
+    - https://ai.azure.com/catalog/models/mai-code-1.1-flash
+    - https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/
+    - https://aka.ms/MAIModelPricing
+# costs: not found in official docs — model card lists Pricing as "To be finalized" and the Foundry Models pricing page shows "$-" for MAI-Code family
+status: preview
 supportedModes:
     - chat
 thinking: true
