@@ -256,7 +256,7 @@ def test_already_deprecated_to_retired_is_review():
 
 @pytest.mark.parametrize("was,now,escalate", [
     ("unknown", "chat", False), (None, "chat", False), ("chat", "embedding", True), ("chat", "unknown", True),
-    ("chat", None, True), ("unknown", None, True), ("embedding", "chat", True),
+    ("chat", None, True), ("unknown", None, False), ("embedding", "chat", True),
 ])
 def test_mode_fill_in_is_review_any_other_change_escalates(was, now, escalate):
     before, after = mod(), mod()
@@ -266,6 +266,13 @@ def test_mode_fill_in_is_review_any_other_change_escalates(was, now, escalate):
             doc["mode"] = v
     r = one(after, before)
     assert (r.label, r.escalate) == ("risk:mode", escalate)
+
+
+def test_removing_the_unknown_placeholder_mode_is_review_but_a_real_mode_is_not():
+    stub = mod(supportedModes=["unknown"])
+    out = assess(stub, mod(supportedModes=["chat"]))
+    assert [(x.label, x.escalate) for x in out] == [("risk:removal", False), ("risk:mode", False)]
+    assert any(x.escalate for x in assess(mod(supportedModes=["chat", "responses"]), mod(supportedModes=["chat"])))
 
 
 def test_supported_modes_removed_or_swapped_escalates():

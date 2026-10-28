@@ -71,4 +71,6 @@ class FileReport:
         """Every changed field has a verified check and the sources compared everything. A file
         with nothing a source could check (only rule findings) and no source is not unverified."""
         # with no source, `unverified_needs` is every need, so "none" only passes when nothing needs one
+        if self.is_new and not self.needs:  # a new stub (no price or limit): nothing about it was checked
+            return False
         return not self.unverified_needs and self.source_state in ("official", "none")

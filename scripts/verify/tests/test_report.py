@@ -1,3 +1,5 @@
+import pytest
+
 from verify import gates, report
 from verify.labels import MARKER
 from verify.model import FileReport
@@ -97,3 +99,50 @@ def test_file_json_shape():
     j = report.file_json(f)
     assert j["source_state"] == "official" and j["fully_verified"] and j["risks"][0]["covered"] is True
     assert j["checks"][0]["locator"] == list(IN) and j["notes"] == ["hi"]
+
+
+def test_the_footer_and_the_omitted_note_survive_when_files_do_not_fit():
+    files = many_files(800)
+    text = report.render_comment(gates.decide(files), files)
+    assert text.endswith(report.FOOTER)                       # the tail is reserved, not cut off by cap()
+    assert "more file(s) not shown" in text and len(text) <= report.COMMENT_LIMIT
+    summary = report.render_summary(gates.decide(files), files)
+    assert summary.endswith(report.FOOTER) and "more file(s) not shown" in summary
+
+
+def test_blocks_fill_up_to_the_budget_but_never_into_the_reserved_tail():
+    files = many_files(800, risks_each=2)
+    v = gates.decide(files)
+    text = report.render_comment(v, files)
+    body_end = text.rindex("\n\n…")                           # where the omitted note starts
+    assert body_end <= report.COMMENT_LIMIT - report.RESERVED_TAIL + 2
+    assert len(text) - body_end <= report.RESERVED_TAIL
+
+
+def test_cap_is_the_last_line_of_defence_when_even_the_header_is_too_long(monkeypatch):
+    monkeypatch.setattr(report, "COMMENT_LIMIT", 900)
+    files = many_files(3, risks_each=2)
+    notes = [f"note {i} " + "x" * 280 for i in range(report.MAX_NOTES)]
+    text = report.render_comment(gates.decide(files), files, notes=notes)
+    assert len(text) <= 900 and text.startswith(MARKER)
+    monkeypatch.setattr(report, "SUMMARY_LIMIT", 700)
+    assert len(report.render_summary(gates.decide(files), files, notes=notes)) <= 700
+
+
+def test_the_comment_limit_is_below_githubs_and_leaves_room_for_the_label_jobs_escaping():
+    assert report.COMMENT_LIMIT == 60_000 and report.SUMMARY_LIMIT == 60_000
+    assert report.RESERVED_TAIL >= len(report.FOOTER) + 300
+
+
+def test_comment_stays_within_the_limit_for_many_block_sizes():
+    for risks in (1, 3, 7, 12, 30):
+        files = many_files(300, risks_each=risks)
+        text = report.render_comment(gates.decide(files), files)
+        assert len(text) <= report.COMMENT_LIMIT and text.endswith(report.FOOTER)
+
+
+@pytest.mark.parametrize("raw", ["a\rb", "a\x00b", "a\u2028b", "a\u202eb", "a\ud800b", "a\nb", "a`b", "a|b"])
+def test_code_spans_never_carry_control_characters_backticks_or_pipes(raw):
+    out = report.code(raw)
+    assert out.startswith("`") and out.endswith("`") and out.count("`") == 2 and "|" not in out
+    assert not any(ch in out for ch in ("\r", "\n", "\x00", "\u2028", "\u202e", "\ud800"))

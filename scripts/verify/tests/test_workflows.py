@@ -12,6 +12,8 @@ import yaml
 REPO = Path(__file__).resolve().parents[3]
 WF = REPO / ".github" / "workflows"
 PKG = REPO / "scripts" / "verify"
+FILES = ("verify-pr.yml", "verify-label.yml", "verify-tests.yml")
+SHA = re.compile(r"^[A-Za-z0-9._-]+/[A-Za-z0-9._/-]+@[0-9a-f]{40}( #.*)?$")
 
 
 def load(name):
@@ -24,85 +26,97 @@ def steps(doc, job):
     return doc["jobs"][job]["steps"]
 
 
-def test_verify_pr_is_read_only_and_secretless():
+def all_steps():
+    for name in FILES:
+        for job in load(name)["jobs"].values():
+            for step in job["steps"]:
+                yield name, step
+
+
+def test_verify_pr_is_a_thin_trigger_that_runs_nothing_from_the_pr():
     doc = load("verify-pr.yml")
     assert set(doc["on"]) == {"pull_request"}  # never pull_request_target
-    assert doc["permissions"] == {"contents": "read"}
-    assert "permissions" not in doc["jobs"]["verify"]  # no job widens it
+    assert doc["permissions"] == {}
+    st = steps(doc, "trigger")
+    assert all("uses" not in s for s in st)  # no checkout, no action, no PR code
     text = (WF / "verify-pr.yml").read_text()
     assert not re.search(r"\$\{\{\s*secrets", text) and "pull_request_target" not in text
-    assert any(s.get("uses", "").startswith("actions/upload-artifact") for s in steps(doc, "verify"))
-    checkout = next(s for s in steps(doc, "verify") if s.get("uses", "").startswith("actions/checkout"))
-    assert checkout["with"]["fetch-depth"] == 0
-    run = next(s for s in steps(doc, "verify") if "python -m verify" in s.get("run", ""))
-    assert "continue-on-error" not in run and "|| true" not in run["run"]
-
-
-def test_verify_pr_restores_the_verifier_from_the_base_commit_before_running_it():
-    doc = load("verify-pr.yml")
-    st = steps(doc, "verify")
-    names = [s.get("name", "") for s in st]
-    restore = next(i for i, s in enumerate(st) if s.get("id") == "tool")
-    run = next(i for i, s in enumerate(st) if "python -m verify" in s.get("run", ""))
-    skip = next(i for i, s in enumerate(st) if "no-verifier-at-base" in s.get("run", ""))
-    assert restore < run and restore < skip
-    body = st[restore]["run"]
-    assert st[restore]["env"]["BASE_SHA"] == "${{ github.event.pull_request.base.sha }}"
-    assert 'git checkout "$BASE_SHA" -- scripts/verify' in body and "sources/registry.yaml" in body
-    assert "rm -rf scripts/verify sources" in body  # nothing the PR added to the package survives
-    assert "steps.tool.outputs.present == 'true'" in st[run]["if"] and "!= 'true'" in st[skip]["if"]
-    assert any("Restore the verifier from the base commit" in n for n in names)
-    assert "$GITHUB_STEP_SUMMARY" in st[skip]["run"]  # the neutral note
+    assert "python" not in text and "scripts/" not in text and "upload-artifact" not in text
+    assert "permissions" not in doc["jobs"]["trigger"]
 
 
 def test_no_expression_is_interpolated_into_a_shell_script():
-    for name in ("verify-pr.yml", "verify-label.yml", "verify-tests.yml"):
-        doc = load(name)
-        for job in doc["jobs"].values():
-            for step in job["steps"]:
-                assert "${{" not in step.get("run", ""), (name, step.get("name"))
+    for name, step in all_steps():
+        assert "${{" not in step.get("run", ""), (name, step.get("name"))
 
 
-def test_verify_label_never_checks_out_the_pr_and_has_the_minimum_permissions():
+def test_verify_label_checks_out_only_the_default_branch_and_fetches_nothing_else():
     doc = load("verify-label.yml")
     assert doc["on"] == {"workflow_run": {"workflows": ["Verify PR"], "types": ["completed"]}}
     assert load("verify-pr.yml")["name"] == "Verify PR"
     assert doc["permissions"] == {}
     job = doc["jobs"]["sync"]
-    assert job["permissions"] == {"actions": "read", "contents": "read", "pull-requests": "write", "checks": "write"}
+    assert job["permissions"] == {"contents": "read", "pull-requests": "write", "checks": "write"}
+    assert job["timeout-minutes"] <= 20
     text = (WF / "verify-label.yml").read_text()
-    assert "pull_request_target" not in text
+    assert "pull_request_target" not in text and "download-artifact" not in text and "actions: read" not in text
+    checkouts = [s for s in job["steps"] if s.get("uses", "").startswith("actions/checkout")]
+    assert len(checkouts) == 1
+    w = checkouts[0]["with"]
+    assert w["ref"] == "${{ github.event.repository.default_branch }}"
+    assert w["persist-credentials"] is False and w["fetch-depth"] == 0
     for s in job["steps"]:
-        if s.get("uses", "").startswith("actions/checkout"):
-            assert s["with"]["ref"] == "${{ github.event.repository.default_branch }}"
-            assert s["with"]["persist-credentials"] is False
-            assert s["with"]["sparse-checkout"] == "scripts/verify"
-        ref = str(s.get("with", {}).get("ref", ""))
-        assert "head_sha" not in ref and "head_branch" not in ref and "pull_request" not in ref
+        for v in (s.get("with") or {}).values():
+            assert "head_sha" not in str(v) and "head_branch" not in str(v) and "pull_request" not in str(v)
+        assert "checkout" not in s.get("run", "") and "pull/" not in s.get("run", "")  # the PR head is fetched by labeljob.py, objects only
+    run = [s for s in job["steps"] if "python -m verify.labeljob" in s.get("run", "")]
+    assert len(run) == 1 and run[0]["working-directory"] == "scripts"
+    assert "pip install" in "".join(s.get("run", "") for s in job["steps"])
     cond = job["if"]
-    assert "conclusion == 'success'" in cond and "event == 'pull_request'" in cond and "trueforge/" in cond
-    assert any("-m verify.sync" in s.get("run", "") for s in job["steps"])
-    # the artifact is downloaded, never executed or imported
-    dl = next(s for s in job["steps"] if s.get("uses", "").startswith("actions/download-artifact"))
-    assert dl["with"]["name"] == "verify-result" and "run-id" in dl["with"]
+    assert "event == 'pull_request'" in cond and "trueforge/" in cond
 
 
-def test_verify_tests_triggers_on_the_package_and_the_registry():
+def test_verify_label_has_a_per_pr_concurrency_group_that_does_not_cancel():
+    job = load("verify-label.yml")["jobs"]["sync"]
+    group = job["concurrency"]["group"]
+    assert "workflow_run.pull_requests[0].number" in group and "head_repository.id" in group and "head_branch" in group
+    assert job["concurrency"]["cancel-in-progress"] is False
+
+
+def test_verify_tests_triggers_on_the_package_the_registry_and_the_schema():
     doc = load("verify-tests.yml")
     paths = doc["on"]["pull_request"]["paths"]
-    assert "scripts/verify/**" in paths and "sources/registry.yaml" in paths
+    for p in ("scripts/verify/**", "sources/registry.yaml", ".github/test/model.cue", ".github/test/model.rules.cue"):
+        assert p in paths
     assert doc["permissions"] == {"contents": "read"}
 
 
-def test_the_label_job_code_is_stdlib_only_and_does_not_import_the_verifier():
-    for mod in ("sync.py", "labels.py"):
+def test_every_action_is_pinned_to_a_full_commit_sha_with_the_tag_in_a_comment():
+    text = {n: (WF / n).read_text() for n in FILES}
+    for name, body in text.items():
+        for line in body.splitlines():
+            m = re.search(r"uses:\s*(\S.*)$", line)
+            if m:
+                assert SHA.match(m.group(1).strip()) and re.search(r"# v\d+\.\d+\.\d+$", m.group(1).strip()), (name, line)
+
+
+def test_dependencies_are_pinned_in_every_workflow_that_installs_any():
+    for name in ("verify-label.yml", "verify-tests.yml"):
+        for s in steps(load(name), next(iter(load(name)["jobs"]))):
+            for m in re.finditer(r"pip install (.*)", s.get("run", "")):
+                pkgs = re.findall(r'"([^"]+)"', m.group(1))
+                assert pkgs and all("==" in p for p in pkgs), (name, m.group(0))
+
+
+def test_the_apply_module_is_stdlib_only_and_only_the_label_job_entrypoint_imports_the_verifier():
+    for mod in ("sync.py", "labels.py", "textclean.py"):
         tree = ast.parse((PKG / mod).read_text())
         for node in ast.walk(tree):
             if isinstance(node, ast.Import):
                 names = [a.name.split(".")[0] for a in node.names]
             elif isinstance(node, ast.ImportFrom):
-                if node.level:  # relative: only the label constants
-                    assert node.module == "labels", (mod, node.module)
+                if node.level:  # relative: only the label constants and text helpers
+                    assert node.module in ("labels", "textclean"), (mod, node.module)
                     continue
                 names = [(node.module or "").split(".")[0]]
             else:
@@ -113,11 +127,5 @@ def test_the_label_job_code_is_stdlib_only_and_does_not_import_the_verifier():
 @pytest.mark.skipif(not (shutil.which("actionlint") or Path("/opt/homebrew/bin/actionlint").exists()), reason="no actionlint")
 def test_actionlint_passes():
     exe = shutil.which("actionlint") or "/opt/homebrew/bin/actionlint"
-    files = [str(WF / n) for n in ("verify-pr.yml", "verify-label.yml", "verify-tests.yml")]
-    p = subprocess.run([exe, *files], capture_output=True, text=True)
+    p = subprocess.run([exe, *[str(WF / n) for n in FILES]], capture_output=True, text=True)
     assert p.returncode == 0, p.stdout + p.stderr
-
-
-def test_verify_pr_pins_nothing_to_a_moving_python():
-    text = (WF / "verify-pr.yml").read_text()
-    assert re.search(r"python-version: '3\.\d+'", text)

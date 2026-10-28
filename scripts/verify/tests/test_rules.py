@@ -184,6 +184,27 @@ def test_inherited_cap(over, fires):
     assert ("max-tokens-inherited-cap" in ids(rules.evaluate(doc, ctx("openai", CAPPED)))) is fires
 
 
+def test_inherited_cap_ignores_a_limits_max_tokens_that_is_only_the_context_size():
+    ctxwin = {"model": "m", "mode": "chat", "limits": {"context_window": 8192, "max_tokens": 8192}}
+    assert ids(rules.evaluate(ctxwin, ctx("openai", CAPPED))) == []                       # max_tokens == context window
+    assert ids(rules.evaluate({**ctxwin, "limits": {"max_tokens": 8192}}, ctx("openai", CAPPED))) == ["max-tokens-inherited-cap"]  # no context: a real limit
+    real = {"model": "m", "mode": "chat", "limits": {"context_window": 200000, "max_tokens": 8192}}
+    assert ids(rules.evaluate(real, ctx("openai", CAPPED))) == ["max-tokens-inherited-cap"]   # 8192 < 200k: the output limit
+    both = {"model": "m", "mode": "chat", "limits": {"context_window": 8192, "max_tokens": 8192, "max_output_tokens": 6000}}
+    assert ids(rules.evaluate(both, ctx("openai", CAPPED))) == ["max-tokens-inherited-cap"]   # max_output_tokens wins
+    assert rules.output_limit({"limits": {"context_window": 20000, "max_tokens": 9000}}) == 9000.0
+    assert rules.output_limit({"limits": {"context_window": 8192, "max_tokens": 9000}}) is None  # above the window: not an output limit
+
+
+def test_a_declared_but_removed_cap_param_is_not_checked():
+    doc = {**CHAT, "params": [{"key": "max_completion_tokens", "maxValue": 4096}], "removeParams": ["max_completion_tokens"]}
+    assert "max-tokens-below-limit" not in ids(rules.evaluate(doc, ctx()))
+    doc = {**CHAT, "params": [{"key": "max_tokens", "maxValue": 4096}], "removeParams": ["max_tokens"]}
+    assert "max-tokens-below-limit" not in ids(rules.evaluate(doc, ctx()))
+    live = {**CHAT, "params": [{"key": "max_completion_tokens", "maxValue": 4096}], "removeParams": ["max_tokens"]}
+    assert "max-tokens-below-limit" in ids(rules.evaluate(live, ctx()))
+
+
 def test_inherited_cap_needs_a_default_cap():
     assert ids(rules.evaluate(CHAT, ctx("openai", {}))) == []
     assert ids(rules.evaluate(CHAT, ctx("openai", {"params": [{"key": "max_tokens"}]}))) == []  # no maxValue

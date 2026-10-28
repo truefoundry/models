@@ -10,7 +10,7 @@ from collections.abc import Iterable
 MARKER = "<!-- catalog-verify -->"
 
 GATES = ("review", "unverified", "escalate")  # set by this tool; `hold` is set by humans
-RISKS = ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error")
+RISKS = ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error", "provider-default")
 # Static rules (rules.py): one risk:rule-<id> label each. Keep in step with rules.RULES.
 RULE_IDS = ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completion-pair", "null-status",
             "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default",

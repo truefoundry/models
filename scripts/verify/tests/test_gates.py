@@ -212,3 +212,27 @@ def test_added_region_needs_all_its_leaves():
     after = mod(lambda d: d["costs"].append({"region": "eu", "input_cost_per_token": 3e-6, "output_cost_per_token": 1.5e-5}))
     f = report_for(base(), after, FakeSource(res=result(check(("costs", "region=eu", "input_cost_per_token")))))
     assert decide(f).gate == "unverified"
+
+
+# ---- stubs --------------------------------------------------------------------------------------
+STUB = {"model": "new-model", "mode": "unknown", "supportedModes": ["unknown"]}
+
+
+def test_a_new_stub_file_is_unverified_new_model_never_review():
+    for stub in (STUB, {"model": "m", "mode": "chat"}, {"model": "m", "mode": "chat", "features": ["function_calling"]}):
+        v = decide(report_for(None, stub, None, status=ADDED))
+        assert (v.gate, v.kind) == ("unverified", "new-model"), stub
+    even_with_a_clean_source = FakeSource(res=result(check(IN)))
+    v = decide(report_for(None, STUB, even_with_a_clean_source, status=ADDED))
+    assert v.gate == "unverified"
+
+
+def test_a_new_file_with_prices_all_verified_can_still_be_review():
+    src = FakeSource(res=lambda p, d: result(*[check(n) for n in __import__("verify.risk").risk.new_file_needs(d)]))
+    assert decide(report_for(None, base(), src, status=ADDED)).gate == "review"
+
+
+def test_filling_in_a_stub_is_a_review_level_mode_change_not_an_escalation():
+    from verify.risk import assess
+    out = assess(dict(STUB, costs=[{"region": "*", "input_cost_per_token": 1e-6}]), dict(base(), model="new-model"))
+    assert not any(r.escalate and r.label in ("risk:mode", "risk:removal") and r.locator[0] in ("mode", "supportedModes") for r in out)

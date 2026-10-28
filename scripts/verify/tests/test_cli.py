@@ -53,7 +53,7 @@ def test_result_shape_and_validates_against_the_label_schema():
     assert (out["gate"], out["kind"], out["verify"]) == ("review", "price-only", "official")
     assert out["labels"] == ["gate:review", "kind:price-only", "risk:price", "shadow:auto", "verify:official"]
     assert set(out) == {"version", "base_sha", "head_sha", "skipped", "labels", "gate", "kind", "verify", "shadow", "files",
-                        "notes", "comment_md", "summary_md"}
+                        "files_total", "files_omitted", "notes", "comment_md", "summary_md"}
     validate(json.loads(json.dumps(out)))  # exactly what the label job accepts
 
 
@@ -66,12 +66,39 @@ def test_trueforge_branch_is_skipped_entirely():
     assert out["skipped"] is None  # only a PREFIX is skipped
 
 
-def test_only_model_yaml_files_are_considered():
+def test_only_model_yaml_files_get_a_model_check_and_provider_wide_files_escalate():
     changed = [("M", p) for p in ("providers/p/default.yaml", "providers/p/provider-config.yaml", "providers/p/readme.md",
                                   "providers/p.yaml", "scripts/x.yaml", "providers/p/sub/m.yaml")]
     files = {("MB", "providers/p/sub/m.yaml"): dump(base()), (HEAD_SHA, "providers/p/sub/m.yaml"): dump(price(input_cost_per_token=3.1e-6))}
     out = run(FakeRepo(changed, files))
-    assert [f["path"] for f in out["files"]] == ["providers/p/sub/m.yaml"]
+    assert [f["path"] for f in out["files"]] == ["providers/p/default.yaml", "providers/p/provider-config.yaml", "providers/p/sub/m.yaml"]
+    assert out["gate"] == "escalate" and "risk:provider-default" in out["labels"]
+    assert "Provider-wide change" in out["comment_md"] and "No model YAML" not in out["comment_md"]
+
+
+def test_only_the_provider_level_default_counts_a_nested_one_changes_nothing():
+    assert cli.is_provider_file("providers/p/default.yaml") and cli.is_provider_file("providers/p/provider-config.yaml")
+    assert not cli.is_provider_file("providers/p/sub/default.yaml") and not cli.is_provider_file("providers/default.yaml")
+    assert not cli.is_provider_file("providers/p/m.yaml") and not cli.is_model_file("providers/p/sub/default.yaml")
+    out = run(FakeRepo([("M", "providers/p/sub/default.yaml")], {}))
+    assert out["labels"] == [] and out["files"] == []
+
+
+def test_a_default_yaml_only_pr_is_not_nothing_to_verify():
+    out = run(FakeRepo([("M", "providers/openai/default.yaml")], {}))
+    assert (out["gate"], out["kind"], out["verify"]) == ("escalate", "mixed", "none")
+    assert out["labels"] == ["gate:escalate", "kind:mixed", "risk:provider-default", "verify:none"]
+    assert "`openai`" in out["comment_md"] and "affects every model" in out["comment_md"]
+    validate(json.loads(json.dumps(out)))
+    deleted = run(FakeRepo([("D", "providers/openai/provider-config.yaml")], {}))
+    assert deleted["gate"] == "escalate"
+
+
+def test_provider_wide_files_get_no_source_check():
+    src = FakeSource(res=result(check(IN)))
+    out = cli.run(FakeRepo([("M", "providers/p/default.yaml")], {}), BASE_SHA, HEAD_SHA, registry=registry(("p", "fake")),
+                  load_sources=loader(src))
+    assert src.checked == [] and src.prepared == 0 and out["gate"] == "escalate"
 
 
 def test_is_model_file():
@@ -138,7 +165,6 @@ def repo(tmp_path):
 def commit_change(repo, **price_kw):
     git(repo, "checkout", "-q", "-b", "pr")
     (repo / "providers" / "p" / "m.yaml").write_text(dump(price(**price_kw)))
-    (repo / "providers" / "p" / "default.yaml").write_text("x: 2\n")
     git(repo, "commit", "-qam", "change")
 
 
@@ -153,7 +179,7 @@ def test_main_end_to_end_on_a_real_repo(repo, tmp_path_factory, monkeypatch, cap
     assert rc == 0
     data = json.loads(out.read_text())
     assert data["labels"] == ["gate:review", "kind:price-only", "risk:price", "shadow:auto", "verify:official"]
-    assert [f["path"] for f in data["files"]] == ["providers/p/m.yaml"]  # default.yaml is ignored
+    assert [f["path"] for f in data["files"]] == ["providers/p/m.yaml"]
     assert summary.read_text() == data["summary_md"]
     assert "gate=review" in capsys.readouterr().out
     validate(data)
@@ -199,3 +225,59 @@ def test_python_dash_m_entrypoint(repo, tmp_path):
                        cwd=scripts, capture_output=True, text=True)
     assert p.returncode == 0, p.stderr
     assert json.loads(p.stdout)["gate"] == "unverified"
+
+
+def test_a_real_repo_default_yaml_change_escalates(repo, monkeypatch, capsys):
+    git(repo, "checkout", "-q", "-b", "pr")
+    (repo / "providers" / "p" / "default.yaml").write_text("x: 2\n")
+    git(repo, "commit", "-qam", "default")
+    monkeypatch.setattr(sources, "SOURCES", {})
+    cli.main(["--base", "main", "--head", "HEAD", "--repo", str(repo)])
+    data = json.loads(capsys.readouterr().out)
+    assert data["gate"] == "escalate" and "risk:provider-default" in data["labels"]
+
+
+# ---- very large PRs ------------------------------------------------------------------------------
+def big_repo(n, escalate_every=0):
+    changed, files = [], {}
+    for i in range(n):
+        path = f"providers/p/model-{i:05d}.yaml"
+        changed.append(("M", path))
+        after = price(input_cost_per_token=3.1e-6 * (3 if escalate_every and i % escalate_every == 0 else 1))
+        files[("MB", path)] = dump(base())
+        files[(HEAD_SHA, path)] = dump(after)
+    return FakeRepo(changed, files)
+
+
+def test_a_3000_file_pr_keeps_every_label_and_the_gate_and_only_the_file_list_is_cut():
+    out = run(big_repo(3000, escalate_every=1000), FakeSource(res=result(check(IN))))
+    assert out["gate"] == "escalate" and "risk:price" in out["labels"] and out["kind"] == "price-only"
+    assert out["files_total"] == 3000 and len(out["files"]) == cli.MAX_FILES_LISTED
+    assert out["files_omitted"] == 3000 - cli.MAX_FILES_LISTED
+    paths = [f["path"] for f in out["files"]]
+    assert paths == sorted(paths)
+    # the most severe files are the ones kept
+    assert {"providers/p/model-00000.yaml", "providers/p/model-01000.yaml", "providers/p/model-02000.yaml"} <= set(paths)
+    assert len(json.dumps(out)) < 700_000
+    assert len(out["comment_md"]) <= 60_000 and len(out["summary_md"]) <= 60_000
+    assert "more file(s) not shown" in out["comment_md"]
+    validate(json.loads(json.dumps(out)))  # the label job accepts it
+
+
+def test_a_pr_under_the_list_limit_lists_every_file():
+    out = run(big_repo(10))
+    assert out["files_total"] == 10 and out["files_omitted"] == 0 and len(out["files"]) == 10
+
+
+def test_the_list_keeps_loud_files_before_quiet_ones_when_cut(monkeypatch):
+    monkeypatch.setattr(cli, "MAX_FILES_LISTED", 3)
+    out = run(big_repo(50, escalate_every=25))   # files 0 and 25 escalate
+    kept = [f["path"] for f in out["files"]]
+    assert "providers/p/model-00000.yaml" in kept and "providers/p/model-00025.yaml" in kept and len(kept) == 3
+
+
+def test_lone_surrogates_in_text_do_not_crash_writing_the_outputs(tmp_path):
+    out = tmp_path / "o.md"
+    cli.write_text(out, "ok \ud800 end")
+    assert out.read_text(encoding="utf-8") == "ok ? end"
+    cli.write_text(tmp_path / "p.json", "plain")

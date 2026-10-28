@@ -15,6 +15,7 @@ from collections.abc import Iterable
 from .gates import Verdict, changed
 from .labels import MARKER
 from .model import FileReport
+from .textclean import cap, clean_line
 from .types import Check
 
 COMMENT_LIMIT = 60_000  # GitHub's hard limit is 65,536
@@ -28,22 +29,10 @@ MAX_NOTES = 20
 def code(value, limit: int = 120) -> str:
     """Untrusted text as an inline code span: no backtick, newline or pipe, so it can neither
     break out of the span nor break a table, and `@mentions` inside it do not notify."""
-    text = " ".join(str(value).replace("`", "'").replace("|", "/").split())
+    text = clean_line(str(value).replace("`", "'").replace("|", "/"))
     if len(text) > limit:
         text = text[: limit - 1] + "…"
     return f"`{text}`"
-
-
-def cap(text: str, limit: int, note: str = "…truncated") -> str:
-    """text unchanged when it fits; else cut at a line boundary so the result is <= limit."""
-    if len(text) <= limit:
-        return text
-    room = limit - len(note) - 1
-    cut = text[:room]
-    nl = cut.rfind("\n")
-    if nl > 0:
-        cut = cut[:nl]
-    return f"{cut}\n{note}"
 
 
 def _val(v) -> str:
@@ -117,6 +106,10 @@ def _head(verdict: Verdict, files: list[FileReport], notes: Iterable[str], hold:
     blocks.append(f"{len(ch)} changed model file(s) · {sum(c.status == 'verified' for c in checks)} field(s) verified "
                   f"against an official source · {sum(c.status == 'conflict' for c in checks)} conflict(s) · "
                   "report only: nothing is merged or blocked.")
+    wide = sorted({r.locator[1] for f in ch for r in f.risks if r.label == "risk:provider-default"})
+    for provider in wide[:10]:
+        blocks.append(f"**Provider-wide change**: {code(provider)} `default.yaml` / `provider-config.yaml` changed, "
+                      "which affects every model under it.")
     if verdict.shadow:
         blocks.append("`shadow:auto`: every change is a price move within ±10% that the official source confirms. "
                       "Measured only: nothing is merged.")

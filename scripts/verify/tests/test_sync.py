@@ -1,5 +1,4 @@
 import io
-import json
 import urllib.error
 import urllib.parse
 
@@ -7,6 +6,7 @@ import pytest
 
 from verify import sync
 from verify.labels import MARKER, OWNED
+from verify.textclean import safe_markdown
 from verify.sync import GitHub, SyncError, ValidationError
 
 SHA = "a" * 40
@@ -17,13 +17,13 @@ def artifact(**over):
     data = {"version": 1, "base_sha": BASE, "head_sha": SHA, "skipped": None,
             "labels": ["gate:review", "kind:price-only", "risk:price", "shadow:auto", "verify:official"],
             "gate": "review", "kind": "price-only", "verify": "official", "shadow": True,
-            "files": [{"path": "providers/p/m.yaml"}], "notes": [], "comment_md": f"{MARKER}\n## Catalog verify",
+            "files": [{"path": "providers/p/m.yaml"}], "files_total": 1, "files_omitted": 0, "notes": [], "comment_md": f"{MARKER}\n## Catalog verify",
             "summary_md": "full table"}
     data.update(over)
     return data
 
 
-NOTHING = dict(labels=[], gate=None, kind=None, verify=None, shadow=False, files=[], comment_md=f"{MARKER}\nnothing", summary_md="x")
+NOTHING = dict(labels=[], gate=None, kind=None, verify=None, shadow=False, files=[], files_total=0, comment_md=f"{MARKER}\nnothing", summary_md="x")
 
 
 # ---------------------------------------------------------------------------- validation
@@ -83,45 +83,17 @@ def test_skipped_run_carries_no_labels():
         sync.validate(artifact(skipped="trueforge-branch"))
 
 
-def test_the_no_verifier_at_base_artifact_the_workflow_writes_is_valid_and_touches_nothing(tmp_path):
-    raw = ('{"version":1,"base_sha":"%s","head_sha":"%s","skipped":"no-verifier-at-base","labels":[],"gate":null,'
-           '"kind":null,"verify":null,"shadow":false,"files":[],"notes":[],"comment_md":"","summary_md":""}') % (BASE, SHA)
-    (tmp_path / sync.ARTIFACT_FILE).write_text(raw)
-    api = FakeApi()
-    assert sync.sync(api, event(), tmp_path)["skipped"] == "no-verifier-at-base"
-    assert api.calls == []
-
-
-def test_load_artifact_file_rules(tmp_path):
-    with pytest.raises(ValidationError):
-        sync.load_artifact(tmp_path)
-    f = tmp_path / sync.ARTIFACT_FILE
-    f.write_text("{not json")
-    with pytest.raises(ValidationError):
-        sync.load_artifact(tmp_path)
-    f.write_text(json.dumps(artifact()))
-    assert sync.load_artifact(tmp_path)["head_sha"] == SHA
-    f.write_text(" " * (sync.MAX_ARTIFACT_BYTES + 1))
-    with pytest.raises(ValidationError):
-        sync.load_artifact(tmp_path)
-    f.unlink()
-    target = tmp_path / "elsewhere.json"
-    target.write_text(json.dumps(artifact()))
-    f.symlink_to(target)
-    with pytest.raises(ValidationError):
-        sync.load_artifact(tmp_path)
-
-
 def test_mentions_are_neutralised():
-    out = sync.sanitize_md("hi @octocat and @org/team")
+    out = safe_markdown("hi @octocat and @org/team", 1000)
     assert "@octocat" not in out and "@org/team" not in out and out.count("@​") == 2
 
 
 # ------------------------------------------------------------------------------ fake API
 class FakeApi(GitHub):
-    def __init__(self, labels=(), comments=(), head_sha=SHA, fork=False, fail=(), checks=()):
+    def __init__(self, labels=(), comments=(), head_sha=SHA, fork=False, fail=(), checks=(), pr=None):
         super().__init__("tok", "o/r")
         self.labels, self.comments, self.head_sha, self.fork, self.fail, self.checks = list(labels), list(comments), head_sha, fork, fail, list(checks)
+        self.pr_override = pr or {}
         self.calls = []
 
     def request(self, method, path, body=None, ok_missing=False):
@@ -131,7 +103,9 @@ class FakeApi(GitHub):
                 raise SyncError(f"{method} {path} -> HTTP 403")
         p = path.split("?")[0]
         if method == "GET" and p == "/repos/o/r/pulls/7":
-            return {"number": 7, "state": "open", "head": {"sha": self.head_sha}, "base": {"repo": {"full_name": "o/r"}}}
+            pr = {"number": 7, "state": "open", "head": {"sha": self.head_sha, "ref": "feat/x", "repo": {"id": 77}},
+                  "base": {"sha": BASE, "repo": {"full_name": "o/r"}}}
+            return {**pr, **self.pr_override}
         if method == "GET" and p.endswith("/pulls"):
             return [{"number": 7}]
         if method == "GET" and p.endswith("/issues/7/labels"):
@@ -162,14 +136,15 @@ class FakeApi(GitHub):
 
 
 def event(**run):
-    base = {"head_sha": SHA, "head_branch": "feat/x", "event": "pull_request", "pull_requests": [{"number": 7}], "id": 1}
+    base = {"head_sha": SHA, "head_branch": "feat/x", "event": "pull_request", "pull_requests": [{"number": 7}], "id": 1,
+            "head_repository": {"id": 77}}
     base.update(run)
     return {"workflow_run": base}
 
 
-def write(tmp_path, **over):
-    (tmp_path / sync.ARTIFACT_FILE).write_text(json.dumps(artifact(**over)))
-    return tmp_path
+def write(_tmp_path=None, **over):
+    """A `compute` function returning the result with `over` applied (what labeljob would compute)."""
+    return lambda pr, live: artifact(**over)
 
 
 def test_happy_path_adds_labels_then_comment_then_check(tmp_path):
@@ -265,35 +240,110 @@ def test_stale_run_is_skipped_without_writes(tmp_path):
     assert "skipped" in out and api.writes() == []
 
 
-def test_artifact_for_another_commit_is_rejected(tmp_path):
+def test_a_result_for_another_commit_is_rejected():
     api = FakeApi()
     with pytest.raises(ValidationError):
-        sync.sync(api, event(head_sha="c" * 40), write(tmp_path))
+        sync.sync(api, event(), lambda pr, live: artifact(head_sha="d" * 40))
     assert api.writes() == []
 
 
-def test_the_pr_number_comes_from_the_event_never_the_artifact(tmp_path):
+@pytest.mark.parametrize("pr", [
+    {"head": {"sha": SHA, "ref": "feat/x", "repo": {"id": 999}}},            # a fork reusing the victim's head sha
+    {"head": {"sha": SHA, "ref": "feat/x", "repo": None}},                    # head repository deleted
+    {"head": {"sha": SHA, "ref": "other-branch", "repo": {"id": 77}}},       # same repo, different branch
+    {"head": {"sha": "c" * 40, "ref": "feat/x", "repo": {"id": 77}}},        # head moved
+    {"state": "closed"},
+    {"state": "merged"},
+    {"base": {"sha": BASE, "repo": {"full_name": "evil/fork"}}},            # PR into another repository
+    {"base": {"sha": "not-a-sha", "repo": {"full_name": "o/r"}}},
+])
+def test_a_pr_that_does_not_match_the_run_is_never_touched(pr):
+    api = FakeApi(pr=pr)
+    out = sync.sync(api, event(), write())
+    assert "skipped" in out and api.writes() == []
+
+
+def test_the_run_without_a_head_repository_matches_nothing():
     api = FakeApi()
-    d = artifact()
-    d["pr"] = 9
-    (tmp_path / sync.ARTIFACT_FILE).write_text(json.dumps(d))
-    with pytest.raises(ValidationError):
-        sync.sync(api, event(), tmp_path)
-    assert api.writes() == []
+    ev = event()
+    del ev["workflow_run"]["head_repository"]
+    assert "skipped" in sync.sync(api, ev, write()) and api.writes() == []
 
 
-def test_fork_pr_is_resolved_by_commit_lookup(tmp_path):
+def test_a_deleted_head_repository_cannot_match_a_run_that_reports_none_either():
+    api = FakeApi(pr={"head": {"sha": SHA, "ref": "feat/x", "repo": None}})
+    ev = event()
+    ev["workflow_run"]["head_repository"] = None
+    assert "skipped" in sync.sync(api, ev, write()) and api.writes() == []
+    api = FakeApi(pr={"head": {"sha": SHA, "ref": "feat/x", "repo": {"id": 77}}})
+    ev = event()
+    ev["workflow_run"]["head_repository"] = {"id": True}   # a bool is not an id
+    assert "skipped" in sync.sync(api, ev, write()) and api.writes() == []
+
+
+def test_fork_resolution_through_the_commit_lookup_still_checks_repo_and_branch():
+    api = FakeApi(pr={"head": {"sha": SHA, "ref": "feat/x", "repo": {"id": 5}}})
+    assert "skipped" in sync.sync(api, event(pull_requests=[]), write()) and api.writes() == []
     api = FakeApi()
-    sync.sync(api, event(pull_requests=[]), write(tmp_path))
-    assert any(p.endswith(f"/commits/{SHA}/pulls") for _, p, _ in api.calls) and "gate:review" in api.labels
+    assert "prs" in sync.sync(api, event(pull_requests=[]), write())
 
 
-def test_trueforge_branch_and_skipped_artifacts_touch_nothing(tmp_path):
+def test_the_trusted_base_and_head_come_from_the_api_not_the_event():
+    seen = []
     api = FakeApi()
-    assert sync.sync(api, event(head_branch="trueforge/x"), write(tmp_path))["skipped"] == "trueforge-branch"
+    sync.sync(api, event(), lambda pr, live: seen.append((pr["base"]["sha"], pr["head"]["sha"], list(live))) or artifact())
+    assert seen == [(BASE, SHA, [])]
+
+
+def test_stale_during_compute_skips_that_pr_without_writes():
+    def compute(pr, live):
+        raise sync.Stale("moved")
+    api = FakeApi()
+    out = sync.sync(api, event(), compute)
+    assert out["prs"][0]["skipped"] == "moved" and api.writes() == []
+
+
+def test_comment_of_60000_ats_stays_under_the_limit_after_escaping():
+    body = MARKER + "\n" + "@" * (sync.MAX_COMMENT - len(MARKER) - 1)
+    sync.validate(artifact(comment_md=body))
+    api = FakeApi()
+    sync.sync(api, event(), write(comment_md=body))
+    posted = api.comments[0]["body"]
+    assert len(posted) <= sync.MAX_COMMENT and len(posted) < 65_536
+    assert posted.startswith(MARKER) and "@@" not in posted
+
+
+def test_control_characters_and_bidi_overrides_are_stripped_from_posted_text():
+    nasty = MARKER + "\nline\r\x00\x07 \u202eevil \ud800 end @bob"
+    api = FakeApi()
+    sync.sync(api, event(), write(comment_md=nasty, summary_md=nasty))
+    body = api.comments[0]["body"]
+    assert all(ch not in body for ch in ("\r", "\x00", "\x07", "\u202e", "\ud800")) and "@bob" not in body
+    post = [b for m, p, b in api.calls if m == "POST" and p.endswith("/check-runs")][0]
+    assert len(post["output"]["summary"]) <= sync.MAX_SUMMARY and "\u202e" not in post["output"]["summary"]
+
+
+def test_check_run_summary_is_capped_after_escaping():
+    api = FakeApi()
+    sync.sync(api, event(), write(summary_md="@" * sync.MAX_SUMMARY))
+    post = [b for m, p, b in api.calls if m == "POST" and p.endswith("/check-runs")][0]
+    assert len(post["output"]["summary"]) <= sync.MAX_SUMMARY
+
+
+def test_files_total_must_add_up():
+    sync.validate(artifact(files=[{"path": "a"}], files_total=301, files_omitted=300))
+    for bad in ({"files_total": 5}, {"files_omitted": 1}, {"files_total": True}, {"files_total": -1, "files_omitted": -2}):
+        with pytest.raises(ValidationError):
+            sync.validate(artifact(**bad))
+
+
+def test_trueforge_branch_and_skipped_results_touch_nothing():
+    api = FakeApi()
+    assert sync.sync(api, event(head_branch="trueforge/x"), write())["skipped"] == "trueforge-branch"
     skipped = dict(NOTHING, skipped="trueforge-branch", comment_md="")
-    assert sync.sync(api, event(), write(tmp_path, **skipped))["skipped"] == "trueforge-branch"
-    assert api.calls == []
+    out = sync.sync(api, event(), write(**skipped))
+    assert out["prs"] == [{"pr": 7, "skipped": "trueforge-branch"}] and out["check"] == "skipped"
+    assert api.writes() == []
 
 
 def test_check_run_is_neutral_and_updated_in_place(tmp_path):
@@ -320,7 +370,7 @@ def test_more_than_100_labels_are_paginated(tmp_path):
 
 def test_owned_set_is_what_the_spec_lists():
     assert OWNED == {"gate:review", "gate:unverified", "gate:escalate", "shadow:auto",
-                     *(f"risk:{r}" for r in ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error")),
+                     *(f"risk:{r}" for r in ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error", "provider-default")),
                      *(f"risk:rule-{r}" for r in ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completion-pair", "null-status", "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default", "reasoning-unsupported", "feature-enum")),
                      *(f"verify:{v}" for v in ("official", "partial", "conflict", "none")),
                      *(f"kind:{k}" for k in ("price-only", "lifecycle", "features-params", "mixed", "new-model"))}
@@ -374,9 +424,3 @@ def test_http_403_is_a_sync_error_404_can_be_tolerated():
         GitHub("t", "o/r", opener=opener_for(404)).request("DELETE", "/x")
     with pytest.raises(SyncError):
         GitHub("t", "o/r", opener=opener_for(500), sleep=lambda s: None).request("GET", "/x")
-
-
-def test_main_requires_env(monkeypatch):
-    for k in ("GITHUB_TOKEN", "GH_TOKEN", "GITHUB_REPOSITORY", "GITHUB_EVENT_PATH", "ARTIFACT_DIR"):
-        monkeypatch.delenv(k, raising=False)
-    assert sync.main() == 2

@@ -106,11 +106,15 @@ def params_by_key(doc: dict | None) -> dict[str, dict]:
 
 
 def output_limit(doc: dict) -> float | None:
+    """The model's output limit: `max_output_tokens`; `limits.max_tokens` only when it is not
+    just the context size (some files copy the context window into it)."""
     limits = doc.get("limits") if isinstance(doc.get("limits"), dict) else {}
-    for key in ("max_output_tokens", "max_tokens"):
-        v = num(limits.get(key))
-        if v:
-            return v
+    out = num(limits.get("max_output_tokens"))
+    if out:
+        return out
+    mt, ctx = num(limits.get("max_tokens")), num(limits.get("context_window"))
+    if mt and (ctx is None or mt < ctx):
+        return mt
     return None
 
 
@@ -125,7 +129,10 @@ def max_tokens_below_limit(doc, ctx):
     if limit is None or not _text_model(doc):
         return []
     out = []
+    removed = _list(doc.get("removeParams"))
     for key in ("max_tokens", "max_completion_tokens"):
+        if key in removed:  # declared but removed: it is not in effect
+            continue
         cap = num(params_by_key(doc).get(key, {}).get("maxValue"))
         if cap is not None and cap < limit:
             out.append(Finding("max-tokens-below-limit", REVIEW, ("params", f"key={key}", "maxValue"),

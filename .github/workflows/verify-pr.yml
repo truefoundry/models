@@ -1,94 +1,26 @@
 name: Verify PR
 
-# Report only. Compares the model YAMLs a PR changes against main (risk) and against each
-# provider's official source, and uploads the result as an artifact. It never labels or comments:
-# verify-label.yml does that, from the artifact, with a token this job does not have. This job
-# runs the PR's own checkout (including a fork's), so it gets a read-only token and no secrets.
-# A verdict never fails the job; only a crash of the tool does.
-#
-# A PR must not be able to change its own verdict, so after the checkout the verifier
-# (scripts/verify and sources/registry.yaml) is restored from the BASE commit. The diff between
-# the two commits is read from git objects and is unaffected. The PR that introduces the verifier
-# has no base copy: it is skipped with a neutral note.
+# A thin trigger, on purpose. This workflow's definition comes from the PR's merge ref, so a PR
+# can rewrite it (or delete it); nothing it does is trusted. It checks out nothing, runs no PR
+# code and produces nothing the verdict uses. verify-label.yml (workflow_run) fires after it and
+# does everything from the DEFAULT branch: it fetches the PR head as git objects only and runs the
+# default branch's verifier on base..head. A PR that stops this workflow from running simply gets
+# no labels.
 
 on:
   pull_request:
 
-permissions:
-  contents: read
+permissions: {}
 
 concurrency:
   group: verify-pr-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
-  verify:
-    name: Verify changed models
-    if: ${{ !startsWith(github.head_ref, 'trueforge/') }}
+  trigger:
+    name: Trigger verification
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 2
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install dependencies
-        run: pip install "PyYAML>=6.0"
-
-      - name: Restore the verifier from the base commit
-        id: tool
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: |
-          if git cat-file -e "${BASE_SHA}:scripts/verify/__main__.py" 2>/dev/null; then
-            rm -rf scripts/verify sources
-            git checkout "$BASE_SHA" -- scripts/verify
-            git checkout "$BASE_SHA" -- sources/registry.yaml 2>/dev/null || echo "no registry at the base commit"
-            echo "present=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "present=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Skip, the base commit has no verifier
-        if: steps.tool.outputs.present != 'true'
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          echo "Skipped: the base commit has no scripts/verify (this PR introduces it). No labels are set." >> "$GITHUB_STEP_SUMMARY"
-          printf '{"version":1,"base_sha":"%s","head_sha":"%s","skipped":"no-verifier-at-base","labels":[],"gate":null,"kind":null,"verify":null,"shadow":false,"files":[],"notes":[],"comment_md":"","summary_md":""}\n' \
-            "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/verify-result.json"
-
-      - name: Run verifier
-        if: steps.tool.outputs.present == 'true'
-        working-directory: scripts
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          HEAD_REF: ${{ github.head_ref }}
-          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
-        run: |
-          python -m verify \
-            --base "$BASE_SHA" \
-            --head "$HEAD_SHA" \
-            --head-ref "$HEAD_REF" \
-            --current-labels-json "$PR_LABELS" \
-            --json "$RUNNER_TEMP/verify-result.json" \
-            --summary-md "$RUNNER_TEMP/verify-summary.md"
-          cat "$RUNNER_TEMP/verify-summary.md" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Upload result
-        uses: actions/upload-artifact@v4
-        with:
-          name: verify-result
-          path: ${{ runner.temp }}/verify-result.json
-          retention-days: 7
-          if-no-files-found: error
+      - name: Note
+        run: echo "Verification of the changed model YAMLs runs in the 'Verify labels' workflow (trusted, default-branch code); see the catalog-verify check and the PR comment." >> "$GITHUB_STEP_SUMMARY"

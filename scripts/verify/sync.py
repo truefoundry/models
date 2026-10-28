@@ -1,34 +1,34 @@
-"""The label job: validate the verify-pr artifact, then sync labels and one comment.
+"""Applying a verdict to a PR: validate it, sync labels, upsert one comment, write a check run.
 
-Runs in `verify-label.yml` (workflow_run, write token). Stdlib only, and it imports nothing from
-the PR: the workflow checks out the DEFAULT branch, never the PR. The artifact is produced by
-code a fork controls, so it is untrusted input:
-- strict schema, exact keys and types, size caps, labels only from the owned allow-list;
-- the PR number is NOT read from it: it comes from the workflow_run event / the commits API, and
-  the artifact's head sha must equal the run's;
+Runs inside the TRUSTED label job (`verify-label.yml`, workflow_run, write token, default-branch
+workflow and code). The verdict itself is computed there too (`labeljob.py`) from git objects of
+the PR head that were fetched but never checked out; nothing the PR's own workflow produced is
+used. What this module still defends against:
+- the PR is resolved from the event and the API, and must match the run's head repository id,
+  head branch and head sha (a fork can reuse a victim PR's head sha);
+- the computed result is validated against a strict schema (exact keys, owned labels only, size
+  caps) before anything is written: a bug in the tool must not post garbage or a 70k comment;
 - labels first, then the comment (a rejected comment must never cost the labels), then the check;
 - only owned labels are removed, by exact name; `gate:hold` / `id:*` make every gate label
   unsettable (sticky) and are never removed;
-- `@` is neutralised in the comment so a PR cannot make the bot notify people.
+- text is cleaned of control characters and `@` is neutralised BEFORE it is capped, so escaping
+  can never push a comment over GitHub's limit.
+Stdlib only.
 """
 from __future__ import annotations
 
 import json
-import os
 import re
-import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from collections.abc import Callable
-from pathlib import Path
 
 from .labels import (GATE_LABELS, GATES, KIND_LABELS, KINDS, MARKER, VERIFY, VERIFY_LABELS, SHADOW, is_hold,
                      is_owned)
+from .textclean import safe_markdown
 
-ARTIFACT_FILE = "verify-result.json"
-MAX_ARTIFACT_BYTES = 2_000_000
 MAX_COMMENT = 60_000
 MAX_SUMMARY = 60_000
 MAX_FILES = 5000
@@ -37,8 +37,8 @@ SKIPPED = ("trueforge-branch", "no-verifier-at-base")
 CHECK_NAME = "catalog-verify"
 BOT_LOGIN = "github-actions[bot]"
 _SHA = re.compile(r"^[0-9a-f]{40}$")
-_KEYS = {"version", "base_sha", "head_sha", "skipped", "labels", "gate", "kind", "verify", "shadow", "files", "notes",
-         "comment_md", "summary_md"}
+_KEYS = {"version", "base_sha", "head_sha", "skipped", "labels", "gate", "kind", "verify", "shadow", "files",
+         "files_total", "files_omitted", "notes", "comment_md", "summary_md"}
 
 
 class ValidationError(ValueError):
@@ -56,11 +56,11 @@ def _is_str(v) -> bool:
 
 
 def validate(data) -> dict:
-    """Return the artifact if it is exactly what verify-pr writes, else raise ValidationError."""
+    """Return the result if it is exactly what cli.run produces, else raise ValidationError."""
     if not isinstance(data, dict):
-        raise ValidationError("artifact is not a JSON object")
+        raise ValidationError("result is not a JSON object")
     if set(data) != _KEYS:
-        raise ValidationError(f"artifact keys differ: missing {sorted(_KEYS - set(data))}, extra {sorted(set(data) - _KEYS)}")
+        raise ValidationError(f"result keys differ: missing {sorted(_KEYS - set(data))}, extra {sorted(set(data) - _KEYS)}")
     if data["version"] != 1 or isinstance(data["version"], bool):
         raise ValidationError("unsupported version")
     for key in ("base_sha", "head_sha"):
@@ -99,6 +99,10 @@ def validate(data) -> dict:
     if not (isinstance(data["files"], list) and len(data["files"]) <= MAX_FILES
             and all(isinstance(f, dict) and _is_str(f.get("path")) for f in data["files"])):
         raise ValidationError("bad files list")
+    total, omitted = data["files_total"], data["files_omitted"]
+    if not (all(isinstance(x, int) and not isinstance(x, bool) and x >= 0 for x in (total, omitted))
+            and total == len(data["files"]) + omitted):
+        raise ValidationError("files_total / files_omitted do not match the files list")
     if not (isinstance(data["notes"], list) and len(data["notes"]) <= 50 and all(_is_str(n) and len(n) <= 2000 for n in data["notes"])):
         raise ValidationError("bad notes")
     for key, limit in (("comment_md", MAX_COMMENT), ("summary_md", MAX_SUMMARY)):
@@ -110,24 +114,6 @@ def validate(data) -> dict:
     if labels and not comment:
         raise ValidationError("labels without a comment")
     return data
-
-
-def load_artifact(directory: Path | str) -> dict:
-    path = Path(directory) / ARTIFACT_FILE
-    if path.is_symlink() or not path.is_file():
-        raise ValidationError(f"{ARTIFACT_FILE} missing or not a regular file")
-    if path.stat().st_size > MAX_ARTIFACT_BYTES:
-        raise ValidationError("artifact too large")
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except (UnicodeDecodeError, json.JSONDecodeError, RecursionError) as e:
-        raise ValidationError(f"artifact is not valid JSON ({type(e).__name__})") from e
-    return validate(data)
-
-
-def sanitize_md(text: str) -> str:
-    """No `@mention` reaches GitHub: a zero-width space after every `@`."""
-    return text.replace("@", "@​")
 
 
 # --------------------------------------------------------------------------------- GitHub
@@ -207,13 +193,13 @@ def upsert_comment(api: GitHub, number: int, body: str, bot_login: str = BOT_LOG
     return "created"
 
 
-def upsert_check(api: GitHub, head_sha: str, artifact: dict) -> str:
-    if not artifact["summary_md"]:
+def upsert_check(api: GitHub, head_sha: str, result: dict) -> str:
+    if not result["summary_md"]:
         return "skipped"
-    title = " · ".join(x for x in (f"gate:{artifact['gate']}" if artifact["gate"] else "",
-                                   f"kind:{artifact['kind']}" if artifact["kind"] else "",
-                                   f"verify:{artifact['verify']}" if artifact["verify"] else "") if x) or "nothing to verify"
-    output = {"title": title, "summary": sanitize_md(artifact["summary_md"])}
+    title = " · ".join(x for x in (f"gate:{result['gate']}" if result["gate"] else "",
+                                   f"kind:{result['kind']}" if result["kind"] else "",
+                                   f"verify:{result['verify']}" if result["verify"] else "") if x) or "nothing to verify"
+    output = {"title": title, "summary": safe_markdown(result["summary_md"], MAX_SUMMARY)}
     found = api.request("GET", f"/repos/{api.repo}/commits/{head_sha}/check-runs?check_name={CHECK_NAME}")
     runs = [r for r in (found or {}).get("check_runs", []) if isinstance(r, dict)
             and (r.get("app") or {}).get("slug") == "github-actions"]
@@ -226,10 +212,16 @@ def upsert_check(api: GitHub, head_sha: str, artifact: dict) -> str:
     return "created"
 
 
+def _int(v):
+    return v if isinstance(v, int) and not isinstance(v, bool) else None
+
+
 def resolve_prs(api: GitHub, run: dict) -> list[dict]:
-    """The open PRs this workflow run is for. Never from the artifact. A fork PR has an empty
-    `pull_requests` in the event, so fall back to the commit -> PRs lookup."""
+    """The open PRs this workflow run is for, from the event and the API. A candidate must be
+    open, in this repository, and match the run's head sha, head branch AND head repository id: a
+    fork can push the sha of someone else's PR and a bare sha match would label that PR."""
     head_sha = run["head_sha"]
+    head_repo = _int((run.get("head_repository") or {}).get("id"))
     numbers = [p["number"] for p in run.get("pull_requests") or [] if isinstance(p, dict) and isinstance(p.get("number"), int)]
     if not numbers:
         found = api.request("GET", f"/repos/{api.repo}/commits/{head_sha}/pulls") or []
@@ -237,72 +229,71 @@ def resolve_prs(api: GitHub, run: dict) -> list[dict]:
     out = []
     for n in sorted(set(numbers))[:5]:
         pr = api.request("GET", f"/repos/{api.repo}/pulls/{n}")
-        if (isinstance(pr, dict) and pr.get("state") == "open" and (pr.get("head") or {}).get("sha") == head_sha
-                and ((pr.get("base") or {}).get("repo") or {}).get("full_name") == api.repo):
+        if not isinstance(pr, dict):
+            continue
+        head, base = pr.get("head") or {}, pr.get("base") or {}
+        if (pr.get("state") == "open" and head.get("sha") == head_sha and head.get("ref") == run.get("head_branch")
+                and head_repo is not None and _int((head.get("repo") or {}).get("id")) == head_repo
+                and (base.get("repo") or {}).get("full_name") == api.repo
+                and isinstance(base.get("sha"), str) and _SHA.match(base["sha"])):
             out.append(pr)
     return out
 
 
-def sync(api: GitHub, event: dict, artifact_dir: Path | str, bot_login: str = BOT_LOGIN) -> dict:
-    """Apply one verify-pr run. Raises SyncError after trying every step if any step failed."""
+class Stale(Exception):
+    """The PR moved on while we worked (its head is no longer the run's)."""
+
+
+def sync(api: GitHub, event: dict, compute: Callable[[dict, list[str]], dict], bot_login: str = BOT_LOGIN) -> dict:
+    """Judge and label the PR(s) behind one verify-pr run. `compute(pr, live_labels)` returns the
+    validated-below result for that PR; it runs only trusted code on git objects. Raises SyncError
+    after trying every step if any step failed."""
     run = event.get("workflow_run")
     if not isinstance(run, dict) or not _is_str(run.get("head_sha")) or not _SHA.match(run["head_sha"]):
         raise ValidationError("event has no workflow_run.head_sha")
     if str(run.get("head_branch") or "").startswith(SKIP_BRANCH_PREFIX):
         return {"skipped": "trueforge-branch"}
-    artifact = load_artifact(artifact_dir)
-    if artifact["head_sha"] != run["head_sha"]:
-        raise ValidationError("artifact head_sha does not match the workflow run")
-    if artifact["skipped"]:
-        return {"skipped": artifact["skipped"]}
     prs = resolve_prs(api, run)
     if not prs:
-        return {"skipped": "no open PR at this head (stale run)"}
-    comment = sanitize_md(artifact["comment_md"])
+        return {"skipped": "no open PR at this head (stale run, or head repository / branch mismatch)"}
     errors: list[str] = []
     done: list[dict] = []
+    first: dict | None = None
     for pr in prs:
         number = pr["number"]
         step: dict = {"pr": number}
         live = [x["name"] for x in api.paginate(f"/repos/{api.repo}/issues/{number}/labels")
                 if isinstance(x, dict) and isinstance(x.get("name"), str)]
-        want = desired_labels(artifact["labels"], live)
+        try:
+            result = validate(compute(pr, live))
+        except Stale as e:
+            done.append({**step, "skipped": str(e)})
+            continue
+        if result["head_sha"] != run["head_sha"]:
+            raise ValidationError("result head_sha does not match the workflow run")
+        if result["skipped"]:
+            done.append({**step, "skipped": result["skipped"]})
+            continue
+        first = first or result
+        want = desired_labels(result["labels"], live)
         try:  # 1. labels, always first
             step["added"], step["removed"] = sync_labels(api, number, want, live)
         except SyncError as e:
             errors.append(str(e))
         try:  # 2. the comment, a failure here never undoes the labels
-            step["comment"] = upsert_comment(api, number, comment, bot_login, create=bool(artifact["labels"] or artifact["gate"]))
+            step["comment"] = upsert_comment(api, number, safe_markdown(result["comment_md"], MAX_COMMENT), bot_login,
+                                             create=bool(result["labels"] or result["gate"]))
         except SyncError as e:
             errors.append(str(e))
         done.append(step)
-    try:  # 3. the full table as a check run
-        check = upsert_check(api, run["head_sha"], artifact)
-    except SyncError as e:
-        errors.append(str(e))
-        check = "failed"
+    check = "skipped"
+    if first is not None:
+        try:  # 3. the full table as a check run
+            check = upsert_check(api, run["head_sha"], first)
+        except SyncError as e:
+            errors.append(str(e))
+            check = "failed"
     if errors:
         raise SyncError("; ".join(errors))
-    return {"prs": done, "check": check, "gate": artifact["gate"], "labels": artifact["labels"]}
-
-
-def main() -> int:
-    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or ""
-    repo = os.environ.get("GITHUB_REPOSITORY", "")
-    event_path = os.environ.get("GITHUB_EVENT_PATH", "")
-    artifact_dir = os.environ.get("ARTIFACT_DIR", "")
-    if not (token and repo and event_path and artifact_dir):
-        print("GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_EVENT_PATH and ARTIFACT_DIR are required", file=sys.stderr)
-        return 2
-    event = json.loads(Path(event_path).read_text())
-    try:
-        result = sync(GitHub(token, repo), event, artifact_dir)
-    except (ValidationError, SyncError) as e:
-        print(f"verify-label: {e}", file=sys.stderr)
-        return 1
-    print(json.dumps(result, sort_keys=True))
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    return {"prs": done, "check": check, "gate": first["gate"] if first else None,
+            "labels": first["labels"] if first else []}

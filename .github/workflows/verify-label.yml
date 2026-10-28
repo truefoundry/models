@@ -1,10 +1,11 @@
 name: Verify labels
 
-# Applies the verdict of "Verify PR" to the PR: owned labels first, then one marker comment, then
-# a neutral check run with the full table. The artifact comes from a run of the PR's own code
-# (possibly a fork's), so it is untrusted: scripts/verify/sync.py validates it against a strict
-# schema and only ever writes labels it owns by exact name. This workflow must NEVER check out
-# or run code from the PR; it uses the default branch's copy of the tool and nothing else.
+# Computes AND applies the verdict, from trusted code. Triggered after "Verify PR" (workflow_run),
+# so this workflow's definition and the code below come from the default branch, never the PR.
+# The PR head is fetched as git objects into a private ref and is NEVER checked out: the verifier
+# reads blobs with `git show` and parses them as untrusted data (no anchors / aliases, size and
+# node caps). Nothing the PR's own workflow produced is read. Labels are written first (owned names,
+# exact match; gate:hold / id:* are sticky), then one marker comment, then a neutral check run.
 
 on:
   workflow_run:
@@ -15,41 +16,42 @@ permissions: {}
 
 jobs:
   sync:
-    name: Sync labels and comment
+    name: Verify and label
     if: >-
       ${{ github.event.workflow_run.event == 'pull_request'
-      && github.event.workflow_run.conclusion == 'success'
+      && github.event.workflow_run.conclusion != 'cancelled'
       && !startsWith(github.event.workflow_run.head_branch, 'trueforge/') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
-      actions: read          # download the artifact of the other run
-      contents: read         # check out the default branch's tool code
+      contents: read         # check out the default branch's tool code, fetch the PR head objects
       pull-requests: write   # labels and the marker comment
       checks: write          # the neutral check run with the full table
+    # One run per PR at a time, so two runs cannot both create the marker comment. A fork PR has
+    # no pull_requests entry in the event: fall back to its head repository and branch.
     concurrency:
-      group: verify-label-${{ github.event.workflow_run.head_sha }}
-      cancel-in-progress: true
+      group: verify-label-${{ github.event.workflow_run.pull_requests[0].number || format('{0}-{1}', github.event.workflow_run.head_repository.id, github.event.workflow_run.head_branch) }}
+      cancel-in-progress: false
 
     steps:
       - name: Checkout trusted tool code (default branch, never the PR)
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           ref: ${{ github.event.repository.default_branch }}
-          sparse-checkout: scripts/verify
+          fetch-depth: 0
           persist-credentials: false
 
-      - name: Download result artifact
-        uses: actions/download-artifact@v4
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
-          name: verify-result
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ runner.temp }}/verify-artifact
+          python-version: '3.12'
 
-      - name: Validate and sync
+      - name: Install dependencies
+        run: pip install "PyYAML==6.0.2"
+
+      - name: Verify, label and comment
         working-directory: scripts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ARTIFACT_DIR: ${{ runner.temp }}/verify-artifact
-        run: python -m verify.sync
+          VERIFY_ROOT: ${{ github.workspace }}
+        run: python -m verify.labeljob

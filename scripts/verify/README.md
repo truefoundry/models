@@ -20,7 +20,9 @@ scripts/verify/
   report.py      capped PR comment + full summary
   registry.py    loader / validation for sources/registry.yaml (repo root)
   cli.py         python -m verify ...
-  sync.py        the label job: validates the artifact, syncs labels, comment, check run (stdlib only)
+  sync.py        applies a verdict: validation, labels, comment, check run (stdlib only)
+  labeljob.py    the trusted label job entry point: fetch the PR head as objects, run, apply
+  textclean.py   cleaning of untrusted text (stdlib only)
   labels.py      the label names this tool owns
   sources/       adapters; each registers itself in SOURCES
 ```
@@ -37,7 +39,7 @@ Diffs `providers/**.yaml` (minus `default.yaml` / `provider-config.yaml`) from t
 `--base` and `--head` to `--head`, and prints (or writes) one JSON object: `labels`, `gate`,
 `kind`, `verify`, `shadow`, `files`, `notes`, `comment_md`, `summary_md`. Exit code 0 whatever
 the verdict; only a crash of the tool fails. A `--head-ref` starting with `trueforge/` is skipped
-(no labels, no comment). `--current-labels-json '["gate:hold"]'` tells it the PR's labels.
+(no labels, no comment). `--current-labels-json '["gate:hold"]'` tells it the PR's labels. (The label job calls the same code in-process; this CLI is for local runs.) A PR with more than 300 changed files lists the 300 most severe in `files` (`files_total` / `files_omitted` say how many); labels and the gate always cover all of them.
 
 ## Labels
 
@@ -48,6 +50,7 @@ This tool owns these names, matched **exactly**, and nothing else:
 | `gate:review` `gate:unverified` `gate:escalate` | exactly one per PR, see Gates |
 | `risk:removal` `risk:price` `risk:params` `risk:param-value` `risk:feature` `risk:limit` `risk:mode` `risk:dated` `risk:other` `risk:check-error` | one per kind of change found |
 | `risk:rule-<id>` | a static rule fired, see Static rules |
+| `risk:provider-default` | a `default.yaml` / `provider-config.yaml` changed: escalates, it affects every model under the provider |
 | `verify:official` `verify:partial` `verify:conflict` `verify:none` | how far the official sources got |
 | `kind:price-only` `kind:lifecycle` `kind:features-params` `kind:mixed` `kind:new-model` | what the PR changes |
 | `shadow:auto` | measured only; never merges anything |
@@ -60,7 +63,8 @@ Never touched: `gate:hold` (set by humans or the addition job), `id:*`, `gate:re
    sets no gate and never removes it. It still reports risks and verification.
 2. `gate:escalate`: any escalating risk, or any conflict with an official source.
 3. `gate:unverified`: some changed field has no verified source check, a source result is
-   partial / uncovered / promo, or no source covers the file.
+   partial / uncovered / promo, or no source covers the file. A new file with no price or limit
+   to check (a bot stub) is always `gate:unverified`, with `kind:new-model`.
 4. `gate:review`: every changed field verified, nothing escalating.
 
 ### Escalating risks
@@ -130,25 +134,44 @@ Measured only. Set when: kind is `price-only`, every changed price moved within 
 changed price field has a verified check, no source result is partial / uncovered, no file is
 new, and no hold.
 
-## How a PR is judged
+## How a PR is judged, and what is trusted
 
-`verify-pr.yml` (`pull_request`, read-only token, no secrets) runs the CLI and uploads
-`verify-result.json`. After checking out the PR it **restores `scripts/verify` and
-`sources/registry.yaml` from the base commit** first, so a PR cannot change its own verdict (the
-diff between the commits is read from git objects and is unaffected). Trade-offs: a PR that
-edits the verifier is judged by the old verifier and relies on `verify-tests.yml` to test the
-new one; the PR that introduces the verifier has no base copy and is skipped with a neutral note
-(no labels); the CUE schema read by the enum rules is the PR's own copy (data, not code). `verify-label.yml` (`workflow_run`, write token) never checks out the PR:
-it checks out the default branch, downloads the artifact, validates it against a strict schema
-(`sync.py`: exact keys, owned labels only, size caps, head sha must match the run), then:
+Everything is decided by **`verify-label.yml`**, which runs on `workflow_run` of "Verify PR". A
+`workflow_run` workflow is always the **default branch's** definition, with a write token, so
+nothing the PR changed can alter how it runs.
 
-1. syncs labels (adds what is missing, removes only owned labels no longer wanted),
-2. upserts ONE marker comment (<= 60,000 chars; GitHub rejects 65,536),
-3. writes the full per-file table to a neutral check run `catalog-verify`.
+1. It checks out the **default branch** (never the PR) with full history and installs a pinned
+   PyYAML (`setup-python`, actions pinned to commit SHAs).
+2. It resolves the open PR from the event and the API, requiring the PR's head **sha, branch and
+   head-repository id** to match the run (a fork can reuse a victim PR's head sha).
+3. It fetches the PR head as **git objects only** (`refs/pull/N/head` into a private ref); nothing is
+   checked out, nothing from the PR is on the Python path.
+4. It runs the **default branch's** verifier on `merge-base(base, head)..head`, reading blobs with
+   `git show`. PR YAML is parsed as untrusted data (`yamlio.parse`): anchors, aliases and merge keys
+   are refused (the catalog uses none: 4,554 files scanned), as are files over 2 MB, more than
+   200,000 nodes, nesting deeper than 60 and lone surrogates; such a file becomes an escalating
+   `risk:check-error`.
+5. `sync.py` validates the result against a strict schema (exact keys, owned labels only, size caps),
+   then syncs labels (adds what is missing, removes only owned labels no longer wanted), upserts
+   ONE marker comment (<= 60,000 chars; GitHub rejects 65,536; text is cleaned and `@` escaped
+   BEFORE the cap), and writes the full per-file table to a neutral check run `catalog-verify`.
+   Labels go first so a rejected comment can never cost them. A per-PR concurrency group stops two
+   runs from creating two comments.
 
-Labels go first so a rejected comment can never cost them. The artifact is untrusted: it is a
-product of code a fork controls; the PR number is taken from the event, never from the artifact.
-`verify-tests.yml` runs this package's pytest on PRs that touch it.
+`verify-pr.yml` is only a trigger: it has no permissions, checks out nothing and runs no code.
+
+| Trusted (default branch) | Untrusted (the PR) |
+|---|---|
+| the workflow definition of `verify-label.yml` | `verify-pr.yml` as changed by the PR (it can only stop labels from appearing) |
+| `scripts/verify/**`, `sources/registry.yaml` | the YAML files under `providers/**` at base and head (parsed as data) |
+| `.github/test/model.cue`, `model.rules.cue` (enum rules) | `providers/<p>/default.yaml` at head (data, read by the cap rules) |
+| the PR number, base sha, head sha, head repo / branch from the GitHub API | anything inside the YAML (all text is cleaned and code-spanned before it is shown) |
+
+Consequences: a PR that edits the verifier, the registry or the schema is judged by the old
+versions and relies on `verify-tests.yml` (which runs on those paths, incl. the two CUE files) to
+test the new ones; a PR can still suppress its own labels by stopping "Verify PR" from running
+(it then has no labels, never wrong ones). Adapters fetch public sources keyed by provider; they
+must never use a URL taken from a PR file.
 
 ## Add a source
 
