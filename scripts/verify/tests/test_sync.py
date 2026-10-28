@@ -83,6 +83,15 @@ def test_skipped_run_carries_no_labels():
         sync.validate(artifact(skipped="trueforge-branch"))
 
 
+def test_the_no_verifier_at_base_artifact_the_workflow_writes_is_valid_and_touches_nothing(tmp_path):
+    raw = ('{"version":1,"base_sha":"%s","head_sha":"%s","skipped":"no-verifier-at-base","labels":[],"gate":null,'
+           '"kind":null,"verify":null,"shadow":false,"files":[],"notes":[],"comment_md":"","summary_md":""}') % (BASE, SHA)
+    (tmp_path / sync.ARTIFACT_FILE).write_text(raw)
+    api = FakeApi()
+    assert sync.sync(api, event(), tmp_path)["skipped"] == "no-verifier-at-base"
+    assert api.calls == []
+
+
 def test_load_artifact_file_rules(tmp_path):
     with pytest.raises(ValidationError):
         sync.load_artifact(tmp_path)
@@ -312,6 +321,7 @@ def test_more_than_100_labels_are_paginated(tmp_path):
 def test_owned_set_is_what_the_spec_lists():
     assert OWNED == {"gate:review", "gate:unverified", "gate:escalate", "shadow:auto",
                      *(f"risk:{r}" for r in ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error")),
+                     *(f"risk:rule-{r}" for r in ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completion-pair", "null-status", "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default", "reasoning-unsupported", "feature-enum")),
                      *(f"verify:{v}" for v in ("official", "partial", "conflict", "none")),
                      *(f"kind:{k}" for k in ("price-only", "lifecycle", "features-params", "mixed", "new-model"))}
     assert "gate:hold" not in OWNED

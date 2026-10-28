@@ -5,6 +5,11 @@ name: Verify PR
 # verify-label.yml does that, from the artifact, with a token this job does not have. This job
 # runs the PR's own checkout (including a fork's), so it gets a read-only token and no secrets.
 # A verdict never fails the job; only a crash of the tool does.
+#
+# A PR must not be able to change its own verdict, so after the checkout the verifier
+# (scripts/verify and sources/registry.yaml) is restored from the BASE commit. The diff between
+# the two commits is read from git objects and is unaffected. The PR that introduces the verifier
+# has no base copy: it is skipped with a neutral note.
 
 on:
   pull_request:
@@ -38,7 +43,32 @@ jobs:
       - name: Install dependencies
         run: pip install "PyYAML>=6.0"
 
+      - name: Restore the verifier from the base commit
+        id: tool
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if git cat-file -e "${BASE_SHA}:scripts/verify/__main__.py" 2>/dev/null; then
+            rm -rf scripts/verify sources
+            git checkout "$BASE_SHA" -- scripts/verify
+            git checkout "$BASE_SHA" -- sources/registry.yaml 2>/dev/null || echo "no registry at the base commit"
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip, the base commit has no verifier
+        if: steps.tool.outputs.present != 'true'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          echo "Skipped: the base commit has no scripts/verify (this PR introduces it). No labels are set." >> "$GITHUB_STEP_SUMMARY"
+          printf '{"version":1,"base_sha":"%s","head_sha":"%s","skipped":"no-verifier-at-base","labels":[],"gate":null,"kind":null,"verify":null,"shadow":false,"files":[],"notes":[],"comment_md":"","summary_md":""}\n' \
+            "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/verify-result.json"
+
       - name: Run verifier
+        if: steps.tool.outputs.present == 'true'
         working-directory: scripts
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}

@@ -38,6 +38,23 @@ def test_verify_pr_is_read_only_and_secretless():
     assert "continue-on-error" not in run and "|| true" not in run["run"]
 
 
+def test_verify_pr_restores_the_verifier_from_the_base_commit_before_running_it():
+    doc = load("verify-pr.yml")
+    st = steps(doc, "verify")
+    names = [s.get("name", "") for s in st]
+    restore = next(i for i, s in enumerate(st) if s.get("id") == "tool")
+    run = next(i for i, s in enumerate(st) if "python -m verify" in s.get("run", ""))
+    skip = next(i for i, s in enumerate(st) if "no-verifier-at-base" in s.get("run", ""))
+    assert restore < run and restore < skip
+    body = st[restore]["run"]
+    assert st[restore]["env"]["BASE_SHA"] == "${{ github.event.pull_request.base.sha }}"
+    assert 'git checkout "$BASE_SHA" -- scripts/verify' in body and "sources/registry.yaml" in body
+    assert "rm -rf scripts/verify sources" in body  # nothing the PR added to the package survives
+    assert "steps.tool.outputs.present == 'true'" in st[run]["if"] and "!= 'true'" in st[skip]["if"]
+    assert any("Restore the verifier from the base commit" in n for n in names)
+    assert "$GITHUB_STEP_SUMMARY" in st[skip]["run"]  # the neutral note
+
+
 def test_no_expression_is_interpolated_into_a_shell_script():
     for name in ("verify-pr.yml", "verify-label.yml", "verify-tests.yml"):
         doc = load(name)

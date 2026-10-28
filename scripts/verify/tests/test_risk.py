@@ -227,7 +227,7 @@ def test_modalities():
 def test_mode_and_supported_modes_and_model_id_escalate():
     assert one(mod(mode="embedding")).escalate
     r = one(mod(supportedModes=["chat", "responses"]))
-    assert (r.label, r.escalate) == ("risk:mode", True)
+    assert (r.label, r.escalate) == ("risk:mode", False)  # adding a mode is review
     r = one(mod(supportedModes=[]))
     assert (r.label, r.escalate) == ("risk:removal", True)
     r = one(mod(model="m2"))
@@ -254,8 +254,27 @@ def test_already_deprecated_to_retired_is_review():
     assert not r.escalate
 
 
+@pytest.mark.parametrize("was,now,escalate", [
+    ("unknown", "chat", False), (None, "chat", False), ("chat", "embedding", True), ("chat", "unknown", True),
+    ("chat", None, True), ("unknown", None, True), ("embedding", "chat", True),
+])
+def test_mode_fill_in_is_review_any_other_change_escalates(was, now, escalate):
+    before, after = mod(), mod()
+    for doc, v in ((before, was), (after, now)):
+        doc.pop("mode")
+        if v is not None:
+            doc["mode"] = v
+    r = one(after, before)
+    assert (r.label, r.escalate) == ("risk:mode", escalate)
+
+
+def test_supported_modes_removed_or_swapped_escalates():
+    assert any(r.escalate for r in assess(base(), mod(supportedModes=["responses"])))  # chat removed, responses added
+    assert one(mod(supportedModes=[])).escalate
+
+
 def test_unknown_key_is_other_review():
-    r = one(mod(thinking=True))
+    r = one(mod(provisioning="provisioned"))
     assert (r.label, r.escalate, r.group) == ("risk:other", False, "other")
     r = one(mod(canonical_model="x/y"))
     assert r.label == "risk:other"

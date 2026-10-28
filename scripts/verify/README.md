@@ -13,6 +13,7 @@ Nothing here uses an LLM, a database or a secret. Sources are public.
 scripts/verify/
   types.py       contract between adapters and the core (Check, SourceResult, Source)
   risk.py        risk per changed field, vs main
+  rules.py       static rules from recurring review findings (risk:rule-*)
   build.py       one FileReport per changed file; runs the registered adapters (never raises)
   classify.py    kind:*
   gates.py       gate:*, verify:*, shadow:auto
@@ -46,6 +47,7 @@ This tool owns these names, matched **exactly**, and nothing else:
 |---|---|
 | `gate:review` `gate:unverified` `gate:escalate` | exactly one per PR, see Gates |
 | `risk:removal` `risk:price` `risk:params` `risk:param-value` `risk:feature` `risk:limit` `risk:mode` `risk:dated` `risk:other` `risk:check-error` | one per kind of change found |
+| `risk:rule-<id>` | a static rule fired, see Static rules |
 | `verify:official` `verify:partial` `verify:conflict` `verify:none` | how far the official sources got |
 | `kind:price-only` `kind:lifecycle` `kind:features-params` `kind:mixed` `kind:new-model` | what the PR changes |
 | `shadow:auto` | measured only; never merges anything |
@@ -67,7 +69,7 @@ Anything removed (price region, tier, priority/flex pricing, rate, param, a supp
 param such as a `reasoning_effort` level, feature, limit, modality, supported mode, the file);
 a price move above +25%, any drop above 10%, or a move to / from 0 (also inside `tiered_pricing`
 and `priority_pricing`); a NEW region priced >= 100x the existing regions; a value added to
-`removeParams`; a changed `pricing_mode`, `mode`, `supportedModes` or model id; a shrinking limit;
+`removeParams`; a changed `pricing_mode`, a changed model id, a `mode` change other than filling in an unknown / absent one (that is review), a removed `supportedModes` entry (adding one is review); a shrinking limit;
 a flip to deprecated / retired; a check that crashed (`risk:check-error`). Everything else that
 changed is review-level, including any unknown key (`risk:other`). Formatting-only changes
 (`2e-6` vs `2.0e-6`) and `sources:` changes are not changes.
@@ -75,12 +77,46 @@ changed is review-level, including any unknown key (`risk:other`). Formatting-on
 ### verify:*
 
 - `verify:conflict`: some source disagrees with a value in a changed file.
-- `verify:official`: every changed file that has a source is fully verified (every price field
-  compared, no promo, nothing partial or uncovered).
+- `verify:official`: every changed file has a source, every source result is fully verified
+  (every price field compared, no promo, nothing partial or uncovered) and every changed price /
+  limit field has a verified check. One verified file plus a source-less file is `verify:partial`.
 - `verify:partial`: a source ran but did not cover everything: partial, uncovered fields, a
   promotion (the catalog keeps the list price), a failed fetch, or a registered adapter that is
   missing. Never a conflict, never "official".
 - `verify:none`: no source covers any changed file.
+
+### Static rules
+
+`rules.py` checks a file against patterns that Cursor Bugbot flagged again and again on bot PRs
+(579 threads). A finding has a stable id, a severity and a field locator, and becomes a
+`risk:rule-<id>` label. `escalate` severity makes `gate:escalate`; `review` never does. Only
+findings the PR **introduces** are reported (the base commit's findings are subtracted), and a
+rule finding adds nothing for a source to verify. Rules do not affect `kind:*`.
+
+| id | severity | fires when |
+|---|---|---|
+| `max-tokens-below-limit` | review | the model's own `max_tokens` / `max_completion_tokens` `maxValue` is below `limits.max_output_tokens` |
+| `max-tokens-inherited-cap` | review | in a provider that normally overrides it, the model inherits `default.yaml`'s `max_tokens` cap, which is below its output limit, with no override |
+| `max-completion-pair` | review | `max_tokens` is removed and no `max_completion_tokens` param (own or default) replaces it |
+| `null-status` | escalate | `status:` is present with no value |
+| `deprecated-conflict` | review | `isDeprecated: true` with `status` active / preview |
+| `deprecated-undated` | review | `isDeprecated: true`, no status, no dates, and the file cites a source |
+| `reasoning-enum` | escalate | a `reasoning_effort` `supportedValues` entry is not in the CUE enum (`.github/test/model.rules.cue`) |
+| `reasoning-default` | review | the `reasoning_effort` `defaultValue` is not in its own `supportedValues` |
+| `reasoning-unsupported` | review | the model declares a `reasoning_effort` param without `thinking: true`, or on a non-text mode |
+| `feature-enum` | escalate | a `features` entry is not in the CUE `#Feature` enum (`.github/test/model.cue`) |
+
+Calibration: `python -m verify.rules --calibrate --providers providers` runs every rule over the
+catalog and flags any rule above 5% of files, since existing files are the ground truth of
+"accepted". On origin/main (4,523 files): below-limit 0.42%, inherited-cap 2.87%, completion-pair
+0.04%, null-status 0, deprecated-conflict 0.13%, deprecated-undated 0.49%, reasoning-enum 0,
+reasoning-default 0, reasoning-unsupported 0.20%, feature-enum 0. Narrowed to get there: the
+inherited cap fired on 16.7% (openrouter inherits it in 61% of its files), so it only applies to
+`CAP_OVERRIDE_PROVIDERS`, the providers where at least 60% of files override it; the undated
+deprecation fired on 7%, so it needs a cited source; an inherited `reasoning_effort` (24% of chat
+files) is never flagged. The two enum rules and `null-status` fire nowhere today because CUE
+already rejects them; they stay as an early, labelled warning. Re-run `--calibrate` after a large
+catalog change and refresh `CAP_OVERRIDE_PROVIDERS` if a provider's convention moved.
 
 ### kind:*
 
@@ -97,7 +133,12 @@ new, and no hold.
 ## How a PR is judged
 
 `verify-pr.yml` (`pull_request`, read-only token, no secrets) runs the CLI and uploads
-`verify-result.json`. `verify-label.yml` (`workflow_run`, write token) never checks out the PR:
+`verify-result.json`. After checking out the PR it **restores `scripts/verify` and
+`sources/registry.yaml` from the base commit** first, so a PR cannot change its own verdict (the
+diff between the commits is read from git objects and is unaffected). Trade-offs: a PR that
+edits the verifier is judged by the old verifier and relies on `verify-tests.yml` to test the
+new one; the PR that introduces the verifier has no base copy and is skipped with a neutral note
+(no labels); the CUE schema read by the enum rules is the PR's own copy (data, not code). `verify-label.yml` (`workflow_run`, write token) never checks out the PR:
 it checks out the default branch, downloads the artifact, validates it against a strict schema
 (`sync.py`: exact keys, owned labels only, size caps, head sha must match the run), then:
 

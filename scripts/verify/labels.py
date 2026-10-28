@@ -11,12 +11,16 @@ MARKER = "<!-- catalog-verify -->"
 
 GATES = ("review", "unverified", "escalate")  # set by this tool; `hold` is set by humans
 RISKS = ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error")
+# Static rules (rules.py): one risk:rule-<id> label each. Keep in step with rules.RULES.
+RULE_IDS = ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completion-pair", "null-status",
+            "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default",
+            "reasoning-unsupported", "feature-enum")
 VERIFY = ("official", "partial", "conflict", "none")
 KINDS = ("price-only", "lifecycle", "features-params", "mixed", "new-model")
 SHADOW = "shadow:auto"
 
 GATE_LABELS = frozenset(f"gate:{g}" for g in GATES)
-RISK_LABELS = frozenset(f"risk:{r}" for r in RISKS)
+RISK_LABELS = frozenset({f"risk:{r}" for r in RISKS} | {f"risk:rule-{r}" for r in RULE_IDS})
 VERIFY_LABELS = frozenset(f"verify:{v}" for v in VERIFY)
 KIND_LABELS = frozenset(f"kind:{k}" for k in KINDS)
 OWNED = frozenset(GATE_LABELS | RISK_LABELS | VERIFY_LABELS | KIND_LABELS | {SHADOW})

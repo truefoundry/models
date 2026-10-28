@@ -111,12 +111,35 @@ def test_one_unverified_file_blocks_shadow_for_the_pr():
     assert not decide([verified, unverified]).shadow
 
 
-def test_verify_official_ignores_files_without_a_source_literal_reading():
+def test_verified_file_plus_source_less_file_is_partial_not_official():
     verified = pr()
     unverified = report_for(base(), price(input_cost_per_token=3.1e-6), None)
-    assert decide([verified, unverified]).verify == "official"
+    assert decide([verified, unverified]).verify == "partial"
+    assert decide([unverified, unverified]).verify == "none"
     partial = pr(res=result(check(IN), partial=True))
     assert decide([verified, partial]).verify == "partial"
+    assert decide([verified, verified]).verify == "official"
+
+
+def test_official_needs_every_price_field_verified_even_when_the_source_is_clean():
+    f = report_for(base(), price(input_cost_per_token=3.1e-6, output_cost_per_token=1.51e-5), FakeSource(res=result(check(IN))))
+    assert f.source_state == "official" and f.price_limit_unverified == [OUT]
+    assert decide(f).verify == "partial"
+
+
+def test_an_unverified_limit_change_blocks_official_like_a_price_does():
+    f = report_for(base(), mod(lambda d: d["costs"][0].update(input_cost_per_token=3.1e-6) or d["limits"].update(context_window=300000)),
+                   FakeSource(res=result(check(IN))))
+    assert f.source_state == "official" and f.price_limit_unverified == [("limits", "context_window")]
+    assert decide(f).verify == "partial" and decide(f).gate == "unverified"
+    g = report_for(base(), mod(lambda d: d["costs"][0].update(input_cost_per_token=3.1e-6) or d["limits"].update(context_window=300000)),
+                   FakeSource(res=result(check(IN), check(("limits", "context_window")))))
+    assert decide(g).verify == "official" and decide(g).gate == "review"
+
+
+def test_a_deleted_file_does_not_break_official():
+    deleted = build_file("providers/p/gone.yaml", DELETED, "model: m\n", None, runner())
+    assert decide([pr(), deleted]).verify == "official"
 
 
 def test_conflict_anywhere_wins_verify():
@@ -157,7 +180,7 @@ def test_kinds():
     assert kind(mod(lambda d: d["limits"].update(context_window=1))) == "features-params"
     assert kind(mod(lambda d: d["modalities"]["output"].append("audio"))) == "features-params"
     assert kind(mod(params=[])) == "features-params"
-    assert kind(mod(thinking=True)) == "mixed"
+    assert kind(mod(provisioning="provisioned")) == "mixed"
     assert kind(mod(mode="embedding")) == "mixed"
     assert kind(mod(lambda d: d["costs"][0].update(input_cost_per_token=3.1e-6), features=["function_calling"])) == "mixed"
     assert kind(mod(lambda d: d["costs"][0].update(input_cost_per_token=3.1e-6), status="deprecated")) == "mixed"

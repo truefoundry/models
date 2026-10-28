@@ -14,7 +14,7 @@ from collections.abc import Callable, Iterable
 from pathlib import Path, PurePosixPath
 from typing import Protocol
 
-from . import build, gates, report
+from . import build, gates, report, rules, yamlio
 from .model import ADDED, DELETED, MODIFIED, FileReport
 from .registry import Registry, RegistryError
 from .registry import load as load_registry
@@ -76,7 +76,7 @@ def empty_result(base: str, head: str, skipped: str | None = None, notes: Iterab
 
 
 def run(repo: Repo, base: str, head: str, *, head_ref: str = "", current_labels: Iterable[str] = (),
-        registry: Registry | None = None, registry_note: str | None = None,
+        registry: Registry | None = None, registry_note: str | None = None, schema: rules.Schema | None = None,
         load_sources: Callable[[set[str]], list[Source]] = lambda names: []) -> dict:
     if head_ref.startswith(SKIP_BRANCH_PREFIX):
         return empty_result(base, head, "trueforge-branch")
@@ -89,12 +89,20 @@ def run(repo: Repo, base: str, head: str, *, head_ref: str = "", current_labels:
     wanted = registry.source_names(providers)
     adapters = {s.name: s for s in load_sources(wanted)} if wanted else {}
     runner = build.Runner(registry, adapters)
+    schema = schema or rules.Schema()
+    contexts: dict[str, rules.Context] = {}  # one default.yaml read per provider
+
+    def context(provider: str) -> rules.Context:
+        if provider not in contexts:
+            defaults = yamlio.load(repo.show(head, f"providers/{provider}/default.yaml")) or {}
+            contexts[provider] = rules.Context(defaults, provider, schema)
+        return contexts[provider]
     files: list[FileReport] = []
     for status, path in sorted(paths, key=lambda sp: sp[1]):
         try:
             before = None if status == ADDED else repo.show(base_ref, path)
             after = None if status == DELETED else repo.show(head, path)
-            files.append(build.build_file(path, status, before, after, runner))
+            files.append(build.build_file(path, status, before, after, runner, context(build.provider_of(path))))
         except Exception as e:  # noqa: BLE001 - a crash in one file must not lose the PR's gate
             files.append(build._crash(path, status, f"verifier crashed on this file ({type(e).__name__})"))
     verdict = gates.decide(files, labels_now)
@@ -146,7 +154,7 @@ def main(argv: list[str] | None = None) -> int:
 
     result = run(GitRepo(root), args.base, args.head, head_ref=args.head_ref,
                  current_labels=[n for n in _load_labels(args.current_labels_json) if isinstance(n, str)],
-                 registry=registry, registry_note=note, load_sources=loader)
+                 registry=registry, registry_note=note, schema=rules.load_schema(root), load_sources=loader)
     text = json.dumps(result, indent=2, sort_keys=True)
     if args.summary_md:
         Path(args.summary_md).write_text(result["summary_md"])

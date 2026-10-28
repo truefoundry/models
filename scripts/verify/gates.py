@@ -47,18 +47,21 @@ def gate_of(files: Iterable[FileReport], current: Iterable[str] = ()) -> str | N
 
 
 def verify_of(files: Iterable[FileReport]) -> str | None:
-    """official only when every changed file that HAS a source is fully verified; a PR no
-    source covers at all is `none`; promo / partial / uncovered / unavailable is `partial`."""
+    """official only when every changed file has a source, every source result is fully verified
+    (no promo, partial or uncovered) and every changed price / limit field has a verified check.
+    A PR mixing a verified file with a source-less one is partial; a PR no source covers at all
+    is `none`; a conflict anywhere is `conflict`."""
     files = [f for f in changed(files) if f.status != "deleted"]
     if not files:
         return None
     states = [f.source_state for f in files]
     if "conflict" in states:
         return "conflict"
-    with_source = [f for f in files if f.source_state != "none"]
-    if not with_source:
+    if all(s == "none" for s in states):
         return "none"
-    return "official" if all(f.source_state == "official" for f in with_source) else "partial"
+    if all(f.source_state == "official" and not f.price_limit_unverified for f in files):
+        return "official"
+    return "partial"
 
 
 def shadow_ok(files: Iterable[FileReport], current: Iterable[str] = ()) -> bool:

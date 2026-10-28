@@ -33,6 +33,7 @@ MAX_COMMENT = 60_000
 MAX_SUMMARY = 60_000
 MAX_FILES = 5000
 SKIP_BRANCH_PREFIX = "trueforge/"
+SKIPPED = ("trueforge-branch", "no-verifier-at-base")
 CHECK_NAME = "catalog-verify"
 BOT_LOGIN = "github-actions[bot]"
 _SHA = re.compile(r"^[0-9a-f]{40}$")
@@ -65,7 +66,7 @@ def validate(data) -> dict:
     for key in ("base_sha", "head_sha"):
         if not (_is_str(data[key]) and _SHA.match(data[key])):
             raise ValidationError(f"{key} must be a 40-hex sha")
-    if data["skipped"] not in (None, "trueforge-branch"):
+    if data["skipped"] not in (None, *SKIPPED):
         raise ValidationError("bad skipped")
     labels = data["labels"]
     if not (isinstance(labels, list) and len(labels) <= 40 and all(_is_str(x) for x in labels)):

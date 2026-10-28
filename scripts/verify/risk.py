@@ -8,7 +8,7 @@ mistakes a human had to fix on a bot PR in 2026-10:
 - a price move over +25%, any drop over 10%, or a move to / from 0 (#5499 was 2x), at any depth:
   flat rates, `priority_pricing`, `flex_pricing`, `tiered_pricing` and tiers inside them;
 - a NEW region priced >= 100x the existing regions (a per-million price in a per-token field);
-- a changed `pricing_mode`, `mode`, `supportedModes` or model id, a shrinking limit, a value
+- a changed `pricing_mode`, `mode` (other than filling in an unknown one), a removed supported mode or a changed model id, a shrinking limit, a value
   added to `removeParams`, a flip to deprecated / retired, a check that crashed.
 Smaller price moves, added features / limits / params, param value changes, lifecycle dates and
 any unknown key are review-level. Formatting-only changes (2e-6 vs 2.0e-6) are not changes.
@@ -256,7 +256,7 @@ def _check_supported_modes(before: dict, after: dict, out: list[Risk]) -> None:
     for item in sorted(was - now):
         out.append(Risk("risk:removal", f"supportedModes {_code(item)} removed", True, OTHER, ("supportedModes", item)))
     for item in sorted(now - was):
-        out.append(Risk("risk:mode", f"supportedModes {_code(item)} added", True, OTHER, ("supportedModes", item)))
+        out.append(Risk("risk:mode", f"supportedModes {_code(item)} added", False, OTHER, ("supportedModes", item)))
 
 
 def _check_limits(before: dict, after: dict, out: list[Risk]) -> None:
@@ -309,8 +309,11 @@ def _check_lifecycle(before: dict, after: dict, out: list[Risk]) -> None:
 
 
 def _check_rest(before: dict, after: dict, out: list[Risk]) -> None:
-    if before.get("mode") != after.get("mode"):
-        out.append(Risk("risk:mode", f"mode {_code(before.get('mode'))} → {_code(after.get('mode'))}", True, OTHER, ("mode",)))
+    was, now = before.get("mode"), after.get("mode")
+    if was != now:
+        # filling in an unknown / absent mode (a bot stub) is review; any other change escalates
+        fill_in = was in (None, "unknown") and now not in (None, "unknown")
+        out.append(Risk("risk:mode", f"mode {_code(was)} → {_code(now)}", not fill_in, OTHER, ("mode",)))
     if before.get("model") != after.get("model"):
         out.append(Risk("risk:other", f"model id {_code(before.get('model'))} → {_code(after.get('model'))}", True, OTHER, ("model",)))
     for key in sorted((set(before) | set(after)) - COVERED, key=str):

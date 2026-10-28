@@ -62,6 +62,13 @@ class FileReport:
         return any(r.escalate for r in self.risks) or bool(self.conflicts)
 
     @property
+    def price_limit_unverified(self) -> list[Locator]:
+        """Changed price / limit fields with no verified check."""
+        return [n for n in self.unverified_needs if n[0] in ("costs", "limits")]
+
+    @property
     def fully_verified(self) -> bool:
-        """Every changed field has a verified check and the sources compared everything."""
-        return self.source_state == "official" and not self.unverified_needs
+        """Every changed field has a verified check and the sources compared everything. A file
+        with nothing a source could check (only rule findings) and no source is not unverified."""
+        # with no source, `unverified_needs` is every need, so "none" only passes when nothing needs one
+        return not self.unverified_needs and self.source_state in ("official", "none")

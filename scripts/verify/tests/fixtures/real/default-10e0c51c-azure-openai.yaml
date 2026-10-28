@@ -1,0 +1,84 @@
+params:
+  - key: max_tokens
+    defaultValue: 128
+    minValue: 1
+    maxValue: 4096
+  - key: temperature
+    defaultValue: 0.8
+    minValue: 0
+    maxValue: 2
+  - key: stop
+    defaultValue: null
+    type: array-of-strings
+    skipValues:
+      - null
+      - []
+  - key: top_p
+    defaultValue: 0.1
+    minValue: 0
+    maxValue: 1
+  - key: 'n'
+    defaultValue: 1
+    minValue: 1
+    maxValue: 10
+  - key: response_format
+    defaultValue: null
+    options:
+      - value: null
+        name: Text
+      - value: json_object
+        name: JSON Object
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              value: json_object
+    skipValues:
+      - null
+    type: string
+  - key: stream
+    defaultValue: true
+    type: boolean
+  - key: tool_choice
+    type: non-view-manage-data
+    defaultValue: null
+    options:
+      - value: none
+        name: None
+      - value: auto
+        name: Auto
+      - value: required
+        name: Required
+      - value: custom
+        name: Custom
+        schema:
+          type: json
+    skipValues:
+      - null
+      - []
+    rule:
+      default:
+        condition: tools
+        then: auto
+        else: null
+  - key: parallel_tool_calls
+    type: boolean
+    defaultValue: true
+    skipValues:
+      - null
+      - true
+    rule:
+      default:
+        condition: tools
+        then: true
+        else: true
+messages:
+  options:
+    - system
+    - user
+    - assistant
+    - developer
+type:
+  primary: chat
+  supported: []

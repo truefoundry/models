@@ -28,6 +28,7 @@ params:
     defaultValue: medium
     supportedValues: [low, medium, high]
 status: active
+thinking: true
 supportedModes: [chat]
 sources:
   - https://example.com/a

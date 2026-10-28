@@ -17,7 +17,7 @@ def file_kind(f: FileReport) -> str | None:
         return NEW
     if f.status == DELETED or f.is_new:  # a deletion, or a stub filled in: a human decides
         return MIXED
-    groups = {r.group for r in f.risks}
+    groups = {r.group for r in f.risks} - {"rule"}  # a rule finding says nothing about WHAT changed
     if not groups:
         return None
     if groups == {PRICE}:

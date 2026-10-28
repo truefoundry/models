@@ -4,7 +4,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from pathlib import PurePosixPath
 
-from . import yamlio
+from . import rules, yamlio
 from .model import ADDED, DELETED, MODIFIED, UNCHANGED, FileReport
 from .registry import Registry
 from .risk import OTHER, Risk, assess, is_stub, new_file_needs
@@ -81,7 +81,8 @@ def _crash(path: str, status: str, why: str, *, is_new: bool = False) -> FileRep
     return FileReport(path, status, is_new, [Risk("risk:check-error", why, True, OTHER, ("file",))], [("file",)])
 
 
-def build_file(repo_path: str, status: str, before_text: str | None, after_text: str | None, runner: Runner) -> FileReport:
+def build_file(repo_path: str, status: str, before_text: str | None, after_text: str | None, runner: Runner,
+               ctx: rules.Context | None = None) -> FileReport:
     """`status` is the git status (added | modified | deleted). Never raises: an unreadable file
     still gets a report, so a run never leaves a PR without a gate."""
     if status == DELETED:
@@ -91,7 +92,7 @@ def build_file(repo_path: str, status: str, before_text: str | None, after_text:
     if after is None:
         return _crash(repo_path, status, "file is not a YAML mapping", is_new=status == ADDED)
     if status == ADDED:
-        report = FileReport(repo_path, ADDED, True, [], new_file_needs(after))
+        report = FileReport(repo_path, ADDED, True, rules.to_risks(rules.evaluate(after, ctx)), new_file_needs(after))
         report.results = runner.run(repo_path, after)
         return report
     before = yamlio.load(before_text)
@@ -100,11 +101,11 @@ def build_file(repo_path: str, status: str, before_text: str | None, after_text:
     if is_stub(before):  # a stub filled in: nothing existed to compare against
         if yamlio.normalized(before or {}) == yamlio.normalized(after):
             return FileReport(repo_path, UNCHANGED)
-        report = FileReport(repo_path, MODIFIED, True, [], new_file_needs(after))
+        report = FileReport(repo_path, MODIFIED, True, rules.to_risks(rules.evaluate(after, ctx)), new_file_needs(after))
         report.results = runner.run(repo_path, after)
         return report
-    risks = assess(before, after)
-    if not risks:  # formatting-only, or only `sources:` changed
+    risks = assess(before, after) + rules.to_risks(rules.introduced(before, after, ctx))
+    if not risks:  # formatting-only, or only `sources:` changed, and no new rule finding
         return FileReport(repo_path, UNCHANGED)
     report = FileReport(repo_path, MODIFIED, False, risks, [n for r in risks for n in r.needs])
     report.results = runner.run(repo_path, after)
