@@ -753,7 +753,6 @@ def test_providers_whose_adapter_has_no_propose_give_no_proposal_not_an_error():
                "azure-retail-prices": lambda **kw: AzureRetailSource(fetch=FakeFetch({}))}
     for provider in ("anthropic", "azure-open-ai", "azure-ai-foundry", "microsoft-foundry"):
         out = P.propose_for(reg, provider, "some-model", sources=sources)
-        expected = "no source had anything for this model" if provider == "anthropic" else "no price source is registered for this provider"
-        assert out["proposals"] == [] and out["reason"] == expected, provider
+        assert out["proposals"] == [] and out["reason"] == "no price source is registered for this provider", provider
     out = P.propose_for(reg, "openrouter", "x/y", sources=sources)          # price-less in the registry on purpose
     assert out["proposals"] == [] and out["reason"] == "no price source is registered for this provider"

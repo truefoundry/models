@@ -100,16 +100,18 @@ def test_the_header_contract_lists_every_price_source_and_keeps_openrouter_out_o
     path = REPO / "sources" / "registry.yaml"
     text = path.read_text()
     safe, report_only = _header_list(text, "SAFE-TO-WRITE"), _header_list(text, "REPORT-ONLY")
+    owned_header = _header_list(text, "PRICE-OWNED")
     assert not (safe & report_only) and safe == {"deepinfra", "aws-price-list", "anthropic-pricing-page"}
+    assert owned_header == {"deepinfra", "aws-price-list"} and owned_header <= safe     # owned only what the sweep writes
     reg = registry.load(path, REPO / "providers")
     priced = {e.source for e in reg.entries if "price" in e.fields}
-    assert priced <= safe | report_only and "openrouter" not in priced
+    assert priced == owned_header and priced <= safe and "openrouter" not in priced and "anthropic-pricing-page" not in priced
     assert [e.fields for e in reg.for_provider("openrouter")] == [("limits",)]
     azure = [e for e in reg.entries if e.source == "azure-retail-prices"]
     assert {e.provider for e in azure} == {"azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}
     assert all(e.fields == ("price-report",) for e in azure)          # report-only: never price-owned
     assert "azure-retail-prices" not in priced
-    assert [e.source for e in reg.for_provider("anthropic")] == ["anthropic-pricing-page"]
+    assert [(e.source, e.fields) for e in reg.for_provider("anthropic")] == [("anthropic-pricing-page", ("price-report",))]
     assert all(e.added >= "2026-10-27" for e in reg.entries)
 
 
@@ -133,5 +135,5 @@ def test_the_sweeps_and_the_agents_price_owned_rule_ignores_price_report():
     updation/job/ownership.py load_price_owned): re-implemented here as a contract check."""
     data = yaml.safe_load((REPO / "sources" / "registry.yaml").read_text())
     owned = {row["provider"] for row in data["sources"] if isinstance(row.get("fields"), list) and "price" in row["fields"]}
-    assert owned == {"deepinfra", "aws-bedrock", "anthropic"}
-    assert not owned & {"openrouter", "azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}
+    assert owned == {"deepinfra", "aws-bedrock"}
+    assert not owned & {"openrouter", "anthropic", "azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}

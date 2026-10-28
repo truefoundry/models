@@ -17,10 +17,17 @@
 #
 #   An entry with `price` in `fields` means the sweep / agent treat that provider as PRICE-OWNED:
 #   the agent stops writing its prices and the sweep writes them from the source. So `price` may
-#   only be listed for a source that is safe to write (its SAFE set), and only those:
+#   only be listed for a source the SWEEP itself writes (its SAFE_SOURCES plus the adapter in its
+#   snapshot), and only those:
 #
 # SAFE-TO-WRITE: deepinfra, aws-price-list, anthropic-pricing-page
+# PRICE-OWNED: deepinfra, aws-price-list
 # REPORT-ONLY: openrouter, azure-retail-prices
+#
+#   SAFE-TO-WRITE = the adapter is verified safe; PRICE-OWNED = the rows that carry `price`.
+#   anthropic-pricing-page is safe to write, but its row carries `price-report`: the registry does not
+#   hand it price ownership until the sweep carries the adapter and a SAFE_SOURCES entry. Otherwise the
+#   agent would stop writing Anthropic prices while the sweep never writes them (frozen prices).
 #
 #   openrouter is deliberately report-only until a range check exists: /models quotes the CHEAPEST
 #   endpoint, not the first-party price (of 30 existing files 9 sit below it and 4 above). It is
@@ -52,7 +59,7 @@ sources:
   - provider: anthropic
     kind: page
     source: anthropic-pricing-page
-    fields: [price]
+    fields: [price-report]
     added: 2026-10-28
   - provider: azure-open-ai
     kind: api
