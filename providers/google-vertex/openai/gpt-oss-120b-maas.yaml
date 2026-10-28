@@ -37,10 +37,19 @@ params:
       key: max_tokens
       maxValue: 131072
       minValue: 1
+    - key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/openai/gpt-oss-120b
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/maas/openai
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking
+    - https://developers.openai.com/api/docs/models/gpt-oss-120b
 status: active
 supportedModes:
     - chat
+thinking: true

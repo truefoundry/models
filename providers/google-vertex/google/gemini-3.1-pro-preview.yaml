@@ -66,10 +66,18 @@ model: google/gemini-3.1-pro-preview
 params:
     - key: max_tokens
       maxValue: 65536
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-pro
     - https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking
 status: preview
 supportedModes:
     - chat

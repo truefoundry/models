@@ -50,10 +50,19 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview
     - https://ai.google.dev/gemini-api/docs/thinking
+    - https://ai.google.dev/gemini-api/docs/generate-content/thinking
 status: preview
 supportedModes:
     - chat

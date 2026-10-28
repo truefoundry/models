@@ -88,12 +88,24 @@ modalities:
         - text
 mode: chat
 model: eu.anthropic.claude-opus-5
+params:
+    - defaultValue: high
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5.html
     - https://www.anthropic.com/news/claude-opus-5
     - https://platform.claude.com/docs/en/docs/about-claude/pricing
     - https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-adaptive-thinking.html
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

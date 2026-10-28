@@ -664,6 +664,14 @@ params:
       type: string
     - defaultValue: null
       key: thinking
+    # Dynamic thinking has no single documented effort-level default.
+    - key: reasoning_effort
+      supportedValues:
+          - minimal
+          - low
+          - medium
+          - high
+      type: string
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro
@@ -672,6 +680,8 @@ sources:
     - https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro
     - https://ai.google.dev/gemini-api/docs/pricing
     - https://ai.google.dev/gemini-api/docs/deprecations
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking
+    - https://ai.google.dev/gemini-api/docs/openai
 status: active
 supportedModes:
     - chat

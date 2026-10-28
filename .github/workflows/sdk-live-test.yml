@@ -10,6 +10,11 @@ on:
           one cheap model per registered provider that has its credential secret set.
         required: false
         default: ''
+      scenarios:
+        description: 'auto = baseline for smoke, all for explicit models'
+        type: choice
+        options: [auto, baseline, all]
+        default: auto
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
@@ -54,6 +59,9 @@ jobs:
       MICROSOFT_FOUNDRY_API_KEY: ${{ secrets.MICROSOFT_FOUNDRY_API_KEY }}
       MICROSOFT_FOUNDRY_OPENAI_ENDPOINT: ${{ secrets.MICROSOFT_FOUNDRY_OPENAI_ENDPOINT }}
       MICROSOFT_FOUNDRY_PROJECT_ENDPOINT: ${{ secrets.MICROSOFT_FOUNDRY_PROJECT_ENDPOINT }}
+      WAFER_API_KEY: ${{ secrets.WAFER_API_KEY }}
+      TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       SDK_LIVE_SUMMARY_PATH: ${{ github.workspace }}/sdk-live-summary.md
 
     steps:
@@ -125,6 +133,8 @@ jobs:
           else
             args+=(--smoke-with-secrets)
           fi
+          scenarios="${{ github.event.inputs.scenarios }}"
+          if [ "$scenarios" != "auto" ]; then args+=(--scenarios "$scenarios"); fi
           npm run test:live -- "${args[@]}"
 
       - name: PR summary comment

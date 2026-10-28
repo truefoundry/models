@@ -44,7 +44,7 @@ params:
       key: top_p
       maxValue: 1
       minValue: 0.99
-    - defaultValue: medium
+    - defaultValue: high
       key: reasoning_effort
       supportedValues:
           - low
@@ -59,6 +59,8 @@ removeParams:
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
     - https://aws.amazon.com/bedrock/pricing/
+    - https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-adaptive-thinking.html
+    - https://platform.claude.com/docs/en/build-with-claude/effort
 status: active
 supportedModes:
     - chat

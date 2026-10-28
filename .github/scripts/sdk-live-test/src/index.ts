@@ -10,6 +10,9 @@
  *   --model provider/modelId …
  *     Explicit targets. Example: --model anthropic/claude-haiku-5-5
  *
+ *   --scenarios baseline|all
+ *     Overrides the default: baseline for --smoke-with-secrets, all otherwise.
+ *
  *   --files-list changed.txt
  *     PR path: each providers/<p>/<file>.yaml in the list → full scenario matrix.
  *     Example line: providers/openai/gpt-4o.yaml
@@ -75,6 +78,7 @@ function parseArgs(argv: string[]) {
   let catalogue = path.join(REPO_ROOT, 'dist/ai-models.json');
   let filesList: string | undefined;
   let smokeWithSecrets = false;
+  let scenarios: 'baseline' | 'all' | undefined;
   const models: string[] = [];
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -82,10 +86,16 @@ function parseArgs(argv: string[]) {
     else if (a === '--files-list') filesList = path.resolve(argv[++i]!);
     else if (a === '--model') models.push(argv[++i]!);
     else if (a === '--smoke-with-secrets') smokeWithSecrets = true;
+    else if (a === '--scenarios') {
+      const v = argv[++i];
+      if (v !== 'baseline' && v !== 'all') throw new Error(`--scenarios expects baseline|all, got ${v}`);
+      scenarios = v;
+    }
     else if (a === '--help' || a === '-h') {
       console.log(`Usage:
   tsx src/index.ts --model openai/gpt-4o
   tsx src/index.ts --smoke-with-secrets
+  tsx src/index.ts --model openai/gpt-4o --scenarios baseline
   tsx src/index.ts --files-list changed.txt
   # --catalogue defaults to <repo>/dist/ai-models.json; if set, use an absolute path
   # (relative paths resolve from process cwd, not repo root)
@@ -93,7 +103,7 @@ function parseArgs(argv: string[]) {
       process.exit(0);
     }
   }
-  return { catalogue, filesList, models, smokeWithSecrets };
+  return { catalogue, filesList, models, smokeWithSecrets, scenarios };
 }
 
 function targetsFromModelFlags(flags: string[]): Target[] {
@@ -114,6 +124,10 @@ function targetsFromFilesList(listPath: string): Target[] {
     const modelId = modelIdFromYamlFile(REPO_ROOT, filePath);
     if (!modelId) {
       console.warn(`skip (no model: field): ${filePath}`);
+      continue;
+    }
+    if (modelId.endsWith(':batch')) {
+      console.warn(`skip (batch variant, not callable via chat/completions): ${filePath}`);
       continue;
     }
     out.push({ provider: parsed.provider, modelId });
@@ -148,7 +162,7 @@ async function main() {
 
   console.log(`Testing ${targets.length} model(s) via @truefoundry/ai-gateway-sdk`);
   const results = await runTargets(args.catalogue, targets, {
-    baselineOnly: args.smokeWithSecrets,
+    baselineOnly: (args.scenarios ?? (args.smokeWithSecrets ? 'baseline' : 'all')) === 'baseline',
   });
 
   const failed = results.filter((r) => r.status === 'fail').length;
