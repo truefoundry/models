@@ -1,0 +1,64 @@
+name: Verify PR
+
+# Report only. Compares the model YAMLs a PR changes against main (risk) and against each
+# provider's official source, and uploads the result as an artifact. It never labels or comments:
+# verify-label.yml does that, from the artifact, with a token this job does not have. This job
+# runs the PR's own checkout (including a fork's), so it gets a read-only token and no secrets.
+# A verdict never fails the job; only a crash of the tool does.
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify changed models
+    if: ${{ !startsWith(github.head_ref, 'trueforge/') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install "PyYAML>=6.0"
+
+      - name: Run verifier
+        working-directory: scripts
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REF: ${{ github.head_ref }}
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: |
+          python -m verify \
+            --base "$BASE_SHA" \
+            --head "$HEAD_SHA" \
+            --head-ref "$HEAD_REF" \
+            --current-labels-json "$PR_LABELS" \
+            --json "$RUNNER_TEMP/verify-result.json" \
+            --summary-md "$RUNNER_TEMP/verify-summary.md"
+          cat "$RUNNER_TEMP/verify-summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-result
+          path: ${{ runner.temp }}/verify-result.json
+          retention-days: 7
+          if-no-files-found: error

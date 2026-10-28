@@ -1,0 +1,55 @@
+name: Verify labels
+
+# Applies the verdict of "Verify PR" to the PR: owned labels first, then one marker comment, then
+# a neutral check run with the full table. The artifact comes from a run of the PR's own code
+# (possibly a fork's), so it is untrusted: scripts/verify/sync.py validates it against a strict
+# schema and only ever writes labels it owns by exact name. This workflow must NEVER check out
+# or run code from the PR; it uses the default branch's copy of the tool and nothing else.
+
+on:
+  workflow_run:
+    workflows: ["Verify PR"]
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  sync:
+    name: Sync labels and comment
+    if: >-
+      ${{ github.event.workflow_run.event == 'pull_request'
+      && github.event.workflow_run.conclusion == 'success'
+      && !startsWith(github.event.workflow_run.head_branch, 'trueforge/') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read          # download the artifact of the other run
+      contents: read         # check out the default branch's tool code
+      pull-requests: write   # labels and the marker comment
+      checks: write          # the neutral check run with the full table
+    concurrency:
+      group: verify-label-${{ github.event.workflow_run.head_sha }}
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout trusted tool code (default branch, never the PR)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          sparse-checkout: scripts/verify
+          persist-credentials: false
+
+      - name: Download result artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: verify-result
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ runner.temp }}/verify-artifact
+
+      - name: Validate and sync
+        working-directory: scripts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ARTIFACT_DIR: ${{ runner.temp }}/verify-artifact
+        run: python -m verify.sync

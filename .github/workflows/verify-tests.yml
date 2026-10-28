@@ -1,0 +1,35 @@
+name: Verify tests
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify/**'
+      - 'sources/registry.yaml'
+      - '.github/workflows/verify-*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    name: pytest scripts/verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install "PyYAML>=6.0" pytest
+
+      - name: Run tests
+        working-directory: scripts
+        run: python -m pytest -q -p no:cacheprovider verify

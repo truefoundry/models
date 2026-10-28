@@ -1,0 +1,26 @@
+# Which provider has which official source. The verifier runs ONLY the adapters listed here for
+# a provider (scripts/verify/registry.py validates this file; scripts/verify/README.md says how
+# to add one).
+#
+#   provider  directory under providers/
+#   kind      api | pricelist | page   (how the source is read)
+#   source    adapter name: the key in scripts/verify/sources/__init__.py SOURCES
+#   fields    what the adapter compares: price | limits | features | modalities | lifecycle
+#   added     ISO date the entry was added
+version: 1
+sources:
+  - provider: openrouter
+    kind: api
+    source: openrouter
+    fields: [price, limits]
+    added: 2026-10-27
+  - provider: deepinfra
+    kind: api
+    source: deepinfra
+    fields: [price, limits]
+    added: 2026-10-27
+  - provider: aws-bedrock
+    kind: pricelist
+    source: aws-price-list
+    fields: [price]
+    added: 2026-10-27
