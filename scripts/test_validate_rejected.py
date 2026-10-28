@@ -61,6 +61,11 @@ class ValidateTests(unittest.TestCase):
         for good in v.REASONS:
             self.assertEqual(errors_of([entry(reason=good)]), [])
 
+    def test_a_trailing_newline_is_not_part_of_an_id_or_a_date(self):
+        self.assertTrue(v.validate([entry(id="a/m\n")])[0])
+        self.assertTrue(v.validate([entry(date="2026-10-27\n")])[0])
+        self.assertFalse(v.validate([entry(id="a/m", date="2026-10-27")])[0])
+
     def test_id_shape(self):
         for bad in ("gpt-9", "openai/", "/gpt-9", "openai/gpt 9", " openai/gpt-9", "", None, 7):
             self.assertTrue(errors_of([entry(id=bad)]), bad)
@@ -132,6 +137,11 @@ class FileTests(unittest.TestCase):
 
     def test_invalid_yaml(self):
         self.assertTrue(any("not valid YAML" in x for x in self._check("- id: [oops\n")[0]))
+
+    def test_an_unquoted_impossible_date_is_an_error_not_a_crash(self):
+        text = "- {id: a/m, reason: bogus, who: c, date: 2026-13-45}\n"
+        errors = self._check(text)[0]
+        self.assertTrue(any("not valid YAML" in x for x in errors), errors)
 
     def test_missing_file(self):
         self.assertTrue(any("cannot be read" in x for x in self._check(None)[0]))

@@ -45,7 +45,7 @@ def _real_date(value: object) -> bool:
         return False
     if isinstance(value, datetime.date):
         return True
-    if isinstance(value, str) and _DATE.match(value):
+    if isinstance(value, str) and _DATE.fullmatch(value):
         try:
             datetime.date.fromisoformat(value)
         except ValueError:
@@ -74,7 +74,7 @@ def validate(data: object, providers_dir: Path | None = None) -> tuple[list[str]
             errors.append(f"{where}: unknown key `{key}`")
         if "id" in entry:
             rid = entry["id"]
-            if not isinstance(rid, str) or not _ID.match(rid):
+            if not isinstance(rid, str) or not _ID.fullmatch(rid):
                 errors.append(f"{where}: `id` must be \"<provider>/<model id>\" without whitespace, got {rid!r}")
             elif rid in first_at:
                 if entry.get("reason") == reason_of[rid]:
@@ -109,7 +109,7 @@ def check_file(path: Path, providers_dir: Path | None = None) -> tuple[list[str]
         return [f"{path.name} cannot be read: {e}"], []
     try:
         data = yaml.safe_load(text)
-    except yaml.YAMLError as e:
+    except (yaml.YAMLError, ValueError) as e:  # ValueError: an unquoted impossible date such as 2026-13-45
         return [f"{path.name} is not valid YAML: {e}"], []
     return validate(data, providers_dir)
 
