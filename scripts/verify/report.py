@@ -61,6 +61,8 @@ def _source_line(f: FileReport) -> list[str]:
             bits.append("partial")
         if r.promo:
             bits.append(f"promo until {code(r.promo, 30)}")
+        elif r.promo_active:
+            bits.append("promo active")
         lines.append(f"- source {code(r.source, 40)}: " + ", ".join(bits))
         lines += [f"  - note: {code(n, 200)}" for n in r.notes[:5]]
         if r.uncovered:
@@ -165,6 +167,6 @@ def file_json(f: FileReport) -> dict:
         "checks": [{"source": r.source, "locator": list(c.locator), "file_value": str(c.file_value),
                     "source_value": str(c.source_value), "status": c.status} for r in f.results for c in r.checks],
         "uncovered": [u for r in f.results for u in r.uncovered],
-        "partial": any(r.partial or r.promo for r in f.results),
+        "partial": any(r.partial or r.promo or r.promo_active for r in f.results),
         "notes": [n for r in f.results for n in r.notes],
     }

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+from dataclasses import replace
 from pathlib import PurePosixPath
 
 from . import rules, yamlio
@@ -74,7 +75,7 @@ class Runner:
         if not isinstance(result, SourceResult) or not all(isinstance(c, Check) for c in result.checks):
             return _partial(name, "adapter returned an unusable result")
         result.source = result.source or name
-        result.checks = [Check(tuple(c.locator), c.file_value, c.source_value, c.status, c.note) for c in result.checks]
+        result.checks = [replace(c, locator=tuple(c.locator)) for c in result.checks]  # keeps `writable`
         return result
 
 

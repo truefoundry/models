@@ -66,9 +66,9 @@ def check(locator, status="verified", fv=1.0, sv=1.0) -> Check:
     return Check(tuple(locator), fv, sv if status == "verified" else sv * 2, status)
 
 
-def result(*checks, source="fake", uncovered=(), partial=False, promo=None, notes=()) -> SourceResult:
+def result(*checks, source="fake", uncovered=(), partial=False, promo=None, notes=(), promo_active=False) -> SourceResult:
     return SourceResult(source=source, checks=list(checks), uncovered=list(uncovered), partial=partial,
-                        promo=promo, notes=list(notes))
+                        promo=promo, notes=list(notes), promo_active=promo_active)
 
 
 class FakeSource:

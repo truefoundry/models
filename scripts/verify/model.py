@@ -52,7 +52,8 @@ class FileReport:
             return "none"
         if self.conflicts:
             return "conflict"
-        if all(r.fully_verified and not r.promo for r in self.results):
+        # fully_verified (types.py) is false for partial, uncovered, promo and promo_active results
+        if all(r.fully_verified for r in self.results):
             return "official"
         return "partial"
 

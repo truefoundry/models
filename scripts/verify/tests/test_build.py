@@ -122,6 +122,7 @@ def test_source_states():
     assert report_for(base(), one, FakeSource(res=result(check(IN), uncovered=["costs.x"]))).source_state == "partial"
     assert report_for(base(), one, FakeSource(res=result(check(IN), partial=True))).source_state == "partial"
     assert report_for(base(), one, FakeSource(res=result(check(IN), promo="2026-12-01"))).source_state == "partial"
+    assert report_for(base(), one, FakeSource(res=result(check(IN), promo_active=True))).source_state == "partial"
     assert report_for(base(), one, FakeSource(res=result())).source_state == "partial"  # compared nothing
     assert report_for(base(), one, FakeSource(res=result(check(IN, "conflict")))).source_state == "conflict"
 
@@ -148,3 +149,22 @@ def test_covered_needs_every_leaf_and_only_verified_checks():
     assert not f.covered(risk) and f.verified == {leaf_a}
     assert not f.covered(Risk("risk:removal", "gone", True, "price", ("costs", "region=eu")))
     assert not f.covered(Risk("risk:other", "x", False, "other", (), None, ()))
+
+
+def test_an_active_promo_without_an_end_date_is_partial_never_official_and_never_a_conflict():
+    one = price(input_cost_per_token=3.1e-6)
+    f = report_for(base(), one, FakeSource(res=result(check(IN), promo_active=True)))
+    assert f.source_state == "partial" and not f.conflicts and not f.fully_verified
+    from verify import gates, report
+    v = gates.decide([f])
+    assert (v.verify, v.gate, v.shadow) == ("partial", "unverified", False)
+    assert "promo active" in report.render_comment(v, [f]) and report.file_json(f)["partial"] is True
+    ended = report_for(base(), one, FakeSource(res=result(check(IN))))
+    assert gates.decide([ended]).verify == "official"
+
+
+def test_the_writable_flag_survives_the_core():
+    from verify.types import Check
+    c = Check(IN, 1.0, 1.0, "verified", writable=False)
+    f = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(c)))
+    assert f.checks[0].writable is False
