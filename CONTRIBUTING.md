@@ -307,7 +307,7 @@ Same-repo PRs that change `providers/**/*.yaml` run **SDK live** checks (`.githu
 
 Pass bar is HTTP 2xx only (no deep response-shape asserts). Each model’s primary `mode` plus any harnessed entries in `supportedModes` are planned (e.g. chat+responses). Not covered: `realtime` / `video` / `ocr` / `unknown` / `unsupported`, Azure OpenAI / Azure AI Foundry, `code_execution`, stream × vision/PDF, gateway **adapter SDKs** (boto3, etc.). Vertex uses SA JSON (`VERTEX_KEY_FILE`), not an API key. Bedrock and Bedrock Mantle use API keys with region `us-east-1`. Databricks also needs `DATABRICKS_BASE_URL`. Microsoft Foundry also needs `MICROSOFT_FOUNDRY_OPENAI_ENDPOINT` and `MICROSOFT_FOUNDRY_PROJECT_ENDPOINT`.
 
-Manual re-run: push a new commit, or Actions → **SDK live model tests** → Run workflow (optional `models=` override).
+Manual re-run: push a new commit, or Actions → **SDK live model tests** → Run workflow (optional `models=` override and `scenarios=baseline|all`; default is `baseline` for smoke, `all` for explicit models).
 
 Secrets smoke (one chat baseline per provider with a key): Actions → **SDK live model tests** → Run workflow (leave `models` empty).
 

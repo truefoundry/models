@@ -62,7 +62,6 @@ external_ids:
 features:
     - function_calling
     - tool_choice
-    - prompt_caching
     - system_messages
 limits:
     context_window: 500000
@@ -90,6 +89,9 @@ params:
           - xhigh
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html
