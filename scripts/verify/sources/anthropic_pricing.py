@@ -33,14 +33,20 @@ official one is a human question):
     applies only to the models it names and only where its marker sits (a model it names without the marker, or a
     marker on a model it does not name, is a contradiction);
   batch = the stated Batch API discount ("50 percent") applied to the model's own price, per row.
-A footnote on a price that announces introductory / promotional pricing sets `promo_active` (`promo` only from a real
-"through <Month D, YYYY>") and the cell is `uncovered`; a footnote that says the intro price "is now the standard
-price" is not a promo; any other unrecognised footnote on a price cell leaves that cell `uncovered`.
+A footnote on a price is "the standard price" ONLY if it matches one exact sentence that names the model and both
+prices, and those equal the row's own input / output cells (`_STANDARD`). Any other footnote with promo or date wording
+sets `promo_active` (`promo` only from a real "through <Month D, YYYY>") and the cell is `uncovered`; any other
+unrecognised footnote leaves the cell `uncovered`. If a base price conflicts while the page's own derived cells (cache
+writes, cache hit, batch) contradict it by the stated multipliers, the conflict is reported with `writable=False`
+(the page may hold the typo): it is never written back.
 
 COVERAGE. Page model names map to catalog files through an explicit alias table (`alias_table()`), never a fuzzy
 match: the file's model id must be `claude-<family>-<ver>` (or `claude-<ver>-<family>`, the older catalog order, e.g.
 claude-3-5-haiku = "Claude Haiku 3.5") optionally followed by `-YYYYMMDD` (a dated snapshot) or `-latest`, and its
-`canonical_model` and path must name the same slug. Anything else, or two page models for one slug, is uncovered.
+`canonical_model` and path must name the same slug. A dated suffix or `-latest` must be listed in KNOWN_SNAPSHOTS (the
+catalog's own ids; the page carries no snapshot dates), so claude-opus-5-20251101 is not Opus 5. Anything else, or two
+page models for one slug, is uncovered. The fetch is pinned to the page's host over https (redirects off-host or to
+http fail) with one overall deadline that covers the body.
 Not covered at all: tool, fast-mode, data-residency (+10% for `inference_geo`) and per-region prices (the page
 covers the global first-party API only; other regions stay uncovered). The page's retired / limited-availability
 annotations are noted per file; lifecycle is never compared.
@@ -51,6 +57,15 @@ their text, prices rewritten as `$<decimal>/MTok` (so `$5.00` == `$5`). The page
 these do not, so they are the schedule's change-detection signal. `extra_fingerprints()` covers what is not a model
 row (footnote texts, cache multiplier table, fast-mode table, batch discount sentence). Both raise if the page is
 unreachable or has changed shape, so "page changed shape" is distinguishable from "nothing changed".
+
+CONSUMING THEM (the sweep and the schedule). This module is the canonical Anthropic page parser; other code should
+not re-parse the page. Run `python -m verify.sources.anthropic_pricing --fingerprints` (stable, sorted JSON:
+`{"version": 1, "source": URL, "rows": {...}, "extras": {...}}`; exit code 0, a non-zero exit with a traceback when the
+page is unreachable or changed shape). Keep the last JSON; a changed `version` means every stored hash is stale (re-baseline,
+do not treat as a price change); a differing `rows` entry is a changed / added / removed model row, and a differing
+`extras` entry means a page rule changed (re-verify the whole provider). Map a row name to catalog files with
+`alias_table()` (`--aliases`). Row names include the retired / limited-availability annotation text in the hash but not
+in the key, so nested parentheses such as "(Google managed)" are handled.
 
     python -m verify.sources.anthropic_pricing --fingerprints [--file page.md]
     python -m verify.sources.anthropic_pricing --aliases [--root ..]
@@ -65,8 +80,9 @@ import sys
 import time
 import unicodedata
 import urllib.error
+import urllib.parse
 import urllib.request
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import datetime
 from decimal import Decimal
 from pathlib import Path
@@ -79,6 +95,7 @@ from ._common import (USER_AGENT, BaseSource, Fetch, NotFound, Recorder, clean, 
 URL = "https://platform.claude.com/docs/en/about-claude/pricing.md"
 NAME = "anthropic-pricing-page"
 MAX_BYTES = 3_000_000
+FINGERPRINT_VERSION = 1  # bump when the normalisation changes: every stored hash is then stale
 MIN_MODEL_ROWS = 5  # a page with fewer rows than this was truncated or replaced
 
 MODEL_HEADER = ["Model", "Base input tokens", "5m cache writes", "1h cache writes", "Cache hits and refreshes",
@@ -325,7 +342,21 @@ _FOOTNOTE = re.compile(r"^\*<sup>(?:(\d+) )?(.+?)</sup>\*$")
 _READ_FN = re.compile(r"^Cache hits and refreshes on (?P<models>.+?) (?:are|is) priced at (?P<m>\d+(?:\.\d+)?)x "
                       r"the base input price\.$")
 _STD_FN = re.compile(r"^All other models use the standard (?P<m>\d+(?:\.\d+)?)x multiplier\.$")
-_PROMO = re.compile(r"\b(introductory|promotional|promotion|discount(?:ed)?|limited[- ]time|temporary)\b", re.I)
+# Wording that makes a footnote on a price a promotion (or at least a date-bound price). Deliberately broad: a
+# footnote is only "the standard price" if it matches _STANDARD exactly.
+_PROMO = re.compile(r"\b(introductory|intro|promotional|promotion|promo|discount(?:ed)?|limited|temporary|special|"
+                    r"launch|trial|through|until|till|ends?|ending|expires?|expiring|valid|effective|starting|"
+                    r"beginning|after|before|(?:January|February|March|April|May|June|July|August|September|October|"
+                    r"November|December)|20\d\d)\b", re.I)
+_DATE = r"[A-Z][a-z]+ \d{1,2}, \d{4}"
+_USD = r"\$(?P<%s>\d+(?:\.\d+)?)"
+# The ONE explicit form that says an introductory price became the standard price. It names the model and both prices,
+# which must equal the row's own input / output cells; anything else with promo or date wording is a promo.
+_STANDARD = re.compile(
+    rf"^The {_USD % 'i'}/{_USD % 'o'} per million input/output token pricing for (?P<m>Claude [A-Z][A-Za-z]+ \d+(?:\.\d+)?), "
+    rf"announced at launch as introductory pricing through (?P<end>{_DATE}), is now the standard price\. "
+    rf"The previously scheduled increase to {_USD % 'i2'}/{_USD % 'o2'} per million input/output tokens on "
+    rf"(?P<d2>{_DATE}) will not occur\.$")
 _END = re.compile(r"\b(?:through|until|ending|ends(?: on)?) (?P<d>[A-Z][a-z]+ \d{1,2}, \d{4})")
 
 def _models_list(text: str) -> tuple[str, ...] | None:
@@ -346,6 +377,7 @@ class Footnote:
     mult: Decimal | None = None
     models: tuple[str, ...] = ()
     promo_end: str | None = None
+    std_prices: tuple[Decimal, Decimal] | None = None  # kind == "standard": the $in / $out the footnote calls standard
 
 def _classify(n: str, text: str) -> Footnote:
     m = _READ_FN.match(text)
@@ -354,9 +386,10 @@ def _classify(n: str, text: str) -> Footnote:
         if models:
             return Footnote(n, text, "read-mult", _dec(m["m"]), models)
         return Footnote(n, text, "other")
+    st = _STANDARD.match(text)
+    if st:
+        return Footnote(n, text, "standard", models=(st["m"],), std_prices=(_dec(st["i"]), _dec(st["o"])))
     if _PROMO.search(text):
-        if "now the standard" in text.lower():
-            return Footnote(n, text, "standard")
         end = _END.search(text)
         return Footnote(n, text, "promo", promo_end=_iso(end["d"]) if end else None)
     return Footnote(n, text, "other")
@@ -526,7 +559,27 @@ def slug_index(bases) -> dict[str, list[str]]:
             out.setdefault(s, []).append(b)
     return out
 
-def resolve(repo_path: str, doc: dict, index: dict[str, list[str]]) -> tuple[str | None, str]:
+# A dated suffix (or `-latest`) is only trusted when this exact id is one the catalog has; a date is not a free
+# parameter (claude-opus-5-20251101 is not Opus 5 just because the slug is). The Anthropic pricing page carries no
+# snapshot dates, so the catalog's own ids are the source: add an id here when a new dated file is added.
+KNOWN_SNAPSHOTS: dict[str, frozenset[str]] = {
+    "claude-3-5-haiku": frozenset({"20241022"}),
+    "claude-3-5-sonnet": frozenset({"20240620", "20241022", "latest"}),
+    "claude-3-7-sonnet": frozenset({"latest"}),
+    "claude-3-haiku": frozenset({"20240307"}),
+    "claude-3-opus": frozenset({"20240229", "latest"}),
+    "claude-4-opus": frozenset({"20250514"}),
+    "claude-4-sonnet": frozenset({"20250514"}),
+    "claude-haiku-4-5": frozenset({"20251001"}),
+    "claude-opus-4": frozenset({"20250514"}),
+    "claude-opus-4-1": frozenset({"20250805"}),
+    "claude-opus-4-5": frozenset({"20251101"}),
+    "claude-sonnet-4": frozenset({"20250514"}),
+    "claude-sonnet-4-5": frozenset({"20250929"}),
+}
+
+def resolve(repo_path: str, doc: dict, index: dict[str, list[str]],
+            snapshots: dict[str, frozenset[str]] | None = None) -> tuple[str | None, str]:
     """(page model name | None, why). Only a file that CLEARLY corresponds to one page model resolves."""
     model, path_id = doc.get("model", stem(repo_path)), stem(repo_path)
     if not isinstance(model, str) or not model:
@@ -536,12 +589,12 @@ def resolve(repo_path: str, doc: dict, index: dict[str, list[str]]) -> tuple[str
     m = _ID.match(model)
     if not m:
         return None, f"`{model}` is not a claude-<family>-<version> id"
-    if m["date"]:
-        try:
-            datetime.strptime(m["date"], "%Y%m%d")
-        except ValueError:
-            return None, f"`{model}` has an invalid snapshot date"
     slug = m["slug"]
+    suffix = m["date"] or m["latest"]
+    if suffix:
+        known = KNOWN_SNAPSHOTS if snapshots is None else snapshots
+        if suffix not in known.get(slug, frozenset()):
+            return None, f"`{model}`: `{suffix}` is not a known snapshot of `{slug}` (verify/sources/anthropic_pricing.py KNOWN_SNAPSHOTS)"
     canon = doc.get("canonical_model")
     if canon is not None:
         if not isinstance(canon, str) or canon.removeprefix("anthropic/") != slug:
@@ -572,10 +625,52 @@ class Expect:
     promo: Footnote | None = None
     unrecognised: str | None = None
     col: str = ""  # the page column this comes from
+    mismatch: bool = False  # this derived cell contradicts the price it derives from
+    suspect: str | None = None  # a conflict on this field is not writable: derived cells contradict it
 
     @property
     def per_token(self) -> float | None:
         return None if self.value is None else clean(float(self.value / PER_MTOK))
+
+class _PinnedRedirect(urllib.request.HTTPRedirectHandler):
+    """Follow a redirect only to the SAME host (and port) over an allowed scheme; anything else fails."""
+
+    def __init__(self, netloc: str, schemes: tuple[str, ...]):
+        self.netloc, self.schemes = netloc, schemes
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # noqa: ANN001
+        u = urllib.parse.urlsplit(newurl)
+        if u.scheme not in self.schemes or u.netloc != self.netloc:
+            raise urllib.error.URLError(f"redirect to {u.scheme}://{u.netloc} refused (pinned to {self.netloc})")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+def fetch_pinned(url: str, *, total: float, schemes: tuple[str, ...] = ("https",), max_bytes: int = MAX_BYTES,
+                 clock=time.monotonic) -> bytes:
+    """GET `url` as Markdown with the pinned User-Agent. Redirects may only stay on the same host over `schemes`
+    (https only in production, so https -> http is refused). `total` seconds bound the WHOLE exchange, body
+    included: a server that drips bytes cannot outlast it."""
+    u = urllib.parse.urlsplit(url)
+    if u.scheme not in schemes:
+        raise urllib.error.URLError(f"scheme {u.scheme!r} not allowed")
+    t0 = clock()
+    opener = urllib.request.build_opener(_PinnedRedirect(u.netloc, schemes))
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/markdown, text/plain;q=0.9"})
+    with opener.open(req, timeout=total) as resp:
+        final = urllib.parse.urlsplit(resp.geturl())
+        if final.scheme not in schemes or final.netloc != u.netloc:
+            raise urllib.error.URLError(f"final URL {final.netloc} is not the requested host")
+        chunks, size = [], 0
+        while True:
+            if clock() - t0 > total:
+                raise TimeoutError(f"reading {u.netloc} took longer than {total:g}s")
+            chunk = resp.read1(8192)
+            if not chunk:
+                return b"".join(chunks)
+            size += len(chunk)
+            if size > max_bytes:
+                raise PageStructureError(f"the page is over {max_bytes} bytes")
+            chunks.append(chunk)
+
 
 class AnthropicPricingSource(BaseSource):
     name = NAME
@@ -590,17 +685,12 @@ class AnthropicPricingSource(BaseSource):
         return provider == "anthropic"
 
     def _http(self, url: str) -> bytes:
-        """GET with a pinned User-Agent, asking for Markdown; 2 tries on 5xx / network errors."""
+        """GET pinned to the page's own host over https (see `fetch_pinned`); 2 tries on 5xx / network errors."""
         last: Exception | None = None
         for attempt in range(2):
-            timeout = min(20.0, max(1.0, self._budget.remaining()))
-            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/markdown, text/plain;q=0.9"})
+            total = min(20.0, max(1.0, self._budget.remaining()))
             try:
-                with urllib.request.urlopen(req, timeout=timeout) as resp:
-                    body = resp.read(MAX_BYTES + 1)
-                    if len(body) > MAX_BYTES:
-                        raise PageStructureError("the page is over 3 MB")
-                    return body
+                return fetch_pinned(url, total=total)
             except urllib.error.HTTPError as e:
                 if e.code == 404:
                     raise NotFound(url) from e
@@ -679,7 +769,9 @@ class AnthropicPricingSource(BaseSource):
         main = group.get(None) or group["up_to"]
         long = group.get("over")
         label = main.ident.label
-        if label:
+        if label and label.startswith("retired"):
+            rec.note(f"retired on the first-party API per the page ({label}): lifecycle is not compared")
+        elif label:
             rec.note(f"the page marks {base} as `{label}`: lifecycle is not compared")
         for n in page.notes:
             if "unnumbered footnote" in n or "cache multiplier" in n:
@@ -714,6 +806,9 @@ class AnthropicPricingSource(BaseSource):
         out.append(self._batch(row, "batch_output", "output_cost_per_token_batches"))
         for ex in out:
             self._apply_cross_checks(page, row, ex)
+        by = {e.col: e for e in out}
+        _flag_suspects(by["input"], [by[c] for c in ("write_5m", "write_1h", "read", "batch_input")])
+        _flag_suspects(by["output"], [by["batch_output"]])
         return out
 
     def _tier_expectations(self, page: Page, row: Row, rec: Recorder) -> dict[str, Expect]:
@@ -725,6 +820,7 @@ class AnthropicPricingSource(BaseSource):
         }
         for ex in exps.values():
             self._apply_cross_checks(page, row, ex)
+        _flag_suspects(exps["input"], [exps["cache_write"], exps["cache_read"]])
         return exps
 
     @staticmethod
@@ -737,6 +833,11 @@ class AnthropicPricingSource(BaseSource):
                 ex.reason = f"footnote {mark} is not on the page"
             elif fn.kind == "promo":
                 ex.promo = fn
+            elif fn.kind == "standard":
+                prices = (row.prices.get("input"), row.prices.get("output"))
+                if col not in ("input", "output") or row.ident.base not in fn.models or prices != fn.std_prices:
+                    ex.unrecognised = (f"footnote {mark} calls a price standard but does not match {row.ident.base}'s "
+                                       f"input / output cells ({fn.text[:80]})")
             elif fn.kind == "other" or (fn.kind == "read-mult" and col != "read"):
                 ex.unrecognised = f"footnote {mark} on the {label} price is not understood ({fn.text[:80]})"
         return ex
@@ -830,7 +931,10 @@ class AnthropicPricingSource(BaseSource):
         if mine is None:
             rec.absent(locator, price)
             return
-        rec.add(compare(locator, mine, price, note=f"page: {base} {ex.label} ${_fmt(ex.value)} / MTok"))
+        check = compare(locator, mine, price, note=f"page: {base} {ex.label} ${_fmt(ex.value)} / MTok")
+        if check is not None and check.status == "conflict" and ex.suspect:
+            check = replace(check, writable=False, note=f"{check.note}; {ex.suspect}")
+        rec.add(check)
 
     def _compare_tiers(self, rec: Recorder, entry: dict, region: str, long: Row | None, exps: dict[str, Expect]) -> None:
         tp = entry.get("tiered_pricing")
@@ -863,21 +967,24 @@ class AnthropicPricingSource(BaseSource):
                 if ex.value is not None:
                     rec.absent(cost_locator(region, "tiered_pricing", key), ex.per_token or 0.0)
                 continue
-            hit = None
+            hits = []
             for item in items if isinstance(items, list) else []:
                 if isinstance(item, dict) and num(item.get("from")) == float(threshold):
-                    hit = item
+                    hits.append(item)
                 else:
                     frm = item.get("from") if isinstance(item, dict) else item
                     rec.uncovered(cost_locator(region, "tiered_pricing", key, f"from={frm}"))
                     rec.note(f"tiered_pricing.{key} has a tier from {frm}; the page gives only the {threshold:,} threshold")
-            if hit is None:
-                if ex.value is not None:
-                    rec.absent(cost_locator(region, "tiered_pricing", key, f"from={threshold}", "cost_per_token"),
-                               ex.per_token or 0.0)
+            locator = cost_locator(region, "tiered_pricing", key, f"from={threshold}", "cost_per_token")
+            if len(hits) > 1:   # which one is the price? a write-back could not say either
+                rec.uncovered(locator)
+                rec.note(f"tiered_pricing.{key} has {len(hits)} tiers from {threshold}: not compared")
                 continue
-            self._compare(rec, cost_locator(region, "tiered_pricing", key, f"from={threshold}", "cost_per_token"),
-                          num(hit.get("cost_per_token")), ex, base)
+            if not hits:
+                if ex.value is not None:
+                    rec.absent(locator, ex.per_token or 0.0)
+                continue
+            self._compare(rec, locator, num(hits[0].get("cost_per_token")), ex, base)
         inexpressible = []
         if long.prices.get("write_1h") is not None:
             inexpressible.append(f"1h cache write ${_fmt(long.prices['write_1h'])}")
@@ -899,6 +1006,12 @@ def _group_problem(base: str, group: dict[str | None, Row]) -> str | None:
         return None
     return f"{base} has an ambiguous set of rows ({sorted(str(t) for t in tiers)})"
 
+def _flag_suspects(base: Expect, derived: list[Expect]) -> None:
+    bad = [d.label for d in derived if d.mismatch]
+    if bad:
+        base.suspect = (f"the page's own {', '.join(bad)} contradict(s) this price by the stated multipliers: "
+                        "the page may have a typo here, so the value is not written back")
+
 def _expect(ex: Expect, ref: Decimal | None, mult: Decimal, what: str, rule: str) -> str | None:
     """None when ex.value == ref * mult (within the price tolerance), else the contradiction."""
     if ref is None:
@@ -907,6 +1020,7 @@ def _expect(ex: Expect, ref: Decimal | None, mult: Decimal, what: str, rule: str
     assert ex.value is not None
     if same(float(ex.value), float(want)):
         return None
+    ex.mismatch = True
     return f"the page's {what} ${_fmt(ex.value)} is not {rule} (${_fmt(want)})"
 
 SOURCES[NAME] = AnthropicPricingSource
@@ -925,7 +1039,8 @@ def main(argv: list[str] | None = None) -> int:
     source = AnthropicPricingSource(fetch)
     if args.fingerprints:
         rows = source.row_fingerprints()
-        json.dump({"source": URL, "rows": rows, "extras": source.extra_fingerprints()}, sys.stdout, indent=1, sort_keys=True)
+        json.dump({"version": FINGERPRINT_VERSION, "source": URL, "rows": rows, "extras": source.extra_fingerprints()},
+                  sys.stdout, indent=1, sort_keys=True)
         print()
     if args.aliases:
         import yaml

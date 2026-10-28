@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import copy
 
-from verify.sources.anthropic_pricing import URL, AnthropicPricingSource, parse_page, slugs_of
+from verify.sources.anthropic_pricing import KNOWN_SNAPSHOTS, URL, AnthropicPricingSource, parse_page, slugs_of
 
 from .fx import FakeFetch, raw
 from .test_anthropic_pricing import HAIKU55_TIERS
@@ -22,7 +22,7 @@ def test_anthropic_page_writable_checks_roundtrip():
     n, tier_locators = 0, set()
     for base in page.bases:
         slug = slugs_of(base)[0]
-        for model in (slug, f"{slug}-20250101", f"{slug}-latest"):
+        for model in (slug, *(f"{slug}-{x}" for x in sorted(KNOWN_SNAPSHOTS.get(slug, ())))):
             entry = {"region": "*", **{f: 1e-9 for f in FIELDS}}
             if base == "Claude Haiku 5.5":
                 entry["tiered_pricing"] = {k: ([{"cost_per_token": 1e-9, "from": 100000}] if k != "pricing_mode" else "cumulative")
@@ -35,6 +35,6 @@ def test_anthropic_page_writable_checks_roundtrip():
     older = {"model": "claude-3-5-haiku-20241022", "canonical_model": "anthropic/claude-3-5-haiku",
              "costs": [{"region": "*", **{f: 1e-9 for f in FIELDS}}]}
     n += len(roundtrip(source, "providers/anthropic/claude-3-5-haiku-20241022.yaml", older)[1])
-    assert n >= 400
+    assert n >= 140
     assert {t[1] for t in tier_locators} == {"input", "output", "cache_read", "cache_write"}
     assert all(t[-2].startswith("from=") and t[-1] == "cost_per_token" for t in tier_locators)

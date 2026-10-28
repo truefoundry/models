@@ -399,13 +399,12 @@ def test_dated_snapshots_latest_and_the_older_name_order_resolve():
         "providers/anthropic/claude-opus-4-20250514.yaml": d("claude-opus-4-20250514", "anthropic/claude-opus-4"),
         "providers/anthropic/claude-4-opus-20250514.yaml": d("claude-4-opus-20250514", "anthropic/claude-4-opus"),
         "providers/anthropic/claude-3-5-haiku-20241022.yaml": d("claude-3-5-haiku-20241022", "anthropic/claude-3-5-haiku"),
-        "providers/anthropic/claude-sonnet-4-6-latest.yaml": d("claude-sonnet-4-6-latest", "anthropic/claude-sonnet-4-6"),
         "providers/anthropic/claude-haiku-5-5.yaml": d("claude-haiku-5-5", "anthropic/claude-haiku-5-5"),
     })
     got = {p.split("/")[-1][:-5]: v[0] for p, v in t.items()}
     assert got == {"claude-opus-4-1-20250805": "Claude Opus 4.1", "claude-opus-4-1": "Claude Opus 4.1",
                    "claude-opus-4-20250514": "Claude Opus 4", "claude-4-opus-20250514": "Claude Opus 4",
-                   "claude-3-5-haiku-20241022": "Claude Haiku 3.5", "claude-sonnet-4-6-latest": "Claude Sonnet 4.6",
+                   "claude-3-5-haiku-20241022": "Claude Haiku 3.5",
                    "claude-haiku-5-5": "Claude Haiku 5.5"}
 
 
@@ -418,10 +417,40 @@ def test_4_1_is_never_confused_with_4_nor_4_5_with_4():
     assert t["providers/anthropic/claude-opus-4.yaml"][0] == "Claude Opus 4"
 
 
+def test_a_snapshot_suffix_must_be_a_known_snapshot_of_that_model():
+    from verify.sources.anthropic_pricing import KNOWN_SNAPSHOTS, resolve, slug_index
+    index = slug_index(parse_page(FIXTURE).bases)
+    ok = ("providers/anthropic/claude-opus-5-20251101.yaml", {"model": "claude-opus-5-20251101"})
+    base, why = resolve(*ok, index)
+    assert base is None and "not a known snapshot of `claude-opus-5`" in why      # a free date does not resolve
+    # a date that is known for ANOTHER model does not borrow its identity
+    base, why = resolve("providers/anthropic/claude-opus-4-5-20250805.yaml", {"model": "claude-opus-4-5-20250805"}, index)
+    assert base is None and "not a known snapshot" in why
+    base, _ = resolve(*ok, index, {"claude-opus-5": frozenset({"20251101"})})
+    assert base == "Claude Opus 5"
+    base, _ = resolve("providers/anthropic/claude-opus-5-latest.yaml", {"model": "claude-opus-5-latest"}, index)
+    assert base is None
+    base, _ = resolve("providers/anthropic/claude-opus-5-latest.yaml", {"model": "claude-opus-5-latest"}, index,
+                      {"claude-opus-5": frozenset({"latest"})})
+    assert base == "Claude Opus 5"
+    # the table is the catalog's: every id in it is a file there
+    import re
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[3] / "providers" / "anthropic"
+    ids = {p.stem for p in root.glob("claude-*.yaml")}
+    assert {f"{slug}-{x}" for slug, xs in KNOWN_SNAPSHOTS.items() for x in xs} <= ids
+
+
+def test_a_file_with_an_unknown_date_is_uncovered_not_verified_as_the_base_model():
+    s, _ = source()
+    r = check(s, "claude-opus-5-20251101", "anthropic/claude-opus-5", **OPUS5)
+    assert r.checks == [] and r.partial and "not a known snapshot" in r.notes[0]
+
+
 @pytest.mark.parametrize("model,canonical,why", [
     ("claude-opus-4-1-20250805", "anthropic/claude-opus-4", "canonical_model"),       # canonical disagrees
     ("claude-opus-4-1-2025", None, "not on Anthropic"),              # not an 8-digit date... slug is opus-4-1-2025
-    ("claude-opus-4-1-20251399", "anthropic/claude-opus-4-1", "invalid snapshot date"),
+    ("claude-opus-4-1-20251399", "anthropic/claude-opus-4-1", "not a known snapshot"),
     ("claude-opus-4-1-beta", "anthropic/claude-opus-4-1", ""),
     ("claude-opus-9-9", "anthropic/claude-opus-9-9", "not on Anthropic's pricing page"),
     ("claude-3-5-sonnet-latest", "anthropic/claude-3-5-sonnet", "not on Anthropic's pricing page"),
@@ -454,7 +483,7 @@ def test_dated_snapshot_files_are_checked_against_the_page_row_of_their_model():
               cache_creation_input_token_cost=1.875e-5, cache_creation_input_token_cost_per_hour=3e-5,
               cache_read_input_token_cost=1.5e-6, input_cost_per_token_batches=7.5e-6, output_cost_per_token_batches=3.75e-5)
     assert r.fully_verified and r.conflicts == [] and len(r.checks) == 7   # the retired annotation is a note only
-    assert any("marks Claude Opus 4.1 as `retired" in n and "lifecycle is not compared" in n for n in r.notes)
+    assert any("retired on the first-party API per the page" in n and "lifecycle is not compared" in n for n in r.notes)
 
 
 # ---- scope of a file -----------------------------------------------------------------------------------------
@@ -724,3 +753,109 @@ def test_a_raw_hash_would_not_be_stable_but_row_hashes_are():
     a, b = source(FIXTURE)[0], source(stamped)[0]
     a.prepare(); b.prepare()
     assert a.page_sha256 != b.page_sha256 and a.row_fingerprints() == b.row_fingerprints()
+
+
+# ---- review fixes ---------------------------------------------------------------------------------------------
+
+def test_duplicate_from_thresholds_are_uncovered_not_silently_first_wins():
+    s, _ = source()
+    tiers = copy.deepcopy(HAIKU55_TIERS)
+    tiers["input"] = [{"cost_per_token": 9e-7, "from": 100000}, {"cost_per_token": 5e-7, "from": 100000}]
+    r = haiku(s, tiers)
+    assert not r.fully_verified and r.partial
+    assert "costs.region=*.tiered_pricing.input.from=100000.cost_per_token" in r.uncovered
+    assert not [c for c in r.checks if c.locator[-4:-2] == ("input", "from=100000")] and r.conflicts == []
+    assert any("2 tiers from 100000" in n for n in r.notes)
+
+
+def test_an_introductory_price_only_through_a_date_is_a_promo():
+    for body in ("The $2/$10 per million input/output token pricing for Claude Sonnet 5 is an introductory price only through December 31, 2026.",
+                 "The $2/$10 price for Claude Sonnet 5 is valid until the end of the year.",
+                 "Limited offer on Claude Sonnet 5."):
+        s, _ = source(mutate(FIXTURE, FN3, body))
+        r = check(s, "claude-sonnet-5", "anthropic/claude-sonnet-5", **SONNET5)
+        assert r.promo_active and r.partial and not r.fully_verified, body
+        assert {"costs.region=*.input_cost_per_token", "costs.region=*.output_cost_per_token"} <= set(r.uncovered), body
+
+
+def test_the_standard_price_footnote_must_match_the_row_it_sits_on():
+    for old, new in (("The $2/$10 per million", "The $3/$15 per million"),          # prices differ from the cells
+                     ("pricing for Claude Sonnet 5, announced", "pricing for Claude Opus 5, announced"),  # other model
+                     ("is now the standard price.", "is now the standard price, subject to change.")):  # not the exact form
+        s, _ = source(mutate(FIXTURE, FN3, FN3.replace(old, new)))
+        r = check(s, "claude-sonnet-5", "anthropic/claude-sonnet-5", **SONNET5)
+        assert not r.fully_verified and "costs.region=*.input_cost_per_token" in r.uncovered, new
+
+
+def test_a_page_typo_in_the_base_price_is_a_conflict_that_is_not_written_back():
+    text = mutate(FIXTURE, "| $4 / MTok             | $5 / MTok       | $8 / MTok       |", "| $6 / MTok             | $5 / MTok       | $8 / MTok       |")
+    s, _ = source(text)
+    r = opus55(s)
+    (c,) = r.conflicts
+    assert c.locator[-1] == "input_cost_per_token" and c.source_value == 6e-6 and c.writable is False
+    assert "contradict" in c.note and "5m cache write" in c.note
+    # the derived cells that disagree are uncovered; the output price and its own (consistent) cells still verify
+    assert "costs.region=*.cache_creation_input_token_cost" in r.uncovered
+    assert not r.fully_verified
+    # a plain wrong catalog value on a consistent page stays writable
+    ok, _ = source()
+    assert opus55(ok, input_cost_per_token=5e-6).conflicts[0].writable is True
+
+
+def test_batch_output_typo_blocks_the_output_write_back():
+    text = mutate(FIXTURE, "| $2 / MTok    | $10 / MTok    |", "| $2 / MTok    | $14 / MTok    |")
+    s, _ = source(text)
+    r = opus55(s, output_cost_per_token=3e-5)
+    (c,) = r.conflicts
+    assert c.locator[-1] == "output_cost_per_token" and not c.writable
+
+
+def test_a_footnote_with_a_multiplier_on_a_non_cache_column_is_not_accepted():
+    text = mutate(FIXTURE, "| $4 / MTok             |", "| $4 / MTok<sup>2</sup>   |")
+    s, _ = source(text)
+    r = opus55(s)
+    assert "costs.region=*.input_cost_per_token" in r.uncovered and not r.fully_verified
+    assert any("footnote 2 on the base input price is not understood" in n for n in r.notes)
+
+
+def test_the_multiplier_table_header_is_checked_cell_by_cell():
+    s, _ = source(mutate(FIXTURE, "| Duration ", "| Valid for "))
+    r = opus55(s)
+    assert {"costs.region=*.cache_creation_input_token_cost", "costs.region=*.cache_creation_input_token_cost_per_hour"} <= set(r.uncovered)
+    assert any("cache multiplier table unreadable" in n for n in r.notes)
+
+
+def test_the_cross_check_tolerance_is_half_a_percent_not_five():
+    text = mutate(FIXTURE, "| $4 / MTok             | $5 / MTok       |", "| $4 / MTok             | $5.05 / MTok    |")
+    s, _ = source(text)
+    r = opus55(s)
+    assert "costs.region=*.cache_creation_input_token_cost" in r.uncovered
+    assert "cache_creation_input_token_cost" not in {c.locator[-1] for c in r.checks}
+
+
+def test_retired_rows_stay_verified_with_the_first_party_note():
+    s, _ = source()
+    r = check(s, "claude-opus-4-1", "anthropic/claude-opus-4-1", input_cost_per_token=1.5e-5, output_cost_per_token=7.5e-5,
+              cache_creation_input_token_cost=1.875e-5, cache_creation_input_token_cost_per_hour=3e-5,
+              cache_read_input_token_cost=1.5e-6, input_cost_per_token_batches=7.5e-6, output_cost_per_token_batches=3.75e-5)
+    assert r.fully_verified and any(n.startswith("retired on the first-party API per the page") for n in r.notes)
+
+
+def test_cli_fingerprint_json_is_versioned_and_stable(tmp_path, capsys):
+    import json
+    from verify.sources.anthropic_pricing import main
+    f = tmp_path / "page.md"
+    f.write_text(FIXTURE)
+    assert main(["--fingerprints", "--file", str(f)]) == 0
+    first = capsys.readouterr().out
+    assert main(["--fingerprints", "--file", str(f)]) == 0
+    assert capsys.readouterr().out == first
+    out = json.loads(first)
+    assert out["version"] == 1 and set(out) == {"version", "source", "rows", "extras"} and len(out["rows"]) == 21
+
+
+def test_limited_availability_rows_are_noted_and_still_compared():
+    s, _ = source()
+    r = check(s, "claude-mythos-5", "anthropic/claude-mythos-5", input_cost_per_token=1e-5, output_cost_per_token=5e-5)
+    assert [c.status for c in r.checks] == ["verified", "verified"]
+    assert any("`limited availability`" in n and "lifecycle is not compared" in n for n in r.notes)

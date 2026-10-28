@@ -6,6 +6,7 @@ adapter takes an injectable `fetch` so tests run offline.
 from __future__ import annotations
 
 import json
+import math
 import re
 import time
 import urllib.error
@@ -56,17 +57,21 @@ def num(value: Any) -> float | None:
     if isinstance(value, bool) or value is None:
         return None
     if isinstance(value, (int, float)):
-        return float(value)
-    if isinstance(value, str):
+        out = float(value)
+    elif isinstance(value, str):
         try:
-            return float(value.strip())
+            out = float(value.strip())
         except ValueError:
             return None
-    return None
+    else:
+        return None
+    return out if math.isfinite(out) else None  # '1e999', '.inf', 'nan' are not prices
 
 
 def same(a: float, b: float, tolerance: float = PRICE_TOLERANCE) -> bool:
     """Equal within `tolerance` relative (0.5% for prices by default)."""
+    if not (math.isfinite(a) and math.isfinite(b)):
+        return False
     if a == b:
         return True
     return abs(a - b) <= tolerance * max(abs(a), abs(b))
