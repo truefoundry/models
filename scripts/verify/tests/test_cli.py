@@ -86,12 +86,30 @@ def test_only_the_provider_level_default_counts_a_nested_one_changes_nothing():
 
 def test_a_default_yaml_only_pr_is_not_nothing_to_verify():
     out = run(FakeRepo([("M", "providers/openai/default.yaml")], {}))
-    assert (out["gate"], out["kind"], out["verify"]) == ("escalate", "mixed", "none")
-    assert out["labels"] == ["gate:escalate", "kind:mixed", "risk:provider-default", "verify:none"]
+    assert (out["gate"], out["kind"], out["verify"]) == ("escalate", "provider-default", "none")
+    assert out["labels"] == ["gate:escalate", "kind:provider-default", "risk:provider-default", "verify:none"]
+    assert "0 changed model file(s), 1 provider default file(s)" in out["comment_md"]
     assert "`openai`" in out["comment_md"] and "affects every model" in out["comment_md"]
     validate(json.loads(json.dumps(out)))
     deleted = run(FakeRepo([("D", "providers/openai/provider-config.yaml")], {}))
-    assert deleted["gate"] == "escalate"
+    assert (deleted["gate"], deleted["kind"]) == ("escalate", "provider-default")
+
+
+def test_a_default_yaml_plus_a_model_change_is_mixed_and_counts_both():
+    files = {("MB", PATH): dump(base()), (HEAD_SHA, PATH): dump(price(input_cost_per_token=3.1e-6))}
+    out = run(FakeRepo([("M", "providers/p/default.yaml"), ("M", PATH)], files))
+    assert out["kind"] == "mixed" and "1 changed model file(s), 1 provider default file(s)" in out["comment_md"]
+
+
+def test_a_modified_file_whose_base_blob_cannot_be_read_escalates_and_is_not_a_stub_fill():
+    files = {(HEAD_SHA, PATH): dump(price(input_cost_per_token=3.1e-6))}      # show("MB", PATH) -> None
+    out = run(FakeRepo([("M", PATH)], files))
+    assert out["gate"] == "escalate" and "risk:check-error" in out["labels"] and out["kind"] != "new-model"
+    assert "base version could not be read" in out["comment_md"] and "(new)" not in out["comment_md"]
+    gone = run(FakeRepo([("M", PATH)], {("MB", PATH): dump(base())}))         # head unreadable
+    assert gone["gate"] == "escalate" and "head version could not be read" in gone["comment_md"]
+    empty = run(FakeRepo([("M", PATH)], {("MB", PATH): "", (HEAD_SHA, PATH): dump(base())}))   # a real empty file IS a stub fill
+    assert "risk:check-error" not in empty["labels"] and empty["kind"] == "mixed"
 
 
 def test_provider_wide_files_get_no_source_check():

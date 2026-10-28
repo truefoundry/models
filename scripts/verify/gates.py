@@ -2,10 +2,20 @@
 
 Exactly one gate per PR, strongest first:
   hold        a human (or the addition job) set `gate:hold` / `id:*`; sticky, this tool sets no gate
-  escalate    any escalating risk, or any conflict with an official source
+  escalate    any escalating risk, or a conflict with an official source in a field THIS PR changed
+              (every field of a new file). A conflict in a field the PR did not touch is existing
+              catalog drift: reported, makes `verify:` partial at most, never changes the gate
   unverified  some changed field has no verified source check, or a source result is
-              partial / uncovered / promo, or no source covers the file
+              partial / uncovered / promo, or no source covers the file, or the file is new
   review      every changed field verified, nothing escalating
+
+What "every changed field verified" means, exactly. For a MODIFIED file the changed fields are the
+ones the risk assessment found (risk.assess). A price or limit leaf is verified when a source
+returned a verified Check at that exact locator. Features, params, modalities, lifecycle and every
+other key are never checked by any source, so changing one of them always leaves the file
+`unverified`. Rule findings (rules.py) add nothing to verify. A NEW file is never `review`: its
+price / limit leaves can be verified but its modalities, features and status cannot, so the best it
+gets is `unverified` (and `verify:official` says how far the sources got).
 """
 from __future__ import annotations
 
@@ -71,7 +81,7 @@ def shadow_ok(files: Iterable[FileReport], current: Iterable[str] = ()) -> bool:
     if not files or is_hold(current) or classify.pr_kind(files) != classify.PRICE_ONLY:
         return False
     for f in files:
-        if f.source_state != "official" or not f.risks:
+        if f.gate_state != "official" or not f.risks:
             return False
         for r in f.risks:
             if r.label != "risk:price" or r.group != PRICE or r.change is None:

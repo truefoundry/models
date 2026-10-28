@@ -373,7 +373,7 @@ def test_owned_set_is_what_the_spec_lists():
                      *(f"risk:{r}" for r in ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error", "provider-default")),
                      *(f"risk:rule-{r}" for r in ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completion-pair", "null-status", "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default", "reasoning-unsupported", "feature-enum")),
                      *(f"verify:{v}" for v in ("official", "partial", "conflict", "none")),
-                     *(f"kind:{k}" for k in ("price-only", "lifecycle", "features-params", "mixed", "new-model"))}
+                     *(f"kind:{k}" for k in ("price-only", "lifecycle", "features-params", "mixed", "new-model", "provider-default"))}
     assert "gate:hold" not in OWNED
 
 

@@ -36,6 +36,7 @@ COVERED = {"costs", "params", "removeParams", "features", "limits", "mode", "sup
            "modalities", "sources", "model", *LIFECYCLE}
 
 PRICE, LIFE, FEATURES, OTHER = "price", "lifecycle", "features-params", "other"
+PROVIDER = "provider"
 
 Locator = tuple[str, ...]
 

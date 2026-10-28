@@ -16,7 +16,7 @@ RULE_IDS = ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completio
             "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default",
             "reasoning-unsupported", "feature-enum")
 VERIFY = ("official", "partial", "conflict", "none")
-KINDS = ("price-only", "lifecycle", "features-params", "mixed", "new-model")
+KINDS = ("price-only", "lifecycle", "features-params", "mixed", "new-model", "provider-default")
 SHADOW = "shadow:auto"
 
 GATE_LABELS = frozenset(f"gate:{g}" for g in GATES)

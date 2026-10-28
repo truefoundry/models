@@ -35,11 +35,14 @@ From `scripts/`:
 python -m verify --base <sha> --head <sha> [--head-ref <branch>] [--json out.json] [--summary-md s.md]
 ```
 
-Diffs `providers/**.yaml` (minus `default.yaml` / `provider-config.yaml`) from the merge base of
-`--base` and `--head` to `--head`, and prints (or writes) one JSON object: `labels`, `gate`,
+Diffs `providers/**.yaml` from the merge base of
+`--base` and `--head` to `--head`. Model files get the risk and source checks; a changed provider-level
+`default.yaml` / `provider-config.yaml` is not source-checked but is reported as `risk:provider-default`
+(`gate:escalate`, `kind:provider-default`), since it affects every model under the provider. It prints (or writes) one JSON object: `labels`, `gate`,
 `kind`, `verify`, `shadow`, `files`, `notes`, `comment_md`, `summary_md`. Exit code 0 whatever
-the verdict; only a crash of the tool fails. A `--head-ref` starting with `trueforge/` is skipped
-(no labels, no comment). `--current-labels-json '["gate:hold"]'` tells it the PR's labels. (The label job calls the same code in-process; this CLI is for local runs.) A PR with more than 300 changed files lists the 300 most severe in `files` (`files_total` / `files_omitted` say how many); labels and the gate always cover all of them.
+the verdict; only a crash of the tool fails. A PR whose head branch starts with `trueforge/` is skipped
+(no labels, no comment). That is decided by the branch name alone: a fork branch named `trueforge/x`
+evades the labels. Accepted: the tool is report-only. `--current-labels-json '["gate:hold"]'` tells it the PR's labels. (The label job calls the same code in-process; this CLI is for local runs.) A PR with more than 300 changed files lists the 300 most severe in `files` (`files_total` / `files_omitted` say how many); labels and the gate always cover all of them.
 
 ## Labels
 
@@ -52,7 +55,7 @@ This tool owns these names, matched **exactly**, and nothing else:
 | `risk:rule-<id>` | a static rule fired, see Static rules |
 | `risk:provider-default` | a `default.yaml` / `provider-config.yaml` changed: escalates, it affects every model under the provider |
 | `verify:official` `verify:partial` `verify:conflict` `verify:none` | how far the official sources got |
-| `kind:price-only` `kind:lifecycle` `kind:features-params` `kind:mixed` `kind:new-model` | what the PR changes |
+| `kind:price-only` `kind:lifecycle` `kind:features-params` `kind:mixed` `kind:new-model` `kind:provider-default` | what the PR changes |
 | `shadow:auto` | measured only; never merges anything |
 
 Never touched: `gate:hold` (set by humans or the addition job), `id:*`, `gate:reviewed`, any other label.
@@ -61,11 +64,18 @@ Never touched: `gate:hold` (set by humans or the addition job), `id:*`, `gate:re
 
 1. `gate:hold` (not ours): `gate:hold` or any `id:*` label is on the PR. Sticky; this tool then
    sets no gate and never removes it. It still reports risks and verification.
-2. `gate:escalate`: any escalating risk, or any conflict with an official source.
+2. `gate:escalate`: any escalating risk, or a conflict with an official source in a field this PR
+   changed (every field of a new file). A conflict in a field the PR did not touch is existing
+   catalog drift: listed under "existing drift (not from this PR)", it makes `verify:` partial at
+   most and never changes the gate or `shadow:auto`.
 3. `gate:unverified`: some changed field has no verified source check, a source result is
-   partial / uncovered / promo, or no source covers the file. A new file with no price or limit
-   to check (a bot stub) is always `gate:unverified`, with `kind:new-model`.
-4. `gate:review`: every changed field verified, nothing escalating.
+   partial / uncovered / promo, or no source covers the file. A NEW file is never `gate:review`:
+   its modalities, features and status are never source-checked, so the best it gets is
+   `gate:unverified` (with `kind:new-model`).
+4. `gate:review`: every changed field verified, nothing escalating. "Every changed field" means
+   the fields the risk assessment found: a price or limit counts as verified when a source
+   returned a verified check at that exact locator; features, params, modalities, lifecycle and
+   every other key are never source-checked, so changing one always leaves a file `unverified`.
 
 ### Escalating risks
 
@@ -80,7 +90,8 @@ changed is review-level, including any unknown key (`risk:other`). Formatting-on
 
 ### verify:*
 
-- `verify:conflict`: some source disagrees with a value in a changed file.
+- `verify:conflict`: some source disagrees with a value in a field this PR changed (or in a new
+  file). A disagreement in an untouched field is existing drift and only makes the file `partial`.
 - `verify:official`: every changed file has a source, every source result is fully verified
   (every price field compared, no promo, nothing partial or uncovered) and every changed price /
   limit field has a verified check. One verified file plus a source-less file is `verify:partial`.
@@ -125,8 +136,9 @@ catalog change and refresh `CAP_OVERRIDE_PROVIDERS` if a provider's convention m
 ### kind:*
 
 `price-only` (only price fields), `lifecycle`, `features-params` (features, params, limits,
-modalities, no price), `new-model` (added files only), `mixed` (anything else, price plus
-other, several kinds, a deleted file).
+modalities, no price), `new-model` (added files only), `provider-default` (only `default.yaml` /
+`provider-config.yaml` changed), `mixed` (anything else, price plus other, several kinds, a
+deleted file).
 
 ### shadow:auto
 
@@ -148,7 +160,7 @@ nothing the PR changed can alter how it runs.
    checked out, nothing from the PR is on the Python path.
 4. It runs the **default branch's** verifier on `merge-base(base, head)..head`, reading blobs with
    `git show`. PR YAML is parsed as untrusted data (`yamlio.parse`): anchors, aliases and merge keys
-   are refused (the catalog uses none: 4,554 files scanned), as are files over 2 MB, more than
+   are refused (the catalog uses none: about 4,500 files scanned in October 2026), as are files over 2 MB, more than
    200,000 nodes, nesting deeper than 60 and lone surrogates; such a file becomes an escalating
    `risk:check-error`.
 5. `sync.py` validates the result against a strict schema (exact keys, owned labels only, size caps),
@@ -169,8 +181,9 @@ nothing the PR changed can alter how it runs.
 
 Consequences: a PR that edits the verifier, the registry or the schema is judged by the old
 versions and relies on `verify-tests.yml` (which runs on those paths, incl. the two CUE files) to
-test the new ones; a PR can still suppress its own labels by stopping "Verify PR" from running
-(it then has no labels, never wrong ones). Adapters fetch public sources keyed by provider; they
+test the new ones; the label job only fires when the trigger workflow "Verify PR" runs, and a PR controls that
+workflow's definition: a PR that stops it from running is not re-verified, so labels from an
+earlier head can stay on the new head. Labels are advisory; this tool only reports. Adapters fetch public sources keyed by provider; they
 must never use a URL taken from a PR file.
 
 ## Add a source

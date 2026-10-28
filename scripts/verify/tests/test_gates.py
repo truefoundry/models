@@ -1,7 +1,7 @@
 import pytest
 
 from verify import classify, gates
-from verify.model import ADDED, DELETED
+from verify.model import ADDED, DELETED, MODIFIED
 from verify.build import build_file
 
 from .helpers import IN, OUT, FakeSource, base, check, mod, price, report_for, result, runner
@@ -70,9 +70,54 @@ def test_conflict_escalates_and_is_never_official():
     assert "risk:price" in v.labels
 
 
-def test_conflict_on_an_untouched_field_still_escalates():
-    v = decide(pr(res=result(check(IN), check(OUT, "conflict"))))
-    assert v.gate == "escalate"
+def test_a_conflict_in_a_field_the_pr_changed_escalates():
+    v = decide(pr(res=result(check(IN, "conflict"))))
+    assert (v.gate, v.verify, v.shadow) == ("escalate", "conflict", False)
+
+
+def test_a_conflict_in_an_untouched_field_is_existing_drift_not_an_escalation():
+    f = pr(res=result(check(IN), check(OUT, "conflict")))
+    assert [c.locator for c in f.drift] == [OUT] and f.conflicts == [] and not f.loud
+    v = decide(f)
+    assert v.gate == "review" and "gate:escalate" not in v.labels
+    assert v.verify == "partial"                       # visible in the label, never a conflict
+    assert v.shadow                                    # and it does not block the shadow measurement
+    assert f.source_state == "partial" and f.gate_state == "official"
+
+
+def test_one_correct_field_fix_with_fifteen_old_drifts_is_not_escalated():  # the reviewer's Bedrock case
+    other = [("costs", "region=*", f"drift_{i}") for i in range(15)]
+    f = pr(res=result(check(IN), *[check(loc, "conflict") for loc in other]))
+    assert len(f.drift) == 15
+    v = decide(f)
+    assert (v.gate, v.verify, v.shadow) == ("review", "partial", True)
+
+
+def test_drift_does_not_hide_a_real_problem_in_the_same_file():
+    f = pr(res=result(check(IN, "conflict"), check(OUT, "conflict")))
+    assert [c.locator for c in f.conflicts] == [IN] and [c.locator for c in f.drift] == [OUT]
+    assert decide(f).gate == "escalate"
+
+
+def test_drift_with_an_uncovered_changed_field_is_still_unverified():
+    f = report_for(base(), price(input_cost_per_token=3.1e-6, output_cost_per_token=1.51e-5),
+                   FakeSource(res=result(check(IN), check(("costs", "region=*", "cache_read_input_token_cost"), "conflict"))))
+    assert decide(f).gate == "unverified"
+
+
+def test_a_conflict_in_a_new_file_always_counts():
+    src = FakeSource(res=lambda p, d: result(check(("costs", "region=*", "output_cost_per_token"), "conflict")))
+    f = report_for(None, base(), src, status=ADDED)
+    assert f.drift == [] and len(f.conflicts) == 1
+    v = decide(f)
+    assert (v.gate, v.verify) == ("escalate", "conflict")
+
+
+def test_a_conflict_below_a_changed_block_counts_as_this_prs():
+    after = mod(lambda d: d["costs"].append({"region": "eu", "input_cost_per_token": 3e-6}))
+    f = report_for(base(), after, FakeSource(res=result(check(("costs", "region=eu", "input_cost_per_token"), "conflict"))))
+    assert len(f.conflicts) == 1 and decide(f).gate == "escalate"
+
 
 
 def test_escalating_risk_beats_verified():
@@ -157,7 +202,7 @@ def test_new_file_is_never_shadow_and_is_new_model():
     src = FakeSource(res=lambda p, d: result(*[check(n) for n in __import__("verify.risk").risk.new_file_needs(d)]))
     f = report_for(None, base(), src, status=ADDED)
     v = decide(f)
-    assert (v.kind, v.shadow, v.gate) == ("new-model", False, "review")
+    assert (v.kind, v.shadow, v.gate, v.verify) == ("new-model", False, "unverified", "official")
     assert decide(report_for(None, base(), None, status=ADDED)).gate == "unverified"
 
 
@@ -227,12 +272,45 @@ def test_a_new_stub_file_is_unverified_new_model_never_review():
     assert v.gate == "unverified"
 
 
-def test_a_new_file_with_prices_all_verified_can_still_be_review():
+def test_a_new_file_is_never_review_even_with_every_price_verified():
     src = FakeSource(res=lambda p, d: result(*[check(n) for n in __import__("verify.risk").risk.new_file_needs(d)]))
-    assert decide(report_for(None, base(), src, status=ADDED)).gate == "review"
+    f = report_for(None, base(), src, status=ADDED)
+    assert f.source_state == "official" and f.unverified_needs == [] and not f.fully_verified
+    assert decide(f).gate == "unverified"
+    stub = report_for({"model": "m", "mode": "unknown"}, base(), src, status=MODIFIED)
+    assert stub.is_new and decide(stub).gate == "unverified"
 
 
 def test_filling_in_a_stub_is_a_review_level_mode_change_not_an_escalation():
     from verify.risk import assess
     out = assess(dict(STUB, costs=[{"region": "*", "input_cost_per_token": 1e-6}]), dict(base(), model="new-model"))
     assert not any(r.escalate and r.label in ("risk:mode", "risk:removal") and r.locator[0] in ("mode", "supportedModes") for r in out)
+
+
+def test_provider_default_kind():
+    from verify.build import build_provider_file
+    d = build_provider_file("providers/p/default.yaml", MODIFIED)
+    gone = build_provider_file("providers/p/provider-config.yaml", DELETED)
+    assert classify.file_kind(d) == classify.file_kind(gone) == "provider-default"
+    assert classify.pr_kind([d, gone]) == "provider-default"
+    assert classify.pr_kind([d, pr()]) == "mixed"
+    v = decide([d])
+    assert (v.gate, v.kind) == ("escalate", "provider-default") and "kind:provider-default" in v.labels
+    assert "kind:provider-default" in __import__("verify.labels").labels.OWNED
+
+
+def test_touches_matches_a_changed_block_by_prefix_and_everything_in_a_new_file():
+    from verify.model import FileReport
+    f = FileReport("providers/p/m.yaml", MODIFIED, False, [], [("costs", "region=eu")])
+    assert f.touches(("costs", "region=eu", "input_cost_per_token")) and f.touches(("costs", "region=eu"))
+    assert not f.touches(("costs", "region=us", "input_cost_per_token")) and not f.touches(("costs",))
+    new = FileReport("providers/p/m.yaml", ADDED, True, [], [])
+    assert new.touches(("anything", "at", "all"))
+    assert not FileReport("providers/p/m.yaml", MODIFIED, False, [], []).touches(("costs", "region=*", "x"))
+
+
+def test_a_new_file_conflict_counts_even_outside_the_listed_needs():
+    odd = ("costs", "region=*", "pricing_mode")                       # not a numeric leaf, so not in new_file_needs
+    src = FakeSource(res=result(check(odd, "conflict")))
+    f = report_for(None, base(), src, status=ADDED)
+    assert odd not in f.needs and len(f.conflicts) == 1 and f.drift == []

@@ -146,3 +146,19 @@ def test_code_spans_never_carry_control_characters_backticks_or_pipes(raw):
     out = report.code(raw)
     assert out.startswith("`") and out.endswith("`") and out.count("`") == 2 and "|" not in out
     assert not any(ch in out for ch in ("\r", "\n", "\x00", "\u2028", "\u202e", "\ud800"))
+
+
+def test_existing_drift_is_listed_separately_and_counted_apart_from_conflicts():
+    from .helpers import OUT
+    f = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(check(IN), check(OUT, "conflict"))))
+    v = gates.decide([f])
+    text = report.render_comment(v, [f])
+    assert "Existing drift (not from this PR): 1 field(s) in 1 file(s)" in text
+    assert "existing drift (not from this PR): 1 field(s) in untouched fields" in text
+    assert "· 0 conflict(s) · report only" in text and "drift (not this PR)" in text and "| conflict |" not in text
+    assert "1 existing drift" in text
+    own = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(check(IN, "conflict"))))
+    t2 = report.render_comment(gates.decide([own]), [own])
+    assert "· 1 conflict(s) · report only" in t2 and "| conflict |" in t2 and "Existing drift" not in t2
+    j = report.file_json(f)
+    assert j["source_state"] == "partial" and j["fully_verified"] is True

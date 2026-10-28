@@ -80,13 +80,13 @@ def parse(data, providers_dir: Path | None = None) -> Registry:
         for key in sorted(_KEYS - set(row)):
             problems.append(f"{where}: missing `{key}`")
         provider, kind, source, fields, added = (row.get(k) for k in ("provider", "kind", "source", "fields", "added"))
-        if "provider" in row and not (isinstance(provider, str) and _PROVIDER.match(provider)):
+        if "provider" in row and not (isinstance(provider, str) and _PROVIDER.fullmatch(provider)):
             problems.append(f"{where}: bad provider {provider!r}")
         elif providers_dir is not None and isinstance(provider, str) and not (providers_dir / provider).is_dir():
             problems.append(f"{where}: providers/{provider} does not exist")
         if "kind" in row and kind not in KINDS:
             problems.append(f"{where}: kind must be one of {', '.join(KINDS)}")
-        if "source" in row and not (isinstance(source, str) and _SOURCE.match(source)):
+        if "source" in row and not (isinstance(source, str) and _SOURCE.fullmatch(source)):
             problems.append(f"{where}: bad source name {source!r}")
         ok_fields = isinstance(fields, list) and bool(fields) and all(f in FIELDS for f in fields) \
             and len(set(fields)) == len(fields)
@@ -112,6 +112,6 @@ def load(path: Path | str, providers_dir: Path | str | None = None) -> Registry:
         data = yaml.safe_load(path.read_text())
     except OSError as e:
         raise RegistryError(f"cannot read {path}: {e.strerror}") from e
-    except yaml.YAMLError as e:
-        raise RegistryError(f"{path} is not valid YAML") from e
+    except (yaml.YAMLError, ValueError) as e:  # ValueError: an unquoted impossible date such as 2026-13-45
+        raise RegistryError(f"{path} is not valid YAML: {str(e).splitlines()[0][:120] if str(e) else type(e).__name__}") from e
     return parse(data, Path(providers_dir) if providers_dir else None)

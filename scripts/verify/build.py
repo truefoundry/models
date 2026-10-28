@@ -9,7 +9,7 @@ from . import rules, yamlio
 from .model import ADDED, DELETED, MODIFIED, UNCHANGED, FileReport
 from .registry import Registry
 from .textclean import clean_line
-from .risk import OTHER, Risk, assess, is_stub, new_file_needs
+from .risk import OTHER, PROVIDER, Risk, assess, is_stub, new_file_needs
 from .types import Check, Source, SourceResult
 
 
@@ -90,6 +90,9 @@ def build_file(repo_path: str, status: str, before_text: str | None, after_text:
     if status == DELETED:
         return FileReport(repo_path, DELETED, False,
                           [Risk("risk:removal", "model file deleted", True, OTHER, ("file",))], [("file",)])
+    if after_text is None:  # the blob was unreadable (missing object, over the size cap)
+        return _crash(repo_path, status, "head version could not be read (missing or over 2 MB); compare by hand",
+                      is_new=status == ADDED)
     after, why = yamlio.parse(after_text)
     if after is None:
         return _crash(repo_path, status, f"file is not usable: {why or 'not a YAML mapping'}", is_new=status == ADDED)
@@ -97,6 +100,8 @@ def build_file(repo_path: str, status: str, before_text: str | None, after_text:
         report = FileReport(repo_path, ADDED, True, rules.to_risks(rules.evaluate(after, ctx)), new_file_needs(after))
         report.results = runner.run(repo_path, after)
         return report
+    if before_text is None:  # NOT a stub fill-in: the base blob could not be read (missing object, over 2 MB)
+        return _crash(repo_path, MODIFIED, "base version could not be read (missing or over 2 MB); compare by hand")
     before, why = yamlio.parse(before_text)
     if before is None and before_text and before_text.strip():
         return _crash(repo_path, MODIFIED, f"previous version is not usable ({why}); compare by hand")
@@ -120,5 +125,5 @@ def build_provider_file(repo_path: str, status: str) -> FileReport:
     provider = provider_of(repo_path) or repo_path
     name = "`" + clean_line(provider.replace("`", "'")) + "`"
     return FileReport(repo_path, status, False, [Risk(
-        "risk:provider-default", f"provider-wide file changed: affects every model under {name}", True, OTHER,
+        "risk:provider-default", f"provider-wide file changed: affects every model under {name}", True, PROVIDER,
         ("provider", provider))], [])

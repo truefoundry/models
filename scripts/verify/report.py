@@ -44,8 +44,9 @@ def _field(locator: Iterable[str]) -> str:
     return ".".join(parts[1:] if parts[:1] == ["costs"] and len(parts) > 1 else parts)
 
 
-def _check_row(c: Check, source: str) -> str:
-    return f"| {code(_field(c.locator), 80)} | {_val(c.file_value)} | {_val(c.source_value)} | {c.status} | {code(source, 40)} |"
+def _check_row(c: Check, source: str, drift: bool = False) -> str:
+    status = "drift (not this PR)" if drift else c.status
+    return f"| {code(_field(c.locator), 80)} | {_val(c.file_value)} | {_val(c.source_value)} | {status} | {code(source, 40)} |"
 
 
 _HEAD = ["| Field | PR | Source | Verdict | By |", "| --- | --- | --- | --- | --- |"]
@@ -54,7 +55,10 @@ _HEAD = ["| Field | PR | Source | Verdict | By |", "| --- | --- | --- | --- | --
 def _source_line(f: FileReport) -> list[str]:
     lines = []
     for r in f.results:
-        bits = [f"{sum(c.status == 'verified' for c in r.checks)} verified", f"{len(r.conflicts)} conflict(s)"]
+        own = sum(1 for c in r.conflicts if f.touches(c.locator))
+        bits = [f"{sum(c.status == 'verified' for c in r.checks)} verified", f"{own} conflict(s)"]
+        if len(r.conflicts) > own:
+            bits.append(f"{len(r.conflicts) - own} existing drift")
         if r.uncovered:
             bits.append(f"{len(r.uncovered)} uncovered")
         if r.partial:
@@ -82,6 +86,11 @@ def file_block(f: FileReport, *, full: bool) -> str:
     if len(shown) < len(risks):
         bullets.append(f"- …and {len(risks) - len(shown)} more risk(s) in the check run summary")
     bullets += _source_line(f)
+    drift = f.drift
+    if drift:
+        bullets.append(f"- existing drift (not from this PR): {len(drift)} field(s) in untouched fields differ from the "
+                       "official source; they do not change the gate, e.g. "
+                       + ", ".join(code(_field(c.locator), 80) for c in drift[:3]))
     missing = f.unverified_needs
     if missing and not f.is_new:
         bullets.append(f"- changed but not verified by a source: {len(missing)} field(s), e.g. "
@@ -92,7 +101,8 @@ def file_block(f: FileReport, *, full: bool) -> str:
     quiet = [(c, s) for c, s in rows if c.status == "verified"]
     table = loud + quiet if full else loud[:CHECKS_PER_FILE_COMMENT] + quiet[: max(0, CHECKS_PER_FILE_COMMENT - len(loud))]
     if table:
-        parts.append("\n".join(_HEAD + [_check_row(c, s) for c, s in table]))
+        drift_ids = {id(c) for c in f.drift}
+        parts.append("\n".join(_HEAD + [_check_row(c, s, id(c) in drift_ids) for c, s in table]))
         if len(table) < len(rows):
             parts.append(f"_{len(rows) - len(table)} more compared field(s) in the check run summary_")
     return "\n\n".join(p for p in parts if p)
@@ -105,9 +115,15 @@ def _head(verdict: Verdict, files: list[FileReport], notes: Iterable[str], hold:
     blocks = [f"{MARKER}\n## Catalog verify: `gate:{gate}`"
               + (f" · `kind:{verdict.kind}`" if verdict.kind else "")
               + (f" · `verify:{verdict.verify}`" if verdict.verify else "")]
-    blocks.append(f"{len(ch)} changed model file(s) · {sum(c.status == 'verified' for c in checks)} field(s) verified "
-                  f"against an official source · {sum(c.status == 'conflict' for c in checks)} conflict(s) · "
-                  "report only: nothing is merged or blocked.")
+    provider_files = [f for f in ch if any(r.label == "risk:provider-default" for r in f.risks)]
+    own_conflicts = sum(len(f.conflicts) for f in ch)
+    blocks.append(f"{len(ch) - len(provider_files)} changed model file(s), {len(provider_files)} provider default file(s) · "
+                  f"{sum(c.status == 'verified' for c in checks)} field(s) verified against an official source · "
+                  f"{own_conflicts} conflict(s) · report only: nothing is merged or blocked.")
+    drift = sum(len(f.drift) for f in ch)
+    if drift:
+        blocks.append(f"Existing drift (not from this PR): {drift} field(s) in {sum(1 for f in ch if f.drift)} file(s) differ "
+                      "from the official source in fields this PR did not change. Listed per file; they do not affect the gate.")
     wide = sorted({r.locator[1] for f in ch for r in f.risks if r.label == "risk:provider-default"})
     for provider in wide[:10]:
         blocks.append(f"**Provider-wide change**: {code(provider)} `default.yaml` / `provider-config.yaml` changed, "

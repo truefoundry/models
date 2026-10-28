@@ -4,15 +4,18 @@ from __future__ import annotations
 from collections.abc import Iterable
 
 from .model import ADDED, DELETED, FileReport
-from .risk import FEATURES, LIFE, PRICE
+from .risk import FEATURES, LIFE, PRICE, PROVIDER
 
 NEW, PRICE_ONLY, LIFECYCLE, FEATURES_PARAMS, MIXED = "new-model", "price-only", "lifecycle", "features-params", "mixed"
+PROVIDER_DEFAULT = "provider-default"
 
 
 def file_kind(f: FileReport) -> str | None:
     """None when nothing changed that matters (formatting, `sources:`)."""
     if not f.changed:
         return None
+    if f.risks and {r.group for r in f.risks} == {PROVIDER}:  # default.yaml / provider-config.yaml, even deleted
+        return PROVIDER_DEFAULT
     if f.is_new and f.status == ADDED:
         return NEW
     if f.status == DELETED or f.is_new:  # a deletion, or a stub filled in: a human decides

@@ -73,3 +73,16 @@ def test_load_errors(tmp_path):
     bad.write_text("a: [\n")
     with pytest.raises(RegistryError):
         registry.load(bad)
+
+
+def test_an_unquoted_impossible_date_is_a_registry_error_not_a_crash(tmp_path):
+    bad = tmp_path / "r.yaml"
+    bad.write_text("version: 1\nsources:\n  - {provider: p, kind: api, source: s, fields: [price], added: 2026-13-45}\n")
+    with pytest.raises(RegistryError, match="not valid YAML"):
+        registry.load(bad)
+
+
+@pytest.mark.parametrize("field,value", [("provider", "p\n"), ("source", "fake\n"), ("provider", "p\n\n")])
+def test_a_trailing_newline_is_not_a_valid_name(field, value):
+    with pytest.raises(RegistryError):
+        registry.parse(with_row(**{field: value}))
