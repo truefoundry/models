@@ -13,7 +13,7 @@ import urllib.request
 from datetime import datetime, timezone
 from typing import Any, Callable, Iterator
 
-from ..types import LIMIT_TOLERANCE, PRICE_TOLERANCE, Check, SourceResult
+from ..types import LIMIT_TOLERANCE, PRICE_TOLERANCE, Check, Proposal, SourceResult
 
 Fetch = Callable[[str], bytes]
 
@@ -288,3 +288,15 @@ class BaseSource:
 
     def _check(self, repo_path: str, doc: dict) -> SourceResult:  # pragma: no cover - abstract
         raise NotImplementedError
+
+    def propose(self, repo_path: str, doc: dict) -> Proposal | None:
+        """What this source gives for a NEW model (see `types.ProposingSource`). Never raises: any
+        exception is an empty, partial proposal with a note, so a caller can always fall back."""
+        try:
+            return self._propose(repo_path, doc)
+        except Exception as e:  # noqa: BLE001
+            return Proposal(source=self.name, partial=True,
+                            notes=[f"adapter error ({type(e).__name__}: {str(e)[:120]}): nothing proposed"])
+
+    def _propose(self, repo_path: str, doc: dict) -> Proposal | None:
+        return None

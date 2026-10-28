@@ -57,12 +57,13 @@ is compared with the mantle SKU of the same model, because wherever both exist t
 from __future__ import annotations
 
 import re
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import replace
 
-from ..types import SourceResult
+from ..types import Proposal, Proposed, SourceResult
 from . import SOURCES
-from ._common import (BaseSource, Fetch, NotFound, Recorder, compare, cost_entries, cost_locator, get_json, num,
-                      provider_of, region_of, stem)
+from ._common import (BaseSource, Fetch, NotFound, Recorder, clean, compare, cost_entries, cost_locator, get_json,
+                      num, provider_of, region_of, stem)
 
 HOST = "https://pricing.us-east-1.amazonaws.com"
 OFFERS = ("AmazonBedrockFoundationModels", "AmazonBedrock")
@@ -221,18 +222,30 @@ def _kind(base: str, tier: str) -> str:
     return f"{tier}:{base}" if tier and ":" not in base else base
 
 
-def parse_offer(offer: dict) -> Rates:
-    out: Rates = {}
+class RateTable(dict):
+    """`Rates`, plus `unread`: (family, model key) -> modifier tails of token SKUs that exist but are not
+    read (long context, latency optimized, custom model...). Only `propose` looks at it."""
+
+    def __init__(self):
+        super().__init__()
+        self.unread: dict[tuple[str, str], set[str]] = {}
+
+
+def parse_offer(offer: dict) -> RateTable:
+    out = RateTable()
     for sku, product in (offer.get("products") or {}).items():
         attrs = product.get("attributes") or {}
         usage = attrs.get("usagetype", "")
         parsed = None  # (family, model name, kind, scope)
+        unread = None  # (family, model name, modifier tail) of a token SKU whose modifiers are not read
         m = _FM_USAGE.match(usage)
         if m:
             b = _FM_BODY.match(m["body"])
             tier = _mods(b["mod"], "_") if b else None
             if b and tier:
                 parsed = ("native", _FM_NAME.sub("", attrs.get("servicename", "")), _kind(_FM_KIND[b["kind"]], tier[1]), tier[0])
+            elif b:
+                unread = ("native", _FM_NAME.sub("", attrs.get("servicename", "")), b["mod"].strip("_"))
         else:
             b = _BR_USAGE.match(usage)
             tier = _mods(b["mod"], "-") if b else None
@@ -241,6 +254,14 @@ def parse_offer(offer: dict) -> Rates:
                 if model.endswith("-mantle"):
                     model, family = model[: -len("-mantle")], "mantle"
                 parsed = (family, model, _kind(_BR_KIND[b["kind"]], tier[1]), tier[0])
+            elif b:
+                model, family = b["model"], "native"
+                if model.endswith("-mantle"):
+                    model, family = model[: -len("-mantle")], "mantle"
+                unread = (family, model, b["mod"].strip("-"))
+        if unread and unread[1] and unread[2]:
+            # kept beside the rates, never in them, so `check` cannot see it; `propose` says it exists
+            out.unread.setdefault((unread[0], norm(unread[1])), set()).add(unread[2].lower())
         if not parsed or not parsed[1]:
             continue
         family, name, kind, scope = parsed
@@ -265,6 +286,8 @@ def _put(slot: dict, key: tuple[str, str], price: float) -> None:
 
 
 def merge(into: Rates, other: Rates) -> None:
+    for k, extra in getattr(other, "unread", {}).items():
+        getattr(into, "unread", {}).setdefault(k, set()).update(extra)
     for k, fields in other.items():
         slot = into.setdefault(k, {})
         for fk, price in fields.items():
@@ -288,6 +311,7 @@ class AwsPriceListSource(BaseSource):
     def __init__(self, fetch: Fetch | None = None, **kw):
         super().__init__(fetch, **kw)
         self._regions: dict[str, Rates | Exception] = {}
+        self._region_list: list[str] | None = None
 
     def covers(self, provider: str) -> bool:
         return provider in PROVIDERS
@@ -305,7 +329,7 @@ class AwsPriceListSource(BaseSource):
         if isinstance(cached, Exception):
             raise cached
         if cached is None:
-            rates: Rates = {}
+            rates = RateTable()
             try:
                 for offer in OFFERS:
                     try:
@@ -320,6 +344,30 @@ class AwsPriceListSource(BaseSource):
             self._regions[region] = rates
             cached = rates
         return cached
+
+    def _region_prices(self, region: str, scope: str, keys: list[str], families: tuple[str, ...]):
+        """The one lookup `check` and `propose` share: the official prices of one model in one region.
+        (status, payload, fell_back): "failed" (payload = exception name), "unmatched" (no Price List model of
+        that name), "missing" (a model, but no price of this scope) or "ok" (payload = {kind: USD per token});
+        `fell_back` is True when the match was a `-mantle` SKU."""
+        try:
+            rates = self.region_rates(region)
+        except Exception as e:  # noqa: BLE001
+            return "failed", type(e).__name__, False
+        hit = None
+        for family in families:
+            for key in keys:
+                if (family, key) in rates:
+                    hit = (family, rates[(family, key)])
+                    break
+            if hit:
+                break
+        if hit is None:
+            return "unmatched", None, False
+        prices = {kind: price for (sc, kind), price in hit[1].items() if sc == scope and tail_of(kind)}
+        if not prices:
+            return "missing", None, hit[0] == "mantle"
+        return "ok", prices, hit[0] == "mantle"
 
     def _check(self, repo_path: str, doc: dict) -> SourceResult:
         result = SourceResult(source=self.name)
@@ -339,29 +387,19 @@ class AwsPriceListSource(BaseSource):
             if not REGION_RE.fullmatch(region):
                 invalid.add(region[:40])  # its fields stay uncovered; nothing is fetched
                 continue
-            try:
-                rates = self.region_rates(region)
-            except Exception as e:  # one region's outage must not discard the others' checks
-                failed.append(f"{region} ({type(e).__name__})")
+            status, payload, fb = self._region_prices(region, scope, keys, families)
+            if status == "failed":  # one region's outage must not discard the others' checks
+                failed.append(f"{region} ({payload})")
                 continue
-            hit = None
-            for family in families:
-                for key in keys:
-                    if (family, key) in rates:
-                        hit = (family, rates[(family, key)])
-                        break
-                if hit:
-                    break
-            if hit is None:
+            if status == "unmatched":
                 unmatched = True
                 continue
-            if not mantle and hit[0] == "mantle":
+            if fb and not mantle:
                 fell_back = True
-            prices = {kind: price for (sc, kind), price in hit[1].items() if sc == scope and tail_of(kind)}
-            if not prices:
+            if status == "missing":
                 missing.append(region)
                 continue
-            found.append((entry, region, prices))
+            found.append((entry, region, payload))
         # pass 2: outlier regions per kind, then compare
         medians = self._outlier_regions(found)
         tier_absent: dict[str, set[str]] = {}
@@ -420,6 +458,128 @@ class AwsPriceListSource(BaseSource):
         if unmatched or missing or failed or ambiguous or outliers:
             result.partial = True
         return rec.finish()
+
+    # -- a NEW model -----------------------------------------------------------------------------
+
+    def all_regions(self) -> list[str]:
+        """Every region either offer publishes (`region_index.json`), sorted; cached. Raises when
+        neither index could be read."""
+        if self._region_list is None:
+            found: set[str] = set()
+            errors: list[Exception] = []
+            for offer in OFFERS:
+                try:
+                    data = get_json(self._get, f"{HOST}/offers/v1.0/aws/{offer}/current/region_index.json")
+                except NotFound:
+                    continue
+                except Exception as e:  # noqa: BLE001
+                    errors.append(e)
+                    continue
+                regions = data.get("regions") if isinstance(data, dict) else None
+                found |= {r for r in (regions or {}) if isinstance(r, str) and REGION_RE.fullmatch(r)}
+            if not found and errors:
+                raise errors[0]
+            self._region_list = sorted(found)
+        return self._region_list
+
+    def _propose(self, repo_path: str, doc: dict) -> Proposal | None:
+        """The on-demand prices of a model with none, one `costs` entry per region, through the same
+        lookup (`_region_prices`), normalisation, scope rule (`global.` ids take the global price,
+        everything else the regional one), unit reading and outlier guard as `check`.
+
+        Regions: the ones the stub names (`costs: [{region: ...}]`, what Bedrock lists as available), else
+        every region the Price List has. Fields: input, output, cache read, cache write 5m / 1h, batch,
+        flex and priority, where the Price List has an unambiguous SKU. Not proposed, and said: two SKUs
+        with two prices, a unit it does not read, a source outlier, a $0 SKU. `partial` when any of
+        those, a failed region fetch, a requested region with no price, or a related SKU exists that is
+        not read (long context, latency optimized, custom model: `tiered_pricing` is never proposed)."""
+        out = Proposal(source=self.name)
+        model_id = str(doc.get("model") or stem(repo_path))
+        scope, keys = id_keys(model_id)
+        mantle = provider_of(repo_path) == "aws-bedrock-mantle"
+        families = ("mantle",) if mantle else ("native", "mantle")
+        wanted = [region_of(e) for e in cost_entries(doc) if "region" in e]
+        explicit = bool(wanted)
+        if explicit:
+            bad = sorted({r[:40] for r in wanted if not REGION_RE.fullmatch(r)})
+            if bad:
+                out.partial = True
+                out.notes.append("not an AWS region code, not looked up: " + ", ".join(repr(r) for r in bad))
+            regions = sorted({r for r in wanted if REGION_RE.fullmatch(r)})
+        else:
+            try:
+                regions = self.all_regions()
+            except Exception as e:  # noqa: BLE001
+                out.partial = True
+                out.notes.append(f"AWS Price List region index unreachable ({type(e).__name__}): nothing proposed")
+                return out
+        with ThreadPoolExecutor(max_workers=8) as pool:  # each region is two files of about 1 MB
+            list(pool.map(self._warm, regions))
+        found: list[tuple[dict, str, dict]] = []
+        failed, missing, unmatched = [], [], []
+        ambiguous, outliers, zeros, unread = set(), set(), set(), set()
+        fell_back = False
+        for region in regions:
+            status, payload, fb = self._region_prices(region, scope, keys, families)
+            if status == "failed":
+                failed.append(f"{region} ({payload})")
+            elif status == "unmatched":
+                unmatched.append(region)
+            else:
+                fell_back = fell_back or (fb and not mantle)
+                if status == "missing":
+                    missing.append(region)
+                else:
+                    found.append(({}, region, payload))
+                    rates = self._regions.get(region)
+                    for family in families:
+                        for key in keys:
+                            unread |= getattr(rates, "unread", {}).get((family, key), set())
+        medians = self._outlier_regions(found)
+        for _entry, region, prices in found:
+            for kind, price in sorted(prices.items()):
+                tail = tail_of(kind)
+                label = ".".join(tail)
+                if price != price:
+                    ambiguous.add(label)
+                elif (region, kind) in medians:
+                    outliers.add(f"{region} {label} (price {price:.6g}, other regions ~{medians[(region, kind)]:.6g})")
+                elif price == 0:
+                    zeros.add(label)
+                else:
+                    out.values.append(Proposed(cost_locator(region, *tail), clean(price)))
+        if not found:
+            out.partial = True
+            out.notes.append(f"`{model_id}` has no AWS Price List {scope} price I can match (keys tried: {', '.join(keys)})")
+        if explicit and (unmatched or missing):
+            out.partial = True
+            out.notes.append("no Price List price for this model in: " + ", ".join(sorted(set(unmatched + missing))))
+        if missing and not explicit:
+            out.notes.append(f"no AWS Price List {scope} price for this model in: {', '.join(sorted(set(missing)))}")
+        if failed:
+            out.partial = True
+            out.notes.append(f"AWS Price List unreachable for: {', '.join(sorted(set(failed)))}")
+        if ambiguous:
+            out.partial = True
+            out.notes.append(f"several AWS SKU prices (or a unit I do not read) for {', '.join(sorted(ambiguous))}: not proposed")
+        if outliers:
+            out.partial = True
+            out.notes.append("source outlier, not proposed: " + "; ".join(sorted(outliers)))
+        if zeros:
+            out.notes.append("the Price List lists $0 for " + ", ".join(sorted(zeros)) + ": not proposed")
+        if fell_back:
+            out.notes.append("the Price List has only the `-mantle` SKU of this model: proposed from that")
+        if found and unread:
+            out.partial = True
+            out.notes.append("the Price List also has SKUs this adapter does not read (" + ", ".join(sorted(unread))
+                             + "): tiered, long-context and latency-optimized prices are not proposed")
+        return out
+
+    def _warm(self, region: str) -> None:
+        try:
+            self.region_rates(region)
+        except Exception:  # noqa: BLE001 - cached per region; `_region_prices` reports it
+            pass
 
     @staticmethod
     def _close_tier_dicts(rec: Recorder, entry: dict, region: str) -> None:

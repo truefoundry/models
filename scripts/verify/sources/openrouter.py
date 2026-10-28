@@ -29,9 +29,9 @@ from __future__ import annotations
 
 import re
 
-from ..types import LIMIT_TOLERANCE, SourceResult
+from ..types import LIMIT_TOLERANCE, Proposal, Proposed, SourceResult
 from . import SOURCES
-from ._common import (BaseSource, Fetch, Recorder, compare, cost_entries, cost_locator, get_json, num,
+from ._common import (BaseSource, Fetch, Recorder, clean, compare, cost_entries, cost_locator, get_json, num,
                       region_of, safe_id, same, stem)
 
 BASE = "https://openrouter.ai/api/v1"
@@ -113,19 +113,25 @@ class OpenRouterSource(BaseSource):
             result.partial = True
             result.notes.append(f"OpenRouter /models unreachable ({type(e).__name__})")
             return rec.finish()
-        assert self._listing is not None
         model_id = source_id(repo_path, doc)
-        if model_id is not None and not safe_id(model_id):
+        listed, problem = self._lookup(model_id)
+        if problem:
             result.partial = True
-            result.notes.append(f"model id {model_id[:60]!r} has characters not allowed in an OpenRouter id: not looked up")
-            return rec.finish()
-        listed = self._listing.get(model_id) if model_id else None
-        if listed is None:
-            result.partial = True
-            result.notes.append(f"`{model_id}` is not in OpenRouter's /models listing: no price compared")
-        else:
+            result.notes.append(problem)
+        if listed is not None:
             self._compare(rec, doc, listed)
         return rec.finish()
+
+    def _lookup(self, model_id: str | None) -> tuple[dict | None, str | None]:
+        """(listing entry, None) or (None, why not): the one place a file's id becomes a listing row,
+        shared by `check` and `propose`. `prepare()` must have succeeded."""
+        assert self._listing is not None
+        if model_id is not None and not safe_id(model_id):
+            return None, f"model id {model_id[:60]!r} has characters not allowed in an OpenRouter id: not looked up"
+        listed = self._listing.get(model_id) if model_id else None
+        if listed is None:
+            return None, f"`{model_id}` is not in OpenRouter's /models listing: no price compared"
+        return listed, None
 
     def _compare(self, rec: Recorder, doc: dict, listed: dict) -> None:
         result = rec.result
@@ -179,6 +185,59 @@ class OpenRouterSource(BaseSource):
             result.partial = True
         self._limits(rec, doc, listed)
         rec.note(CHEAPEST + ": a file price above it is not a conflict")
+
+    # -- a NEW model -----------------------------------------------------------------------------
+
+    def _propose(self, repo_path: str, doc: dict) -> Proposal | None:
+        """The listing's prices for a model with none: `prompt`, `completion`, cache read and cache write
+        (5m) as `check` maps them (CORE), plus context window and max output. ALWAYS `partial`: the
+        listing quotes the cheapest endpoint, which may not be the first-party price, so a caller treats
+        it as a lead, not an official price (see `verify.propose.APPLY_SOURCES`). Not proposed, and said:
+        the 1h cache write (files omit it by convention), a negative (variable) price, tier overrides,
+        and every price whose unit `check` does not verify (image, audio, request, web search)."""
+        out = Proposal(source=self.name, partial=True, notes=[CHEAPEST + ": a proposed price is the listing price, "
+                                                                      "which may differ from the first-party price"])
+        try:
+            self.prepare()
+        except Exception as e:  # an outage is an empty proposal, never a crash
+            out.notes.append(f"OpenRouter /models unreachable ({type(e).__name__})")
+            return out
+        listed, problem = self._lookup(source_id(repo_path, doc))
+        if listed is None:
+            out.notes.append(str(problem))
+            return out
+        pricing = listed.get("pricing") or {}
+        region = "*"
+        variable, skipped = [], []
+        for key, fld in CORE.items():
+            raw = pricing.get(key)
+            official = num(raw)
+            if official is None:
+                continue
+            if official < 0:
+                variable.append(key)
+            elif fld in CONVENTION_OMITTED:
+                skipped.append(key)  # files omit it by convention, as `check` does
+            elif official == 0 and key not in ("prompt", "completion"):
+                continue  # a free cache price is the absent field, as `check` treats it
+            else:
+                out.values.append(Proposed(cost_locator(region, fld), clean(official), CHEAPEST))
+        for key in list(EXTRAS) + ["image"]:
+            official = num(pricing.get(key))
+            if official:
+                skipped.append(key)
+        if variable:
+            out.notes.append("OpenRouter price is variable (negative): not proposed (" + ", ".join(sorted(variable)) + ")")
+        if skipped:
+            out.notes.append("OpenRouter prices not proposed (unit or convention not verified): " + ", ".join(sorted(skipped)))
+        if pricing.get("overrides"):
+            out.notes.append("OpenRouter lists tier overrides that are not proposed")
+        top = listed.get("top_provider") if isinstance(listed.get("top_provider"), dict) else {}
+        for fld, official in (("context_window", num(listed.get("context_length"))),
+                              ("max_output_tokens", num(top.get("max_completion_tokens")))):
+            if official and official > 0:
+                out.values.append(Proposed(("limits", fld), int(official), CHEAPEST))
+        return out
 
     @staticmethod
     def _limits(rec: Recorder, doc: dict, listed: dict) -> None:

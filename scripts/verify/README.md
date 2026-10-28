@@ -19,6 +19,7 @@ scripts/verify/
   gates.py       gate:*, verify:*, shadow:auto
   report.py      capped PR comment + full summary
   registry.py    loader / validation for sources/registry.yaml (repo root)
+  propose.py     python -m verify.propose: the prices a source gives for a NEW model (used by the addition job)
   cli.py         python -m verify ...
   sync.py        applies a verdict: validation, labels, comment, check run (stdlib only)
   labeljob.py    the trusted label job entry point: fetch the PR head as objects, run, apply
@@ -202,6 +203,41 @@ must never use a URL taken from a PR file.
    not cover the provider yields `verify:partial`, not a crash.
 3. Add offline tests with recorded data; never call the network from a test.
 4. `python -m pytest -q verify` from `scripts/`.
+
+## Propose: prices for a new model
+
+The addition job opens a PR for every model a provider lists that has no file yet. 47% of the human
+edits on those PRs were price fixes, so when the provider has an official price source the new file is
+written WITH the source's prices. An adapter may implement `propose(repo_path, doc) -> Proposal | None`
+(`types.ProposingSource`; optional, an adapter without it gives nothing). It uses the same lookup,
+matching, units and guards as `check()`, so `apply the proposal to an empty doc, then check()` is
+`verified` for every proposed field (a permanent test over recorded live data, `tests/test_propose.py`).
+
+```
+cd scripts && python -m verify.propose --provider aws-bedrock --model-id global.anthropic.claude-sonnet-4-5-20250929-v1:0 \
+    [--mode chat] [--regions us-east-1,eu-west-1] [--allow-listing-prices] [--json]
+```
+
+It reads `sources/registry.yaml` (the sources listed for the provider with `price` in `fields`) and prints
+one object: `proposals: [{source, partial, apply, values: [{locator, value}], notes}]` and a `reason` when
+there is none. Exit 0 whatever the answer (3 for an unusable registry, still JSON). A source that is down or
+does not list the model is an empty proposal with a note.
+
+| Source | Gives | Leaves out (and says so) |
+|---|---|---|
+| `aws-price-list` | per region: input, output, cache read, cache write 5m / 1h, batch, flex, priority. Regions: the ones named in `doc.costs`, else every region of the Price List's `region_index.json`. `global.` ids take the global price, all other ids the regional one | two SKUs with two prices, a unit it does not read, a 5x source outlier, a $0 SKU, anything long-context / latency-optimized / custom-model (`tiered_pricing` is never proposed). `partial` when any of those, a failed region, a requested region with no price, or such a SKU exists |
+| `deepinfra` | the LIST price as `check` maps it: input / output / cache read / cache write 5m / 1h, per-second, per-character | `image_units` (input or output per image is a catalog convention), `input_tokens` of a generator (input vs output image / video token), `time`, `frame_units`, zero prices. An active discount: list price proposed, `partial` |
+| `openrouter` | prompt, completion, cache read, cache write (5m), context window, max output | the 1h cache write, negative (variable) prices, tier overrides, image / audio / request prices. ALWAYS `partial`: the listing quotes the cheapest endpoint |
+
+`apply` says whether the addition job may WRITE a proposal: `deepinfra` and `aws-price-list` yes,
+`openrouter` no unless `--allow-listing-prices`.
+
+**Why OpenRouter is report-only.** (1) The addition job's own fetcher already writes the listing price into the
+stub, so a proposal adds nothing: of the last 30 merged OpenRouter addition PRs, 27 files kept the stub's costs
+untouched to merge and the 3 that changed only added `tiered_pricing`. (2) The listing is the cheapest endpoint,
+not first-party: today's /models against 30 random existing `providers/openrouter` files that are listed:
+17 equal, 9 below the listing, 4 above it (file prices above the listing are first-party prices, below it are
+older cheapest-endpoint prices). The price sweep keeps the same line (`SAFE_SOURCES`). Turn it on only with a range check.
 
 ## Tests
 

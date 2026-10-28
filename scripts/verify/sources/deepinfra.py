@@ -31,7 +31,7 @@ in the API: `uncovered`.
 """
 from __future__ import annotations
 
-from ..types import LIMIT_TOLERANCE, SourceResult
+from ..types import LIMIT_TOLERANCE, Proposal, Proposed, SourceResult
 from . import SOURCES
 from ._common import (BaseSource, Fetch, Recorder, clean, compare, cost_entries, cost_locator, get_json, iso_date,
                       num, region_of, safe_id, same, stem)
@@ -92,16 +92,10 @@ class DeepInfraSource(BaseSource):
             result.partial = True
             result.notes.append(f"DeepInfra /models/list unreachable ({type(e).__name__})")
             return rec.finish()
-        assert self._listing is not None
-        mid = model_id(repo_path, doc)
-        if mid is not None and not safe_id(mid):
-            result.partial = True
-            result.notes.append(f"model id {mid[:60]!r} has characters not allowed in a DeepInfra id: not looked up")
-            return rec.finish()
-        listed = self._listing.get(mid) if mid else None
+        listed, problem = self._lookup(model_id(repo_path, doc))
         if listed is None:
             result.partial = True
-            result.notes.append(f"`{mid}` is not in DeepInfra's model list: no price compared")
+            result.notes.append(str(problem))
             return rec.finish()
         entries = [e for e in cost_entries(doc) if region_of(e) in ("*", "global")]
         if not entries:
@@ -119,6 +113,69 @@ class DeepInfraSource(BaseSource):
             if not rec.skippable(entry):
                 self._compare_entry(rec, entry, pricing, discount)
         return rec.finish()
+
+    def _lookup(self, mid: str | None) -> tuple[dict | None, str | None]:
+        """(listing entry, None) or (None, why not); shared by `check` and `propose`. `prepare()` must
+        have succeeded."""
+        assert self._listing is not None
+        if mid is not None and not safe_id(mid):
+            return None, f"model id {mid[:60]!r} has characters not allowed in a DeepInfra id: not looked up"
+        listed = self._listing.get(mid) if mid else None
+        if listed is None:
+            return None, f"`{mid}` is not in DeepInfra's model list: no price compared"
+        return listed, None
+
+    # -- a NEW model ---------------------------------------------------------------------------
+
+    def _propose(self, repo_path: str, doc: dict) -> Proposal | None:
+        """The LIST prices of a model with none, through the same `_expectations` that `check` uses (an
+        empty cost entry, so the field names are the defaults). Where the file's own shape decides the
+        field and a new file has no shape, nothing is proposed: an `input_tokens` price is the input
+        price only for an embedding model (a generator's lands in output_cost_per_image_token / ...
+        video_token / output_cost_per_token), and an `image_units` price is input or output per image
+        by catalog convention, not by the API. An active discount makes the proposal `partial`: the
+        list price is proposed, never the discounted one. Zero prices are not proposed."""
+        out = Proposal(source=self.name)
+        try:
+            self.prepare()
+        except Exception as e:
+            out.partial = True
+            out.notes.append(f"DeepInfra /models/list unreachable ({type(e).__name__})")
+            return out
+        listed, problem = self._lookup(model_id(repo_path, doc))
+        if listed is None:
+            out.partial = True
+            out.notes.append(str(problem))
+            return out
+        pricing = listed.get("pricing") or {}
+        discount = num(pricing.get("discount")) or 0.0
+        if discount > 0:
+            end = iso_date(pricing.get("discount_ends_at"))
+            out.partial = True
+            out.notes.append(f"DeepInfra lists a {discount:.4g} discount" + (f" until {end}" if end else " (no end date)")
+                             + ": the list price is proposed, not the discounted one")
+        kind = pricing.get("type")
+        mode = str(doc.get("mode") or "")
+        if kind == "input_tokens" and mode != "embedding":
+            out.partial = True
+            out.notes.append(f"DeepInfra `input_tokens` price of a `{mode or 'unknown'}` model: whether it is the input or "
+                             "the output (image / video token) price depends on the file, so it is not proposed")
+            return out
+        expected = self._expectations(Recorder(SourceResult(source=self.name), {}), {}, pricing, "*")
+        if not expected:
+            out.partial = True
+            out.notes.append(f"DeepInfra pricing type `{kind}` has no unambiguous catalog field for a new file: not proposed")
+            return out
+        for ex in expected:
+            if ex.skip_absent:  # a cached rate equal to the input price is derived, files leave it out
+                continue
+            if ex.price <= 0:
+                out.notes.append(f"{ex.field}: DeepInfra lists {ex.price:g}: not proposed")
+                continue
+            out.values.append(Proposed(cost_locator("*", ex.field), ex.price))
+        if kind in ("tokens", "input_tokens"):
+            out.notes.append("DeepInfra publishes no tier tables, flex / priority or batch prices: not proposed")
+        return out
 
     # -- one `*` cost entry -------------------------------------------------------------------
 
