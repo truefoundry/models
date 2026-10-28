@@ -32,7 +32,7 @@ import re
 from ..types import LIMIT_TOLERANCE, SourceResult
 from . import SOURCES
 from ._common import (BaseSource, Fetch, Recorder, compare, cost_entries, cost_locator, get_json, num,
-                      region_of, same, stem)
+                      region_of, safe_id, same, stem)
 
 BASE = "https://openrouter.ai/api/v1"
 MODELS_URL = f"{BASE}/models"
@@ -115,6 +115,10 @@ class OpenRouterSource(BaseSource):
             return rec.finish()
         assert self._listing is not None
         model_id = source_id(repo_path, doc)
+        if model_id is not None and not safe_id(model_id):
+            result.partial = True
+            result.notes.append(f"model id {model_id[:60]!r} has characters not allowed in an OpenRouter id: not looked up")
+            return rec.finish()
         listed = self._listing.get(model_id) if model_id else None
         if listed is None:
             result.partial = True

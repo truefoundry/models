@@ -38,6 +38,9 @@ SOURCE OUTLIERS. When one region's price for a field is 5x or more (or 0.2x or l
 the file's other regions, that field is `uncovered` in that region with a "source outlier" note
 (the Price List itself has 10x typos, e.g. Nova 2 Lite cache read in ca-west-1).
 
+An explicit $0 SKU against a non-zero catalog value is a conflict whose note is exactly
+"source lists $0" (the sweep keys on that text: such zeros are needs-review, not auto-fixes).
+
 A field absent in the file is `uncovered` ("missing in file"), never a conflict; the empty cost
 entries of a deprecated file are not compared at all.
 
@@ -54,6 +57,7 @@ is compared with the mantle SKU of the same model, because wherever both exist t
 from __future__ import annotations
 
 import re
+from dataclasses import replace
 
 from ..types import SourceResult
 from . import SOURCES
@@ -79,6 +83,9 @@ TIERS = ("batch", "flex", "priority")
 #   flex     -> flex_pricing.<field>        priority -> priority_pricing.<field>
 BATCH_FIELD = {"input": "input_cost_per_token_batches", "output": "output_cost_per_token_batches"}
 UNIT_TO_TOKEN = {"1m tokens": 1e-6, "1k tokens": 1e-3, "1 tokens": 1.0, "token": 1.0}
+
+# `costs[].region` comes from a PR file and is interpolated into a URL: only real region codes pass.
+REGION_RE = re.compile(r"[a-z]{2}(-[a-z]+)+-[0-9]", re.ASCII)
 
 AMBIGUOUS = float("nan")  # two SKUs, two prices: never compared
 
@@ -292,6 +299,8 @@ class AwsPriceListSource(BaseSource):
 
     def region_rates(self, region: str) -> Rates:
         """Both offers merged for one region. Raises when a fetch failed; cached either way."""
+        if not REGION_RE.fullmatch(region):  # defence in depth: never build a URL from anything else
+            raise ValueError(f"not an AWS region code: {region[:40]!r}")
         cached = self._regions.get(region)
         if isinstance(cached, Exception):
             raise cached
@@ -320,11 +329,15 @@ class AwsPriceListSource(BaseSource):
         mantle = provider_of(repo_path) == "aws-bedrock-mantle"
         families = ("mantle",) if mantle else ("native", "mantle")
         missing, failed, ambiguous, outliers, fell_back, unmatched = [], [], set(), set(), False, False
+        invalid: set[str] = set()
         # pass 1: the official price of every kind in every region the file lists
         found: list[tuple[dict, str, dict]] = []  # (entry, region, {kind: price})
         for entry in cost_entries(doc):
             region = region_of(entry)
             if rec.skippable(entry):
+                continue
+            if not REGION_RE.fullmatch(region):
+                invalid.add(region[:40])  # its fields stay uncovered; nothing is fetched
                 continue
             try:
                 rates = self.region_rates(region)
@@ -369,7 +382,11 @@ class AwsPriceListSource(BaseSource):
                         rec.uncovered(locator)
                     continue
                 if present:
-                    rec.add(compare(locator, _dig(entry, tail), price))
+                    check = compare(locator, _dig(entry, tail), price)
+                    if check is not None and price == 0 and check.status == "conflict":
+                        # An explicit $0 SKU (Nova cache writes): the sweep treats these as needs-review.
+                        check = replace(check, note="source lists $0")
+                    rec.add(check)
                 elif ":" not in kind:
                     rec.absent(locator, price)
                 elif price:
@@ -384,6 +401,9 @@ class AwsPriceListSource(BaseSource):
             result.notes.append("some regions have no Price List entry for this model")
         if missing:
             result.notes.append(f"no AWS Price List {scope} price for this model in: {', '.join(sorted(set(missing)))}")
+        if invalid:
+            result.notes.append("not an AWS region code, not looked up: " + ", ".join(repr(r) for r in sorted(invalid)))
+            result.partial = True
         if failed:
             result.notes.append(f"AWS Price List unreachable for: {', '.join(sorted(set(failed)))}")
         if ambiguous:

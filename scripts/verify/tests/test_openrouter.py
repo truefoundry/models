@@ -316,3 +316,25 @@ def test_check_wraps_any_exception_in_a_partial_result():
     s._compare = lambda *a, **k: (_ for _ in ()).throw(TypeError("boom"))
     r = s.check(STEP, doc(**STEP_OK))
     assert r.partial and "adapter error" in r.notes[0] and "TypeError" in r.notes[0]
+
+
+HOSTILE_IDS = ["../x", "a/../b", "//evil.example/x", "http://evil/x", "a/b%2fc", "a/b?x=1", "a/b#c", "a b/c", "a/b\\n",
+               "stepfun/step-3.5-fläsh", "/abs/path", "a/b\\\\c", "a/b;c", "a/b<c>"]
+
+
+def test_a_hostile_model_id_is_never_looked_up_or_fetched():
+    s, fetch = source()
+    for bad in HOSTILE_IDS:
+        r = s.check("providers/openrouter/x.yaml", {"model": bad, "costs": [{"region": "*", "input_cost_per_token": 1e-7}]})
+        assert r.partial and r.checks == [], bad
+        assert r.uncovered == ["costs.region=*.input_cost_per_token"], bad
+        assert any("not allowed in an OpenRouter id" in n for n in r.notes), bad
+    assert fetch.calls == [URL]  # only the one fixed listing URL, ever
+
+
+def test_real_openrouter_ids_pass_the_validator():
+    from verify.sources._common import safe_id
+    for ok in ("stepfun/step-3.5-flash", "step-3.5-flash:free", "~anthropic/claude-opus-latest", "openai/gpt-oss-120b:batch",
+               "a@b/c_d.e"):
+        assert safe_id(ok), ok
+    assert not safe_id(None) and not safe_id(5) and not safe_id("")

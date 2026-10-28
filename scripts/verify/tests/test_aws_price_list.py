@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import json
 
 import pytest
 
@@ -441,7 +442,7 @@ def test_the_time_budget_is_shared_by_all_regions_of_a_file():
 
     from verify.sources._common import NotFound as NotFound_
     s = AwsPriceListSource(slow, deadline_s=60.0, clock=lambda: clock[0])
-    regs = [f"r{i}" for i in range(8)]
+    regs = [f"us-east-{i}" for i in range(1, 9)]
     r = s.check(*cl(LLAMA, regions=regs, input_cost_per_token=7.2e-7, output_cost_per_token=7.2e-7))
     assert len(calls) <= 3  # 25s per fetch: the budget is spent after the third
     assert r.partial and any("unreachable" in n for n in r.notes)
@@ -616,3 +617,55 @@ def test_batch_cache_prices_have_no_catalog_field_and_never_leak_into_the_standa
     _, r, _ = run(synthetic({"us-east-1": llama(extra=extra)}), ["us-east-1"], input_cost_per_token=7.2e-7,
                   output_cost_per_token=7.2e-7, cache_read_input_token_cost=1e-7)
     assert r.fully_verified
+
+
+# ---- explicit $0 SKUs, hostile region strings --------------------------------------------------------
+
+def test_an_explicit_zero_sku_against_a_nonzero_catalog_value_says_so():
+    s, _ = source()
+    r = s.check(*cl("us.amazon.nova-2-lite-v1:0", input_cost_per_token=3.3e-7, output_cost_per_token=2.75e-6,
+                    cache_read_input_token_cost=8.25e-8, cache_creation_input_token_cost=6e-8,
+                    flex_pricing={"cache_creation_input_token_cost": 5e-8}))
+    zeros = {c.locator[2:]: c for c in r.conflicts}
+    assert zeros[("cache_creation_input_token_cost",)].note == "source lists $0"
+    assert zeros[("flex_pricing", "cache_creation_input_token_cost")].note == "source lists $0"
+    assert zeros[("cache_creation_input_token_cost",)].source_value == 0.0 and zeros[("cache_creation_input_token_cost",)].writable
+    r = s.check(*cl("us.amazon.nova-2-lite-v1:0", input_cost_per_token=9e-7))  # a real price conflict has no such text
+    assert r.conflicts and all("source lists $0" not in c.note for c in r.conflicts)
+
+
+def test_nova_micro_style_zero_cache_write_from_a_synthetic_offer():
+    micro = [sku("USE1-NovaMicro-input-tokens", 0.000035), sku("USE1-NovaMicro-output-tokens", 0.00014),
+             sku("USE1-NovaMicro-cache-write-input-token-count", 0.0)]
+    s = AwsPriceListSource(FakeFetch({url(BR, "us-east-1"): json.dumps(offer(*micro)).encode()}))
+    path = "providers/aws-bedrock/amazon.nova-micro-v1:0.yaml"
+    base = dict(input_cost_per_token=3.5e-8, output_cost_per_token=1.4e-7)
+    (c,) = s.check(path, doc("amazon.nova-micro-v1:0", cache_creation_input_token_cost=4.375e-8, **base)).conflicts
+    assert c.note == "source lists $0" and c.file_value == 4.375e-8
+    assert s.check(path, doc("amazon.nova-micro-v1:0", cache_creation_input_token_cost=0, **base)).fully_verified
+
+
+HOSTILE_REGIONS = ["../../etc/passwd", "us-east-1/../../x", "//evil.example/x", "us-east-1%2f..%2fx", "us-east-1?x=1",
+                   "us-east-1#", "us-east-1\n", "us-east-1 ", "us-eâst-1", "us-east-١", "US-EAST-1", "us-east", "*",
+                   "global", "", "None", "us-east-1/index.json?", "http://evil/us-east-1", "-east-1"]
+
+
+def test_a_hostile_region_is_never_put_in_a_url():
+    s, fetch = source()
+    for region in HOSTILE_REGIONS:
+        r = s.check("providers/aws-bedrock/x.yaml", {"model": LLAMA, "costs": [
+            {"region": region, "input_cost_per_token": 7.2e-7, "output_cost_per_token": 7.2e-7}]})
+        assert r.partial and r.checks == [], region
+        assert sorted(u.split(".")[-1] for u in r.uncovered) == ["input_cost_per_token", "output_cost_per_token"], region
+        assert any("not an AWS region code" in n for n in r.notes), region
+    assert fetch.calls == []
+    with pytest.raises(ValueError):  # the URL builder itself refuses too
+        s.region_rates("../x")
+    r = s.check("providers/aws-bedrock/x.yaml", {"model": LLAMA, "costs": [{"region": ["us-east-1"], "input_cost_per_token": 1}]})
+    assert r.partial and fetch.calls == []
+
+
+def test_real_region_codes_pass_the_validator():
+    from verify.sources.aws_price_list import REGION_RE
+    for ok in ("us-east-1", "us-gov-west-1", "ap-southeast-7", "eu-central-2", "me-central-1", "il-central-1"):
+        assert REGION_RE.fullmatch(ok), ok

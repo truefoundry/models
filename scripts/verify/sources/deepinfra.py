@@ -34,7 +34,7 @@ from __future__ import annotations
 from ..types import LIMIT_TOLERANCE, SourceResult
 from . import SOURCES
 from ._common import (BaseSource, Fetch, Recorder, clean, compare, cost_entries, cost_locator, get_json, iso_date,
-                      num, region_of, same, stem)
+                      num, region_of, safe_id, same, stem)
 
 URL = "https://api.deepinfra.com/models/list"
 
@@ -94,6 +94,10 @@ class DeepInfraSource(BaseSource):
             return rec.finish()
         assert self._listing is not None
         mid = model_id(repo_path, doc)
+        if mid is not None and not safe_id(mid):
+            result.partial = True
+            result.notes.append(f"model id {mid[:60]!r} has characters not allowed in a DeepInfra id: not looked up")
+            return rec.finish()
         listed = self._listing.get(mid) if mid else None
         if listed is None:
             result.partial = True
