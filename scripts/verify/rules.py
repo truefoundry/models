@@ -41,6 +41,17 @@ NON_REASONING_MODES = ("embedding", "rerank", "image", "text_to_speech", "modera
 # (n >= 10), measured on the catalog by `--calibrate`. Elsewhere inheriting the cap is the norm.
 CAP_OVERRIDE_PROVIDERS = frozenset({"anthropic", "aws-bedrock", "azure-open-ai", "cohere", "groq", "microsoft-foundry",
                                     "openai", "truefoundry-managed", "xai"})
+# claude-feature-gaps. The catalog's own convention, measured with `--calibrate` on origin/main:
+# `mid_conversation_system_messages` is on Claude >= 4.8 chat files in these providers (>= 60% of
+# their files, n >= 4: aws-bedrock 35/37, microsoft-foundry 11/16, azure-ai-foundry 7/10, anthropic
+# 7/8, google-vertex 8/8, aws-bedrock-mantle 4/4) and not in the resellers (openrouter 2/18,
+# perplexity-ai 1/8, deepinfra 0/6), which never carry it. `assistant_prefill` is off for every
+# Claude >= 4.6 (3 of 168 files advertise it) while 4.5 and older still have it.
+CLAUDE_MID_CONVERSATION = (4, 8)
+CLAUDE_NO_PREFILL = (4, 6)
+CLAUDE_MID_PROVIDERS = frozenset({"anthropic", "aws-bedrock", "aws-bedrock-mantle", "azure-ai-foundry", "google-vertex",
+                                  "microsoft-foundry"})
+_CLAUDE = re.compile(r"claude[-.](?:(?:opus|sonnet|haiku|fable)[-.])?(\d+)(?:[-.](\d{1,2})(?!\d))?")
 # Fallbacks, used when the CUE schema files cannot be read; tests keep them equal to the schema.
 FEATURES = frozenset({"assistant_prefill", "cache_control", "code_execution", "function_calling", "json_output",
                       "mid_conversation_system_messages", "parallel_function_calling", "prompt_caching",
@@ -120,6 +131,13 @@ def output_limit(doc: dict) -> float | None:
 
 def _text_model(doc: dict) -> bool:
     return doc.get("mode") in TEXT_MODES
+
+
+def claude_version(doc: dict) -> tuple[int, int] | None:
+    """(major, minor) of a Claude model from its `model` id: claude-opus-4-8-2 -> (4, 8),
+    claude-sonnet-5 -> (5, 0), claude-opus-4-20250514 -> (4, 0). None for any other model."""
+    m = _CLAUDE.search(str(doc.get("model") or "").lower())
+    return (int(m[1]), int(m[2] or 0)) if m else None
 
 
 # ------------------------------------------------------------------------------- rules
@@ -221,6 +239,25 @@ def feature_enum(doc, ctx):
     return [Finding("feature-enum", ESCALATE, ("features", f), f"feature `{f}` is not in the schema") for f in bad]
 
 
+def claude_feature_gaps(doc, ctx):
+    """Two flags Bugbot kept finding on Claude files: `mid_conversation_system_messages` missing on a
+    Claude >= 4.8 chat model in a provider that carries it, and `assistant_prefill` advertised on a
+    Claude >= 4.6 (those models reject a prefilled assistant turn)."""
+    version = claude_version(doc)
+    if version is None or doc.get("mode") != "chat":
+        return []
+    features = _list(doc.get("features"))
+    out = []
+    if version >= CLAUDE_MID_CONVERSATION and ctx.provider in CLAUDE_MID_PROVIDERS \
+            and "mid_conversation_system_messages" not in features:
+        out.append(Finding("claude-feature-gaps", REVIEW, ("features", "mid_conversation_system_messages"),
+                           f"Claude {version[0]}.{version[1]} on {ctx.provider} lacks `mid_conversation_system_messages`"))
+    if version >= CLAUDE_NO_PREFILL and "assistant_prefill" in features:
+        out.append(Finding("claude-feature-gaps", REVIEW, ("features", "assistant_prefill"),
+                           f"Claude {version[0]}.{version[1]} does not accept a prefilled assistant turn: `assistant_prefill` is advertised"))
+    return out
+
+
 RULES = {
     "max-tokens-below-limit": max_tokens_below_limit,
     "max-tokens-inherited-cap": max_tokens_inherited_cap,
@@ -232,6 +269,7 @@ RULES = {
     "reasoning-default": reasoning_default,
     "reasoning-unsupported": reasoning_unsupported,
     "feature-enum": feature_enum,
+    "claude-feature-gaps": claude_feature_gaps,
 }
 assert tuple(RULES) == RULE_IDS
 

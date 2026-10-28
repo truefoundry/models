@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 
-from .gates import Verdict, changed
+from .gates import FAST_LANE_KINDS, FAST_LANE_MAX_FILES, Verdict, changed
 from .labels import MARKER
 from .model import FileReport
 from .textclean import cap, clean_line
@@ -24,6 +24,8 @@ RISKS_PER_FILE_COMMENT = 15
 CHECKS_PER_FILE_COMMENT = 10
 RESERVED_TAIL = 800
 MAX_NOTES = 20
+LANE_REASONS = 3  # a reviewer should know in five seconds: the lane plus at most three lines
+LANE_LINE = 170
 
 
 def code(value, limit: int = 120) -> str:
@@ -108,6 +110,74 @@ def file_block(f: FileReport, *, full: bool) -> str:
     return "\n\n".join(p for p in parts if p)
 
 
+def _line(text: str) -> str:
+    """One reason, kept short; a code span cut in half is closed."""
+    text = clean_line(text)
+    if len(text) > LANE_LINE:
+        text = text[: LANE_LINE - 1] + "…"
+    return text + "`" if text.count("`") % 2 else text
+
+
+def _escalations(ch: list[FileReport]) -> list[str]:
+    """Why the PR escalates, most telling first: a conflict with an official source, then the
+    escalating risks in file order (one line per rule, so 40 removals read as one)."""
+    out: list[str] = []
+    seen: set[str] = set()
+    for f in ch:
+        for c in f.conflicts:
+            out.append(f"official source disagrees in {code(f.path, 60)}: {code(_field(c.locator), 50)} "
+                       f"is {_val(c.file_value)}, the source says {_val(c.source_value)}")
+    for f in ch:
+        for r in sorted(f.risks, key=lambda r: (r.label, r.reason)):
+            if r.escalate and r.label not in seen:
+                seen.add(r.label)
+                more = sum(1 for g in ch for x in g.risks if x.escalate and x.label == r.label) - 1
+                out.append(f"`{r.label}` in {code(f.path, 60)}: {r.reason}" + (f" (+{more} more)" if more else ""))
+    return out
+
+
+def lane_reasons(verdict: Verdict, files: list[FileReport]) -> list[str]:
+    """At most LANE_REASONS lines saying why the PR is in its lane."""
+    ch = changed(files)
+    lane, kind, n = verdict.lane, verdict.kind, len(ch)
+    if lane in ("escalate", "hold"):
+        found = _escalations(ch)
+        lines = (["`gate:hold` or an `id:*` label is on the PR, so no gate is set here"] if lane == "hold" else []) + found
+        if lane == "hold" and not found:
+            lines.append("nothing in the diff would escalate")
+    elif lane == "fast-lane":
+        lines = [f"`kind:{kind}` on {n} model file(s) (fast-lane takes at most {FAST_LANE_MAX_FILES})",
+                 "no escalating risk and no conflict with an official source",
+                 "every changed field verified by an official source" if verdict.gate == "review"
+                 else "the changed fields are not source-checked: read the diff once, target review within 24 h"]
+    else:  # normal
+        lines = []
+        if kind in FAST_LANE_KINDS:
+            lines.append(f"{n} changed model files, more than the {FAST_LANE_MAX_FILES} a fast-lane PR may have")
+        else:
+            lines.append(f"`kind:{kind}` is not a fast-lane kind (features-params, lifecycle)")
+        missing = [(f, f.unverified_needs) for f in ch if f.unverified_needs]
+        if missing:
+            f, needs = missing[0]
+            lines.append(f"{sum(len(m) for _, m in missing)} changed field(s) with no verified source check, "
+                         f"e.g. {code(_field(needs[0]), 60)} in {code(f.path, 60)}")
+        else:
+            lines.append("every changed field verified by an official source")
+        if verdict.shadow:
+            lines.append("`shadow:auto`: every price move is within ±10% and confirmed by the source")
+        elif verdict.verify:
+            lines.append(f"`verify:{verdict.verify}`")
+    if len(lines) > LANE_REASONS:
+        lines = lines[: LANE_REASONS - 1] + [f"+{len(lines) - LANE_REASONS + 1} more finding(s) in the per-file list below"]
+    return [_line(x) for x in lines[:LANE_REASONS]]
+
+
+def lane_block(verdict: Verdict, files: list[FileReport]) -> str | None:
+    if not verdict.lane:
+        return None
+    return "\n".join([f"**Review lane: {verdict.lane}**"] + [f"- {x}" for x in lane_reasons(verdict, files)])
+
+
 def _head(verdict: Verdict, files: list[FileReport], notes: Iterable[str], hold: bool) -> list[str]:
     ch = changed(files)
     checks = [c for f in ch for c in f.checks]
@@ -115,6 +185,9 @@ def _head(verdict: Verdict, files: list[FileReport], notes: Iterable[str], hold:
     blocks = [f"{MARKER}\n## Catalog verify: `gate:{gate}`"
               + (f" · `kind:{verdict.kind}`" if verdict.kind else "")
               + (f" · `verify:{verdict.verify}`" if verdict.verify else "")]
+    lane = lane_block(verdict, files)
+    if lane:
+        blocks.append(lane)
     provider_files = [f for f in ch if any(r.label == "risk:provider-default" for r in f.risks)]
     own_conflicts = sum(len(f.conflicts) for f in ch)
     blocks.append(f"{len(ch) - len(provider_files)} changed model file(s), {len(provider_files)} provider default file(s) · "

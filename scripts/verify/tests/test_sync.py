@@ -16,21 +16,21 @@ BASE = "b" * 40
 def artifact(**over):
     data = {"version": 1, "base_sha": BASE, "head_sha": SHA, "skipped": None,
             "labels": ["gate:review", "kind:price-only", "risk:price", "shadow:auto", "verify:official"],
-            "gate": "review", "kind": "price-only", "verify": "official", "shadow": True,
+            "gate": "review", "kind": "price-only", "verify": "official", "shadow": True, "lane": "normal",
             "files": [{"path": "providers/p/m.yaml"}], "files_total": 1, "files_omitted": 0, "notes": [], "comment_md": f"{MARKER}\n## Catalog verify",
             "summary_md": "full table"}
     data.update(over)
     return data
 
 
-NOTHING = dict(labels=[], gate=None, kind=None, verify=None, shadow=False, files=[], files_total=0, comment_md=f"{MARKER}\nnothing", summary_md="x")
+NOTHING = dict(labels=[], gate=None, kind=None, verify=None, shadow=False, lane=None, files=[], files_total=0, comment_md=f"{MARKER}\nnothing", summary_md="x")
 
 
 # ---------------------------------------------------------------------------- validation
 def test_a_good_artifact_passes_and_every_label_the_cli_can_emit_is_owned():
     assert sync.validate(artifact())["gate"] == "review"
     sync.validate(artifact(**NOTHING))
-    sync.validate(artifact(labels=["risk:price"], gate="hold", kind=None, verify=None, shadow=False))
+    sync.validate(artifact(labels=["risk:price"], gate="hold", kind=None, verify=None, shadow=False, lane="hold"))
 
 
 @pytest.mark.parametrize("over", [
@@ -95,6 +95,7 @@ class FakeApi(GitHub):
         self.labels, self.comments, self.head_sha, self.fork, self.fail, self.checks = list(labels), list(comments), head_sha, fork, fail, list(checks)
         self.pr_override = pr or {}
         self.calls = []
+        self.repo_labels: dict[str, dict] = {}  # label definitions that exist in the repo: name -> {color, description}
 
     def request(self, method, path, body=None, ok_missing=False):
         self.calls.append((method, urllib.parse.unquote(path.split("?")[0]), body))
@@ -111,6 +112,13 @@ class FakeApi(GitHub):
         if method == "GET" and p.endswith("/issues/7/labels"):
             page = int(path.split("&page=")[1]) if "&page=" in path else 1
             return [{"name": n} for n in self.labels][(page - 1) * 100: page * 100]
+        if method == "GET" and p.startswith("/repos/o/r/labels/"):
+            return self.repo_labels.get(urllib.parse.unquote(p.rsplit("/labels/", 1)[1]))
+        if method == "POST" and p == "/repos/o/r/labels":
+            if body["name"] in self.repo_labels:
+                raise SyncError("POST /repos/o/r/labels -> HTTP 422")
+            self.repo_labels[body["name"]] = {"name": body["name"], "color": body["color"], "description": body["description"]}
+            return self.repo_labels[body["name"]]
         if method == "POST" and p.endswith("/issues/7/labels"):
             self.labels += [x for x in body["labels"] if x not in self.labels]
             return [{"name": n} for n in self.labels]
@@ -132,7 +140,11 @@ class FakeApi(GitHub):
         raise AssertionError(f"unexpected {method} {path}")
 
     def writes(self):
-        return [(m, p) for m, p, _ in self.calls if m != "GET"]
+        """Every write to the PR, the comment and the check; label DEFINITIONS are in label_defs()."""
+        return [(m, p) for m, p, _ in self.calls if m != "GET" and p != "/repos/o/r/labels"]
+
+    def label_defs(self):
+        return [b for m, p, b in self.calls if m == "POST" and p == "/repos/o/r/labels"]
 
 
 def event(**run):
@@ -186,7 +198,7 @@ def test_only_owned_labels_by_exact_name_are_removed(tmp_path):
 def test_nothing_is_removed_that_is_wanted_and_nothing_is_added_twice(tmp_path):
     api = FakeApi(labels=["gate:review", "risk:price"])
     sync.sync(api, event(), write(tmp_path))
-    posted = [b["labels"] for m, p, b in api.calls if m == "POST" and p.endswith("/labels")]
+    posted = [b["labels"] for m, p, b in api.calls if m == "POST" and p.endswith("/issues/7/labels")]
     assert posted == [["kind:price-only", "shadow:auto", "verify:official"]]
     assert not [1 for m, p in api.writes() if m == "DELETE"]
 
@@ -371,9 +383,10 @@ def test_more_than_100_labels_are_paginated(tmp_path):
 def test_owned_set_is_what_the_spec_lists():
     assert OWNED == {"gate:review", "gate:unverified", "gate:escalate", "shadow:auto",
                      *(f"risk:{r}" for r in ("removal", "price", "params", "param-value", "feature", "limit", "mode", "dated", "other", "check-error", "provider-default")),
-                     *(f"risk:rule-{r}" for r in ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completion-pair", "null-status", "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default", "reasoning-unsupported", "feature-enum")),
+                     *(f"risk:rule-{r}" for r in ("max-tokens-below-limit", "max-tokens-inherited-cap", "max-completion-pair", "null-status", "deprecated-conflict", "deprecated-undated", "reasoning-enum", "reasoning-default", "reasoning-unsupported", "feature-enum", "claude-feature-gaps")),
                      *(f"verify:{v}" for v in ("official", "partial", "conflict", "none")),
-                     *(f"kind:{k}" for k in ("price-only", "lifecycle", "features-params", "mixed", "new-model", "provider-default"))}
+                     *(f"kind:{k}" for k in ("price-only", "lifecycle", "features-params", "mixed", "new-model", "provider-default")),
+                     "fast-lane"}
     assert "gate:hold" not in OWNED
 
 
@@ -424,3 +437,98 @@ def test_http_403_is_a_sync_error_404_can_be_tolerated():
         GitHub("t", "o/r", opener=opener_for(404)).request("DELETE", "/x")
     with pytest.raises(SyncError):
         GitHub("t", "o/r", opener=opener_for(500), sleep=lambda s: None).request("GET", "/x")
+
+
+# ------------------------------------------------------------------------- fast-lane and label definitions
+FAST = dict(labels=["fast-lane", "gate:unverified", "kind:features-params", "risk:feature", "verify:none"],
+            gate="unverified", kind="features-params", verify="none", shadow=False, lane="fast-lane")
+
+
+def test_a_fast_lane_result_validates():
+    sync.validate(artifact(**FAST))
+    sync.validate(artifact(**{**FAST, "labels": [x if x != "kind:features-params" else "kind:lifecycle" for x in FAST["labels"]], "kind": "lifecycle"}))
+    sync.validate(artifact(**{**FAST, "labels": [x for x in FAST["labels"] if x != "fast-lane"], "lane": "normal"}))
+
+
+@pytest.mark.parametrize("over", [
+    {"lane": "normal"},                                                        # label without the lane
+    {"labels": [x for x in FAST["labels"] if x != "fast-lane"]},               # lane without the label
+    {"lane": "bogus"}, {"lane": "escalate"}, {"lane": "hold"}, {"lane": None},
+    {"kind": "price-only", "labels": ["fast-lane", "gate:unverified", "kind:price-only", "risk:feature", "verify:none"]},
+    {"kind": "mixed", "labels": ["fast-lane", "gate:unverified", "kind:mixed", "risk:feature", "verify:none"]},
+    {"kind": "new-model", "labels": ["fast-lane", "gate:unverified", "kind:new-model", "risk:feature", "verify:none"]},
+    {"gate": "escalate", "lane": "fast-lane", "labels": ["fast-lane", "gate:escalate", "kind:features-params", "risk:feature", "verify:none"]},
+    {"gate": "hold", "lane": "fast-lane", "labels": ["fast-lane", "kind:features-params", "risk:feature", "verify:none"]},
+])
+def test_a_fast_lane_that_does_not_add_up_is_rejected(over):
+    with pytest.raises(ValidationError):
+        sync.validate(artifact(**{**FAST, **over}))
+
+
+@pytest.mark.parametrize("gate,lane,ok", [("escalate", "escalate", True), ("escalate", "normal", False), ("review", "escalate", False),
+                                         ("review", "hold", False), ("hold", "hold", True), ("hold", "normal", False),
+                                         ("unverified", "normal", True), ("review", "normal", True)])
+def test_lane_must_follow_the_gate(gate, lane, ok):
+    labels = [] if gate == "hold" else [f"gate:{gate}"]
+    data = artifact(labels=labels + ["risk:price"], gate=gate, kind=None, verify=None, shadow=False, lane=lane)
+    if ok:
+        sync.validate(data)
+    else:
+        with pytest.raises(ValidationError):
+            sync.validate(data)
+
+
+def test_fast_lane_label_is_applied_and_removed_by_exact_name(tmp_path):
+    api = FakeApi(labels=["fast-lane-ish", "fast_lane"])
+    sync.sync(api, event(), write(tmp_path, **FAST))
+    assert "fast-lane" in api.labels and {"fast-lane-ish", "fast_lane"} <= set(api.labels)
+    api2 = FakeApi(labels=["fast-lane", "gate:unverified", "kind:features-params", "risk:feature", "verify:none"])
+    sync.sync(api2, event(), write(tmp_path))                      # the next run is not fast-lane any more
+    assert "fast-lane" not in api2.labels
+
+
+def test_missing_labels_are_created_with_colour_and_description_before_they_are_added(tmp_path):
+    api = FakeApi(labels=["bug"])
+    sync.sync(api, event(), write(tmp_path, **FAST))
+    defs = {b["name"]: b for b in api.label_defs()}
+    assert set(defs) == set(FAST["labels"])
+    for name, body in defs.items():
+        assert body["color"] and body["description"], name
+    assert defs["fast-lane"]["color"] == "006b75" and "24 h" in defs["fast-lane"]["description"]
+    order = [(m, p) for m, p, _ in api.calls if m == "POST"]
+    assert order.index(("POST", "/repos/o/r/labels")) < order.index(("POST", "/repos/o/r/issues/7/labels"))
+
+
+def test_an_existing_label_definition_is_never_edited_or_recreated(tmp_path):
+    api = FakeApi()
+    api.repo_labels = {"fast-lane": {"name": "fast-lane", "color": "ffffff", "description": "mine"}}
+    sync.sync(api, event(), write(tmp_path, **FAST))
+    assert "fast-lane" not in {b["name"] for b in api.label_defs()}
+    assert api.repo_labels["fast-lane"]["description"] == "mine"
+    assert not [1 for m, p, _ in api.calls if m in ("PATCH", "PUT") and "/labels" in p]
+
+
+def test_a_second_run_creates_no_label_definition(tmp_path):
+    api = FakeApi()
+    sync.sync(api, event(), write(tmp_path, **FAST))
+    n = len(api.label_defs())
+    sync.sync(api, event(), write(tmp_path, **FAST))
+    assert n == 5 and len(api.label_defs()) == n
+
+
+def test_labels_that_are_already_on_the_pr_are_not_looked_up(tmp_path):
+    api = FakeApi(labels=FAST["labels"])
+    sync.sync(api, event(), write(tmp_path, **FAST))
+    assert not [1 for m, p, _ in api.calls if p.startswith("/repos/o/r/labels")]
+
+
+def test_a_failed_label_definition_costs_only_the_description(tmp_path):
+    api = FakeApi(fail=[("POST", "o/r/labels")])    # the definition call fails, the add call (".../issues/7/labels") must still run
+    sync.sync(api, event(), write(tmp_path, **FAST))
+    assert set(FAST["labels"]) <= set(api.labels) and api.comments
+
+
+def test_ensure_labels_ignores_names_it_does_not_own():
+    api = FakeApi()
+    assert sync.ensure_labels(api, ["bug", "gate:hold", "id:3"]) == [] and api.calls == []
+    assert sync.ensure_labels(api, ["fast-lane"]) == ["fast-lane"]

@@ -314,3 +314,121 @@ def test_a_new_file_conflict_counts_even_outside_the_listed_needs():
     src = FakeSource(res=result(check(odd, "conflict")))
     f = report_for(None, base(), src, status=ADDED)
     assert odd not in f.needs and len(f.conflicts) == 1 and f.drift == []
+
+
+# ---- fast-lane ------------------------------------------------------------------------------------
+from verify.model import FileReport  # noqa: E402
+from verify.risk import FEATURES, Risk  # noqa: E402
+
+ADD_FEATURE = ["function_calling", "prompt_caching", "json_output"]
+
+
+def feat(path="providers/p/m.yaml", **kw):
+    return report_for(base(), mod(features=ADD_FEATURE, **kw), None, path=path)
+
+
+def life(path="providers/p/m.yaml"):
+    return report_for(base(), mod(deprecationDate="2027-01-01"), None, path=path)
+
+
+def clean_file(path="providers/p/m.yaml", risks=None):
+    """A modified file whose only risks are review level."""
+    risks = risks if risks is not None else [Risk("risk:feature", "feature `x` added", False, FEATURES, ("features", "x"))]
+    return FileReport(path, MODIFIED, False, risks, [r.locator for r in risks])
+
+
+def test_features_and_lifecycle_prs_are_fast_lane_even_when_unverified():
+    for f, kind in ((feat(), "features-params"), (life(), "lifecycle")):
+        v = decide(f)
+        assert (v.gate, v.kind, v.lane) == ("unverified", kind, "fast-lane")
+        assert "fast-lane" in v.labels and "gate:unverified" in v.labels
+
+
+@pytest.mark.parametrize("make,kind", [
+    (lambda: pr(), "price-only"),
+    (lambda: report_for(base(), mod(provisioning="provisioned"), None), "mixed"),
+    (lambda: report_for(base(), mod(lambda d: d["costs"][0].update(input_cost_per_token=3.1e-6), features=ADD_FEATURE), None), "mixed"),
+    (lambda: report_for(None, base(), None, status=ADDED), "new-model"),
+])
+def test_other_kinds_are_never_fast_lane(make, kind):
+    v = decide(make())
+    assert v.kind == kind and v.lane == "normal" and "fast-lane" not in v.labels
+
+
+def test_provider_default_is_never_fast_lane():
+    from verify.build import build_provider_file
+    v = decide([build_provider_file("providers/p/default.yaml", MODIFIED)])
+    assert (v.kind, v.lane) == ("provider-default", "escalate") and "fast-lane" not in v.labels
+    # and the kind alone is enough to refuse it, whatever the gate
+    assert not gates.fast_lane_ok([clean_file()], "review", "provider-default")
+
+
+def test_an_escalating_change_is_not_fast_lane():
+    removed = report_for(base(), mod(features=["function_calling"]), None)        # a feature removed
+    v = decide(removed)
+    assert (v.kind, v.gate, v.lane) == ("features-params", "escalate", "escalate") and "fast-lane" not in v.labels
+    shrunk = report_for(base(), mod(lambda d: d["limits"].update(context_window=1000)), None)
+    assert decide(shrunk).lane == "escalate"
+    dead = report_for(base(), mod(status="deprecated"), None)                     # flip to deprecated
+    assert (decide(dead).kind, decide(dead).lane) == ("lifecycle", "escalate")
+
+
+def test_a_static_rule_escalation_blocks_fast_lane():
+    loud_rule = Risk("risk:rule-null-status", "`status:` is present with no value", True, "rule", ("status",))
+    f = clean_file(risks=[Risk("risk:feature", "feature `x` added", False, FEATURES, ("features", "x")), loud_rule])
+    v = decide(f)
+    assert (v.kind, v.gate, v.lane) == ("features-params", "escalate", "escalate")
+    assert not gates.fast_lane_ok([f], "unverified", "features-params")   # the guard holds even if the gate were wrong
+
+
+def test_a_review_level_rule_finding_does_not_block_fast_lane():
+    soft = Risk("risk:rule-max-tokens-below-limit", "cap below the limit", False, "rule", ("params", "key=max_tokens"))
+    f = clean_file(risks=[Risk("risk:feature", "feature `x` added", False, FEATURES, ("features", "x")), soft])
+    assert decide(f).lane == "fast-lane"
+
+
+def test_fast_lane_ok_needs_review_or_unverified_gate():
+    files = [clean_file()]
+    for gate, ok in (("review", True), ("unverified", True), ("escalate", False), ("hold", False), (None, False)):
+        assert gates.fast_lane_ok(files, gate, "features-params") is ok, gate
+    for kind, ok in (("features-params", True), ("lifecycle", True), ("price-only", False), ("mixed", False),
+                     ("new-model", False), ("provider-default", False), (None, False)):
+        assert gates.fast_lane_ok(files, "unverified", kind) is ok, kind
+
+
+def test_a_source_conflict_blocks_fast_lane():
+    f = clean_file()
+    f.results = [result(check(("limits", "context_window"), "conflict"))]
+    f.needs = [("limits", "context_window")]
+    assert f.conflicts and not gates.fast_lane_ok([f], "unverified", "features-params")
+
+
+def test_hold_is_lane_hold_and_never_fast_lane():
+    v = decide(feat(), ["gate:hold"])
+    assert (v.gate, v.lane) == ("hold", "hold") and "fast-lane" not in v.labels
+    assert decide(feat(), ["id:5"]).lane == "hold"
+
+
+def test_ten_files_are_fast_lane_eleven_are_not():
+    ten = [feat(path=f"providers/p/m{i:02d}.yaml") for i in range(gates.FAST_LANE_MAX_FILES)]
+    eleven = ten + [feat(path="providers/p/m99.yaml")]
+    assert gates.FAST_LANE_MAX_FILES == 10
+    assert decide(ten).lane == "fast-lane"
+    v = decide(eleven)
+    assert (v.gate, v.lane) == ("unverified", "normal") and "fast-lane" not in v.labels
+
+
+def test_unchanged_files_do_not_count_toward_the_file_limit():
+    noise = [report_for(base(), mod(sources=["x"]), None, path=f"providers/p/n{i}.yaml") for i in range(30)]
+    assert decide([feat()] + noise).lane == "fast-lane"
+
+
+def test_nothing_changed_has_no_lane():
+    v = decide([])
+    assert v.lane is None and not gates.fast_lane_ok([], "unverified", "features-params")
+
+
+def test_lane_of():
+    assert gates.lane_of(None, False) is None
+    assert gates.lane_of("hold", True) == "hold" and gates.lane_of("escalate", True) == "escalate"
+    assert gates.lane_of("review", True) == "fast-lane" and gates.lane_of("unverified", False) == "normal"

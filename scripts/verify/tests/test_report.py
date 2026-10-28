@@ -37,7 +37,7 @@ def test_summary_is_fuller_than_the_comment():
     files = many_files(3, 40)
     v = gates.decide(files)
     assert len(report.render_summary(v, files)) > len(report.render_comment(v, files))
-    assert report.render_summary(v, files).count("risk:removal") == 120
+    assert report.render_summary(v, files).count("- **escalate** `risk:removal`") == 120
 
 
 def test_cap_cuts_at_a_line_and_respects_limit():
@@ -162,3 +162,95 @@ def test_existing_drift_is_listed_separately_and_counted_apart_from_conflicts():
     assert "· 1 conflict(s) · report only" in t2 and "| conflict |" in t2 and "Existing drift" not in t2
     j = report.file_json(f)
     assert j["source_state"] == "partial" and j["fully_verified"] is True
+
+
+# ---- review lane line -----------------------------------------------------------------------------
+from verify.model import FileReport as _FR  # noqa: E402
+from verify.risk import FEATURES as _FEATURES, Risk as _Risk  # noqa: E402
+
+
+def _lane_text(files, current=()):
+    v = gates.decide(files, current)
+    return report.render_comment(v, files, hold=v.gate == "hold"), v
+
+
+def _lane_lines(text):
+    """The `Review lane` heading and the bullet lines under it."""
+    out = text.split("\n\n")
+    block = next(b for b in out if b.startswith("**Review lane"))
+    return block.split("\n")
+
+
+def test_fast_lane_header_says_so_in_three_short_lines():
+    f = report_for(base(), mod(features=["function_calling", "prompt_caching", "json_output"]), None)
+    text, v = _lane_text([f])
+    lines = _lane_lines(text)
+    assert lines[0] == "**Review lane: fast-lane**" and v.lane == "fast-lane"
+    assert len(lines) == 4 and all(x.startswith("- ") for x in lines[1:])
+    assert "kind:features-params" in lines[1] and "1 model file(s)" in lines[1]
+    assert "no escalating risk" in lines[2] and "within 24 h" in lines[3]
+    assert text.index("Review lane") < text.index("changed model file(s)")      # before the counts: seen first
+    assert text.index("Review lane") > text.index("## Catalog verify")
+
+
+def test_escalate_header_names_the_reasons_most_telling_first():
+    conflict = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(check(IN, "conflict"))), path="providers/p/a.yaml")
+    removed = report_for(base(), mod(features=["function_calling"]), None, path="providers/p/b.yaml")
+    text, _ = _lane_text([removed, conflict])
+    lines = _lane_lines(text)
+    assert lines[0] == "**Review lane: escalate**"
+    assert "official source disagrees" in lines[1] and "providers/p/a.yaml" in lines[1]
+    assert "risk:removal" in lines[2] and "providers/p/b.yaml" in lines[2]
+
+
+def test_a_flood_of_escalations_still_fits_in_three_lines_and_says_how_many_more():
+    files = many_files(5, 3)
+    risks = [_Risk(f"risk:{k}", f"{k} thing", True, _FEATURES, ("x", k)) for k in ("removal", "params", "limit", "mode", "dated")]
+    files[0].risks += risks
+    text, v = _lane_text(files)
+    lines = _lane_lines(text)
+    assert report.LANE_REASONS == 3
+    assert v.lane == "escalate" and len(lines) == 4
+    assert lines[-1].startswith("- +") and "more finding(s)" in lines[-1]
+
+
+def test_hold_lane_explains_hold_and_keeps_reporting_escalations():
+    f = report_for(base(), mod(features=["function_calling"]), None)
+    text, v = _lane_text([f], ["gate:hold"])
+    lines = _lane_lines(text)
+    assert lines[0] == "**Review lane: hold**" and "gate:hold" in lines[1] and "risk:removal" in lines[2]
+    quiet = report_for(base(), mod(features=["function_calling", "prompt_caching", "json_output"]), None)
+    assert "nothing in the diff would escalate" in "\n".join(_lane_lines(_lane_text([quiet], ["id:7"])[0]))
+
+
+def test_normal_lane_says_why_it_is_not_fast_lane():
+    f = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(check(IN))))
+    lines = _lane_lines(_lane_text([f])[0])
+    assert lines[0] == "**Review lane: normal**"
+    assert "`kind:price-only` is not a fast-lane kind" in lines[1]
+    assert "every changed field verified" in lines[2] and "shadow:auto" in lines[3]
+    many = [report_for(base(), mod(features=["function_calling", "prompt_caching", "json_output"]), None, path=f"providers/p/m{i:02d}.yaml") for i in range(11)]
+    lines = _lane_lines(_lane_text(many)[0])
+    assert lines[0] == "**Review lane: normal**" and "11 changed model files" in lines[1] and "10" in lines[1]
+    unverified = report_for(base(), price(input_cost_per_token=3.1e-6), None)
+    assert "no verified source check" in "\n".join(_lane_lines(_lane_text([unverified])[0]))
+
+
+def test_no_lane_line_when_nothing_changed():
+    text = report.render_comment(gates.decide([]), [])
+    assert "Review lane" not in text
+
+
+def test_lane_lines_are_short_and_cannot_break_out_of_a_code_span():
+    nasty = "a`b\n@octocat " + "x" * 400
+    f = _FR("providers/p/m.yaml", "modified", False, [_Risk("risk:removal", f"feature `{nasty}` removed", True, _FEATURES, ("features", "x"))], [("features", "x")])
+    lines = _lane_lines(_lane_text([f])[0])
+    assert all("\n" not in x and len(x) <= report.LANE_LINE + 3 for x in lines)
+    assert all(x.count("`") % 2 == 0 for x in lines)
+
+
+def test_the_lane_line_is_in_the_full_summary_and_the_comment_stays_under_the_cap():
+    files = many_files(800)
+    v = gates.decide(files)
+    assert "Review lane: escalate" in report.render_summary(v, files)
+    assert len(report.render_comment(v, files)) <= report.COMMENT_LIMIT

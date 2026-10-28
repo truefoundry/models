@@ -12,7 +12,7 @@ import yaml
 REPO = Path(__file__).resolve().parents[3]
 WF = REPO / ".github" / "workflows"
 PKG = REPO / "scripts" / "verify"
-FILES = ("verify-pr.yml", "verify-label.yml", "verify-tests.yml")
+FILES = ("verify-pr.yml", "verify-label.yml", "verify-tests.yml", "verify-stale.yml")
 SHA = re.compile(r"^[A-Za-z0-9._-]+/[A-Za-z0-9._/-]+@[0-9a-f]{40}( #.*)?$")
 
 
@@ -109,14 +109,14 @@ def test_dependencies_are_pinned_in_every_workflow_that_installs_any():
 
 
 def test_the_apply_module_is_stdlib_only_and_only_the_label_job_entrypoint_imports_the_verifier():
-    for mod in ("sync.py", "labels.py", "textclean.py"):
+    for mod in ("sync.py", "labels.py", "textclean.py", "queue.py"):
         tree = ast.parse((PKG / mod).read_text())
         for node in ast.walk(tree):
             if isinstance(node, ast.Import):
                 names = [a.name.split(".")[0] for a in node.names]
             elif isinstance(node, ast.ImportFrom):
-                if node.level:  # relative: only the label constants and text helpers
-                    assert node.module in ("labels", "textclean"), (mod, node.module)
+                if node.level:  # relative: only the label constants and text helpers (the queue also reads sync's client)
+                    assert node.module in ("labels", "textclean") or (mod == "queue.py" and node.module == "sync"), (mod, node.module)
                     continue
                 names = [(node.module or "").split(".")[0]]
             else:
@@ -129,3 +129,28 @@ def test_actionlint_passes():
     exe = shutil.which("actionlint") or "/opt/homebrew/bin/actionlint"
     p = subprocess.run([exe, *[str(WF / n) for n in FILES]], capture_output=True, text=True)
     assert p.returncode == 0, p.stdout + p.stderr
+
+
+def test_verify_stale_is_a_daily_default_branch_job_that_can_only_write_issues():
+    doc = load("verify-stale.yml")
+    assert doc["on"] == {"schedule": [{"cron": "0 8 * * *"}], "workflow_dispatch": None}
+    assert doc["permissions"] == {}
+    job = doc["jobs"]["queue"]
+    assert job["permissions"] == {"contents": "read", "pull-requests": "read", "issues": "write"}
+    assert job["timeout-minutes"] <= 20
+    assert job["concurrency"]["cancel-in-progress"] is False
+    text = (WF / "verify-stale.yml").read_text()
+    assert "pull_request" not in text.replace("pull-requests", "") and "workflow_run" not in text
+    # a manual run on another branch must not execute that branch's code with a write token
+    assert "default_branch" in job["if"] and "github.ref" in job["if"]
+    checkouts = [s for s in job["steps"] if s.get("uses", "").startswith("actions/checkout")]
+    assert len(checkouts) == 1 and checkouts[0]["with"]["ref"] == "${{ github.event.repository.default_branch }}"
+    assert checkouts[0]["with"]["persist-credentials"] is False
+    run = [s for s in job["steps"] if "python -m verify.queue" in s.get("run", "")]
+    assert len(run) == 1 and run[0]["working-directory"] == "scripts" and "--dry-run" not in run[0]["run"]
+    assert "pip install" not in text                      # stdlib only
+    assert doc["jobs"]["queue"]["steps"][-1]["env"] == {"GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}"}
+
+
+def test_verify_stale_never_runs_for_a_pull_request_event():
+    assert set(load("verify-stale.yml")["on"]) == {"schedule", "workflow_dispatch"}
