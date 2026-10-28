@@ -130,7 +130,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/google-vertex',
     apiKeyEnv: 'VERTEX_KEY_FILE',
     authType: 'key-file',
-    region: 'europe-west4',
+    region: 'us-east5',
     smokeModel: 'anthropic/claude-haiku-4-5',
   },
   'aws-bedrock': {
@@ -173,6 +173,7 @@ const SPECS: Record<string, ProviderSpec> = {
     modelIntegrationType: 'integration/model/wafer',
     accountType: 'provider-account/wafer',
     apiKeyEnv: 'WAFER_API_KEY',
+    smokeModel: 'DeepSeek-V4-Flash-0423',
   },
   typesafe: {
     sdkProvider: 'typesafe',

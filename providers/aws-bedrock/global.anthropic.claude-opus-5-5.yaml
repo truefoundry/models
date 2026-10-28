@@ -302,6 +302,9 @@ params:
           - max
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-5-5.html
     - https://platform.claude.com/docs/en/models/opus-5-5/overview
