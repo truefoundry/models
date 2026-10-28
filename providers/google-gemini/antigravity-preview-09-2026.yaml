@@ -1,4 +1,3 @@
-canonical_model: google/antigravity-preview-09-2026
 features:
     - function_calling
     - code_execution
@@ -21,9 +20,10 @@ removeParams:
     - temperature
     - top_p
     - top_k
+    - max_tokens
 sources:
+    - https://ai.google.dev/gemini-api/docs/models/antigravity-preview-09-2026
     - https://ai.google.dev/gemini-api/docs/antigravity-agent
-    - https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026
 status: preview
 supportedModes:
     - chat
