@@ -13,6 +13,8 @@ features:
     - prompt_caching
 limits:
     context_window: 256000
+    max_output_tokens: 64000
+    max_tokens: 64000
 modalities:
     input:
         - text
@@ -23,8 +25,10 @@ mode: chat
 model: MAI-Code-1.1-Flash-2026-09-15
 provisioning: serverless
 sources:
-    - https://ai.azure.com/catalog/models/MAI-Code-1.1-Flash
+    - https://ai.azure.com/explore/models/mai-code-1.1-flash/version/2026-09-15/registry/azure-mai
     - https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/
+    - https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/
 status: preview
 supportedModes:
     - chat
