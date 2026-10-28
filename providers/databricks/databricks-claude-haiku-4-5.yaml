@@ -29,6 +29,8 @@ modalities:
 mode: chat
 model: databricks-claude-haiku-4-5
 provisioning: serverless
+removeParams:
+    - top_p
 sources:
     - https://platform.claude.com/docs/en/about-claude/models
     - https://platform.claude.com/docs/en/about-claude/pricing
