@@ -9,9 +9,13 @@ files get a note and nothing is compared.
 
 FETCH. ONE filter, fixed in this module and never built from a file: Foundry Models, `Consumption`, five
 reference regions (eastus2, eastus, westus3, swedencentral, francecentral): about 10 pages of 1000 rows
-(~20 s). Paged once per run, failures cached, the run-level deadline applies to the whole paging; a run
-that does not finish paging has NO index at all (never a truncated one). Each NextPageLink must be https
-on prices.azure.com /api/retail/prices or the paging stops with an error. File content (model id, region
+(~20 s). Paged once per run, failures cached; a run that does not finish paging has NO index at all (never a
+truncated one). Bounds: at most MAX_PAGES (12) pages and MAX_BYTES (8 MB) over the whole run, counted while
+the body is read; the run-level deadline is a wall-clock bound (socket timeout = time left, clock read between
+chunks of the body). Each NextPageLink must be plain ASCII https on exactly prices.azure.com (the API writes
+`:443`), no userinfo / backslash / fragment, the one path, and identical to its parsed-and-rebuilt form; a
+redirect may only go to https on the same host. A row with a NaN, infinite or negative price is dropped and
+every file of that model says so (and is partial). File content (model id, region
 strings) is only ever a lookup key into the parsed index.
 
 WHAT A METER IS. The token meters are named `<model> <kind> <deployment type>` in a dozen spellings
@@ -39,6 +43,11 @@ the field is ambiguous and not compared.
 ROUNDING OF THE SOURCE. A `1K` meter is published to 6 decimals per 1K tokens (the API never shows a 7th), so
 Azure's `0.000963` stands for a true `0.0009625`/1K. A catalog value within 0.0000005 per 1K tokens of such a
 meter is verified even outside 0.5% (`ROUND_1K`); a `1M` meter gets only the 0.5% tolerance.
+
+`*` WITH A `global` SIBLING is Regional. If Azure has no Regional meter for the model, `*` is `uncovered` with a note
+(never compared with Global). `*` WITHOUT a `global` sibling is Global, and when Azure also has a Regional price that
+differs (typically about 10% higher) a `*` equal to the Global price is VERIFIED as Global; every such check carries
+the note "assumes `*` = Global" so the reviewer sees the assumption.
 
 `*` HAS NO FIXED DEPLOYMENT TYPE. When the file value does not equal the chosen price but equals the OTHER
 deployment type's price (Global <-> Regional) the field is `uncovered` with a note, never a conflict and
@@ -74,16 +83,21 @@ An absent field is `uncovered` ("missing in file"), never a conflict. A file who
 """
 from __future__ import annotations
 
+import json
+import math
 import re
+import time
+import urllib.error
+import urllib.request
 from dataclasses import dataclass, replace
 from datetime import date
 from typing import Callable
-from urllib.parse import quote, urlsplit
+from urllib.parse import parse_qs, quote, urlsplit, urlunsplit
 
 from ..types import Check, SourceResult
 from . import SOURCES
-from ._common import (BaseSource, Fetch, Recorder, compare, cost_entries, cost_locator, get_json, loc_str, num, region_of,
-                      safe_id, same, stem)
+from ._common import (USER_AGENT, BaseSource, DeadlineExceeded, Fetch, NotFound, Recorder, compare, cost_entries, cost_locator,
+                      loc_str, num, region_of, safe_id, same, stem)
 
 HOST = "https://prices.azure.com"
 PATH = "/api/retail/prices"
@@ -96,7 +110,14 @@ FETCH_REGIONS = US_REFS + EU_REFS
 # A `1K` meter is published to 6 decimals per 1K tokens (the API never shows a 7th): +-0.0000005 per 1K tokens.
 ROUND_1K = 0.5e-6 / 1e3
 _REGION_RE = re.compile(r"[a-z]{4,24}[0-9]?", re.ASCII)
-MAX_PAGES = 60
+MAX_PAGES = 12            # the real run is 10 pages
+MAX_BYTES = 8_000_000     # the real run is 5.5 MB; counted while the body is read, across all pages
+CHUNK = 65536
+
+
+class ResponseTooLarge(ValueError):
+    """The pages of one run exceeded MAX_BYTES."""
+
 
 def build_url(regions: tuple[str, ...] = FETCH_REGIONS) -> str:
     """The one request URL. Fixed host, a whitelisted filter; every region is validated first."""
@@ -108,8 +129,37 @@ def build_url(regions: tuple[str, ...] = FETCH_REGIONS) -> str:
     return f"{HOST}{PATH}?api-version={API_VERSION}&$filter={quote(flt, safe='')}"
 
 def _next_link_ok(link: str) -> bool:
-    p = urlsplit(link)
-    return p.scheme == "https" and p.hostname == "prices.azure.com" and p.port in (None, 443) and p.path == PATH
+    """A NextPageLink is followed only when it is plain ASCII, https, exactly prices.azure.com (the API itself writes
+    `:443`), without userinfo, backslashes, controls or a fragment, on the one path, with our api-version, and
+    byte-identical to its own parsed-and-rebuilt form."""
+    if not link.isascii() or not link.isprintable() or "\\" in link or " " in link:
+        return False
+    try:
+        p = urlsplit(link)
+        port = p.port
+    except ValueError:
+        return False
+    if p.scheme != "https" or p.username is not None or p.password is not None or p.fragment:
+        return False
+    if p.netloc not in ("prices.azure.com", "prices.azure.com:443") or port not in (None, 443) or p.path != PATH:
+        return False
+    if parse_qs(p.query).get("api-version") != [API_VERSION]:
+        return False
+    return urlunsplit(p) == link
+
+
+class _SameHostHttps(urllib.request.HTTPRedirectHandler):
+    """A redirect is followed only to https on the very host that was asked."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        old, new = urlsplit(req.full_url), urlsplit(newurl)
+        if (new.scheme != "https" or new.hostname != old.hostname or new.username is not None or new.password is not None
+                or "\\" in newurl or not newurl.isascii()):
+            return None
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+_OPENER = urllib.request.build_opener(_SameHostHttps)
 
 # ---- the SKU name grammar ----------------------------------------------------------------------
 
@@ -242,6 +292,7 @@ class Index:
         self.rows: dict[str, dict[tuple[str, str, str], list[Obs]]] = {}
         self.products: dict[str, set[str]] = {}
         self.long_ctx: set[str] = set()
+        self.bad: dict[str, int] = {}  # meter model key -> rows dropped for a NaN / infinite / negative price
 
     def add(self, item: dict) -> None:
         if item.get("serviceName") != "Foundry Models" or item.get("type") != "Consumption":
@@ -250,8 +301,11 @@ class Index:
             return
         unit = str(item.get("unitOfMeasure") or "")
         meter = parse_sku(str(item.get("skuName") or ""), str(item.get("meterName") or ""), unit)
+        if meter is None:
+            return
         price = num(item.get("retailPrice"))
-        if meter is None or price is None or price < 0:
+        if price is None or not math.isfinite(price) or price < 0:
+            self.bad[meter.model] = self.bad.get(meter.model, 0) + 1  # dropped, and said in every file of that model
             return
         if meter.long:
             self.long_ctx.add(meter.model)
@@ -355,6 +409,7 @@ class AzureRetailSource(BaseSource):
         self._index: Index | None = None
         self._keys: dict[str, set[str]] = {}
         self._error: Exception | None = None
+        self._bytes = 0
 
     def covers(self, provider: str) -> bool:
         return provider in PROVIDERS
@@ -362,6 +417,55 @@ class AzureRetailSource(BaseSource):
     def today(self) -> str:
         t = self._today() if callable(self._today) else self._today
         return t or date.today().isoformat()
+
+    def _http(self, url: str) -> bytes:
+        """GET with a real wall-clock bound: the socket timeout is the time left, the clock is read between chunks
+        of the body (and the socket timeout re-armed), the body is cut off at what is left of MAX_BYTES, and a
+        redirect only goes to https on the same host. One retry on a 5xx / network error while time remains."""
+        last: Exception | None = None
+        for attempt in range(2):
+            self._budget.check()
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+            try:
+                with _OPENER.open(req, timeout=min(20.0, max(0.2, self._budget.remaining()))) as resp:
+                    return self._read_body(resp)
+            except DeadlineExceeded:
+                raise
+            except urllib.error.HTTPError as e:
+                if e.code == 404:
+                    raise NotFound(url) from e
+                if e.code < 500:
+                    raise
+                last = e
+            except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+                last = e
+            if attempt == 0 and self._budget.remaining() > 2.0:
+                time.sleep(1.0)
+        assert last is not None
+        raise last
+
+    def _read_body(self, resp) -> bytes:
+        room = MAX_BYTES - self._bytes
+        declared = resp.headers.get("Content-Length")
+        if declared and declared.isdigit() and int(declared) > room:
+            raise ResponseTooLarge(f"Azure Retail Prices page declares {declared} bytes, {room} left")
+        sock = getattr(getattr(resp.fp, "raw", None), "_sock", None)
+        body = bytearray()
+        while True:
+            left = self._budget.remaining()
+            if left <= 0:
+                raise DeadlineExceeded(f"source time budget of {self._budget.seconds:g}s is spent")
+            if sock is not None:
+                try:
+                    sock.settimeout(max(0.05, min(20.0, left)))
+                except OSError:  # already closed: the body was read to its end
+                    pass
+            chunk = resp.read1(CHUNK)
+            if not chunk:
+                return bytes(body)
+            body += chunk
+            if len(body) > room:
+                raise ResponseTooLarge(f"Azure Retail Prices answers exceed {MAX_BYTES} bytes")
 
     def prepare(self) -> None:
         """Page the one filter, once per run. A failure (outage, deadline, malformed page) is cached and re-raised."""
@@ -377,7 +481,11 @@ class AzureRetailSource(BaseSource):
                 if url in seen or len(seen) >= MAX_PAGES:
                     raise ValueError("Azure Retail Prices paging did not end")
                 seen.add(url)
-                data = get_json(self._get, url)
+                raw = self._get(url)
+                self._bytes += len(raw)
+                if self._bytes > MAX_BYTES:
+                    raise ResponseTooLarge(f"Azure Retail Prices answers exceed {MAX_BYTES} bytes")
+                data = json.loads(raw)
                 items = data.get("Items") if isinstance(data, dict) else None
                 if not isinstance(items, list):
                     raise ValueError("Azure Retail Prices page without Items")
@@ -451,6 +559,10 @@ class AzureRetailSource(BaseSource):
             result.partial = True
             rec.note("not a deployment type I can map (only *, global, datazone_us, datazone_eu), not looked up: "
                      + ", ".join(repr(r) for r in sorted(unmapped)))
+        dropped = sum(self._index.bad.get(m, 0) for m in model)
+        if dropped:
+            result.partial = True
+            rec.note(f"{dropped} Azure row(s) of this model had a NaN, infinite or negative price and were dropped")
         if any(m in self._index.long_ctx for m in model):
             rec.note("Azure has long-context meters for this model: tiered_pricing is not compared")
         return rec.finish()
@@ -469,7 +581,16 @@ class AzureRetailSource(BaseSource):
         else:
             g = idx.resolve(model, "global", "", "input", FETCH_REGIONS, today)
             r = idx.resolve(model, "regional", "", "input", US_REFS, today)
-            if has_global and r.price is not None:  # `*` next to a `global` entry is the standard (Regional) price
+            if has_global and r.price is None:
+                # `*` next to a `global` entry is the Regional price (module docstring); with no Regional meter there
+                # is nothing to compare it with, and Global is not what it is declared to be.
+                for tail, _tier, _kind in FIELDS:
+                    if num(_dig(entry, tail)) is not None:
+                        rec.uncovered(cost_locator(region, *tail))
+                rec.note("`*` sits next to a `global` entry, so it is the Regional price, and Azure has no Regional meter "
+                         "for this model: `*` not compared")
+                return
+            if has_global:  # `*` next to a `global` entry is the standard (Regional) price
                 scope, refs, alt = "regional", US_REFS, ("global", FETCH_REGIONS)
             elif g.price is not None:  # the catalog's `*` is "global pricing"; Regional is the other candidate
                 scope, refs = "global", FETCH_REGIONS
@@ -542,11 +663,14 @@ class AzureRetailSource(BaseSource):
             rec.uncovered(locator)
             rec.note(f"{name} is {_g(value)}, the promotional price (list {_g(got.price)}, promo {_g(got.promo_price)})")
             return
+        other = idx.resolve(model, alt[0], tier, kind, alt[1], today) if alt is not None else None
+        have_other = other is not None and other.price is not None and other.price == other.price
         if check.status == "verified" or alt is None:
+            if alt is not None and guessed:  # a verdict resting on `* = Global`: say so where a reviewer reads it
+                where = f"{SCOPE_LABEL[alt[0]]} is {_g(other.price)}" if have_other else f"no {SCOPE_LABEL[alt[0]]} price"
+                check = replace(check, note=f"assumes `*` = {label} (the file has no `global` entry; {where})")
             rec.add(check)
             return
-        other = idx.resolve(model, alt[0], tier, kind, alt[1], today)
-        have_other = other.price is not None and other.price == other.price
         if have_other and same(value, other.price):
             rec.uncovered(locator)
             rec.note(f"{name} is {_g(value)}, the {SCOPE_LABEL[alt[0]]} price ({label} is {_g(got.price)}): "
