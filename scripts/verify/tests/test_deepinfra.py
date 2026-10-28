@@ -71,7 +71,7 @@ def test_discount_file_holding_the_discounted_price_is_not_a_conflict():
     assert sorted(r.uncovered) == ["costs.region=*.cache_read_input_token_cost", "costs.region=*.input_cost_per_token",
                                    "costs.region=*.output_cost_per_token"]
     assert r.promo == NO_END and r.partial and not r.fully_verified
-    assert any("discounted price" in n and "list price" in n for n in r.notes)
+    assert any("a discounted price (list 9e-07" in n for n in r.notes)
 
 
 def test_discount_end_date_is_reported_as_promo():
@@ -83,12 +83,21 @@ def test_discount_end_date_is_reported_as_promo():
     assert r.promo == "2026-12-01" and r.conflicts == []
 
 
-def test_price_matching_neither_list_nor_discount_is_still_a_conflict():
+def test_price_between_discounted_and_list_is_a_promo_not_a_conflict():
     s, _ = source()
-    r = check(s, "zai-org/GLM-5.3", input_cost_per_token=7e-7, output_cost_per_token=4e-6,
-              cache_read_input_token_cost=2e-7)
-    (c,) = r.conflicts
-    assert c.locator[-1] == "input_cost_per_token" and "discounted" in c.note
+    # list 9e-7, discounted 5.625e-7: a rounded discounted price (5.5e-7 is within 2.5%) and a part-way one
+    r = check(s, "zai-org/GLM-5.3", input_cost_per_token=5.5e-7, output_cost_per_token=4e-6, cache_read_input_token_cost=2e-7)
+    assert r.conflicts == [] and r.uncovered == ["costs.region=*.input_cost_per_token"]
+    r = check(s, "zai-org/GLM-5.3", input_cost_per_token=7e-7, output_cost_per_token=4e-6, cache_read_input_token_cost=2e-7)
+    assert r.conflicts == [] and r.uncovered == ["costs.region=*.input_cost_per_token"]
+
+
+def test_price_outside_the_list_to_discounted_band_is_still_a_conflict():
+    s, _ = source()
+    for bad in (1.2e-6, 4.5e-7):  # dearer than list; well under the discounted price
+        r = check(s, "zai-org/GLM-5.3", input_cost_per_token=bad, output_cost_per_token=4e-6, cache_read_input_token_cost=2e-7)
+        (c,) = r.conflicts
+        assert c.locator[-1] == "input_cost_per_token" and "discounted price" in c.note
 
 
 def test_discount_zero_or_missing_is_no_promo():

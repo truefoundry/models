@@ -8,8 +8,9 @@ price (`rate_per_input_token_cached`), cache writes as ratios in `rate_per_expli
 DISCOUNTS. The API publishes `pricing.discount` (a fraction off, optionally `discount_ends_at`)
 beside the LIST price, and some catalog files carry the discounted price. The catalog keeps the list
 price, so while a discount is active the result is `promo` + `partial` and a discount is never a
-conflict: a field equal to the list price is verified; a field equal to the discounted price is
-`uncovered` with a note; a field equal to neither is a conflict. `promo` is `discount_ends_at` when
+conflict: a field equal to the list price is verified; a field between the discounted price (2.5%
+below, for rounding) and the list price is `uncovered` with a note; a field outside that band
+(dearer than list, or well under the discounted price) is a conflict. `promo` is `discount_ends_at` when
 the API gives it, else the marker `"no-end-date"`.
 
 Image models are priced per image (`cents_per_image_unit`): compared with `output_cost_per_image`
@@ -23,7 +24,7 @@ priority tiers and batch prices are not in the API: `uncovered`.
 """
 from __future__ import annotations
 
-from ..types import SourceResult
+from ..types import LIMIT_TOLERANCE, SourceResult
 from ._common import (Fetch, clean, compare, cost_entries, cost_locator, get_json, http_get, num, region_of,
                       same, stem, uncovered_fields)
 
@@ -117,12 +118,14 @@ class DeepInfraSource:
                     continue
             if discount > 0 and mine is not None and not same(mine, listed_price):
                 discounted = clean(listed_price * (1 - discount))
-                if same(mine, discounted):
-                    # The file holds the promotional price: not a conflict, and not verified either.
+                if discounted * (1 - LIMIT_TOLERANCE) <= mine <= listed_price:
+                    # Between the discounted and the list price (rounding included): the file holds a
+                    # promotional price. Not a conflict, and not verified either.
                     result.uncovered.extend(".".join(cost_locator(region, a)) for a in (also or (fld,)))
-                    result.notes.append(f"{fld} is the discounted price {discounted:.6g}; list price is {listed_price:.6g}")
+                    result.notes.append(f"{fld} is {mine:.6g}, a discounted price (list {listed_price:.6g}, "
+                                        f"discounted {discounted:.6g})")
                     continue
-                note = (note + "; " if note else "") + f"differs from both the list price and the discounted price {discounted:.6g}"
+                note = (note + "; " if note else "") + f"outside the list price {listed_price:.6g} and the discounted price {discounted:.6g}"
             check = compare(locator, mine, listed_price, note=note)
             if check is not None:
                 result.checks.append(check)
