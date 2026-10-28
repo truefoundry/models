@@ -220,7 +220,7 @@ def test_hold_lane_explains_hold_and_keeps_reporting_escalations():
     lines = _lane_lines(text)
     assert lines[0] == "**Review lane: hold**" and "gate:hold" in lines[1] and "risk:removal" in lines[2]
     quiet = report_for(base(), mod(features=["function_calling", "prompt_caching", "json_output"]), None)
-    assert "nothing in the diff would escalate" in "\n".join(_lane_lines(_lane_text([quiet], ["id:7"])[0]))
+    assert "nothing in the diff would escalate" in "\n".join(_lane_lines(_lane_text([quiet], ["gate:hold"])[0]))
 
 
 def test_normal_lane_says_why_it_is_not_fast_lane():
@@ -254,3 +254,25 @@ def test_the_lane_line_is_in_the_full_summary_and_the_comment_stays_under_the_ca
     v = gates.decide(files)
     assert "Review lane: escalate" in report.render_summary(v, files)
     assert len(report.render_comment(v, files)) <= report.COMMENT_LIMIT
+
+
+def test_escalate_lane_names_the_addition_flags_first():
+    f = report_for(base(), price(input_cost_per_token=3.1e-6), None)
+    text, v = _lane_text([f], ["id:case-duplicate", "id:high-edit-provider"])
+    lines = _lane_lines(text)
+    assert lines[0] == "**Review lane: escalate**"
+    assert lines[1].endswith("addition flagged: case duplicate of an existing file")
+    assert lines[2].endswith("provider has a high human-edit rate and no source price was written")
+    assert v.gate == "escalate"
+
+
+def test_the_hold_line_names_gate_hold_only():
+    text, _ = _lane_text([report_for(base(), mod(features=["function_calling"]), None)], ["gate:hold"])
+    assert "`gate:hold` is on the PR" in text and "id:*" not in text
+
+
+def test_an_addition_flag_is_named_before_the_diffs_own_escalations():
+    f = report_for(base(), mod(features=["function_calling"]), None)          # a removal: escalates by itself
+    text, v = _lane_text([f], ["id:case-duplicate"])
+    lines = _lane_lines(text)
+    assert lines[1].endswith("addition flagged: case duplicate of an existing file") and "risk:removal" in lines[2]

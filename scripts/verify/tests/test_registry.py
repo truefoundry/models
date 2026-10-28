@@ -86,3 +86,32 @@ def test_an_unquoted_impossible_date_is_a_registry_error_not_a_crash(tmp_path):
 def test_a_trailing_newline_is_not_a_valid_name(field, value):
     with pytest.raises(RegistryError):
         registry.parse(with_row(**{field: value}))
+
+
+def _header_list(text, key):
+    line = next(x for x in text.splitlines() if x.startswith(f"# {key}:"))
+    return {x.strip() for x in line.split(":", 1)[1].split(",") if x.strip()}
+
+
+def test_the_header_contract_lists_every_price_source_and_keeps_openrouter_out_of_price_ownership():
+    """The sweep / agent (models-agent repo) read `price` in `fields` as 'price-owned'. This file
+    cannot import the sweep, so the contract is the header: every source with `price` is named as
+    either SAFE-TO-WRITE or REPORT-ONLY, and openrouter never carries `price`."""
+    path = REPO / "sources" / "registry.yaml"
+    text = path.read_text()
+    safe, report_only = _header_list(text, "SAFE-TO-WRITE"), _header_list(text, "REPORT-ONLY")
+    assert not (safe & report_only) and safe == {"deepinfra", "aws-price-list", "anthropic-pricing-page"}
+    reg = registry.load(path, REPO / "providers")
+    priced = {e.source for e in reg.entries if "price" in e.fields}
+    assert priced <= safe | report_only and "openrouter" not in priced
+    assert [e.fields for e in reg.for_provider("openrouter")] == [("limits",)]
+    assert {e.provider for e in reg.entries if e.source == "azure-retail-prices"} == {"azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}
+    assert [e.source for e in reg.for_provider("anthropic")] == ["anthropic-pricing-page"]
+    assert all(e.added >= "2026-10-27" for e in reg.entries)
+
+
+def test_a_provider_has_at_most_one_price_source():
+    reg = registry.load(REPO / "sources" / "registry.yaml", REPO / "providers")
+    for provider in {e.provider for e in reg.entries}:
+        price_sources = [e.source for e in reg.for_provider(provider) if "price" in e.fields]
+        assert len(price_sources) <= 1, provider

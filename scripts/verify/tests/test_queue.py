@@ -101,7 +101,7 @@ def test_drafts_closed_trueforge_and_held_prs_are_left_out():
     assert rows_of(pr(3, 100, "gate:escalate", ref="trueforge/models-bot-x", bot=False)) == []
     assert rows_of(pr(3, 100, "gate:escalate", ref="trueforge")) != []                  # only the exact prefix
     assert rows_of(pr(4, 100, "gate:escalate", "gate:hold")) == []
-    assert rows_of(pr(5, 100, "gate:escalate", "id:12")) == []
+    assert rows_of(pr(5, 100, "gate:escalate", "id:12")) != []                         # id:* is no hold
     assert rows_of(pr(6, 100, "gate:escalate", "gate:holdup")) != []
 
 

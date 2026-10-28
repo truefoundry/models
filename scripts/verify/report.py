@@ -141,8 +141,8 @@ def lane_reasons(verdict: Verdict, files: list[FileReport]) -> list[str]:
     ch = changed(files)
     lane, kind, n = verdict.lane, verdict.kind, len(ch)
     if lane in ("escalate", "hold"):
-        found = _escalations(ch)
-        lines = (["`gate:hold` or an `id:*` label is on the PR, so no gate is set here"] if lane == "hold" else []) + found
+        found = list(verdict.flags) + _escalations(ch)
+        lines = (["`gate:hold` is on the PR, so no gate is set here"] if lane == "hold" else []) + found
         if lane == "hold" and not found:
             lines.append("nothing in the diff would escalate")
     elif lane == "fast-lane":
@@ -205,7 +205,7 @@ def _head(verdict: Verdict, files: list[FileReport], notes: Iterable[str], hold:
         blocks.append("`shadow:auto`: every change is a price move within ±10% that the official source confirms. "
                       "Measured only: nothing is merged.")
     if hold:
-        blocks.append("`gate:hold` (or an `id:*` label) is on this PR, so no gate is set here. Remove it once checked.")
+        blocks.append("`gate:hold` is on this PR, so no gate is set here. Remove it once checked.")
     for note in list(notes)[:MAX_NOTES]:
         blocks.append(f"> {code(note, 300)}")
     if not ch:

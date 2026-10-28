@@ -1,7 +1,7 @@
 """Label names this tool owns. Stdlib only: the label workflow imports it too.
 
-Ownership is by EXACT name. `gate:hold` (human / addition job) and every other label, e.g.
-`gate:reviewed`, are never touched.
+Ownership is by EXACT name. `gate:hold` (a human), `id:*` and `verify:prices-from-source` (the
+addition job) and every other label, e.g. `gate:reviewed`, are never touched.
 """
 from __future__ import annotations
 
@@ -27,8 +27,14 @@ VERIFY_LABELS = frozenset(f"verify:{v}" for v in VERIFY)
 KIND_LABELS = frozenset(f"kind:{k}" for k in KINDS)
 OWNED = frozenset(GATE_LABELS | RISK_LABELS | VERIFY_LABELS | KIND_LABELS | {SHADOW, FAST_LANE})
 
-HOLD = "gate:hold"
-HOLD_PREFIX = "id:"
+HOLD = "gate:hold"  # the ONLY hold: set by a human. No `id:*` label is a hold.
+# Set by the addition job (which sets no gate:* label); they are INPUTS: the verifier turns them
+# into gate:escalate with the reason below. Any other `id:*` label is ignored. Never removed here.
+ADDITION_FLAGS = {
+    "id:case-duplicate": "addition flagged: case duplicate of an existing file",
+    "id:high-edit-provider": "provider has a high human-edit rate and no source price was written",
+}
+PRICES_FROM_SOURCE = "verify:prices-from-source"  # set by the addition job; not owned: this tool never touches it
 
 
 # ------------------------------------------------------------------------------------ appearance
@@ -97,5 +103,11 @@ def is_owned(name: str) -> bool:
 
 
 def is_hold(labels: Iterable[str]) -> bool:
-    """A human (or the addition job) put the PR on hold: `gate:hold` or any `id:*` label."""
-    return any(name == HOLD or name.startswith(HOLD_PREFIX) for name in labels)
+    """A human put the PR on hold: `gate:hold`, and only that (no `id:*` label is a hold)."""
+    return HOLD in labels
+
+
+def addition_flags(labels: Iterable[str]) -> list[str]:
+    """Reasons for the `id:*` labels the addition job sets that escalate the PR, in a stable order."""
+    names = set(labels)
+    return [reason for label, reason in ADDITION_FLAGS.items() if label in names]

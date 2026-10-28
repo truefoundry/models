@@ -1,8 +1,9 @@
 """Gate, verify:*, kind:* and shadow:auto for one PR.
 
 Exactly one gate per PR, strongest first:
-  hold        a human (or the addition job) set `gate:hold` / `id:*`; sticky, this tool sets no gate
-  escalate    any escalating risk, or a conflict with an official source in a field THIS PR changed
+  hold        a human set `gate:hold` (the only hold); sticky, this tool sets no gate
+  escalate    the addition job's `id:case-duplicate` / `id:high-edit-provider` label (inputs, other `id:*`
+              labels are ignored), any escalating risk, or a conflict with an official source in a field THIS PR changed
               (every field of a new file). A conflict in a field the PR did not touch is existing
               catalog drift: reported, makes `verify:` partial at most, never changes the gate
   unverified  some changed field has no verified source check, or a source result is
@@ -26,7 +27,7 @@ from collections.abc import Iterable
 from dataclasses import dataclass, field
 
 from . import classify
-from .labels import FAST_LANE, SHADOW, is_hold
+from .labels import FAST_LANE, SHADOW, addition_flags, is_hold
 from .model import FileReport
 from .risk import PRICE
 
@@ -44,6 +45,7 @@ class Verdict:
     shadow: bool
     labels: list[str] = field(default_factory=list)
     lane: str | None = None  # fast-lane | normal | escalate | hold | None (nothing changed)
+    flags: list[str] = field(default_factory=list)  # reasons from the addition job's id:* labels (they escalate)
 
 
 def changed(files: Iterable[FileReport]) -> list[FileReport]:
@@ -51,8 +53,11 @@ def changed(files: Iterable[FileReport]) -> list[FileReport]:
 
 
 def gate_of(files: Iterable[FileReport], current: Iterable[str] = ()) -> str | None:
+    current = list(current)
     if is_hold(current):
         return "hold"
+    if addition_flags(current):  # the addition job flagged it: escalate, with or without a diff to show
+        return "escalate"
     files = changed(files)
     if not files:
         return None
@@ -85,7 +90,8 @@ def shadow_ok(files: Iterable[FileReport], current: Iterable[str] = ()) -> bool:
     """Measured only, never merges anything: a refresh whose every change is a price move within
     +-10% that the official source confirmed, on files that already existed."""
     files = changed(files)
-    if not files or is_hold(current) or classify.pr_kind(files) != classify.PRICE_ONLY:
+    current = list(current)
+    if not files or is_hold(current) or addition_flags(current) or classify.pr_kind(files) != classify.PRICE_ONLY:
         return False
     for f in files:
         if f.gate_state != "official" or not f.risks:
@@ -139,4 +145,4 @@ def decide(files: list[FileReport], current: Iterable[str] = ()) -> Verdict:
     if fast:
         labels.add(FAST_LANE)
     labels |= {r.label for f in changed(files) for r in f.risks}
-    return Verdict(gate, kind, verify, shadow, sorted(labels), lane_of(gate, fast))
+    return Verdict(gate, kind, verify, shadow, sorted(labels), lane_of(gate, fast), addition_flags(current))

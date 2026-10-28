@@ -9,7 +9,7 @@ used. What this module still defends against:
 - the computed result is validated against a strict schema (exact keys, owned labels only, size
   caps) before anything is written: a bug in the tool must not post garbage or a 70k comment;
 - labels first, then the comment (a rejected comment must never cost the labels), then the check;
-- only owned labels are removed, by exact name; `gate:hold` / `id:*` make every gate label
+- only owned labels are removed, by exact name; `gate:hold` makes every gate label
   unsettable (sticky) and are never removed;
 - text is cleaned of control characters and `@` is neutralised BEFORE it is capped, so escaping
   can never push a comment over GitHub's limit.
@@ -174,7 +174,7 @@ class GitHub:
 # ------------------------------------------------------------------------------- syncing
 
 def desired_labels(artifact_labels: list[str], live: list[str]) -> set[str]:
-    """Hold is sticky: while `gate:hold` / `id:*` is on the PR no gate label of ours is set."""
+    """Hold is sticky: while `gate:hold` is on the PR no gate label of ours is set."""
     want = {x for x in artifact_labels if is_owned(x)}
     return want - GATE_LABELS if is_hold(live) else want
 

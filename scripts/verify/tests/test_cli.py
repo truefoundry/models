@@ -299,3 +299,11 @@ def test_lone_surrogates_in_text_do_not_crash_writing_the_outputs(tmp_path):
     cli.write_text(out, "ok \ud800 end")
     assert out.read_text(encoding="utf-8") == "ok ? end"
     cli.write_text(tmp_path / "p.json", "plain")
+
+
+def test_an_addition_flag_label_reaches_the_comment_as_a_reason_line():
+    out = run(one_file_repo(price(input_cost_per_token=3.1e-6)), FakeSource(res=result(check(IN))), current_labels=["id:case-duplicate"])
+    assert out["gate"] == "escalate" and out["lane"] == "escalate" and "gate:escalate" in out["labels"]
+    assert "addition flagged: case duplicate of an existing file" in out["comment_md"]
+    assert "id:case-duplicate" not in out["labels"]
+    validate(json.loads(json.dumps(out)))

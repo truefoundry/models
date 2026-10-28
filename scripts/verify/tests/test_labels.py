@@ -28,7 +28,7 @@ def test_descriptions_are_distinct_enough_to_tell_labels_apart():
 
 
 def test_no_meta_for_labels_that_are_not_ours():
-    for name in ("gate:hold", "gate:reviewed", "id:5", "bug", ""):
+    for name in ("gate:hold", "gate:reviewed", "id:5", "id:case-duplicate", "id:high-edit-provider", "verify:prices-from-source", "bug", ""):
         assert label_meta(name) is None
 
 
@@ -36,6 +36,13 @@ def test_the_four_review_lanes():
     assert labels.LANES == ("fast-lane", "normal", "escalate", "hold")
 
 
-@pytest.mark.parametrize("names,hold", [(["gate:hold"], True), (["id:1"], True), (["fast-lane"], False), (["gate:holdup"], False)])
+@pytest.mark.parametrize("names,hold", [(["gate:hold"], True), (["id:1"], False), (["id:case-duplicate"], False), (["fast-lane"], False), (["gate:holdup"], False)])
 def test_fast_lane_does_not_change_hold(names, hold):
     assert is_hold(names) is hold
+
+
+def test_addition_flags_and_the_prices_from_source_label_belong_to_the_addition_job():
+    assert labels.addition_flags(["id:case-duplicate", "bug"]) == ["addition flagged: case duplicate of an existing file"]
+    assert labels.addition_flags(["id:7", "gate:hold", "id:CASE-DUPLICATE"]) == []
+    assert labels.PRICES_FROM_SOURCE == "verify:prices-from-source" and not is_owned(labels.PRICES_FROM_SOURCE)
+    assert not any(n.startswith("id:") for n in OWNED) and "verify:prices-from-source" not in OWNED

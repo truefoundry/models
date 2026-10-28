@@ -7,12 +7,32 @@
 #   source    adapter name: the key in scripts/verify/sources/__init__.py SOURCES
 #   fields    what the adapter compares: price | limits | features | modalities | lifecycle
 #   added     ISO date the entry was added
+#
+# CONTRACT with the price sweep and the update agent (they live in the models-agent repo and read
+# this file; they cannot be imported from here):
+#   An entry with `price` in `fields` means the sweep / agent treat that provider as PRICE-OWNED:
+#   the agent stops writing its prices and the sweep writes them from the source. So `price` may
+#   only be listed for a source that is safe to write (its SAFE set), and only those:
+#
+# SAFE-TO-WRITE: deepinfra, aws-price-list, anthropic-pricing-page
+# REPORT-ONLY: openrouter, azure-retail-prices
+#
+#   openrouter is deliberately report-only until a range check exists: /models quotes the CHEAPEST
+#   endpoint, not the first-party price (of 30 existing files 9 sit below it and 4 above). It is
+#   listed with `[limits]` (context window, max output: those it compares reliably) and NOT `price`,
+#   because `price` would make the agent stop writing OpenRouter prices while the sweep only reports
+#   them. The PR gate still compares OpenRouter prices (report-only); `verify.propose` therefore does
+#   not consult it through this file.
+#   azure-retail-prices is listed with `price` because it compares prices, but it is NOT yet safe to
+#   write: on 2026-10-28 15 of 979 Azure files conflict (26 checks, one 2.6x) and the Global vs
+#   Regional meter is a guess for some files. Do not read `price` here as write permission for the
+#   three Azure providers until the sweep's SAFE set lists azure-retail-prices.
 version: 1
 sources:
   - provider: openrouter
     kind: api
     source: openrouter
-    fields: [price, limits]
+    fields: [limits]
     added: 2026-10-27
   - provider: deepinfra
     kind: api
@@ -24,3 +44,23 @@ sources:
     source: aws-price-list
     fields: [price]
     added: 2026-10-27
+  - provider: anthropic
+    kind: page
+    source: anthropic-pricing-page
+    fields: [price]
+    added: 2026-10-28
+  - provider: azure-open-ai
+    kind: api
+    source: azure-retail-prices
+    fields: [price]
+    added: 2026-10-28
+  - provider: azure-ai-foundry
+    kind: api
+    source: azure-retail-prices
+    fields: [price]
+    added: 2026-10-28
+  - provider: microsoft-foundry
+    kind: api
+    source: azure-retail-prices
+    fields: [price]
+    added: 2026-10-28

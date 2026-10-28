@@ -203,7 +203,7 @@ def test_nothing_is_removed_that_is_wanted_and_nothing_is_added_twice(tmp_path):
     assert not [1 for m, p in api.writes() if m == "DELETE"]
 
 
-@pytest.mark.parametrize("hold", ["gate:hold", "id:42"])
+@pytest.mark.parametrize("hold", ["gate:hold"])
 def test_hold_is_sticky_no_gate_label_is_set_and_hold_is_never_removed(tmp_path, hold):
     api = FakeApi(labels=[hold, "gate:escalate"])
     sync.sync(api, event(), write(tmp_path))
@@ -532,3 +532,11 @@ def test_ensure_labels_ignores_names_it_does_not_own():
     api = FakeApi()
     assert sync.ensure_labels(api, ["bug", "gate:hold", "id:3"]) == [] and api.calls == []
     assert sync.ensure_labels(api, ["fast-lane"]) == ["fast-lane"]
+
+
+def test_the_addition_jobs_labels_survive_a_sync_and_the_verifier_escalation_is_applied(tmp_path):
+    live = ["id:case-duplicate", "id:high-edit-provider", "verify:prices-from-source", "gate:review", "bug"]
+    api = FakeApi(labels=live)
+    sync.sync(api, event(), write(tmp_path, labels=["gate:escalate"], gate="escalate", kind=None, verify=None, shadow=False, lane="escalate"))
+    assert {"id:case-duplicate", "id:high-edit-provider", "verify:prices-from-source", "bug", "gate:escalate"} <= set(api.labels)
+    assert "gate:review" not in api.labels

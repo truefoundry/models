@@ -4,7 +4,7 @@ Review time is the bottleneck of the bot PRs (median 87 h for an update PR), so 
 overdue and lists it in ONE issue titled `Bot PR review queue`:
   - an open bot PR labelled `fast-lane` older than 24 h (fast-lane means "one look, review in 24 h")
   - an open PR labelled `gate:escalate` older than 72 h
-Age is from the PR's creation. Drafts, `trueforge/*` branches and `gate:hold` / `id:*` PRs are not
+Age is from the PR's creation. Drafts, `trueforge/*` branches and `gate:hold` PRs are not
 listed. Runs daily from `verify-stale.yml` (default branch code only).
 
 Rules that keep it harmless:
@@ -28,7 +28,7 @@ import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
 
-from .labels import FAST_LANE, HOLD, HOLD_PREFIX
+from .labels import FAST_LANE, HOLD
 from .sync import BOT_LOGIN, GitHub, SyncError
 from .textclean import clean_line, safe_markdown
 
@@ -53,7 +53,7 @@ def _names(pr: dict) -> list[str]:
 
 
 def _held(names: list[str]) -> bool:
-    return any(n == HOLD or n.startswith(HOLD_PREFIX) for n in names)
+    return HOLD in names
 
 
 def is_bot_pr(pr: dict) -> bool:

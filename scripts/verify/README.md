@@ -65,13 +65,25 @@ Every owned label has a colour and a short description in `labels.py`. The label
 missing one with them (`sync.ensure_labels`, before it adds the label to the PR); a label that
 already exists is never edited. Without it GitHub would create the label plain.
 
-Never touched: `gate:hold` (set by humans or the addition job), `id:*`, `gate:reviewed`, any other label.
+Never touched: `gate:hold`, the addition job's `id:*` labels and `verify:prices-from-source`,
+`gate:reviewed`, any other label. What the labels this tool does not own mean:
+
+| label | set by | meaning |
+|---|---|---|
+| `gate:hold` | a human | the ONLY hold: no gate is set, risks and verification are still reported; never removed |
+| `id:case-duplicate` | the addition job | INPUT: the verifier sets `gate:escalate` and says "addition flagged: case duplicate of an existing file" |
+| `id:high-edit-provider` | the addition job | INPUT: the verifier sets `gate:escalate` and says "provider has a high human-edit rate and no source price was written" |
+| any other `id:*` | the addition job | ignored: not a hold, not an escalation |
+| `verify:prices-from-source` | the addition job | its prices were written from the official source; the verifier never reads or touches it |
+
+The addition job sets no `gate:*` label any more; the gate always comes from this tool.
 
 ### Gates (strongest first)
 
-1. `gate:hold` (not ours): `gate:hold` or any `id:*` label is on the PR. Sticky; this tool then
-   sets no gate and never removes it. It still reports risks and verification.
-2. `gate:escalate`: any escalating risk, or a conflict with an official source in a field this PR
+1. `gate:hold` (not ours): a human put `gate:hold` on the PR. Sticky; this tool then sets no gate
+   and never removes it. It still reports risks and verification. No `id:*` label is a hold.
+2. `gate:escalate`: an addition-job flag (`id:case-duplicate`, `id:high-edit-provider`, with the
+   reason in the comment), any escalating risk, or a conflict with an official source in a field this PR
    changed (every field of a new file). A conflict in a field the PR did not touch is existing
    catalog drift: listed under "existing drift (not from this PR)", it makes `verify:` partial at
    most and never changes the gate or `shadow:auto`.
@@ -94,16 +106,16 @@ in the result as `lane`; only `fast-lane` is also a label.
 |---|---|
 | `fast-lane` | kind is `features-params` or `lifecycle` (never price, mixed, new-model, provider-default), gate is `review` or `unverified`, no risk or static rule at escalate level, no conflict with an official source, and at most 10 changed model files. Meaning: one look, target review within 24 h |
 | `normal` | gate `review` or `unverified`, not fast-lane: the first line says why (kind, or more than 10 files) |
-| `escalate` | `gate:escalate`: the lines name the conflict or the escalating risks |
-| `hold` | `gate:hold` / `id:*`: no gate is set, the lines still name what would escalate |
+| `escalate` | `gate:escalate`: the lines name the addition flags, the conflict or the escalating risks |
+| `hold` | `gate:hold`: no gate is set, the lines still name what would escalate |
 
 A review-level rule finding (`risk:rule-*` that does not escalate) does not leave the fast lane. The
 label job refuses a result whose `fast-lane` label, `lane`, gate and kind disagree.
 
 `verify-stale.yml` (daily 08:00 UTC, default branch code, `pull-requests: read` + `issues: write`)
 runs `python -m verify.queue`: it lists the open bot PRs labelled `fast-lane` that are older than
-24 h and the open PRs labelled `gate:escalate` older than 72 h (drafts, `trueforge/*`, `gate:hold`
-and `id:*` left out) in one issue, `Bot PR review queue`: created when missing (found by exact title
+24 h and the open PRs labelled `gate:escalate` older than 72 h (drafts, `trueforge/*` and
+`gate:hold` left out; a PR the addition job flagged is `gate:escalate` and so is listed) in one issue, `Bot PR review queue`: created when missing (found by exact title
 and the Actions bot as author), body edited in place, one comment per day while something is
 overdue. It never labels, comments on or edits a PR, mentions nobody and writes nothing when
 nothing changed. `python -m verify.queue --dry-run` prints the body from the live open PRs and writes
