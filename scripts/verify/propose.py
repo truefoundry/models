@@ -85,6 +85,7 @@ def proposal_json(proposal: Proposal, *, allow_listing_prices: bool = False) -> 
     return {
         "source": proposal.source,
         "partial": proposal.partial,
+        "unreachable": proposal.unreachable,
         "apply": applicable(proposal, allow_listing_prices=allow_listing_prices),
         "values": [{"locator": list(p.locator), "value": p.value, **({"note": p.note} if p.note else {})}
                    for p in proposal.values],

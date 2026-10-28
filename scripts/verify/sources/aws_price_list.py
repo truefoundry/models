@@ -110,6 +110,13 @@ _FM_KIND = {
 _FM_NAME = re.compile(r"\s*\(Amazon Bedrock Edition\)\s*$")
 
 # AmazonBedrock: `USE1-<model token>-<kind>[-<modifiers>]`
+# Token SKUs of a non-text modality (Nova 2 Omni / Pro: `...-input-audio-token-count`, `...-output-image-token-count`;
+# Nova Sonic: `...-speech-input-tokens`). They are not the model's text price and the catalog has no field
+# this adapter maps them to: they are never read, and `propose` reports that they exist. Tried BEFORE
+# `_BR_USAGE`, whose lazy model group would otherwise swallow `NovaSonic-speech` as a model name.
+_BR_MODAL = re.compile(
+    r"^[A-Z0-9]+-(?P<model>.+?)-(?P<kind>(?:input|output)-[a-z]+-token-count|(?:audio|image|video|speech)-(?:input|output)-tokens)"
+    r"(?P<mod>(?:-[A-Za-z0-9]+)*)$")
 _BR_USAGE = re.compile(
     r"^[A-Z0-9]+-(?P<model>.+?)-(?P<kind>text-input-tokens|text-output-tokens|input-tokens|output-tokens|"
     r"cache-read-input-token-count|cache-write-input-token-count|cache-read-tokens|cache-write-tokens)"
@@ -231,6 +238,25 @@ class RateTable(dict):
         self.unread: dict[tuple[str, str], set[str]] = {}
 
 
+_TAIL_MODS = re.compile(r"(?:[-_](?:cross-region|global|standard|batch|flex|priority))+$", re.IGNORECASE)
+_NOT_INFERENCE = ("customization", "training", "provisioned", "storage")
+
+
+def _unknown_token_sku(offer: dict, sku: str, attrs: dict, usage: str, *, native: bool) -> tuple[str, str, str] | None:
+    """Safety net: a SKU priced per token that neither grammar understands is reported as unread under the
+    model the Price List names for it, so a new SKU family can never make a proposal look complete.
+    (family, model name, tail) or None (not a token price, or not inference: training, storage...)."""
+    low = usage.lower()
+    model = (attrs.get("model") if native else _FM_NAME.sub("", attrs.get("servicename", ""))) or ""
+    if not model or any(w in low for w in _NOT_INFERENCE):
+        return None
+    dim = _dimension(offer, sku)
+    if dim is None or _per_token(dim[1]) is None:
+        return None
+    tail = _TAIL_MODS.sub("", re.sub(r"^[A-Z0-9]+-", "", usage))
+    return "native", str(model), (tail or "unknown")[:60].lower()
+
+
 def parse_offer(offer: dict) -> RateTable:
     out = RateTable()
     for sku, product in (offer.get("products") or {}).items():
@@ -246,6 +272,12 @@ def parse_offer(offer: dict) -> RateTable:
                 parsed = ("native", _FM_NAME.sub("", attrs.get("servicename", "")), _kind(_FM_KIND[b["kind"]], tier[1]), tier[0])
             elif b:
                 unread = ("native", _FM_NAME.sub("", attrs.get("servicename", "")), b["mod"].strip("_"))
+        elif _BR_MODAL.match(usage):
+            m2 = _BR_MODAL.match(usage)
+            model, family = m2["model"], "native"
+            if model.endswith("-mantle"):
+                model, family = model[: -len("-mantle")], "mantle"
+            unread = (family, model, m2["kind"])  # the kind alone: one entry per modality, not per tier / scope
         else:
             b = _BR_USAGE.match(usage)
             tier = _mods(b["mod"], "-") if b else None
@@ -259,6 +291,8 @@ def parse_offer(offer: dict) -> RateTable:
                 if model.endswith("-mantle"):
                     model, family = model[: -len("-mantle")], "mantle"
                 unread = (family, model, b["mod"].strip("-"))
+        if parsed is None and unread is None:
+            unread = _unknown_token_sku(offer, sku, attrs, usage, native=not _FM_USAGE.match(usage))
         if unread and unread[1] and unread[2]:
             # kept beside the rates, never in them, so `check` cannot see it; `propose` says it exists
             out.unread.setdefault((unread[0], norm(unread[1])), set()).add(unread[2].lower())
@@ -510,7 +544,7 @@ class AwsPriceListSource(BaseSource):
             try:
                 regions = self.all_regions()
             except Exception as e:  # noqa: BLE001
-                out.partial = True
+                out.partial = out.unreachable = True
                 out.notes.append(f"AWS Price List region index unreachable ({type(e).__name__}): nothing proposed")
                 return out
         with ThreadPoolExecutor(max_workers=8) as pool:  # each region is two files of about 1 MB
@@ -558,6 +592,7 @@ class AwsPriceListSource(BaseSource):
             out.notes.append(f"no AWS Price List {scope} price for this model in: {', '.join(sorted(set(missing)))}")
         if failed:
             out.partial = True
+            out.unreachable = len(failed) >= len(regions)  # a region answered: reachable, just incomplete
             out.notes.append(f"AWS Price List unreachable for: {', '.join(sorted(set(failed)))}")
         if ambiguous:
             out.partial = True
@@ -572,7 +607,8 @@ class AwsPriceListSource(BaseSource):
         if found and unread:
             out.partial = True
             out.notes.append("the Price List also has SKUs this adapter does not read (" + ", ".join(sorted(unread))
-                             + "): tiered, long-context and latency-optimized prices are not proposed")
+                             + "): tiered, long-context, latency-optimized and audio / image / video / speech token prices "
+                             "are not proposed")
         return out
 
     def _warm(self, region: str) -> None:

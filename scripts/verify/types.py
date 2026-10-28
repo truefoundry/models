@@ -90,6 +90,10 @@ class Proposal:
     # as ambiguous, a tier the source cannot describe exists, or the source quotes a listing price
     # that may differ from first-party). A partial proposal is still the source's value.
     partial: bool = False
+    # True when the source could not be READ at all (outage, timeout, spent budget), as opposed to "read
+    # fine, the model is not there". The addition job counts consecutive unreachable answers and stops
+    # asking a source that is down. Additive.
+    unreachable: bool = False
 
 
 class Source(Protocol):

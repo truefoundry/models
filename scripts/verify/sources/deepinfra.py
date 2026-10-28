@@ -26,8 +26,14 @@ Check could not be written back to either field).
 Also never conflicts: a field absent in the file (uncovered, "missing in file"; a cached rate equal to
 the input price is derived and not even flagged). Per-second (`output_length`, `input_length`) and
 per-character pricing map to the matching `*_per_second` / `*_per_character`; other shapes (`time`,
-`frame_units`) are a note and `partial`. Tier tables, flex / priority tiers and batch prices are not
-in the API: `uncovered`.
+`frame_units`) are a note and `partial`. Tier tables and batch prices are not in the API. Service-tier
+rates ARE (`rate_per_service_tier_priority` / `_flex`, multipliers of the list price: 1.5 and 0.8 on
+most token models) but this adapter does not read them: a file's `flex_pricing` / `priority_pricing` is
+`uncovered`, and a proposal for a model that has them is `partial` and says so.
+
+DERIVED PRICES. The API quotes cache rates as ratios rounded to 8 decimals (`0.13333333` for 2/15), so
+`input * ratio` carries the rounding (`1.99999995e-08` for a real `2e-08`). A derived price is rounded to
+6 significant digits (`RATIO_DIGITS`); a plain cents / 100 price keeps 12.
 """
 from __future__ import annotations
 
@@ -37,6 +43,7 @@ from ._common import (BaseSource, Fetch, Recorder, clean, compare, cost_entries,
                       num, region_of, safe_id, same, stem)
 
 URL = "https://api.deepinfra.com/models/list"
+RATIO_DIGITS = 6  # significant digits kept for `input price * ratio`: the API's ratios have 8 decimals
 
 # `input_tokens` models: where the one API price lands, in the order the file is searched.
 SINGLE_PRICE_FIELDS = ("input_cost_per_token", "output_cost_per_image_token", "output_cost_per_video_token",
@@ -50,6 +57,11 @@ def model_id(repo_path: str, doc: dict) -> str | None:
 def _cents(value) -> float | None:
     n = num(value)
     return None if n is None else n / 100
+
+
+def _derived(unit: float, ratio: float) -> float:
+    """`unit * ratio` without the ratio's rounding noise."""
+    return float(f"{unit * ratio:.{RATIO_DIGITS}g}")
 
 
 class Expect:
@@ -139,7 +151,7 @@ class DeepInfraSource(BaseSource):
         try:
             self.prepare()
         except Exception as e:
-            out.partial = True
+            out.partial = out.unreachable = True
             out.notes.append(f"DeepInfra /models/list unreachable ({type(e).__name__})")
             return out
         listed, problem = self._lookup(model_id(repo_path, doc))
@@ -152,8 +164,9 @@ class DeepInfraSource(BaseSource):
         if discount > 0:
             end = iso_date(pricing.get("discount_ends_at"))
             out.partial = True
-            out.notes.append(f"DeepInfra lists a {discount:.4g} discount" + (f" until {end}" if end else " (no end date)")
-                             + ": the list price is proposed, not the discounted one")
+            out.notes.append(f"DeepInfra is running a {discount * 100:.3g}% discount" + (f" until {end}" if end else " (no end date given)")
+                             + ": it bills that much below its list price today. The LIST price is proposed, not the discounted "
+                             "one; the PR gate marks the file partial while the discount lasts")
         kind = pricing.get("type")
         mode = str(doc.get("mode") or "")
         if kind == "input_tokens" and mode != "embedding":
@@ -173,8 +186,13 @@ class DeepInfraSource(BaseSource):
                 out.notes.append(f"{ex.field}: DeepInfra lists {ex.price:g}: not proposed")
                 continue
             out.values.append(Proposed(cost_locator("*", ex.field), ex.price))
-        if kind in ("tokens", "input_tokens"):
-            out.notes.append("DeepInfra publishes no tier tables, flex / priority or batch prices: not proposed")
+        tiers = [f"{label} x{num(pricing[key]):g}" for key, label in (("rate_per_service_tier_priority", "priority"),
+                                                                      ("rate_per_service_tier_flex", "flex"))
+                 if num(pricing.get(key)) is not None]
+        if tiers:
+            out.partial = True
+            out.notes.append(f"DeepInfra lists service-tier rates for this model ({', '.join(tiers)} of the list price): "
+                             "they are not read or compared by this adapter, so no flex / priority price is proposed")
         return out
 
     # -- one `*` cost entry -------------------------------------------------------------------
@@ -225,15 +243,15 @@ class DeepInfraSource(BaseSource):
             ratio = num(p.get("rate_per_input_token_cached"))
             if ratio is not None:
                 # a cached rate equal to the input price is derived from it: absent is not a gap
-                out.append(Expect("cache_read_input_token_cost", unit * ratio, skip_absent=same(ratio, 1.0)))
+                out.append(Expect("cache_read_input_token_cost", _derived(unit, ratio), skip_absent=same(ratio, 1.0)))
             writes = p.get("rate_per_explicit_cache_write_token")
             if isinstance(writes, dict):
                 if num(writes.get("5m")) is not None:
-                    out.append(Expect("cache_creation_input_token_cost", unit * num(writes["5m"])))
+                    out.append(Expect("cache_creation_input_token_cost", _derived(unit, num(writes["5m"]))))
                 if num(writes.get("1h")) is not None:
-                    out.append(Expect("cache_creation_input_token_cost_per_hour", unit * num(writes["1h"])))
+                    out.append(Expect("cache_creation_input_token_cost_per_hour", _derived(unit, num(writes["1h"]))))
             elif num(p.get("rate_per_input_token_cache_write")) is not None:
-                out.append(Expect("cache_creation_input_token_cost", unit * num(p["rate_per_input_token_cache_write"])))
+                out.append(Expect("cache_creation_input_token_cost", _derived(unit, num(p["rate_per_input_token_cache_write"]))))
             if _cents(p.get("cents_per_image_token")) is not None:
                 out.append(Expect("input_cost_per_image_token", _cents(p["cents_per_image_token"])))
             return out

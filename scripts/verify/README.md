@@ -219,14 +219,15 @@ cd scripts && python -m verify.propose --provider aws-bedrock --model-id global.
 ```
 
 It reads `sources/registry.yaml` (the sources listed for the provider with `price` in `fields`) and prints
-one object: `proposals: [{source, partial, apply, values: [{locator, value}], notes}]` and a `reason` when
+one object: `proposals: [{source, partial, unreachable, apply, values: [{locator, value}], notes}]` and a `reason` when
 there is none. Exit 0 whatever the answer (3 for an unusable registry, still JSON). A source that is down or
-does not list the model is an empty proposal with a note.
+does not list the model is an empty proposal with a note; `unreachable` is true only when the source could not be READ
+(the addition job stops asking a source that is down), never for "read fine, model not there".
 
 | Source | Gives | Leaves out (and says so) |
 |---|---|---|
-| `aws-price-list` | per region: input, output, cache read, cache write 5m / 1h, batch, flex, priority. Regions: the ones named in `doc.costs`, else every region of the Price List's `region_index.json`. `global.` ids take the global price, all other ids the regional one | two SKUs with two prices, a unit it does not read, a 5x source outlier, a $0 SKU, anything long-context / latency-optimized / custom-model (`tiered_pricing` is never proposed). `partial` when any of those, a failed region, a requested region with no price, or such a SKU exists |
-| `deepinfra` | the LIST price as `check` maps it: input / output / cache read / cache write 5m / 1h, per-second, per-character | `image_units` (input or output per image is a catalog convention), `input_tokens` of a generator (input vs output image / video token), `time`, `frame_units`, zero prices. An active discount: list price proposed, `partial` |
+| `aws-price-list` | per region: input, output, cache read, cache write 5m / 1h, batch, flex, priority. Regions: the ones named in `doc.costs`, else every region of the Price List's `region_index.json`. `global.` ids take the global price, all other ids the regional one | two SKUs with two prices, a unit it does not read, a 5x source outlier, a $0 SKU, anything long-context / latency-optimized / custom-model (`tiered_pricing` is never proposed), and token SKUs of another modality (Nova 2 Omni / Pro audio, image, video; Nova Sonic speech) or of a family the parser has no grammar for (listed as unread). `partial` when any of those, a failed region, a requested region with no price, or such a SKU exists |
+| `deepinfra` | the LIST price as `check` maps it: input / output / cache read / cache write 5m / 1h, per-second, per-character | `image_units` (input or output per image is a catalog convention), `input_tokens` of a generator (input vs output image / video token), `time`, `frame_units`, zero prices. An active discount: list price proposed, `partial`, the note gives the percentage and end date. Priority / flex service-tier rates (the API publishes them as multipliers, `rate_per_service_tier_*`) are not read: `partial` and a note, nothing written. Cache prices derived from the API's 8-decimal ratios are rounded to 6 significant digits |
 | `openrouter` | prompt, completion, cache read, cache write (5m), context window, max output | the 1h cache write, negative (variable) prices, tier overrides, image / audio / request prices. ALWAYS `partial`: the listing quotes the cheapest endpoint |
 
 `apply` says whether the addition job may WRITE a proposal: `deepinfra` and `aws-price-list` yes,

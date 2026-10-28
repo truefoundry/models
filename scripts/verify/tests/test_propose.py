@@ -169,6 +169,112 @@ def test_aws_partial_when_a_related_sku_is_not_read():
     assert p.partial and any("does not read" in n and "latency-optimized" in n for n in p.notes)
 
 
+BR_US1 = f"{HOST}/offers/v1.0/aws/AmazonBedrock/current/us-east-1/index.json"
+
+
+def add_br_sku(data, usage, usd, model, unit="1K tokens"):
+    """One more on-demand SKU in a recorded AmazonBedrock offer (the live shape, trimmed to what the parser reads)."""
+    sku = f"TEST{len(data['products'])}"
+    data["products"][sku] = {"attributes": {"model": model, "usagetype": usage, "servicecode": "AmazonBedrock",
+                                            "servicename": "Amazon Bedrock", "regionCode": "us-east-1"},
+                             "productFamily": "Amazon Bedrock", "sku": sku}
+    data["terms"]["OnDemand"][sku] = {f"{sku}.T": {"offerTermCode": "T", "sku": sku, "termAttributes": {}, "priceDimensions": {
+        f"{sku}.T.D": {"beginRange": "0", "endRange": "Inf", "unit": unit, "pricePerUnit": {"USD": usd},
+                       "rateCode": f"{sku}.T.D", "appliesTo": [], "description": ""}}}}
+
+
+def aws_with_br(mutate) -> AwsPriceListSource:
+    routes = aws_routes()
+    data = json.loads(routes[BR_US1])
+    mutate(data)
+    routes[BR_US1] = json.dumps(data).encode()
+    return AwsPriceListSource(FakeFetch(routes))
+
+
+def test_aws_nova_omni_audio_image_video_skus_are_unread_and_make_the_proposal_partial():
+    def mutate(d):
+        for usage, usd in (("text-input-tokens", "0.0003"), ("text-output-tokens", "0.0028"),
+                           ("text-input-tokens-batch", "0.0002"), ("input-audio-token-count", "0.0011"),
+                           ("input-audio-token-count-batch", "0.0006"), ("input-image-token-count", "0.0003"),
+                           ("input-video-token-count-cross-region-global", "0.0003"), ("output-image-token-count", "0.044")):
+            add_br_sku(d, f"USE1-Nova2.0Omni-{usage}", usd, "Nova 2.0 Omni")
+
+    p, doc, s = aws_propose("amazon.nova-2-omni-v1:0", ["us-east-1"], source=aws_with_br(mutate))
+    got = {v.locator[-1]: v.value for v in p.values}
+    assert got["input_cost_per_token"] == pytest.approx(3e-7) and got["output_cost_per_token"] == pytest.approx(2.8e-6)
+    assert max(got.values()) < 1e-5  # the $0.044 / 1K image output price is not any field of this file
+    assert p.partial
+    note = next(n for n in p.notes if "does not read" in n)
+    for kind in ("input-audio-token-count", "input-image-token-count", "input-video-token-count", "output-image-token-count"):
+        assert kind in note
+    assert "audio / image / video / speech" in note
+    assert_roundtrip(s, "providers/aws-bedrock/amazon.nova-2-omni-v1:0.yaml", doc, p)
+
+
+def test_aws_nova_sonic_speech_skus_are_unread_not_a_model_of_their_own():
+    def mutate(d):
+        for usage, usd in (("text-input-tokens", "0.00006"), ("text-output-tokens", "0.00024"),
+                           ("speech-input-tokens", "0.0034"), ("speech-output-tokens", "0.0136")):
+            add_br_sku(d, f"USE1-NovaSonic-{usage}", usd, "Nova Sonic")
+
+    s = aws_with_br(mutate)
+    rates = s.region_rates("us-east-1")
+    assert [k for k in rates if "sonic" in k[1]] == [("native", "novasonic")]  # no `NovaSonic-speech` pseudo model
+    assert rates.unread[("native", "novasonic")] == {"speech-input-tokens", "speech-output-tokens"}
+    p, *_ = aws_propose("amazon.nova-sonic-v1:0", ["us-east-1"], source=s)
+    assert p.partial and any("speech-input-tokens" in n and "does not read" in n for n in p.notes)
+    assert {v.locator[-1]: v.value for v in p.values}["input_cost_per_token"] == pytest.approx(6e-8)
+
+
+def test_aws_a_token_sku_family_nobody_taught_the_parser_is_unread_not_silent():
+    def mutate(d):
+        add_br_sku(d, "USE1-NovaMicro-thinking-token-surcharge", "0.001", "Nova Micro")        # priced per token, no grammar
+        add_br_sku(d, "USE1-NovaMicro-Customization-Training", "0.002", "Nova Micro")          # training, not inference
+        add_br_sku(d, "USE1-NovaMicro-ProvisionedThroughput-1month-ModelUnits", "55", "Nova Micro", unit="hour")
+
+    p, *_ = aws_propose("amazon.nova-micro-v1:0", ["us-east-1"], source=aws_with_br(mutate))
+    note = next(n for n in p.notes if "does not read" in n)
+    assert "novamicro-thinking-token-surcharge" in note
+    assert "training" not in note and "provisioned" not in note.lower()
+    assert p.partial and p.values
+
+
+def test_aws_nova_pro_text_skus_are_still_read_after_the_modality_grammar():
+    p, *_ = aws_propose("amazon.nova-pro-v1:0", ["us-east-1"])
+    assert {"input_cost_per_token", "output_cost_per_token"} <= {v.locator[-1] for v in p.values}
+
+
+def test_aws_an_outage_of_every_region_is_unreachable_but_one_answering_region_is_not():
+    routes = {k: outage() for k in aws_routes()}
+    down, *_ = aws_propose("amazon.nova-pro-v1:0", source=AwsPriceListSource(FakeFetch(routes)))
+    assert down.unreachable and down.values == []
+    routes = aws_routes()
+    routes[f"{HOST}/offers/v1.0/aws/AmazonBedrock/current/eu-west-1/index.json"] = outage()
+    some, *_ = aws_propose("amazon.nova-pro-v1:0", source=AwsPriceListSource(FakeFetch(routes)))
+    assert some.partial and some.values and not some.unreachable
+    unlisted, *_ = aws_propose("acme.totally-unknown-v1:0")
+    assert not unlisted.unreachable  # read fine, the model is just not there
+    idx = {k: outage() for k in aws_routes() if k.endswith("region_index.json")}
+    no_index, *_ = aws_propose("amazon.nova-pro-v1:0", regions=(), source=AwsPriceListSource(FakeFetch({**aws_routes(), **idx})))
+    assert no_index.unreachable
+
+
+def test_aws_mistral_large_2407_never_takes_the_2402_price_list_model():
+    from verify.sources.aws_price_list import id_keys
+    assert id_keys("mistral.mistral-large-2402-v1:0")[1][-1] == "mistrallarge"  # the one 1:1 alias
+    assert "mistrallarge" not in id_keys("mistral.mistral-large-2407-v1:0")[1]
+
+    def mutate(d):
+        add_br_sku(d, "USE1-MistralLarge-input-tokens", "0.004", "Mistral Large")
+        add_br_sku(d, "USE1-MistralLarge-output-tokens", "0.012", "Mistral Large")
+
+    s = aws_with_br(mutate)
+    old, *_ = aws_propose("mistral.mistral-large-2402-v1:0", ["us-east-1"], source=s)
+    new, *_ = aws_propose("mistral.mistral-large-2407-v1:0", ["us-east-1"], source=s)
+    assert {v.locator[-1]: v.value for v in old.values}["input_cost_per_token"] == pytest.approx(4e-6)
+    assert new.values == [] and new.partial
+
+
 def test_aws_free_cache_write_is_not_proposed_and_is_said():
     p, *_ = aws_propose("amazon.nova-pro-v1:0")
     assert not any(v.locator[-1] == "cache_creation_input_token_cost" and v.value == 0 for v in p.values)
@@ -456,6 +562,75 @@ def test_deepinfra_discount_proposes_the_list_price_and_is_partial():
     assert got["input_cost_per_token"] == pytest.approx(list_price)
     assert p.partial and any("discount" in n and "list price" in n for n in p.notes)
     assert_roundtrip(s, "providers/deepinfra/x.yaml", doc, p)
+
+
+def di_one(**pricing) -> list:
+    return [{"model_name": "x/y", "pricing": {"type": "tokens", "cents_per_input_token": 0.0001, "cents_per_output_token": 0.0004,
+                                               **pricing}}]
+
+
+def test_deepinfra_lookup_is_exact_and_case_sensitive():
+    # a different spelling is a different catalog file: a case duplicate must never inherit another model's price
+    m = next(x for x in di_models() if x["pricing"]["type"] == "tokens" and x["model_name"] != x["model_name"].swapcase())
+    assert di_propose(m["model_name"])[0].values
+    for wrong in (m["model_name"].swapcase(), m["model_name"].lower() if m["model_name"] != m["model_name"].lower() else m["model_name"].upper()):
+        p, *_ = di_propose(wrong)
+        assert p.values == [] and any("not in DeepInfra's model list" in n for n in p.notes), wrong
+    s = di_source()
+    r = s.check(f"providers/deepinfra/{m['model_name'].swapcase()}.yaml",
+                {"model": m["model_name"].swapcase(), "costs": [{"region": "*", "input_cost_per_token": 1e-6}]})
+    assert r.checks == [] and any("not in DeepInfra's model list" in n for n in r.notes)
+
+
+def test_deepinfra_service_tier_rates_are_not_read_and_the_proposal_says_so_and_is_partial():
+    p, *_ = di_propose("x/y", source=di_source(di_one(rate_per_service_tier_priority=1.5, rate_per_service_tier_flex=0.8)))
+    assert p.partial and p.values
+    note = next(n for n in p.notes if "service-tier" in n)
+    assert "priority x1.5" in note and "flex x0.8" in note and "not read or compared" in note
+    assert not any("flex_pricing" in ".".join(v.locator) or "priority_pricing" in ".".join(v.locator) for v in p.values)
+    assert not any("publishes no" in n for n in p.notes)  # the old claim was false: the API does publish them
+    p, *_ = di_propose("x/y", source=di_source(di_one(rate_per_service_tier_flex=0.8)))
+    assert "(flex x0.8 of the list price)" in p.notes[-1]  # only the rate the API gave
+
+
+def test_deepinfra_without_tier_rates_or_discount_is_complete_and_has_no_notes():
+    p, *_ = di_propose("x/y", source=di_source(di_one(rate_per_service_tier_priority=None, rate_per_service_tier_flex=None, discount=None)))
+    assert p.values and not p.partial and p.notes == []
+
+
+def test_deepinfra_discount_note_states_the_discount_the_end_date_and_what_is_written():
+    p, *_ = di_propose("x/y", source=di_source(di_one(discount=0.51, discount_ends_at="2026-12-31")))
+    note = next(n for n in p.notes if "discount" in n)
+    assert "51% discount" in note and "until 2026-12-31" in note and "LIST price is proposed" in note
+    assert p.partial and {v.locator[-1]: v.value for v in p.values}["input_cost_per_token"] == pytest.approx(1e-6)  # list, not 0.49x
+    p, *_ = di_propose("x/y", source=di_source(di_one(discount=0.125)))
+    assert "12.5% discount" in p.notes[0] and "no end date given" in p.notes[0]
+
+
+def test_deepinfra_ratio_rounding_noise_does_not_reach_the_price():
+    # the API rounds ratios to 8 decimals: 0.15 $/M x 0.13333333 is 1.99999995e-08, the real price is 2e-08
+    p, doc, s = di_propose("x/y", source=di_source(di_one(cents_per_input_token=1.5e-05, rate_per_input_token_cached=0.13333333)))
+    got = {v.locator[-1]: v.value for v in p.values}
+    assert got["cache_read_input_token_cost"] == 2e-08
+    assert_roundtrip(s, "providers/deepinfra/x/y.yaml", doc, p)
+    # a plain cents / 100 price is untouched by the 6 digit rule
+    p, *_ = di_propose("x/y", source=di_source(di_one(cents_per_input_token=1.23456789e-05)))
+    assert {v.locator[-1]: v.value for v in p.values}["input_cost_per_token"] == 1.23456789e-07
+
+
+def test_deepinfra_unreachable_flag_is_only_for_an_outage():
+    down, *_ = di_propose("a/b", source=DeepInfraSource(FakeFetch({DI_URL: outage()})))
+    assert down.unreachable
+    missing, *_ = di_propose("acme/none")
+    assert missing.partial and not missing.unreachable
+
+
+def test_the_propose_json_carries_the_unreachable_flag():
+    reg = registry(("deepinfra", "deepinfra", ("price",)))
+    r = P.propose_for(reg, "deepinfra", "a/b", sources={"deepinfra": lambda **kw: DeepInfraSource(FakeFetch({DI_URL: outage()}))})
+    assert r["proposals"][0]["unreachable"] is True
+    r = P.propose_for(reg, "deepinfra", "acme/none", sources=factories())
+    assert r["proposals"][0]["unreachable"] is False
 
 
 def test_deepinfra_unlisted_and_outage():
