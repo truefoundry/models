@@ -285,7 +285,7 @@ def sync(api: GitHub, event: dict, compute: Callable[[dict, list[str]], dict], b
     run = event.get("workflow_run")
     if not isinstance(run, dict) or not _is_str(run.get("head_sha")) or not _SHA.match(run["head_sha"]):
         raise ValidationError("event has no workflow_run.head_sha")
-    if str(run.get("head_branch") or "").startswith(SKIP_BRANCH_PREFIX):
+    if str(run.get("head_branch") or "").lower().startswith(SKIP_BRANCH_PREFIX):
         return {"skipped": "trueforge-branch"}
     prs = resolve_prs(api, run)
     if not prs:

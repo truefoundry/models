@@ -16,6 +16,9 @@ Rules that keep it harmless:
   and the day's comment carries a marker, so re-running the same day posts nothing new.
 - The issue is found by exact title AND author (the Actions bot), so nobody can make it edit an
   issue of theirs by giving it the same title.
+- A human who CLOSES the tracking issue is respected: closed issues are looked at too, and when the
+  newest one is closed nothing is written (no new issue, no comment, no reopening). Reopen it to
+  restart the queue. An open issue always wins over a closed one.
 - No @-mentions and no author names: PR titles are cleaned and shown as code spans, the whole body
   goes through safe_markdown.
 Stdlib only.
@@ -68,7 +71,7 @@ def overdue(prs: list[dict], now: datetime) -> list[dict]:
     for pr in prs:
         if not isinstance(pr, dict) or pr.get("state") != "open" or pr.get("draft"):
             continue
-        if str((pr.get("head") or {}).get("ref") or "").startswith(SKIP_BRANCH_PREFIX):
+        if str((pr.get("head") or {}).get("ref") or "").lower().startswith(SKIP_BRANCH_PREFIX):
             continue
         names = _names(pr)
         if _held(names):
@@ -142,11 +145,15 @@ def open_prs(api: GitHub) -> list[dict]:
 
 
 def find_issue(api: GitHub, bot_login: str = BOT_LOGIN) -> dict | None:
-    """The open tracking issue: exact title, opened by the Actions bot, not a PR. Oldest wins."""
-    found = [i for i in api.paginate(f"/repos/{api.repo}/issues?state=open")
+    """The tracking issue: exact title, opened by the Actions bot, not a PR. The oldest OPEN one
+    wins; with none open, the newest closed one (a human closed it: publish() leaves it alone)."""
+    found = [i for i in api.paginate(f"/repos/{api.repo}/issues?state=all")
              if isinstance(i, dict) and i.get("title") == TITLE and "pull_request" not in i
              and (i.get("user") or {}).get("login") == bot_login and isinstance(i.get("number"), int)]
-    return min(found, key=lambda i: i["number"]) if found else None
+    opened = [i for i in found if i.get("state", "open") != "closed"]
+    if opened:
+        return min(opened, key=lambda i: i["number"])
+    return max(found, key=lambda i: i["number"]) if found else None
 
 
 def publish(api: GitHub, rows: list[dict], now: datetime, bot_login: str = BOT_LOGIN) -> dict:
@@ -154,6 +161,8 @@ def publish(api: GitHub, rows: list[dict], now: datetime, bot_login: str = BOT_L
     body = render_body(rows, now)
     issue = find_issue(api, bot_login)
     did: dict = {}
+    if issue is not None and issue.get("state") == "closed":
+        return {"issue": "closed by a human: left alone", "number": issue["number"], "comment": "none"}
     if issue is None:
         issue = api.request("POST", f"/repos/{api.repo}/issues", {"title": TITLE, "body": body})
         did["issue"] = "created"

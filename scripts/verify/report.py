@@ -136,6 +136,20 @@ def _escalations(ch: list[FileReport]) -> list[str]:
     return out
 
 
+def _why_not_verified(verdict: Verdict, ch: list[FileReport]) -> str:
+    """The line under a normal lane when no changed field is missing a source check. Say the truth
+    about WHY the gate is not review, never "every field verified" for a gate that is unverified."""
+    if verdict.gate == "review":
+        return "every changed field verified by an official source"
+    if any(f.is_new for f in ch):
+        return "new file: features, modalities and status are not source-checked"
+    if any(f.source_state == "partial" for f in ch):
+        return "a source result is partial, uncovered or a promotion: see the per-file notes"
+    if any(f.source_state == "none" for f in ch):
+        return "no official source covers a changed file"
+    return "not every changed field is source-checked"
+
+
 def lane_reasons(verdict: Verdict, files: list[FileReport]) -> list[str]:
     """At most LANE_REASONS lines saying why the PR is in its lane."""
     ch = changed(files)
@@ -162,7 +176,7 @@ def lane_reasons(verdict: Verdict, files: list[FileReport]) -> list[str]:
             lines.append(f"{sum(len(m) for _, m in missing)} changed field(s) with no verified source check, "
                          f"e.g. {code(_field(needs[0]), 60)} in {code(f.path, 60)}")
         else:
-            lines.append("every changed field verified by an official source")
+            lines.append(_why_not_verified(verdict, ch))
         if verdict.shadow:
             lines.append("`shadow:auto`: every price move is within ±10% and confirmed by the source")
         elif verdict.verify:

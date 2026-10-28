@@ -36,6 +36,8 @@ def all_steps():
 def test_verify_pr_is_a_thin_trigger_that_runs_nothing_from_the_pr():
     doc = load("verify-pr.yml")
     assert set(doc["on"]) == {"pull_request"}  # never pull_request_target
+    # a human setting / removing gate:hold, or the addition job flagging later, re-runs the verdict
+    assert doc["on"]["pull_request"]["types"] == ["opened", "synchronize", "reopened", "labeled", "unlabeled"]
     assert doc["permissions"] == {}
     st = steps(doc, "trigger")
     assert all("uses" not in s for s in st)  # no checkout, no action, no PR code
@@ -154,3 +156,14 @@ def test_verify_stale_is_a_daily_default_branch_job_that_can_only_write_issues()
 
 def test_verify_stale_never_runs_for_a_pull_request_event():
     assert set(load("verify-stale.yml")["on"]) == {"schedule", "workflow_dispatch"}
+
+
+def test_label_writes_cannot_loop_and_runs_collapse_per_pr():
+    """The label job writes with GITHUB_TOKEN (events it causes never start a workflow run), reads the
+    PR's live labels, and both workflows serialise per PR so a burst of label events is one verdict."""
+    pr, label = load("verify-pr.yml"), load("verify-label.yml")
+    assert pr["concurrency"]["group"].endswith("${{ github.event.pull_request.number }}") and pr["concurrency"]["cancel-in-progress"] is True
+    assert label["jobs"]["sync"]["concurrency"]["cancel-in-progress"] is False
+    text = (WF / "verify-label.yml").read_text()
+    assert "secrets.GITHUB_TOKEN" in text and not re.search(r"secrets\.(?!GITHUB_TOKEN)", text)   # no PAT / app token that would re-trigger
+    assert "trueforge/" in label["jobs"]["sync"]["if"]

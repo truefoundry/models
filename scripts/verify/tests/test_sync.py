@@ -540,3 +540,9 @@ def test_the_addition_jobs_labels_survive_a_sync_and_the_verifier_escalation_is_
     sync.sync(api, event(), write(tmp_path, labels=["gate:escalate"], gate="escalate", kind=None, verify=None, shadow=False, lane="escalate"))
     assert {"id:case-duplicate", "id:high-edit-provider", "verify:prices-from-source", "bug", "gate:escalate"} <= set(api.labels)
     assert "gate:review" not in api.labels
+
+
+@pytest.mark.parametrize("branch", ["trueforge/x", "TrueForge/x", "TRUEFORGE/X"])
+def test_the_trueforge_skip_ignores_case_like_the_workflow_condition_does(branch):
+    api = FakeApi()
+    assert sync.sync(api, event(head_branch=branch), write())["skipped"] == "trueforge-branch" and api.calls == []

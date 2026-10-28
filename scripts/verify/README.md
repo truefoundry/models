@@ -117,7 +117,8 @@ runs `python -m verify.queue`: it lists the open bot PRs labelled `fast-lane` th
 24 h and the open PRs labelled `gate:escalate` older than 72 h (drafts, `trueforge/*` and
 `gate:hold` left out; a PR the addition job flagged is `gate:escalate` and so is listed) in one issue, `Bot PR review queue`: created when missing (found by exact title
 and the Actions bot as author), body edited in place, one comment per day while something is
-overdue. It never labels, comments on or edits a PR, mentions nobody and writes nothing when
+overdue. A human who closes the tracking issue is respected: closed issues are looked at too, nothing
+is written while the newest one is closed, and reopening it restarts the queue. It never labels, comments on or edits a PR, mentions nobody and writes nothing when
 nothing changed. `python -m verify.queue --dry-run` prints the body from the live open PRs and writes
 nothing (needs `GITHUB_TOKEN` or `gh auth login`, and `--repo` or `GITHUB_REPOSITORY`).
 
@@ -227,7 +228,12 @@ nothing the PR changed can alter how it runs.
    Labels go first so a rejected comment can never cost them. A per-PR concurrency group stops two
    runs from creating two comments.
 
-`verify-pr.yml` is only a trigger: it has no permissions, checks out nothing and runs no code.
+`verify-pr.yml` is only a trigger: it has no permissions, checks out nothing and runs no code. It fires on
+`opened`, `synchronize`, `reopened`, `labeled` and `unlabeled`, so a human setting or removing `gate:hold`, or the
+addition job adding an `id:*` flag later, re-runs the verdict. No loop: the label job writes with `GITHUB_TOKEN`,
+and events that token causes never start a workflow run; a burst of label events collapses through the per-PR
+concurrency groups and the label job always reads the PR's live labels. The `trueforge/` skip is case-insensitive
+(GitHub's `startsWith` and the Python checks agree).
 
 | Trusted (default branch) | Untrusted (the PR) |
 |---|---|

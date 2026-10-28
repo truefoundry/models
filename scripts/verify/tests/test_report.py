@@ -276,3 +276,30 @@ def test_an_addition_flag_is_named_before_the_diffs_own_escalations():
     text, v = _lane_text([f], ["id:case-duplicate"])
     lines = _lane_lines(text)
     assert lines[1].endswith("addition flagged: case duplicate of an existing file") and "risk:removal" in lines[2]
+
+
+def test_the_normal_lane_never_says_every_field_is_verified_when_the_gate_is_unverified():
+    from verify.model import ADDED
+    from .helpers import IN, check, result
+    src = FakeSource(res=lambda p, d: result(*[check(n) for n in __import__("verify.risk").risk.new_file_needs(d)]))
+    new = report_for(None, base(), src, status=ADDED)             # every price verified, still gate:unverified
+    text, v = _lane_text([new])
+    assert v.gate == "unverified" and "new file: features, modalities and status are not source-checked" in text
+    assert "every changed field verified" not in text
+    partial = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(check(IN), promo_active=True)))
+    text, v = _lane_text([partial])
+    assert v.gate == "unverified" and "partial, uncovered or a promotion" in text and "every changed field verified" not in text
+    text, _ = _lane_text([report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(check(IN))))])
+    assert "every changed field verified by an official source" in text                       # gate:review keeps it
+
+
+def test_why_not_verified_covers_the_remaining_cases():
+    from verify import report as R
+    f = report_for(base(), price(input_cost_per_token=3.1e-6), None)
+    f.needs = []
+    v = gates.decide([f]); v.gate = "unverified"
+    assert R._why_not_verified(v, [f]) == "no official source covers a changed file"
+    f.results = [result(check(IN), partial=True)]
+    assert "partial, uncovered or a promotion" in R._why_not_verified(v, [f])
+    f.results = [result(check(IN))]
+    assert R._why_not_verified(v, [f]) == "not every changed field is source-checked"

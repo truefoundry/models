@@ -85,7 +85,7 @@ def empty_result(base: str, head: str, skipped: str | None = None, notes: Iterab
 def run(repo: Repo, base: str, head: str, *, head_ref: str = "", current_labels: Iterable[str] = (),
         registry: Registry | None = None, registry_note: str | None = None, schema: rules.Schema | None = None,
         load_sources: Callable[[set[str]], list[Source]] = lambda names: []) -> dict:
-    if head_ref.startswith(SKIP_BRANCH_PREFIX):
+    if head_ref.lower().startswith(SKIP_BRANCH_PREFIX):
         return empty_result(base, head, "trueforge-branch")
     registry = registry or Registry()
     labels_now = list(current_labels)
