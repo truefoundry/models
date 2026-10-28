@@ -1,0 +1,121 @@
+{
+ "data": [
+  {
+   "id": "openai/gpt-6.1-terra-pro",
+   "canonical_slug": "openai/gpt-6.1-terra-pro-20261026",
+   "name": "OpenAI: GPT-6.1 Terra Pro",
+   "context_length": 1050000,
+   "pricing": {
+    "prompt": "0.000001",
+    "completion": "0.000005",
+    "web_search": "0.01",
+    "input_cache_read": "0.00000005",
+    "input_cache_write": "0.00000125",
+    "overrides": [
+     {
+      "min_prompt_tokens": 272000,
+      "prompt": "0.000002",
+      "completion": "0.0000075",
+      "input_cache_read": "0.0000001",
+      "input_cache_write": "0.0000025"
+     }
+    ]
+   }
+  },
+  {
+   "id": "google/gemini-3.6-flash",
+   "canonical_slug": "google/gemini-3.6-flash-20260721",
+   "name": "Google: Gemini 3.6 Flash",
+   "context_length": 1048576,
+   "pricing": {
+    "prompt": "0.00000075",
+    "completion": "0.00000375",
+    "image": "0.00000075",
+    "audio": "0.00000075",
+    "input_audio_cache": "0.000000075",
+    "web_search": "0.014",
+    "internal_reasoning": "0.00000375",
+    "input_cache_read": "0.000000075",
+    "input_cache_write": "0.0000000416666666666667"
+   }
+  },
+  {
+   "id": "z-ai/glm-5.2",
+   "canonical_slug": "z-ai/glm-5.2-20260616",
+   "name": "Z.ai: GLM 5.2",
+   "context_length": 1048576,
+   "pricing": {
+    "prompt": "0.0000000106",
+    "completion": "0.000007",
+    "input_cache_read": "0.0000000096"
+   }
+  },
+  {
+   "id": "stepfun/step-3.5-flash",
+   "canonical_slug": "stepfun/step-3.5-flash",
+   "name": "StepFun: Step 3.5 Flash",
+   "context_length": 262144,
+   "pricing": {
+    "prompt": "0.0000001",
+    "completion": "0.0000003"
+   }
+  },
+  {
+   "id": "openai/gpt-audio",
+   "canonical_slug": "openai/gpt-audio",
+   "name": "OpenAI: GPT Audio",
+   "context_length": 128000,
+   "pricing": {
+    "prompt": "0.0000025",
+    "completion": "0.00001",
+    "audio": "0.000032",
+    "audio_output": "0.000064"
+   }
+  },
+  {
+   "id": "perplexity/sonar-pro-search",
+   "canonical_slug": "perplexity/sonar-pro-search",
+   "name": "Perplexity: Sonar Pro Search",
+   "context_length": 200000,
+   "pricing": {
+    "prompt": "0.000003",
+    "completion": "0.000015",
+    "web_search": "0.018"
+   }
+  },
+  {
+   "id": "anthropic/claude-sonnet-4.5",
+   "canonical_slug": "anthropic/claude-4.5-sonnet-20250929",
+   "name": "Anthropic: Claude Sonnet 4.5",
+   "context_length": 1000000,
+   "pricing": {
+    "prompt": "0.000003",
+    "completion": "0.000015",
+    "web_search": "0.01",
+    "input_cache_read": "0.0000003",
+    "input_cache_write": "0.00000375",
+    "input_cache_write_1h": "0.000006",
+    "overrides": [
+     {
+      "min_prompt_tokens": 200000,
+      "prompt": "0.000006",
+      "completion": "0.0000225",
+      "input_cache_read": "0.0000006",
+      "input_cache_write": "0.0000075",
+      "input_cache_write_1h": "0.000012"
+     }
+    ]
+   }
+  },
+  {
+   "id": "thedrummer/unslopnemo-12b",
+   "canonical_slug": "thedrummer/unslopnemo-12b",
+   "name": "TheDrummer: UnslopNemo 12B",
+   "context_length": 1024000,
+   "pricing": {
+    "prompt": "0.0000004",
+    "completion": "0.0000004"
+   }
+  }
+ ]
+}
