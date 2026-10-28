@@ -31,22 +31,22 @@ This is the complete set of providers the gateway supports. If a provider isn't 
 
 | Provider | Models | Description |
 |----------|--------|-------------|
-| OpenRouter | 1072 | Unified API for open source models |
-| Microsoft Foundry | 514 | OpenAI and Foundry catalog models on Microsoft Foundry |
-| Google Vertex AI | 466 | Gemini, PaLM on GCP |
+| OpenRouter | 1080 | Unified API for open source models |
+| Microsoft Foundry | 516 | OpenAI and Foundry catalog models on Microsoft Foundry |
+| Google Vertex AI | 467 | Gemini, PaLM on GCP |
 | Together AI | 396 | Open source model hosting |
 | DeepInfra | 281 | Open source model hosting |
-| AWS Bedrock | 271 | Claude, Llama, Titan, Mistral on AWS |
+| AWS Bedrock | 273 | Claude, Llama, Titan, Mistral on AWS |
 | Azure OpenAI | 254 | OpenAI models on Azure |
 | Azure AI Foundry | 239 | Azure AI models |
-| OpenAI | 164 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
+| OpenAI | 165 | GPT-4, GPT-4o, GPT-5, o1, o3, DALL-E, Whisper, TTS |
 | Deepgram | 145 | Speech-to-text and text-to-speech models |
-| Mistral AI | 119 | Mistral, Mixtral, Codestral |
+| Mistral AI | 120 | Mistral, Mixtral, Codestral |
 | xAI | 94 | Grok models |
 | Google Gemini | 92 | Gemini Pro, Ultra, Flash |
 | Perplexity | 80 | Search-augmented models |
 | Databricks | 70 | Databricks-hosted models |
-| Aws Bedrock Mantle | 61 |  |
+| Aws Bedrock Mantle | 62 |  |
 | Cohere | 44 | Command, Embed models |
 | Anthropic | 31 | Claude 3, Claude 3.5, Claude 4 |
 | SambaNova | 31 | Enterprise AI models |
