@@ -137,3 +137,15 @@ def test_the_sweeps_and_the_agents_price_owned_rule_ignores_price_report():
     owned = {row["provider"] for row in data["sources"] if isinstance(row.get("fields"), list) and "price" in row["fields"]}
     assert owned == {"deepinfra", "aws-bedrock"}
     assert not owned & {"openrouter", "anthropic", "azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}
+
+
+def test_propose_apply_sources_are_exactly_the_price_owned_sources_of_the_header():
+    """verify.propose.APPLY_SOURCES (what the addition job may WRITE) must be the registry header's
+    PRICE-OWNED set, and every one of them SAFE-TO-WRITE: change one without the other and this fails."""
+    from verify import propose
+    text = (REPO / "sources" / "registry.yaml").read_text()
+    owned, safe = _header_list(text, "PRICE-OWNED"), _header_list(text, "SAFE-TO-WRITE")
+    assert set(propose.APPLY_SOURCES) == owned and owned <= safe
+    reg = registry.load(REPO / "sources" / "registry.yaml", REPO / "providers")
+    assert {e.source for e in reg.entries if "price" in e.fields} == set(propose.APPLY_SOURCES)
+    assert "openrouter" not in propose.APPLY_SOURCES and "anthropic-pricing-page" not in propose.APPLY_SOURCES
