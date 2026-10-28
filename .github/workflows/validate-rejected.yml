@@ -1,0 +1,35 @@
+name: Validate rejected.yaml
+
+on:
+  pull_request:
+    paths:
+      - 'rejected.yaml'
+      - 'scripts/validate_rejected.py'
+      - 'scripts/test_validate_rejected.py'
+      - '.github/workflows/validate-rejected.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-rejected:
+    name: Validate rejected.yaml
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install PyYAML pytest
+
+      - name: Validate rejected.yaml
+        run: python3 scripts/validate_rejected.py
+
+      - name: Test the validator
+        run: python3 -m pytest -q scripts/test_validate_rejected.py

@@ -29,3 +29,10 @@ python3 scripts/apply_external_ids.py --from /tmp/external_ids.yaml
 ```
 
 Proposal and matching scripts never edit provider YAML.
+
+## rejected.yaml
+
+`rejected.yaml` at the repo root lists model ids the models-agent addition job must never open a PR for
+(`id: <provider>/<model id>`, `reason`, `who`, `date`, optional `note`). `[]` means nothing is rejected.
+`python3 scripts/validate_rejected.py` checks it; the `Validate rejected.yaml` workflow runs it on PRs that touch
+the file. The format is documented at the top of `scripts/validate_rejected.py`.
