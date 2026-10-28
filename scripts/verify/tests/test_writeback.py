@@ -108,20 +108,30 @@ def test_aws_writable_checks_roundtrip():
         routes[f"{HOST}/offers/v1.0/aws/AmazonBedrock/current/{r}/index.json"] = raw(f"aws-bedrock-{r}.json")
     source = AwsPriceListSource(FakeFetch(routes))
     five = dict(input_cost_per_token=1e-9, output_cost_per_token=1e-9, cache_read_input_token_cost=1e-9,
-                cache_creation_input_token_cost=1e-9, cache_creation_input_token_cost_per_hour=1e-9)
+                cache_creation_input_token_cost=1e-9, cache_creation_input_token_cost_per_hour=1e-9,
+                input_cost_per_token_batches=1e-9, output_cost_per_token_batches=1e-9)
+    tiers = dict(input_cost_per_token=1e-9, output_cost_per_token=1e-9, cache_read_input_token_cost=1e-9,
+                 cache_creation_input_token_cost=1e-9)
     ids = ["us.anthropic.claude-sonnet-4-5-20250929-v1:0", "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
            "global.anthropic.claude-opus-5", "us.anthropic.claude-opus-5", "anthropic.claude-3-5-sonnet-20241022-v2:0",
            "us.meta.llama3-3-70b-instruct-v1:0", "openai.gpt-oss-120b-1:0", "cohere.command-r-v1:0",
            "global.amazon.nova-2-lite-v1:0", "us.moonshotai.kimi-k3", "deepseek.v3.2"]
     n = 0
+    tier_locators: set[tuple[str, ...]] = set()
     for mid in ids:
-        doc = {"model": mid, "costs": [{"region": "us-east-1", **five}, {"region": "eu-west-1", **five}]}
+        entry = dict(five, flex_pricing=dict(tiers), priority_pricing=dict(tiers))
+        doc = {"model": mid, "costs": [{"region": r, **copy.deepcopy(entry)} for r in ("us-east-1", "eu-west-1")]}
         checks, writable = roundtrip(source, f"providers/aws-bedrock/{mid}.yaml", doc)
         assert checks, mid
         n += len(writable)
+        tier_locators.update(c.locator[2:] for c in writable if len(c.locator) > 3 or "batches" in c.locator[-1])
     mantle = {"model": "deepseek.v3.2", "costs": [{"region": "us-east-1", **five}]}
     n += len(roundtrip(source, "providers/aws-bedrock-mantle/deepseek.v3.2.yaml", mantle)[1])
-    assert n >= 40
+    assert n >= 60
+    # batch, flex and priority fields were written back and re-verified, not just base prices
+    assert ("input_cost_per_token_batches",) in tier_locators
+    assert ("flex_pricing", "input_cost_per_token") in tier_locators
+    assert ("priority_pricing", "cache_read_input_token_cost") in tier_locators
 
 
 def test_check_has_a_writable_flag_defaulting_to_true_and_promo_active_to_false():

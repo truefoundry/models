@@ -164,14 +164,17 @@ def test_unknown_unit_is_not_compared_and_is_said():
     assert any("unit" in n for n in r.notes)
 
 
-def test_batch_priority_flex_tiers_are_uncovered_and_make_the_file_partial():
+def test_tiers_the_price_list_cannot_describe_are_uncovered_and_make_the_file_partial():
     s, _ = source()
+    # Llama has batch SKUs only: flex / priority / long-context have nothing to compare with
     r = s.check(*cl("us.meta.llama3-3-70b-instruct-v1:0", input_cost_per_token=7.2e-7, output_cost_per_token=7.2e-7,
-                    input_cost_per_token_batches=3.6e-7, flex_pricing={"input_cost_per_token": 1e-7},
-                    priority_pricing={"input_cost_per_token": 1e-6}, tiered_pricing={"input": []}))
+                    input_cost_per_token_batches=3.6e-7, output_cost_per_token_batches=3.6e-7,
+                    flex_pricing={"input_cost_per_token": 1e-7}, priority_pricing={"input_cost_per_token": 1e-6},
+                    tiered_pricing={"input": []}, ultrafast_pricing={"input_cost_per_token": 1e-5}))
     assert r.conflicts == [] and r.partial and not r.fully_verified
     assert sorted(u.split(".")[-1] for u in r.uncovered) == [
-        "flex_pricing", "input_cost_per_token_batches", "priority_pricing", "tiered_pricing"]
+        "flex_pricing", "priority_pricing", "tiered_pricing", "ultrafast_pricing"]
+    assert len(r.checks) == 4
 
 
 def test_latency_optimized_sku_is_never_used_for_the_standard_price():
@@ -461,3 +464,155 @@ def test_check_never_raises_on_junk():
     s._outlier_regions = lambda *a, **k: (_ for _ in ()).throw(KeyError("boom"))
     r = s.check(*cl(LLAMA, input_cost_per_token=7.2e-7))
     assert r.partial and "adapter error" in r.notes[0]
+
+
+# ---- batch, flex and priority ------------------------------------------------------------------
+
+def test_batch_prices_are_compared_with_the_batch_sku():
+    s, _ = source()
+    r = s.check(*cl("us.meta.llama3-3-70b-instruct-v1:0", input_cost_per_token=7.2e-7, output_cost_per_token=7.2e-7,
+                    input_cost_per_token_batches=3.6e-7, output_cost_per_token_batches=3.6e-7))
+    assert r.fully_verified and len(r.checks) == 4
+    r = s.check(*cl("us.meta.llama3-3-70b-instruct-v1:0", input_cost_per_token=7.2e-7, output_cost_per_token=7.2e-7,
+                    input_cost_per_token_batches=7.2e-7, output_cost_per_token_batches=3.6e-7))
+    (c,) = r.conflicts
+    assert c.locator == ("costs", "region=us-east-1", "input_cost_per_token_batches")
+    assert (c.file_value, c.source_value) == (7.2e-7, 3.6e-7) and c.writable
+
+
+def test_batch_follows_the_same_regional_vs_global_rule_for_claude():
+    s, _ = source()
+    std_r = dict(input_cost_per_token=5.5e-6, output_cost_per_token=2.75e-5, cache_read_input_token_cost=5.5e-7,
+                 cache_creation_input_token_cost=6.875e-6, cache_creation_input_token_cost_per_hour=1.1e-5)
+    std_g = dict(input_cost_per_token=5e-6, output_cost_per_token=2.5e-5, cache_read_input_token_cost=5e-7,
+                 cache_creation_input_token_cost=6.25e-6, cache_creation_input_token_cost_per_hour=1e-5)
+    assert s.check(*cl("us.anthropic.claude-opus-5", input_cost_per_token_batches=2.75e-6,
+                       output_cost_per_token_batches=1.375e-5, **std_r)).fully_verified
+    assert s.check(*cl("global.anthropic.claude-opus-5", input_cost_per_token_batches=2.5e-6,
+                       output_cost_per_token_batches=1.25e-5, **std_g)).fully_verified
+    r = s.check(*cl("global.anthropic.claude-opus-5", input_cost_per_token_batches=2.75e-6,
+                    output_cost_per_token_batches=1.375e-5, **std_g))
+    assert sorted(c.locator[-1] for c in r.conflicts) == ["input_cost_per_token_batches", "output_cost_per_token_batches"]
+
+
+def test_legacy_claude_batch_usage_types():
+    s, _ = source()
+    r = s.check(*cl("anthropic.claude-3-5-sonnet-20241022-v2:0", input_cost_per_token=3e-6, output_cost_per_token=1.5e-5,
+                    cache_read_input_token_cost=3e-7, cache_creation_input_token_cost=3.75e-6,
+                    input_cost_per_token_batches=1.5e-6, output_cost_per_token_batches=7.5e-6))
+    assert r.fully_verified
+    r = s.check(*cl("anthropic.claude-sonnet-4-5-20250929-v1:0", **{**SONNET45_REGIONAL},
+                    input_cost_per_token_batches=1.65e-6, output_cost_per_token_batches=8.25e-6))
+    assert r.fully_verified
+
+
+GPT_OSS = dict(input_cost_per_token=1.5e-7, output_cost_per_token=6e-7)
+
+
+def test_flex_and_priority_dicts_are_compared_leaf_by_leaf():
+    s, _ = source()
+    r = s.check(*cl("openai.gpt-oss-120b-1:0", input_cost_per_token_batches=7.5e-8, output_cost_per_token_batches=3e-7,
+                    flex_pricing={"input_cost_per_token": 7.5e-8, "output_cost_per_token": 3e-7},
+                    priority_pricing={"input_cost_per_token": "2.625e-7", "output_cost_per_token": 1.05e-6}, **GPT_OSS))
+    assert r.fully_verified and len(r.checks) == 8
+    loc = {c.locator[2:] for c in r.checks}
+    assert ("flex_pricing", "input_cost_per_token") in loc and ("priority_pricing", "output_cost_per_token") in loc
+    r = s.check(*cl("openai.gpt-oss-120b-1:0", flex_pricing={"input_cost_per_token": 7.5e-8, "output_cost_per_token": 3e-7},
+                    priority_pricing={"input_cost_per_token": 3e-7, "output_cost_per_token": 1.05e-6}, **GPT_OSS))
+    (c,) = r.conflicts
+    assert c.locator == ("costs", "region=us-east-1", "priority_pricing", "input_cost_per_token") and c.source_value == 2.625e-7
+
+
+def test_a_flex_dict_with_a_leaf_the_price_list_lacks_stays_uncovered():
+    s, _ = source()
+    r = s.check(*cl("openai.gpt-oss-120b-1:0", flex_pricing={"input_cost_per_token": 7.5e-8, "cache_read_input_token_cost": 1e-8},
+                    **GPT_OSS))
+    assert r.conflicts == [] and r.partial and not r.fully_verified
+    assert r.uncovered == ["costs.region=us-east-1.flex_pricing"]
+    assert any("flex_pricing not compared for: cache_read_input_token_cost" in n for n in r.notes)
+    assert [c.locator[-1] for c in r.checks if c.locator[-2] == "flex_pricing"] == ["input_cost_per_token"]
+
+
+def test_global_ids_take_global_flex_and_priority_prices():
+    s, _ = source()
+    glob = dict(input_cost_per_token=3e-7, output_cost_per_token=2.5e-6, cache_read_input_token_cost=7.5e-8)
+    r = s.check(*cl("global.amazon.nova-2-lite-v1:0", input_cost_per_token_batches=1.5e-7,
+                    output_cost_per_token_batches=1.25e-6,
+                    flex_pricing={"input_cost_per_token": 1.5e-7, "output_cost_per_token": 1.25e-6, "cache_read_input_token_cost": 3.75e-8},
+                    priority_pricing={"input_cost_per_token": 5.25e-7, "output_cost_per_token": 4.375e-6, "cache_read_input_token_cost": 1.3125e-7},
+                    **glob))
+    assert r.fully_verified, (r.conflicts, r.uncovered, r.notes)
+    regional = s.check(*cl("us.amazon.nova-2-lite-v1:0", input_cost_per_token=3.3e-7, output_cost_per_token=2.75e-6,
+                           cache_read_input_token_cost=8.25e-8,
+                           flex_pricing={"input_cost_per_token": 1.65e-7, "output_cost_per_token": 1.375e-6},
+                           input_cost_per_token_batches=1.65e-7, output_cost_per_token_batches=1.375e-6))
+    assert regional.fully_verified
+    wrong = s.check(*cl("global.amazon.nova-2-lite-v1:0", flex_pricing={"input_cost_per_token": 1.65e-7}, **glob))
+    assert [c.locator[-1] for c in wrong.conflicts if c.locator[-2] == "flex_pricing"] == ["input_cost_per_token"]
+
+
+def test_zero_priced_tier_cache_write_matches_a_zero_in_the_file():
+    s, _ = source()
+    r = s.check(*cl("us.amazon.nova-2-lite-v1:0", input_cost_per_token=3.3e-7, output_cost_per_token=2.75e-6,
+                    cache_read_input_token_cost=8.25e-8,
+                    flex_pricing={"input_cost_per_token": 1.65e-7, "output_cost_per_token": 1.375e-6,
+                                  "cache_read_input_token_cost": 4.125e-8, "cache_creation_input_token_cost": 0}))
+    assert r.fully_verified
+    r = s.check(*cl("us.amazon.nova-2-lite-v1:0", flex_pricing={"cache_creation_input_token_cost": 1e-7}))
+    assert [c.locator[-1] for c in r.conflicts] == ["cache_creation_input_token_cost"]
+
+
+def test_tier_prices_the_file_does_not_carry_are_a_note_not_a_flag():
+    s, _ = source()
+    r = s.check(*cl("openai.gpt-oss-120b-1:0", **GPT_OSS))
+    assert r.fully_verified
+    assert any("has batch prices this file does not carry" in n and "input_cost_per_token_batches" in n for n in r.notes)
+    assert any("has flex prices" in n for n in r.notes) and any("has priority prices" in n for n in r.notes)
+
+
+def test_a_cross_region_batch_sku_is_the_global_batch_price_only_with_the_global_modifier():
+    glob = sku(LLAMA_IN + "-cross-region-global-batch", 0.0003)
+    plain = sku(LLAMA_IN + "-cross-region-batch", 0.0009)
+    both = [*llama(), glob, plain, sku(LLAMA_IN + "-batch", 0.00036)]
+    _, r, _ = run(synthetic({"us-east-1": both}), ["us-east-1"], input_cost_per_token=7.2e-7, output_cost_per_token=7.2e-7,
+                  input_cost_per_token_batches=3.6e-7)
+    assert r.fully_verified
+
+
+def test_two_tiers_in_one_usage_type_or_an_unknown_tier_word_is_skipped():
+    odd = [sku(LLAMA_IN + "-batch-flex", 0.0001), sku(LLAMA_IN + "-provisioned", 0.0001), *llama()]
+    _, r, _ = run(synthetic({"us-east-1": odd}), ["us-east-1"], input_cost_per_token=7.2e-7, output_cost_per_token=7.2e-7,
+                  input_cost_per_token_batches=1e-4)
+    assert r.checks and all(c.locator[-1] != "input_cost_per_token_batches" for c in r.checks)
+    assert r.uncovered == ["costs.region=us-east-1.input_cost_per_token_batches"]
+
+
+def test_a_tier_sku_with_two_prices_is_ambiguous_and_not_compared():
+    _, r, _ = run(synthetic({"us-east-1": [*llama(), sku(LLAMA_IN + "-batch", 0.00036), sku(LLAMA_IN + "-batch", 0.0004)]}),
+                  ["us-east-1"], input_cost_per_token=7.2e-7, output_cost_per_token=7.2e-7, input_cost_per_token_batches=3.6e-7)
+    assert all(c.locator[-1] != "input_cost_per_token_batches" for c in r.checks)
+    assert "costs.region=us-east-1.input_cost_per_token_batches" in r.uncovered
+
+
+def test_legacy_million_batch_usage_types_of_the_foundation_offer():
+    hk = "Claude 3 Haiku (Amazon Bedrock Edition)"
+    fm = offer(sku("USE1-MP:USE1_InputTokenCount-Units", 0.25, "1M tokens", service=hk),
+               sku("USE1-MP:USE1_OutputTokenCount-Units", 1.25, "1M tokens", service=hk),
+               sku("USE1-MP:USE1_MillionBatchInputTokens-Units", 0.125, "1M tokens", service=hk),
+               sku("USE1-MP:USE1_MillionBatchOutputTokens-Units", 0.625, "1M tokens", service=hk),
+               sku("USE1-MP:USE1_InputTokenCount_Batch-Units", 0.125, "1M tokens", service=hk))  # same price twice: fine
+    import json
+    s = AwsPriceListSource(FakeFetch({url(FM, "us-east-1"): json.dumps(fm).encode()}))
+    ok = dict(input_cost_per_token=2.5e-7, output_cost_per_token=1.25e-6, input_cost_per_token_batches=1.25e-7,
+              output_cost_per_token_batches=6.25e-7)
+    r = s.check("providers/aws-bedrock/c.yaml", doc("anthropic.claude-3-haiku-20240307-v1:0", **ok))
+    assert r.fully_verified and len(r.checks) == 4
+    r = s.check("providers/aws-bedrock/c.yaml", doc("anthropic.claude-3-haiku-20240307-v1:0", **{**ok, "output_cost_per_token_batches": 1.25e-6}))
+    assert [c.locator[-1] for c in r.conflicts] == ["output_cost_per_token_batches"]
+
+
+def test_batch_cache_prices_have_no_catalog_field_and_never_leak_into_the_standard_cache_price():
+    extra = [sku("USE1-Llama3-3-70B-cache-read-input-token-count", 0.0001), sku("USE1-Llama3-3-70B-cache-read-input-token-count-batch", 0.00005)]
+    _, r, _ = run(synthetic({"us-east-1": llama(extra=extra)}), ["us-east-1"], input_cost_per_token=7.2e-7,
+                  output_cost_per_token=7.2e-7, cache_read_input_token_cost=1e-7)
+    assert r.fully_verified

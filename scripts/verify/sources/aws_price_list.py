@@ -18,9 +18,18 @@ WHICH PRICE APPLIES. `global.<id>` is the global endpoint price; the base id and
 on Claude 4+ and Nova 2). Where a model has no separate global SKU, the one in-region price is the
 price of every id.
 
-NOT COMPARED (the file's fields become `uncovered` and the result `partial`): batch, flex,
-priority and ultrafast tiers, long-context (`tiered_pricing`), custom-model, latency-optimized and
-provisioned / reserved throughput SKUs, 30-minute cache writes, image/audio/video/per-second units.
+BATCH, FLEX, PRIORITY. SKUs named `...-batch` / `_Batch` / `MillionBatch...`, `...-flex`, `...-priority`
+(with `cross-region-global` / `global` for the global scope) are compared with
+`input/output_cost_per_token_batches`, `flex_pricing.<field>` and `priority_pricing.<field>`, using the
+same regional-vs-global rule as the standard price. `flex_pricing` / `priority_pricing` is one price
+field: it is compared only when every number in it was; a leaf the Price List has no SKU for leaves the
+whole dict `uncovered`. The Price List has no batch cache price, and a tier price the file simply does
+not carry is a note, not a flag (the catalog may not track it).
+
+NOT COMPARED (the file's fields become `uncovered` and the result `partial`): `tiered_pricing` and
+`ultrafast_pricing` (the Price List names long-context SKUs for one model but states neither the
+threshold nor the marginal/cumulative mode), custom-model, latency-optimized and provisioned / reserved
+throughput SKUs, 30-minute cache writes, image/audio/video/per-second units.
 When two SKUs give two different prices for one field the field is not compared (a note says so).
 A SKU with more than one price dimension (a tier) is never read as the standard price. A cross-region
 SKU without the `global` modifier is not the global price and is skipped.
@@ -64,6 +73,11 @@ FIELD = {
     "cache_write": "cache_creation_input_token_cost",
     "cache_write_1h": "cache_creation_input_token_cost_per_hour",
 }
+TIERS = ("batch", "flex", "priority")
+# Tier kinds are "<tier>:<base>". Where each lands in the catalog, relative to the cost entry:
+#   batch    -> input_cost_per_token_batches / output_cost_per_token_batches (no cache fields exist)
+#   flex     -> flex_pricing.<field>        priority -> priority_pricing.<field>
+BATCH_FIELD = {"input": "input_cost_per_token_batches", "output": "output_cost_per_token_batches"}
 UNIT_TO_TOKEN = {"1m tokens": 1e-6, "1k tokens": 1e-3, "1 tokens": 1.0, "token": 1.0}
 
 AMBIGUOUS = float("nan")  # two SKUs, two prices: never compared
@@ -73,7 +87,8 @@ AMBIGUOUS = float("nan")  # two SKUs, two prices: never compared
 # AmazonBedrockFoundationModels: `USE1-MP:USE1_<body>-Units`
 _FM_USAGE = re.compile(r"^[A-Z0-9]+-MP:[A-Z0-9]+_(?P<body>.+)-Units$")
 _FM_BODY = re.compile(
-    r"^(?P<kind>InputTokenCount|OutputTokenCount|outputTokenCount|CacheReadInputTokenCount|CacheWrite1hInputTokenCount|"
+    r"^(?P<kind>MillionBatchInputTokens|MillionBatchOutputTokens|InputTokenCount|OutputTokenCount|outputTokenCount|"
+    r"CacheReadInputTokenCount|CacheWrite1hInputTokenCount|"
     r"CacheWriteInputTokenCount|input_tokens|output_tokens|cache_read_tokens|cache_write_tokens_1h|cache_write_tokens)"
     r"(?P<mod>(?:_[A-Za-z0-9]+)*)$")
 _FM_KIND = {
@@ -82,6 +97,7 @@ _FM_KIND = {
     "CacheReadInputTokenCount": "cache_read", "cache_read_tokens": "cache_read",
     "CacheWriteInputTokenCount": "cache_write", "cache_write_tokens": "cache_write",
     "CacheWrite1hInputTokenCount": "cache_write_1h", "cache_write_tokens_1h": "cache_write_1h",
+    "MillionBatchInputTokens": "batch:input", "MillionBatchOutputTokens": "batch:output",
 }
 _FM_NAME = re.compile(r"\s*\(Amazon Bedrock Edition\)\s*$")
 
@@ -166,14 +182,36 @@ def _dimension(offer: dict, sku: str) -> tuple[float, str | None] | None:
     return None if usd is None else (usd, d.get("unit"))
 
 
-def _mods(mod: str, sep: str) -> tuple[str, bool] | None:
-    """(scope, ok) from a modifier tail; None when the tail names a tier we do not compare."""
+def _mods(mod: str, sep: str) -> tuple[str, str] | None:
+    """(scope, tier) from a modifier tail; tier is "" for the standard price. None when the tail names
+    something else (custom model, latency-optimized, long context, 30 minute cache, two tiers...)."""
     tokens = {t.lower() for t in mod.strip(sep).split(sep) if t}
-    scope = "global" if "global" in tokens else "regional"
-    rest = tokens - {"global", "standard", "cross", "region"}
-    if rest or ("cross" in tokens and "global" not in tokens):
+    tiers = tokens & set(TIERS)
+    rest = tokens - {"global", "standard", "cross", "region"} - set(TIERS)
+    if rest or len(tiers) > 1 or ("cross" in tokens and "global" not in tokens):
         return None
-    return scope, True
+    return ("global" if "global" in tokens else "regional"), (next(iter(tiers)) if tiers else "")
+
+
+def tail_of(kind: str) -> tuple[str, ...]:
+    """Where a SKU kind lands in a cost entry, as a key path; () when the catalog has no such field."""
+    tier, _, base = kind.rpartition(":")
+    if not tier:
+        return (FIELD[base],)
+    if tier == "batch":
+        return (BATCH_FIELD[base],) if base in BATCH_FIELD else ()
+    return (f"{tier}_pricing", FIELD[base])
+
+
+def _dig(entry: dict, tail: tuple[str, ...]):
+    node = entry
+    for key in tail:
+        node = node.get(key) if isinstance(node, dict) else None
+    return node
+
+
+def _kind(base: str, tier: str) -> str:
+    return f"{tier}:{base}" if tier and ":" not in base else base
 
 
 def parse_offer(offer: dict) -> Rates:
@@ -187,7 +225,7 @@ def parse_offer(offer: dict) -> Rates:
             b = _FM_BODY.match(m["body"])
             tier = _mods(b["mod"], "_") if b else None
             if b and tier:
-                parsed = ("native", _FM_NAME.sub("", attrs.get("servicename", "")), _FM_KIND[b["kind"]], tier[0])
+                parsed = ("native", _FM_NAME.sub("", attrs.get("servicename", "")), _kind(_FM_KIND[b["kind"]], tier[1]), tier[0])
         else:
             b = _BR_USAGE.match(usage)
             tier = _mods(b["mod"], "-") if b else None
@@ -195,7 +233,7 @@ def parse_offer(offer: dict) -> Rates:
                 model, family = b["model"], "native"
                 if model.endswith("-mantle"):
                     model, family = model[: -len("-mantle")], "mantle"
-                parsed = (family, model, _BR_KIND[b["kind"]], tier[0])
+                parsed = (family, model, _kind(_BR_KIND[b["kind"]], tier[1]), tier[0])
         if not parsed or not parsed[1]:
             continue
         family, name, kind, scope = parsed
@@ -306,29 +344,40 @@ class AwsPriceListSource(BaseSource):
                 continue
             if not mantle and hit[0] == "mantle":
                 fell_back = True
-            prices = {kind: hit[1][(scope, kind)] for kind in FIELD if (scope, kind) in hit[1]}
+            prices = {kind: price for (sc, kind), price in hit[1].items() if sc == scope and tail_of(kind)}
             if not prices:
                 missing.append(region)
                 continue
             found.append((entry, region, prices))
         # pass 2: outlier regions per kind, then compare
         medians = self._outlier_regions(found)
+        tier_absent: dict[str, set[str]] = {}
         for entry, region, prices in found:
             for kind, price in prices.items():
-                fld = FIELD[kind]
-                locator = cost_locator(region, fld)
+                tail = tail_of(kind)
+                locator = cost_locator(region, *tail)
+                label = ".".join(tail)
+                present = num(_dig(entry, tail)) is not None
                 if price != price:
-                    ambiguous.add(fld)
-                    rec.uncovered(locator)
+                    ambiguous.add(label)
+                    if present:
+                        rec.uncovered(locator)
                     continue
                 if (region, kind) in medians:
-                    outliers.add(f"{region} {fld} (price {price:.6g}, other regions ~{medians[(region, kind)]:.6g})")
-                    rec.uncovered(locator)
+                    outliers.add(f"{region} {label} (price {price:.6g}, other regions ~{medians[(region, kind)]:.6g})")
+                    if present:
+                        rec.uncovered(locator)
                     continue
-                if num(entry.get(fld)) is None:
+                if present:
+                    rec.add(compare(locator, _dig(entry, tail), price))
+                elif ":" not in kind:
                     rec.absent(locator, price)
-                else:
-                    rec.add(compare(locator, entry.get(fld), price))
+                elif price:
+                    # A tier price the file does not carry is not flagged: the catalog may not track it.
+                    tier_absent.setdefault(kind.split(":")[0], set()).add(label)
+            self._close_tier_dicts(rec, entry, region)
+        for tier, labels in sorted(tier_absent.items()):
+            rec.note(f"the Price List has {tier} prices this file does not carry (not flagged): {', '.join(sorted(labels))}")
         if unmatched and not result.checks:
             result.notes.append(f"`{model_id}` has no AWS Price List model I can match (keys tried: {', '.join(keys)})")
         elif unmatched:
@@ -351,6 +400,20 @@ class AwsPriceListSource(BaseSource):
         if unmatched or missing or failed or ambiguous or outliers:
             result.partial = True
         return rec.finish()
+
+    @staticmethod
+    def _close_tier_dicts(rec: Recorder, entry: dict, region: str) -> None:
+        """`flex_pricing` / `priority_pricing` is one price field. It counts as compared only when every
+        number in it was; otherwise it stays uncovered and a note names the leaves left over."""
+        for tier in ("flex", "priority"):
+            block = entry.get(f"{tier}_pricing")
+            if not isinstance(block, dict) or not block:
+                continue
+            left = [k for k in block if cost_locator(region, f"{tier}_pricing", k) not in rec.compared]
+            if left:
+                rec.note(f"{tier}_pricing not compared for: {', '.join(sorted(left))}")
+            else:
+                rec.compared.add(cost_locator(region, f"{tier}_pricing"))
 
     @staticmethod
     def _outlier_regions(found: list[tuple[dict, str, dict]]) -> dict[tuple[str, str], float]:
