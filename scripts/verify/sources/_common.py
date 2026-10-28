@@ -133,6 +133,17 @@ def uncovered_fields(doc: dict, compared: set[tuple[str, ...]]) -> list[str]:
     return out
 
 
+_SAFE_ID = re.compile(r"[A-Za-z0-9._:/@~-]+", re.ASCII)
+
+
+def safe_id(value: object) -> bool:
+    """A model id taken from a file is only ever a lookup key here, never part of a URL; this keeps it
+    that way: ASCII letters, digits and `. _ : / @ ~ -` only, no `..`, no `//` (so no scheme), no
+    leading slash."""
+    return (isinstance(value, str) and _SAFE_ID.fullmatch(value) is not None
+            and ".." not in value and "//" not in value and not value.startswith("/"))
+
+
 def stem(repo_path: str) -> str:
     """providers/<p>/<rest>.yaml -> <rest> (the path under the provider folder, no extension)."""
     parts = repo_path.split("/")

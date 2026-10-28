@@ -286,3 +286,14 @@ def test_junk_never_raises():
     s._compare_entry = lambda *a, **k: (_ for _ in ()).throw(TypeError("boom"))
     r = check(s, "Qwen/Qwen3-235B-A22B", input_cost_per_token=1.8e-7)
     assert r.partial and "adapter error" in r.notes[0]
+
+
+def test_a_hostile_model_id_is_never_looked_up():
+    from verify.tests.test_openrouter import HOSTILE_IDS
+    s, fetch = source()
+    for bad in HOSTILE_IDS + ["Qwen/Qwen3 235B"]:
+        r = s.check("providers/deepinfra/x.yaml", {"model": bad, "costs": [{"region": "*", "input_cost_per_token": 1e-7}]})
+        assert r.partial and r.checks == [], bad
+        assert r.uncovered == ["costs.region=*.input_cost_per_token"], bad
+        assert any("not allowed in a DeepInfra id" in n for n in r.notes), bad
+    assert fetch.calls == [URL]
