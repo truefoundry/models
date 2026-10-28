@@ -5,31 +5,42 @@ models: `cents_per_input_token` / `cents_per_output_token`, cached input as a ra
 price (`rate_per_input_token_cached`), cache writes as ratios in `rate_per_explicit_cache_write_token`
 (`{"5m": 1.25, "1h": 2.0}`, or the single `rate_per_input_token_cache_write`).
 
+FIELD MAPPING FOLLOWS THE FILE. The API's one `cents_per_input_token` of an `input_tokens` model is
+the catalog's `input_cost_per_token`, or, for an image / video generator, whichever of
+`output_cost_per_image_token` / `output_cost_per_video_token` / `output_cost_per_token` the file
+carries instead (nano-banana, Seedance). A per-unit `image_units` price is the file's
+`output_cost_per_image` / `input_cost_per_image`, or its `input_cost_per_request` (Pixverse).
+
 DISCOUNTS. The API publishes `pricing.discount` (a fraction off, optionally `discount_ends_at`)
 beside the LIST price, and some catalog files carry the discounted price. The catalog keeps the list
-price, so while a discount is active the result is `promo` + `partial` and a discount is never a
-conflict: a field equal to the list price is verified; a field between the discounted price (2.5%
-below, for rounding) and the list price is `uncovered` with a note; a field outside that band
-(dearer than list, or well under the discounted price) is a conflict. `promo` is `discount_ends_at` when
-the API gives it, else the marker `"no-end-date"`.
+price, so while a discount is active the result is `promo_active` + `partial` (`promo` only when a
+real end date is given) and a discount is never a conflict by itself:
+  file == list price                          -> verified
+  file within 2.5% of the DISCOUNTED price    -> uncovered + note (the file holds the promo price)
+  anything else                               -> conflict
 
-Image models are priced per image (`cents_per_image_unit`): compared with `output_cost_per_image`
-else `input_cost_per_image`, or their SUM when the file has both (FLUX-2-max). When the API number
-equals just one of the two (FLUX-2-pro: its per-megapixel input price) the split cannot be verified:
-both fields are `uncovered` with a note, never a conflict. Per second of output
-(`output_length`), per second of input (`input_length`) and per input character
-(`input_character_length`) map to the matching `*_per_second` / `*_per_character` field. Any other
-shape (`time`, `frame_units`, per request) is a note and `partial`, never a guess. Tier tables, flex /
-priority tiers and batch prices are not in the API: `uncovered`.
+An image model with BOTH `input_cost_per_image` and `output_cost_per_image` cannot be checked: the
+API quotes one price per image. That is a note and both fields `uncovered`, never a Check (a single
+Check could not be written back to either field).
+
+Also never conflicts: a field absent in the file (uncovered, "missing in file"; a cached rate equal to
+the input price is derived and not even flagged). Per-second (`output_length`, `input_length`) and
+per-character pricing map to the matching `*_per_second` / `*_per_character`; other shapes (`time`,
+`frame_units`) are a note and `partial`. Tier tables, flex / priority tiers and batch prices are not
+in the API: `uncovered`.
 """
 from __future__ import annotations
 
 from ..types import LIMIT_TOLERANCE, SourceResult
-from ._common import (Fetch, clean, compare, cost_entries, cost_locator, get_json, http_get, num, region_of,
-                      same, stem, uncovered_fields)
+from . import SOURCES
+from ._common import (BaseSource, Fetch, Recorder, clean, compare, cost_entries, cost_locator, get_json, iso_date,
+                      num, region_of, same, stem)
 
 URL = "https://api.deepinfra.com/models/list"
-NO_END = "no-end-date"
+
+# `input_tokens` models: where the one API price lands, in the order the file is searched.
+SINGLE_PRICE_FIELDS = ("input_cost_per_token", "output_cost_per_image_token", "output_cost_per_video_token",
+                       "output_cost_per_token")
 
 
 def model_id(repo_path: str, doc: dict) -> str | None:
@@ -41,134 +52,157 @@ def _cents(value) -> float | None:
     return None if n is None else n / 100
 
 
-class DeepInfraSource:
+class Expect:
+    """One official price and where it lands in the file's cost entry."""
+
+    def __init__(self, field: str, price: float, *, skip_absent: bool = False):
+        self.field, self.price, self.skip_absent = field, clean(price), skip_absent
+
+
+class DeepInfraSource(BaseSource):
     name = "deepinfra"
 
-    def __init__(self, fetch: Fetch = http_get):
-        self._fetch = fetch
+    def __init__(self, fetch: Fetch | None = None, **kw):
+        super().__init__(fetch, **kw)
         self._listing: dict[str, dict] | None = None
+        self._error: Exception | None = None
 
     def covers(self, provider: str) -> bool:
         return provider == "deepinfra"
 
     def prepare(self) -> None:
-        if self._listing is None:
-            data = get_json(self._fetch, URL)
+        """One fetch attempt per run: a failure is cached and re-raised, never retried."""
+        if self._listing is not None:
+            return
+        if self._error is not None:
+            raise self._error
+        try:
+            data = get_json(self._get, URL)
             self._listing = {m["model_name"]: m for m in data if isinstance(m, dict) and "model_name" in m}
+        except Exception as e:  # noqa: BLE001
+            self._error = e
+            raise
 
-    def check(self, repo_path: str, doc: dict) -> SourceResult:
+    def _check(self, repo_path: str, doc: dict) -> SourceResult:
         result = SourceResult(source=self.name)
-        compared: set[tuple[str, ...]] = set()
+        rec = Recorder(result, doc)
         try:
             self.prepare()
         except Exception as e:
             result.partial = True
             result.notes.append(f"DeepInfra /models/list unreachable ({type(e).__name__})")
-            result.uncovered = uncovered_fields(doc, compared)
-            return result
+            return rec.finish()
         assert self._listing is not None
         mid = model_id(repo_path, doc)
         listed = self._listing.get(mid) if mid else None
         if listed is None:
             result.partial = True
             result.notes.append(f"`{mid}` is not in DeepInfra's model list: no price compared")
-        else:
-            entries = [e for e in cost_entries(doc) if region_of(e) in ("*", "global")]
-            if not entries:
-                result.notes.append("no `*` cost entry to compare with the API's single price")
-            pricing = listed.get("pricing") or {}
-            for entry in entries:
-                self._compare_entry(result, compared, entry, pricing)
-        result.uncovered = result.uncovered + [u for u in uncovered_fields(doc, compared) if u not in result.uncovered]
-        if result.uncovered:
+            return rec.finish()
+        entries = [e for e in cost_entries(doc) if region_of(e) in ("*", "global")]
+        if not entries:
+            rec.note("no `*` cost entry to compare with the API's single price")
+        pricing = listed.get("pricing") or {}
+        discount = num(pricing.get("discount")) or 0.0
+        if discount > 0:
+            end = iso_date(pricing.get("discount_ends_at"))
+            result.promo_active = True
+            result.promo = end
             result.partial = True
-        return result
+            rec.note(f"DeepInfra lists a {discount:.4g} discount" + (f" until {end}" if end else " (no end date)")
+                     + ": the catalog keeps the list price")
+        for entry in entries:
+            if not rec.skippable(entry):
+                self._compare_entry(rec, entry, pricing, discount)
+        return rec.finish()
 
     # -- one `*` cost entry -------------------------------------------------------------------
 
-    def _compare_entry(self, result: SourceResult, compared: set, entry: dict, pricing: dict) -> None:
+    def _compare_entry(self, rec: Recorder, entry: dict, pricing: dict, discount: float) -> None:
         region = region_of(entry)
-        discount = num(pricing.get("discount")) or 0.0
-        expected = self._official(pricing, entry)
-        if discount > 0:
-            end = pricing.get("discount_ends_at")
-            result.promo = str(end) if end else NO_END
-            result.partial = True
-            result.notes.append(
-                f"DeepInfra lists a {discount:.4g} discount" + (f" until {end}" if end else " (no end date)")
-                + ": the catalog keeps the list price")
+        expected = self._expectations(rec, entry, pricing, region)
+        if expected is None:
+            return
         if not expected:
-            result.partial = True
-            result.notes.append(f"DeepInfra pricing type `{pricing.get('type')}` is not compared "
-                                "(no per-token / per-image / per-second mapping)")
-        for fld, listed_price, in_file, also in expected:
-            locator = cost_locator(region, fld)
-            note = f"sum of {' + '.join(also)}" if also else ""
-            compared.update(cost_locator(region, a) for a in also)
-            compared.add(locator)
-            mine = in_file
-            if also and mine is not None and not same(mine, listed_price):
-                singles = [num(entry.get(a)) for a in also]
-                if any(v is not None and same(v, listed_price) for v in singles):
-                    # One API number against two catalog numbers: equal to one of them (FLUX-2-pro:
-                    # per-megapixel input price) means the API does not describe the split.
-                    result.uncovered.extend(".".join(cost_locator(region, a)) for a in also)
-                    result.notes.append(f"the API's per-image price {listed_price:.6g} equals one of "
-                                        f"{' / '.join(also)}, not their sum: split not verifiable")
+            rec.result.partial = True
+            rec.note(f"DeepInfra pricing type `{pricing.get('type')}` is not compared "
+                     "(no per-token / per-image / per-second mapping)")
+        for ex in expected:
+            locator = cost_locator(region, ex.field)
+            mine = num(entry.get(ex.field))
+            if mine is None:
+                if not ex.skip_absent:
+                    rec.absent(locator, ex.price)
+                continue
+            if discount > 0 and not same(mine, ex.price):
+                discounted = clean(ex.price * (1 - discount))
+                if same(mine, discounted, LIMIT_TOLERANCE):
+                    # The file holds the promotional price: not a conflict, and not verified either.
+                    rec.uncovered(locator)
+                    rec.note(f"{ex.field} is {mine:.6g}, the discounted price (list {ex.price:.6g}, "
+                             f"discounted {discounted:.6g})")
                     continue
-            if discount > 0 and mine is not None and not same(mine, listed_price):
-                discounted = clean(listed_price * (1 - discount))
-                if discounted * (1 - LIMIT_TOLERANCE) <= mine <= listed_price:
-                    # Between the discounted and the list price (rounding included): the file holds a
-                    # promotional price. Not a conflict, and not verified either.
-                    result.uncovered.extend(".".join(cost_locator(region, a)) for a in (also or (fld,)))
-                    result.notes.append(f"{fld} is {mine:.6g}, a discounted price (list {listed_price:.6g}, "
-                                        f"discounted {discounted:.6g})")
-                    continue
-                note = (note + "; " if note else "") + f"outside the list price {listed_price:.6g} and the discounted price {discounted:.6g}"
-            check = compare(locator, mine, listed_price, note=note)
-            if check is not None:
-                result.checks.append(check)
+                rec.add(compare(locator, mine, ex.price,
+                                note=f"outside the list price {ex.price:.6g} and the discounted price {discounted:.6g}"))
+                continue
+            rec.add(compare(locator, mine, ex.price))
 
-    @staticmethod
-    def _official(p: dict, entry: dict) -> list[tuple[str, float, float | None, tuple[str, ...]]]:
-        """[(catalog field, list price in USD, the file's value for it, fields summed to get it)] for
-        the one cost entry. Only prices the API states are listed."""
+    def _expectations(self, rec: Recorder, entry: dict, p: dict, region: str) -> list[Expect] | None:
+        """What the API says about this entry. None when the entry was fully handled here (the image
+        split)."""
         kind = p.get("type")
-        out: dict[str, float] = {}
-        if kind in ("tokens", "input_tokens") and _cents(p.get("cents_per_input_token")) is not None:
-            unit = _cents(p["cents_per_input_token"])
-            out["input_cost_per_token"] = unit
+        out: list[Expect] = []
+        unit = _cents(p.get("cents_per_input_token"))
+        if kind in ("tokens", "input_tokens") and unit is not None:
+            if kind == "input_tokens":
+                field = next((f for f in SINGLE_PRICE_FIELDS if f in entry), "input_cost_per_token")
+            else:
+                field = "input_cost_per_token"
+            out.append(Expect(field, unit))
             if _cents(p.get("cents_per_output_token")) is not None:
-                out["output_cost_per_token"] = _cents(p["cents_per_output_token"])
+                out.append(Expect("output_cost_per_token", _cents(p["cents_per_output_token"])))
             ratio = num(p.get("rate_per_input_token_cached"))
             if ratio is not None:
-                out["cache_read_input_token_cost"] = unit * ratio
+                # a cached rate equal to the input price is derived from it: absent is not a gap
+                out.append(Expect("cache_read_input_token_cost", unit * ratio, skip_absent=same(ratio, 1.0)))
             writes = p.get("rate_per_explicit_cache_write_token")
             if isinstance(writes, dict):
                 if num(writes.get("5m")) is not None:
-                    out["cache_creation_input_token_cost"] = unit * num(writes["5m"])
+                    out.append(Expect("cache_creation_input_token_cost", unit * num(writes["5m"])))
                 if num(writes.get("1h")) is not None:
-                    out["cache_creation_input_token_cost_per_hour"] = unit * num(writes["1h"])
+                    out.append(Expect("cache_creation_input_token_cost_per_hour", unit * num(writes["1h"])))
             elif num(p.get("rate_per_input_token_cache_write")) is not None:
-                out["cache_creation_input_token_cost"] = unit * num(p["rate_per_input_token_cache_write"])
+                out.append(Expect("cache_creation_input_token_cost", unit * num(p["rate_per_input_token_cache_write"])))
             if _cents(p.get("cents_per_image_token")) is not None:
-                out["input_cost_per_image_token"] = _cents(p["cents_per_image_token"])
-        elif kind == "image_units" and _cents(p.get("cents_per_image_unit")) is not None:
+                out.append(Expect("input_cost_per_image_token", _cents(p["cents_per_image_token"])))
+            return out
+        if kind == "image_units" and _cents(p.get("cents_per_image_unit")) is not None:
             per_image = _cents(p["cents_per_image_unit"])
             i, o = num(entry.get("input_cost_per_image")), num(entry.get("output_cost_per_image"))
             if i is not None and o is not None:
-                return [("output_cost_per_image", clean(per_image), i + o,
-                         ("input_cost_per_image", "output_cost_per_image"))]
-            out["output_cost_per_image" if o is not None else "input_cost_per_image"] = per_image
-        elif kind == "output_length" and _cents(p.get("cents_per_output_sec")) is not None:
-            out["output_cost_per_second"] = _cents(p["cents_per_output_sec"])
-        elif kind == "input_length" and _cents(p.get("cents_per_input_sec")) is not None:
-            out["input_cost_per_second"] = _cents(p["cents_per_input_sec"])
-        elif kind == "input_character_length" and _cents(p.get("cents_per_input_chars")) is not None:
-            out["input_cost_per_character"] = _cents(p["cents_per_input_chars"])
-        return [(f, clean(v), num(entry.get(f)), ()) for f, v in out.items()]
+                return self._image_split(rec, region, per_image, i, o)
+            if o is not None:
+                return [Expect("output_cost_per_image", per_image)]
+            if i is not None:
+                return [Expect("input_cost_per_image", per_image)]
+            req = next((f for f in ("input_cost_per_request", "output_cost_per_request") if f in entry), None)
+            return [Expect(req, per_image)] if req else []
+        if kind == "output_length" and _cents(p.get("cents_per_output_sec")) is not None:
+            return [Expect("output_cost_per_second", _cents(p["cents_per_output_sec"]))]
+        if kind == "input_length" and _cents(p.get("cents_per_input_sec")) is not None:
+            return [Expect("input_cost_per_second", _cents(p["cents_per_input_sec"]))]
+        if kind == "input_character_length" and _cents(p.get("cents_per_input_chars")) is not None:
+            return [Expect("input_cost_per_character", _cents(p["cents_per_input_chars"]))]
+        return out
+
+    @staticmethod
+    def _image_split(rec: Recorder, region: str, per_image: float, i: float, o: float) -> None:
+        verdict = "equals" if same(i + o, per_image) else "does not equal"
+        rec.uncovered(cost_locator(region, "input_cost_per_image"))
+        rec.uncovered(cost_locator(region, "output_cost_per_image"))
+        rec.note(f"the API quotes one price per image ({clean(per_image):.6g}); it {verdict} the sum of the file's "
+                 f"input_cost_per_image + output_cost_per_image ({clean(i + o):.6g}): the split cannot be verified")
+        return None
 
 
-def make() -> DeepInfraSource:
-    return DeepInfraSource()
+SOURCES["deepinfra"] = DeepInfraSource

@@ -223,5 +223,144 @@
    "rate_per_explicit_cache_write_token": null,
    "explicit_cache_granularity_tokens": null
   }
+ },
+ {
+  "model_name": "ByteDance/Seedance-2.0",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "$4.7/M with video, $7.7/M without for 480p and 780p; $5.1/M with video, $8.4/M without for 1080p",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.00047,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "google/nano-banana-2",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "1120 tokens per input image, with output image costs scaling by resolution: 747 tokens ($0.045) for 512 (roughly 0.25MP), 1120 tokens ($0.067) for 1K (roughly 1MP), 1680 tokens ($0.101) for 2K (roughly 4MP), and 2520 tokens ($0.151) for 4K (roughly 16MP)",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.006,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "Pixverse/Pixverse-6-T2V",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": "$0.045 / second",
+   "full": "Per-second pricing varies by quality and audio toggle. 360p: $0.025/$0.035 \u00b7 540p: $0.035/$0.045 \u00b7 720p: $0.045/$0.060 \u00b7 1080p: $0.090/$0.115 (no audio /\n  with audio).",
+   "table": null,
+   "type": "output_length",
+   "cents_per_output_sec": 4.5
+  }
+ },
+ {
+  "model_name": "google/nano-banana-pro",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "560 tokens per input image, with output image costs scaling by resolution: 1120 tokens ($0.134) for 1K and 2K (roughly 1MP and 4MP), and 2000 tokens ($0.24) for 4K (roughly 16MP)",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.012,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "google/nano-banana-2-lite",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "1120 tokens ($0.034) per output image at the single supported 1K resolution (roughly 1MP)",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.003,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "Pixverse/Pixverse-T2V-HD",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "image_units",
+   "cents_per_image_unit": 40.0,
+   "default_width": 0,
+   "default_height": 0,
+   "default_iterations": 0,
+   "default_price_cents": null,
+   "usage_from_cost": false
+  }
+ },
+ {
+  "model_name": "ByteDance/Seedance-1.5-Pro",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.00012,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "Pixverse/Pixverse-T2V",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "image_units",
+   "cents_per_image_unit": 20.0,
+   "default_width": 0,
+   "default_height": 0,
+   "default_iterations": 0,
+   "default_price_cents": null,
+   "usage_from_cost": false
+  }
+ },
+ {
+  "model_name": "nace-ai/drex-max",
+  "type": "decision",
+  "pricing": {
+   "discount": 0.5,
+   "discount_ends_at": null,
+   "short": "$0.12 / 1M tokens",
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 1.2e-05,
+   "cents_per_output_token": 0.0,
+   "rate_per_input_token_cached": 1.0,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": null,
+   "rate_per_service_tier_flex": null,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  }
  }
 ]

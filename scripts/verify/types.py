@@ -37,6 +37,9 @@ class Check:
     source_value: Any
     status: CheckStatus
     note: str = ""
+    # False when `source_value` cannot be written at `locator` as-is (a derived or combined value).
+    # The sweep must skip non-writable checks. Additive: older producers get True.
+    writable: bool = True
 
 
 @dataclass
@@ -48,8 +51,11 @@ class SourceResult:
     uncovered: list[str] = field(default_factory=list)
     partial: bool = False
     notes: list[str] = field(default_factory=list)
-    # ISO date a promotion ends, when the source says so. Presence marks the file partial.
+    # ISO date a promotion ends, only when the source gives a real one; None otherwise.
     promo: str | None = None
+    # True whenever the source says a discount or promotion is active, with or without an end date.
+    # Presence of either `promo` or `promo_active` marks the file partial. Additive.
+    promo_active: bool = False
 
     @property
     def conflicts(self) -> list[Check]:
@@ -57,7 +63,8 @@ class SourceResult:
 
     @property
     def fully_verified(self) -> bool:
-        return bool(self.checks) and not self.conflicts and not self.partial and not self.uncovered
+        return (bool(self.checks) and not self.conflicts and not self.partial and not self.uncovered
+                and not self.promo and not self.promo_active)
 
 
 class Source(Protocol):

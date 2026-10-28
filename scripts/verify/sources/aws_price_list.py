@@ -22,6 +22,15 @@ NOT COMPARED (the file's fields become `uncovered` and the result `partial`): ba
 priority and ultrafast tiers, long-context (`tiered_pricing`), custom-model, latency-optimized and
 provisioned / reserved throughput SKUs, 30-minute cache writes, image/audio/video/per-second units.
 When two SKUs give two different prices for one field the field is not compared (a note says so).
+A SKU with more than one price dimension (a tier) is never read as the standard price. A cross-region
+SKU without the `global` modifier is not the global price and is skipped.
+
+SOURCE OUTLIERS. When one region's price for a field is 5x or more (or 0.2x or less) the median of
+the file's other regions, that field is `uncovered` in that region with a "source outlier" note
+(the Price List itself has 10x typos, e.g. Nova 2 Lite cache read in ca-west-1).
+
+A field absent in the file is `uncovered` ("missing in file"), never a conflict; the empty cost
+entries of a deprecated file are not compared at all.
 
 MATCHING A FILE TO A PRICE-LIST MODEL is by normalised name (see `norm`): geo prefix, vendor
 prefix, date and `-vN:M` stamps dropped. A file with no match gets a note and `partial`.
@@ -38,8 +47,9 @@ from __future__ import annotations
 import re
 
 from ..types import SourceResult
-from ._common import (Fetch, NotFound, compare, cost_entries, cost_locator, get_json, http_get, num, provider_of,
-                      region_of, stem, uncovered_fields)
+from . import SOURCES
+from ._common import (BaseSource, Fetch, NotFound, Recorder, compare, cost_entries, cost_locator, get_json, num,
+                      provider_of, region_of, stem)
 
 HOST = "https://pricing.us-east-1.amazonaws.com"
 OFFERS = ("AmazonBedrockFoundationModels", "AmazonBedrock")
@@ -218,11 +228,20 @@ def merge(into: Rates, other: Rates) -> None:
 
 # ---- the source ------------------------------------------------------------------------------
 
-class AwsPriceListSource:
+OUTLIER_FACTOR = 5.0
+
+
+def _median(values: list[float]) -> float:
+    v = sorted(values)
+    n = len(v)
+    return v[n // 2] if n % 2 else (v[n // 2 - 1] + v[n // 2]) / 2
+
+
+class AwsPriceListSource(BaseSource):
     name = "aws-price-list"
 
-    def __init__(self, fetch: Fetch = http_get):
-        self._fetch = fetch
+    def __init__(self, fetch: Fetch | None = None, **kw):
+        super().__init__(fetch, **kw)
         self._regions: dict[str, Rates | Exception] = {}
 
     def covers(self, provider: str) -> bool:
@@ -230,7 +249,8 @@ class AwsPriceListSource:
 
     def prepare(self) -> None:
         """Nothing is needed up front: each region's offer files are fetched on first use (only the
-        regions the checked files carry), once per run."""
+        regions the checked files carry), once per run; a failure is cached per region and the
+        run-level time budget covers all regions together."""
 
     def region_rates(self, region: str) -> Rates:
         """Both offers merged for one region. Raises when a fetch failed; cached either way."""
@@ -242,63 +262,73 @@ class AwsPriceListSource:
             try:
                 for offer in OFFERS:
                     try:
-                        data = get_json(self._fetch, f"{HOST}/offers/v1.0/aws/{offer}/current/{region}/index.json")
+                        data = get_json(self._get, f"{HOST}/offers/v1.0/aws/{offer}/current/{region}/index.json")
                     except NotFound:
                         continue  # this offer does not exist in the region
                     merge(rates, parse_offer(data))
                     del data
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 self._regions[region] = e
                 raise
             self._regions[region] = rates
             cached = rates
         return cached
 
-    def check(self, repo_path: str, doc: dict) -> SourceResult:
+    def _check(self, repo_path: str, doc: dict) -> SourceResult:
         result = SourceResult(source=self.name)
-        compared: set[tuple[str, ...]] = set()
+        rec = Recorder(result, doc)
         model_id = str(doc.get("model") or stem(repo_path))
         scope, keys = id_keys(model_id)
         mantle = provider_of(repo_path) == "aws-bedrock-mantle"
         families = ("mantle",) if mantle else ("native", "mantle")
-        missing, failed, ambiguous, fell_back, unmatched = [], [], set(), False, False
+        missing, failed, ambiguous, outliers, fell_back, unmatched = [], [], set(), set(), False, False
+        # pass 1: the official price of every kind in every region the file lists
+        found: list[tuple[dict, str, dict]] = []  # (entry, region, {kind: price})
         for entry in cost_entries(doc):
             region = region_of(entry)
+            if rec.skippable(entry):
+                continue
             try:
                 rates = self.region_rates(region)
             except Exception as e:  # one region's outage must not discard the others' checks
                 failed.append(f"{region} ({type(e).__name__})")
                 continue
-            found = None
+            hit = None
             for family in families:
                 for key in keys:
                     if (family, key) in rates:
-                        found = (family, rates[(family, key)])
+                        hit = (family, rates[(family, key)])
                         break
-                if found:
+                if hit:
                     break
-            if found is None:
+            if hit is None:
                 unmatched = True
                 continue
-            if not mantle and found[0] == "mantle":
+            if not mantle and hit[0] == "mantle":
                 fell_back = True
-            fields = found[1]
-            any_for_scope = False
-            for kind, fld in FIELD.items():
-                price = fields.get((scope, kind))
-                if price is None:
-                    # No SKU of this scope. A global id with no global SKU is missing, not regional.
-                    continue
-                any_for_scope = True
+            prices = {kind: hit[1][(scope, kind)] for kind in FIELD if (scope, kind) in hit[1]}
+            if not prices:
+                missing.append(region)
+                continue
+            found.append((entry, region, prices))
+        # pass 2: outlier regions per kind, then compare
+        medians = self._outlier_regions(found)
+        for entry, region, prices in found:
+            for kind, price in prices.items():
+                fld = FIELD[kind]
+                locator = cost_locator(region, fld)
                 if price != price:
                     ambiguous.add(fld)
+                    rec.uncovered(locator)
                     continue
-                check = compare(cost_locator(region, fld), entry.get(fld), price)
-                if check is not None:
-                    result.checks.append(check)
-                    compared.add(check.locator)
-            if not any_for_scope:
-                missing.append(region)
+                if (region, kind) in medians:
+                    outliers.add(f"{region} {fld} (price {price:.6g}, other regions ~{medians[(region, kind)]:.6g})")
+                    rec.uncovered(locator)
+                    continue
+                if num(entry.get(fld)) is None:
+                    rec.absent(locator, price)
+                else:
+                    rec.add(compare(locator, entry.get(fld), price))
         if unmatched and not result.checks:
             result.notes.append(f"`{model_id}` has no AWS Price List model I can match (keys tried: {', '.join(keys)})")
         elif unmatched:
@@ -309,17 +339,38 @@ class AwsPriceListSource:
             result.notes.append(f"AWS Price List unreachable for: {', '.join(sorted(set(failed)))}")
         if ambiguous:
             result.notes.append(f"several AWS SKU prices (or a unit I do not read) for {', '.join(sorted(ambiguous))}: not compared")
+        if outliers:
+            result.notes.append("source outlier, not compared: " + "; ".join(sorted(outliers)))
         if fell_back:
             result.notes.append("the Price List has only the `-mantle` SKU of this model: compared with that")
         if unmatched and mantle and not result.checks:
             result.notes.append("the Price List has no `-mantle` SKU for this file, so nothing was compared")
-        result.uncovered = uncovered_fields(doc, compared)
-        result.partial = bool(unmatched or missing or failed or ambiguous or result.uncovered
-                              or not cost_entries(doc))
         if not cost_entries(doc):
             result.notes.append("the file has no costs to compare")
-        return result
+            result.partial = True
+        if unmatched or missing or failed or ambiguous or outliers:
+            result.partial = True
+        return rec.finish()
+
+    @staticmethod
+    def _outlier_regions(found: list[tuple[dict, str, dict]]) -> dict[tuple[str, str], float]:
+        """{(region, kind): median of the other regions} for prices 5x above or below that median.
+        Needs at least two other regions with a price."""
+        by_kind: dict[str, list[tuple[str, float]]] = {}
+        for _entry, region, prices in found:
+            for kind, price in prices.items():
+                if price == price:
+                    by_kind.setdefault(kind, []).append((region, price))
+        out: dict[tuple[str, str], float] = {}
+        for kind, rows in by_kind.items():
+            for region, price in rows:
+                others = [p for r, p in rows if r != region]
+                if len(others) < 2:
+                    continue
+                med = _median(others)
+                if med > 0 and price > 0 and (price >= OUTLIER_FACTOR * med or price <= med / OUTLIER_FACTOR):
+                    out[(region, kind)] = med
+        return out
 
 
-def make() -> AwsPriceListSource:
-    return AwsPriceListSource()
+SOURCES["aws-price-list"] = AwsPriceListSource
