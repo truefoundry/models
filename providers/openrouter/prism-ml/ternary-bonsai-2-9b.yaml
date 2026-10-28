@@ -6,6 +6,7 @@ costs:
 features:
     - function_calling
     - prompt_caching
+    - structured_output
     - tool_choice
 limits:
     context_window: 262144
@@ -18,13 +19,6 @@ modalities:
         - text
 mode: chat
 model: prism-ml/ternary-bonsai-2-9b
-params:
-    - defaultValue: 1
-      key: temperature
-    - defaultValue: 0.95
-      key: top_p
-    - defaultValue: 20
-      key: top_k
 provisioning: serverless
 sources:
     - https://openrouter.ai/prism-ml/ternary-bonsai-2-9b
