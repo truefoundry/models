@@ -5,7 +5,9 @@ costs:
           input_cost_per_token: 1e-6
           output_cost_per_token: 5e-6
       input_cost_per_token: 2e-6
+      input_cost_per_token_batches: 1e-6
       output_cost_per_token: 1e-5
+      output_cost_per_token_batches: 5e-6
       priority_pricing:
           cache_read_input_token_cost: 1.8e-7
           input_cost_per_token: 3.6e-6
@@ -51,7 +53,8 @@ sources:
     - https://deepmind.google/models/gemini/cyber/
     - https://deepmind.google/models/evals-methodology/gemini-4-argon
     - https://ai.google.dev/gemini-api/docs/generate-content/thinking
-status: preview
+    - https://ai.google.dev/gemini-api/docs/models/gemini-4-argon
+status: active
 supportedModes:
     - chat
 thinking: true
