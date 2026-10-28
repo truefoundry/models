@@ -254,7 +254,8 @@ must never use a URL taken from a PR file.
    SOURCES["my-source"] = MySource
    ```
 2. Add a row to `sources/registry.yaml` (repo root): `provider`, `kind` (`api` | `pricelist` |
-   `page`), `source` (the key above), `fields` (what it compares), `added`. The core runs only
+   `page`), `source` (the key above), `fields` (what it compares: `price` makes the provider price-owned for the sweep and the agent,
+   `price-report` is the report-only twin), `added`. The core runs only
    adapters registered there for a provider. A row naming an adapter that fails to import or does
    not cover the provider yields `verify:partial`, not a crash.
 3. Add offline tests with recorded data; never call the network from a test.

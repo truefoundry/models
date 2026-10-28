@@ -105,7 +105,10 @@ def test_the_header_contract_lists_every_price_source_and_keeps_openrouter_out_o
     priced = {e.source for e in reg.entries if "price" in e.fields}
     assert priced <= safe | report_only and "openrouter" not in priced
     assert [e.fields for e in reg.for_provider("openrouter")] == [("limits",)]
-    assert {e.provider for e in reg.entries if e.source == "azure-retail-prices"} == {"azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}
+    azure = [e for e in reg.entries if e.source == "azure-retail-prices"]
+    assert {e.provider for e in azure} == {"azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}
+    assert all(e.fields == ("price-report",) for e in azure)          # report-only: never price-owned
+    assert "azure-retail-prices" not in priced
     assert [e.source for e in reg.for_provider("anthropic")] == ["anthropic-pricing-page"]
     assert all(e.added >= "2026-10-27" for e in reg.entries)
 
@@ -115,3 +118,20 @@ def test_a_provider_has_at_most_one_price_source():
     for provider in {e.provider for e in reg.entries}:
         price_sources = [e.source for e in reg.for_provider(provider) if "price" in e.fields]
         assert len(price_sources) <= 1, provider
+
+
+def test_price_report_is_a_valid_field_and_is_not_price():
+    row = with_row(fields=["price-report"])
+    assert registry.parse(row).entries[0].fields == ("price-report",)
+    assert "price" not in registry.parse(row).entries[0].fields and "price-report" in registry.FIELDS
+    with pytest.raises(RegistryError):
+        registry.parse(with_row(fields=["price-reports"]))
+
+
+def test_the_sweeps_and_the_agents_price_owned_rule_ignores_price_report():
+    """Both read `"price" in fields` on the raw list (sweep/verifier.py load_registry,
+    updation/job/ownership.py load_price_owned): re-implemented here as a contract check."""
+    data = yaml.safe_load((REPO / "sources" / "registry.yaml").read_text())
+    owned = {row["provider"] for row in data["sources"] if isinstance(row.get("fields"), list) and "price" in row["fields"]}
+    assert owned == {"deepinfra", "aws-bedrock", "anthropic"}
+    assert not owned & {"openrouter", "azure-open-ai", "azure-ai-foundry", "microsoft-foundry"}

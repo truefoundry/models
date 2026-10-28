@@ -13,7 +13,9 @@ from pathlib import Path
 import yaml
 
 KINDS = ("api", "pricelist", "page")
-FIELDS = ("price", "limits", "features", "modalities", "lifecycle")
+# `price-report`: the adapter compares prices but they are REPORT-ONLY. Unlike `price` it does not make
+# the provider price-owned for the sweep / agent, and `verify.propose` does not consult it.
+FIELDS = ("price", "price-report", "limits", "features", "modalities", "lifecycle")
 _PROVIDER = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
 _SOURCE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 _KEYS = {"provider", "kind", "source", "fields", "added"}
