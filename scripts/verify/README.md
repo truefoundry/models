@@ -315,7 +315,10 @@ re-parse the page. Registry row: `provider: anthropic`, `kind: page`, `source: a
 ## azure-retail-prices (azure-open-ai, azure-ai-foundry, microsoft-foundry)
 
 Public Azure Retail Prices API, one filter (Foundry Models, Consumption, five reference regions), at most 12 pages
-and 8 MB per run, a wall-clock deadline. Details and the SKU grammar are in `sources/azure_retail.py`. What a reviewer
+and 8 MB per run, a wall-clock deadline. A 429, 408, 5xx or network error on a page is retried up to 3 times (1, 2, 4 s;
+the server's `Retry-After` when it is at most 10 s) while the budget allows. If the fetch still fails, every Azure file is
+`partial` with the note `prepare failed (HTTPError 429)` (the status is in the note) and nothing is compared or written.
+Details and the SKU grammar are in `sources/azure_retail.py`. What a reviewer
 must know about `*`, the catalog's default cost entry, which has no Azure deployment type of its own:
 
 - `global`, `datazone_us`, `datazone_eu` are compared with the Global / Data Zone meters of their own reference regions.

@@ -12,7 +12,9 @@ reference regions (eastus2, eastus, westus3, swedencentral, francecentral): abou
 (~20 s). Paged once per run, failures cached; a run that does not finish paging has NO index at all (never a
 truncated one). Bounds: at most MAX_PAGES (12) pages and MAX_BYTES (8 MB) over the whole run, counted while
 the body is read; the run-level deadline is a wall-clock bound (socket timeout = time left, clock read between
-chunks of the body). Each NextPageLink must be plain ASCII https on exactly prices.azure.com (the API writes
+chunks of the body). A 429, 408, 5xx or network error on a page is retried up to RETRIES times (1, 2, 4 s, or the
+server's Retry-After when it is at most MAX_WAIT_S; a longer one is not waited for) while the budget allows; any
+other 4xx fails at once. Each NextPageLink must be plain ASCII https on exactly prices.azure.com (the API writes
 `:443`), no userinfo / backslash / fragment, the one path, and identical to its parsed-and-rebuilt form; a
 redirect may only go to https on the same host. A row with a NaN, infinite or negative price is dropped and
 every file of that model says so (and is partial). File content (model id, region
@@ -90,7 +92,8 @@ import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass, replace
-from datetime import date
+from datetime import date, datetime, timezone
+from email.utils import parsedate_to_datetime
 from typing import Callable
 from urllib.parse import parse_qs, quote, urlsplit, urlunsplit
 
@@ -113,10 +116,39 @@ _REGION_RE = re.compile(r"[a-z]{4,24}[0-9]?", re.ASCII)
 MAX_PAGES = 12            # the real run is 10 pages
 MAX_BYTES = 8_000_000     # the real run is 5.5 MB; counted while the body is read, across all pages
 CHUNK = 65536
+RETRIES = 3               # extra tries after the first one, so at most 4 requests for a page
+RETRY_STATUS = frozenset({408, 429})  # and every 5xx; any other 4xx is final
+BACKOFF_S = 1.0           # the wait before try n+1 is BACKOFF_S * 2**n: 1, 2, 4 s
+MAX_WAIT_S = 10.0         # one wait. A Retry-After above this is not waited for: the error is raised at once
 
 
 class ResponseTooLarge(ValueError):
     """The pages of one run exceeded MAX_BYTES."""
+
+
+def _label(e: BaseException) -> str:
+    """The class of an error and, for an HTTP error, its status: `HTTPError 429`. Never its message."""
+    code = getattr(e, "code", None)
+    return f"{type(e).__name__} {code}" if isinstance(code, int) and not isinstance(code, bool) else type(e).__name__
+
+
+def _retry_after(headers) -> float | None:
+    """The seconds a `Retry-After` header asks for (delta-seconds or an HTTP date); None when absent or unreadable."""
+    raw = headers.get("Retry-After") if headers is not None else None
+    if not isinstance(raw, str) or not raw.strip():
+        return None
+    raw = raw.strip()
+    if raw.isascii() and raw.isdigit():
+        return float(raw)
+    try:
+        when = parsedate_to_datetime(raw)
+    except (TypeError, ValueError):
+        return None
+    if when is None:
+        return None
+    if when.tzinfo is None:
+        when = when.replace(tzinfo=timezone.utc)
+    return max(0.0, (when - datetime.now(timezone.utc)).total_seconds())
 
 
 def build_url(regions: tuple[str, ...] = FETCH_REGIONS) -> str:
@@ -403,9 +435,11 @@ def _g(price: float) -> str:
 class AzureRetailSource(BaseSource):
     name = "azure-retail-prices"
 
-    def __init__(self, fetch: Fetch | None = None, *, today: Callable[[], str] | str | None = None, **kw):
+    def __init__(self, fetch: Fetch | None = None, *, today: Callable[[], str] | str | None = None,
+                 sleep: Callable[[float], None] | None = None, **kw):
         super().__init__(fetch, **kw)
         self._today = today
+        self._sleep = sleep or time.sleep
         self._index: Index | None = None
         self._keys: dict[str, set[str]] = {}
         self._error: Exception | None = None
@@ -421,10 +455,14 @@ class AzureRetailSource(BaseSource):
     def _http(self, url: str) -> bytes:
         """GET with a real wall-clock bound: the socket timeout is the time left, the clock is read between chunks
         of the body (and the socket timeout re-armed), the body is cut off at what is left of MAX_BYTES, and a
-        redirect only goes to https on the same host. One retry on a 5xx / network error while time remains."""
+        redirect only goes to https on the same host. A 429 / 408 / 5xx / network error is retried up to RETRIES
+        times with 1, 2, 4 s of backoff (the server's Retry-After instead, when it is at most MAX_WAIT_S; a longer
+        one raises at once), and only while at least 2 s of the run budget are left after the wait. 404 is NotFound
+        and any other 4xx is raised without a retry."""
         last: Exception | None = None
-        for attempt in range(2):
+        for attempt in range(RETRIES + 1):
             self._budget.check()
+            wait = BACKOFF_S * 2 ** attempt
             req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
             try:
                 with _OPENER.open(req, timeout=min(20.0, max(0.2, self._budget.remaining()))) as resp:
@@ -434,14 +472,23 @@ class AzureRetailSource(BaseSource):
             except urllib.error.HTTPError as e:
                 if e.code == 404:
                     raise NotFound(url) from e
-                if e.code < 500:
+                if e.code not in RETRY_STATUS and e.code < 500:
                     raise
                 last = e
+                asked = _retry_after(e.headers)
+                e.close()
+                if asked is not None:
+                    if asked > MAX_WAIT_S:
+                        break
+                    wait = asked
             except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
                 last = e
-            if attempt == 0 and self._budget.remaining() > 2.0:
-                time.sleep(1.0)
+            if attempt == RETRIES or self._budget.remaining() <= wait + 2.0:
+                break
+            self._sleep(wait)
         assert last is not None
+        if not isinstance(last, urllib.error.HTTPError):
+            self._budget.check()  # a socket timeout that is really the run deadline says so
         raise last
 
     def _read_body(self, resp) -> bytes:
@@ -526,7 +573,7 @@ class AzureRetailSource(BaseSource):
             self.prepare()
         except Exception as e:
             result.partial = True
-            result.notes.append(f"Azure Retail Prices API unreachable or unreadable ({type(e).__name__})")
+            result.notes.append(f"Azure Retail Prices API unreachable or unreadable ({_label(e)})")
             return rec.finish()
         assert self._index is not None
         model_id = str(doc.get("model") or stem(repo_path))
