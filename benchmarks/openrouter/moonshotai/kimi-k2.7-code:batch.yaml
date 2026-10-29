@@ -212,43 +212,44 @@ metrics:
                     third_place: 2109
                     total_tournaments: 8389
                     win_rate: 51.2
-    vals_ai:
-        kimi/kimi-k2.7-code:
-            code-migration:
-                accuracy: 25.392
-                cost_per_test: 5.040913
-                latency_seconds: 5945.669
-                stderr: 4.161
-            lcb:
-                accuracy: 82.05
-                cost_per_test: 0.027349
-                latency_seconds: 214.178
-                stderr: 1.071
-            programbench:
-                accuracy: 0.0
-                cost_per_test: 3.185154
-                latency_seconds: 3860.332
-                stderr: 0.0
-            skillsbench:
-                accuracy: 50.036
-                cost_per_test: 0.443192
-                latency_seconds: 803.827
-                stderr: 4.237
-            swebench:
-                accuracy: 78.2
-                cost_per_test: 0.265276
-                latency_seconds: 896.71
-                stderr: 1.848
-            terminal-bench-2-1:
-                accuracy: 67.041
-                cost_per_test: 0.256503
-                latency_seconds: 784.159
-                stderr: 0.375
-            vibe-code:
-                accuracy: 47.211
-                cost_per_test: 3.835806
-                latency_seconds: 10318.246
-                stderr: 5.191
+    lmarena:
+        Kimi K2.7 Code:
+            webdev:
+                image_to_webdev:
+                    publish_date: "2026-10-19"
+                    rank: 40
+                    rating: 1512.89
+                    rating_lower: 1492.67
+                    rating_upper: 1533.11
+                    vote_count: 921
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 73
+                    rating: 1473.54
+                    rating_lower: 1464.12
+                    rating_upper: 1482.95
+                    vote_count: 4950
+                webdev:
+                    publish_date: "2026-10-28"
+                    rank: 73
+                    rating: 1473.54
+                    rating_lower: 1464.12
+                    rating_upper: 1482.95
+                    vote_count: 4950
+                webdev-html:
+                    publish_date: "2026-10-28"
+                    rank: 82
+                    rating: 1450.09
+                    rating_lower: 1426.02
+                    rating_upper: 1474.15
+                    vote_count: 668
+                webdev-react:
+                    publish_date: "2026-10-28"
+                    rank: 71
+                    rating: 1474.95
+                    rating_lower: 1464.47
+                    rating_upper: 1485.43
+                    vote_count: 3945
     openrouter:
         gpqa_diamond:
             - endpoint_id: ddb46cb3-7a0d-46af-9d0c-dc73857999f8
@@ -373,3 +374,40 @@ metrics:
               provider: auto-routing
               run_count: 4
               score: 0.7621243160311789
+    vals_ai:
+        kimi/kimi-k2.7-code:
+            code-migration:
+                accuracy: 25.392
+                cost_per_test: 5.040913
+                latency_seconds: 5945.669
+                stderr: 4.161
+            lcb:
+                accuracy: 82.05
+                cost_per_test: 0.027349
+                latency_seconds: 214.178
+                stderr: 1.071
+            programbench:
+                accuracy: 0.0
+                cost_per_test: 3.185154
+                latency_seconds: 3860.332
+                stderr: 0.0
+            skillsbench:
+                accuracy: 50.036
+                cost_per_test: 0.443192
+                latency_seconds: 803.827
+                stderr: 4.237
+            swebench:
+                accuracy: 78.2
+                cost_per_test: 0.265276
+                latency_seconds: 896.71
+                stderr: 1.848
+            terminal-bench-2-1:
+                accuracy: 67.041
+                cost_per_test: 0.256503
+                latency_seconds: 784.159
+                stderr: 0.375
+            vibe-code:
+                accuracy: 47.211
+                cost_per_test: 3.835806
+                latency_seconds: 10318.246
+                stderr: 5.191

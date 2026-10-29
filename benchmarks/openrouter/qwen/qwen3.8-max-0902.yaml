@@ -53,6 +53,59 @@ metrics:
         terminalbench_science: 0.119047619047619
         terminalbench_v2_1: 0.887640449438202
         terminalbench_v4_0: 0.388888888888889
+    lmarena:
+        Qwen3.8-Max (0902):
+            webdev:
+                image_to_webdev:
+                    publish_date: "2026-10-19"
+                    rank: 9
+                    rating: 1636.59
+                    rating_lower: 1618.25
+                    rating_upper: 1654.93
+                    vote_count: 1163
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 13
+                    rating: 1675.94
+                    rating_lower: 1669.26
+                    rating_upper: 1682.61
+                    vote_count: 17936
+                webdev:
+                    publish_date: "2026-10-28"
+                    rank: 13
+                    rating: 1675.94
+                    rating_lower: 1669.26
+                    rating_upper: 1682.61
+                    vote_count: 17936
+                webdev-html:
+                    publish_date: "2026-10-28"
+                    rank: 16
+                    rating: 1657.38
+                    rating_lower: 1644.81
+                    rating_upper: 1669.96
+                    vote_count: 3300
+                webdev-react:
+                    publish_date: "2026-10-28"
+                    rank: 12
+                    rating: 1691.77
+                    rating_lower: 1683.95
+                    rating_upper: 1699.59
+                    vote_count: 10994
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 0fe01449-9981-49eb-804f-a31e57e4fb09
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.6395896750695447
+            - endpoint_id: a6e057a6-5101-4f0f-b838-e11b7b90556b
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.6463279991352125
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.637209
     vals_ai:
         alibaba/qwen3.8-max:
             code-migration:
@@ -321,18 +374,3 @@ metrics:
                 cost_per_test: 11.668329
                 latency_seconds: 5079.378
                 stderr: 3.721
-    openrouter:
-        lookback_days: 32
-        vgi_bench:
-            - endpoint_id: 0fe01449-9981-49eb-804f-a31e57e4fb09
-              provider: Alibaba Cloud Int.
-              run_count: 2
-              score: 0.6395896750695447
-            - endpoint_id: a6e057a6-5101-4f0f-b838-e11b7b90556b
-              provider: Alibaba Cloud Int.
-              run_count: 2
-              score: 0.6463279991352125
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.637209

@@ -69,6 +69,57 @@ metrics:
                     third_place: 215
                     total_tournaments: 817
                     win_rate: 53
+    lmarena:
+        GPT-6.1 Terra (Max):
+            webdev:
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 14
+                    rating: 1672.65
+                    rating_lower: 1657.33
+                    rating_upper: 1687.97
+                    vote_count: 1821
+                webdev:
+                    publish_date: "2026-10-28"
+                    rank: 14
+                    rating: 1672.65
+                    rating_lower: 1657.33
+                    rating_upper: 1687.97
+                    vote_count: 1821
+                webdev-html:
+                    publish_date: "2026-10-28"
+                    rank: 7
+                    rating: 1718.76
+                    rating_lower: 1681.99
+                    rating_upper: 1755.53
+                    vote_count: 351
+                webdev-react:
+                    publish_date: "2026-10-28"
+                    rank: 20
+                    rating: 1657.29
+                    rating_lower: 1637.88
+                    rating_upper: 1676.7
+                    vote_count: 1123
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 6a8480a0-23c9-4ce7-8540-f0e85521e213
+              provider: Azure
+              run_count: 1
+              score: 0.919192
+            - endpoint_id: 2d2ad10f-098e-4bbf-aa95-11f705b2b9a2
+              provider: OpenAI
+              run_count: 1
+              score: 0.910774
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 6a8480a0-23c9-4ce7-8540-f0e85521e213
+              provider: Azure
+              run_count: 1
+              score: 0.686667
+            - endpoint_id: 2d2ad10f-098e-4bbf-aa95-11f705b2b9a2
+              provider: OpenAI
+              run_count: 1
+              score: 0.7
     vals_ai:
         openai/gpt-6.1-terra:
             emb-v1-1:
@@ -121,23 +172,3 @@ metrics:
                 cost_per_test: 5.996953
                 latency_seconds: 2250.002
                 stderr: 2.865
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: 6a8480a0-23c9-4ce7-8540-f0e85521e213
-              provider: Azure
-              run_count: 1
-              score: 0.919192
-            - endpoint_id: 2d2ad10f-098e-4bbf-aa95-11f705b2b9a2
-              provider: OpenAI
-              run_count: 1
-              score: 0.910774
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 6a8480a0-23c9-4ce7-8540-f0e85521e213
-              provider: Azure
-              run_count: 1
-              score: 0.686667
-            - endpoint_id: 2d2ad10f-098e-4bbf-aa95-11f705b2b9a2
-              provider: OpenAI
-              run_count: 1
-              score: 0.7

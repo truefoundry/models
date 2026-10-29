@@ -165,6 +165,51 @@ metrics:
                     third_place: 1247
                     total_tournaments: 3971
                     win_rate: 48.6
+    lmarena:
+        GPT-5.3-Codex (Codex Harness):
+            webdev:
+                image_to_webdev:
+                    publish_date: "2026-10-19"
+                    rank: 50
+                    rating: 1443.14
+                    rating_lower: 1429.07
+                    rating_upper: 1457.21
+                    vote_count: 2671
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 112
+                    rating: 1370.94
+                    rating_lower: 1359.61
+                    rating_upper: 1382.26
+                    vote_count: 3648
+                webdev:
+                    publish_date: "2026-10-28"
+                    rank: 112
+                    rating: 1370.94
+                    rating_lower: 1359.61
+                    rating_upper: 1382.26
+                    vote_count: 3648
+                webdev-html:
+                    publish_date: "2026-10-28"
+                    rank: 93
+                    rating: 1421.58
+                    rating_lower: 1390.24
+                    rating_upper: 1452.92
+                    vote_count: 399
+                webdev-react:
+                    publish_date: "2026-10-28"
+                    rank: 110
+                    rating: 1356.08
+                    rating_lower: 1344.0
+                    rating_upper: 1368.15
+                    vote_count: 3222
+    openrouter:
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 75bb5ca0-7b08-4f1a-aca5-aa2bbf44d98e
+              provider: OpenAI
+              run_count: 1
+              score: 0.753333
     vals_ai:
         openai/gpt-5.3-codex:
             ioi:
@@ -197,10 +242,3 @@ metrics:
                 cost_per_test: 11.914536
                 latency_seconds: 4548.115
                 stderr: 4.714
-    openrouter:
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 75bb5ca0-7b08-4f1a-aca5-aa2bbf44d98e
-              provider: OpenAI
-              run_count: 1
-              score: 0.753333

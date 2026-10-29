@@ -97,68 +97,37 @@ metrics:
                     third_place: 292
                     total_tournaments: 1142
                     win_rate: 49.6
-    vals_ai:
-        minimax/MiniMax-M3.1-flash:
-            emb-v1-1:
-                accuracy: 67.843
-                cost_per_test: 0.268958
-                latency_seconds: 1847.78
-                stderr: 2.29
-            fabv2-1:
-                accuracy: 58.826
-                cost_per_test: 0.158978
-                latency_seconds: 904.204
-                stderr: 2.07
-            finance_index:
-                accuracy: 55.906
-                cost_per_test: 0.249628
-                latency_seconds: 1571.585
-                stderr: 1.42
-            hlab:
-                accuracy: 7.5
-                cost_per_test: 0.472848
-                latency_seconds: 1497.601
-                stderr: 2.265
-            legal_index:
-                accuracy: 67.069
-                cost_per_test: 0.412858
-                latency_seconds: 2124.118
-                stderr: 1.778
-            legal_research:
-                accuracy: 34.135
-                cost_per_test: 0.444777
-                latency_seconds: 2911.983
-                stderr: 3.296
-            sage:
-                accuracy: 85.258
-                cost_per_test: 0.007619
-                latency_seconds: 73.758
-                stderr: 1.996
-            tax_agent_bench:
-                accuracy: 32.136
-                cost_per_test: 0.320948
-                latency_seconds: 1962.771
-                stderr: 3.342
-            terminal-bench-4:
-                accuracy: 25.253
-                cost_per_test: 0.734722
-                latency_seconds: 3030.551
-                stderr: 1.01
-            vals_index:
-                accuracy: 53.781
-                cost_per_test: 0.659684
-                latency_seconds: 2597.835
-                stderr: 1.067
-            vals_router_index:
-                accuracy: 53.781
-                cost_per_test: 0.659684
-                latency_seconds: 2597.835
-                stderr: 1.067
-            vibe-code:
-                accuracy: 73.944
-                cost_per_test: 1.146649
-                latency_seconds: 1263.916
-                stderr: 4.249
+    lmarena:
+        MiniMax-M3.1-Flash:
+            webdev:
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 38
+                    rating: 1582.46
+                    rating_lower: 1570.93
+                    rating_upper: 1593.99
+                    vote_count: 3062
+                webdev:
+                    publish_date: "2026-10-28"
+                    rank: 38
+                    rating: 1582.46
+                    rating_lower: 1570.93
+                    rating_upper: 1593.99
+                    vote_count: 3062
+                webdev-html:
+                    publish_date: "2026-10-28"
+                    rank: 52
+                    rating: 1538.76
+                    rating_lower: 1508.73
+                    rating_upper: 1568.79
+                    vote_count: 486
+                webdev-react:
+                    publish_date: "2026-10-28"
+                    rank: 35
+                    rating: 1606.9
+                    rating_lower: 1592.48
+                    rating_upper: 1621.31
+                    vote_count: 1915
     openrouter:
         gpqa_diamond:
             - endpoint_id: 365202e3-301c-4dfc-9301-53f5f68829d0
@@ -304,3 +273,65 @@ metrics:
               provider: Wafer
               run_count: 1
               score: 0.394077
+    vals_ai:
+        minimax/MiniMax-M3.1-flash:
+            emb-v1-1:
+                accuracy: 67.843
+                cost_per_test: 0.268958
+                latency_seconds: 1847.78
+                stderr: 2.29
+            fabv2-1:
+                accuracy: 58.826
+                cost_per_test: 0.158978
+                latency_seconds: 904.204
+                stderr: 2.07
+            finance_index:
+                accuracy: 55.906
+                cost_per_test: 0.249628
+                latency_seconds: 1571.585
+                stderr: 1.42
+            hlab:
+                accuracy: 7.5
+                cost_per_test: 0.472848
+                latency_seconds: 1497.601
+                stderr: 2.265
+            legal_index:
+                accuracy: 67.069
+                cost_per_test: 0.412858
+                latency_seconds: 2124.118
+                stderr: 1.778
+            legal_research:
+                accuracy: 34.135
+                cost_per_test: 0.444777
+                latency_seconds: 2911.983
+                stderr: 3.296
+            sage:
+                accuracy: 85.258
+                cost_per_test: 0.007619
+                latency_seconds: 73.758
+                stderr: 1.996
+            tax_agent_bench:
+                accuracy: 32.136
+                cost_per_test: 0.320948
+                latency_seconds: 1962.771
+                stderr: 3.342
+            terminal-bench-4:
+                accuracy: 25.253
+                cost_per_test: 0.734722
+                latency_seconds: 3030.551
+                stderr: 1.01
+            vals_index:
+                accuracy: 53.781
+                cost_per_test: 0.659684
+                latency_seconds: 2597.835
+                stderr: 1.067
+            vals_router_index:
+                accuracy: 53.781
+                cost_per_test: 0.659684
+                latency_seconds: 2597.835
+                stderr: 1.067
+            vibe-code:
+                accuracy: 73.944
+                cost_per_test: 1.146649
+                latency_seconds: 1263.916
+                stderr: 4.249

@@ -179,49 +179,772 @@ metrics:
                     third_place: 1898
                     total_tournaments: 6501
                     win_rate: 47.1
-    vals_ai:
-        google/gemini-2.5-flash:
-            ioi-v1:
-                accuracy: 2.611
-                cost_per_test: 0.036998
-                latency_seconds: 350.186
-                stderr: 1.03
-            medcode:
-                accuracy: 38.425
-                cost_per_test: 0.003698
-                latency_seconds: 22.145
-                stderr: 1.923
-            medscribe:
-                accuracy: 82.869
-                cost_per_test: 0.014869
-                latency_seconds: 22.786
-                stderr: 1.909
-            sage-v1:
-                accuracy: 44.756
-                cost_per_test: 0.002737
-                latency_seconds: 40.213
-                stderr: 3.418
-        google/gemini-2.5-flash-thinking:
-            medcode:
-                accuracy: 40.357
-                cost_per_test: 0.003661
-                latency_seconds: 22.833
-                stderr: 1.952
-            medscribe:
-                accuracy: 82.983
-                cost_per_test: 0.014824
-                latency_seconds: 22.529
-                stderr: 1.908
-            sage-v1:
-                accuracy: 39.602
-                cost_per_test: 0.002863
-                latency_seconds: 39.616
-                stderr: 3.422
-            terminal-bench:
-                accuracy: 21.25
-                cost_per_test: 0.447777
-                latency_seconds: 244.663
-                stderr: 4.574
+    lmarena:
+        Gemini 2.5 Flash:
+            text:
+                chinese:
+                    publish_date: "2026-10-28"
+                    rank: 126
+                    rating: 1449.46
+                    rating_lower: 1442.9
+                    rating_upper: 1456.03
+                    vote_count: 9165
+                coding:
+                    publish_date: "2026-10-28"
+                    rank: 148
+                    rating: 1423.43
+                    rating_lower: 1419.23
+                    rating_upper: 1427.62
+                    vote_count: 26352
+                creative_writing:
+                    publish_date: "2026-10-28"
+                    rank: 103
+                    rating: 1399.87
+                    rating_lower: 1394.93
+                    rating_upper: 1404.81
+                    vote_count: 17646
+                english:
+                    publish_date: "2026-10-28"
+                    rank: 143
+                    rating: 1417.78
+                    rating_lower: 1414.53
+                    rating_upper: 1421.03
+                    vote_count: 54665
+                exclude_ties:
+                    publish_date: "2026-10-28"
+                    rank: 127
+                    rating: 1404.04
+                    rating_lower: 1400.72
+                    rating_upper: 1407.36
+                    vote_count: 90056
+                expert:
+                    publish_date: "2026-10-28"
+                    rank: 127
+                    rating: 1426.01
+                    rating_lower: 1419.37
+                    rating_upper: 1432.65
+                    vote_count: 8404
+                french:
+                    publish_date: "2026-10-28"
+                    rank: 116
+                    rating: 1432.09
+                    rating_lower: 1419.51
+                    rating_upper: 1444.68
+                    vote_count: 2609
+                german:
+                    publish_date: "2026-10-28"
+                    rank: 103
+                    rating: 1417.58
+                    rating_lower: 1405.65
+                    rating_upper: 1429.52
+                    vote_count: 2686
+                hard_prompts:
+                    publish_date: "2026-10-28"
+                    rank: 130
+                    rating: 1422.03
+                    rating_lower: 1418.94
+                    rating_upper: 1425.11
+                    vote_count: 65107
+                hard_prompts_english:
+                    publish_date: "2026-10-28"
+                    rank: 144
+                    rating: 1420.38
+                    rating_lower: 1416.32
+                    rating_upper: 1424.44
+                    vote_count: 28888
+                industry_business_and_management_and_financial_operations:
+                    publish_date: "2026-10-28"
+                    rank: 136
+                    rating: 1403.48
+                    rating_lower: 1399.01
+                    rating_upper: 1407.95
+                    vote_count: 22738
+                industry_entertainment_and_sports_and_media:
+                    publish_date: "2026-10-28"
+                    rank: 113
+                    rating: 1393.42
+                    rating_lower: 1389.02
+                    rating_upper: 1397.82
+                    vote_count: 23176
+                industry_legal_and_government:
+                    publish_date: "2026-10-28"
+                    rank: 110
+                    rating: 1430.52
+                    rating_lower: 1423.97
+                    rating_upper: 1437.07
+                    vote_count: 8906
+                industry_life_and_physical_and_social_science:
+                    publish_date: "2026-10-28"
+                    rank: 123
+                    rating: 1432.66
+                    rating_lower: 1428.04
+                    rating_upper: 1437.28
+                    vote_count: 20587
+                industry_mathematical:
+                    publish_date: "2026-10-28"
+                    rank: 133
+                    rating: 1422.4
+                    rating_lower: 1415.25
+                    rating_upper: 1429.54
+                    vote_count: 7071
+                industry_medicine_and_healthcare:
+                    publish_date: "2026-10-28"
+                    rank: 122
+                    rating: 1427.53
+                    rating_lower: 1420.51
+                    rating_upper: 1434.55
+                    vote_count: 7887
+                industry_software_and_it_services:
+                    publish_date: "2026-10-28"
+                    rank: 149
+                    rating: 1425.06
+                    rating_lower: 1421.54
+                    rating_upper: 1428.58
+                    vote_count: 43830
+                industry_writing_and_literature_and_language:
+                    publish_date: "2026-10-28"
+                    rank: 108
+                    rating: 1405.33
+                    rating_lower: 1401.23
+                    rating_upper: 1409.42
+                    vote_count: 28432
+                instruction_following:
+                    publish_date: "2026-10-28"
+                    rank: 119
+                    rating: 1404.88
+                    rating_lower: 1401.12
+                    rating_upper: 1408.64
+                    vote_count: 34820
+                japanese:
+                    publish_date: "2026-10-28"
+                    rank: 84
+                    rating: 1396.12
+                    rating_lower: 1382.14
+                    rating_upper: 1410.11
+                    vote_count: 2043
+                korean:
+                    publish_date: "2026-10-28"
+                    rank: 88
+                    rating: 1384.66
+                    rating_lower: 1371.46
+                    rating_upper: 1397.85
+                    vote_count: 2368
+                longer_query:
+                    publish_date: "2026-10-28"
+                    rank: 113
+                    rating: 1418.81
+                    rating_lower: 1414.91
+                    rating_upper: 1422.71
+                    vote_count: 33302
+                math:
+                    publish_date: "2026-10-28"
+                    rank: 144
+                    rating: 1410.67
+                    rating_lower: 1404.02
+                    rating_upper: 1417.31
+                    vote_count: 8000
+                multi_turn:
+                    publish_date: "2026-10-28"
+                    rank: 143
+                    rating: 1407.93
+                    rating_lower: 1403.37
+                    rating_upper: 1412.49
+                    vote_count: 21701
+                non_english:
+                    publish_date: "2026-10-28"
+                    rank: 110
+                    rating: 1409.19
+                    rating_lower: 1406.2
+                    rating_upper: 1412.18
+                    vote_count: 70734
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 129
+                    rating: 1416.91
+                    rating_lower: 1414.51
+                    rating_upper: 1419.31
+                    vote_count: 125457
+                polish:
+                    publish_date: "2026-10-28"
+                    rank: 107
+                    rating: 1413.14
+                    rating_lower: 1404.88
+                    rating_upper: 1421.41
+                    vote_count: 6189
+                russian:
+                    publish_date: "2026-10-28"
+                    rank: 110
+                    rating: 1414.92
+                    rating_lower: 1409.41
+                    rating_upper: 1420.44
+                    vote_count: 12296
+                spanish:
+                    publish_date: "2026-10-28"
+                    rank: 111
+                    rating: 1421.67
+                    rating_lower: 1410.77
+                    rating_upper: 1432.58
+                    vote_count: 3460
+            text_factuality:
+                chinese:
+                    publish_date: "2026-10-28"
+                    rank: 93
+                    rating: 1470.23
+                    rating_lower: 1458.82
+                    rating_upper: 1481.63
+                    vote_count: 2946
+                coding:
+                    publish_date: "2026-10-28"
+                    rank: 124
+                    rating: 1470.39
+                    rating_lower: 1464.5
+                    rating_upper: 1476.29
+                    vote_count: 11244
+                creative_writing:
+                    publish_date: "2026-10-28"
+                    rank: 92
+                    rating: 1411.37
+                    rating_lower: 1404.42
+                    rating_upper: 1418.32
+                    vote_count: 6558
+                english:
+                    publish_date: "2026-10-28"
+                    rank: 120
+                    rating: 1440.37
+                    rating_lower: 1436.53
+                    rating_upper: 1444.21
+                    vote_count: 27580
+                exclude_ties:
+                    publish_date: "2026-10-28"
+                    rank: 110
+                    rating: 1429.67
+                    rating_lower: 1426.22
+                    rating_upper: 1433.12
+                    vote_count: 50512
+                expert:
+                    publish_date: "2026-10-28"
+                    rank: 96
+                    rating: 1455.22
+                    rating_lower: 1445.0
+                    rating_upper: 1465.44
+                    vote_count: 3237
+                french:
+                    publish_date: "2026-10-28"
+                    rank: 65
+                    rating: 1456.83
+                    rating_lower: 1440.26
+                    rating_upper: 1473.39
+                    vote_count: 1139
+                german:
+                    publish_date: "2026-10-28"
+                    rank: 30
+                    rating: 1413.27
+                    rating_lower: 1391.14
+                    rating_upper: 1435.4
+                    vote_count: 573
+                hard_prompts:
+                    publish_date: "2026-10-28"
+                    rank: 113
+                    rating: 1454.24
+                    rating_lower: 1450.91
+                    rating_upper: 1457.58
+                    vote_count: 40457
+                hard_prompts_english:
+                    publish_date: "2026-10-28"
+                    rank: 118
+                    rating: 1460.08
+                    rating_lower: 1454.45
+                    rating_upper: 1465.71
+                    vote_count: 12500
+                industry_business_and_management_and_financial_operations:
+                    publish_date: "2026-10-28"
+                    rank: 118
+                    rating: 1429.18
+                    rating_lower: 1422.49
+                    rating_upper: 1435.86
+                    vote_count: 8769
+                industry_entertainment_and_sports_and_media:
+                    publish_date: "2026-10-28"
+                    rank: 101
+                    rating: 1406.01
+                    rating_lower: 1399.5
+                    rating_upper: 1412.51
+                    vote_count: 8625
+                industry_legal_and_government:
+                    publish_date: "2026-10-28"
+                    rank: 80
+                    rating: 1453.64
+                    rating_lower: 1442.98
+                    rating_upper: 1464.31
+                    vote_count: 3076
+                industry_life_and_physical_and_social_science:
+                    publish_date: "2026-10-28"
+                    rank: 98
+                    rating: 1458.34
+                    rating_lower: 1451.13
+                    rating_upper: 1465.56
+                    vote_count: 7112
+                industry_mathematical:
+                    publish_date: "2026-10-28"
+                    rank: 99
+                    rating: 1420.53
+                    rating_lower: 1408.72
+                    rating_upper: 1432.33
+                    vote_count: 2246
+                industry_medicine_and_healthcare:
+                    publish_date: "2026-10-28"
+                    rank: 92
+                    rating: 1458.38
+                    rating_lower: 1447.09
+                    rating_upper: 1469.67
+                    vote_count: 2711
+                industry_software_and_it_services:
+                    publish_date: "2026-10-28"
+                    rank: 130
+                    rating: 1459.32
+                    rating_lower: 1454.81
+                    rating_upper: 1463.83
+                    vote_count: 20773
+                industry_writing_and_literature_and_language:
+                    publish_date: "2026-10-28"
+                    rank: 100
+                    rating: 1417.98
+                    rating_lower: 1412.24
+                    rating_upper: 1423.72
+                    vote_count: 10768
+                instruction_following:
+                    publish_date: "2026-10-28"
+                    rank: 111
+                    rating: 1425.08
+                    rating_lower: 1419.88
+                    rating_upper: 1430.28
+                    vote_count: 15053
+                korean:
+                    publish_date: "2026-10-28"
+                    rank: 41
+                    rating: 1391.96
+                    rating_lower: 1369.37
+                    rating_upper: 1414.55
+                    vote_count: 543
+                longer_query:
+                    publish_date: "2026-10-28"
+                    rank: 110
+                    rating: 1443.61
+                    rating_lower: 1438.65
+                    rating_upper: 1448.58
+                    vote_count: 16740
+                math:
+                    publish_date: "2026-10-28"
+                    rank: 101
+                    rating: 1413.46
+                    rating_lower: 1402.13
+                    rating_upper: 1424.79
+                    vote_count: 2487
+                multi_turn:
+                    publish_date: "2026-10-28"
+                    rank: 114
+                    rating: 1433.62
+                    rating_lower: 1426.62
+                    rating_upper: 1440.61
+                    vote_count: 7991
+                non_english:
+                    publish_date: "2026-10-28"
+                    rank: 98
+                    rating: 1425.17
+                    rating_lower: 1421.85
+                    rating_upper: 1428.49
+                    vote_count: 39665
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 104
+                    rating: 1436.03
+                    rating_lower: 1433.46
+                    rating_upper: 1438.59
+                    vote_count: 70533
+                polish:
+                    publish_date: "2026-10-28"
+                    rank: 50
+                    rating: 1409.63
+                    rating_lower: 1393.19
+                    rating_upper: 1426.06
+                    vote_count: 1171
+                russian:
+                    publish_date: "2026-10-28"
+                    rank: 97
+                    rating: 1434.11
+                    rating_lower: 1425.28
+                    rating_upper: 1442.94
+                    vote_count: 4707
+                spanish:
+                    publish_date: "2026-10-28"
+                    rank: 55
+                    rating: 1439.06
+                    rating_lower: 1423.27
+                    rating_upper: 1454.86
+                    vote_count: 1341
+            text_style_control:
+                chinese:
+                    publish_date: "2026-10-28"
+                    rank: 151
+                    rating: 1437.72
+                    rating_lower: 1431.06
+                    rating_upper: 1444.37
+                    vote_count: 9165
+                coding:
+                    publish_date: "2026-10-28"
+                    rank: 195
+                    rating: 1423.66
+                    rating_lower: 1419.4
+                    rating_upper: 1427.93
+                    vote_count: 26352
+                creative_writing:
+                    publish_date: "2026-10-28"
+                    rank: 119
+                    rating: 1393.71
+                    rating_lower: 1388.73
+                    rating_upper: 1398.7
+                    vote_count: 17646
+                english:
+                    publish_date: "2026-10-28"
+                    rank: 165
+                    rating: 1413.14
+                    rating_lower: 1409.85
+                    rating_upper: 1416.44
+                    vote_count: 54665
+                exclude_ties:
+                    publish_date: "2026-10-28"
+                    rank: 155
+                    rating: 1394.34
+                    rating_lower: 1390.94
+                    rating_upper: 1397.74
+                    vote_count: 90056
+                expert:
+                    publish_date: "2026-10-28"
+                    rank: 157
+                    rating: 1424.55
+                    rating_lower: 1417.8
+                    rating_upper: 1431.29
+                    vote_count: 8404
+                french:
+                    publish_date: "2026-10-28"
+                    rank: 142
+                    rating: 1426.9
+                    rating_lower: 1414.18
+                    rating_upper: 1439.62
+                    vote_count: 2609
+                german:
+                    publish_date: "2026-10-28"
+                    rank: 131
+                    rating: 1407.48
+                    rating_lower: 1395.38
+                    rating_upper: 1419.58
+                    vote_count: 2686
+                hard_prompts:
+                    publish_date: "2026-10-28"
+                    rank: 165
+                    rating: 1419.21
+                    rating_lower: 1416.08
+                    rating_upper: 1422.34
+                    vote_count: 65107
+                hard_prompts_english:
+                    publish_date: "2026-10-28"
+                    rank: 179
+                    rating: 1420.9
+                    rating_lower: 1416.78
+                    rating_upper: 1425.02
+                    vote_count: 28888
+                industry_business_and_management_and_financial_operations:
+                    publish_date: "2026-10-28"
+                    rank: 169
+                    rating: 1399.6
+                    rating_lower: 1395.06
+                    rating_upper: 1404.14
+                    vote_count: 22738
+                industry_entertainment_and_sports_and_media:
+                    publish_date: "2026-10-28"
+                    rank: 136
+                    rating: 1386.23
+                    rating_lower: 1381.77
+                    rating_upper: 1390.68
+                    vote_count: 23176
+                industry_legal_and_government:
+                    publish_date: "2026-10-28"
+                    rank: 134
+                    rating: 1425.99
+                    rating_lower: 1419.34
+                    rating_upper: 1432.64
+                    vote_count: 8906
+                industry_life_and_physical_and_social_science:
+                    publish_date: "2026-10-28"
+                    rank: 148
+                    rating: 1430.17
+                    rating_lower: 1425.48
+                    rating_upper: 1434.86
+                    vote_count: 20587
+                industry_mathematical:
+                    publish_date: "2026-10-28"
+                    rank: 148
+                    rating: 1415.98
+                    rating_lower: 1408.8
+                    rating_upper: 1423.16
+                    vote_count: 7071
+                industry_medicine_and_healthcare:
+                    publish_date: "2026-10-28"
+                    rank: 157
+                    rating: 1426.99
+                    rating_lower: 1419.85
+                    rating_upper: 1434.13
+                    vote_count: 7887
+                industry_software_and_it_services:
+                    publish_date: "2026-10-28"
+                    rank: 186
+                    rating: 1420.91
+                    rating_lower: 1417.34
+                    rating_upper: 1424.49
+                    vote_count: 43830
+                industry_writing_and_literature_and_language:
+                    publish_date: "2026-10-28"
+                    rank: 128
+                    rating: 1401.52
+                    rating_lower: 1397.37
+                    rating_upper: 1405.66
+                    vote_count: 28432
+                instruction_following:
+                    publish_date: "2026-10-28"
+                    rank: 151
+                    rating: 1399.29
+                    rating_lower: 1395.48
+                    rating_upper: 1403.09
+                    vote_count: 34820
+                japanese:
+                    publish_date: "2026-10-28"
+                    rank: 103
+                    rating: 1389.39
+                    rating_lower: 1375.24
+                    rating_upper: 1403.55
+                    vote_count: 2043
+                korean:
+                    publish_date: "2026-10-28"
+                    rank: 116
+                    rating: 1371.28
+                    rating_lower: 1357.93
+                    rating_upper: 1384.63
+                    vote_count: 2368
+                longer_query:
+                    publish_date: "2026-10-28"
+                    rank: 152
+                    rating: 1417.11
+                    rating_lower: 1413.15
+                    rating_upper: 1421.07
+                    vote_count: 33302
+                math:
+                    publish_date: "2026-10-28"
+                    rank: 157
+                    rating: 1405.27
+                    rating_lower: 1398.58
+                    rating_upper: 1411.96
+                    vote_count: 8000
+                multi_turn:
+                    publish_date: "2026-10-28"
+                    rank: 163
+                    rating: 1403.01
+                    rating_lower: 1398.38
+                    rating_upper: 1407.64
+                    vote_count: 21701
+                non_english:
+                    publish_date: "2026-10-28"
+                    rank: 144
+                    rating: 1399.34
+                    rating_lower: 1396.31
+                    rating_upper: 1402.38
+                    vote_count: 70734
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 154
+                    rating: 1409.24
+                    rating_lower: 1406.8
+                    rating_upper: 1411.67
+                    vote_count: 125457
+                polish:
+                    publish_date: "2026-10-28"
+                    rank: 132
+                    rating: 1399.85
+                    rating_lower: 1391.33
+                    rating_upper: 1408.36
+                    vote_count: 6189
+                russian:
+                    publish_date: "2026-10-28"
+                    rank: 135
+                    rating: 1409.28
+                    rating_lower: 1403.69
+                    rating_upper: 1414.88
+                    vote_count: 12296
+                spanish:
+                    publish_date: "2026-10-28"
+                    rank: 139
+                    rating: 1407.82
+                    rating_lower: 1396.79
+                    rating_upper: 1418.86
+                    vote_count: 3460
+            vision:
+                captioning:
+                    publish_date: "2026-10-19"
+                    rank: 7
+                    rating: 1276.65
+                    rating_lower: 1252.23
+                    rating_upper: 1301.06
+                    vote_count: 582
+                chinese:
+                    publish_date: "2026-10-19"
+                    rank: 60
+                    rating: 1284.4
+                    rating_lower: 1271.38
+                    rating_upper: 1297.43
+                    vote_count: 3692
+                creative_writing_vision:
+                    publish_date: "2026-10-19"
+                    rank: 59
+                    rating: 1241.1
+                    rating_lower: 1228.46
+                    rating_upper: 1253.75
+                    vote_count: 2919
+                diagram:
+                    publish_date: "2026-10-19"
+                    rank: 81
+                    rating: 1245.18
+                    rating_lower: 1237.97
+                    rating_upper: 1252.4
+                    vote_count: 8547
+                english:
+                    publish_date: "2026-10-19"
+                    rank: 76
+                    rating: 1239.37
+                    rating_lower: 1233.04
+                    rating_upper: 1245.69
+                    vote_count: 25447
+                entity_recognition:
+                    publish_date: "2026-10-19"
+                    rank: 16
+                    rating: 1251.64
+                    rating_lower: 1227.89
+                    rating_upper: 1275.39
+                    vote_count: 628
+                homework:
+                    publish_date: "2026-10-19"
+                    rank: 80
+                    rating: 1244.35
+                    rating_lower: 1235.34
+                    rating_upper: 1253.36
+                    vote_count: 4863
+                humor:
+                    publish_date: "2026-10-19"
+                    rank: 64
+                    rating: 1225.4
+                    rating_lower: 1210.07
+                    rating_upper: 1240.73
+                    vote_count: 2192
+                ocr:
+                    publish_date: "2026-10-19"
+                    rank: 80
+                    rating: 1237.46
+                    rating_lower: 1232.58
+                    rating_upper: 1242.34
+                    vote_count: 27156
+                overall:
+                    publish_date: "2026-10-19"
+                    rank: 76
+                    rating: 1235.48
+                    rating_lower: 1230.95
+                    rating_upper: 1240.01
+                    vote_count: 60087
+            vision_style_control:
+                captioning:
+                    publish_date: "2026-10-19"
+                    rank: 10
+                    rating: 1211.35
+                    rating_lower: 1185.59
+                    rating_upper: 1237.11
+                    vote_count: 582
+                chinese:
+                    publish_date: "2026-10-19"
+                    rank: 70
+                    rating: 1258.12
+                    rating_lower: 1244.85
+                    rating_upper: 1271.38
+                    vote_count: 3692
+                creative_writing_vision:
+                    publish_date: "2026-10-19"
+                    rank: 66
+                    rating: 1220.81
+                    rating_lower: 1207.98
+                    rating_upper: 1233.64
+                    vote_count: 2919
+                diagram:
+                    publish_date: "2026-10-19"
+                    rank: 85
+                    rating: 1233.46
+                    rating_lower: 1226.05
+                    rating_upper: 1240.87
+                    vote_count: 8547
+                english:
+                    publish_date: "2026-10-19"
+                    rank: 85
+                    rating: 1217.03
+                    rating_lower: 1210.63
+                    rating_upper: 1223.43
+                    vote_count: 25447
+                entity_recognition:
+                    publish_date: "2026-10-19"
+                    rank: 18
+                    rating: 1221.31
+                    rating_lower: 1197.29
+                    rating_upper: 1245.34
+                    vote_count: 628
+                homework:
+                    publish_date: "2026-10-19"
+                    rank: 86
+                    rating: 1238.05
+                    rating_lower: 1228.74
+                    rating_upper: 1247.35
+                    vote_count: 4863
+                humor:
+                    publish_date: "2026-10-19"
+                    rank: 63
+                    rating: 1207.13
+                    rating_lower: 1191.6
+                    rating_upper: 1222.65
+                    vote_count: 2192
+                ocr:
+                    publish_date: "2026-10-19"
+                    rank: 86
+                    rating: 1222.73
+                    rating_lower: 1217.74
+                    rating_upper: 1227.72
+                    vote_count: 27156
+                overall:
+                    publish_date: "2026-10-19"
+                    rank: 83
+                    rating: 1215.46
+                    rating_lower: 1210.87
+                    rating_upper: 1220.04
+                    vote_count: 60087
+        gemini-2.5-flash:
+            vision:
+                creative_writing:
+                    publish_date: "2026-01-09"
+                    rank: 10
+                    rating: 1253.05
+                    rating_lower: 1238.27
+                    rating_upper: 1267.84
+                    vote_count: 1745
+            vision_style_control:
+                creative_writing:
+                    publish_date: "2026-01-09"
+                    rank: 13
+                    rating: 1230.89
+                    rating_lower: 1215.86
+                    rating_upper: 1245.91
+                    vote_count: 1745
     openrouter:
         gpqa_diamond:
             - endpoint_id: 16c01e26-9b91-4d22-b487-ed35634b017d
@@ -275,3 +998,46 @@ metrics:
               provider: auto-routing
               run_count: 1
               score: 0.503044
+    vals_ai:
+        google/gemini-2.5-flash:
+            ioi-v1:
+                accuracy: 2.611
+                cost_per_test: 0.036998
+                latency_seconds: 350.186
+                stderr: 1.03
+            medcode:
+                accuracy: 38.425
+                cost_per_test: 0.003698
+                latency_seconds: 22.145
+                stderr: 1.923
+            medscribe:
+                accuracy: 82.869
+                cost_per_test: 0.014869
+                latency_seconds: 22.786
+                stderr: 1.909
+            sage-v1:
+                accuracy: 44.756
+                cost_per_test: 0.002737
+                latency_seconds: 40.213
+                stderr: 3.418
+        google/gemini-2.5-flash-thinking:
+            medcode:
+                accuracy: 40.357
+                cost_per_test: 0.003661
+                latency_seconds: 22.833
+                stderr: 1.952
+            medscribe:
+                accuracy: 82.983
+                cost_per_test: 0.014824
+                latency_seconds: 22.529
+                stderr: 1.908
+            sage-v1:
+                accuracy: 39.602
+                cost_per_test: 0.002863
+                latency_seconds: 39.616
+                stderr: 3.422
+            terminal-bench:
+                accuracy: 21.25
+                cost_per_test: 0.447777
+                latency_seconds: 244.663
+                stderr: 4.574
