@@ -869,3 +869,158 @@ def test_star_without_global_sibling_verified_as_global_carries_the_assumption_n
     assert all("assumes" not in c.note for c in r.checks)
     r = run(source()[0], GPT54)  # no Regional meter exists at all: nothing to assume
     assert all("assumes" not in c.note for c in r.checks if c.locator[1] == "region=*")
+
+
+# ---- retries: 429 / 408 / 5xx / network errors, bounded, Retry-After honoured and capped ---------------------------
+
+import email.utils
+
+from verify.build import Runner
+from verify.sources._common import NotFound
+
+from .helpers import registry
+
+
+def scripted(local_server, *steps):
+    """A server that answers its requests with `steps` in order (the last one repeats): (status, headers) or "drop"."""
+    seen: list[int] = []
+
+    class Script(http.server.BaseHTTPRequestHandler):
+        def do_GET(self):
+            seen.append(1)
+            status, headers = steps[min(len(seen), len(steps)) - 1]
+            if status == "drop":
+                self.close_connection = True
+                self.connection.close()
+                return
+            body = b'{"Items": []}' if status == 200 else b"{}"
+            self.send_response(status)
+            for k, v in headers.items():
+                self.send_header(k, v)
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *a):
+            pass
+    return local_server(Script), seen
+
+
+def napper():
+    naps: list[float] = []
+    return naps, naps.append
+
+
+OK = (200, {})
+TOO_MANY = (429, {})
+
+
+def test_a_429_then_200_succeeds_after_one_backoff(local_server):
+    url, seen = scripted(local_server, TOO_MANY, OK)
+    naps, sleep = napper()
+    assert AzureRetailSource(deadline_s=30, sleep=sleep)._http(url) == b'{"Items": []}'
+    assert len(seen) == 2 and naps == [1.0]
+
+
+@pytest.mark.parametrize("status", [408, 429, 500, 502, 503, 504])
+def test_retryable_statuses_are_retried(local_server, status):
+    url, seen = scripted(local_server, (status, {}), (status, {}), OK)
+    naps, sleep = napper()
+    assert AzureRetailSource(deadline_s=30, sleep=sleep)._http(url) == b'{"Items": []}'
+    assert len(seen) == 3 and naps == [1.0, 2.0]
+
+
+def test_a_dropped_connection_is_retried(local_server):
+    url, seen = scripted(local_server, ("drop", {}), OK)
+    naps, sleep = napper()
+    assert AzureRetailSource(deadline_s=30, sleep=sleep)._http(url) == b'{"Items": []}'
+    assert len(seen) == 2 and naps == [1.0]
+
+
+def test_a_429_that_never_ends_fails_after_the_bounded_tries_with_its_status_in_the_note(local_server, monkeypatch):
+    url, seen = scripted(local_server, TOO_MANY)
+    naps, sleep = napper()
+    monkeypatch.setattr(az, "HOST", url.rstrip("/"))
+    s = AzureRetailSource(today=TODAY, deadline_s=60, sleep=sleep)
+    with pytest.raises(urllib.error.HTTPError) as err:
+        s.prepare()
+    assert err.value.code == 429
+    assert len(seen) == az.RETRIES + 1 and naps == [1.0, 2.0, 4.0]
+    with pytest.raises(urllib.error.HTTPError):  # the failure is cached: no further requests for the next file
+        s.prepare()
+    assert len(seen) == az.RETRIES + 1
+    # through the runner: a partial result with the status in the note, nothing compared, nothing writable
+    doc = docs()["providers/azure-open-ai/gpt-4.1.yaml"]
+    out = Runner(registry(("azure-open-ai", "azure-retail-prices")), {"azure-retail-prices": s}).run(
+        "providers/azure-open-ai/gpt-4.1.yaml", doc)
+    assert len(out) == 1 and out[0].partial and out[0].checks == []
+    assert out[0].notes == ["prepare failed (HTTPError 429)"]
+    # called directly (the sweep does), the adapter's own note says it too, and every price field stays uncovered
+    r = s.check("providers/azure-open-ai/gpt-4.1.yaml", doc)
+    assert r.partial and r.checks == [] and r.uncovered
+    assert any("(HTTPError 429)" in n for n in r.notes)
+
+
+@pytest.mark.parametrize("status", [400, 401, 403, 410])
+def test_other_4xx_are_final(local_server, status):
+    url, seen = scripted(local_server, (status, {}), OK)
+    naps, sleep = napper()
+    with pytest.raises(urllib.error.HTTPError) as err:
+        AzureRetailSource(deadline_s=30, sleep=sleep)._http(url)
+    assert err.value.code == status and len(seen) == 1 and naps == []
+
+
+def test_404_is_not_found_and_not_retried(local_server):
+    url, seen = scripted(local_server, (404, {}), OK)
+    naps, sleep = napper()
+    with pytest.raises(NotFound):
+        AzureRetailSource(deadline_s=30, sleep=sleep)._http(url)
+    assert len(seen) == 1 and naps == []
+
+
+def test_retry_after_seconds_replace_the_backoff(local_server):
+    url, seen = scripted(local_server, (429, {"Retry-After": "3"}), (429, {"Retry-After": "0"}), OK)
+    naps, sleep = napper()
+    assert AzureRetailSource(deadline_s=30, sleep=sleep)._http(url) == b'{"Items": []}'
+    assert naps == [3.0, 0.0]
+
+
+def test_retry_after_http_date_is_read(local_server):
+    when = email.utils.formatdate(time.time() + 6, usegmt=True)
+    url, seen = scripted(local_server, (503, {"Retry-After": when}), OK)
+    naps, sleep = napper()
+    AzureRetailSource(deadline_s=30, sleep=sleep)._http(url)
+    assert len(naps) == 1 and 3.0 < naps[0] <= 6.0
+
+
+@pytest.mark.parametrize("asked", ["3600", "11", "9" * 400, "Wed, 21 Oct 2099 07:28:00 GMT"])
+def test_a_retry_after_above_the_cap_is_not_waited_for(local_server, asked):
+    url, seen = scripted(local_server, (429, {"Retry-After": asked}), OK)
+    naps, sleep = napper()
+    with pytest.raises(urllib.error.HTTPError) as err:
+        AzureRetailSource(deadline_s=30, sleep=sleep)._http(url)
+    assert err.value.code == 429 and len(seen) == 1 and naps == []
+
+
+@pytest.mark.parametrize("asked", ["soon", "", "-5", "1.5", "٣"])
+def test_an_unreadable_retry_after_falls_back_to_the_backoff(local_server, asked):
+    url, seen = scripted(local_server, (429, {"Retry-After": asked}), OK)
+    naps, sleep = napper()
+    AzureRetailSource(deadline_s=30, sleep=sleep)._http(url)
+    assert naps == [1.0]
+
+
+def test_no_retry_when_the_budget_cannot_cover_the_wait(local_server):
+    url, seen = scripted(local_server, TOO_MANY, OK)
+    naps, sleep = napper()
+    with pytest.raises(urllib.error.HTTPError):
+        AzureRetailSource(deadline_s=2.5, sleep=sleep)._http(url)  # 1 s wait + 2 s for the request > 2.5 s left
+    assert len(seen) == 1 and naps == []
+
+
+def test_the_total_wait_is_bounded(local_server):
+    url, seen = scripted(local_server, TOO_MANY)
+    naps, sleep = napper()
+    with pytest.raises(urllib.error.HTTPError):
+        AzureRetailSource(deadline_s=600, sleep=sleep)._http(url)
+    assert sum(naps) <= az.MAX_WAIT_S * az.RETRIES and len(seen) == az.RETRIES + 1
