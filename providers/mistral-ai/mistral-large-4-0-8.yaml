@@ -1,15 +1,25 @@
+# CUE validation not run — CUE is not installed in this environment
+costs:
+    - cache_read_input_token_cost: 7e-8
+      input_cost_per_token: 7e-7
+      output_cost_per_token: 2.1e-6
+      region: "*"
 features:
     - function_calling
+    - structured_output
 limits:
     context_window: 1048576
 modalities:
     input:
+        - text
         - image
-mode: unknown
+mode: chat
 model: mistral-large-4-0-8
 params:
     - defaultValue: 1.0
       key: temperature
+sources:
+    - https://docs.mistral.ai/models/mistral-large-4-0
 status: active
 supportedModes:
     - chat
