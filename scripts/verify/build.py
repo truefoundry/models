@@ -18,6 +18,15 @@ def provider_of(repo_path: str) -> str:
     return parts[1] if len(parts) > 2 and parts[0] == "providers" else ""
 
 
+def _why(e: BaseException) -> str:
+    """The exception class and, for an HTTP error, its status (`HTTPError 429`). Never the message: it can carry
+    text from the remote side, and the note is shown to reviewers."""
+    code = getattr(e, "code", None)
+    if isinstance(code, int) and not isinstance(code, bool) and 100 <= code <= 599:
+        return f"{type(e).__name__} {code}"
+    return type(e).__name__
+
+
 def _partial(name: str, note: str) -> SourceResult:
     return SourceResult(source=name, partial=True, notes=[note])
 
@@ -39,7 +48,7 @@ class Runner:
                 self.sources[name].prepare()
                 self._prepared[name] = None
             except Exception as e:  # noqa: BLE001
-                self._prepared[name] = f"prepare failed ({type(e).__name__})"
+                self._prepared[name] = f"prepare failed ({_why(e)})"
         return self._prepared[name]
 
     def run(self, repo_path: str, doc: dict) -> list[SourceResult]:
@@ -66,7 +75,7 @@ class Runner:
             try:
                 out.append(self._clean(name, src.check(repo_path, doc)))
             except Exception as e:  # noqa: BLE001
-                out.append(_partial(name, f"check failed ({type(e).__name__})"))
+                out.append(_partial(name, f"check failed ({_why(e)})"))
         return out
 
     @staticmethod

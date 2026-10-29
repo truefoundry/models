@@ -168,3 +168,22 @@ def test_the_writable_flag_survives_the_core():
     c = Check(IN, 1.0, 1.0, "verified", writable=False)
     f = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(res=result(c)))
     assert f.checks[0].writable is False
+
+
+def test_prepare_failure_note_carries_the_http_status_not_only_the_class():
+    import urllib.error
+    err = urllib.error.HTTPError("https://example.test/x", 429, "Too Many Requests", {}, None)
+    src = FakeSource(prepare_error=err)
+    f = build_file("providers/p/a.yaml", MODIFIED, dump(base()), dump(price(input_cost_per_token=3.1e-6)), runner(src))
+    assert f.source_state == "partial" and f.results[0].notes == ["prepare failed (HTTPError 429)"]
+    # an error without a status keeps the class only, and the remote message never reaches the note
+    f = build_file("providers/p/a.yaml", MODIFIED, dump(base()), dump(price(input_cost_per_token=3.1e-6)),
+                   runner(FakeSource(prepare_error=OSError("secret remote text"))))
+    assert f.results[0].notes == ["prepare failed (OSError)"]
+
+
+def test_check_failure_note_carries_the_http_status_too():
+    import urllib.error
+    err = urllib.error.HTTPError("https://example.test/x", 503, "Unavailable", {}, None)
+    f = report_for(base(), price(input_cost_per_token=3.1e-6), FakeSource(check_error=err))
+    assert f.results[0].notes == ["check failed (HTTPError 503)"]
