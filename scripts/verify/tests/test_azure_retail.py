@@ -585,7 +585,6 @@ import threading
 import time
 import urllib.error
 import urllib.request
-from urllib.parse import urlsplit
 
 from verify.sources._common import DeadlineExceeded
 
