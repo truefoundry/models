@@ -12,12 +12,6 @@ Artificial Analysis catalog. Each generated YAML file contains:
 the fetched catalog. Non-language models and language models that Artificial
 Analysis does not catalog have no benchmark file.
 
-The data is generated with:
-
-```bash
-AA_API_KEY=... python3 scripts/fetch_artificial_analysis_benchmarks.py
-```
-
 Source: [Artificial Analysis](https://artificialanalysis.ai/). The generated
 data is subject to the Artificial Analysis Data API terms and attribution
 requirements.
