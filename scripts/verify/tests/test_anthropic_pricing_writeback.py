@@ -3,7 +3,6 @@ adapter then verifies that field (what the sweep does). The corpus is every mode
 compared field deliberately wrong, plus the Haiku 5.5 tier fields and the older name order / dated snapshots."""
 from __future__ import annotations
 
-import copy
 
 from verify.sources.anthropic_pricing import KNOWN_SNAPSHOTS, URL, AnthropicPricingSource, parse_page, slugs_of
 

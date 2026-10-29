@@ -13,7 +13,7 @@ from verify.sources._common import num, same
 from . import test_aws_price_list as aws
 from . import test_deepinfra as di
 from . import test_openrouter as orr
-from .test_anthropic_pricing import OPUS55, opus55, source as anthropic_source
+from .test_anthropic_pricing import opus55, source as anthropic_source
 
 BAD = ["1e999", "-1e999", float("inf"), float("-inf"), float("nan"), "inf", "nan", ".inf"]
 

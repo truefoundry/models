@@ -434,7 +434,6 @@ def test_a_snapshot_suffix_must_be_a_known_snapshot_of_that_model():
                       {"claude-opus-5": frozenset({"latest"})})
     assert base == "Claude Opus 5"
     # the table is the catalog's: every id in it is a file there
-    import re
     from pathlib import Path
     root = Path(__file__).resolve().parents[3] / "providers" / "anthropic"
     ids = {p.stem for p in root.glob("claude-*.yaml")}
