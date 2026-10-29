@@ -25,7 +25,10 @@ export type Scenario = {
   id: string;
   endpoint: Endpoint;
   path: string;
-  body: Record<string, unknown> | FormData;
+  /** Query string including `?`, for native-proxy routes that take the model there. */
+  search?: string;
+  headers?: Record<string, string>;
+  body: Record<string, unknown> | FormData | Uint8Array;
 };
 
 const FEATURE_KEYS = [
@@ -735,6 +738,16 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
       return out;
 
     case 'text_to_speech':
+      if (model.provider === 'deepgram') {
+        out.push({
+          id: 'text_to_speech/baseline',
+          endpoint: 'tts-proxy',
+          path: '/tts/deepgram/v1/speak',
+          search: `?model=${encodeURIComponent(modelId)}`,
+          body: { text: 'hello' },
+        });
+        return out;
+      }
       if (model.provider === 'elevenlabs') {
         out.push({
           id: 'text_to_speech/baseline',
@@ -753,6 +766,17 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
       return out;
 
     case 'audio_transcription':
+      if (model.provider === 'deepgram') {
+        out.push({
+          id: 'audio_transcription/baseline',
+          endpoint: 'stt-proxy',
+          path: '/stt/deepgram/v1/listen',
+          search: `?model=${encodeURIComponent(modelId)}`,
+          headers: { 'content-type': 'audio/wav' },
+          body: sampleWavBytes(),
+        });
+        return out;
+      }
       out.push({
         id: 'audio_transcription/baseline',
         endpoint: 'createTranscription',

@@ -189,6 +189,28 @@ const SPECS: Record<string, ProviderSpec> = {
     apiKeyEnv: 'ELEVENLABS_API_KEY',
     smokeModel: 'eleven_flash_v2_5',
   },
+  deepgram: {
+    sdkProvider: 'deepgram',
+    modelIntegrationType: 'integration/model/deepgram',
+    accountType: 'provider-account/deepgram',
+    apiKeyEnv: 'DEEPGRAM_API_KEY',
+    smokeModel: 'aura-2-thalia-en',
+  },
+  'fireworks-ai': {
+    sdkProvider: 'fireworks-ai',
+    modelIntegrationType: 'integration/model/fireworks-ai',
+    accountType: 'provider-account/fireworks-ai',
+    apiKeyEnv: 'FIREWORKS_AI_API_KEY',
+    smokeModel: 'accounts/fireworks/models/gpt-oss-120b',
+  },
+  'truefoundry-managed': {
+    sdkProvider: 'truefoundry-managed',
+    modelIntegrationType: 'integration/model/truefoundry-managed',
+    accountType: 'provider-account/truefoundry-managed',
+    apiKeyEnv: 'TRUEFOUNDRY_MANAGED_API_KEY',
+    accountEnv: { base_url: 'TRUEFOUNDRY_MANAGED_BASE_URL' },
+    smokeModel: 'gpt-oss-120b',
+  },
 };
 
 /** project_id from a Google service-account JSON string (Vertex key-file secret). */
