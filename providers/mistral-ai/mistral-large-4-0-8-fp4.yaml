@@ -1,3 +1,4 @@
+# CUE validation could not run (cue not installed in environment)
 features:
     - function_calling
 limits:
@@ -5,11 +6,15 @@ limits:
 modalities:
     input:
         - image
-mode: unknown
+        - text
+mode: chat
 model: mistral-large-4-0-8-fp4
 params:
     - defaultValue: 1.0
       key: temperature
+# costs: not found in official docs for the fp4 variant (the mistral-large-4-0 page lists a different model ID)
+sources:
+    - https://docs.mistral.ai/models/mistral-large-4-0
 status: active
 supportedModes:
     - chat
