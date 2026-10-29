@@ -1,12 +1,8 @@
 model: auto
+openrouter_id: openrouter/auto
+openrouter_permaslug: openrouter/auto
+vals_ai_id: openrouter/openrouter/auto
 metrics:
-    vals_ai:
-        openrouter/openrouter/auto:
-            vals_router_index:
-                accuracy: 52.195
-                cost_per_test: 0.817334
-                latency_seconds: 2420.133
-                stderr: 1.207
     openrouter:
         gpqa_diamond:
             - endpoint_id: null
@@ -14,3 +10,10 @@ metrics:
               run_count: 3
               score: 0.8632996667908771
         lookback_days: 32
+    vals_ai:
+        openrouter/openrouter/auto:
+            vals_router_index:
+                accuracy: 52.195
+                cost_per_test: 0.817334
+                latency_seconds: 2420.133
+                stderr: 1.207

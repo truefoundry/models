@@ -1,4 +1,8 @@
 model: ~anthropic/claude-opus-latest
+design_arena_id: claude-opus-5-5
+openrouter_id: ~anthropic/claude-opus-latest
+openrouter_permaslug: ~anthropic/claude-opus-latest
+vals_ai_id: anthropic/claude-opus-5-5
 metrics:
     design_arena:
         Claude Opus 5.5:
@@ -130,6 +134,98 @@ metrics:
                     third_place: 415
                     total_tournaments: 1653
                     win_rate: 55.8
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 6d76a7f6-28bc-4af6-9ae1-9b12caeb9549
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8971115161332839
+            - endpoint_id: 6e63432c-564f-4192-84a8-4f6f8ca7e401
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.901176701036515
+            - endpoint_id: f5be0e94-8470-490b-a0db-33571c6620fb
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.9007717287658701
+            - endpoint_id: 043a453c-8450-4da8-82c1-cf6cc19cba9e
+              provider: Anthropic
+              run_count: 4
+              score: 0.9031851944704792
+            - endpoint_id: 13a61a2a-0780-4d52-98fa-2ab4b60e3afb
+              provider: Azure
+              run_count: 4
+              score: 0.9034843253405851
+            - endpoint_id: 63e63e3b-11cb-4a56-9016-cf01592a72a8
+              provider: Azure
+              run_count: 4
+              score: 0.8978977229654419
+            - endpoint_id: 3a2388bc-3740-4e64-a1f5-4e301726b6b9
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.8970473090545908
+            - endpoint_id: 0fa5f729-c4f0-425a-bab4-9781b2682dde
+              provider: Google Vertex
+              run_count: 4
+              score: 0.8982940450774145
+            - endpoint_id: 97ec6d86-9155-4443-ae1c-b02b707ed05f
+              provider: Google Vertex
+              run_count: 4
+              score: 0.9009200817011526
+            - endpoint_id: a24cd509-61a3-47ae-acea-41b4b40e6645
+              provider: Google Vertex
+              run_count: 4
+              score: 0.9040104107629954
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.9011639649152478
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 6d76a7f6-28bc-4af6-9ae1-9b12caeb9549
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7641104698233775
+            - endpoint_id: 6e63432c-564f-4192-84a8-4f6f8ca7e401
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7400481493183433
+            - endpoint_id: f5be0e94-8470-490b-a0db-33571c6620fb
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7639598603759584
+            - endpoint_id: 043a453c-8450-4da8-82c1-cf6cc19cba9e
+              provider: Anthropic
+              run_count: 4
+              score: 0.7562489309771845
+            - endpoint_id: 13a61a2a-0780-4d52-98fa-2ab4b60e3afb
+              provider: Azure
+              run_count: 4
+              score: 0.7574664814527236
+            - endpoint_id: 63e63e3b-11cb-4a56-9016-cf01592a72a8
+              provider: Azure
+              run_count: 4
+              score: 0.7633470185710778
+            - endpoint_id: 3a2388bc-3740-4e64-a1f5-4e301726b6b9
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.7585211016285808
+            - endpoint_id: 0fa5f729-c4f0-425a-bab4-9781b2682dde
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7564392272073847
+            - endpoint_id: 97ec6d86-9155-4443-ae1c-b02b707ed05f
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7555064704241435
+            - endpoint_id: a24cd509-61a3-47ae-acea-41b4b40e6645
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7323880260329285
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7540046769890928
     vals_ai:
         anthropic/claude-opus-5-5:
             biomysterybench:
@@ -337,95 +433,3 @@ metrics:
                 cost_per_test: 57.922811
                 latency_seconds: 5766.524
                 stderr: 1.526
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: 6d76a7f6-28bc-4af6-9ae1-9b12caeb9549
-              provider: Amazon Bedrock
-              run_count: 4
-              score: 0.8971115161332839
-            - endpoint_id: 6e63432c-564f-4192-84a8-4f6f8ca7e401
-              provider: Amazon Bedrock
-              run_count: 4
-              score: 0.901176701036515
-            - endpoint_id: f5be0e94-8470-490b-a0db-33571c6620fb
-              provider: Amazon Bedrock
-              run_count: 4
-              score: 0.9007717287658701
-            - endpoint_id: 043a453c-8450-4da8-82c1-cf6cc19cba9e
-              provider: Anthropic
-              run_count: 4
-              score: 0.9031851944704792
-            - endpoint_id: 13a61a2a-0780-4d52-98fa-2ab4b60e3afb
-              provider: Azure
-              run_count: 4
-              score: 0.9034843253405851
-            - endpoint_id: 63e63e3b-11cb-4a56-9016-cf01592a72a8
-              provider: Azure
-              run_count: 4
-              score: 0.8978977229654419
-            - endpoint_id: 3a2388bc-3740-4e64-a1f5-4e301726b6b9
-              provider: Claude Platform on AWS
-              run_count: 4
-              score: 0.8970473090545908
-            - endpoint_id: 0fa5f729-c4f0-425a-bab4-9781b2682dde
-              provider: Google Vertex
-              run_count: 4
-              score: 0.8982940450774145
-            - endpoint_id: 97ec6d86-9155-4443-ae1c-b02b707ed05f
-              provider: Google Vertex
-              run_count: 4
-              score: 0.9009200817011526
-            - endpoint_id: a24cd509-61a3-47ae-acea-41b4b40e6645
-              provider: Google Vertex
-              run_count: 4
-              score: 0.9040104107629954
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 4
-              score: 0.9011639649152478
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 6d76a7f6-28bc-4af6-9ae1-9b12caeb9549
-              provider: Amazon Bedrock
-              run_count: 4
-              score: 0.7641104698233775
-            - endpoint_id: 6e63432c-564f-4192-84a8-4f6f8ca7e401
-              provider: Amazon Bedrock
-              run_count: 4
-              score: 0.7400481493183433
-            - endpoint_id: f5be0e94-8470-490b-a0db-33571c6620fb
-              provider: Amazon Bedrock
-              run_count: 4
-              score: 0.7639598603759584
-            - endpoint_id: 043a453c-8450-4da8-82c1-cf6cc19cba9e
-              provider: Anthropic
-              run_count: 4
-              score: 0.7562489309771845
-            - endpoint_id: 13a61a2a-0780-4d52-98fa-2ab4b60e3afb
-              provider: Azure
-              run_count: 4
-              score: 0.7574664814527236
-            - endpoint_id: 63e63e3b-11cb-4a56-9016-cf01592a72a8
-              provider: Azure
-              run_count: 4
-              score: 0.7633470185710778
-            - endpoint_id: 3a2388bc-3740-4e64-a1f5-4e301726b6b9
-              provider: Claude Platform on AWS
-              run_count: 4
-              score: 0.7585211016285808
-            - endpoint_id: 0fa5f729-c4f0-425a-bab4-9781b2682dde
-              provider: Google Vertex
-              run_count: 4
-              score: 0.7564392272073847
-            - endpoint_id: 97ec6d86-9155-4443-ae1c-b02b707ed05f
-              provider: Google Vertex
-              run_count: 4
-              score: 0.7555064704241435
-            - endpoint_id: a24cd509-61a3-47ae-acea-41b4b40e6645
-              provider: Google Vertex
-              run_count: 4
-              score: 0.7323880260329285
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 4
-              score: 0.7540046769890928

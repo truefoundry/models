@@ -1,4 +1,13 @@
 model: pearl-ai/gemma-4-31b-it
+artificial_analysis_id:
+    - d0aa27aa-4705-4184-9a1d-483b78c9331c
+    - cd26a386-4873-46ff-b853-d239050025a2
+artificial_analysis_slug:
+    - gemma-4-31b-non-reasoning
+    - gemma-4-31b
+openrouter_id: google/gemma-4-31b-it
+openrouter_permaslug: google/gemma-4-31b-it-20260402
+vals_ai_id: google/gemma-4-31b-it
 metrics:
     artificial_analysis:
         variants:
@@ -68,38 +77,6 @@ metrics:
                 terminalbench_hard: 0.303030303030303
                 terminalbench_v2_1: 0.292134831460674
                 terminalbench_v4_0: null
-    vals_ai:
-        google/gemma-4-31b-it:
-            case_law_v2:
-                accuracy: 52.626
-                cost_per_test: 0.0
-                latency_seconds: 28.716
-                stderr: 1.343
-            finance_agent:
-                accuracy: 50.788
-                cost_per_test: 0
-                latency_seconds: 5360.333
-                stderr: 2.856
-            mortgage_tax:
-                accuracy: 61.368
-                cost_per_test: 0.0
-                latency_seconds: 41.928
-                stderr: 0.967
-            sage:
-                accuracy: 82.782
-                cost_per_test: 0.0
-                latency_seconds: 106.811
-                stderr: 2.085
-            sage-v1:
-                accuracy: 55.034
-                cost_per_test: 0
-                latency_seconds: 93.058
-                stderr: 3.411
-            terminal-bench-2:
-                accuracy: 39.326
-                cost_per_test: null
-                latency_seconds: 855.298
-                stderr: 5.207
     openrouter:
         gpqa_diamond:
             - endpoint_id: 5a7d69c8-0cb3-4b4b-995d-c711e42bd42e
@@ -233,3 +210,35 @@ metrics:
               provider: ModelRun [by Modular]
               run_count: 9
               score: 0.5086246645440512
+    vals_ai:
+        google/gemma-4-31b-it:
+            case_law_v2:
+                accuracy: 52.626
+                cost_per_test: 0.0
+                latency_seconds: 28.716
+                stderr: 1.343
+            finance_agent:
+                accuracy: 50.788
+                cost_per_test: 0
+                latency_seconds: 5360.333
+                stderr: 2.856
+            mortgage_tax:
+                accuracy: 61.368
+                cost_per_test: 0.0
+                latency_seconds: 41.928
+                stderr: 0.967
+            sage:
+                accuracy: 82.782
+                cost_per_test: 0.0
+                latency_seconds: 106.811
+                stderr: 2.085
+            sage-v1:
+                accuracy: 55.034
+                cost_per_test: 0
+                latency_seconds: 93.058
+                stderr: 3.411
+            terminal-bench-2:
+                accuracy: 39.326
+                cost_per_test: null
+                latency_seconds: 855.298
+                stderr: 5.207

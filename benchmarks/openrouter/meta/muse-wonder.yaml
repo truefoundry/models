@@ -1,6 +1,10 @@
 model: meta/muse-wonder
 artificial_analysis_id: ff2f3f3d-783f-4e27-8a39-47237501a313
 artificial_analysis_slug: muse-wonder
+design_arena_id: muse-wonder-1.0
+openrouter_id: meta/muse-wonder
+openrouter_permaslug: meta/muse-wonder-20261012
+vals_ai_id: meta/muse-wonder
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.38033333333333336
@@ -140,6 +144,13 @@ metrics:
                     third_place: 506
                     total_tournaments: 2539
                     win_rate: 62.6
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 1232618d-ebfe-4338-9b68-d9127a57c8dd
+              provider: Meta
+              run_count: 1
+              score: 0.635535
     vals_ai:
         meta/muse-wonder:
             biomysterybench:
@@ -287,10 +298,3 @@ metrics:
                 cost_per_test: 1.802723
                 latency_seconds: 350.076
                 stderr: 2.49
-    openrouter:
-        lookback_days: 32
-        vgi_bench:
-            - endpoint_id: 1232618d-ebfe-4338-9b68-d9127a57c8dd
-              provider: Meta
-              run_count: 1
-              score: 0.635535

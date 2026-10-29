@@ -1,4 +1,8 @@
 model: ~google/gemini-pro-latest
+design_arena_id: gemini-4-argon
+openrouter_id: ~google/gemini-pro-latest
+openrouter_permaslug: ~google/gemini-pro-latest
+vals_ai_id: google/gemini-4-argon
 metrics:
     design_arena:
         Gemini 4 Argon:
@@ -100,6 +104,31 @@ metrics:
                     third_place: 1123
                     total_tournaments: 4749
                     win_rate: 56.2
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: bc18f3eb-05e3-44a4-8d54-e26b4ed284c8
+              provider: Google Vertex
+              run_count: 1
+              score: 0.9646459999999999
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: bc18f3eb-05e3-44a4-8d54-e26b4ed284c8
+              provider: Google Vertex
+              run_count: 1
+              score: 0.786667
+        vgi_bench:
+            - endpoint_id: 4934736c-d662-4fe3-98eb-56def8c8c174
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.154897
+            - endpoint_id: 471da4aa-e409-43db-a238-7820b3cd37a9
+              provider: Google Vertex
+              run_count: 1
+              score: 0.151101
+            - endpoint_id: bc18f3eb-05e3-44a4-8d54-e26b4ed284c8
+              provider: Google Vertex
+              run_count: 1
+              score: 0.161339
     vals_ai:
         google/gemini-4-argon:
             biomysterybench:
@@ -302,28 +331,3 @@ metrics:
                 cost_per_test: 8.10797
                 latency_seconds: 2247.675
                 stderr: 1.899
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: bc18f3eb-05e3-44a4-8d54-e26b4ed284c8
-              provider: Google Vertex
-              run_count: 1
-              score: 0.9646459999999999
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: bc18f3eb-05e3-44a4-8d54-e26b4ed284c8
-              provider: Google Vertex
-              run_count: 1
-              score: 0.786667
-        vgi_bench:
-            - endpoint_id: 4934736c-d662-4fe3-98eb-56def8c8c174
-              provider: Google AI Studio
-              run_count: 1
-              score: 0.154897
-            - endpoint_id: 471da4aa-e409-43db-a238-7820b3cd37a9
-              provider: Google Vertex
-              run_count: 1
-              score: 0.151101
-            - endpoint_id: bc18f3eb-05e3-44a4-8d54-e26b4ed284c8
-              provider: Google Vertex
-              run_count: 1
-              score: 0.161339

@@ -1,4 +1,19 @@
 model: openai/gpt-4o:batch
+artificial_analysis_id:
+    - 8c1be908-67b6-4cf4-ba08-83ddbe44fde3
+    - c1045dc0-4fd3-4adb-9548-18763e0d051f
+    - e98e911e-9fb2-4a9a-826e-3d681d0cdca8
+artificial_analysis_slug:
+    - gpt-4o-2024-08-06
+    - gpt-4o
+    - gpt-4o-2024-05-13
+design_arena_id: gpt-4o
+openrouter_id: openai/gpt-4o
+openrouter_permaslug: openai/gpt-4o
+vals_ai_id:
+    - openai/gpt-4o-2024-05-13
+    - openai/gpt-4o-2024-08-06
+    - openai/gpt-4o-2024-11-20
 metrics:
     artificial_analysis:
         variants:
@@ -149,6 +164,38 @@ metrics:
                     third_place: 141
                     total_tournaments: 509
                     win_rate: 31.5
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: a1dcf276-9b84-441f-8e6e-7cfedb115751
+              provider: Azure
+              run_count: 1
+              score: 0.521886
+            - endpoint_id: 452a72a0-2c24-4e31-98cb-d6cc1084fb99
+              provider: OpenAI
+              run_count: 2
+              score: 0.5493028747321773
+            - endpoint_id: 906fe1ff-fa76-492a-9289-ce2a3e007bed
+              provider: OpenAI
+              run_count: 2
+              score: 0.5014939704999887
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.510101
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 452a72a0-2c24-4e31-98cb-d6cc1084fb99
+              provider: OpenAI
+              run_count: 2
+              score: 0.4365915365456505
+            - endpoint_id: 906fe1ff-fa76-492a-9289-ce2a3e007bed
+              provider: OpenAI
+              run_count: 2
+              score: 0.4260679518963547
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.386667
     vals_ai:
         openai/gpt-4o-2024-05-13:
             gpqa:
@@ -265,35 +312,3 @@ metrics:
                 cost_per_test: 0.005806
                 latency_seconds: 5.855
                 stderr: 0.859
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: a1dcf276-9b84-441f-8e6e-7cfedb115751
-              provider: Azure
-              run_count: 1
-              score: 0.521886
-            - endpoint_id: 452a72a0-2c24-4e31-98cb-d6cc1084fb99
-              provider: OpenAI
-              run_count: 2
-              score: 0.5493028747321773
-            - endpoint_id: 906fe1ff-fa76-492a-9289-ce2a3e007bed
-              provider: OpenAI
-              run_count: 2
-              score: 0.5014939704999887
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.510101
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 452a72a0-2c24-4e31-98cb-d6cc1084fb99
-              provider: OpenAI
-              run_count: 2
-              score: 0.4365915365456505
-            - endpoint_id: 906fe1ff-fa76-492a-9289-ce2a3e007bed
-              provider: OpenAI
-              run_count: 2
-              score: 0.4260679518963547
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.386667

@@ -1,6 +1,10 @@
 model: meta/muse-spark-open
 artificial_analysis_id: 3661c8fb-caf7-4118-aa18-65b84fea8e44
 artificial_analysis_slug: muse-spark-open
+design_arena_id: muse-spark-open
+openrouter_id: meta/muse-spark-open
+openrouter_permaslug: meta/muse-spark-open-20261015
+vals_ai_id: meta/muse-spark-open
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.42033333333333334
@@ -79,6 +83,87 @@ metrics:
                     third_place: 166
                     total_tournaments: 653
                     win_rate: 55.4
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 2523f926-ac6d-405d-82d3-3313aad1336f
+              provider: Baseten
+              run_count: 1
+              score: 0.89899
+            - endpoint_id: 8d4bf3a3-81ba-4284-a631-695182cf5e2d
+              provider: Fireworks
+              run_count: 2
+              score: 0.9019815654473053
+            - endpoint_id: 34aa8ec7-72d9-437c-8010-7630e6bbcef9
+              provider: Makora
+              run_count: 4
+              score: 0.9041606778325318
+            - endpoint_id: 9ada1928-cfa6-495d-9f13-5eaca58b041f
+              provider: Modal
+              run_count: 1
+              score: 0.905612
+            - endpoint_id: cd0c3f0e-ce4a-492e-a53b-baad7e808641
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.8959047036445518
+            - endpoint_id: f430128a-1660-4b33-9823-02498513bb5a
+              provider: Together
+              run_count: 1
+              score: 0.900673
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.905724
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 2523f926-ac6d-405d-82d3-3313aad1336f
+              provider: Baseten
+              run_count: 1
+              score: 0.719858
+            - endpoint_id: 8d4bf3a3-81ba-4284-a631-695182cf5e2d
+              provider: Fireworks
+              run_count: 2
+              score: 0.7688717294260046
+            - endpoint_id: 34aa8ec7-72d9-437c-8010-7630e6bbcef9
+              provider: Makora
+              run_count: 4
+              score: 0.7279782611494312
+            - endpoint_id: 9ada1928-cfa6-495d-9f13-5eaca58b041f
+              provider: Modal
+              run_count: 1
+              score: 0.766667
+            - endpoint_id: cd0c3f0e-ce4a-492e-a53b-baad7e808641
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.730966916453654
+            - endpoint_id: f430128a-1660-4b33-9823-02498513bb5a
+              provider: Together
+              run_count: 1
+              score: 0.74
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.746667
+        vgi_bench:
+            - endpoint_id: 2523f926-ac6d-405d-82d3-3313aad1336f
+              provider: Baseten
+              run_count: 3
+              score: 0.09041996229804301
+            - endpoint_id: 9ada1928-cfa6-495d-9f13-5eaca58b041f
+              provider: Modal
+              run_count: 2
+              score: 0.5458221527065449
+            - endpoint_id: cd0c3f0e-ce4a-492e-a53b-baad7e808641
+              provider: Nebius Token Factory
+              run_count: 3
+              score: 0.5056273012200148
+            - endpoint_id: f430128a-1660-4b33-9823-02498513bb5a
+              provider: Together
+              run_count: 2
+              score: 0.10289544363841945
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.504935
     vals_ai:
         meta/muse-spark-open:
             code-migration:
@@ -166,84 +251,3 @@ metrics:
                 cost_per_test: 1.655609
                 latency_seconds: 1869.172
                 stderr: 3.317
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: 2523f926-ac6d-405d-82d3-3313aad1336f
-              provider: Baseten
-              run_count: 1
-              score: 0.89899
-            - endpoint_id: 8d4bf3a3-81ba-4284-a631-695182cf5e2d
-              provider: Fireworks
-              run_count: 2
-              score: 0.9019815654473053
-            - endpoint_id: 34aa8ec7-72d9-437c-8010-7630e6bbcef9
-              provider: Makora
-              run_count: 4
-              score: 0.9041606778325318
-            - endpoint_id: 9ada1928-cfa6-495d-9f13-5eaca58b041f
-              provider: Modal
-              run_count: 1
-              score: 0.905612
-            - endpoint_id: cd0c3f0e-ce4a-492e-a53b-baad7e808641
-              provider: Nebius Token Factory
-              run_count: 2
-              score: 0.8959047036445518
-            - endpoint_id: f430128a-1660-4b33-9823-02498513bb5a
-              provider: Together
-              run_count: 1
-              score: 0.900673
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.905724
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 2523f926-ac6d-405d-82d3-3313aad1336f
-              provider: Baseten
-              run_count: 1
-              score: 0.719858
-            - endpoint_id: 8d4bf3a3-81ba-4284-a631-695182cf5e2d
-              provider: Fireworks
-              run_count: 2
-              score: 0.7688717294260046
-            - endpoint_id: 34aa8ec7-72d9-437c-8010-7630e6bbcef9
-              provider: Makora
-              run_count: 4
-              score: 0.7279782611494312
-            - endpoint_id: 9ada1928-cfa6-495d-9f13-5eaca58b041f
-              provider: Modal
-              run_count: 1
-              score: 0.766667
-            - endpoint_id: cd0c3f0e-ce4a-492e-a53b-baad7e808641
-              provider: Nebius Token Factory
-              run_count: 2
-              score: 0.730966916453654
-            - endpoint_id: f430128a-1660-4b33-9823-02498513bb5a
-              provider: Together
-              run_count: 1
-              score: 0.74
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.746667
-        vgi_bench:
-            - endpoint_id: 2523f926-ac6d-405d-82d3-3313aad1336f
-              provider: Baseten
-              run_count: 3
-              score: 0.09041996229804301
-            - endpoint_id: 9ada1928-cfa6-495d-9f13-5eaca58b041f
-              provider: Modal
-              run_count: 2
-              score: 0.5458221527065449
-            - endpoint_id: cd0c3f0e-ce4a-492e-a53b-baad7e808641
-              provider: Nebius Token Factory
-              run_count: 3
-              score: 0.5056273012200148
-            - endpoint_id: f430128a-1660-4b33-9823-02498513bb5a
-              provider: Together
-              run_count: 2
-              score: 0.10289544363841945
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.504935

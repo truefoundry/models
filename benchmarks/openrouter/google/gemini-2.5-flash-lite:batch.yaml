@@ -1,4 +1,9 @@
 model: google/gemini-2.5-flash-lite:batch
+artificial_analysis_id: 1d81aa1c-64c8-442a-9c41-81b37e407b91
+artificial_analysis_slug: gemini-2-5-flash-lite
+openrouter_id: google/gemini-2.5-flash-lite
+openrouter_permaslug: google/gemini-2.5-flash-lite
+vals_ai_id: google/gemini-2.5-flash-lite
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: null
@@ -25,23 +30,6 @@ metrics:
         terminalbench_hard: 0.0227272727272727
         terminalbench_v2_1: null
         terminalbench_v4_0: null
-    vals_ai:
-        google/gemini-2.5-flash-lite:
-            medcode:
-                accuracy: 27.115
-                cost_per_test: 0.001342
-                latency_seconds: 5.746
-                stderr: 1.843
-            medscribe:
-                accuracy: 72.832
-                cost_per_test: 0.001211
-                latency_seconds: 4.847
-                stderr: 1.982
-            sage-v1:
-                accuracy: 27.533
-                cost_per_test: 0.000929
-                latency_seconds: 13.781
-                stderr: 3.124
     openrouter:
         gpqa_diamond:
             - endpoint_id: ce839073-aa24-4f29-8358-15b319bd05ec
@@ -87,3 +75,20 @@ metrics:
               provider: auto-routing
               run_count: 1
               score: 0.47987899999999994
+    vals_ai:
+        google/gemini-2.5-flash-lite:
+            medcode:
+                accuracy: 27.115
+                cost_per_test: 0.001342
+                latency_seconds: 5.746
+                stderr: 1.843
+            medscribe:
+                accuracy: 72.832
+                cost_per_test: 0.001211
+                latency_seconds: 4.847
+                stderr: 1.982
+            sage-v1:
+                accuracy: 27.533
+                cost_per_test: 0.000929
+                latency_seconds: 13.781
+                stderr: 3.124

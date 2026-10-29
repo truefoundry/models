@@ -1,4 +1,9 @@
 model: Inkling-Small
+artificial_analysis_id: 7261504e-503c-4a66-a9d3-a3272cdf9ad6
+artificial_analysis_slug: inkling-small
+openrouter_id: thinkingmachines/inkling-small
+openrouter_permaslug: thinkingmachines/inkling-small-20260730
+vals_ai_id: thinkingmachines/inkling-small
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.318
@@ -43,6 +48,26 @@ metrics:
         terminalbench_science: 0
         terminalbench_v2_1: 0.550561797752809
         terminalbench_v4_0: 0.0101010101010101
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: d1d9657b-3c3a-49b5-8f81-33204e7c71c3
+              provider: DeepInfra
+              run_count: 2
+              score: 0.869106813040426
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.867003
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: d1d9657b-3c3a-49b5-8f81-33204e7c71c3
+              provider: DeepInfra
+              run_count: 2
+              score: 0.5849970304981661
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.62
     vals_ai:
         thinkingmachines/inkling-small:
             code-migration:
@@ -240,23 +265,3 @@ metrics:
                 cost_per_test: 0.432264
                 latency_seconds: 2949.469
                 stderr: 3.403
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: d1d9657b-3c3a-49b5-8f81-33204e7c71c3
-              provider: DeepInfra
-              run_count: 2
-              score: 0.869106813040426
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.867003
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: d1d9657b-3c3a-49b5-8f81-33204e7c71c3
-              provider: DeepInfra
-              run_count: 2
-              score: 0.5849970304981661
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.62

@@ -1,4 +1,14 @@
 model: gemini-3-flash-preview
+artificial_analysis_id:
+    - 7c73c3be-7f51-4d14-bec8-d5789488df25
+    - 783a0ea2-1eef-422a-8c3d-f6d40d943f54
+artificial_analysis_slug:
+    - gemini-3-flash-reasoning
+    - gemini-3-flash
+design_arena_id: gemini-3-flash-preview
+openrouter_id: google/gemini-3-flash-preview
+openrouter_permaslug: google/gemini-3-flash-preview-20251217
+vals_ai_id: google/gemini-3-flash-preview
 metrics:
     artificial_analysis:
         variants:
@@ -182,6 +192,43 @@ metrics:
                     third_place: 0
                     total_tournaments: 0
                     win_rate: 57
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 6e82f652-2693-4b60-bbe0-7362d6e345f0
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.902357
+            - endpoint_id: d06bdb18-3cc2-46b0-bf23-922e485dc255
+              provider: Google Vertex
+              run_count: 1
+              score: 0.915825
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.885522
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 6e82f652-2693-4b60-bbe0-7362d6e345f0
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.7
+            - endpoint_id: d06bdb18-3cc2-46b0-bf23-922e485dc255
+              provider: Google Vertex
+              run_count: 1
+              score: 0.74
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.713333
+        vgi_bench:
+            - endpoint_id: 6e82f652-2693-4b60-bbe0-7362d6e345f0
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.545938
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.542901
     vals_ai:
         google/gemini-3-flash-preview:
             aime:
@@ -379,40 +426,3 @@ metrics:
                 cost_per_test: 0.942067
                 latency_seconds: 806.66
                 stderr: 3.946
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: 6e82f652-2693-4b60-bbe0-7362d6e345f0
-              provider: Google AI Studio
-              run_count: 1
-              score: 0.902357
-            - endpoint_id: d06bdb18-3cc2-46b0-bf23-922e485dc255
-              provider: Google Vertex
-              run_count: 1
-              score: 0.915825
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.885522
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 6e82f652-2693-4b60-bbe0-7362d6e345f0
-              provider: Google AI Studio
-              run_count: 1
-              score: 0.7
-            - endpoint_id: d06bdb18-3cc2-46b0-bf23-922e485dc255
-              provider: Google Vertex
-              run_count: 1
-              score: 0.74
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.713333
-        vgi_bench:
-            - endpoint_id: 6e82f652-2693-4b60-bbe0-7362d6e345f0
-              provider: Google AI Studio
-              run_count: 1
-              score: 0.545938
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.542901

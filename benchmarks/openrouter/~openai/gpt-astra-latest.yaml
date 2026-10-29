@@ -1,5 +1,52 @@
 model: ~openai/gpt-astra-latest
+openrouter_id: ~openai/gpt-astra-latest
+openrouter_permaslug: ~openai/gpt-astra-latest
+vals_ai_id: openai/gpt-6-astra
 metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: e0ae0cb9-7511-49c7-a7a5-0df5d68b64a5
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.9461280000000001
+            - endpoint_id: 58a1125d-b0a0-4f59-a511-ae45f9a3f0ec
+              provider: Azure
+              run_count: 1
+              score: 0.934343
+            - endpoint_id: c06c7858-73a1-4449-95d2-7ffc7ca3d69c
+              provider: Azure
+              run_count: 1
+              score: 0.951178
+            - endpoint_id: c2928094-b04c-4f41-84b2-2bf508091421
+              provider: OpenAI
+              run_count: 2
+              score: 0.9477642907863858
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.9444439999999998
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: e0ae0cb9-7511-49c7-a7a5-0df5d68b64a5
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.6666669999999999
+            - endpoint_id: 58a1125d-b0a0-4f59-a511-ae45f9a3f0ec
+              provider: Azure
+              run_count: 1
+              score: 0.693333
+            - endpoint_id: c06c7858-73a1-4449-95d2-7ffc7ca3d69c
+              provider: Azure
+              run_count: 1
+              score: 0.7
+            - endpoint_id: c2928094-b04c-4f41-84b2-2bf508091421
+              provider: OpenAI
+              run_count: 2
+              score: 0.676760370326569
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.68
     vals_ai:
         openai/gpt-6-astra:
             biomysterybench:
@@ -192,47 +239,3 @@ metrics:
                 cost_per_test: 38.512323
                 latency_seconds: 2344.127
                 stderr: 2.174
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: e0ae0cb9-7511-49c7-a7a5-0df5d68b64a5
-              provider: Amazon Bedrock
-              run_count: 1
-              score: 0.9461280000000001
-            - endpoint_id: 58a1125d-b0a0-4f59-a511-ae45f9a3f0ec
-              provider: Azure
-              run_count: 1
-              score: 0.934343
-            - endpoint_id: c06c7858-73a1-4449-95d2-7ffc7ca3d69c
-              provider: Azure
-              run_count: 1
-              score: 0.951178
-            - endpoint_id: c2928094-b04c-4f41-84b2-2bf508091421
-              provider: OpenAI
-              run_count: 2
-              score: 0.9477642907863858
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.9444439999999998
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: e0ae0cb9-7511-49c7-a7a5-0df5d68b64a5
-              provider: Amazon Bedrock
-              run_count: 1
-              score: 0.6666669999999999
-            - endpoint_id: 58a1125d-b0a0-4f59-a511-ae45f9a3f0ec
-              provider: Azure
-              run_count: 1
-              score: 0.693333
-            - endpoint_id: c06c7858-73a1-4449-95d2-7ffc7ca3d69c
-              provider: Azure
-              run_count: 1
-              score: 0.7
-            - endpoint_id: c2928094-b04c-4f41-84b2-2bf508091421
-              provider: OpenAI
-              run_count: 2
-              score: 0.676760370326569
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.68

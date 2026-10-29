@@ -1,6 +1,10 @@
 model: system.ai.llama-4-maverick
 artificial_analysis_id: 922c69c7-9037-43c6-8bcf-a1c555e7f3eb
 artificial_analysis_slug: llama-4-maverick
+design_arena_id: llama-4-maverick
+openrouter_id: meta-llama/llama-4-maverick
+openrouter_permaslug: meta-llama/llama-4-maverick-17b-128e-instruct
+vals_ai_id: fireworks/llama4-maverick-instruct-basic
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: null
@@ -107,6 +111,18 @@ metrics:
                     third_place: 121
                     total_tournaments: 500
                     win_rate: 34.4
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: caa850a1-e628-41bd-8585-9b3076efea90
+              provider: DigitalOcean
+              run_count: 1
+              score: 0.666667
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: caa850a1-e628-41bd-8585-9b3076efea90
+              provider: DigitalOcean
+              run_count: 1
+              score: 0.373333
     vals_ai:
         fireworks/llama4-maverick-instruct-basic:
             aime:
@@ -183,15 +199,3 @@ metrics:
                 cost_per_test: 0.000527
                 latency_seconds: 25.143
                 stderr: 0.919
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: caa850a1-e628-41bd-8585-9b3076efea90
-              provider: DigitalOcean
-              run_count: 1
-              score: 0.666667
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: caa850a1-e628-41bd-8585-9b3076efea90
-              provider: DigitalOcean
-              run_count: 1
-              score: 0.373333

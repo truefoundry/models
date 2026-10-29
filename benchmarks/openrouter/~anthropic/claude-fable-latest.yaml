@@ -1,4 +1,8 @@
 model: ~anthropic/claude-fable-latest
+design_arena_id: claude-fable-5-1
+openrouter_id: ~anthropic/claude-fable-latest
+openrouter_permaslug: ~anthropic/claude-fable-latest
+vals_ai_id: anthropic/claude-fable-5-1
 metrics:
     design_arena:
         Claude Fable 5.1:
@@ -166,6 +170,42 @@ metrics:
                     third_place: 664
                     total_tournaments: 3048
                     win_rate: 56.3
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 72afe8d6-08ba-4171-a15f-fab2259daf02
+              provider: Anthropic
+              run_count: 1
+              score: 0.893939
+            - endpoint_id: 0436a142-e531-4024-bd04-4d77cb7c342e
+              provider: Azure
+              run_count: 1
+              score: 0.905724
+            - endpoint_id: 94d16598-ea5b-4a68-9f25-89d39e74ade9
+              provider: Google Vertex
+              run_count: 1
+              score: 0.888889
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.9006730000000001
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 72afe8d6-08ba-4171-a15f-fab2259daf02
+              provider: Anthropic
+              run_count: 1
+              score: 0.8
+            - endpoint_id: 0436a142-e531-4024-bd04-4d77cb7c342e
+              provider: Azure
+              run_count: 1
+              score: 0.746667
+            - endpoint_id: 94d16598-ea5b-4a68-9f25-89d39e74ade9
+              provider: Google Vertex
+              run_count: 1
+              score: 0.753333
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.786667
     vals_ai:
         anthropic/claude-fable-5-1:
             code-migration:
@@ -358,39 +398,3 @@ metrics:
                 cost_per_test: 33.367507
                 latency_seconds: 3459.994
                 stderr: 1.566
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: 72afe8d6-08ba-4171-a15f-fab2259daf02
-              provider: Anthropic
-              run_count: 1
-              score: 0.893939
-            - endpoint_id: 0436a142-e531-4024-bd04-4d77cb7c342e
-              provider: Azure
-              run_count: 1
-              score: 0.905724
-            - endpoint_id: 94d16598-ea5b-4a68-9f25-89d39e74ade9
-              provider: Google Vertex
-              run_count: 1
-              score: 0.888889
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.9006730000000001
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 72afe8d6-08ba-4171-a15f-fab2259daf02
-              provider: Anthropic
-              run_count: 1
-              score: 0.8
-            - endpoint_id: 0436a142-e531-4024-bd04-4d77cb7c342e
-              provider: Azure
-              run_count: 1
-              score: 0.746667
-            - endpoint_id: 94d16598-ea5b-4a68-9f25-89d39e74ade9
-              provider: Google Vertex
-              run_count: 1
-              score: 0.753333
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.786667

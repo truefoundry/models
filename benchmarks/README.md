@@ -5,8 +5,19 @@ benchmark file exists only when at least one source publishes metrics for that
 model. Each file contains:
 
 - `model`: the provider model name;
-- `artificial_analysis_id` and `artificial_analysis_slug`: the repository's
-  Artificial Analysis match, when one exists; and
+- one identifier field per source the file has data from, naming the model in
+  that source. A field is a list when the file has data for several of that
+  source's models (for example, reasoning and non-reasoning variants):
+  - `artificial_analysis_id` and `artificial_analysis_slug`: the Artificial
+    Analysis model;
+  - `design_arena_id`: the Design Arena model ID (as in
+    `https://www.designarena.ai/models/<id>`);
+  - `lmarena_id`: the LMArena leaderboard model name;
+  - `openrouter_id` and `openrouter_permaslug`: the OpenRouter model whose
+    benchmark page supplied data (`https://openrouter.ai/<id>`) and its
+    permanent slug; `openrouter_id` is omitted for models OpenRouter no
+    longer lists;
+  - `vals_ai_id`: the Vals AI model key; and
 - `metrics`, grouped by source. Provider models with no published benchmarks,
   or that could not be matched to any source, have no file here.
 

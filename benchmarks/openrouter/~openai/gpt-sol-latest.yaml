@@ -1,4 +1,8 @@
 model: ~openai/gpt-sol-latest
+design_arena_id: gpt-6.1-sol
+openrouter_id: ~openai/gpt-sol-latest
+openrouter_permaslug: ~openai/gpt-sol-latest
+vals_ai_id: openai/gpt-6.1-sol
 metrics:
     design_arena:
         GPT-6.1 Sol:
@@ -110,6 +114,58 @@ metrics:
                     third_place: 396
                     total_tournaments: 1574
                     win_rate: 54.3
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 96d9f7c2-cb68-43c7-82fc-493f62dd7ac7
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.947811
+            - endpoint_id: 32e6ec1d-6c62-4d75-bd38-1b3899c4db8b
+              provider: Azure
+              run_count: 2
+              score: 0.9334220561276105
+            - endpoint_id: a2ea4431-cefb-4e55-a9ed-56973711c564
+              provider: Azure
+              run_count: 2
+              score: 0.9394253622747755
+            - endpoint_id: b5fa4566-5365-4fa6-97cf-363e4b6ec57e
+              provider: Azure
+              run_count: 2
+              score: 0.9419670453474589
+            - endpoint_id: dfb9d5c3-63f9-4263-8b78-4fa97dcb3d5e
+              provider: OpenAI
+              run_count: 3
+              score: 0.9444024036645952
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.9444440000000001
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 96d9f7c2-cb68-43c7-82fc-493f62dd7ac7
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.726667
+            - endpoint_id: 32e6ec1d-6c62-4d75-bd38-1b3899c4db8b
+              provider: Azure
+              run_count: 2
+              score: 0.6833961895347707
+            - endpoint_id: a2ea4431-cefb-4e55-a9ed-56973711c564
+              provider: Azure
+              run_count: 2
+              score: 0.6769805588854388
+            - endpoint_id: b5fa4566-5365-4fa6-97cf-363e4b6ec57e
+              provider: Azure
+              run_count: 2
+              score: 0.6898116590727674
+            - endpoint_id: dfb9d5c3-63f9-4263-8b78-4fa97dcb3d5e
+              provider: OpenAI
+              run_count: 3
+              score: 0.6824980318257295
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.7
     vals_ai:
         openai/gpt-6.1-sol:
             biomysterybench:
@@ -292,55 +348,3 @@ metrics:
                 cost_per_test: 6.234794
                 latency_seconds: 4489.755
                 stderr: 1.893
-    openrouter:
-        gpqa_diamond:
-            - endpoint_id: 96d9f7c2-cb68-43c7-82fc-493f62dd7ac7
-              provider: Amazon Bedrock
-              run_count: 1
-              score: 0.947811
-            - endpoint_id: 32e6ec1d-6c62-4d75-bd38-1b3899c4db8b
-              provider: Azure
-              run_count: 2
-              score: 0.9334220561276105
-            - endpoint_id: a2ea4431-cefb-4e55-a9ed-56973711c564
-              provider: Azure
-              run_count: 2
-              score: 0.9394253622747755
-            - endpoint_id: b5fa4566-5365-4fa6-97cf-363e4b6ec57e
-              provider: Azure
-              run_count: 2
-              score: 0.9419670453474589
-            - endpoint_id: dfb9d5c3-63f9-4263-8b78-4fa97dcb3d5e
-              provider: OpenAI
-              run_count: 3
-              score: 0.9444024036645952
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.9444440000000001
-        lookback_days: 32
-        tau_bench_verified_airline:
-            - endpoint_id: 96d9f7c2-cb68-43c7-82fc-493f62dd7ac7
-              provider: Amazon Bedrock
-              run_count: 1
-              score: 0.726667
-            - endpoint_id: 32e6ec1d-6c62-4d75-bd38-1b3899c4db8b
-              provider: Azure
-              run_count: 2
-              score: 0.6833961895347707
-            - endpoint_id: a2ea4431-cefb-4e55-a9ed-56973711c564
-              provider: Azure
-              run_count: 2
-              score: 0.6769805588854388
-            - endpoint_id: b5fa4566-5365-4fa6-97cf-363e4b6ec57e
-              provider: Azure
-              run_count: 2
-              score: 0.6898116590727674
-            - endpoint_id: dfb9d5c3-63f9-4263-8b78-4fa97dcb3d5e
-              provider: OpenAI
-              run_count: 3
-              score: 0.6824980318257295
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.7

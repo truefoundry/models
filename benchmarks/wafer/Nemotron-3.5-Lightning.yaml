@@ -1,6 +1,9 @@
 model: Nemotron-3.5-Lightning
 artificial_analysis_id: 29976311-665a-4b2f-ac72-557c33e0758e
 artificial_analysis_slug: nemotron-3-5-lightning
+openrouter_id: nvidia/nemotron-3.5-lightning
+openrouter_permaslug: nvidia/nemotron-3.5-lightning-20260807
+vals_ai_id: fireworks/nemotron-lightning-3p5-30b-a3b
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: null
@@ -44,53 +47,6 @@ metrics:
         terminalbench_science: 0
         terminalbench_v2_1: 0.243445692883895
         terminalbench_v4_0: 0.00505050505050505
-    vals_ai:
-        fireworks/nemotron-lightning-3p5-30b-a3b:
-            corp_fin_v2:
-                accuracy: 54.235
-                cost_per_test: 0.004794
-                latency_seconds: 38.792
-                stderr: 0.98
-            cyber:
-                accuracy: 29.464
-                cost_per_test: 0.093074
-                latency_seconds: 3031.784
-                stderr: 5.958
-            legal_research:
-                accuracy: 2.885
-                cost_per_test: 0.004365
-                latency_seconds: 285.48
-                stderr: 1.163
-            medscribe:
-                accuracy: 4.267
-                cost_per_test: 0.006241
-                latency_seconds: 105.515
-                stderr: 0.492
-            programbench:
-                accuracy: 0.0
-                cost_per_test: 0.216901
-                latency_seconds: 1465.949
-                stderr: 0.0
-            proof_bench:
-                accuracy: 0.0
-                cost_per_test: 0.015926
-                latency_seconds: 919.248
-                stderr: 0.0
-            swebench:
-                accuracy: 52.8
-                cost_per_test: 0.031537
-                latency_seconds: 925.464
-                stderr: 2.235
-            tax_agent_bench:
-                accuracy: 2.591
-                cost_per_test: 0.030533
-                latency_seconds: 1180.079
-                stderr: 1.146
-            vibe-code:
-                accuracy: 0.0
-                cost_per_test: 0.128799
-                latency_seconds: 959.662
-                stderr: 0.0
     openrouter:
         gpqa_diamond:
             - endpoint_id: 97653104-c300-4849-83c4-0a2ad548447b
@@ -151,3 +107,50 @@ metrics:
               provider: io.net
               run_count: 9
               score: 0.6535332403780679
+    vals_ai:
+        fireworks/nemotron-lightning-3p5-30b-a3b:
+            corp_fin_v2:
+                accuracy: 54.235
+                cost_per_test: 0.004794
+                latency_seconds: 38.792
+                stderr: 0.98
+            cyber:
+                accuracy: 29.464
+                cost_per_test: 0.093074
+                latency_seconds: 3031.784
+                stderr: 5.958
+            legal_research:
+                accuracy: 2.885
+                cost_per_test: 0.004365
+                latency_seconds: 285.48
+                stderr: 1.163
+            medscribe:
+                accuracy: 4.267
+                cost_per_test: 0.006241
+                latency_seconds: 105.515
+                stderr: 0.492
+            programbench:
+                accuracy: 0.0
+                cost_per_test: 0.216901
+                latency_seconds: 1465.949
+                stderr: 0.0
+            proof_bench:
+                accuracy: 0.0
+                cost_per_test: 0.015926
+                latency_seconds: 919.248
+                stderr: 0.0
+            swebench:
+                accuracy: 52.8
+                cost_per_test: 0.031537
+                latency_seconds: 925.464
+                stderr: 2.235
+            tax_agent_bench:
+                accuracy: 2.591
+                cost_per_test: 0.030533
+                latency_seconds: 1180.079
+                stderr: 1.146
+            vibe-code:
+                accuracy: 0.0
+                cost_per_test: 0.128799
+                latency_seconds: 959.662
+                stderr: 0.0

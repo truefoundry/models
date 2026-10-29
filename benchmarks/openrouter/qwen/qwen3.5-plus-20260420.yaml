@@ -1,5 +1,19 @@
 model: qwen/qwen3.5-plus-20260420
+openrouter_id: qwen/qwen3.5-plus-20260420
+openrouter_permaslug: qwen/qwen3.5-plus-20260420
+vals_ai_id: alibaba/qwen3.5-plus-thinking
 metrics:
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 8b4a0fbb-6705-4f8d-a7f1-ad18ecc0edbc
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.4562877975276577
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.44509299999999996
     vals_ai:
         alibaba/qwen3.5-plus-thinking:
             aime:
@@ -62,14 +76,3 @@ metrics:
                 cost_per_test: 3.803761
                 latency_seconds: 3015.618
                 stderr: 3.179
-    openrouter:
-        lookback_days: 32
-        vgi_bench:
-            - endpoint_id: 8b4a0fbb-6705-4f8d-a7f1-ad18ecc0edbc
-              provider: Alibaba Cloud Int.
-              run_count: 2
-              score: 0.4562877975276577
-            - endpoint_id: null
-              provider: auto-routing
-              run_count: 1
-              score: 0.44509299999999996

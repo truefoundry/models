@@ -1,6 +1,9 @@
 model: qwen/qwen3.6-27b
 artificial_analysis_id: 8c29d66d-bf98-4ea3-8572-5409353ecc66
 artificial_analysis_slug: qwen3-6-27b
+openrouter_id: qwen/qwen3.6-27b
+openrouter_permaslug: qwen/qwen3.6-27b-20260422
+vals_ai_id: alibaba/qwen3.6-27b
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: null
@@ -41,63 +44,6 @@ metrics:
         terminalbench_hard: 0.348484848484849
         terminalbench_v2_1: 0.606741573033708
         terminalbench_v4_0: 0
-    vals_ai:
-        alibaba/qwen3.6-27b:
-            case_law_v2:
-                accuracy: 53.162
-                cost_per_test: 0.023877
-                latency_seconds: 42.493
-                stderr: 2.168
-            corp_fin_v2:
-                accuracy: 62.315
-                cost_per_test: 0.053549
-                latency_seconds: 62.759
-                stderr: 0.954
-            mortgage_tax:
-                accuracy: 68.283
-                cost_per_test: 0.016906
-                latency_seconds: 42.074
-                stderr: 0.916
-            proof_bench_v1:
-                accuracy: 8
-                cost_per_test: 0.512041
-                latency_seconds: 695.339
-                stderr: 2.713
-            sage-v1:
-                accuracy: 45.577
-                cost_per_test: 0.050269
-                latency_seconds: 159.25
-                stderr: 3.427
-            swebench:
-                accuracy: 70.0
-                cost_per_test: 0.91414
-                latency_seconds: 1028.733
-                stderr: 2.051
-            tax_eval_v2:
-                accuracy: 71.26
-                cost_per_test: 0.030256
-                latency_seconds: 147.778
-                stderr: 0.882
-            terminal-bench-2:
-                accuracy: 44.944
-                cost_per_test: 0.298145
-                latency_seconds: 2007.631
-                stderr: 5.303
-            vals_index_v1:
-                accuracy: 48.703
-                cost_per_test: 1.287196
-                latency_seconds: 2663.466
-                stderr: 1.657
-            vals_multimodal_index_v1:
-                accuracy: 50.18
-                cost_per_test: 0.929022
-                latency_seconds: 1931.236
-                stderr: 1.322
-            vibe-code:
-                accuracy: 11.941
-                cost_per_test: 4.655127
-                latency_seconds: 9762.856
-                stderr: 3.414
     openrouter:
         gpqa_diamond:
             - endpoint_id: 82097366-3a73-4790-ac36-f96ba9f6f577
@@ -175,3 +121,60 @@ metrics:
               provider: DeepInfra
               run_count: 1
               score: 0.379651
+    vals_ai:
+        alibaba/qwen3.6-27b:
+            case_law_v2:
+                accuracy: 53.162
+                cost_per_test: 0.023877
+                latency_seconds: 42.493
+                stderr: 2.168
+            corp_fin_v2:
+                accuracy: 62.315
+                cost_per_test: 0.053549
+                latency_seconds: 62.759
+                stderr: 0.954
+            mortgage_tax:
+                accuracy: 68.283
+                cost_per_test: 0.016906
+                latency_seconds: 42.074
+                stderr: 0.916
+            proof_bench_v1:
+                accuracy: 8
+                cost_per_test: 0.512041
+                latency_seconds: 695.339
+                stderr: 2.713
+            sage-v1:
+                accuracy: 45.577
+                cost_per_test: 0.050269
+                latency_seconds: 159.25
+                stderr: 3.427
+            swebench:
+                accuracy: 70.0
+                cost_per_test: 0.91414
+                latency_seconds: 1028.733
+                stderr: 2.051
+            tax_eval_v2:
+                accuracy: 71.26
+                cost_per_test: 0.030256
+                latency_seconds: 147.778
+                stderr: 0.882
+            terminal-bench-2:
+                accuracy: 44.944
+                cost_per_test: 0.298145
+                latency_seconds: 2007.631
+                stderr: 5.303
+            vals_index_v1:
+                accuracy: 48.703
+                cost_per_test: 1.287196
+                latency_seconds: 2663.466
+                stderr: 1.657
+            vals_multimodal_index_v1:
+                accuracy: 50.18
+                cost_per_test: 0.929022
+                latency_seconds: 1931.236
+                stderr: 1.322
+            vibe-code:
+                accuracy: 11.941
+                cost_per_test: 4.655127
+                latency_seconds: 9762.856
+                stderr: 3.414
