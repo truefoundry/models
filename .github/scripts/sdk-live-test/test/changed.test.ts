@@ -359,6 +359,7 @@ describe('fireworks-ai, truefoundry-managed', () => {
       getProviderSpec('truefoundry-managed')?.accountEnv?.base_url,
       'TRUEFOUNDRY_MANAGED_BASE_URL',
     );
+    assert.equal(getProviderSpec('truefoundry-managed')?.modelIdPrefix, 'tfy-managed/');
   });
 });
 

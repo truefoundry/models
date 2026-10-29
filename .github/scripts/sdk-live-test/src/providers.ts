@@ -23,6 +23,8 @@ export type ProviderSpec = {
   accountEnv?: Record<string, string>;
   /** Model verified live for smoke; if deprecated or unset, the first non-deprecated chat model. */
   smokeModel?: string;
+  /** Prepended to the catalogue model id on the wire, for gateways that namespace models by account. */
+  modelIdPrefix?: string;
 };
 
 const SPECS: Record<string, ProviderSpec> = {
@@ -209,6 +211,7 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/truefoundry-managed',
     apiKeyEnv: 'TRUEFOUNDRY_MANAGED_API_KEY',
     accountEnv: { base_url: 'TRUEFOUNDRY_MANAGED_BASE_URL' },
+    modelIdPrefix: 'tfy-managed/',
     smokeModel: 'gpt-oss-120b',
   },
 };

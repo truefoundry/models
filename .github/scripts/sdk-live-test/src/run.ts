@@ -100,7 +100,7 @@ function buildCall(
       manifest: {
         name: model.model,
         type: spec.modelIntegrationType,
-        model_id: model.model,
+        model_id: `${spec.modelIdPrefix ?? ''}${model.model}`,
         model_types: [model.mode],
       },
     },
