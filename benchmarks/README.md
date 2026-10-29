@@ -6,7 +6,9 @@ Artificial Analysis catalog. Each generated YAML file contains:
 
 - the provider model name;
 - the current Artificial Analysis model ID and slug; and
-- every metric returned by the Artificial Analysis Free Data API.
+- `metrics.artificial_analysis`: every metric returned by the Artificial
+  Analysis Free Data API, with the `artificial_analysis_` prefix removed from
+  metric names.
 
 `null` means Artificial Analysis did not publish that metric for the model in
 the fetched catalog. Non-language models and language models that Artificial
