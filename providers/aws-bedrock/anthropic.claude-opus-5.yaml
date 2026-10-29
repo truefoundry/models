@@ -1,5 +1,42 @@
 canonical_model: anthropic/claude-opus-5
 costs:
+    # Global Cross-Region inference profile: global.anthropic.claude-opus-5
+    # US Geo Cross-Region inference profile: us.anthropic.claude-opus-5
+    - cache_creation_input_token_cost: 6.875e-6
+      cache_creation_input_token_cost_per_hour: 1.1e-5
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 5.5e-6
+      input_cost_per_token_batches: 2.75e-6
+      output_cost_per_token: 2.75e-5
+      output_cost_per_token_batches: 1.375e-5
+      region: us.anthropic.claude-opus-5
+    # AWS GovCloud (US) — US West
+    - cache_creation_input_token_cost: 7.5e-6
+      cache_creation_input_token_cost_per_hour: 1.2e-5
+      cache_read_input_token_cost: 6e-7
+      input_cost_per_token: 6e-6
+      input_cost_per_token_batches: 3e-6
+      output_cost_per_token: 3e-5
+      output_cost_per_token_batches: 1.5e-5
+      region: us-gov-west-1
+    # AWS GovCloud (US) — US East
+    - cache_creation_input_token_cost: 7.5e-6
+      cache_creation_input_token_cost_per_hour: 1.2e-5
+      cache_read_input_token_cost: 6e-7
+      input_cost_per_token: 6e-6
+      input_cost_per_token_batches: 3e-6
+      output_cost_per_token: 3e-5
+      output_cost_per_token_batches: 1.5e-5
+      region: us-gov-east-1
+    # India Geo Cross-Region inference profile: in.anthropic.claude-opus-5
+    - cache_creation_input_token_cost: 6.875e-6
+      cache_creation_input_token_cost_per_hour: 1.1e-5
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 5.5e-6
+      input_cost_per_token_batches: 2.75e-6
+      output_cost_per_token: 2.75e-5
+      output_cost_per_token_batches: 1.375e-5
+      region: in.anthropic.claude-opus-5
     - cache_creation_input_token_cost: 6.25e-6
       cache_creation_input_token_cost_per_hour: 1e-5
       cache_read_input_token_cost: 5e-7
@@ -7,6 +44,33 @@ costs:
       input_cost_per_token_batches: 2.5e-6
       output_cost_per_token: 0.000025
       output_cost_per_token_batches: 1.25e-5
+      region: global.anthropic.claude-opus-5
+    # EU Geo Cross-Region inference profile: eu.anthropic.claude-opus-5
+    - cache_creation_input_token_cost: 6.875e-6
+      cache_creation_input_token_cost_per_hour: 1.1e-5
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 5.5e-6
+      input_cost_per_token_batches: 2.75e-6
+      output_cost_per_token: 2.75e-5
+      output_cost_per_token_batches: 1.375e-5
+      region: eu.anthropic.claude-opus-5
+    # AU Geo Cross-Region inference profile: au.anthropic.claude-opus-5
+    - cache_creation_input_token_cost: 6.875e-6
+      cache_creation_input_token_cost_per_hour: 1.1e-5
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 5.5e-6
+      input_cost_per_token_batches: 2.75e-6
+      output_cost_per_token: 2.75e-5
+      output_cost_per_token_batches: 1.375e-5
+      region: au.anthropic.claude-opus-5
+    # Asia Pacific (Seoul) — the only Region with In-Region (non cross-region) support for Opus 5 on bedrock-runtime
+    - cache_creation_input_token_cost: 6.875e-6
+      cache_creation_input_token_cost_per_hour: 1.1e-5
+      cache_read_input_token_cost: 5.5e-7
+      input_cost_per_token: 5.5e-6
+      input_cost_per_token_batches: 2.75e-6
+      output_cost_per_token: 2.75e-5
+      output_cost_per_token_batches: 1.375e-5
       region: ap-northeast-2
 external_ids:
     artificial_analysis_id: b8fc61f7-5e9a-49e6-8547-6ac56db24627
@@ -52,6 +116,8 @@ sources:
     - https://platform.claude.com/docs/en/models/opus-5/overview
     - https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-adaptive-thinking.html
     - https://platform.claude.com/docs/en/build-with-claude/effort
+    - https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5
+    - https://assets.claude.com/3cb84469510ab9346b1ac2663fa2554d2037208c.pdf
 status: active
 supportedModes:
     - chat
