@@ -6,6 +6,10 @@
 #   kind      api | pricelist | page   (how the source is read)
 #   source    adapter name: the key in scripts/verify/sources/__init__.py SOURCES
 #   fields    what the adapter compares: price | price-report | limits | features | modalities | lifecycle
+#             Only `price` is read by code (the sweep, the update agent and `verify.propose` test
+#             `"price" in fields`); the other values say what the adapter compares and decide nothing.
+#             List `limits` only for an adapter that compares context window / max output (openrouter);
+#             deepinfra's adapter reads prices only, so its row says `[price]`.
 #   added     ISO date the entry was added
 #
 # CONTRACT with the price sweep and the update agent (they live in the models-agent repo and read
@@ -49,7 +53,7 @@ sources:
   - provider: deepinfra
     kind: api
     source: deepinfra
-    fields: [price, limits]
+    fields: [price]
     added: 2026-10-27
   - provider: aws-bedrock
     kind: pricelist
