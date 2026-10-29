@@ -23,8 +23,10 @@ features:
     - system_messages
     - prompt_caching
     - cache_control
-    - structured_output
     - assistant_prefill
+    # structured_output removed: the India Geographic cross-Region inference profile
+    # (in.anthropic.claude-haiku-4-5-20251001-v1:0) does not support structured outputs
+    # per the model card.
 limits:
     context_window: 200000
     max_input_tokens: 200000
