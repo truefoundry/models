@@ -1,2 +1,28 @@
 model: cohere/command-r-plus
-metrics: {}
+metrics:
+    vals_ai:
+        cohere/command-r-plus:
+            gpqa:
+                accuracy: 31.06
+                cost_per_test: 0.007438
+                latency_seconds: 8.194
+                stderr: 2.28
+            lcb:
+                accuracy: 18.238
+                cost_per_test: 0.003267
+                latency_seconds: 5.463
+                stderr: 1.016
+            legal_bench:
+                accuracy: 68.287
+                latency_seconds: 0.396
+                stderr: 0.65
+            medqa:
+                accuracy: 2.651
+                cost_per_test: 0.003456
+                latency_seconds: 6.056
+                stderr: 0.29
+            mmlu_pro:
+                accuracy: 44.003
+                cost_per_test: 0.00566
+                latency_seconds: 4.419
+                stderr: 0.479

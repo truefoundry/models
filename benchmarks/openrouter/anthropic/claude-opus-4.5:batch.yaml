@@ -7,21 +7,23 @@ metrics:
         aime: null
         aime_25: 0.626666666666667
         coding_index: null
-        critpt: 0.003
+        critpt: 0.00285714285714286
         gdpval_aa: null
-        gpqa: 0.81
-        hle: 0.132
-        ifbench: 0.43
+        gpqa: 0.81010101010101
+        hle: 0.131603336422614
+        ifbench: 0.429931972789116
         intelligence_index: null
-        lcr: 0.707
-        livecodebench: 0.738
+        lcr: 0.706666666666667
+        livecodebench: 0.737566137566138
         math_500: null
         math_index: 62.7
         mmlu_pro: 0.889
+        mmmu_pro: 0.712138728323699
+        openness_index: 11.11111111111111
         scicode: null
-        tau2: 0.863
+        tau2: 0.862573099415205
         tau_banking: null
-        terminalbench_hard: 0.409
+        terminalbench_hard: 0.409090909090909
         terminalbench_v2_1: null
         terminalbench_v4_0: null
     design_arena:
@@ -29,13 +31,14 @@ metrics:
             models:
                 3d:
                     avg_generation_time_ms: 86138
-                    elo: 1211
+                    elo: 1210
                     elo_percentile: 67
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 1004
+                    fourth_place: 212
+                    rank: 62
+                    second_place: 756
+                    third_place: 529
+                    total_tournaments: 2501
                     win_rate: 58.5
                 asciiart:
                     avg_generation_time_ms: 48250
@@ -59,53 +62,58 @@ metrics:
                     win_rate: 59.5
                 dataviz:
                     avg_generation_time_ms: 92915
-                    elo: 1243
+                    elo: 1244
                     elo_percentile: 73
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 223
+                    fourth_place: 62
+                    rank: 49
+                    second_place: 213
+                    third_place: 124
+                    total_tournaments: 622
                     win_rate: 58.5
                 gamedev:
                     avg_generation_time_ms: 125719
-                    elo: 1229
+                    elo: 1228
                     elo_percentile: 71
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 837
+                    fourth_place: 202
+                    rank: 60
+                    second_place: 621
+                    third_place: 454
+                    total_tournaments: 2114
                     win_rate: 59.3
                 svg:
                     avg_generation_time_ms: 31924
-                    elo: 1177
+                    elo: 1178
                     elo_percentile: 61
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 742
+                    fourth_place: 178
+                    rank: 63
+                    second_place: 640
+                    third_place: 457
+                    total_tournaments: 2017
                     win_rate: 58.7
                 uicomponent:
                     avg_generation_time_ms: 99851
                     elo: 1233
                     elo_percentile: 69
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 371
+                    fourth_place: 75
+                    rank: 64
+                    second_place: 279
+                    third_place: 213
+                    total_tournaments: 938
                     win_rate: 58.1
                 website:
                     avg_generation_time_ms: 135567
-                    elo: 1245
+                    elo: 1246
                     elo_percentile: 71
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 4030
+                    fourth_place: 978
+                    rank: 64
+                    second_place: 3148
+                    third_place: 2178
+                    total_tournaments: 10334
                     win_rate: 59.7
         Claude Opus 4.5 (claude-opus-4-5-20251101):
             agents:
@@ -221,6 +229,11 @@ metrics:
                 cost_per_test: 0.092448
                 latency_seconds: 10.534
                 stderr: 0.908
+            poker_agent:
+                accuracy: 1033.3789020943957
+                cost_per_test: 0.04247890808080806
+                latency_seconds: 8.852645959989609
+                stderr: 0.0
             rsi_index:
                 accuracy: 14.82
                 cost_per_test: 365.763371
@@ -246,6 +259,87 @@ metrics:
                 cost_per_test: 1.175583
                 latency_seconds: 627.493
                 stderr: 5.254
+        anthropic/claude-opus-4-5-20251101-thinking:
+            aime:
+                accuracy: 95.417
+                cost_per_test: 1.320246
+                latency_seconds: 212.201
+                stderr: 0.369
+            case_law_v2:
+                accuracy: 62.594
+                cost_per_test: 0.229072
+                latency_seconds: 16.819
+                stderr: 0.107
+            corp_fin_v2:
+                accuracy: 65.074
+                cost_per_test: 0.173423
+                latency_seconds: 17.725
+                stderr: 0.939
+            gpqa:
+                accuracy: 85.859
+                cost_per_test: 0.712758
+                latency_seconds: 138.525
+                stderr: 2.476
+            lcb:
+                accuracy: 83.67
+                cost_per_test: 0.971
+                latency_seconds: 164.427
+                stderr: 1.037
+            legal_bench:
+                accuracy: 84.604
+                cost_per_test: 0.037097
+                latency_seconds: 7.638
+                stderr: 0.391
+            medcode:
+                accuracy: 49.156
+                cost_per_test: 0.095846
+                latency_seconds: 60.839
+                stderr: 2.012
+            medqa:
+                accuracy: 95.875
+                cost_per_test: 0.14813
+                latency_seconds: 31.625
+                stderr: 0.182
+            medscribe:
+                accuracy: 85.321
+                cost_per_test: 0.410224
+                latency_seconds: 72.112
+                stderr: 1.896
+            mgsm:
+                accuracy: 95.2
+                cost_per_test: 0.063151
+                latency_seconds: 11.56
+                stderr: 1.284
+            mmlu_pro:
+                accuracy: 87.26
+                cost_per_test: 0.215138
+                latency_seconds: 38.92
+                stderr: 0.381
+            mmmu:
+                accuracy: 82.948
+                cost_per_test: 0.126986
+                latency_seconds: 75.28
+                stderr: 0.904
+            mortgage_tax:
+                accuracy: 67.686
+                cost_per_test: 0.178388
+                latency_seconds: 28.166
+                stderr: 0.917
+            swebench:
+                accuracy: 76.4
+                cost_per_test: 1.054837
+                latency_seconds: 320.542
+                stderr: 1.901
+            tax_eval_v2:
+                accuracy: 74.856
+                cost_per_test: 0.218987
+                latency_seconds: 47.448
+                stderr: 0.849
+            vibe-code:
+                accuracy: 20.63
+                cost_per_test: 32.873283
+                latency_seconds: 2283.142
+                stderr: 3.159
     openrouter:
         gpqa_diamond:
             - endpoint_id: de32581c-2e11-4f54-8d29-e8a6e19d3038

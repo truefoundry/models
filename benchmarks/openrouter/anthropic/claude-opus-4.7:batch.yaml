@@ -7,24 +7,28 @@ metrics:
         agentic_percentile: 68
         aime: null
         aime_25: null
+        analyst_agent: 0.4375
         coding_index: 73.6
         coding_percentile: 84
         critpt: 0.12
         gdpval_aa: 0.431
-        gpqa: 0.914
-        hle: 0.423
-        ifbench: 0.586
+        gdpval_aa_elo: 1361.94
+        gpqa: 0.914141414141414
+        hle: 0.423076923076923
+        ifbench: 0.586394557823129
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.787
+        itbench_sre: 0.466572504708098
+        lcr: 0.786666666666667
         livecodebench: null
         math_500: null
         math_index: null
         mmlu_pro: null
+        mmmu_pro: 0.788439306358382
         scicode: null
-        tau2: 0.886
+        tau2: 0.885964912280702
         tau_banking: 0.34639175257732
-        terminalbench_hard: 0.515
+        terminalbench_hard: 0.515151515151515
         terminalbench_v2_1: 0.831460674157303
         terminalbench_v4_0: null
     vals_ai:
@@ -120,10 +124,10 @@ metrics:
                 latency_seconds: 16.101
                 stderr: 0.896
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: null
                 latency_seconds: 3246.698
-                stderr: 0
+                stderr: 0.0
             proof_bench_v1:
                 accuracy: 54
                 cost_per_test: 1.807786
@@ -140,7 +144,7 @@ metrics:
                 latency_seconds: 124.647
                 stderr: 3.368
             swebench:
-                accuracy: 82
+                accuracy: 82.0
                 cost_per_test: 2.423427
                 latency_seconds: 441.988
                 stderr: 1.72

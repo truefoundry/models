@@ -1,2 +1,62 @@
 model: meta.llama3-1-8b-instruct-v1:0
-metrics: {}
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        agentic_percentile: null
+        aime: 0.0766666666666667
+        aime_25: 0.0433333333333333
+        coding_index: 5.4
+        coding_percentile: 2
+        critpt: 0
+        gdpval_aa: 0
+        gdpval_aa_elo: -379.24
+        gpqa: 0.258585858585859
+        hle: 0.0529
+        ifbench: 0.285714285714286
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.18
+        livecodebench: 0.116402116402116
+        math_500: 0.519333333333333
+        math_index: 4.3
+        mmlu_pro: 0.476
+        scicode: null
+        tau2: 0.16374269005848
+        tau_banking: null
+        terminalbench_hard: 0.00757575757575758
+        terminalbench_v2_1: 0.0149812734082397
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: b805bc63-f9f0-402b-9f5c-e992dc1e90b8
+              provider: Cloudflare
+              run_count: 5
+              score: 0.0004718558814681365
+            - endpoint_id: 9f805364-f309-49a7-9de4-b0ca172bffb6
+              provider: CoreWeave
+              run_count: 4
+              score: 0.26809023244771385
+            - endpoint_id: d7de0517-e8de-4f1b-b4bc-c5ebd29a0315
+              provider: DeepInfra
+              run_count: 5
+              score: 0.2592347874069349
+            - endpoint_id: 74af5aaf-6ad5-4389-ae0f-1bd2c7337386
+              provider: Groq
+              run_count: 4
+              score: 0.30086681811627847
+            - endpoint_id: baecce7a-5028-432e-aaa8-d78b5b700929
+              provider: NovitaAI
+              run_count: 4
+              score: 0.2533051680484326
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.2648475015571311
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 2
+              score: 0.3012103273781768

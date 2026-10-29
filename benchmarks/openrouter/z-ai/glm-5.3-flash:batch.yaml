@@ -1,30 +1,47 @@
 model: z-ai/glm-5.3-flash:batch
 metrics:
     artificial_analysis:
+        aa_3d_elo: 936.6148
         aa_omniscience_accuracy: 0.282
+        aa_omniscience_hallucination_rate: 0.38347260909935005
         aa_omniscience_non_hallucination_rate: 0.617
         agentic_index: 50.9
         agentic_percentile: 91
         aime: null
         aime_25: null
+        analyst_agent: 0.25
+        automationbench_partial_score: 0.6036862782167782
+        code2video_elo: 974.54
         coding_index: 71.5
         coding_percentile: 79
-        critpt: 0.154
+        critpt: 0.154285714285714
+        critpt_agentic_hard: 0.24
+        enterprise_ops_gym: 0.3321396598030439
+        frontiercode: 0.409957333333333
+        gdp_pdf_all_pass: 0.154
         gdpval_aa: 0.575
-        gpqa: 0.912
-        hle: 0.399
+        gdpval_aa_elo: 1649.37
+        gpqa: 0.912121212121212
+        harvey_lab: 0.008333333333333333
+        hle: 0.398517145505097
+        hle_diamond: 0.182
         ifbench: null
         intelligence_index: null
         intelligence_percentile: null
+        itbench_sre: 0.512429378531074
         lcr: 0.8
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.116666666666667
         mmlu_pro: null
-        scicode: 0.516
+        omniscience_index: 0.6666666666666666
+        openness_index: 44.44444444444444
+        scicode: 0.516203703703704
         tau2: null
         tau_banking: 0.472164948453608
         terminalbench_hard: null
+        terminalbench_science: 0.0476190476190476
         terminalbench_v2_1: 0.842696629213483
         terminalbench_v4_0: 0.328282828282828
     design_arena:
@@ -109,6 +126,62 @@ metrics:
                     second_place: 0
                     third_place: 0
                     total_tournaments: 0
+                    win_rate: 48.5
+        GLM-5.3-Flash (glm-5.3-flash):
+            models:
+                3d:
+                    elo: 1313
+                    first_place: 864
+                    fourth_place: 463
+                    rank: 24
+                    second_place: 564
+                    third_place: 461
+                    total_tournaments: 2352
+                    win_rate: 56.2
+                dataviz:
+                    elo: 1260
+                    first_place: 105
+                    fourth_place: 113
+                    rank: 44
+                    second_place: 104
+                    third_place: 79
+                    total_tournaments: 401
+                    win_rate: 50
+                gamedev:
+                    elo: 1275
+                    first_place: 636
+                    fourth_place: 641
+                    rank: 33
+                    second_place: 545
+                    third_place: 540
+                    total_tournaments: 2362
+                    win_rate: 46.7
+                svg:
+                    elo: 1283
+                    first_place: 251
+                    fourth_place: 155
+                    rank: 19
+                    second_place: 294
+                    third_place: 195
+                    total_tournaments: 895
+                    win_rate: 56.4
+                uicomponent:
+                    elo: 1306
+                    first_place: 243
+                    fourth_place: 209
+                    rank: 23
+                    second_place: 216
+                    third_place: 141
+                    total_tournaments: 809
+                    win_rate: 53.6
+                website:
+                    elo: 1270
+                    first_place: 2822
+                    fourth_place: 2894
+                    rank: 41
+                    second_place: 2750
+                    third_place: 2638
+                    total_tournaments: 11104
                     win_rate: 48.5
     vals_ai:
         zai/glm-5.3-flash:
@@ -213,12 +286,12 @@ metrics:
                 latency_seconds: 28.218
                 stderr: 0.834
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 0.79862
                 latency_seconds: 19801.258
-                stderr: 0
+                stderr: 0.0
             proof_bench:
-                accuracy: 21
+                accuracy: 21.0
                 cost_per_test: 0.224234
                 latency_seconds: 4274.803
                 stderr: 4.094
@@ -238,7 +311,7 @@ metrics:
                 latency_seconds: 11693.322
                 stderr: 0.539
             swebench:
-                accuracy: 92
+                accuracy: 92.0
                 cost_per_test: 0.017996
                 latency_seconds: 3817.379
                 stderr: 1.214
@@ -262,6 +335,11 @@ metrics:
                 cost_per_test: 1.219907
                 latency_seconds: 3681.073
                 stderr: 2.672
+            terminal-bench-science:
+                accuracy: 2.857
+                cost_per_test: 0.524048
+                latency_seconds: 12461.546
+                stderr: 2.006
             vals_index:
                 accuracy: 50.861
                 cost_per_test: 1.133938
@@ -277,6 +355,11 @@ metrics:
                 cost_per_test: 1.034642
                 latency_seconds: 4234.985
                 stderr: 1.413
+            vals_router_index:
+                accuracy: 50.861
+                cost_per_test: 1.133938
+                latency_seconds: 3830.634
+                stderr: 1.255
             vcb-1-100:
                 accuracy: 16.033
                 cost_per_test: 0.462842

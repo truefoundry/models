@@ -1,32 +1,74 @@
 model: openai/gpt-6.1-terra:batch
 metrics:
     artificial_analysis:
-        aa_omniscience_accuracy: 0.476
+        aa_omniscience_accuracy: 0.47633333333333333
+        aa_omniscience_hallucination_rate: 0.3450031826861871
         aa_omniscience_non_hallucination_rate: 0.655
         agentic_index: null
         agentic_percentile: null
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.6016762327257726
         coding_index: null
         coding_percentile: null
         critpt: 0.28
+        critpt_agentic_hard: 0.645
+        frontiercode: 0.36025
+        frontiercode_v2_0: 0.423200505050505
+        gdp_pdf_all_pass: 0.286
         gdpval_aa: 0.488
+        gdpval_aa_elo: 1476.05
         gpqa: null
-        hle: 0.462
+        hle: 0.462465245597776
+        hle_diamond: 0.473
         ifbench: null
-        intelligence_index: 51
+        intelligence_index: 50.9765188577015
         intelligence_percentile: 82
-        lcr: 0.827
+        lcr: 0.826666666666667
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.305555555555556
         mmlu_pro: null
-        scicode: 0.551
+        mmmu_pro: 0.846820809248555
+        omniscience_index: 29.566666666666666
+        scicode: 0.550925925925926
         tau2: null
         tau_banking: null
         terminalbench_hard: null
+        terminalbench_science: 0.576190476190476
         terminalbench_v2_1: null
         terminalbench_v4_0: 0.555555555555556
+    design_arena:
+        GPT-6.1 Terra:
+            models:
+                gamedev:
+                    elo: 1347
+                    first_place: 85
+                    fourth_place: 23
+                    rank: 12
+                    second_place: 89
+                    third_place: 67
+                    total_tournaments: 264
+                    win_rate: 59.8
+                uicomponent:
+                    elo: 1272
+                    first_place: 8
+                    fourth_place: 8
+                    rank: 42
+                    second_place: 16
+                    third_place: 13
+                    total_tournaments: 45
+                    win_rate: 50.4
+                website:
+                    elo: 1283
+                    first_place: 231
+                    fourth_place: 144
+                    rank: 33
+                    second_place: 227
+                    third_place: 215
+                    total_tournaments: 817
+                    win_rate: 53
     vals_ai:
         openai/gpt-6.1-terra:
             emb-v1-1:

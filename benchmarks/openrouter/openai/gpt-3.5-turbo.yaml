@@ -16,7 +16,7 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.297
+        gpqa: 0.296969696969697
         healthcare_and_medical_index: null
         hle: null
         ifbench: null
@@ -35,3 +35,19 @@ metrics:
         terminalbench_hard: null
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    vals_ai:
+        openai/gpt-3.5-turbo:
+            gpqa:
+                accuracy: 30.556
+                cost_per_test: 0.000862
+                latency_seconds: 2.628
+                stderr: 2.287
+            legal_bench:
+                accuracy: 64.372
+                latency_seconds: 0.542
+                stderr: 0.628
+            medqa:
+                accuracy: 58.471
+                cost_per_test: 0.000424
+                latency_seconds: 1.589
+                stderr: 0.881

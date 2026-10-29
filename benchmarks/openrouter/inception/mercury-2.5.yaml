@@ -8,24 +8,28 @@ metrics:
         agentic_index: null
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.023541080303287186
         coding_index: null
         critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.036
         gdpval_aa: 0
+        gdpval_aa_elo: 482.19
         gpqa: null
         healthcare_and_medical_index: null
-        hle: 0.118
+        hle: 0.117701575532901
+        hle_diamond: 0.051
         ifbench: null
         intelligence_index: null
-        lcr: 0.717
+        lcr: 0.716666666666667
         legal_index: null
         livecodebench: null
         math_500: null
         math_index: null
         mmlu_pro: null
-        scicode: 0.385
+        scicode: 0.385416666666667
         strategy_and_ops_index: null
         tau2: null
         tau_banking: null
@@ -85,10 +89,15 @@ metrics:
                 latency_seconds: 9.992
                 stderr: 2.095
             proof_bench:
-                accuracy: 3
+                accuracy: 3.0
                 cost_per_test: 0.044105
                 latency_seconds: 201.725
                 stderr: 1.714
+            public-benefits-bench:
+                accuracy: 45.264
+                cost_per_test: 0.067576
+                latency_seconds: 68.325
+                stderr: 1.295
             skillsbench:
                 accuracy: 18.061
                 cost_per_test: 0.101286
@@ -105,10 +114,15 @@ metrics:
                 latency_seconds: 688.923
                 stderr: 0.749
             terminal-bench-4:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 0.368017
                 latency_seconds: 913.643
-                stderr: 0
+                stderr: 0.0
+            terminal-bench-science:
+                accuracy: 0.0
+                cost_per_test: 0.17804
+                latency_seconds: 1693.946
+                stderr: 0.0
             vals_index_v2:
                 accuracy: 12.952
                 cost_per_test: 0.300647

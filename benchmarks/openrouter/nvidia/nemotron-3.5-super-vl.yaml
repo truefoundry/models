@@ -3,36 +3,48 @@ artificial_analysis_id: e2c0623e-c855-4a61-bb66-be1f1ed43234
 artificial_analysis_slug: nemotron-3-5-super-vl
 metrics:
     artificial_analysis:
-        aa_omniscience_accuracy: 0.212
+        aa_omniscience_accuracy: 0.21166666666666667
+        aa_omniscience_hallucination_rate: 0.30486257928118393
         aa_omniscience_non_hallucination_rate: 0.695
         agentic_index: null
         agentic_percentile: null
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.14818345798643587
         coding_index: null
         coding_percentile: null
-        critpt: 0.106
+        critpt: 0.105714285714286
+        critpt_agentic_hard: 0.135
         economics_index: 27
         engineering_index: 23.5
         finance_and_accounting_index: 26.7
+        frontiercode: 0.255239
+        frontiercode_v2_0: 0.0610914141414141
+        gdp_pdf_all_pass: 0.08
         gdpval_aa: 0.331
+        gdpval_aa_elo: 1162.41
         gpqa: null
         healthcare_and_medical_index: 21
-        hle: 0.307
+        hle: 0.307228915662651
+        hle_diamond: 0.088
         ifbench: null
-        intelligence_index: 13.6
+        intelligence_index: 13.6203422723141
         intelligence_percentile: 12
         lcr: 0.69
         legal_index: 25.3
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.133333333333333
         mmlu_pro: null
-        scicode: 0.478
+        omniscience_index: -2.8666666666666667
+        openness_index: 83.33333333333333
+        scicode: 0.478009259259259
         strategy_and_ops_index: 21.8
         tau2: null
         tau_banking: null
         terminalbench_hard: null
+        terminalbench_science: 0
         terminalbench_v2_1: null
         terminalbench_v4_0: 0
     design_arena:
@@ -42,11 +54,12 @@ metrics:
                     avg_generation_time_ms: 96381
                     elo: 1119
                     elo_percentile: 38
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 2
+                    fourth_place: 37
+                    rank: 100
+                    second_place: 18
+                    third_place: 36
+                    total_tournaments: 93
                     win_rate: 28.5
                 codecategories:
                     avg_generation_time_ms: 104922
@@ -62,32 +75,35 @@ metrics:
                     avg_generation_time_ms: 102653
                     elo: 1108
                     elo_percentile: 30
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 46
+                    fourth_place: 222
+                    rank: 129
+                    second_place: 78
+                    third_place: 164
+                    total_tournaments: 510
                     win_rate: 29.3
                 uicomponent:
                     avg_generation_time_ms: 69621
-                    elo: 1134
+                    elo: 1140
                     elo_percentile: 35
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 30.3
+                    first_place: 9
+                    fourth_place: 36
+                    rank: 115
+                    second_place: 13
+                    third_place: 17
+                    total_tournaments: 75
+                    win_rate: 31.1
                 website:
                     avg_generation_time_ms: 107547
                     elo: 1167
                     elo_percentile: 42
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 34.9
+                    first_place: 162
+                    fourth_place: 441
+                    rank: 116
+                    second_place: 192
+                    third_place: 344
+                    total_tournaments: 1139
+                    win_rate: 35
     openrouter:
         gpqa_diamond:
             - endpoint_id: 5384b3f0-0402-4832-9b8e-844dba62a32a

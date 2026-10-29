@@ -16,22 +16,70 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: 0
-        gpqa: 0.408
+        gdpval_aa_elo: 218.3
+        gpqa: 0.408080808080808
         healthcare_and_medical_index: null
-        hle: 0.036
-        ifbench: 0.428
+        hle: 0.0363
+        ifbench: 0.427891156462585
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.273
+        lcr: 0.273333333333333
         legal_index: null
-        livecodebench: 0.314
+        livecodebench: 0.314285714285714
         math_500: 0.720666666666667
         math_index: null
         mmlu_pro: 0.634
+        mmmu_pro: 0.45606936416185
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.246
+        tau2: 0.245614035087719
         tau_banking: null
-        terminalbench_hard: 0.023
+        terminalbench_hard: 0.0227272727272727
         terminalbench_v2_1: 0.101123595505618
         terminalbench_v4_0: null
+    vals_ai:
+        anthropic/claude-3-5-haiku-20241022:
+            aime:
+                accuracy: 3.333
+                cost_per_test: 0.002432
+                latency_seconds: 9.055
+                stderr: 0.315
+            corp_fin_v2:
+                accuracy: 50.816
+                cost_per_test: 0.063315
+                latency_seconds: 0.039
+                stderr: 0.981
+            gpqa:
+                accuracy: 37.879
+                cost_per_test: 0.00222
+                latency_seconds: 6.56
+                stderr: 2.436
+            lcb:
+                accuracy: 41.918
+                cost_per_test: 0.003064
+                latency_seconds: 10.581
+                stderr: 1.129
+            legal_bench:
+                accuracy: 70.331
+                latency_seconds: 1.066
+                stderr: 0.64
+            math500:
+                accuracy: 64.2
+                cost_per_test: 0.001498
+                latency_seconds: 5.128
+                stderr: 4.188
+            mgsm:
+                accuracy: 84.618
+                cost_per_test: 0.001116
+                latency_seconds: 3.738
+                stderr: 2.203
+            mmlu_pro:
+                accuracy: 64.117
+                cost_per_test: 0.002224
+                latency_seconds: 5.792
+                stderr: 0.46
+            tax_eval_v2:
+                accuracy: 57.359
+                cost_per_test: 0.001317
+                latency_seconds: 4.987
+                stderr: 0.976

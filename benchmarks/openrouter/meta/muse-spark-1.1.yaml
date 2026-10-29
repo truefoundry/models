@@ -9,26 +9,30 @@ metrics:
         agentic_percentile: 52
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.38848916245422865
         coding_index: 71.3
         coding_percentile: 78
-        critpt: 0.151
+        critpt: 0.151428571428571
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.144
         gdpval_aa: 0.359
-        gpqa: 0.898
+        gdpval_aa_elo: 1217.43
+        gpqa: 0.897979797979798
         healthcare_and_medical_index: null
-        hle: 0.462
+        hle: 0.462001853568119
         ifbench: null
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.777
+        lcr: 0.776666666666667
         legal_index: null
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.0722222222222222
         mmlu_pro: null
-        scicode: 0.588
+        scicode: 0.587962962962963
         strategy_and_ops_index: null
         tau2: null
         tau_banking: 0.317525773195876
@@ -219,6 +223,135 @@ metrics:
                     third_place: 0
                     total_tournaments: 0
                     win_rate: 51.3
+        Muse Spark 1.1 (muse-spark-1.1):
+            agents:
+                agenticgamedev:
+                    elo: 1146
+                    first_place: 1275
+                    fourth_place: 0
+                    rank: 13
+                    second_place: 1389
+                    third_place: 0
+                    total_tournaments: 2664
+                    win_rate: 48.1
+                androidnative:
+                    elo: 1170
+                    first_place: 130
+                    fourth_place: 0
+                    rank: 19
+                    second_place: 166
+                    third_place: 0
+                    total_tournaments: 296
+                    win_rate: 46.9
+                fullstack:
+                    elo: 1199
+                    first_place: 544
+                    fourth_place: 0
+                    rank: 21
+                    second_place: 674
+                    third_place: 0
+                    total_tournaments: 1218
+                    win_rate: 45.4
+                godotgamedev:
+                    elo: 1103
+                    first_place: 900
+                    fourth_place: 0
+                    rank: 20
+                    second_place: 1368
+                    third_place: 0
+                    total_tournaments: 2268
+                    win_rate: 39.8
+                htmlslides:
+                    elo: 1091
+                    first_place: 1067
+                    fourth_place: 0
+                    rank: 12
+                    second_place: 993
+                    third_place: 0
+                    total_tournaments: 2060
+                    win_rate: 51.8
+                mobileapps:
+                    elo: 1174
+                    first_place: 501
+                    fourth_place: 0
+                    rank: 28
+                    second_place: 593
+                    third_place: 0
+                    total_tournaments: 1094
+                    win_rate: 46.2
+                python-pptxslides:
+                    elo: 1113
+                    first_place: 879
+                    fourth_place: 0
+                    rank: 23
+                    second_place: 1098
+                    third_place: 0
+                    total_tournaments: 1977
+                    win_rate: 44.4
+                webapps:
+                    elo: 1208
+                    first_place: 3105
+                    fourth_place: 0
+                    rank: 26
+                    second_place: 3086
+                    third_place: 0
+                    total_tournaments: 6191
+                    win_rate: 49.2
+            models:
+                3d:
+                    elo: 1257
+                    first_place: 536
+                    fourth_place: 501
+                    rank: 41
+                    second_place: 617
+                    third_place: 632
+                    total_tournaments: 2286
+                    win_rate: 49
+                dataviz:
+                    elo: 1269
+                    first_place: 233
+                    fourth_place: 131
+                    rank: 36
+                    second_place: 172
+                    third_place: 220
+                    total_tournaments: 756
+                    win_rate: 50.2
+                gamedev:
+                    elo: 1269
+                    first_place: 681
+                    fourth_place: 578
+                    rank: 37
+                    second_place: 709
+                    third_place: 761
+                    total_tournaments: 2729
+                    win_rate: 48.1
+                svg:
+                    elo: 1230
+                    first_place: 245
+                    fourth_place: 190
+                    rank: 33
+                    second_place: 266
+                    third_place: 291
+                    total_tournaments: 992
+                    win_rate: 48.8
+                uicomponent:
+                    elo: 1282
+                    first_place: 307
+                    fourth_place: 215
+                    rank: 34
+                    second_place: 278
+                    third_place: 300
+                    total_tournaments: 1100
+                    win_rate: 50.9
+                website:
+                    elo: 1269
+                    first_place: 2710
+                    fourth_place: 2052
+                    rank: 42
+                    second_place: 2513
+                    third_place: 2379
+                    total_tournaments: 9654
+                    win_rate: 51.3
     vals_ai:
         meta/muse_spark_1_1:
             code-migration:
@@ -287,15 +420,20 @@ metrics:
                 latency_seconds: 24.818
                 stderr: 0.928
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 13.063498
                 latency_seconds: 20592.047
-                stderr: 0
+                stderr: 0.0
             proof_bench_v1:
                 accuracy: 39
                 cost_per_test: 0.519718
                 latency_seconds: 1056.902
                 stderr: 4.902
+            public-benefits-bench:
+                accuracy: 61.299
+                cost_per_test: 0.278428
+                latency_seconds: 395.054
+                stderr: 1.267
             sage-v1:
                 accuracy: 45.58
                 cost_per_test: 0.025502
@@ -307,7 +445,7 @@ metrics:
                 latency_seconds: 376.268
                 stderr: 4.444
             swebench:
-                accuracy: 82
+                accuracy: 82.0
                 cost_per_test: 0.352022
                 latency_seconds: 209.115
                 stderr: 1.72
@@ -321,6 +459,11 @@ metrics:
                 cost_per_test: 0.417396
                 latency_seconds: 624.772
                 stderr: 0.991
+            time_horizon_index:
+                accuracy: 1.667
+                cost_per_test: 144.921195
+                latency_seconds: 0.0
+                stderr: 0.0
             vals_index_v1_2:
                 accuracy: 68.405
                 cost_per_test: 0.498787

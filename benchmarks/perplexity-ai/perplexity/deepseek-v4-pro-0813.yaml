@@ -2,29 +2,41 @@ model: perplexity/deepseek-v4-pro-0813
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.452
+        aa_omniscience_hallucination_rate: 0.9409975669099757
         aa_omniscience_non_hallucination_rate: 0.059
         agentic_index: 41.3
         agentic_percentile: 75
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.5671165546344002
         coding_index: 68.8
         coding_percentile: 73
         critpt: 0.18
+        critpt_agentic_hard: 0.235
+        enterprise_ops_gym: 0.4959713518352731
+        frontiercode: 0.388022666666667
+        frontiercode_v2_0: 0.170742929292929
+        gdp_pdf_all_pass: 0.114
         gdpval_aa: 0.479
-        gpqa: 0.928
-        hle: 0.41
+        gdpval_aa_elo: 1457.37
+        gpqa: 0.928282828282828
+        hle: 0.410101946246525
+        hle_diamond: 0.195
         ifbench: null
-        intelligence_index: 23.1
+        intelligence_index: 23.0632981493003
         intelligence_percentile: 23
-        lcr: 0.803
+        lcr: 0.803333333333333
         livecodebench: null
         math_500: null
         math_index: null
         mmlu_pro: null
-        scicode: 0.51
+        omniscience_index: -6.366666666666666
+        openness_index: 44.44444444444444
+        scicode: 0.510416666666667
         tau2: null
         tau_banking: 0.395876288659794
         terminalbench_hard: null
+        terminalbench_science: 0.0571428571428571
         terminalbench_v2_1: 0.786516853932584
         terminalbench_v4_0: 0.141414141414141
     vals_ai:
@@ -135,12 +147,12 @@ metrics:
                 latency_seconds: 59.624
                 stderr: 0.341
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 3.412918
                 latency_seconds: 4970.276
-                stderr: 0
+                stderr: 0.0
             proof_bench:
-                accuracy: 50
+                accuracy: 50.0
                 cost_per_test: 0.262008
                 latency_seconds: 732.365
                 stderr: 5.025
@@ -184,6 +196,11 @@ metrics:
                 cost_per_test: 3.311817
                 latency_seconds: 5493.603
                 stderr: 2.02
+            terminal-bench-science:
+                accuracy: 4.286
+                cost_per_test: 4.630215
+                latency_seconds: 8181.756
+                stderr: 2.438
             vals_index:
                 accuracy: 52.974
                 cost_per_test: 2.499691
@@ -199,6 +216,11 @@ metrics:
                 cost_per_test: 3.352147
                 latency_seconds: 3839.679
                 stderr: 1.116
+            vals_router_index:
+                accuracy: 52.974
+                cost_per_test: 2.499691
+                latency_seconds: 3482.913
+                stderr: 1.044
             vcb-1-100:
                 accuracy: 17.533
                 cost_per_test: 5.892792

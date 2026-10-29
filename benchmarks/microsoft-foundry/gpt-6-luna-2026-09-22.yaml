@@ -3,40 +3,139 @@ artificial_analysis_id: 6fb13851-40ce-4bda-ad3f-6b38e0c5daa7
 artificial_analysis_slug: gpt-6-luna
 metrics:
     artificial_analysis:
-        aa_omniscience_accuracy: 0.396
+        aa_3d_elo: 1000
+        aa_omniscience_accuracy: 0.3963333333333333
+        aa_omniscience_hallucination_rate: 0.7934842628382109
         aa_omniscience_non_hallucination_rate: 0.207
         agentic_index: null
         agentic_percentile: null
         aime: null
         aime_25: null
+        analyst_agent: 0.4375
+        automationbench_partial_score: 0.5316814034483175
+        code2video_elo: 1029.65
         coding_index: null
         coding_percentile: null
-        critpt: 0.194
+        critpt: 0.194285714285714
+        critpt_agentic_hard: 0.415
         economics_index: 35.5
         engineering_index: 33.2
         finance_and_accounting_index: 33.9
+        frontiercode: 0.419269666666667
+        frontiercode_v2_0: 0.251747727272727
+        gdp_pdf_all_pass: 0.228
         gdpval_aa: 0.472
+        gdpval_aa_elo: 1444.72
         gpqa: null
+        harvey_lab: 0.03333333333333333
+        healthbench: 0.5457844450559368
+        healthbench_professional: 0.6189434003955461
         healthcare_and_medical_index: 34.8
-        hle: 0.385
+        hle: 0.385078776645042
+        hle_diamond: 0.222
         ifbench: null
-        intelligence_index: 27.8
+        intelligence_index: 27.7552004938153
         intelligence_percentile: 33
-        lcr: 0.833
+        lcr: 0.833333333333333
         legal_index: 32.2
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.261111111111111
         mmlu_pro: null
-        scicode: 0.546
+        mmmu_pro: 0.796531791907514
+        omniscience_index: -8.266666666666667
+        scicode: 0.546296296296296
         strategy_and_ops_index: 43.2
         tau2: null
         tau_banking: null
         terminalbench_hard: null
+        terminalbench_science: 0.0857142857142857
         terminalbench_v2_1: null
         terminalbench_v4_0: 0.126262626262626
+    design_arena:
+        GPT-6 Luna:
+            agents:
+                fullstack:
+                    elo: 1158
+                    first_place: 507
+                    fourth_place: 0
+                    rank: 29
+                    second_place: 732
+                    third_place: 0
+                    total_tournaments: 1239
+                    win_rate: 40
+                webapps:
+                    elo: 1188
+                    first_place: 286
+                    fourth_place: 0
+                    rank: 33
+                    second_place: 401
+                    third_place: 0
+                    total_tournaments: 687
+                    win_rate: 42.4
+            models:
+                3d:
+                    elo: 1210
+                    first_place: 79
+                    fourth_place: 77
+                    rank: 63
+                    second_place: 111
+                    third_place: 136
+                    total_tournaments: 403
+                    win_rate: 41.5
+                dataviz:
+                    elo: 1214
+                    first_place: 38
+                    fourth_place: 55
+                    rank: 67
+                    second_place: 45
+                    third_place: 64
+                    total_tournaments: 202
+                    win_rate: 44
+                gamedev:
+                    elo: 1259
+                    first_place: 185
+                    fourth_place: 115
+                    rank: 48
+                    second_place: 261
+                    third_place: 261
+                    total_tournaments: 822
+                    win_rate: 47.1
+                svg:
+                    elo: 1246
+                    first_place: 57
+                    fourth_place: 62
+                    rank: 27
+                    second_place: 69
+                    third_place: 85
+                    total_tournaments: 273
+                    win_rate: 48
+                uicomponent:
+                    elo: 1291
+                    first_place: 157
+                    fourth_place: 112
+                    rank: 29
+                    second_place: 156
+                    third_place: 159
+                    total_tournaments: 584
+                    win_rate: 52.5
+                website:
+                    elo: 1266
+                    first_place: 703
+                    fourth_place: 707
+                    rank: 49
+                    second_place: 696
+                    third_place: 799
+                    total_tournaments: 2905
+                    win_rate: 47.7
     vals_ai:
         openai/gpt-6-luna:
+            biomysterybench:
+                accuracy: 61.481
+                cost_per_test: 0.053236
+                latency_seconds: 523.805
+                stderr: 2.593
             claimbench:
                 accuracy: 99.184
                 cost_per_test: 0.001372
@@ -122,16 +221,26 @@ metrics:
                 cost_per_test: 0.009562
                 latency_seconds: 169.606
                 stderr: 1.949
+            mysterymechanism:
+                accuracy: 19.369
+                cost_per_test: 0.025854
+                latency_seconds: 361.208
+                stderr: 2.658
             programbench:
                 accuracy: 0.5
                 cost_per_test: 0.180944
                 latency_seconds: 1734.863
                 stderr: 0.5
             proof_bench:
-                accuracy: 64
+                accuracy: 64.0
                 cost_per_test: 0.041637
                 latency_seconds: 451.481
                 stderr: 4.824
+            public-benefits-bench:
+                accuracy: 57.645
+                cost_per_test: 0.224168
+                latency_seconds: 3178.908
+                stderr: 1.285
             sage:
                 accuracy: 83.404
                 cost_per_test: 0.005772
@@ -172,6 +281,11 @@ metrics:
                 cost_per_test: 0.354726
                 latency_seconds: 1965.568
                 stderr: 1.515
+            terminal-bench-science:
+                accuracy: 4.286
+                cost_per_test: 0.240966
+                latency_seconds: 4559.47
+                stderr: 2.438
             vals_index:
                 accuracy: 52.322
                 cost_per_test: 0.450147
@@ -187,6 +301,11 @@ metrics:
                 cost_per_test: 0.431072
                 latency_seconds: 1833.681
                 stderr: 1.072
+            vals_router_index:
+                accuracy: 52.322
+                cost_per_test: 0.450147
+                latency_seconds: 1943.192
+                stderr: 1.117
             vibe-code:
                 accuracy: 81.649
                 cost_per_test: 1.345703

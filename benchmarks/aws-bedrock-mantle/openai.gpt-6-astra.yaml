@@ -1,2 +1,528 @@
 model: openai.gpt-6-astra
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            gpt-6-astra:
+                aa_3d_elo: 1164.1313
+                aa_omniscience_accuracy: 0.6156666666666667
+                aa_omniscience_hallucination_rate: 0.4978317432784042
+                aa_omniscience_non_hallucination_rate: 0.502
+                agentic_index: 51
+                agentic_percentile: 91
+                aime: null
+                aime_25: null
+                analyst_agent: 0.5125
+                automationbench_partial_score: 0.6849174806688876
+                code2video_elo: 1426.78
+                coding_index: 76.9
+                coding_percentile: 95
+                critpt: 0.317142857142857
+                critpt_agentic_hard: 0.705
+                frontiercode: 0.469827666666667
+                frontiercode_v2_0: 0.42374797979798
+                gdp_pdf_all_pass: 0.31
+                gdpval_aa: 0.542
+                gdpval_aa_elo: 1584.4
+                gpqa: 0.960606060606061
+                harvey_lab: 0.0861111111111111
+                healthbench: 0.5822174183894343
+                healthbench_professional: 0.6597887253032397
+                hle: 0.546802594995366
+                hle_diamond: 0.638
+                ifbench: null
+                intelligence_index: 56.8538559596797
+                intelligence_percentile: 95
+                itbench_sre: 0.485875706214689
+                lcr: 0.806666666666667
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.416666666666667
+                mmlu_pro: null
+                mmmu_pro: 0.86878612716763
+                name: GPT-6 Astra (Max)
+                omniscience_index: 42.43333333333333
+                scicode: 0.564814814814815
+                tau2: null
+                tau_banking: 0.414432989690722
+                terminalbench_hard: null
+                terminalbench_science: 0.633333333333333
+                terminalbench_v2_1: 0.883895131086142
+                terminalbench_v4_0: 0.590909090909091
+            gpt-6-astra-high:
+                aa_omniscience_accuracy: 0.611
+                aa_omniscience_hallucination_rate: 0.4250214224507284
+                aa_omniscience_non_hallucination_rate: 0.575
+                agentic_index: 48.2
+                agentic_percentile: 85
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.666122174975011
+                coding_index: 77.1
+                coding_percentile: 96
+                critpt: 0.288571428571429
+                critpt_agentic_hard: 0.715
+                frontiercode_v2_0: 0.401351515151515
+                gdp_pdf_all_pass: 0.31
+                gdpval_aa: 0.518
+                gdpval_aa_elo: 1536.99
+                gpqa: 0.94949494949495
+                hle: 0.530583873957368
+                hle_diamond: 0.593
+                ifbench: null
+                intelligence_index: 54.849838322506
+                intelligence_percentile: 92
+                lcr: 0.8
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.327777777777778
+                mmlu_pro: null
+                mmmu_pro: 0.864161849710983
+                name: GPT-6 Astra (High)
+                omniscience_index: 44.56666666666667
+                scicode: 0.554398148148148
+                tau2: null
+                tau_banking: 0.4
+                terminalbench_hard: null
+                terminalbench_science: 0.595238095238095
+                terminalbench_v2_1: 0.898876404494382
+                terminalbench_v4_0: 0.54040404040404
+            gpt-6-astra-low:
+                aa_omniscience_accuracy: 0.586
+                aa_omniscience_hallucination_rate: 0.4420289855072464
+                aa_omniscience_non_hallucination_rate: 0.558
+                agentic_index: 38.8
+                agentic_percentile: 70
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.5909672610445402
+                coding_index: 75.7
+                coding_percentile: 88
+                critpt: 0.262857142857143
+                critpt_agentic_hard: 0.6
+                frontiercode_v2_0: 0.262162878787879
+                gdp_pdf_all_pass: 0.304
+                gdpval_aa: 0.452
+                gdpval_aa_elo: 1403.02
+                gpqa: 0.931313131313131
+                hle: 0.492122335495829
+                hle_diamond: 0.451
+                ifbench: null
+                intelligence_index: 43.0349823228524
+                intelligence_percentile: 65
+                lcr: 0.8
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.338888888888889
+                mmlu_pro: null
+                mmmu_pro: 0.846242774566474
+                name: GPT-6 Astra (Low)
+                omniscience_index: 40.3
+                scicode: 0.540509259259259
+                tau2: null
+                tau_banking: 0.319587628865979
+                terminalbench_hard: null
+                terminalbench_science: 0.371428571428571
+                terminalbench_v2_1: 0.880149812734082
+                terminalbench_v4_0: 0.419191919191919
+            gpt-6-astra-medium:
+                aa_omniscience_accuracy: 0.5963333333333334
+                aa_omniscience_hallucination_rate: 0.4516928158546656
+                aa_omniscience_non_hallucination_rate: 0.548
+                agentic_index: 46
+                agentic_percentile: 81
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.6459498850561176
+                coding_index: 76.7
+                coding_percentile: 93
+                critpt: 0.291428571428571
+                critpt_agentic_hard: 0.71
+                frontiercode_v2_0: 0.365771717171717
+                gdp_pdf_all_pass: 0.304
+                gdpval_aa: 0.499
+                gdpval_aa_elo: 1498.04
+                gpqa: 0.939393939393939
+                hle: 0.527340129749768
+                hle_diamond: 0.527
+                ifbench: null
+                intelligence_index: 51.4548393864113
+                intelligence_percentile: 83
+                lcr: 0.796666666666667
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.383333333333333
+                mmlu_pro: null
+                mmmu_pro: 0.850867052023121
+                name: GPT-6 Astra (Medium)
+                omniscience_index: 41.4
+                scicode: 0.541666666666667
+                tau2: null
+                tau_banking: 0.354639175257732
+                terminalbench_hard: null
+                terminalbench_science: 0.533333333333333
+                terminalbench_v2_1: 0.895131086142322
+                terminalbench_v4_0: 0.494949494949495
+            gpt-6-astra-xhigh:
+                aa_omniscience_accuracy: 0.6103333333333333
+                aa_omniscience_hallucination_rate: 0.44568006843455943
+                aa_omniscience_non_hallucination_rate: 0.554
+                agentic_index: 50.2
+                agentic_percentile: 87
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.6717778020215392
+                coding_index: 75.9
+                coding_percentile: 89
+                critpt: 0.314285714285714
+                critpt_agentic_hard: 0.705
+                frontiercode_v2_0: 0.414029545454545
+                gdp_pdf_all_pass: 0.322
+                gdpval_aa: 0.535
+                gdpval_aa_elo: 1569.33
+                gpqa: 0.962626262626263
+                hle: 0.545875810936052
+                hle_diamond: 0.615
+                ifbench: null
+                intelligence_index: 55.2557468569681
+                intelligence_percentile: 94
+                lcr: 0.8
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.361111111111111
+                mmlu_pro: null
+                mmmu_pro: 0.86242774566474
+                name: GPT-6 Astra (Xhigh)
+                omniscience_index: 43.666666666666664
+                scicode: 0.556712962962963
+                tau2: null
+                tau_banking: 0.430927835051546
+                terminalbench_hard: null
+                terminalbench_science: 0.547619047619048
+                terminalbench_v2_1: 0.891385767790262
+                terminalbench_v4_0: 0.595959595959596
+    design_arena:
+        GPT-6 Astra (xhigh):
+            agents:
+                fullstack:
+                    elo: 1357
+                    first_place: 354
+                    fourth_place: 0
+                    rank: 1
+                    second_place: 222
+                    third_place: 0
+                    total_tournaments: 576
+                    win_rate: 61.1
+                godotgamedev:
+                    elo: 1348
+                    first_place: 215
+                    fourth_place: 0
+                    rank: 1
+                    second_place: 112
+                    third_place: 0
+                    total_tournaments: 327
+                    win_rate: 65.5
+                webapps:
+                    elo: 1331
+                    first_place: 909
+                    fourth_place: 0
+                    rank: 2
+                    second_place: 614
+                    third_place: 0
+                    total_tournaments: 1523
+                    win_rate: 59.7
+            models:
+                3d:
+                    elo: 1462
+                    first_place: 794
+                    fourth_place: 55
+                    rank: 3
+                    second_place: 434
+                    third_place: 232
+                    total_tournaments: 1515
+                    win_rate: 68.9
+                dataviz:
+                    elo: 1331
+                    first_place: 63
+                    fourth_place: 27
+                    rank: 9
+                    second_place: 36
+                    third_place: 27
+                    total_tournaments: 153
+                    win_rate: 60.2
+                gamedev:
+                    elo: 1451
+                    first_place: 974
+                    fourth_place: 102
+                    rank: 2
+                    second_place: 395
+                    third_place: 236
+                    total_tournaments: 1707
+                    win_rate: 70.3
+                svg:
+                    elo: 1426
+                    first_place: 307
+                    fourth_place: 64
+                    rank: 2
+                    second_place: 225
+                    third_place: 80
+                    total_tournaments: 676
+                    win_rate: 68.7
+                uicomponent:
+                    elo: 1397
+                    first_place: 119
+                    fourth_place: 26
+                    rank: 2
+                    second_place: 60
+                    third_place: 44
+                    total_tournaments: 249
+                    win_rate: 66.5
+                website:
+                    elo: 1330
+                    first_place: 1136
+                    fourth_place: 431
+                    rank: 6
+                    second_place: 758
+                    third_place: 607
+                    total_tournaments: 2932
+                    win_rate: 57.5
+    vals_ai:
+        openai/gpt-6-astra:
+            biomysterybench:
+                accuracy: 79.259
+                cost_per_test: 1.719326
+                latency_seconds: 286.147
+                stderr: 0.98
+            code-migration:
+                accuracy: 67.74
+                cost_per_test: 44.364548
+                latency_seconds: 3510.003
+                stderr: 4.216
+            code-migration-v1-1:
+                accuracy: 80.579
+                cost_per_test: 62.066613
+                latency_seconds: 5221.422
+                stderr: 2.336
+            cua_bench:
+                accuracy: 19.166667
+                cost_per_test: 1821.373046
+                latency_seconds: 32.09
+                stderr: 0
+            cyber:
+                accuracy: 41.072
+                cost_per_test: 1.840737
+                latency_seconds: 250.415
+                stderr: 2.559
+            emb:
+                accuracy: 71.7
+                cost_per_test: 5.827063
+                latency_seconds: 804.28
+                stderr: 2.475
+            emb-v1-1:
+                accuracy: 72.683
+                cost_per_test: 5.827063
+                latency_seconds: 804.28
+                stderr: 2.297
+            fabv2:
+                accuracy: 53.54
+                cost_per_test: 6.81746
+                latency_seconds: 692.672
+                stderr: 2.078
+            fabv2-1:
+                accuracy: 60.428
+                cost_per_test: 7.823464
+                latency_seconds: 1228.75
+                stderr: 2.12
+            finance_index:
+                accuracy: 55.642
+                cost_per_test: 6.482276
+                latency_seconds: 977.872
+                stderr: 1.379
+            hlab:
+                accuracy: 7.083
+                cost_per_test: 25.460295
+                latency_seconds: 1953.362
+                stderr: 1.899
+            hlab-v1:
+                accuracy: 5.417
+                cost_per_test: 26.155899
+                latency_seconds: 1489.086
+                stderr: 1.174
+            immigration:
+                accuracy: 67.691
+                cost_per_test: 1.373884
+                latency_seconds: 501.41
+                stderr: 1.548
+            ioi:
+                accuracy: 100.0
+                cost_per_test: 6.495051
+                latency_seconds: 1899.783
+                stderr: 0.0
+            legal_index:
+                accuracy: 68.386
+                cost_per_test: 13.944579
+                latency_seconds: 1448.429
+                stderr: 1.742
+            legal_research:
+                accuracy: 39.423
+                cost_per_test: 10.577143
+                latency_seconds: 1491.339
+                stderr: 3.397
+            medcode:
+                accuracy: 48.486
+                cost_per_test: 0.451358
+                latency_seconds: 102.865
+                stderr: 2.131
+            medscribe:
+                accuracy: 87.908
+                cost_per_test: 0.581991
+                latency_seconds: 153.728
+                stderr: 1.938
+            mysterymechanism:
+                accuracy: 53.153
+                cost_per_test: 1.559704
+                latency_seconds: 488.597
+                stderr: 3.357
+            programbench:
+                accuracy: 5.5
+                cost_per_test: 11.574605
+                latency_seconds: 1621.514
+                stderr: 1.616
+            proof_bench:
+                accuracy: 99.0
+                cost_per_test: 1.71238
+                latency_seconds: 307.867
+                stderr: 1.0
+            robo_bench:
+                accuracy: 23.333
+                cost_per_test: 28.479
+                latency_seconds: 74.88
+                stderr: 0.0
+            rsi_index:
+                accuracy: 27.07
+                cost_per_test: 759.508154
+                latency_seconds: 324000
+                stderr: 0
+            sage-v1:
+                accuracy: 46.367
+                cost_per_test: 0.282823
+                latency_seconds: 41.629
+                stderr: 3.444
+            science_index:
+                accuracy: 65.09
+                cost_per_test: 8.027277
+                latency_seconds: 2436.537
+                stderr: 2.262
+            srebench:
+                accuracy: 56.87
+                cost_per_test: 10.238062
+                latency_seconds: 1070.676
+                stderr: 3.066
+            swebench-multimodal:
+                accuracy: 43.333
+                cost_per_test: 1.80573
+                latency_seconds: 423.272
+                stderr: 2.264
+            tax_agent_bench:
+                accuracy: 20.717
+                cost_per_test: 5.7963
+                latency_seconds: 900.586
+                stderr: 2.924
+            terminal-bench-2-1:
+                accuracy: 87.266
+                cost_per_test: 1.339493
+                latency_seconds: 274.44
+                stderr: 0.375
+            terminal-bench-4:
+                accuracy: 59.596
+                cost_per_test: 9.584259
+                latency_seconds: 2142.082
+                stderr: 4.403
+            terminal-bench-science:
+                accuracy: 62.857
+                cost_per_test: 20.802802
+                latency_seconds: 6534.868
+                stderr: 5.817
+            time_horizon_index:
+                accuracy: 90.5
+                cost_per_test: 4206.58511
+                latency_seconds: 0.0
+                stderr: 0.0
+            vals_index:
+                accuracy: 65.023
+                cost_per_test: 21.277828
+                latency_seconds: 2018.879
+                stderr: 1.098
+            vals_index_v2:
+                accuracy: 66.608
+                cost_per_test: 19.088776
+                latency_seconds: 1510.529
+                stderr: 1.093
+            vals_index_v2_1:
+                accuracy: 63.125
+                cost_per_test: 18.457813
+                latency_seconds: 1667.737
+                stderr: 1.19
+            vals_router_index:
+                accuracy: 65.023
+                cost_per_test: 21.277828
+                latency_seconds: 2018.879
+                stderr: 1.098
+            vcb-1-100:
+                accuracy: 27.644
+                cost_per_test: 84.720155
+                latency_seconds: 12339.625
+                stderr: 4.082
+            vibe-code:
+                accuracy: 89.594
+                cost_per_test: 38.512323
+                latency_seconds: 2344.127
+                stderr: 2.174
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: e0ae0cb9-7511-49c7-a7a5-0df5d68b64a5
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.9461280000000001
+            - endpoint_id: 58a1125d-b0a0-4f59-a511-ae45f9a3f0ec
+              provider: Azure
+              run_count: 1
+              score: 0.934343
+            - endpoint_id: c06c7858-73a1-4449-95d2-7ffc7ca3d69c
+              provider: Azure
+              run_count: 1
+              score: 0.951178
+            - endpoint_id: c2928094-b04c-4f41-84b2-2bf508091421
+              provider: OpenAI
+              run_count: 2
+              score: 0.9477642907863856
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.9444439999999998
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: e0ae0cb9-7511-49c7-a7a5-0df5d68b64a5
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.666667
+            - endpoint_id: 58a1125d-b0a0-4f59-a511-ae45f9a3f0ec
+              provider: Azure
+              run_count: 1
+              score: 0.6933330000000001
+            - endpoint_id: c06c7858-73a1-4449-95d2-7ffc7ca3d69c
+              provider: Azure
+              run_count: 1
+              score: 0.7
+            - endpoint_id: c2928094-b04c-4f41-84b2-2bf508091421
+              provider: OpenAI
+              run_count: 2
+              score: 0.6767603703265691
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.6799999999999999

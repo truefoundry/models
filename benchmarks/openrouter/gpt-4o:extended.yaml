@@ -14,25 +14,121 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: 0
-        gpqa: 0.543
+        gdpval_aa_elo: -8.78
+        gpqa: 0.543434343434343
         healthcare_and_medical_index: null
-        hle: 0.024
-        ifbench: 0.343
+        hle: 0.0242
+        ifbench: 0.342857142857143
         intelligence_index: null
-        lcr: 0.493
+        lcr: 0.493333333333333
         legal_index: null
-        livecodebench: 0.309
+        livecodebench: 0.308994708994709
         math_500: 0.759333333333333
         math_index: 6
         mmlu_pro: 0.748
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.251
+        tau2: 0.251461988304094
         tau_banking: null
-        terminalbench_hard: 0.083
+        terminalbench_hard: 0.0833333333333333
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    design_arena:
+        GPT-4o:
+            models:
+                3d:
+                    elo: 865
+                    first_place: 10
+                    fourth_place: 25
+                    rank: 166
+                    second_place: 33
+                    third_place: 25
+                    total_tournaments: 93
+                    win_rate: 39.2
+                gamedev:
+                    elo: 905
+                    first_place: 25
+                    fourth_place: 27
+                    rank: 181
+                    second_place: 44
+                    third_place: 24
+                    total_tournaments: 120
+                    win_rate: 42.3
+                uicomponent:
+                    elo: 880
+                    first_place: 15
+                    fourth_place: 29
+                    rank: 176
+                    second_place: 21
+                    third_place: 23
+                    total_tournaments: 88
+                    win_rate: 38.1
+                website:
+                    elo: 830
+                    first_place: 75
+                    fourth_place: 182
+                    rank: 197
+                    second_place: 111
+                    third_place: 141
+                    total_tournaments: 509
+                    win_rate: 31.5
     vals_ai:
+        openai/gpt-4o-2024-05-13:
+            gpqa:
+                accuracy: 50.252
+                cost_per_test: 0.01544
+                latency_seconds: 10.078
+                stderr: 2.512
+        openai/gpt-4o-2024-08-06:
+            aime:
+                accuracy: 13.958
+                cost_per_test: 0.012158
+                latency_seconds: 68.368
+                stderr: 0.968
+            corp_fin_v2:
+                accuracy: 39.433
+                cost_per_test: 0.147391
+                latency_seconds: 0.046
+                stderr: 0.951
+            legal_bench:
+                accuracy: 80.12
+                latency_seconds: 0.532
+                stderr: 0.538
+            math500:
+                accuracy: 75.2
+                cost_per_test: 0.005641
+                latency_seconds: 12.291
+                stderr: 3.776
+            medqa:
+                accuracy: 88.161
+                cost_per_test: 0.002787
+                latency_seconds: 3.392
+                stderr: 0.578
+            mgsm:
+                accuracy: 90.691
+                cost_per_test: 0.002941
+                latency_seconds: 6.731
+                stderr: 1.789
+            mmlu_pro:
+                accuracy: 74.13
+                cost_per_test: 0.007217
+                latency_seconds: 8.998
+                stderr: 0.42
+            mmmu:
+                accuracy: 64.009
+                cost_per_test: 0.006251
+                latency_seconds: 47.52
+                stderr: 1.154
+            mortgage_tax:
+                accuracy: 60.97
+                cost_per_test: 0.006956
+                latency_seconds: 7.356
+                stderr: 1.862
+            tax_eval_v2:
+                accuracy: 71.136
+                cost_per_test: 0.004417
+                latency_seconds: 9.543
+                stderr: 0.892
         openai/gpt-4o-2024-11-20:
             aime:
                 accuracy: 11.875
@@ -65,7 +161,7 @@ metrics:
                 latency_seconds: 0.452
                 stderr: 0.463
             math500:
-                accuracy: 74
+                accuracy: 74.0
                 cost_per_test: 0.008846
                 latency_seconds: 12.804
                 stderr: 3.834

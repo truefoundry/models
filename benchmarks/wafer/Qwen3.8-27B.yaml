@@ -4,35 +4,50 @@ artificial_analysis_slug: qwen3-8-27b
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.173
+        aa_omniscience_hallucination_rate: 0.2861749294639258
         aa_omniscience_non_hallucination_rate: 0.714
         agentic_index: 45.8
         agentic_percentile: 81
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.48242443682241926
+        code2video_elo: 949.04
         coding_index: 68.1
         coding_percentile: 72
-        critpt: 0.054
+        critpt: 0.0542857142857143
+        critpt_agentic_hard: 0.04
         economics_index: 35.2
         engineering_index: 28.1
+        enterprise_ops_gym: 0.4422560429722471
         finance_and_accounting_index: 35.5
+        frontiercode: 0.342324
+        frontiercode_v2_0: 0.149142929292929
+        gdp_pdf_all_pass: 0.164
         gdpval_aa: 0.464
-        gpqa: 0.905
+        gdpval_aa_elo: 1427.26
+        gpqa: 0.905050505050505
         healthcare_and_medical_index: 34.6
-        hle: 0.339
+        hle: 0.33920296570899
+        hle_diamond: 0.153
         ifbench: null
-        intelligence_index: 20.1
+        intelligence_index: 20.1068756031705
         intelligence_percentile: 18
         lcr: 0.82
         legal_index: 33.2
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.227777777777778
         mmlu_pro: null
-        scicode: 0.466
+        mmmu_pro: 0.763005780346821
+        omniscience_index: -6.366666666666666
+        openness_index: 38.888888888888886
+        scicode: 0.466435185185185
         strategy_and_ops_index: 39
         tau2: null
         tau_banking: 0.480412371134021
         terminalbench_hard: null
+        terminalbench_science: 0.00476190476190476
         terminalbench_v2_1: 0.797752808988764
         terminalbench_v4_0: 0.0555555555555556
     vals_ai:
@@ -113,12 +128,12 @@ metrics:
                 latency_seconds: 79.952
                 stderr: 0.947
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 17.990872
                 latency_seconds: 21400.403
-                stderr: 0
+                stderr: 0.0
             proof_bench:
-                accuracy: 16
+                accuracy: 16.0
                 cost_per_test: 2.298832
                 latency_seconds: 1453.872
                 stderr: 3.685
@@ -133,7 +148,7 @@ metrics:
                 latency_seconds: 401.009
                 stderr: 4.38
             swebench:
-                accuracy: 86
+                accuracy: 86.0
                 cost_per_test: 1.077188
                 latency_seconds: 599.776
                 stderr: 1.553
@@ -152,6 +167,11 @@ metrics:
                 cost_per_test: 0.677989
                 latency_seconds: 892.585
                 stderr: 5.254
+            terminal-bench-science:
+                accuracy: 0.0
+                cost_per_test: 11.135637
+                latency_seconds: 14549.775
+                stderr: 0.0
             vals_index_v2:
                 accuracy: 48.485
                 cost_per_test: 8.479089

@@ -1,2 +1,77 @@
 model: jamba-mini-1.6
-metrics: {}
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: 0.0333333333333333
+        aime_25: null
+        coding_index: null
+        critpt: null
+        gdpval_aa: null
+        gpqa: 0.3
+        hle: 0.0431
+        ifbench: null
+        intelligence_index: null
+        lcr: null
+        livecodebench: 0.0708994708994709
+        math_500: 0.256666666666667
+        math_index: null
+        mmlu_pro: 0.367
+        scicode: null
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    vals_ai:
+        ai21labs/jamba-mini-1.6:
+            aime:
+                accuracy: 0.417
+                cost_per_test: 0.000456
+                latency_seconds: 6.624
+                stderr: 0.273
+            corp_fin_v2:
+                accuracy: 38.034
+                cost_per_test: 0.014897
+                latency_seconds: 4.248
+                stderr: 0.951
+            gpqa:
+                accuracy: 32.07
+                cost_per_test: 0.000487
+                latency_seconds: 4.953
+                stderr: 1.988
+            lcb:
+                accuracy: 9.918
+                cost_per_test: 0.000199
+                latency_seconds: 1.139
+                stderr: 0.867
+            legal_bench:
+                accuracy: 69.726
+                latency_seconds: 0.305
+                stderr: 0.515
+            math500:
+                accuracy: 25.4
+                cost_per_test: 0.000306
+                latency_seconds: 4.859
+                stderr: 1.947
+            medqa:
+                accuracy: 52.517
+                cost_per_test: 0.000203
+                latency_seconds: 2.185
+                stderr: 0.456
+            mgsm:
+                accuracy: 41.709
+                cost_per_test: 0.000279
+                latency_seconds: 3.927
+                stderr: 2.871
+            mmlu_pro:
+                accuracy: 30.278
+                cost_per_test: 0.000391
+                latency_seconds: 2.426
+                stderr: 0.448
+            tax_eval_v2:
+                accuracy: 44.604
+                cost_per_test: 0.00026
+                latency_seconds: 4.337
+                stderr: 0.963

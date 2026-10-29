@@ -1,2 +1,60 @@
 model: Qwen/Qwen3-8B
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            qwen3-8b-instruct:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.243333333333333
+                aime_25: 0.243333333333333
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.451515151515152
+                hle: 0.0195
+                ifbench: 0.285714285714286
+                intelligence_index: null
+                lcr: 0
+                livecodebench: 0.202116402116402
+                math_500: 0.828
+                math_index: 24.3
+                mmlu_pro: 0.643
+                name: Qwen3 8B (Non-reasoning)
+                scicode: null
+                tau2: 0.248538011695906
+                tau_banking: null
+                terminalbench_hard: 0.0227272727272727
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            qwen3-8b-instruct-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 0.8
+                agentic_percentile: 3
+                aime: 0.746666666666667
+                aime_25: 0.19
+                automationbench_partial_score: 0.003326067293298021
+                coding_index: 9
+                coding_percentile: 4
+                critpt: 0
+                gdp_pdf_all_pass: 0.014
+                gdpval_aa: 0
+                gdpval_aa_elo: -40.75
+                gpqa: 0.588888888888889
+                hle: 0.0389
+                ifbench: 0.33469387755102
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0
+                livecodebench: 0.406349206349206
+                math_500: 0.904
+                math_index: 19
+                mmlu_pro: 0.743
+                name: Qwen3 8B (Reasoning)
+                scicode: 0.278935185185185
+                tau2: 0.277777777777778
+                tau_banking: 0.0474226804123711
+                terminalbench_hard: 0.0227272727272727
+                terminalbench_v2_1: 0.0224719101123595
+                terminalbench_v4_0: 0

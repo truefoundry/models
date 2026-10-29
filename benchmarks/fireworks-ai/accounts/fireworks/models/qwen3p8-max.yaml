@@ -1,2 +1,317 @@
 model: accounts/fireworks/models/qwen3p8-max
-metrics: {}
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: 0.308
+        aa_omniscience_non_hallucination_rate: 0.597
+        agentic_index: 49.9
+        agentic_percentile: 85
+        coding_index: 68.9
+        coding_percentile: 74
+        critpt: 0.186
+        gdpval_aa: 0.549
+        gpqa: 0.922
+        hle: 0.403
+        ifbench: null
+        intelligence_index: 53.4
+        intelligence_percentile: 88
+        lcr: 0.65
+        scicode: 0.45
+        tau2: null
+        terminalbench_hard: null
+    design_arena:
+        Qwen3.8 Max (qwen3.8-max):
+            agents:
+                androidnative:
+                    avg_generation_time_ms: null
+                    elo: 1200
+                    elo_percentile: 68
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.5
+                fullstack:
+                    avg_generation_time_ms: null
+                    elo: 1305
+                    elo_percentile: 89
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 62
+                godotgamedev:
+                    avg_generation_time_ms: null
+                    elo: 1234
+                    elo_percentile: 75
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.2
+                mobileapps:
+                    avg_generation_time_ms: null
+                    elo: 1223
+                    elo_percentile: 75
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.3
+                python-pptxslides:
+                    avg_generation_time_ms: null
+                    elo: 1217
+                    elo_percentile: 82
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.2
+                spreadsheet:
+                    avg_generation_time_ms: null
+                    elo: 1052
+                    elo_percentile: 12
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 42.9
+                webapps:
+                    avg_generation_time_ms: null
+                    elo: 1300
+                    elo_percentile: 89
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 60.2
+        Qwen3.8 Max (qwen3.8-max-preview):
+            models:
+                3d:
+                    avg_generation_time_ms: 634957
+                    elo: 1333
+                    elo_percentile: 91
+                    first_place: 452
+                    fourth_place: 253
+                    rank: 19
+                    second_place: 352
+                    third_place: 277
+                    total_tournaments: 1334
+                    win_rate: 56.3
+                asciiart:
+                    avg_generation_time_ms: 439720
+                    elo: 1194
+                    elo_percentile: 67
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.1
+                codecategories:
+                    avg_generation_time_ms: 721636
+                    elo: 1292
+                    elo_percentile: 88
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.2
+                dataviz:
+                    avg_generation_time_ms: 615667
+                    elo: 1283
+                    elo_percentile: 86
+                    first_place: 101
+                    fourth_place: 103
+                    rank: 25
+                    second_place: 81
+                    third_place: 68
+                    total_tournaments: 353
+                    win_rate: 50.6
+                gamedev:
+                    avg_generation_time_ms: 873917
+                    elo: 1314
+                    elo_percentile: 89
+                    first_place: 363
+                    fourth_place: 246
+                    rank: 24
+                    second_place: 297
+                    third_place: 283
+                    total_tournaments: 1189
+                    win_rate: 52.8
+                uicomponent:
+                    avg_generation_time_ms: 596692
+                    elo: 1338
+                    elo_percentile: 94
+                    first_place: 163
+                    fourth_place: 86
+                    rank: 13
+                    second_place: 109
+                    third_place: 87
+                    total_tournaments: 445
+                    win_rate: 58.1
+                website:
+                    avg_generation_time_ms: 676791
+                    elo: 1274
+                    elo_percentile: 83
+                    first_place: 1211
+                    fourth_place: 987
+                    rank: 39
+                    second_place: 991
+                    third_place: 889
+                    total_tournaments: 4078
+                    win_rate: 50.9
+    vals_ai:
+        alibaba/qwen3.8-max:
+            corp_fin_v2:
+                accuracy: 65.851
+                cost_per_test: 0.179323
+                latency_seconds: 46.649
+                stderr: 0.935
+            cyber:
+                accuracy: 28.572
+                cost_per_test: 0.784693
+                latency_seconds: 580.168
+                stderr: 3.306
+            emb-v1-1:
+                accuracy: 65.986
+                cost_per_test: 2.655924
+                latency_seconds: 3467.209
+                stderr: 2.694
+            gpqa:
+                accuracy: 93.686
+                cost_per_test: 0.077028
+                latency_seconds: 266.606
+                stderr: 1.221
+            immigration:
+                accuracy: 70.139
+                cost_per_test: 0.116743
+                latency_seconds: 264.993
+                stderr: 1.571
+            ioi:
+                accuracy: 68.889
+                cost_per_test: 9.468852
+                latency_seconds: 6398.213
+                stderr: 5.204
+            lcb:
+                accuracy: 87.852
+                cost_per_test: 0.091412
+                latency_seconds: 337.788
+                stderr: 0.951
+            legal_bench:
+                accuracy: 83.609
+                cost_per_test: 0.010412
+                latency_seconds: 36.373
+                stderr: 0.418
+            legal_research:
+                accuracy: 47.596
+                cost_per_test: 2.486351
+                latency_seconds: 3677.636
+                stderr: 3.471
+            medcode:
+                accuracy: 40.668
+                cost_per_test: 0.120827
+                latency_seconds: 378.022
+                stderr: 2.029
+            medscribe:
+                accuracy: 84.947
+                cost_per_test: 0.089616
+                latency_seconds: 251.26
+                stderr: 1.999
+            mmlu_pro:
+                accuracy: 88.602
+                cost_per_test: 0.018585
+                latency_seconds: 63.576
+                stderr: 0.313
+            mmmu:
+                accuracy: 88.035
+                cost_per_test: 0.015881
+                latency_seconds: 43.853
+                stderr: 0.78
+            mortgage_tax:
+                accuracy: 63.99
+                cost_per_test: 0.027349
+                latency_seconds: 47.499
+                stderr: 0.942
+            mysterymechanism:
+                accuracy: 23.874
+                cost_per_test: 1.309463
+                latency_seconds: 2268.77
+                stderr: 2.868
+            programbench:
+                accuracy: 0.0
+                cost_per_test: 12.357107
+                latency_seconds: 21263.689
+                stderr: 0.0
+            proof_bench:
+                accuracy: 58.0
+                cost_per_test: 1.503984
+                latency_seconds: 1867.622
+                stderr: 4.96
+            public-benefits-bench:
+                accuracy: 67.118
+                cost_per_test: 0.991386
+                latency_seconds: 2443.976
+                stderr: 1.222
+            sage:
+                accuracy: 81.762
+                cost_per_test: 0.086734
+                latency_seconds: 112.397
+                stderr: 2.079
+            skillsbench:
+                accuracy: 42.011
+                cost_per_test: 0.524988
+                latency_seconds: 948.433
+                stderr: 4.435
+            swebench:
+                accuracy: 85.6
+                cost_per_test: 1.128442
+                latency_seconds: 2502.097
+                stderr: 1.572
+            swebench-multimodal:
+                accuracy: 42.5
+                cost_per_test: 0.994423
+                latency_seconds: 1124.029
+                stderr: 2.259
+            tax_agent_bench:
+                accuracy: 32.095
+                cost_per_test: 1.552558
+                latency_seconds: 2436.106
+                stderr: 3.367
+            tax_eval_v2:
+                accuracy: 75.552
+                cost_per_test: 0.07645
+                latency_seconds: 265.751
+                stderr: 0.838
+            terminal-bench-4:
+                accuracy: 34.343
+                cost_per_test: 10.633329
+                latency_seconds: 8900.152
+                stderr: 3.945
+            terminal-bench-science:
+                accuracy: 12.857
+                cost_per_test: 16.682189
+                latency_seconds: 12243.338
+                stderr: 4.03
+            vals_multimodal_index:
+                accuracy: 65.394
+                cost_per_test: 1.926436
+                latency_seconds: 1996.162
+                stderr: 1.449
+            vcb-1-100:
+                accuracy: 12.833
+                cost_per_test: 9.675734
+                latency_seconds: 5735.815
+                stderr: 3.183
+            vibe-code:
+                accuracy: 64.696
+                cost_per_test: 8.238852
+                latency_seconds: 10135.139
+                stderr: 5.362

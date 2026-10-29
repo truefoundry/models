@@ -9,25 +9,32 @@ metrics:
                 agentic_percentile: 46
                 aime: null
                 aime_25: null
+                analyst_agent: 0.25
+                automationbench_partial_score: 0.27985986830616555
                 coding_index: 56.2
                 coding_percentile: 59
-                critpt: 0.071
+                critpt: 0.0714285714285714
+                enterprise_ops_gym: 0.39570277529095793
+                gdp_pdf_all_pass: 0.108
                 gdpval_aa: 0.273
-                gpqa: 0.894
-                hle: 0.348
-                ifbench: 0.792
+                gdpval_aa_elo: 1045.91
+                gpqa: 0.893939393939394
+                hle: 0.348470806302132
+                ifbench: 0.791836734693877
                 intelligence_index: null
                 intelligence_percentile: null
-                lcr: 0.743
+                itbench_sre: 0.315160075329567
+                lcr: 0.743333333333333
                 livecodebench: null
                 math_500: null
                 math_index: null
                 mmlu_pro: null
                 name: DeepSeek V4 Flash 0420 (Max)
-                scicode: 0.453
-                tau2: 0.95
+                openness_index: 50
+                scicode: 0.452546296296296
+                tau2: 0.950292397660819
                 tau_banking: 0.309278350515464
-                terminalbench_hard: 0.356
+                terminalbench_hard: 0.356060606060606
                 terminalbench_v2_1: 0.617977528089888
                 terminalbench_v4_0: 0.0252525252525253
             deepseek-v4-flash-0420-high:
@@ -37,13 +44,16 @@ metrics:
                 agentic_percentile: 54
                 aime: null
                 aime_25: null
+                automationbench_partial_score: 0.28504323745973587
                 coding_index: 52
                 coding_percentile: 52
-                critpt: 0.034
+                critpt: 0.0342857142857143
+                gdp_pdf_all_pass: 0.104
                 gdpval_aa: 0.255
-                gpqa: 0.867
-                hle: 0.303
-                ifbench: 0.735
+                gdpval_aa_elo: 1009.76
+                gpqa: 0.866666666666667
+                hle: 0.30259499536608
+                ifbench: 0.734693877551021
                 intelligence_index: null
                 intelligence_percentile: null
                 lcr: 0.72
@@ -52,10 +62,11 @@ metrics:
                 math_index: null
                 mmlu_pro: null
                 name: DeepSeek V4 Flash 0420 (High)
-                scicode: 0.402
-                tau2: 0.956
+                openness_index: 50
+                scicode: 0.40162037037037
+                tau2: 0.956140350877193
                 tau_banking: 0.261855670103093
-                terminalbench_hard: 0.386
+                terminalbench_hard: 0.386363636363636
                 terminalbench_v2_1: 0.569288389513109
                 terminalbench_v4_0: 0.0303030303030303
             deepseek-v4-flash-0420-non-reasoning:
@@ -65,22 +76,23 @@ metrics:
                 aime: null
                 aime_25: null
                 coding_index: null
-                critpt: 0.003
+                critpt: 0.00285714285714286
                 gdpval_aa: null
-                gpqa: 0.716
-                hle: 0.078
-                ifbench: 0.472
+                gpqa: 0.716161616161616
+                hle: 0.0778498609823911
+                ifbench: 0.472108843537415
                 intelligence_index: null
-                lcr: 0.417
+                lcr: 0.416666666666667
                 livecodebench: null
                 math_500: null
                 math_index: null
                 mmlu_pro: null
                 name: DeepSeek V4 Flash 0420 (Non-reasoning)
+                openness_index: 50
                 scicode: null
-                tau2: 0.944
+                tau2: 0.944444444444445
                 tau_banking: null
-                terminalbench_hard: 0.341
+                terminalbench_hard: 0.340909090909091
                 terminalbench_v2_1: null
                 terminalbench_v4_0: null
     design_arena:
@@ -88,13 +100,14 @@ metrics:
             models:
                 3d:
                     avg_generation_time_ms: 106981
-                    elo: 1186
+                    elo: 1185
                     elo_percentile: 59
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 717
+                    fourth_place: 668
+                    rank: 73
+                    second_place: 733
+                    third_place: 722
+                    total_tournaments: 2840
                     win_rate: 49.3
                 asciiart:
                     avg_generation_time_ms: 112013
@@ -118,53 +131,58 @@ metrics:
                     win_rate: 48.9
                 dataviz:
                     avg_generation_time_ms: 95349
-                    elo: 1127
+                    elo: 1128
                     elo_percentile: 29
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 92
+                    fourth_place: 134
+                    rank: 119
+                    second_place: 87
+                    third_place: 137
+                    total_tournaments: 450
                     win_rate: 40.7
                 gamedev:
                     avg_generation_time_ms: 172971
-                    elo: 1197
+                    elo: 1196
                     elo_percentile: 62
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 400
+                    fourth_place: 336
+                    rank: 76
+                    second_place: 469
+                    third_place: 431
+                    total_tournaments: 1636
                     win_rate: 50.2
                 svg:
                     avg_generation_time_ms: 111945
-                    elo: 1152
+                    elo: 1153
                     elo_percentile: 56
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 189
+                    fourth_place: 141
+                    rank: 69
+                    second_place: 240
+                    third_place: 247
+                    total_tournaments: 817
                     win_rate: 48.4
                 uicomponent:
                     avg_generation_time_ms: 104900
                     elo: 1159
                     elo_percentile: 46
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 139
+                    fourth_place: 154
+                    rank: 99
+                    second_place: 158
+                    third_place: 192
+                    total_tournaments: 643
                     win_rate: 44.7
                 website:
                     avg_generation_time_ms: 143724
                     elo: 1206
                     elo_percentile: 60
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 1338
+                    fourth_place: 1053
+                    rank: 84
+                    second_place: 1587
+                    third_place: 1602
+                    total_tournaments: 5580
                     win_rate: 49.1
     openrouter:
         gpqa_diamond:

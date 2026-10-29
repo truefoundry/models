@@ -1,2 +1,351 @@
 model: zai-org/glm-4.7-maas
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            glm-4-7:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                agentic_percentile: null
+                aime: null
+                aime_25: 0.95
+                coding_index: 45.3
+                coding_percentile: 44
+                critpt: 0.0171020408163265
+                gdpval_aa: 0.261
+                gdpval_aa_elo: 1021.8
+                gpqa: 0.858585858585858
+                hle: 0.27386468952734
+                ifbench: 0.67891156462585
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.71
+                livecodebench: 0.894179894179894
+                math_500: null
+                math_index: 95
+                mmlu_pro: 0.856
+                name: GLM-4.7 (Reasoning)
+                openness_index: 44.44444444444444
+                scicode: null
+                tau2: 0.95906432748538
+                tau_banking: 0.121649484536082
+                terminalbench_hard: 0.318181818181818
+                terminalbench_v2_1: 0.453183520599251
+                terminalbench_v4_0: null
+            glm-4-7-non-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: 0.48
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.663636363636364
+                hle: 0.0639481000926784
+                ifbench: 0.546258503401361
+                intelligence_index: null
+                lcr: 0.406666666666667
+                livecodebench: 0.561904761904762
+                math_500: null
+                math_index: 48
+                mmlu_pro: 0.794
+                name: GLM-4.7 (Non-reasoning)
+                openness_index: 44.44444444444444
+                scicode: null
+                tau2: 0.941520467836257
+                tau_banking: null
+                terminalbench_hard: 0.303030303030303
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    design_arena:
+        GLM 4.7:
+            agents:
+                androidnative:
+                    avg_generation_time_ms: null
+                    elo: 1110
+                    elo_percentile: 24
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.1
+                fullstack:
+                    avg_generation_time_ms: null
+                    elo: 1050
+                    elo_percentile: 16
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.1
+                godotgamedev:
+                    avg_generation_time_ms: null
+                    elo: 1058
+                    elo_percentile: 8
+                    first_place: 10087
+                    fourth_place: 3474
+                    second_place: 9967
+                    third_place: 5641
+                    total_tournaments: 29169
+                    win_rate: 35.8
+                mobileapps:
+                    avg_generation_time_ms: null
+                    elo: 1105
+                    elo_percentile: 21
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.9
+            models:
+                3d:
+                    avg_generation_time_ms: 143534
+                    elo: 1187
+                    elo_percentile: 60
+                    first_place: 818
+                    fourth_place: 398
+                    rank: 72
+                    second_place: 771
+                    third_place: 630
+                    total_tournaments: 2617
+                    win_rate: 54.3
+                asciiart:
+                    avg_generation_time_ms: 156732
+                    elo: 1162
+                    elo_percentile: 52
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.2
+                codecategories:
+                    avg_generation_time_ms: 165194
+                    elo: 1215
+                    elo_percentile: 63
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.8
+                dataviz:
+                    avg_generation_time_ms: 153971
+                    elo: 1196
+                    elo_percentile: 55
+                    first_place: 186
+                    fourth_place: 125
+                    rank: 80
+                    second_place: 198
+                    third_place: 178
+                    total_tournaments: 687
+                    win_rate: 51.2
+                gamedev:
+                    avg_generation_time_ms: 167669
+                    elo: 1187
+                    elo_percentile: 58
+                    first_place: 723
+                    fourth_place: 295
+                    rank: 83
+                    second_place: 595
+                    third_place: 492
+                    total_tournaments: 2105
+                    win_rate: 55.2
+                svg:
+                    avg_generation_time_ms: 90374
+                    elo: 1140
+                    elo_percentile: 50
+                    first_place: 985
+                    fourth_place: 498
+                    rank: 75
+                    second_place: 924
+                    third_place: 800
+                    total_tournaments: 3207
+                    win_rate: 54.3
+                uicomponent:
+                    avg_generation_time_ms: 152067
+                    elo: 1194
+                    elo_percentile: 56
+                    first_place: 341
+                    fourth_place: 215
+                    rank: 82
+                    second_place: 322
+                    third_place: 319
+                    total_tournaments: 1197
+                    win_rate: 51.1
+                website:
+                    avg_generation_time_ms: 171665
+                    elo: 1224
+                    elo_percentile: 64
+                    first_place: 4153
+                    fourth_place: 1761
+                    rank: 77
+                    second_place: 3664
+                    third_place: 3043
+                    total_tournaments: 12621
+                    win_rate: 55.3
+    vals_ai:
+        zai/glm-4.7:
+            aime:
+                accuracy: 93.333
+                cost_per_test: 0.043308
+                latency_seconds: 529.192
+                stderr: 0.445
+            case_law_v2:
+                accuracy: 54.877
+                cost_per_test: 0.021159
+                latency_seconds: 59.643
+                stderr: 0.916
+            corp_fin_v2:
+                accuracy: 46.387
+                cost_per_test: 0.039082
+                latency_seconds: 66.101
+                stderr: 0.899
+            finance_agent:
+                accuracy: 45.977
+                cost_per_test: 0.244376
+                latency_seconds: 605.003
+                stderr: 2.818
+            finance_agent_v1:
+                accuracy: 41.8748
+                cost_per_test: 0.201365
+                latency_seconds: 386.0473
+                stderr: 1.2505
+            gpqa:
+                accuracy: 80.05
+                cost_per_test: 0.024866
+                latency_seconds: 211.079
+                stderr: 2.006
+            ioi-v1:
+                accuracy: 7.584
+                cost_per_test: 0.443515
+                latency_seconds: 5316.876
+                stderr: 3.404
+            lcb:
+                accuracy: 82.234
+                cost_per_test: 0.035469
+                latency_seconds: 393.276
+                stderr: 0.993
+            legal_bench:
+                accuracy: 83.358
+                cost_per_test: 0.002348
+                latency_seconds: 30.675
+                stderr: 0.473
+            medcode:
+                accuracy: 32.772
+                cost_per_test: 0.00671
+                latency_seconds: 123.441
+                stderr: 1.996
+            medqa:
+                accuracy: 93.742
+                cost_per_test: 0.00487
+                latency_seconds: 66.008
+                stderr: 0.221
+            medscribe:
+                accuracy: 68.629
+                cost_per_test: 0.019082
+                latency_seconds: 167.479
+                stderr: 2.123
+            mgsm:
+                accuracy: 88.182
+                cost_per_test: 0.004315
+                latency_seconds: 63.175
+                stderr: 1.828
+            mmlu_pro:
+                accuracy: 82.736
+                cost_per_test: 0.00798
+                latency_seconds: 104.451
+                stderr: 0.371
+            proof_bench_v1:
+                accuracy: 6
+                cost_per_test: 0.14404
+                latency_seconds: 3364.789
+                stderr: 2.375
+            swebench:
+                accuracy: 69.4
+                cost_per_test: 0.203695
+                latency_seconds: 365.799
+                stderr: 2.063
+            tax_eval_v2:
+                accuracy: 68.766
+                cost_per_test: 0.013873
+                latency_seconds: 187.181
+                stderr: 0.921
+            terminal-bench:
+                accuracy: 50
+                cost_per_test: 0.223346
+                latency_seconds: 562.429
+                stderr: 5.59
+            terminal-bench-2:
+                accuracy: 38.202
+                cost_per_test: 0.183983
+                latency_seconds: 777.512
+                stderr: 5.18
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 2135fe57-5da2-4920-94c4-4b5f8f37bfd1
+              provider: AtlasCloud
+              run_count: 1
+              score: 0.8367
+            - endpoint_id: ab79ffa8-8dcc-41c4-9a9f-6cc408135243
+              provider: DeepInfra
+              run_count: 3
+              score: 0.822685158833187
+            - endpoint_id: f1bbf654-df93-4228-a30d-a44b5e6b98f0
+              provider: Google Vertex
+              run_count: 3
+              score: 0.8392723798977726
+            - endpoint_id: cc473714-fdbf-40fa-b943-2fced9742a9a
+              provider: Mancer
+              run_count: 4
+              score: 0.5596322439237266
+            - endpoint_id: 53d155e7-021c-4268-bde4-991847ef8389
+              provider: NovitaAI
+              run_count: 4
+              score: 0.8465993162891172
+            - endpoint_id: f99f5dca-50a5-4169-a758-60b2cd09d599
+              provider: Venice
+              run_count: 4
+              score: 0.7092776165279199
+            - endpoint_id: be4acbf5-9fcf-4332-a01d-76dfeb6d7b99
+              provider: Z.ai
+              run_count: 4
+              score: 0.8480231791357978
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8381303054797913
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 2135fe57-5da2-4920-94c4-4b5f8f37bfd1
+              provider: AtlasCloud
+              run_count: 1
+              score: 0.713333
+            - endpoint_id: ab79ffa8-8dcc-41c4-9a9f-6cc408135243
+              provider: DeepInfra
+              run_count: 2
+              score: 0.697775098640466
+            - endpoint_id: f1bbf654-df93-4228-a30d-a44b5e6b98f0
+              provider: Google Vertex
+              run_count: 3
+              score: 0.7646367813464314
+            - endpoint_id: 53d155e7-021c-4268-bde4-991847ef8389
+              provider: NovitaAI
+              run_count: 4
+              score: 0.7235273887354724
+            - endpoint_id: f99f5dca-50a5-4169-a758-60b2cd09d599
+              provider: Venice
+              run_count: 4
+              score: 0.7274411226217429
+            - endpoint_id: be4acbf5-9fcf-4332-a01d-76dfeb6d7b99
+              provider: Z.ai
+              run_count: 4
+              score: 0.729684706803717
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7226086479874513

@@ -9,32 +9,88 @@ metrics:
         agentic_percentile: 25
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.008410069634719542
         coding_index: 26.8
         coding_percentile: 27
         critpt: 0
+        critpt_agentic_hard: 0.015
         economics_index: null
         engineering_index: null
+        enterprise_ops_gym: 0.18352730528200537
         finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.03
         gdpval_aa: 0.073
-        gpqa: 0.743
+        gdpval_aa_elo: 645.68
+        gpqa: 0.743434343434343
         healthcare_and_medical_index: null
-        hle: 0.106
+        hle: 0.105653382761817
+        hle_diamond: 0.045
         ifbench: null
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.603
+        lcr: 0.603333333333333
         legal_index: null
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.0222222222222222
         mmlu_pro: null
-        scicode: 0.321
+        openness_index: 83.33333333333333
+        scicode: 0.320601851851852
         strategy_and_ops_index: null
         tau2: null
         tau_banking: 0.088659793814433
         terminalbench_hard: null
+        terminalbench_science: 0
         terminalbench_v2_1: 0.243445692883895
         terminalbench_v4_0: 0.00505050505050505
+    vals_ai:
+        fireworks/nemotron-lightning-3p5-30b-a3b:
+            corp_fin_v2:
+                accuracy: 54.235
+                cost_per_test: 0.004794
+                latency_seconds: 38.792
+                stderr: 0.98
+            cyber:
+                accuracy: 29.464
+                cost_per_test: 0.093074
+                latency_seconds: 3031.784
+                stderr: 5.958
+            legal_research:
+                accuracy: 2.885
+                cost_per_test: 0.004365
+                latency_seconds: 285.48
+                stderr: 1.163
+            medscribe:
+                accuracy: 4.267
+                cost_per_test: 0.006241
+                latency_seconds: 105.515
+                stderr: 0.492
+            programbench:
+                accuracy: 0.0
+                cost_per_test: 0.216901
+                latency_seconds: 1465.949
+                stderr: 0.0
+            proof_bench:
+                accuracy: 0.0
+                cost_per_test: 0.015926
+                latency_seconds: 919.248
+                stderr: 0.0
+            swebench:
+                accuracy: 52.8
+                cost_per_test: 0.031537
+                latency_seconds: 925.464
+                stderr: 2.235
+            tax_agent_bench:
+                accuracy: 2.591
+                cost_per_test: 0.030533
+                latency_seconds: 1180.079
+                stderr: 1.146
+            vibe-code:
+                accuracy: 0.0
+                cost_per_test: 0.128799
+                latency_seconds: 959.662
+                stderr: 0.0
     openrouter:
         gpqa_diamond:
             - endpoint_id: 97653104-c300-4849-83c4-0a2ad548447b

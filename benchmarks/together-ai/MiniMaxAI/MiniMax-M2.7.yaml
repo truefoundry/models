@@ -7,24 +7,32 @@ metrics:
         agentic_percentile: 36
         aime: null
         aime_25: null
+        analyst_agent: 0.1125
+        apex_agents: 0.106194690265487
+        automationbench_partial_score: 0.044352902503728975
         coding_index: 52.6
         coding_percentile: 54
-        critpt: 0.006
+        critpt: 0.00571428571428571
+        gdp_pdf_all_pass: 0.06
         gdpval_aa: 0.258
-        gpqa: 0.874
-        hle: 0.296
-        ifbench: 0.757
+        gdpval_aa_elo: 1016.54
+        gpqa: 0.873737373737374
+        hle: 0.29610750695088
+        ifbench: 0.757142857142857
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.783
+        itbench_sre: 0.264595103578154
+        lcr: 0.783333333333333
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.0555555555555556
         mmlu_pro: null
-        scicode: 0.501
-        tau2: 0.848
+        openness_index: 22.22222222222222
+        scicode: 0.501157407407407
+        tau2: 0.847953216374269
         tau_banking: 0.0989690721649484
-        terminalbench_hard: 0.394
+        terminalbench_hard: 0.393939393939394
         terminalbench_v2_1: 0.554307116104869
         terminalbench_v4_0: 0
     design_arena:
@@ -110,6 +118,62 @@ metrics:
                     third_place: 0
                     total_tournaments: 0
                     win_rate: 51.3
+        MiniMax M2.7 (minimax-m2.7):
+            models:
+                3d:
+                    elo: 1191
+                    first_place: 773
+                    fourth_place: 613
+                    rank: 70
+                    second_place: 863
+                    third_place: 856
+                    total_tournaments: 3105
+                    win_rate: 49.9
+                dataviz:
+                    elo: 1233
+                    first_place: 295
+                    fourth_place: 191
+                    rank: 58
+                    second_place: 291
+                    third_place: 269
+                    total_tournaments: 1046
+                    win_rate: 52.3
+                gamedev:
+                    elo: 1208
+                    first_place: 755
+                    fourth_place: 512
+                    rank: 71
+                    second_place: 766
+                    third_place: 753
+                    total_tournaments: 2786
+                    win_rate: 49.4
+                svg:
+                    elo: 1133
+                    first_place: 443
+                    fourth_place: 363
+                    rank: 80
+                    second_place: 581
+                    third_place: 563
+                    total_tournaments: 1950
+                    win_rate: 47.1
+                uicomponent:
+                    elo: 1205
+                    first_place: 326
+                    fourth_place: 313
+                    rank: 78
+                    second_place: 353
+                    third_place: 343
+                    total_tournaments: 1335
+                    win_rate: 48.5
+                website:
+                    elo: 1241
+                    first_place: 2896
+                    fourth_place: 1983
+                    rank: 67
+                    second_place: 2816
+                    third_place: 2640
+                    total_tournaments: 10335
+                    win_rate: 51.3
     vals_ai:
         minimax/MiniMax-M2.7:
             aime:
@@ -193,10 +257,10 @@ metrics:
                 latency_seconds: 50.005
                 stderr: 0.39
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: null
                 latency_seconds: 1460.176
-                stderr: 0
+                stderr: 0.0
             proof_bench_v1:
                 accuracy: 3
                 cost_per_test: 0.04293

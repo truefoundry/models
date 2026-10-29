@@ -2,31 +2,164 @@ model: openai/gpt-5.6-terra:batch
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.423
+        aa_omniscience_hallucination_rate: 0.8937030618139804
         aa_omniscience_non_hallucination_rate: 0.106
         agentic_index: 43.2
         agentic_percentile: 77
         aime: null
         aime_25: null
+        apex_agents: 0.389380530973451
+        automationbench_partial_score: 0.5964995802534495
         coding_index: 76.7
         coding_percentile: 93
         critpt: 0.3
+        enterprise_ops_gym: 0.38495971351835273
+        gdp_pdf_all_pass: 0.24
         gdpval_aa: 0.481
-        gpqa: 0.925
-        hle: 0.429
-        ifbench: 0.712
+        gdpval_aa_elo: 1461.97
+        gpqa: 0.925252525252525
+        hle: 0.429101019462465
+        hle_diamond: 0.288
+        ifbench: 0.712244897959184
         intelligence_index: null
         intelligence_percentile: null
+        itbench_sre: 0.510357815442561
         lcr: 0.83
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.272222222222222
         mmlu_pro: null
-        scicode: 0.55
-        tau2: 0.863
+        mmmu_pro: 0.806936416184971
+        omniscience_index: -9.266666666666667
+        scicode: 0.549768518518518
+        tau2: 0.862573099415205
         tau_banking: 0.402061855670103
-        terminalbench_hard: 0.576
+        terminalbench_hard: 0.575757575757576
+        terminalbench_science: 0.138095238095238
         terminalbench_v2_1: 0.880149812734082
         terminalbench_v4_0: 0.353535353535354
+    design_arena:
+        GPT-5.6 Terra:
+            agents:
+                agenticgamedev:
+                    elo: 1047
+                    first_place: 159
+                    fourth_place: 0
+                    rank: 26
+                    second_place: 301
+                    third_place: 0
+                    total_tournaments: 460
+                    win_rate: 35.4
+                androidnative:
+                    elo: 1057
+                    first_place: 202
+                    fourth_place: 0
+                    rank: 31
+                    second_place: 439
+                    third_place: 0
+                    total_tournaments: 641
+                    win_rate: 30.5
+                fullstack:
+                    elo: 1061
+                    first_place: 412
+                    fourth_place: 0
+                    rank: 39
+                    second_place: 957
+                    third_place: 0
+                    total_tournaments: 1369
+                    win_rate: 30.8
+                htmlslides:
+                    elo: 1004
+                    first_place: 333
+                    fourth_place: 0
+                    rank: 25
+                    second_place: 480
+                    third_place: 0
+                    total_tournaments: 813
+                    win_rate: 40.6
+                mobileapps:
+                    elo: 1103
+                    first_place: 353
+                    fourth_place: 0
+                    rank: 43
+                    second_place: 631
+                    third_place: 0
+                    total_tournaments: 984
+                    win_rate: 36.8
+                python-pptxslides:
+                    elo: 1083
+                    first_place: 278
+                    fourth_place: 0
+                    rank: 28
+                    second_place: 371
+                    third_place: 0
+                    total_tournaments: 649
+                    win_rate: 40.9
+                webapps:
+                    elo: 1121
+                    first_place: 980
+                    fourth_place: 0
+                    rank: 42
+                    second_place: 1592
+                    third_place: 0
+                    total_tournaments: 2572
+                    win_rate: 37
+            models:
+                3d:
+                    elo: 1131
+                    first_place: 911
+                    fourth_place: 2559
+                    rank: 92
+                    second_place: 1238
+                    third_place: 1901
+                    total_tournaments: 6609
+                    win_rate: 37
+                dataviz:
+                    elo: 1240
+                    first_place: 465
+                    fourth_place: 477
+                    rank: 51
+                    second_place: 493
+                    third_place: 509
+                    total_tournaments: 1944
+                    win_rate: 49.3
+                gamedev:
+                    elo: 1229
+                    first_place: 1285
+                    fourth_place: 1319
+                    rank: 59
+                    second_place: 1537
+                    third_place: 1631
+                    total_tournaments: 5772
+                    win_rate: 48.2
+                svg:
+                    elo: 1217
+                    first_place: 654
+                    fourth_place: 537
+                    rank: 39
+                    second_place: 590
+                    third_place: 639
+                    total_tournaments: 2420
+                    win_rate: 51.1
+                uicomponent:
+                    elo: 1253
+                    first_place: 682
+                    fourth_place: 577
+                    rank: 56
+                    second_place: 668
+                    third_place: 752
+                    total_tournaments: 2679
+                    win_rate: 50.8
+                website:
+                    elo: 1267
+                    first_place: 5094
+                    fourth_place: 3544
+                    rank: 47
+                    second_place: 4057
+                    third_place: 4481
+                    total_tournaments: 17176
+                    win_rate: 51.8
     vals_ai:
         openai/gpt-5.6-terra:
             code-migration:
@@ -120,7 +253,7 @@ metrics:
                 latency_seconds: 2016.05
                 stderr: 0.5
             proof_bench:
-                accuracy: 74
+                accuracy: 74.0
                 cost_per_test: 1.274209
                 latency_seconds: 777.341
                 stderr: 4.408
@@ -129,6 +262,11 @@ metrics:
                 cost_per_test: 0.940019
                 latency_seconds: 421.678
                 stderr: 4.56
+            public-benefits-bench:
+                accuracy: 62.382
+                cost_per_test: 1.199723
+                latency_seconds: 1171.486
+                stderr: 1.26
             sage:
                 accuracy: 87.038
                 cost_per_test: 0.110435
@@ -174,6 +312,11 @@ metrics:
                 cost_per_test: 5.602118
                 latency_seconds: 1888.568
                 stderr: 2.314
+            terminal-bench-science:
+                accuracy: 10.0
+                cost_per_test: 5.19351
+                latency_seconds: 7443.23
+                stderr: 3.612
             vals_index_v1_2:
                 accuracy: 65.135
                 cost_per_test: 1.109172

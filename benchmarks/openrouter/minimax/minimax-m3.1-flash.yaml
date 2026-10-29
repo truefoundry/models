@@ -3,38 +3,108 @@ artificial_analysis_id: d49c8680-e29b-400e-9511-824f7ddebe07
 artificial_analysis_slug: minimax-m3-1-flash
 metrics:
     artificial_analysis:
-        aa_omniscience_accuracy: 0.451
+        aa_omniscience_accuracy: 0.45066666666666666
+        aa_omniscience_hallucination_rate: 0.9368932038834952
         aa_omniscience_non_hallucination_rate: 0.063
         agentic_index: null
         agentic_percentile: null
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.7252180957532544
         coding_index: null
         coding_percentile: null
-        critpt: 0.223
+        critpt: 0.222857142857143
+        critpt_agentic_hard: 0.31
         economics_index: 38.8
         engineering_index: 34.1
         finance_and_accounting_index: 39.1
+        frontiercode: 0.385759
+        frontiercode_v2_0: 0.208218181818182
+        gdp_pdf_all_pass: 0.208
         gdpval_aa: 0.483
+        gdpval_aa_elo: 1465.71
         gpqa: null
         healthcare_and_medical_index: 36.8
-        hle: 0.48
+        hle: 0.479610750695088
+        hle_diamond: 0.281
         ifbench: null
-        intelligence_index: 28.9
+        intelligence_index: 28.9095214290458
         intelligence_percentile: 38
-        lcr: 0.797
+        lcr: 0.796666666666667
         legal_index: 33
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.166666666666667
         mmlu_pro: null
-        scicode: 0.534
+        mmmu_pro: 0.791329479768786
+        omniscience_index: -6.4
+        scicode: 0.533564814814815
         strategy_and_ops_index: 50.8
         tau2: null
         tau_banking: null
         terminalbench_hard: null
+        terminalbench_science: 0.0333333333333333
         terminalbench_v2_1: null
         terminalbench_v4_0: 0.257575757575758
+    design_arena:
+        MiniMax M3.1 Flash:
+            agents:
+                mobileapps:
+                    elo: 1238
+                    first_place: 118
+                    fourth_place: 0
+                    rank: 8
+                    second_place: 102
+                    third_place: 0
+                    total_tournaments: 220
+                    win_rate: 53.4
+            models:
+                3d:
+                    elo: 1334
+                    first_place: 80
+                    fourth_place: 38
+                    rank: 18
+                    second_place: 89
+                    third_place: 54
+                    total_tournaments: 261
+                    win_rate: 53.4
+                dataviz:
+                    elo: 1201
+                    first_place: 10
+                    fourth_place: 22
+                    rank: 76
+                    second_place: 11
+                    third_place: 14
+                    total_tournaments: 57
+                    win_rate: 39.7
+                gamedev:
+                    elo: 1318
+                    first_place: 278
+                    fourth_place: 145
+                    rank: 21
+                    second_place: 246
+                    third_place: 199
+                    total_tournaments: 868
+                    win_rate: 54.4
+                uicomponent:
+                    elo: 1291
+                    first_place: 33
+                    fourth_place: 42
+                    rank: 30
+                    second_place: 46
+                    third_place: 30
+                    total_tournaments: 151
+                    win_rate: 49.5
+                website:
+                    elo: 1278
+                    first_place: 277
+                    fourth_place: 285
+                    rank: 35
+                    second_place: 288
+                    third_place: 292
+                    total_tournaments: 1142
+                    win_rate: 49.6
     vals_ai:
         minimax/MiniMax-M3.1-flash:
             emb-v1-1:
@@ -83,6 +153,11 @@ metrics:
                 latency_seconds: 3030.551
                 stderr: 1.01
             vals_index:
+                accuracy: 53.781
+                cost_per_test: 0.659684
+                latency_seconds: 2597.835
+                stderr: 1.067
+            vals_router_index:
                 accuracy: 53.781
                 cost_per_test: 0.659684
                 latency_seconds: 2597.835

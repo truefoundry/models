@@ -1,2 +1,191 @@
 model: qwen/qwen3-235b-a22b-instruct-2507-maas
-metrics: {}
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: 0.716666666666667
+        aime_25: 0.716666666666667
+        coding_index: null
+        critpt: 0
+        gdpval_aa: null
+        gpqa: 0.752525252525253
+        hle: 0.111214087117702
+        ifbench: 0.460544217687075
+        intelligence_index: null
+        lcr: 0.339
+        livecodebench: 0.523809523809524
+        math_500: 0.98
+        math_index: 71.7
+        mmlu_pro: 0.828
+        openness_index: 44.44444444444444
+        scicode: null
+        tau2: 0.333333333333333
+        tau_banking: null
+        terminalbench_hard: 0.151515151515152
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        Qwen3-235B-A22B-Instruct-2507:
+            models:
+                3d:
+                    avg_generation_time_ms: 39482
+                    elo: 991
+                    elo_percentile: 9
+                    first_place: 42
+                    fourth_place: 51
+                    rank: 154
+                    second_place: 68
+                    third_place: 64
+                    total_tournaments: 225
+                    win_rate: 41.1
+                codecategories:
+                    avg_generation_time_ms: 53834
+                    elo: 1037
+                    elo_percentile: 14
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 42.6
+                dataviz:
+                    avg_generation_time_ms: 49862
+                    elo: 1070
+                    elo_percentile: 17
+                    first_place: 16
+                    fourth_place: 10
+                    rank: 135
+                    second_place: 18
+                    third_place: 22
+                    total_tournaments: 66
+                    win_rate: 49
+                gamedev:
+                    avg_generation_time_ms: 64323
+                    elo: 950
+                    elo_percentile: 6
+                    first_place: 42
+                    fourth_place: 77
+                    rank: 176
+                    second_place: 70
+                    third_place: 82
+                    total_tournaments: 271
+                    win_rate: 35
+                uicomponent:
+                    avg_generation_time_ms: 38286
+                    elo: 960
+                    elo_percentile: 10
+                    first_place: 33
+                    fourth_place: 41
+                    rank: 164
+                    second_place: 50
+                    third_place: 60
+                    total_tournaments: 184
+                    win_rate: 38.4
+                website:
+                    avg_generation_time_ms: 55072
+                    elo: 1057
+                    elo_percentile: 16
+                    first_place: 532
+                    fourth_place: 614
+                    rank: 166
+                    second_place: 643
+                    third_place: 673
+                    total_tournaments: 2462
+                    win_rate: 43.6
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 813ce28a-1334-47e3-881e-a7f8833b34b4
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.7441080000000001
+            - endpoint_id: 3e3e2284-a12c-46b5-b3db-bc4eb148c7d9
+              provider: DeepInfra
+              run_count: 5
+              score: 0.7188186788909597
+            - endpoint_id: 7f8598e4-091b-424e-a9c2-158532af1537
+              provider: GMICloud
+              run_count: 1
+              score: 0.56229
+            - endpoint_id: 5369c603-15de-42f2-95d3-1e9559206ff9
+              provider: Google Vertex
+              run_count: 3
+              score: 0.7362440329227184
+            - endpoint_id: 89b84b73-e965-4777-a728-3421dfaefcbe
+              provider: Google Vertex
+              run_count: 3
+              score: 0.7456134193541308
+            - endpoint_id: 60fe2e34-32d7-46f8-872b-fdfc5be25560
+              provider: Nebius Token Factory
+              run_count: 3
+              score: 0.7412910872996933
+            - endpoint_id: cf186489-d252-4fb7-aca9-87ef7b557eff
+              provider: NovitaAI
+              run_count: 1
+              score: 0.732323
+            - endpoint_id: 043eb28f-fc28-4b0d-9800-b249fcfcfbf9
+              provider: Parasail
+              run_count: 4
+              score: 0.7308613866103314
+            - endpoint_id: 697f084e-7f49-4c17-bffb-2457c47ae1f8
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.752525
+            - endpoint_id: 0ee0379f-93ca-4158-9ef0-b5d8acbec0ef
+              provider: StreamLake
+              run_count: 2
+              score: 0.7449342743926817
+            - endpoint_id: 9e9cb601-dc7d-4529-b7f9-5a410ee07363
+              provider: Venice
+              run_count: 4
+              score: 0.7332060462272268
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7275176221581977
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 813ce28a-1334-47e3-881e-a7f8833b34b4
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.293333
+            - endpoint_id: 3e3e2284-a12c-46b5-b3db-bc4eb148c7d9
+              provider: DeepInfra
+              run_count: 5
+              score: 0.42892402562624793
+            - endpoint_id: 7f8598e4-091b-424e-a9c2-158532af1537
+              provider: GMICloud
+              run_count: 1
+              score: 0.05999999999999999
+            - endpoint_id: 5369c603-15de-42f2-95d3-1e9559206ff9
+              provider: Google Vertex
+              run_count: 1
+              score: 0.40942
+            - endpoint_id: 60fe2e34-32d7-46f8-872b-fdfc5be25560
+              provider: Nebius Token Factory
+              run_count: 3
+              score: 0.440701291172715
+            - endpoint_id: cf186489-d252-4fb7-aca9-87ef7b557eff
+              provider: NovitaAI
+              run_count: 1
+              score: 0.44999999999999996
+            - endpoint_id: 043eb28f-fc28-4b0d-9800-b249fcfcfbf9
+              provider: Parasail
+              run_count: 4
+              score: 0.4186362400315727
+            - endpoint_id: 697f084e-7f49-4c17-bffb-2457c47ae1f8
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.406667
+            - endpoint_id: 0ee0379f-93ca-4158-9ef0-b5d8acbec0ef
+              provider: StreamLake
+              run_count: 2
+              score: 0.4067850568946793
+            - endpoint_id: 9e9cb601-dc7d-4529-b7f9-5a410ee07363
+              provider: Venice
+              run_count: 3
+              score: 0.4389951690780493
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.3367191420256265

@@ -9,17 +9,19 @@ metrics:
         agentic_percentile: null
         aime: null
         aime_25: null
+        apex_agents: 0.11504424778761062
         coding_index: 46.8
         coding_percentile: 47
-        critpt: 0.031
+        critpt: 0.0314285714285714
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: 0.174
-        gpqa: 0.879
+        gdpval_aa_elo: 847.04
+        gpqa: 0.878787878787879
         healthcare_and_medical_index: null
-        hle: 0.307
-        ifbench: 0.702
+        hle: 0.307228915662651
+        ifbench: 0.702040816326531
         intelligence_index: null
         intelligence_percentile: null
         lcr: 0.78
@@ -28,11 +30,13 @@ metrics:
         math_500: null
         math_index: null
         mmlu_pro: null
+        mmmu_pro: 0.753757225433526
+        openness_index: 33.333333333333336
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.959
+        tau2: 0.95906432748538
         tau_banking: 0.142268041237113
-        terminalbench_hard: 0.348
+        terminalbench_hard: 0.348484848484849
         terminalbench_v2_1: 0.456928838951311
         terminalbench_v4_0: null
     design_arena:
@@ -40,13 +44,14 @@ metrics:
             agents:
                 androidnative:
                     avg_generation_time_ms: null
-                    elo: 1116
+                    elo: 1115
                     elo_percentile: 26
-                    first_place: 0
+                    first_place: 194
                     fourth_place: 0
-                    second_place: 0
+                    rank: 27
+                    second_place: 138
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 332
                     win_rate: 57.8
                 fullstack:
                     avg_generation_time_ms: null
@@ -93,11 +98,12 @@ metrics:
                     avg_generation_time_ms: 147955
                     elo: 1202
                     elo_percentile: 64
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 1209
+                    fourth_place: 742
+                    rank: 67
+                    second_place: 1223
+                    third_place: 1074
+                    total_tournaments: 4248
                     win_rate: 53.1
                 asciiart:
                     avg_generation_time_ms: 285288
@@ -121,53 +127,58 @@ metrics:
                     win_rate: 54.1
                 dataviz:
                     avg_generation_time_ms: 186933
-                    elo: 1219
+                    elo: 1220
                     elo_percentile: 64
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 310
+                    fourth_place: 220
+                    rank: 65
+                    second_place: 318
+                    third_place: 296
+                    total_tournaments: 1144
                     win_rate: 51.3
                 gamedev:
                     avg_generation_time_ms: 228459
                     elo: 1205
                     elo_percentile: 65
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 592
+                    fourth_place: 304
+                    rank: 74
+                    second_place: 608
+                    third_place: 497
+                    total_tournaments: 2001
                     win_rate: 53.4
                 svg:
                     avg_generation_time_ms: 106863
-                    elo: 1146
+                    elo: 1147
                     elo_percentile: 51
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 127
+                    fourth_place: 121
+                    rank: 74
+                    second_place: 184
+                    third_place: 179
+                    total_tournaments: 611
                     win_rate: 48.4
                 uicomponent:
                     avg_generation_time_ms: 192123
                     elo: 1231
                     elo_percentile: 67
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 410
+                    fourth_place: 223
+                    rank: 66
+                    second_place: 418
+                    third_place: 369
+                    total_tournaments: 1420
                     win_rate: 53.6
                 website:
                     avg_generation_time_ms: 245654
-                    elo: 1248
+                    elo: 1247
                     elo_percentile: 72
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 3736
+                    fourth_place: 1844
+                    rank: 63
+                    second_place: 3490
+                    third_place: 2890
+                    total_tournaments: 11960
                     win_rate: 55.2
     vals_ai:
         kimi/kimi-k2.5-thinking:
@@ -277,7 +288,7 @@ metrics:
                 latency_seconds: 173.179
                 stderr: 3.363
             swebench:
-                accuracy: 70
+                accuracy: 70.0
                 cost_per_test: 0.167669
                 latency_seconds: 339.242
                 stderr: 2.051

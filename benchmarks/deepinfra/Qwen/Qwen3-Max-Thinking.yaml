@@ -9,17 +9,17 @@ metrics:
         aime: null
         aime_25: null
         coding_index: null
-        critpt: 0.017
+        critpt: 0.0171428571428571
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.861
+        gpqa: 0.860606060606061
         healthcare_and_medical_index: null
-        hle: 0.28
-        ifbench: 0.707
+        hle: 0.279888785912882
+        ifbench: 0.707482993197279
         intelligence_index: null
-        lcr: 0.743
+        lcr: 0.743333333333333
         legal_index: null
         livecodebench: null
         math_500: null
@@ -27,8 +27,40 @@ metrics:
         mmlu_pro: null
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.836
+        tau2: 0.836257309941521
         tau_banking: null
-        terminalbench_hard: 0.242
+        terminalbench_hard: 0.242424242424242
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    vals_ai:
+        alibaba/qwen3-max-2026-01-23:
+            case_law_v2:
+                accuracy: 54.984
+                cost_per_test: 0.085444
+                latency_seconds: 133.865
+                stderr: 1.485
+            corp_fin_v2:
+                accuracy: 68.026
+                cost_per_test: 0.261088
+                latency_seconds: 121.317
+                stderr: 0.918
+            gpqa:
+                accuracy: 84.848
+                cost_per_test: 0.0741
+                latency_seconds: 368.073
+                stderr: 1.799
+            medcode:
+                accuracy: 31.373
+                cost_per_test: 0.014776
+                latency_seconds: 182.194
+                stderr: 1.888
+            medscribe:
+                accuracy: 72.709
+                cost_per_test: 0.085327
+                latency_seconds: 362.378
+                stderr: 1.905
+            mmlu_pro:
+                accuracy: 84.976
+                cost_per_test: 0.026557
+                latency_seconds: 110.207
+                stderr: 0.352

@@ -11,22 +11,81 @@ metrics:
         coding_percentile: 7
         critpt: null
         gdpval_aa: 0
-        gpqa: 0.426
+        gdpval_aa_elo: -14.85
+        gpqa: 0.426262626262626
         hle: 0.042
-        ifbench: 0.31
+        ifbench: 0.30952380952381
         intelligence_index: null
         intelligence_percentile: null
         lcr: null
-        livecodebench: 0.234
+        livecodebench: 0.233862433862434
         math_500: 0.788666666666667
         math_index: 14.7
         mmlu_pro: 0.648
+        mmmu_pro: 0.415028901734104
         scicode: null
         tau2: null
         tau_banking: 0.0288659793814433
         terminalbench_hard: null
         terminalbench_v2_1: 0.0561797752808989
         terminalbench_v4_0: null
+    vals_ai:
+        openai/gpt-4o-mini-2024-07-18:
+            aime:
+                accuracy: 11.458
+                cost_per_test: 0.00101
+                latency_seconds: 28.771
+                stderr: 1.03
+            corp_fin_v2:
+                accuracy: 45.455
+                cost_per_test: 0.008848
+                latency_seconds: 0.041
+                stderr: 0.977
+            gpqa:
+                accuracy: 44.192
+                cost_per_test: 0.000536
+                latency_seconds: 15.32
+                stderr: 2.495
+            lcb:
+                accuracy: 26.423
+                cost_per_test: 0.000298
+                latency_seconds: 7.364
+                stderr: 1.129
+            math500:
+                accuracy: 72.6
+                cost_per_test: 0.00035
+                latency_seconds: 6.304
+                stderr: 3.898
+            medqa:
+                accuracy: 72.436
+                cost_per_test: 0.000157
+                latency_seconds: 2.322
+                stderr: 0.799
+            mgsm:
+                accuracy: 86.182
+                cost_per_test: 0.000187
+                latency_seconds: 4.033
+                stderr: 2.133
+            mmlu_pro:
+                accuracy: 62.735
+                cost_per_test: 0.000412
+                latency_seconds: 5.086
+                stderr: 0.461
+            mmmu:
+                accuracy: 56.557
+                cost_per_test: 0.00037
+                latency_seconds: 45.016
+                stderr: 1.191
+            mortgage_tax:
+                accuracy: 54.492
+                cost_per_test: 0.000822
+                latency_seconds: 6.059
+                stderr: 1.93
+            tax_eval_v2:
+                accuracy: 60.548
+                cost_per_test: 0.000323
+                latency_seconds: 8.899
+                stderr: 0.963
     openrouter:
         gpqa_diamond:
             - endpoint_id: 685e6cfb-ecef-4c83-8e2d-aa1ba667d744

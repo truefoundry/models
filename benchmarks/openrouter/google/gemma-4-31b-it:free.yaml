@@ -9,25 +9,32 @@ metrics:
                 agentic_percentile: 26
                 aime: null
                 aime_25: null
+                automationbench_partial_score: 0.049330634486812325
                 coding_index: 43.4
                 coding_percentile: 41
-                critpt: 0.014
+                critpt: 0.0142857142857143
+                enterprise_ops_gym: 0.28349746344374815
+                gdp_pdf_all_pass: 0.06
                 gdpval_aa: 0.064
-                gpqa: 0.857
-                hle: 0.236
-                ifbench: 0.756
+                gdpval_aa_elo: 627.16
+                gpqa: 0.856565656565657
+                hle: 0.236329935125116
+                ifbench: 0.75578231292517
                 intelligence_index: null
                 intelligence_percentile: null
-                lcr: 0.697
+                itbench_sre: 0.372881355932203
+                lcr: 0.696666666666667
                 livecodebench: null
                 math_500: null
                 math_index: null
                 mmlu_pro: null
+                mmmu_pro: 0.734104046242775
                 name: Gemma 4 31B (Reasoning)
-                scicode: 0.455
-                tau2: 0.599
+                openness_index: 38.888888888888886
+                scicode: 0.454861111111111
+                tau2: 0.599415204678363
                 tau_banking: 0.148453608247423
-                terminalbench_hard: 0.364
+                terminalbench_hard: 0.363636363636364
                 terminalbench_v2_1: 0.434456928838951
                 terminalbench_v4_0: 0
             gemma-4-31b-non-reasoning:
@@ -41,28 +48,31 @@ metrics:
                 coding_percentile: 32
                 critpt: 0
                 gdpval_aa: 0.028
-                gpqa: 0.763
-                hle: 0.118
-                ifbench: 0.535
+                gdpval_aa_elo: 555.37
+                gpqa: 0.762626262626263
+                hle: 0.118164967562558
+                ifbench: 0.53469387755102
                 intelligence_index: null
                 intelligence_percentile: null
-                lcr: 0.467
+                lcr: 0.466666666666667
                 livecodebench: null
                 math_500: null
                 math_index: null
                 mmlu_pro: null
+                mmmu_pro: 0.703468208092486
                 name: Gemma 4 31B (Non-reasoning)
+                openness_index: 38.888888888888886
                 scicode: null
-                tau2: 0.655
+                tau2: 0.654970760233918
                 tau_banking: 0.088659793814433
-                terminalbench_hard: 0.303
+                terminalbench_hard: 0.303030303030303
                 terminalbench_v2_1: 0.292134831460674
                 terminalbench_v4_0: null
     vals_ai:
         google/gemma-4-31b-it:
             case_law_v2:
                 accuracy: 52.626
-                cost_per_test: 0
+                cost_per_test: 0.0
                 latency_seconds: 28.716
                 stderr: 1.343
             finance_agent:
@@ -72,12 +82,12 @@ metrics:
                 stderr: 2.856
             mortgage_tax:
                 accuracy: 61.368
-                cost_per_test: 0
+                cost_per_test: 0.0
                 latency_seconds: 41.928
                 stderr: 0.967
             sage:
                 accuracy: 82.782
-                cost_per_test: 0
+                cost_per_test: 0.0
                 latency_seconds: 106.811
                 stderr: 2.085
             sage-v1:

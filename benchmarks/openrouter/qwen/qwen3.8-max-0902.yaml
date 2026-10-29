@@ -3,36 +3,54 @@ artificial_analysis_id: b112af07-3bd5-4647-b09f-b23204361bb2
 artificial_analysis_slug: qwen3-8-max
 metrics:
     artificial_analysis:
-        aa_omniscience_accuracy: 0.295
+        aa_3d_elo: 944.768
+        aa_omniscience_accuracy: 0.29533333333333334
+        aa_omniscience_hallucination_rate: 0.27057710501419113
         aa_omniscience_non_hallucination_rate: 0.729
         agentic_index: 56
         agentic_percentile: 97
         aime: null
         aime_25: null
+        analyst_agent: 0.45
+        apex_agents: 0.424041297935103
+        automationbench_partial_score: 0.561905381087678
+        code2video_elo: 1020.76
         coding_index: 76.2
         coding_percentile: 90
-        critpt: 0.177
+        critpt: 0.177142857142857
+        critpt_agentic_hard: 0.285
         economics_index: 44.2
         engineering_index: 39.2
+        enterprise_ops_gym: 0.4762757385854969
         finance_and_accounting_index: 45
+        frontiercode: 0.431563
+        frontiercode_v2_0: 0.234232323232323
+        gdp_pdf_all_pass: 0.228
         gdpval_aa: 0.587
-        gpqa: 0.928
+        gdpval_aa_elo: 1673.46
+        gpqa: 0.928282828282828
         healthcare_and_medical_index: 40.8
-        hle: 0.431
+        hle: 0.430954587581094
+        hle_diamond: 0.24
         ifbench: null
-        intelligence_index: 33.6
+        intelligence_index: 33.5545627367888
         intelligence_percentile: 50
-        lcr: 0.803
+        itbench_sre: 0.402542372881356
+        lcr: 0.803333333333333
         legal_index: 41
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.2
         mmlu_pro: null
-        scicode: 0.521
+        mmmu_pro: 0.827745664739884
+        omniscience_index: 10.466666666666667
+        scicode: 0.520833333333333
         strategy_and_ops_index: 47.3
         tau2: null
         tau_banking: 0.478350515463918
         terminalbench_hard: null
+        terminalbench_science: 0.119047619047619
         terminalbench_v2_1: 0.887640449438202
         terminalbench_v4_0: 0.388888888888889
     vals_ai:
@@ -132,13 +150,18 @@ metrics:
                 cost_per_test: 0.027349
                 latency_seconds: 47.499
                 stderr: 0.942
+            mysterymechanism:
+                accuracy: 23.874
+                cost_per_test: 1.309463
+                latency_seconds: 2268.77
+                stderr: 2.868
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 12.357107
                 latency_seconds: 21263.689
-                stderr: 0
+                stderr: 0.0
             proof_bench:
-                accuracy: 58
+                accuracy: 58.0
                 cost_per_test: 1.503984
                 latency_seconds: 1867.622
                 stderr: 4.96
@@ -147,6 +170,11 @@ metrics:
                 cost_per_test: 1.576343
                 latency_seconds: 1998.736
                 stderr: 5.016
+            public-benefits-bench:
+                accuracy: 67.118
+                cost_per_test: 0.991386
+                latency_seconds: 2443.976
+                stderr: 1.222
             rsi_index:
                 accuracy: 21.76
                 cost_per_test: 113.780219
@@ -197,6 +225,11 @@ metrics:
                 cost_per_test: 10.633329
                 latency_seconds: 8900.152
                 stderr: 3.945
+            terminal-bench-science:
+                accuracy: 12.857
+                cost_per_test: 16.682189
+                latency_seconds: 12243.338
+                stderr: 4.03
             vals_index_v1_2:
                 accuracy: 65.469
                 cost_per_test: 2.676811
@@ -227,6 +260,67 @@ metrics:
                 cost_per_test: 8.238852
                 latency_seconds: 10135.139
                 stderr: 5.362
+        alibaba/qwen3.8-max-internal:
+            code-migration-v1-1:
+                accuracy: 57.187
+                cost_per_test: 27.080702
+                latency_seconds: 14882.537
+                stderr: 2.801
+            emb-v1-1:
+                accuracy: 71.979
+                cost_per_test: 4.430287
+                latency_seconds: 3193.384
+                stderr: 2.387
+            fabv2-1:
+                accuracy: 58.829
+                cost_per_test: 2.992239
+                latency_seconds: 3319.592
+                stderr: 2.117
+            finance_index:
+                accuracy: 61.656
+                cost_per_test: 3.830358
+                latency_seconds: 3914.738
+                stderr: 1.488
+            hlab:
+                accuracy: 15.417
+                cost_per_test: 3.358663
+                latency_seconds: 2950.56
+                stderr: 3.063
+            legal_index:
+                accuracy: 73.901
+                cost_per_test: 4.246502
+                latency_seconds: 5277.128
+                stderr: 1.848
+            legal_research:
+                accuracy: 46.154
+                cost_per_test: 5.312295
+                latency_seconds: 7649.584
+                stderr: 3.465
+            tax_agent_bench:
+                accuracy: 49.663
+                cost_per_test: 4.068548
+                latency_seconds: 5231.239
+                stderr: 3.603
+            terminal-bench-4:
+                accuracy: 38.889
+                cost_per_test: 12.146852
+                latency_seconds: 8591.435
+                stderr: 1.336
+            vals_index:
+                accuracy: 59.045
+                cost_per_test: 8.729516
+                latency_seconds: 6345.62
+                stderr: 1.082
+            vcb-1-100:
+                accuracy: 24.833
+                cost_per_test: 11.589207
+                latency_seconds: 9477.164
+                stderr: 4.489
+            vibe-code:
+                accuracy: 77.141
+                cost_per_test: 11.668329
+                latency_seconds: 5079.378
+                stderr: 3.721
     openrouter:
         lookback_days: 32
         vgi_bench:

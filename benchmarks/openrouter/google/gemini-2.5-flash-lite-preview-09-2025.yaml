@@ -14,24 +14,65 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.651
+        gpqa: 0.65050505050505
         healthcare_and_medical_index: null
-        hle: 0.051
-        ifbench: 0.418
+        hle: 0.0509731232622799
+        ifbench: 0.418367346938776
         intelligence_index: null
-        lcr: 0.497
+        lcr: 0.496666666666667
         legal_index: null
-        livecodebench: 0.641
+        livecodebench: 0.641269841269841
         math_500: null
         math_index: 46.7
         mmlu_pro: 0.796
+        mmmu_pro: 0.634104046242775
+        openness_index: 5.555555555555555
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.304
+        tau2: 0.304093567251462
         tau_banking: null
-        terminalbench_hard: 0.076
+        terminalbench_hard: 0.0757575757575758
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    design_arena:
+        Gemini 2.5 Flash Lite Preview 09-2025:
+            models:
+                3d:
+                    elo: 962
+                    first_place: 45
+                    fourth_place: 68
+                    rank: 159
+                    second_place: 50
+                    third_place: 52
+                    total_tournaments: 215
+                    win_rate: 36.3
+                gamedev:
+                    elo: 1046
+                    first_place: 57
+                    fourth_place: 46
+                    rank: 153
+                    second_place: 82
+                    third_place: 78
+                    total_tournaments: 263
+                    win_rate: 45.9
+                uicomponent:
+                    elo: 1020
+                    first_place: 21
+                    fourth_place: 17
+                    rank: 152
+                    second_place: 30
+                    third_place: 42
+                    total_tournaments: 110
+                    win_rate: 41.9
+                website:
+                    elo: 1098
+                    first_place: 621
+                    fourth_place: 502
+                    rank: 155
+                    second_place: 757
+                    third_place: 642
+                    total_tournaments: 2522
+                    win_rate: 48.1
     vals_ai:
         google/gemini-2.5-flash-lite:
             medcode:
@@ -49,6 +90,136 @@ metrics:
                 cost_per_test: 0.000929
                 latency_seconds: 13.781
                 stderr: 3.124
+        google/gemini-2.5-flash-lite-preview-09-2025:
+            aime:
+                accuracy: 26.25
+                cost_per_test: 0.003224
+                latency_seconds: 18.704
+                stderr: 1.989
+            corp_fin_v2:
+                accuracy: 56.294
+                cost_per_test: 0.008646
+                latency_seconds: 54.75
+                stderr: 0.976
+            gpqa:
+                accuracy: 64.142
+                cost_per_test: 0.001236
+                latency_seconds: 7.274
+                stderr: 2.412
+            lcb:
+                accuracy: 67.669
+                cost_per_test: 0.002003
+                latency_seconds: 17.442
+                stderr: 1.172
+            legal_bench:
+                accuracy: 79.008
+                latency_seconds: 0.456
+                stderr: 0.443
+            medcode:
+                accuracy: 27.079
+                cost_per_test: 0.00144
+                latency_seconds: 6.239
+                stderr: 1.911
+            medqa:
+                accuracy: 80.325
+                cost_per_test: 0.000281
+                latency_seconds: 5.145
+                stderr: 0.363
+            medscribe:
+                accuracy: 75.824
+                cost_per_test: 0.001332
+                latency_seconds: 4.491
+                stderr: 1.851
+            mgsm:
+                accuracy: 89.527
+                cost_per_test: 0.000212
+                latency_seconds: 1.465
+                stderr: 1.894
+            mmlu_pro:
+                accuracy: 78.639
+                cost_per_test: 0.000556
+                latency_seconds: 3.19
+                stderr: 0.4
+            mmmu:
+                accuracy: 72.543
+                cost_per_test: 0.000899
+                latency_seconds: 20.069
+                stderr: 1.073
+            mortgage_tax:
+                accuracy: 55.803
+                cost_per_test: 0.000479
+                latency_seconds: 8.042
+                stderr: 0.99
+            tax_eval_v2:
+                accuracy: 66.231
+                cost_per_test: 0.000477
+                latency_seconds: 3.597
+                stderr: 0.923
+        google/gemini-2.5-flash-lite-preview-09-2025-thinking:
+            aime:
+                accuracy: 42.083
+                cost_per_test: 0.000566
+                latency_seconds: 51.146
+                stderr: 1.567
+            corp_fin_v2:
+                accuracy: 57.576
+                cost_per_test: 0.008596
+                latency_seconds: 54.225
+                stderr: 0.973
+            gpqa:
+                accuracy: 70.202
+                cost_per_test: 0.000481
+                latency_seconds: 20.61
+                stderr: 2.298
+            lcb:
+                accuracy: 71.385
+                cost_per_test: 0.000408
+                latency_seconds: 38.697
+                stderr: 1.138
+            legal_bench:
+                accuracy: 82.044
+                latency_seconds: 3.139
+                stderr: 0.438
+            medcode:
+                accuracy: 34.191
+                cost_per_test: 0.001182
+                latency_seconds: 10.49
+                stderr: 1.736
+            medqa:
+                accuracy: 88.867
+                cost_per_test: 0.000167
+                latency_seconds: 14.822
+                stderr: 0.287
+            medscribe:
+                accuracy: 66.877
+                cost_per_test: 0.002567
+                latency_seconds: 11.518
+                stderr: 1.923
+            mgsm:
+                accuracy: 88.4
+                cost_per_test: 0.000147
+                latency_seconds: 4.568
+                stderr: 1.928
+            mmlu_pro:
+                accuracy: 79.118
+                cost_per_test: 0.000314
+                latency_seconds: 9.618
+                stderr: 0.397
+            mmmu:
+                accuracy: 75.434
+                cost_per_test: 0.000356
+                latency_seconds: 25.728
+                stderr: 1.035
+            mortgage_tax:
+                accuracy: 57.552
+                cost_per_test: 0.000286
+                latency_seconds: 28.206
+                stderr: 0.985
+            tax_eval_v2:
+                accuracy: 64.718
+                cost_per_test: 0.000509
+                latency_seconds: 3.94
+                stderr: 0.931
     openrouter:
         gpqa_diamond:
             - endpoint_id: ce839073-aa24-4f29-8358-15b319bd05ec

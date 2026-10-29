@@ -2,6 +2,11 @@ model: ~openai/gpt-luna-latest
 metrics:
     vals_ai:
         openai/gpt-6-luna:
+            biomysterybench:
+                accuracy: 61.481
+                cost_per_test: 0.053236
+                latency_seconds: 523.805
+                stderr: 2.593
             claimbench:
                 accuracy: 99.184
                 cost_per_test: 0.001372
@@ -87,16 +92,26 @@ metrics:
                 cost_per_test: 0.009562
                 latency_seconds: 169.606
                 stderr: 1.949
+            mysterymechanism:
+                accuracy: 19.369
+                cost_per_test: 0.025854
+                latency_seconds: 361.208
+                stderr: 2.658
             programbench:
                 accuracy: 0.5
                 cost_per_test: 0.180944
                 latency_seconds: 1734.863
                 stderr: 0.5
             proof_bench:
-                accuracy: 64
+                accuracy: 64.0
                 cost_per_test: 0.041637
                 latency_seconds: 451.481
                 stderr: 4.824
+            public-benefits-bench:
+                accuracy: 57.645
+                cost_per_test: 0.224168
+                latency_seconds: 3178.908
+                stderr: 1.285
             sage:
                 accuracy: 83.404
                 cost_per_test: 0.005772
@@ -137,6 +152,11 @@ metrics:
                 cost_per_test: 0.354726
                 latency_seconds: 1965.568
                 stderr: 1.515
+            terminal-bench-science:
+                accuracy: 4.286
+                cost_per_test: 0.240966
+                latency_seconds: 4559.47
+                stderr: 2.438
             vals_index:
                 accuracy: 52.322
                 cost_per_test: 0.450147
@@ -152,6 +172,11 @@ metrics:
                 cost_per_test: 0.431072
                 latency_seconds: 1833.681
                 stderr: 1.072
+            vals_router_index:
+                accuracy: 52.322
+                cost_per_test: 0.450147
+                latency_seconds: 1943.192
+                stderr: 1.117
             vibe-code:
                 accuracy: 81.649
                 cost_per_test: 1.345703

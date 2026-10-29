@@ -9,30 +9,38 @@ metrics:
         agentic_percentile: 19
         aime: null
         aime_25: null
+        analyst_agent: 0.0875
+        apex_agents: 0.121681415929204
+        automationbench_partial_score: 0.06796182033119545
         coding_index: 34.7
         coding_percentile: 33
-        critpt: 0.011
+        critpt: 0.0114285714285714
         economics_index: null
         engineering_index: null
+        enterprise_ops_gym: 0.2802148612354521
         finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.078
         gdpval_aa: 0
-        gpqa: 0.822
+        gdpval_aa_elo: 438.32
+        gpqa: 0.822222222222222
         healthcare_and_medical_index: null
-        hle: 0.172
-        ifbench: 0.772
+        hle: 0.17191844300278
+        ifbench: 0.772108843537415
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.743
+        lcr: 0.743333333333333
         legal_index: null
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.05
         mmlu_pro: null
-        scicode: 0.434
+        mmmu_pro: 0.755491329479769
+        scicode: 0.434027777777778
         strategy_and_ops_index: null
-        tau2: 0.313
+        tau2: 0.312865497076023
         tau_banking: 0.0969072164948454
-        terminalbench_hard: 0.242
+        terminalbench_hard: 0.242424242424242
         terminalbench_v2_1: 0.310861423220974
         terminalbench_v4_0: 0.00505050505050505
     design_arena:
@@ -42,11 +50,12 @@ metrics:
                     avg_generation_time_ms: 4474
                     elo: 1045
                     elo_percentile: 17
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 266
+                    fourth_place: 401
+                    rank: 138
+                    second_place: 343
+                    third_place: 464
+                    total_tournaments: 1474
                     win_rate: 38.8
                 asciiart:
                     avg_generation_time_ms: 4796
@@ -70,53 +79,58 @@ metrics:
                     win_rate: 36.5
                 dataviz:
                     avg_generation_time_ms: 4677
-                    elo: 1045
+                    elo: 1046
                     elo_percentile: 15
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 67
+                    fourth_place: 156
+                    rank: 139
+                    second_place: 110
+                    third_place: 157
+                    total_tournaments: 490
                     win_rate: 33.3
                 gamedev:
                     avg_generation_time_ms: 5446
-                    elo: 1029
+                    elo: 1028
                     elo_percentile: 14
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 211
+                    fourth_place: 452
+                    rank: 157
+                    second_place: 288
+                    third_place: 529
+                    total_tournaments: 1480
                     win_rate: 33.7
                 svg:
                     avg_generation_time_ms: 3361
-                    elo: 1049
+                    elo: 1050
                     elo_percentile: 18
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 332
+                    fourth_place: 373
+                    rank: 110
+                    second_place: 392
+                    third_place: 468
+                    total_tournaments: 1565
                     win_rate: 42.5
                 uicomponent:
                     avg_generation_time_ms: 5422
                     elo: 1066
                     elo_percentile: 20
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 105
+                    fourth_place: 159
+                    rank: 143
+                    second_place: 176
+                    third_place: 220
+                    total_tournaments: 660
                     win_rate: 37.7
                 website:
                     avg_generation_time_ms: 6435
                     elo: 1081
                     elo_percentile: 20
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 1102
+                    fourth_place: 1655
+                    rank: 159
+                    second_place: 1435
+                    third_place: 2290
+                    total_tournaments: 6482
                     win_rate: 36.6
     vals_ai:
         google/gemini-3.1-flash-lite-preview:
@@ -206,10 +220,10 @@ metrics:
                 latency_seconds: 5.368
                 stderr: 0.912
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 0.063906
                 latency_seconds: 176.246
-                stderr: 0
+                stderr: 0.0
             sage-v1:
                 accuracy: 49.54
                 cost_per_test: 0.007378
@@ -276,10 +290,10 @@ metrics:
                 latency_seconds: 208.082
                 stderr: 0.786
             vibe-code:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 0.51
                 latency_seconds: 572.711
-                stderr: 0
+                stderr: 0.0
     openrouter:
         lookback_days: 32
         vgi_bench:

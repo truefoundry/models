@@ -14,22 +14,23 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.764
+        gpqa: 0.763636363636364
         healthcare_and_medical_index: null
-        hle: 0.119
-        ifbench: 0.441
+        hle: 0.119091751621872
+        ifbench: 0.441496598639456
         intelligence_index: null
         lcr: 0.5
         legal_index: null
-        livecodebench: 0.767
+        livecodebench: 0.767195767195767
         math_500: null
         math_index: 80.7
         mmlu_pro: 0.841
+        openness_index: 16.666666666666668
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.743
+        tau2: 0.742690058479532
         tau_banking: null
-        terminalbench_hard: 0.205
+        terminalbench_hard: 0.204545454545455
         terminalbench_v2_1: null
         terminalbench_v4_0: null
     design_arena:
@@ -37,13 +38,14 @@ metrics:
             models:
                 3d:
                     avg_generation_time_ms: 72969
-                    elo: 1071
+                    elo: 1070
                     elo_percentile: 25
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 332
+                    fourth_place: 317
+                    rank: 121
+                    second_place: 417
+                    third_place: 547
+                    total_tournaments: 1613
                     win_rate: 43.5
                 asciiart:
                     avg_generation_time_ms: 76858
@@ -67,51 +69,143 @@ metrics:
                     win_rate: 44
                 dataviz:
                     avg_generation_time_ms: 85050
-                    elo: 1100
+                    elo: 1101
                     elo_percentile: 24
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 83
+                    fourth_place: 103
+                    rank: 126
+                    second_place: 100
+                    third_place: 142
+                    total_tournaments: 428
                     win_rate: 41.2
                 gamedev:
                     avg_generation_time_ms: 121317
-                    elo: 1094
+                    elo: 1093
                     elo_percentile: 27
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 365
+                    fourth_place: 343
+                    rank: 135
+                    second_place: 475
+                    third_place: 536
+                    total_tournaments: 1719
                     win_rate: 43.8
                 svg:
                     avg_generation_time_ms: 31443
-                    elo: 1008
+                    elo: 1009
                     elo_percentile: 8
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 244
+                    fourth_place: 458
+                    rank: 120
+                    second_place: 431
+                    third_place: 607
+                    total_tournaments: 1740
                     win_rate: 37.2
                 uicomponent:
                     avg_generation_time_ms: 93767
                     elo: 1073
                     elo_percentile: 21
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 118
+                    fourth_place: 130
+                    rank: 139
+                    second_place: 171
+                    third_place: 256
+                    total_tournaments: 675
                     win_rate: 40.2
                 website:
                     avg_generation_time_ms: 113606
-                    elo: 1117
+                    elo: 1118
                     elo_percentile: 27
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 2067
+                    fourth_place: 1833
+                    rank: 144
+                    second_place: 2723
+                    third_place: 3107
+                    total_tournaments: 9730
                     win_rate: 44.5
+    vals_ai:
+        alibaba/qwen3-max:
+            aime:
+                accuracy: 81.042
+                cost_per_test: 0.033364
+                latency_seconds: 16.76
+                stderr: 1.1
+            case_law_v2:
+                accuracy: 47.481
+                cost_per_test: 0.050593
+                latency_seconds: 84.725
+                stderr: 0.467
+            corp_fin_v2:
+                accuracy: 55.944
+                cost_per_test: 0.086893
+                latency_seconds: 55.675
+                stderr: 0.977
+            gpqa:
+                accuracy: 79.546
+                cost_per_test: 0.016466
+                latency_seconds: 70.152
+                stderr: 2.026
+            lcb:
+                accuracy: 78.215
+                cost_per_test: 0.021213
+                latency_seconds: 107.845
+                stderr: 1.108
+            legal_bench:
+                accuracy: 81.861
+                latency_seconds: 0.0
+                stderr: 0.399
+            medqa:
+                accuracy: 87.367
+                cost_per_test: 0.003172
+                latency_seconds: 0.0
+                stderr: 0.303
+            mgsm:
+                accuracy: 91.818
+                cost_per_test: 0.002856
+                latency_seconds: 11.451
+                stderr: 1.677
+            mmlu_pro:
+                accuracy: 84.36
+                cost_per_test: 0.006426
+                latency_seconds: 0.0
+                stderr: 0.356
+            tax_eval_v2:
+                accuracy: 73.508
+                cost_per_test: 0.00654
+                latency_seconds: 29.296
+                stderr: 0.86
+            vibe-code:
+                accuracy: 3.506
+                cost_per_test: 6.023105
+                latency_seconds: 3465.17
+                stderr: 1.292
+        alibaba/qwen3-max-2026-01-23:
+            case_law_v2:
+                accuracy: 54.984
+                cost_per_test: 0.085444
+                latency_seconds: 133.865
+                stderr: 1.485
+            corp_fin_v2:
+                accuracy: 68.026
+                cost_per_test: 0.261088
+                latency_seconds: 121.317
+                stderr: 0.918
+            gpqa:
+                accuracy: 84.848
+                cost_per_test: 0.0741
+                latency_seconds: 368.073
+                stderr: 1.799
+            medcode:
+                accuracy: 31.373
+                cost_per_test: 0.014776
+                latency_seconds: 182.194
+                stderr: 1.888
+            medscribe:
+                accuracy: 72.709
+                cost_per_test: 0.085327
+                latency_seconds: 362.378
+                stderr: 1.905
+            mmlu_pro:
+                accuracy: 84.976
+                cost_per_test: 0.026557
+                latency_seconds: 110.207
+                stderr: 0.352

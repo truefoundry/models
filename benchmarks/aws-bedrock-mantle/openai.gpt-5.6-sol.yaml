@@ -1,2 +1,739 @@
 model: openai.gpt-5.6-sol
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            gpt-5-6-sol:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 50.2
+                agentic_percentile: 87
+                aime: null
+                aime_25: null
+                analyst_agent: 0.475
+                automationbench_partial_score: 0.6008114996276329
+                coding_index: 77.4
+                coding_percentile: 97
+                critpt: 0.322857142857143
+                critpt_agentic_hard: 0.56
+                enterprise_ops_gym: 0.42912563413906296
+                gdp_pdf_all_pass: 0.272
+                gdpval_aa: 0.559
+                gdpval_aa_elo: 1618.27
+                gpqa: 0.941414141414141
+                hle: 0.494902687673772
+                ifbench: 0.726530612244898
+                intelligence_index: null
+                intelligence_percentile: null
+                itbench_sre: 0.562146892655367
+                lcr: 0.84
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.3
+                mmlu_pro: null
+                mmmu_pro: 0.834104046242775
+                name: GPT-5.6 Sol (Max)
+                scicode: 0.570601851851852
+                tau2: 0.850877192982456
+                tau_banking: 0.443298969072165
+                terminalbench_hard: 0.659090909090909
+                terminalbench_science: 0.223809523809524
+                terminalbench_v2_1: 0.880149812734082
+                terminalbench_v4_0: 0.398989898989899
+            gpt-5-6-sol-high:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 44.2
+                agentic_percentile: 79
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.5531220357393729
+                coding_index: 77.2
+                coding_percentile: 97
+                critpt: 0.257142857142857
+                gdp_pdf_all_pass: 0.278
+                gdpval_aa: 0.506
+                gdpval_aa_elo: 1512.07
+                gpqa: 0.928282828282828
+                hle: 0.46014828544949
+                ifbench: 0.691836734693878
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.816666666666667
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.244444444444444
+                mmlu_pro: null
+                mmmu_pro: 0.81849710982659
+                name: GPT-5.6 Sol (High)
+                scicode: 0.577546296296296
+                tau2: 0.833333333333333
+                tau_banking: 0.36701030927835
+                terminalbench_hard: 0.621212121212121
+                terminalbench_v2_1: 0.872659176029963
+                terminalbench_v4_0: 0.207070707070707
+            gpt-5-6-sol-low:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 31.6
+                agentic_percentile: 62
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.4098567011344805
+                coding_index: 69.7
+                coding_percentile: 76
+                critpt: 0.148571428571429
+                gdp_pdf_all_pass: 0.21
+                gdpval_aa: 0.407
+                gdpval_aa_elo: 1313.31
+                gpqa: 0.897979797979798
+                hle: 0.393883225208526
+                ifbench: 0.66530612244898
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.78
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.233333333333333
+                mmlu_pro: null
+                mmmu_pro: 0.809826589595376
+                name: GPT-5.6 Sol (Low)
+                scicode: 0.563657407407407
+                tau2: 0.760233918128655
+                tau_banking: 0.290721649484536
+                terminalbench_hard: 0.606060606060606
+                terminalbench_v2_1: 0.767790262172285
+                terminalbench_v4_0: 0.0101010101010101
+            gpt-5-6-sol-medium:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 39.7
+                agentic_percentile: 71
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.5132751158863986
+                coding_index: 76.3
+                coding_percentile: 91
+                critpt: 0.228571428571429
+                gdp_pdf_all_pass: 0.262
+                gdpval_aa: 0.466
+                gdpval_aa_elo: 1431.93
+                gpqa: 0.926262626262626
+                hle: 0.422150139017609
+                ifbench: 0.695918367346939
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.803333333333333
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.261111111111111
+                mmlu_pro: null
+                mmmu_pro: 0.813872832369942
+                name: GPT-5.6 Sol (Medium)
+                scicode: 0.574074074074074
+                tau2: 0.809941520467836
+                tau_banking: 0.364948453608247
+                terminalbench_hard: 0.628787878787879
+                terminalbench_v2_1: 0.861423220973783
+                terminalbench_v4_0: 0.146464646464646
+            gpt-5-6-sol-non-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 28.1
+                agentic_percentile: 56
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.22656758038944594
+                coding_index: 65.1
+                coding_percentile: 69
+                critpt: 0.0514285714285714
+                gdp_pdf_all_pass: 0.152
+                gdpval_aa: 0.375
+                gdpval_aa_elo: 1250.38
+                gpqa: 0.78989898989899
+                hle: 0.166821130676552
+                ifbench: null
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.623333333333333
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                mmmu_pro: 0.71907514450867
+                name: GPT-5.6 Sol (Non-reasoning)
+                scicode: 0.476851851851852
+                tau2: null
+                tau_banking: 0.195876288659794
+                terminalbench_hard: null
+                terminalbench_v2_1: 0.741573033707865
+                terminalbench_v4_0: null
+            gpt-5-6-sol-xhigh:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 47.4
+                agentic_percentile: 83
+                aime: null
+                aime_25: null
+                automationbench_partial_score: 0.5531167269326989
+                coding_index: 78.3
+                coding_percentile: 98
+                critpt: 0.285714285714286
+                gdp_pdf_all_pass: 0.276
+                gdpval_aa: 0.539
+                gdpval_aa_elo: 1577.91
+                gpqa: 0.931313131313131
+                hle: 0.473123262279889
+                ifbench: 0.710204081632653
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.823333333333333
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mlcr_overall: 0.277777777777778
+                mmlu_pro: null
+                mmmu_pro: 0.826589595375723
+                name: GPT-5.6 Sol (Xhigh)
+                scicode: 0.570601851851852
+                tau2: 0.847953216374269
+                tau_banking: 0.381443298969072
+                terminalbench_hard: 0.613636363636364
+                terminalbench_v2_1: 0.895131086142322
+                terminalbench_v4_0: 0.247474747474747
+    design_arena:
+        GPT-5.6 Sol (Medium):
+            agents:
+                agenticgamedev:
+                    elo: 1163
+                    first_place: 507
+                    fourth_place: 0
+                    rank: 12
+                    second_place: 433
+                    third_place: 0
+                    total_tournaments: 940
+                    win_rate: 52.4
+                androidnative:
+                    elo: 1148
+                    first_place: 76
+                    fourth_place: 0
+                    rank: 24
+                    second_place: 76
+                    third_place: 0
+                    total_tournaments: 152
+                    win_rate: 48.5
+                fullstack:
+                    elo: 1159
+                    first_place: 338
+                    fourth_place: 0
+                    rank: 28
+                    second_place: 316
+                    third_place: 0
+                    total_tournaments: 654
+                    win_rate: 49.8
+                godotgamedev:
+                    elo: 1234
+                    first_place: 942
+                    fourth_place: 0
+                    rank: 10
+                    second_place: 546
+                    third_place: 0
+                    total_tournaments: 1488
+                    win_rate: 61.9
+                htmlslides:
+                    elo: 1078
+                    first_place: 537
+                    fourth_place: 0
+                    rank: 14
+                    second_place: 522
+                    third_place: 0
+                    total_tournaments: 1059
+                    win_rate: 50.4
+                mobileapps:
+                    elo: 1104
+                    first_place: 38
+                    fourth_place: 0
+                    rank: 41
+                    second_place: 52
+                    third_place: 0
+                    total_tournaments: 90
+                    win_rate: 42.5
+                python-pptxslides:
+                    elo: 1195
+                    first_place: 627
+                    fourth_place: 0
+                    rank: 11
+                    second_place: 460
+                    third_place: 0
+                    total_tournaments: 1087
+                    win_rate: 57.6
+                webapps:
+                    elo: 1192
+                    first_place: 995
+                    fourth_place: 0
+                    rank: 31
+                    second_place: 1055
+                    third_place: 0
+                    total_tournaments: 2050
+                    win_rate: 51.6
+            models:
+                3d:
+                    elo: 1309
+                    first_place: 943
+                    fourth_place: 430
+                    rank: 26
+                    second_place: 679
+                    third_place: 538
+                    total_tournaments: 2590
+                    win_rate: 57.8
+                dataviz:
+                    elo: 1294
+                    first_place: 356
+                    fourth_place: 198
+                    rank: 18
+                    second_place: 329
+                    third_place: 335
+                    total_tournaments: 1218
+                    win_rate: 52.7
+                gamedev:
+                    elo: 1323
+                    first_place: 855
+                    fourth_place: 258
+                    rank: 18
+                    second_place: 701
+                    third_place: 570
+                    total_tournaments: 2384
+                    win_rate: 58.1
+                svg:
+                    elo: 1295
+                    first_place: 297
+                    fourth_place: 88
+                    rank: 15
+                    second_place: 253
+                    third_place: 175
+                    total_tournaments: 813
+                    win_rate: 59.4
+                uicomponent:
+                    elo: 1320
+                    first_place: 288
+                    fourth_place: 75
+                    rank: 19
+                    second_place: 248
+                    third_place: 210
+                    total_tournaments: 821
+                    win_rate: 58.1
+                website:
+                    elo: 1308
+                    first_place: 2343
+                    fourth_place: 1050
+                    rank: 16
+                    second_place: 2091
+                    third_place: 1752
+                    total_tournaments: 7236
+                    win_rate: 56.1
+        GPT-5.6 Sol (xhigh):
+            agents:
+                agenticgamedev:
+                    elo: 1232
+                    first_place: 536
+                    fourth_place: 0
+                    rank: 2
+                    second_place: 401
+                    third_place: 0
+                    total_tournaments: 937
+                    win_rate: 56.5
+                androidnative:
+                    elo: 1233
+                    first_place: 274
+                    fourth_place: 0
+                    rank: 6
+                    second_place: 244
+                    third_place: 0
+                    total_tournaments: 518
+                    win_rate: 53.7
+                fullstack:
+                    elo: 1262
+                    first_place: 734
+                    fourth_place: 0
+                    rank: 10
+                    second_place: 721
+                    third_place: 0
+                    total_tournaments: 1455
+                    win_rate: 54.3
+                godotgamedev:
+                    elo: 1260
+                    first_place: 291
+                    fourth_place: 0
+                    rank: 8
+                    second_place: 248
+                    third_place: 0
+                    total_tournaments: 539
+                    win_rate: 53.5
+                htmlslides:
+                    elo: 1182
+                    first_place: 279
+                    fourth_place: 0
+                    rank: 3
+                    second_place: 140
+                    third_place: 0
+                    total_tournaments: 419
+                    win_rate: 66.1
+                mobileapps:
+                    elo: 1241
+                    first_place: 608
+                    fourth_place: 0
+                    rank: 7
+                    second_place: 536
+                    third_place: 0
+                    total_tournaments: 1144
+                    win_rate: 53.6
+                python-pptxslides:
+                    elo: 1176
+                    first_place: 312
+                    fourth_place: 0
+                    rank: 14
+                    second_place: 323
+                    third_place: 0
+                    total_tournaments: 635
+                    win_rate: 49.9
+                webapps:
+                    elo: 1245
+                    first_place: 1239
+                    fourth_place: 0
+                    rank: 15
+                    second_place: 1193
+                    third_place: 0
+                    total_tournaments: 2432
+                    win_rate: 52.2
+            models:
+                3d:
+                    elo: 1383
+                    first_place: 476
+                    fourth_place: 99
+                    rank: 12
+                    second_place: 338
+                    third_place: 191
+                    total_tournaments: 1104
+                    win_rate: 63.1
+                dataviz:
+                    elo: 1324
+                    first_place: 177
+                    fourth_place: 117
+                    rank: 11
+                    second_place: 172
+                    third_place: 120
+                    total_tournaments: 586
+                    win_rate: 55.9
+                gamedev:
+                    elo: 1367
+                    first_place: 455
+                    fourth_place: 100
+                    rank: 10
+                    second_place: 325
+                    third_place: 220
+                    total_tournaments: 1100
+                    win_rate: 61.7
+                svg:
+                    elo: 1311
+                    first_place: 156
+                    fourth_place: 72
+                    rank: 8
+                    second_place: 136
+                    third_place: 114
+                    total_tournaments: 478
+                    win_rate: 57.7
+                uicomponent:
+                    elo: 1333
+                    first_place: 105
+                    fourth_place: 44
+                    rank: 17
+                    second_place: 106
+                    third_place: 73
+                    total_tournaments: 328
+                    win_rate: 58.4
+                website:
+                    elo: 1320
+                    first_place: 1258
+                    fourth_place: 607
+                    rank: 10
+                    second_place: 1181
+                    third_place: 921
+                    total_tournaments: 3967
+                    win_rate: 56.4
+    vals_ai:
+        openai/gpt-5.6-sol:
+            biomysterybench:
+                accuracy: 71.111
+                cost_per_test: 1.925036
+                latency_seconds: 1098.261
+                stderr: 0.642
+            code-migration:
+                accuracy: 52.916
+                cost_per_test: 24.541448
+                latency_seconds: 3551.876
+                stderr: 4.353
+            corp_fin_v2:
+                accuracy: 64.375
+                cost_per_test: 0.484982
+                latency_seconds: 15.941
+                stderr: 0.943
+            cua_bench:
+                accuracy: 8.333333
+                cost_per_test: 206.991579
+                latency_seconds: 18.8
+                stderr: 0
+            cyber:
+                accuracy: 76.31
+                cost_per_test: 3.048302
+                latency_seconds: 646.763
+                stderr: 5.177
+            emb:
+                accuracy: 72.339
+                cost_per_test: 6.010773
+                latency_seconds: 590.258
+                stderr: 2.373
+            fabv2:
+                accuracy: 53.756
+                cost_per_test: 1.253419
+                latency_seconds: 1165.258
+                stderr: 0.846
+            gpqa:
+                accuracy: 95.202
+                cost_per_test: 0.10996
+                latency_seconds: 58.304
+                stderr: 1.074
+            hlab-v1:
+                accuracy: 2.5
+                cost_per_test: 10.374554
+                latency_seconds: 1370.296
+                stderr: 0.833
+            ioi:
+                accuracy: 91.167
+                cost_per_test: 7.982135
+                latency_seconds: 3711.631
+                stderr: 4.51
+            ioi-v1:
+                accuracy: 86.667
+                cost_per_test: 2.98545
+                latency_seconds: 1310.679
+                stderr: 1.667
+            lcb:
+                accuracy: 82.604
+                cost_per_test: 0.089831
+                latency_seconds: 56.513
+                stderr: 1.088
+            legal_bench:
+                accuracy: 86.965
+                cost_per_test: 0.012678
+                latency_seconds: 6.198
+                stderr: 0.412
+            legal_research:
+                accuracy: 48.077
+                cost_per_test: 21.605566
+                latency_seconds: 4631.383
+                stderr: 3.473
+            medcode:
+                accuracy: 43.974
+                cost_per_test: 0.280517
+                latency_seconds: 96.589
+                stderr: 2.258
+            medscribe:
+                accuracy: 85.233
+                cost_per_test: 0.276691
+                latency_seconds: 94.404
+                stderr: 1.973
+            mmlu_pro:
+                accuracy: 89.1
+                cost_per_test: 0.032087
+                latency_seconds: 15.654
+                stderr: 0.308
+            mmmu:
+                accuracy: 88.844
+                cost_per_test: 0.055795
+                latency_seconds: 26.198
+                stderr: 0.757
+            mortgage_tax:
+                accuracy: 67.289
+                cost_per_test: 0.071198
+                latency_seconds: 12.618
+                stderr: 0.922
+            mysterymechanism:
+                accuracy: 33.333
+                cost_per_test: 0.96335
+                latency_seconds: 522.744
+                stderr: 3.171
+            programbench:
+                accuracy: 1.5
+                cost_per_test: 15.289359
+                latency_seconds: 1764.488
+                stderr: 0.862
+            proof_bench:
+                accuracy: 83.0
+                cost_per_test: 1.438313
+                latency_seconds: 520.405
+                stderr: 3.775
+            proof_bench_v1:
+                accuracy: 77
+                cost_per_test: 1.736601
+                latency_seconds: 516.531
+                stderr: 4.208
+            public-benefits-bench:
+                accuracy: 66.509
+                cost_per_test: 8.847882
+                latency_seconds: 3677.634
+                stderr: 1.228
+            rsi_index:
+                accuracy: 23.88
+                cost_per_test: 347.103796
+                latency_seconds: 324000
+                stderr: 0
+            sage-v1:
+                accuracy: 52.563
+                cost_per_test: 0.147977
+                latency_seconds: 75.395
+                stderr: 3.416
+            science_index:
+                accuracy: 41.481
+                cost_per_test: 3.403486
+                latency_seconds: 2612.344
+                stderr: 1.934
+            skillsbench:
+                accuracy: 54.1
+                cost_per_test: 4.13999
+                latency_seconds: 787.486
+                stderr: 4.73
+            srebench:
+                accuracy: 30.534
+                cost_per_test: 42.521152
+                latency_seconds: 5285.426
+                stderr: 2.851
+            swebench:
+                accuracy: 96.2
+                cost_per_test: 1.1513
+                latency_seconds: 182.365
+                stderr: 0.856
+            tax_agent_bench:
+                accuracy: 31.088
+                cost_per_test: 7.513965
+                latency_seconds: 2681.175
+                stderr: 3.34
+            tax_eval_v2:
+                accuracy: 74.775
+                cost_per_test: 0.138418
+                latency_seconds: 62.034
+                stderr: 0.856
+            terminal-bench-2-1:
+                accuracy: 85.768
+                cost_per_test: 1.023319
+                latency_seconds: 372.819
+                stderr: 1.35
+            terminal-bench-4:
+                accuracy: 37.879
+                cost_per_test: 7.983597
+                latency_seconds: 2026.072
+                stderr: 0.0
+            terminal-bench-science:
+                accuracy: 20.0
+                cost_per_test: 7.322071
+                latency_seconds: 6216.027
+                stderr: 4.815
+            time_horizon_index:
+                accuracy: 23.833
+                cost_per_test: 2027.203388
+                latency_seconds: 0.0
+                stderr: 0.0
+            vals_index_v1_2:
+                accuracy: 73.118
+                cost_per_test: 7.457146
+                latency_seconds: 753.48
+                stderr: 0.743
+            vals_index_v2:
+                accuracy: 63.709
+                cost_per_test: 14.205832
+                latency_seconds: 1943.907
+                stderr: 1.06
+            vals_index_v2_1:
+                accuracy: 58.005
+                cost_per_test: 14.239384
+                latency_seconds: 2242.736
+                stderr: 1.017
+            vals_multimodal_index:
+                accuracy: 72.64
+                cost_per_test: 5.357844
+                latency_seconds: 550.773
+                stderr: 0.676
+            vcb-1-100:
+                accuracy: 20.011
+                cost_per_test: 47.425154
+                latency_seconds: 9421.289
+                stderr: 3.629
+            vibe-code:
+                accuracy: 80.495
+                cost_per_test: 33.403634
+                latency_seconds: 2033.047
+                stderr: 3.716
+            web_search:
+                accuracy: 43.58411538461539
+                cost_per_test: 0.953765
+                latency_seconds: 328.83156009615385
+                stderr: 1.9821316327108887
+            web_search_backends:
+                accuracy: 43.58411538461539
+                cost_per_test: 0.953765
+                latency_seconds: 328.83156009615385
+                stderr: 1.9821316327108887
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: c6f96c51-8925-4e0d-a29c-f75f093c90af
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.925926
+            - endpoint_id: 12763e1a-d544-44ef-9827-2e99becd6f18
+              provider: Azure
+              run_count: 1
+              score: 0.929293
+            - endpoint_id: 1f666206-8516-4635-9a4e-634039a0e8dc
+              provider: Azure
+              run_count: 1
+              score: 0.927609
+            - endpoint_id: d67f2e04-a629-4049-8d82-92fb346b4ae7
+              provider: Azure
+              run_count: 1
+              score: 0.936027
+            - endpoint_id: a54c5de0-89bf-4ad7-a212-cf977eed918a
+              provider: OpenAI
+              run_count: 2
+              score: 0.9318692794367294
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.924242
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: c6f96c51-8925-4e0d-a29c-f75f093c90af
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.7466670000000001
+            - endpoint_id: 12763e1a-d544-44ef-9827-2e99becd6f18
+              provider: Azure
+              run_count: 1
+              score: 0.726667
+            - endpoint_id: 1f666206-8516-4635-9a4e-634039a0e8dc
+              provider: Azure
+              run_count: 1
+              score: 0.746667
+            - endpoint_id: d67f2e04-a629-4049-8d82-92fb346b4ae7
+              provider: Azure
+              run_count: 1
+              score: 0.733333
+            - endpoint_id: a54c5de0-89bf-4ad7-a212-cf977eed918a
+              provider: OpenAI
+              run_count: 2
+              score: 0.7401349636311948
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.7066670000000002

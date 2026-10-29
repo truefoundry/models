@@ -1,2 +1,63 @@
 model: mistral-small-2503
-metrics: {}
+metrics:
+    vals_ai:
+        mistralai/mistral-small-2503:
+            aime:
+                accuracy: 3.542
+                cost_per_test: 0.000293
+                latency_seconds: 11.675
+                stderr: 0.208
+            corp_fin_v2:
+                accuracy: 44.173
+                cost_per_test: 0.004408
+                latency_seconds: 11.291
+                stderr: 0.972
+            gpqa:
+                accuracy: 44.192
+                cost_per_test: 0.000278
+                latency_seconds: 8.824
+                stderr: 2.473
+            lcb:
+                accuracy: 31.815
+                cost_per_test: 0.000147
+                latency_seconds: 4.007
+                stderr: 1.109
+            legal_bench:
+                accuracy: 69.157
+                latency_seconds: 0.583
+                stderr: 0.512
+            math500:
+                accuracy: 68.4
+                cost_per_test: 0.000158
+                latency_seconds: 6.406
+                stderr: 2.079
+            medqa:
+                accuracy: 69.1
+                cost_per_test: 0.000102
+                latency_seconds: 3.634
+                stderr: 0.422
+            mgsm:
+                accuracy: 84.218
+                cost_per_test: 9.5e-05
+                latency_seconds: 3.87
+                stderr: 2.21
+            mmlu_pro:
+                accuracy: 66.021
+                cost_per_test: 0.000203
+                latency_seconds: 3.602
+                stderr: 0.455
+            mmmu:
+                accuracy: 60.081
+                cost_per_test: 0.000265
+                latency_seconds: 13.401
+                stderr: 1.177
+            mortgage_tax:
+                accuracy: 61.208
+                cost_per_test: 0.000488
+                latency_seconds: 8.313
+                stderr: 0.956
+            tax_eval_v2:
+                accuracy: 58.3
+                cost_per_test: 0.000184
+                latency_seconds: 7.952
+                stderr: 0.968

@@ -3,36 +3,50 @@ artificial_analysis_id: 583f98fb-c4b8-4df3-8d40-60ac0ed69882
 artificial_analysis_slug: muse-glimmer
 metrics:
     artificial_analysis:
-        aa_omniscience_accuracy: 0.28
+        aa_omniscience_accuracy: 0.2796666666666667
+        aa_omniscience_hallucination_rate: 0.8357242017584452
         aa_omniscience_non_hallucination_rate: 0.164
         agentic_index: 8.5
         agentic_percentile: 32
         aime: null
         aime_25: null
+        analyst_agent: 0.2
+        automationbench_partial_score: 0.06831776269647931
         coding_index: 49
         coding_percentile: 48
-        critpt: 0.026
+        critpt: 0.0257142857142857
+        critpt_agentic_hard: 0.07
         economics_index: 11.7
         engineering_index: 15.4
+        enterprise_ops_gym: 0.34735899731423453
         finance_and_accounting_index: 10
+        frontiercode: 0.139178333333333
+        frontiercode_v2_0: 0.0147431818181818
+        gdp_pdf_all_pass: 0.1
         gdpval_aa: 0.146
-        gpqa: 0.835
+        gdpval_aa_elo: 792.69
+        gpqa: 0.835353535353535
         healthcare_and_medical_index: null
-        hle: 0.22
+        hle: 0.219647822057461
+        hle_diamond: 0.091
         ifbench: null
-        intelligence_index: 6.3
+        intelligence_index: 6.34128724913462
         intelligence_percentile: 2
-        lcr: 0.833
+        lcr: 0.833333333333333
         legal_index: 12.5
         livecodebench: null
         math_500: null
         math_index: null
         mmlu_pro: null
-        scicode: 0.449
+        mmmu_pro: 0.743352601156069
+        omniscience_index: -32.233333333333334
+        openness_index: 44.44444444444444
+        scicode: 0.449074074074074
         strategy_and_ops_index: 9.6
         tau2: null
         tau_banking: 0.235051546391753
         terminalbench_hard: null
+        terminalbench_science: 0
         terminalbench_v2_1: 0.51685393258427
         terminalbench_v4_0: 0.00505050505050505
     design_arena:
@@ -52,22 +66,24 @@ metrics:
                     avg_generation_time_ms: 89249
                     elo: 1113
                     elo_percentile: 32
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 7
+                    fourth_place: 47
+                    rank: 127
+                    second_place: 43
+                    third_place: 69
+                    total_tournaments: 166
                     win_rate: 30.1
                 website:
                     avg_generation_time_ms: 86598
-                    elo: 1159
+                    elo: 1157
                     elo_percentile: 38
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 35
+                    first_place: 63
+                    fourth_place: 107
+                    rank: 125
+                    second_place: 81
+                    third_place: 152
+                    total_tournaments: 403
+                    win_rate: 35.1
     openrouter:
         gpqa_diamond:
             - endpoint_id: a9912acb-568e-4147-8ed3-5d20aea22135

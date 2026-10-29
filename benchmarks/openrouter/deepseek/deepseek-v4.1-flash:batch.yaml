@@ -6,26 +6,96 @@ metrics:
         agentic_index: null
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.4780780681445035
         coding_index: null
-        critpt: 0.003
+        critpt: 0.00285714285714286
+        frontiercode: 0.407759666666667
+        gdp_pdf_all_pass: 0.038
         gdpval_aa: 0.425
+        gdpval_aa_elo: 1349.33
         gpqa: null
-        hle: 0.108
+        hle: 0.107970342910102
+        hle_diamond: 0.063
         ifbench: null
         intelligence_index: null
-        lcr: 0.553
+        lcr: 0.553333333333333
         livecodebench: null
         math_500: null
         math_index: null
         mmlu_pro: null
-        scicode: 0.355
+        mmmu_pro: 0.65606936416185
+        openness_index: 44.44444444444444
+        scicode: 0.355324074074074
         tau2: null
         tau_banking: null
         terminalbench_hard: null
+        terminalbench_science: 0
         terminalbench_v2_1: null
         terminalbench_v4_0: 0.0555555555555556
+    design_arena:
+        DeepSeek-V4.1-Flash:
+            models:
+                3d:
+                    elo: 1354
+                    first_place: 750
+                    fourth_place: 313
+                    rank: 15
+                    second_place: 576
+                    third_place: 438
+                    total_tournaments: 2077
+                    win_rate: 58.2
+                dataviz:
+                    elo: 1292
+                    first_place: 101
+                    fourth_place: 96
+                    rank: 19
+                    second_place: 95
+                    third_place: 93
+                    total_tournaments: 385
+                    win_rate: 50.3
+                gamedev:
+                    elo: 1330
+                    first_place: 1447
+                    fourth_place: 824
+                    rank: 17
+                    second_place: 1299
+                    third_place: 1165
+                    total_tournaments: 4735
+                    win_rate: 54.6
+                svg:
+                    elo: 1242
+                    first_place: 84
+                    fourth_place: 87
+                    rank: 30
+                    second_place: 100
+                    third_place: 97
+                    total_tournaments: 368
+                    win_rate: 49
+                uicomponent:
+                    elo: 1309
+                    first_place: 131
+                    fourth_place: 97
+                    rank: 22
+                    second_place: 121
+                    third_place: 112
+                    total_tournaments: 461
+                    win_rate: 52.6
+                website:
+                    elo: 1308
+                    first_place: 3166
+                    fourth_place: 2639
+                    rank: 17
+                    second_place: 3246
+                    third_place: 3451
+                    total_tournaments: 12502
+                    win_rate: 50.7
     vals_ai:
         deepseek/deepseek-v4.1-flash:
+            biomysterybench:
+                accuracy: 67.778
+                cost_per_test: 0.233183
+                latency_seconds: 890.067
+                stderr: 1.111
             code-migration:
                 accuracy: 45.623
                 cost_per_test: 0.944694
@@ -106,16 +176,26 @@ metrics:
                 cost_per_test: 0.015397
                 latency_seconds: 53.826
                 stderr: 1.918
+            mysterymechanism:
+                accuracy: 21.171
+                cost_per_test: 0.164089
+                latency_seconds: 484.327
+                stderr: 2.748
             programbench:
                 accuracy: 0.5
                 cost_per_test: 0.896935
                 latency_seconds: 3709.707
                 stderr: 0.5
             proof_bench:
-                accuracy: 54
+                accuracy: 54.0
                 cost_per_test: 0.126437
                 latency_seconds: 546.595
                 stderr: 5.009
+            public-benefits-bench:
+                accuracy: 64.276
+                cost_per_test: 0.073234
+                latency_seconds: 598.96
+                stderr: 1.246
             sage:
                 accuracy: 85.384
                 cost_per_test: 0.011399
@@ -161,6 +241,11 @@ metrics:
                 cost_per_test: 0.499473
                 latency_seconds: 2902.323
                 stderr: 1.75
+            terminal-bench-science:
+                accuracy: 0.0
+                cost_per_test: 0.473154
+                latency_seconds: 10621.573
+                stderr: 0.0
             vals_index_v2:
                 accuracy: 57.86
                 cost_per_test: 0.303291

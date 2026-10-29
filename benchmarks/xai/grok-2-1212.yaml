@@ -14,14 +14,14 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.51
+        gpqa: 0.51010101010101
         healthcare_and_medical_index: null
-        hle: 0.031
+        hle: 0.0306
         ifbench: null
         intelligence_index: null
         lcr: null
         legal_index: null
-        livecodebench: 0.267
+        livecodebench: 0.266666666666667
         math_500: 0.778
         math_index: null
         mmlu_pro: 0.709
@@ -32,3 +32,50 @@ metrics:
         terminalbench_hard: null
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    vals_ai:
+        grok/grok-2-1212:
+            aime:
+                accuracy: 15.208
+                cost_per_test: 0.015018
+                latency_seconds: 57.884
+                stderr: 0.784
+            corp_fin_v2:
+                accuracy: 51.126
+                cost_per_test: 0.115097
+                latency_seconds: 87.134
+                stderr: 0.981
+            gpqa:
+                accuracy: 50.758
+                cost_per_test: 0.0095
+                latency_seconds: 20.178
+                stderr: 2.51
+            lcb:
+                accuracy: 38.679
+                cost_per_test: 0.003004
+                latency_seconds: 2.378
+                stderr: 1.048
+            math500:
+                accuracy: 78.4
+                cost_per_test: 0.006277
+                latency_seconds: 20.44
+                stderr: 3.6
+            medqa:
+                accuracy: 92.317
+                cost_per_test: 0.003276
+                latency_seconds: 4.093
+                stderr: 0.477
+            mgsm:
+                accuracy: 86.146
+                cost_per_test: 0.003759
+                latency_seconds: 6.272
+                stderr: 2.001
+            mmlu_pro:
+                accuracy: 75.473
+                cost_per_test: 0.005966
+                latency_seconds: 8.747
+                stderr: 0.418
+            tax_eval_v2:
+                accuracy: 67.048
+                cost_per_test: 0.006894
+                latency_seconds: 10.621
+                stderr: 0.918

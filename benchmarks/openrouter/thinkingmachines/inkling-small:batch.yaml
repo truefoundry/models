@@ -2,29 +2,45 @@ model: thinkingmachines/inkling-small:batch
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.318
+        aa_omniscience_hallucination_rate: 0.6050830889540567
         aa_omniscience_non_hallucination_rate: 0.395
         agentic_index: 23.5
         agentic_percentile: 48
         aime: null
         aime_25: null
+        analyst_agent: 0.275
+        automationbench_partial_score: 0.048142275152503786
         coding_index: 52.9
         coding_percentile: 55
-        critpt: 0.083
+        critpt: 0.0828571428571429
+        critpt_agentic_hard: 0.185
+        enterprise_ops_gym: 0.4270367054610564
+        frontiercode: 0.00553333333333333
+        frontiercode_v2_0: 0.0477487373737374
+        gdp_pdf_all_pass: 0.112
         gdpval_aa: 0.316
-        gpqa: 0.895
-        hle: 0.333
+        gdpval_aa_elo: 1132.68
+        gpqa: 0.894949494949495
+        harvey_lab: 0
+        hle: 0.333178869323448
+        hle_diamond: 0.121
         ifbench: null
-        intelligence_index: 12.9
+        intelligence_index: 12.9101620926084
         intelligence_percentile: 11
-        lcr: 0.757
+        lcr: 0.756666666666667
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.0777777777777778
         mmlu_pro: null
-        scicode: 0.497
+        mmmu_pro: 0.740462427745665
+        omniscience_index: -9.466666666666667
+        openness_index: 33.333333333333336
+        scicode: 0.496527777777778
         tau2: null
         tau_banking: 0.187628865979381
         terminalbench_hard: null
+        terminalbench_science: 0
         terminalbench_v2_1: 0.550561797752809
         terminalbench_v4_0: 0.0101010101010101
     vals_ai:
@@ -140,7 +156,7 @@ metrics:
                 latency_seconds: 1710.815
                 stderr: 0.5
             proof_bench:
-                accuracy: 6
+                accuracy: 6.0
                 cost_per_test: 0.082234
                 latency_seconds: 507.301
                 stderr: 2.387
@@ -149,6 +165,11 @@ metrics:
                 cost_per_test: 0.075386
                 latency_seconds: 917.84
                 stderr: 2.19
+            public-benefits-bench:
+                accuracy: 59.405
+                cost_per_test: 0.095937
+                latency_seconds: 521.336
+                stderr: 1.277
             sage-v1:
                 accuracy: 32.744
                 cost_per_test: 0.022636
@@ -180,10 +201,10 @@ metrics:
                 latency_seconds: 603.689
                 stderr: 2.339
             terminal-bench-4:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 0.321679
                 latency_seconds: 705.115
-                stderr: 0
+                stderr: 0.0
             vals_index:
                 accuracy: 27.588
                 cost_per_test: 0.401307
@@ -209,6 +230,11 @@ metrics:
                 cost_per_test: 0.139289
                 latency_seconds: 709.047
                 stderr: 1.269
+            vals_router_index:
+                accuracy: 27.588
+                cost_per_test: 0.401307
+                latency_seconds: 986.441
+                stderr: 1.133
             vibe-code:
                 accuracy: 19.052
                 cost_per_test: 0.432264

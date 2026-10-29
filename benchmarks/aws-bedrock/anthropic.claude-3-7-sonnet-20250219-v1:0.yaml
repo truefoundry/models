@@ -1,2 +1,208 @@
 model: anthropic.claude-3-7-sonnet-20250219-v1:0
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            claude-3-7-sonnet:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.223333333333333
+                aime_25: 0.21
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.655555555555556
+                hle: 0.0416
+                ifbench: 0.440136054421769
+                intelligence_index: null
+                lcr: 0.516666666666667
+                livecodebench: 0.393650793650794
+                math_500: 0.85
+                math_index: 21
+                mmlu_pro: 0.803
+                mmmu_pro: 0.600578034682081
+                name: Claude 3.7 Sonnet (Non-reasoning)
+                scicode: null
+                tau2: 0.5
+                tau_banking: null
+                terminalbench_hard: 0.212121212121212
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            claude-3-7-sonnet-thinking:
+                aime_25: 0.563333333333333
+                critpt: 0.00857142857142857
+                gpqa: 0.771717171717172
+                hle: 0.0967
+                ifbench: 0.482993197278912
+                livecodebench: 0.473015873015873
+                name: Claude 3.7 Sonnet (Reasoning)
+                tau2: 0.546783625730994
+                terminalbench_hard: 0.212121212121212
+    design_arena:
+        Claude 3.7 Sonnet:
+            models:
+                3d:
+                    elo: 1091
+                    first_place: 179
+                    fourth_place: 89
+                    rank: 109
+                    second_place: 159
+                    third_place: 143
+                    total_tournaments: 570
+                    win_rate: 51.9
+                dataviz:
+                    elo: 1197
+                    first_place: 54
+                    fourth_place: 9
+                    rank: 79
+                    second_place: 42
+                    third_place: 19
+                    total_tournaments: 124
+                    win_rate: 62.7
+                gamedev:
+                    elo: 1137
+                    first_place: 195
+                    fourth_place: 72
+                    rank: 112
+                    second_place: 181
+                    third_place: 156
+                    total_tournaments: 604
+                    win_rate: 54.4
+                svg:
+                    elo: 1085
+                    first_place: 233
+                    fourth_place: 96
+                    rank: 100
+                    second_place: 256
+                    third_place: 211
+                    total_tournaments: 796
+                    win_rate: 52.1
+                uicomponent:
+                    elo: 1146
+                    first_place: 103
+                    fourth_place: 18
+                    rank: 109
+                    second_place: 76
+                    third_place: 51
+                    total_tournaments: 248
+                    win_rate: 61.7
+                website:
+                    elo: 1192
+                    first_place: 1912
+                    fourth_place: 555
+                    rank: 93
+                    second_place: 1587
+                    third_place: 1138
+                    total_tournaments: 5192
+                    win_rate: 58.3
+    vals_ai:
+        anthropic/claude-3-7-sonnet-20250219:
+            aime:
+                accuracy: 22.292
+                cost_per_test: 0.023201
+                latency_seconds: 18.928
+                stderr: 1.352
+            gpqa:
+                accuracy: 67.424
+                cost_per_test: 0.011972
+                latency_seconds: 9.218
+                stderr: 2.354
+            lcb:
+                accuracy: 56.662
+                cost_per_test: 0.020551
+                latency_seconds: 16.232
+                stderr: 1.146
+            legal_bench:
+                accuracy: 80.001
+                latency_seconds: 1.199
+                stderr: 0.484
+            math500:
+                accuracy: 76.8
+                cost_per_test: 0.006868
+                latency_seconds: 5.527
+                stderr: 1.888
+            mgsm:
+                accuracy: 92.4
+                cost_per_test: 0.00566
+                latency_seconds: 4.861
+                stderr: 1.626
+            mmlu_pro:
+                accuracy: 80.663
+                cost_per_test: 0.009664
+                latency_seconds: 6.302
+                stderr: 0.383
+            mmmu:
+                accuracy: 71.519
+                cost_per_test: 0.012358
+                latency_seconds: 8.323
+                stderr: 1.085
+            mortgage_tax:
+                accuracy: 68.68
+                cost_per_test: 0.015796
+                latency_seconds: 5.67
+                stderr: 1.775
+            tax_eval_v2:
+                accuracy: 72.404
+                cost_per_test: 0.006427
+                latency_seconds: 6.28
+                stderr: 0.879
+        anthropic/claude-3-7-sonnet-20250219-thinking:
+            aime:
+                accuracy: 44.583
+                cost_per_test: 0.395347
+                latency_seconds: 303.709
+                stderr: 1.747
+            corp_fin_v2:
+                accuracy: 60.412
+                cost_per_test: 0.232197
+                latency_seconds: 22.163
+                stderr: 0.964
+            gpqa:
+                accuracy: 75.253
+                cost_per_test: 0.18875
+                latency_seconds: 155.02
+                stderr: 2.169
+            lcb:
+                accuracy: 60.436
+                cost_per_test: 0.124735
+                latency_seconds: 96.471
+                stderr: 1.138
+            legal_bench:
+                accuracy: 82.519
+                latency_seconds: 6.536
+                stderr: 0.53
+            math500:
+                accuracy: 91.6
+                cost_per_test: 0.125312
+                latency_seconds: 94.242
+                stderr: 1.24
+            medqa:
+                accuracy: 90.217
+                cost_per_test: 0.016693
+                latency_seconds: 15.739
+                stderr: 0.532
+            mgsm:
+                accuracy: 92.982
+                cost_per_test: 0.025944
+                latency_seconds: 23.512
+                stderr: 1.568
+            mmlu_pro:
+                accuracy: 82.728
+                cost_per_test: 0.040182
+                latency_seconds: 31.744
+                stderr: 0.37
+            mmmu:
+                accuracy: 75.101
+                cost_per_test: 0.051028
+                latency_seconds: 69.581
+                stderr: 1.039
+            mortgage_tax:
+                accuracy: 66.852
+                cost_per_test: 0.02365
+                latency_seconds: 13.585
+                stderr: 1.804
+            tax_eval_v2:
+                accuracy: 74.039
+                cost_per_test: 0.050764
+                latency_seconds: 43.314
+                stderr: 0.859

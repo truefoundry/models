@@ -7,24 +7,30 @@ metrics:
         agentic_percentile: 19
         aime: 0.886666666666667
         aime_25: 0.876666666666667
+        automationbench_partial_score: 0.021749464193408737
         coding_index: 33.3
         coding_percentile: 32
-        critpt: 0.026
+        critpt: 0.0257142857142857
+        gdp_pdf_all_pass: 0.102
         gdpval_aa: 0
-        gpqa: 0.844
-        hle: 0.225
-        ifbench: 0.487
+        gdpval_aa_elo: 463.46
+        gpqa: 0.844444444444444
+        hle: 0.225208526413346
+        ifbench: 0.487074829931973
         intelligence_index: null
         intelligence_percentile: null
         lcr: 0.69
-        livecodebench: 0.801
+        livecodebench: 0.801058201058201
         math_500: 0.967333333333333
         math_index: 87.7
+        mlcr_overall: 0.122222222222222
         mmlu_pro: 0.862
-        scicode: 0.463
-        tau2: 0.541
+        mmmu_pro: 0.749132947976879
+        openness_index: 5.555555555555555
+        scicode: 0.462962962962963
+        tau2: 0.54093567251462
         tau_banking: 0.0969072164948454
-        terminalbench_hard: 0.265
+        terminalbench_hard: 0.265151515151515
         terminalbench_v2_1: 0.284644194756554
         terminalbench_v4_0: 0
     design_arena:
@@ -127,6 +133,11 @@ metrics:
                 cost_per_test: 0.004794
                 latency_seconds: 24.008
                 stderr: 0.907
+            poker_agent:
+                accuracy: 1032.5962096202413
+                cost_per_test: 0.02165833147163121
+                latency_seconds: 19.79321908170333
+                stderr: 0.0
             sage-v1:
                 accuracy: 41.916
                 cost_per_test: 0.008806
@@ -176,7 +187,7 @@ metrics:
             - endpoint_id: 43106252-bd69-498f-84f5-1fde678783f7
               provider: Google Vertex
               run_count: 1
-              score: 0.863636
+              score: 0.8636359999999998
             - endpoint_id: 4ebed968-2df0-4b40-ac46-6af592e9487e
               provider: Google Vertex
               run_count: 1

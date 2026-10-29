@@ -1,2 +1,358 @@
 model: us.anthropic.claude-sonnet-4-20250514-v1:0
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            claude-4-sonnet:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.406666666666667
+                aime_25: 0.38
+                coding_index: null
+                critpt: 0.0114285714285714
+                gdpval_aa: null
+                gpqa: 0.682828282828283
+                hle: 0.0426320667284523
+                ifbench: 0.453741496598639
+                intelligence_index: null
+                lcr: 0.44
+                livecodebench: 0.448677248677249
+                math_500: 0.934
+                math_index: 38
+                mmlu_pro: 0.837
+                mmmu_pro: 0.623699421965318
+                name: Claude 4 Sonnet (Non-reasoning)
+                scicode: null
+                tau2: 0.523391812865497
+                tau_banking: null
+                terminalbench_hard: 0.272727272727273
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            claude-4-sonnet-thinking:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                agentic_percentile: null
+                aime: 0.773333333333333
+                aime_25: 0.743333333333333
+                coding_index: 37.6
+                coding_percentile: 35
+                critpt: 0.00285714285714286
+                gdpval_aa: 0.099
+                gdpval_aa_elo: 698.61
+                gpqa: 0.776767676767677
+                hle: 0.107043558850788
+                ifbench: 0.546938775510204
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.703333333333333
+                livecodebench: 0.655026455026455
+                math_500: 0.990666666666667
+                math_index: 74.3
+                mmlu_pro: 0.842
+                mmmu_pro: 0.617919075144509
+                name: Claude 4 Sonnet (Reasoning)
+                scicode: null
+                tau2: 0.646198830409357
+                tau_banking: 0.167010309278351
+                terminalbench_hard: 0.310606060606061
+                terminalbench_v2_1: 0.363295880149813
+                terminalbench_v4_0: null
+    design_arena:
+        Claude Sonnet 4:
+            models:
+                3d:
+                    avg_generation_time_ms: 57012
+                    elo: 1136
+                    elo_percentile: 45
+                    first_place: 260
+                    fourth_place: 55
+                    rank: 90
+                    second_place: 218
+                    third_place: 151
+                    total_tournaments: 684
+                    win_rate: 57.8
+                codecategories:
+                    avg_generation_time_ms: 72935
+                    elo: 1140
+                    elo_percentile: 31
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.4
+                dataviz:
+                    avg_generation_time_ms: 60498
+                    elo: 1113
+                    elo_percentile: 26
+                    first_place: 35
+                    fourth_place: 12
+                    rank: 124
+                    second_place: 27
+                    third_place: 27
+                    total_tournaments: 101
+                    win_rate: 53.2
+                gamedev:
+                    avg_generation_time_ms: 79031
+                    elo: 1132
+                    elo_percentile: 37
+                    first_place: 252
+                    fourth_place: 73
+                    rank: 118
+                    second_place: 220
+                    third_place: 194
+                    total_tournaments: 739
+                    win_rate: 55.4
+                svg:
+                    avg_generation_time_ms: 17004
+                    elo: 1061
+                    elo_percentile: 19
+                    first_place: 167
+                    fourth_place: 102
+                    rank: 107
+                    second_place: 226
+                    third_place: 238
+                    total_tournaments: 733
+                    win_rate: 47.8
+                uicomponent:
+                    avg_generation_time_ms: 59552
+                    elo: 1123
+                    elo_percentile: 32
+                    first_place: 92
+                    fourth_place: 23
+                    rank: 123
+                    second_place: 95
+                    third_place: 60
+                    total_tournaments: 270
+                    win_rate: 57.9
+                website:
+                    avg_generation_time_ms: 74782
+                    elo: 1145
+                    elo_percentile: 32
+                    first_place: 1697
+                    fourth_place: 758
+                    rank: 130
+                    second_place: 1794
+                    third_place: 1548
+                    total_tournaments: 5797
+                    win_rate: 52.4
+        Claude Sonnet 4 (Thinking):
+            models:
+                3d:
+                    avg_generation_time_ms: 53570
+                    elo: 1123
+                    elo_percentile: 39
+                    first_place: 187
+                    fourth_place: 58
+                    rank: 97
+                    second_place: 211
+                    third_place: 142
+                    total_tournaments: 598
+                    win_rate: 55
+                codecategories:
+                    avg_generation_time_ms: 71396
+                    elo: 1134
+                    elo_percentile: 29
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.5
+                dataviz:
+                    avg_generation_time_ms: 55642
+                    elo: 1158
+                    elo_percentile: 38
+                    first_place: 32
+                    fourth_place: 14
+                    rank: 106
+                    second_place: 19
+                    third_place: 11
+                    total_tournaments: 76
+                    win_rate: 56.5
+                gamedev:
+                    avg_generation_time_ms: 74238
+                    elo: 1137
+                    elo_percentile: 40
+                    first_place: 232
+                    fourth_place: 69
+                    rank: 113
+                    second_place: 210
+                    third_place: 170
+                    total_tournaments: 681
+                    win_rate: 54.8
+                svg:
+                    avg_generation_time_ms: 20990
+                    elo: 1076
+                    elo_percentile: 24
+                    first_place: 183
+                    fourth_place: 104
+                    rank: 103
+                    second_place: 269
+                    third_place: 197
+                    total_tournaments: 753
+                    win_rate: 51.1
+                uicomponent:
+                    avg_generation_time_ms: 64875
+                    elo: 1120
+                    elo_percentile: 31
+                    first_place: 62
+                    fourth_place: 22
+                    rank: 124
+                    second_place: 60
+                    third_place: 51
+                    total_tournaments: 195
+                    win_rate: 53.6
+                website:
+                    avg_generation_time_ms: 73478
+                    elo: 1138
+                    elo_percentile: 31
+                    first_place: 1445
+                    fourth_place: 734
+                    rank: 137
+                    second_place: 1666
+                    third_place: 1546
+                    total_tournaments: 5391
+                    win_rate: 50.6
+    vals_ai:
+        anthropic/claude-sonnet-4-20250514:
+            aime:
+                accuracy: 38.542
+                cost_per_test: 0.02164
+                latency_seconds: 23.398
+                stderr: 0.968
+            corp_fin_v2:
+                accuracy: 54.701
+                cost_per_test: 0.227257
+                latency_seconds: 186.345
+                stderr: 0.98
+            gpqa:
+                accuracy: 69.444
+                cost_per_test: 0.013552
+                latency_seconds: 12.818
+                stderr: 2.315
+            lcb:
+                accuracy: 59.673
+                cost_per_test: 0.013812
+                latency_seconds: 14.058
+                stderr: 1.168
+            legal_bench:
+                accuracy: 82.954
+                latency_seconds: 4.849
+                stderr: 0.406
+            math500:
+                accuracy: 90.323
+                cost_per_test: 0.010201
+                latency_seconds: 10.028
+                stderr: 1.288
+            medcode:
+                accuracy: 33.943
+                cost_per_test: 0.03946
+                latency_seconds: 7.298
+                stderr: 1.906
+            medqa:
+                accuracy: 90.35
+                cost_per_test: 0.007087
+                latency_seconds: 8.713
+                stderr: 0.27
+            medscribe:
+                accuracy: 72.411
+                cost_per_test: 0.038973
+                latency_seconds: 25.674
+                stderr: 1.929
+            mgsm:
+                accuracy: 93.018
+                cost_per_test: 0.00576
+                latency_seconds: 5.987
+                stderr: 1.563
+            mmlu_pro:
+                accuracy: 79.432
+                cost_per_test: 0.010229
+                latency_seconds: 9.707
+                stderr: 0.372
+            mmmu:
+                accuracy: 72.386
+                cost_per_test: 0.012845
+                latency_seconds: 10.823
+                stderr: 1.075
+            mortgage_tax:
+                accuracy: 62.468
+                cost_per_test: 0.015974
+                latency_seconds: 8.422
+                stderr: 0.957
+            tax_eval_v2:
+                accuracy: 69.624
+                cost_per_test: 0.0076
+                latency_seconds: 11.847
+                stderr: 0.899
+        anthropic/claude-sonnet-4-20250514-thinking:
+            aime:
+                accuracy: 76.25
+                cost_per_test: 0.295026
+                latency_seconds: 271.788
+                stderr: 1.435
+            corp_fin_v2:
+                accuracy: 61.228
+                cost_per_test: 0.236746
+                latency_seconds: 168.523
+                stderr: 0.959
+            gpqa:
+                accuracy: 75.0
+                cost_per_test: 0.116706
+                latency_seconds: 118.458
+                stderr: 2.191
+            lcb:
+                accuracy: 62.392
+                cost_per_test: 0.042318
+                latency_seconds: 42.611
+                stderr: 1.125
+            legal_bench:
+                accuracy: 82.065
+                latency_seconds: 10.605
+                stderr: 0.455
+            math500:
+                accuracy: 93.8
+                cost_per_test: 0.068378
+                latency_seconds: 63.474
+                stderr: 1.078
+            medcode:
+                accuracy: 34.959
+                cost_per_test: 0.069896
+                latency_seconds: 39.799
+                stderr: 1.939
+            medqa:
+                accuracy: 92.708
+                cost_per_test: 0.025234
+                latency_seconds: 26.989
+                stderr: 0.237
+            medscribe:
+                accuracy: 69.353
+                cost_per_test: 0.053443
+                latency_seconds: 39.572
+                stderr: 2.212
+            mgsm:
+                accuracy: 90.873
+                cost_per_test: 0.014593
+                latency_seconds: 14.087
+                stderr: 1.728
+            mmlu_pro:
+                accuracy: 83.865
+                cost_per_test: 0.045537
+                latency_seconds: 47.087
+                stderr: 0.361
+            mmmu:
+                accuracy: 74.928
+                cost_per_test: 0.050728
+                latency_seconds: 48.854
+                stderr: 1.042
+            mortgage_tax:
+                accuracy: 49.88
+                cost_per_test: 0.052253
+                latency_seconds: 46.316
+                stderr: 0.985
+            tax_eval_v2:
+                accuracy: 71.995
+                cost_per_test: 0.029421
+                latency_seconds: 32.385
+                stderr: 0.878

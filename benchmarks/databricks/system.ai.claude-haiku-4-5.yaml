@@ -11,20 +11,22 @@ metrics:
                 coding_index: null
                 critpt: 0
                 gdpval_aa: null
-                gpqa: 0.646
-                hle: 0.042
-                ifbench: 0.42
+                gpqa: 0.646464646464646
+                hle: 0.0421686746987952
+                ifbench: 0.420408163265306
                 intelligence_index: null
-                lcr: 0.497
-                livecodebench: 0.511
+                lcr: 0.496666666666667
+                livecodebench: 0.511111111111111
                 math_500: null
                 math_index: 39
                 mmlu_pro: 0.8
+                mmmu_pro: 0.551445086705202
                 name: Claude 4.5 Haiku (Non-reasoning)
+                openness_index: 11.11111111111111
                 scicode: null
-                tau2: 0.325
+                tau2: 0.324561403508772
                 tau_banking: null
-                terminalbench_hard: 0.273
+                terminalbench_hard: 0.272727272727273
                 terminalbench_v2_1: null
                 terminalbench_v4_0: null
             claude-4-5-haiku-reasoning:
@@ -34,25 +36,35 @@ metrics:
                 agentic_percentile: 30
                 aime: null
                 aime_25: 0.836666666666667
+                analyst_agent: 0.15
+                automationbench_partial_score: 0.03248631462547438
                 coding_index: 43.9
                 coding_percentile: 42
                 critpt: 0
+                enterprise_ops_gym: 0.29394210683378097
+                gdp_pdf_all_pass: 0.038
                 gdpval_aa: 0.12
-                gpqa: 0.672
-                hle: 0.104
-                ifbench: 0.543
+                gdpval_aa_elo: 740.15
+                gpqa: 0.671717171717172
+                hle: 0.103799814643188
+                hle_diamond: 0.045
+                ifbench: 0.542857142857143
                 intelligence_index: null
                 intelligence_percentile: null
-                lcr: 0.743
-                livecodebench: 0.615
+                itbench_sre: 0.273069679849341
+                lcr: 0.743333333333333
+                livecodebench: 0.614814814814815
                 math_500: null
                 math_index: 83.7
+                mlcr_overall: 0.05
                 mmlu_pro: 0.76
+                mmmu_pro: 0.585549132947977
                 name: Claude 4.5 Haiku (Reasoning)
-                scicode: 0.422
-                tau2: 0.547
+                openness_index: 11.11111111111111
+                scicode: 0.422453703703704
+                tau2: 0.546783625730994
                 tau_banking: 0.0927835051546392
-                terminalbench_hard: 0.273
+                terminalbench_hard: 0.272727272727273
                 terminalbench_v2_1: 0.441947565543071
                 terminalbench_v4_0: 0
     design_arena:
@@ -62,11 +74,12 @@ metrics:
                     avg_generation_time_ms: 29732
                     elo: 1069
                     elo_percentile: 24
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 443
+                    fourth_place: 616
+                    rank: 122
+                    second_place: 563
+                    third_place: 742
+                    total_tournaments: 2364
                     win_rate: 41.1
                 asciiart:
                     avg_generation_time_ms: 11177
@@ -90,53 +103,58 @@ metrics:
                     win_rate: 44.9
                 dataviz:
                     avg_generation_time_ms: 39176
-                    elo: 1124
+                    elo: 1125
                     elo_percentile: 27
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 112
+                    fourth_place: 87
+                    rank: 121
+                    second_place: 117
+                    third_place: 152
+                    total_tournaments: 468
                     win_rate: 45.6
                 gamedev:
                     avg_generation_time_ms: 47201
-                    elo: 1097
+                    elo: 1096
                     elo_percentile: 28
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 395
+                    fourth_place: 349
+                    rank: 132
+                    second_place: 526
+                    third_place: 587
+                    total_tournaments: 1857
                     win_rate: 44.7
                 svg:
                     avg_generation_time_ms: 11562
-                    elo: 1022
+                    elo: 1023
                     elo_percentile: 11
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 308
+                    fourth_place: 440
+                    rank: 116
+                    second_place: 480
+                    third_place: 758
+                    total_tournaments: 1986
                     win_rate: 39.1
                 uicomponent:
                     avg_generation_time_ms: 37987
                     elo: 1095
                     elo_percentile: 26
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 160
+                    fourth_place: 131
+                    rank: 131
+                    second_place: 260
+                    third_place: 280
+                    total_tournaments: 831
                     win_rate: 42.6
                 website:
                     avg_generation_time_ms: 52499
-                    elo: 1122
+                    elo: 1121
                     elo_percentile: 28
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 2439
+                    fourth_place: 1925
+                    rank: 141
+                    second_place: 2824
+                    third_place: 3385
+                    total_tournaments: 10573
                     win_rate: 45.1
     vals_ai:
         anthropic/claude-haiku-4-5-20251001:
@@ -145,6 +163,110 @@ metrics:
                 cost_per_test: 0.075779
                 latency_seconds: 7.951
                 stderr: 0.964
+            public-benefits-bench:
+                accuracy: 54.263
+                cost_per_test: 0.224512
+                latency_seconds: 177.657
+                stderr: 1.296
+        anthropic/claude-haiku-4-5-20251001-thinking:
+            aime:
+                accuracy: 82.708
+                cost_per_test: 0.173775
+                latency_seconds: 158.25
+                stderr: 0.915
+            case_law_v2:
+                accuracy: 56.484
+                cost_per_test: 0.049552
+                latency_seconds: 32.919
+                stderr: 0.916
+            corp_fin_v2:
+                accuracy: 60.606
+                cost_per_test: 0.089265
+                latency_seconds: 14.242
+                stderr: 0.962
+            gpqa:
+                accuracy: 72.222
+                cost_per_test: 0.055064
+                latency_seconds: 83.203
+                stderr: 2.474
+            lcb:
+                accuracy: 41.175
+                cost_per_test: 0.059767
+                latency_seconds: 81.561
+                stderr: 1.109
+            legal_bench:
+                accuracy: 81.238
+                latency_seconds: 10.372
+                stderr: 0.487
+            legal_research:
+                accuracy: 10.577
+                cost_per_test: 0.26891
+                latency_seconds: 243.38
+                stderr: 2.138
+            medcode:
+                accuracy: 32.678
+                cost_per_test: 0.020099
+                latency_seconds: 34.291
+                stderr: 1.998
+            medqa:
+                accuracy: 79.567
+                cost_per_test: 0.014093
+                latency_seconds: 23.905
+                stderr: 0.368
+            medscribe:
+                accuracy: 85.23
+                cost_per_test: 0.042375
+                latency_seconds: 66.197
+                stderr: 1.899
+            mgsm:
+                accuracy: 92.146
+                cost_per_test: 0.006874
+                latency_seconds: 9.624
+                stderr: 1.649
+            mmlu_pro:
+                accuracy: 78.715
+                cost_per_test: 0.018312
+                latency_seconds: 25.784
+                stderr: 0.477
+            mmmu:
+                accuracy: 46.069
+                cost_per_test: 0.027476
+                latency_seconds: 40.481
+                stderr: 1.198
+            mortgage_tax:
+                accuracy: 62.162
+                cost_per_test: 0.020742
+                latency_seconds: 29.792
+                stderr: 0.962
+            programbench:
+                accuracy: 0.0
+                latency_seconds: 457.113
+                stderr: 0.0
+            swebench:
+                accuracy: 66.6
+                cost_per_test: 0.366229
+                latency_seconds: 242.166
+                stderr: 2.111
+            tax_agent_bench:
+                accuracy: 5.855
+                cost_per_test: 0.226416
+                latency_seconds: 155.016
+                stderr: 1.537
+            tax_eval_v2:
+                accuracy: 67.539
+                cost_per_test: 0.02743
+                latency_seconds: 47.524
+                stderr: 0.914
+            vals_multimodal_index:
+                accuracy: 42.883
+                cost_per_test: 0.409227
+                latency_seconds: 282.986
+                stderr: 0.932
+            vibe-code:
+                accuracy: 11.393
+                cost_per_test: 1.306474
+                latency_seconds: 775.882
+                stderr: 3.129
     openrouter:
         gpqa_diamond:
             - endpoint_id: 6d959414-9365-4caa-9b39-8e48ef4e1fc8

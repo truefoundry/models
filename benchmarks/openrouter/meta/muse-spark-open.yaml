@@ -3,15 +3,36 @@ artificial_analysis_id: 3661c8fb-caf7-4118-aa18-65b84fea8e44
 artificial_analysis_slug: muse-spark-open
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: 0.42033333333333334
+        aa_omniscience_hallucination_rate: 0.28004600345025876
         agentic_index: null
+        automationbench_partial_score: 0.4970811827313194
         coding_index: null
+        critpt: 0.148571428571429
+        critpt_agentic_hard: 0.275
         economics_index: 40.6
         engineering_index: 34.9
         finance_and_accounting_index: 42
+        frontiercode: 0.276476
+        frontiercode_v2_0: 0.0760421717171717
+        gdp_pdf_all_pass: 0.186
+        gdpval_aa_elo: 1401.12
+        gpqa: 0.88989898989899
         healthcare_and_medical_index: 39.1
-        intelligence_index: 24.7
+        hle: 0.438832252085264
+        hle_diamond: 0.263
+        intelligence_index: 24.6815868992913
+        lcr: 0.783333333333333
         legal_index: 39.6
+        mlcr_overall: 0.0777777777777778
+        mmmu_pro: 0.809248554913295
+        omniscience_index: 25.8
+        openness_index: 27.77777777777778
+        scicode: 0.584490740740741
         strategy_and_ops_index: 43.4
+        terminalbench_science: 0.019047619047619
+        terminalbench_v2_1: 0.764044943820225
+        terminalbench_v4_0: 0.0808080808080808
     design_arena:
         Muse Spark Open (xhigh):
             models:
@@ -29,32 +50,35 @@ metrics:
                     avg_generation_time_ms: 192032
                     elo: 1272
                     elo_percentile: 83
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 50.2
+                    first_place: 51
+                    fourth_place: 40
+                    rank: 35
+                    second_place: 61
+                    third_place: 49
+                    total_tournaments: 201
+                    win_rate: 50.3
                 uicomponent:
                     avg_generation_time_ms: 153525
-                    elo: 1337
+                    elo: 1346
                     elo_percentile: 94
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 57.2
+                    first_place: 22
+                    fourth_place: 10
+                    rank: 8
+                    second_place: 19
+                    third_place: 14
+                    total_tournaments: 65
+                    win_rate: 58.2
                 website:
                     avg_generation_time_ms: 185065
-                    elo: 1305
+                    elo: 1307
                     elo_percentile: 92
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 55
+                    first_place: 194
+                    fourth_place: 125
+                    rank: 19
+                    second_place: 168
+                    third_place: 166
+                    total_tournaments: 653
+                    win_rate: 55.4
     vals_ai:
         meta/muse-spark-open:
             code-migration:
@@ -93,7 +117,7 @@ metrics:
                 latency_seconds: 2464.262
                 stderr: 1.44
             hlab:
-                accuracy: 25
+                accuracy: 25.0
                 cost_per_test: 13.6316
                 latency_seconds: 14355.684
                 stderr: 3.599

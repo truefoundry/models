@@ -9,22 +9,23 @@ metrics:
                 aime: null
                 aime_25: 0.556666666666667
                 coding_index: null
-                critpt: 0.014
+                critpt: 0.0142857142857143
                 gdpval_aa: null
-                gpqa: 0.812
-                hle: 0.15
-                ifbench: 0.551
+                gpqa: 0.812121212121212
+                hle: 0.14967562557924
+                ifbench: 0.551020408163265
                 intelligence_index: null
-                lcr: 0.553
-                livecodebench: 0.797
+                lcr: 0.553333333333333
+                livecodebench: 0.796825396825397
                 math_500: null
                 math_index: 55.7
                 mmlu_pro: 0.882
+                mmmu_pro: 0.785549132947977
                 name: Gemini 3 Flash Preview (Non-reasoning)
                 scicode: null
-                tau2: 0.433
+                tau2: 0.432748538011696
                 tau_banking: null
-                terminalbench_hard: 0.318
+                terminalbench_hard: 0.318181818181818
                 terminalbench_v2_1: null
                 terminalbench_v4_0: null
             gemini-3-flash-reasoning:
@@ -33,23 +34,25 @@ metrics:
                 agentic_index: null
                 aime: null
                 aime_25: 0.97
+                apex_agents: 0.277286135693215
                 coding_index: null
-                critpt: 0.086
+                critpt: 0.0857142857142857
                 gdpval_aa: null
-                gpqa: 0.898
-                hle: 0.366
-                ifbench: 0.78
+                gpqa: 0.897979797979798
+                hle: 0.365616311399444
+                ifbench: 0.779591836734694
                 intelligence_index: null
                 lcr: 0.78
-                livecodebench: 0.908
+                livecodebench: 0.907936507936508
                 math_500: null
                 math_index: 97
                 mmlu_pro: 0.89
+                mmmu_pro: 0.799421965317919
                 name: Gemini 3 Flash Preview (Reasoning)
                 scicode: null
-                tau2: 0.804
+                tau2: 0.804093567251462
                 tau_banking: 0.208247422680412
-                terminalbench_hard: 0.386
+                terminalbench_hard: 0.386363636363636
                 terminalbench_v2_1: null
                 terminalbench_v4_0: null
     design_arena:
@@ -77,13 +80,14 @@ metrics:
                     win_rate: 39.3
                 androidnative:
                     avg_generation_time_ms: null
-                    elo: 1049
+                    elo: 1047
                     elo_percentile: 11
-                    first_place: 0
+                    first_place: 200
                     fourth_place: 0
-                    second_place: 0
+                    rank: 33
+                    second_place: 236
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 436
                     win_rate: 48.1
                 fullstack:
                     avg_generation_time_ms: null
@@ -107,13 +111,14 @@ metrics:
                     win_rate: 50.6
                 mobileapps:
                     avg_generation_time_ms: null
-                    elo: 1090
+                    elo: 1089
                     elo_percentile: 10
-                    first_place: 0
+                    first_place: 530
                     fourth_place: 0
-                    second_place: 0
+                    rank: 48
+                    second_place: 625
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 1155
                     win_rate: 46.6
                 python-pptxslides:
                     avg_generation_time_ms: 240661
@@ -127,13 +132,14 @@ metrics:
                     win_rate: 38.3
                 webapps:
                     avg_generation_time_ms: null
-                    elo: 1110
+                    elo: 1112
                     elo_percentile: 17
-                    first_place: 0
+                    first_place: 2051
                     fourth_place: 0
-                    second_place: 0
+                    rank: 45
+                    second_place: 1953
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 4004
                     win_rate: 48.5
             models:
                 3d:
@@ -283,11 +289,16 @@ metrics:
                 cost_per_test: 0.007477
                 latency_seconds: 12.838
                 stderr: 0.914
+            poker_agent:
+                accuracy: 1100.2125195039544
+                cost_per_test: 0.00872674530884417
+                latency_seconds: 7.7072606111437345
+                stderr: 0.0
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 0.439965
                 latency_seconds: 418.92
-                stderr: 0
+                stderr: 0.0
             proof_bench_v1:
                 accuracy: 15
                 cost_per_test: 0.327286
@@ -299,7 +310,7 @@ metrics:
                 latency_seconds: 42.697
                 stderr: 3.404
             swebench:
-                accuracy: 75
+                accuracy: 75.0
                 cost_per_test: 0.280231
                 latency_seconds: 285.223
                 stderr: 1.938

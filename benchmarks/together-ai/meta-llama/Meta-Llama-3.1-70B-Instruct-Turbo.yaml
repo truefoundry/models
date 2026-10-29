@@ -1,2 +1,24 @@
 model: meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
-metrics: {}
+metrics:
+    vals_ai:
+        together/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo:
+            corp_fin_v2:
+                accuracy: 38.85
+                cost_per_test: 0.053099
+                latency_seconds: 0.062
+                stderr: 0.95
+            math500:
+                accuracy: 65.0
+                cost_per_test: 0.001035
+                latency_seconds: 9.201
+                stderr: 4.166
+            medqa:
+                accuracy: 84.784
+                cost_per_test: 0.000618
+                latency_seconds: 4.802
+                stderr: 0.642
+            tax_eval_v2:
+                accuracy: 56.174
+                cost_per_test: 0.000488
+                latency_seconds: 4.327
+                stderr: 0.973

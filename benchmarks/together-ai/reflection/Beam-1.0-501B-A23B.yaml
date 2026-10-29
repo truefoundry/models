@@ -15,26 +15,32 @@ metrics:
                     win_rate: 42.8
                 gamedev:
                     avg_generation_time_ms: 117769
-                    elo: 1204
+                    elo: 1205
                     elo_percentile: 65
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 40.6
+                    first_place: 52
+                    fourth_place: 36
+                    rank: 74
+                    second_place: 88
+                    third_place: 108
+                    total_tournaments: 284
+                    win_rate: 40.9
                 website:
                     avg_generation_time_ms: 86916
                     elo: 1226
                     elo_percentile: 65
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 43.7
+                    first_place: 96
+                    fourth_place: 86
+                    rank: 76
+                    second_place: 116
+                    third_place: 149
+                    total_tournaments: 447
+                    win_rate: 43.8
     vals_ai:
         reflection/Beam-1.0:
+            biomysterybench:
+                accuracy: 42.593
+                latency_seconds: 440.046
+                stderr: 1.614
             code-migration-v1-1:
                 accuracy: 22.846
                 cost_per_test: null
@@ -75,8 +81,12 @@ metrics:
                 cost_per_test: null
                 latency_seconds: 94.568
                 stderr: 3.149
+            mysterymechanism:
+                accuracy: 22.072
+                latency_seconds: 144.311
+                stderr: 2.79
             proof_bench:
-                accuracy: 18
+                accuracy: 18.0
                 cost_per_test: null
                 latency_seconds: 266.658
                 stderr: 3.861
@@ -95,6 +105,10 @@ metrics:
                 cost_per_test: null
                 latency_seconds: 1154.552
                 stderr: 1.336
+            terminal-bench-science:
+                accuracy: 1.429
+                latency_seconds: 4658.837
+                stderr: 1.429
             vals_index:
                 accuracy: 43.424
                 cost_per_test: null

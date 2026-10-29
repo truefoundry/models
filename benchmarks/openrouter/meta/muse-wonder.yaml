@@ -3,15 +3,34 @@ artificial_analysis_id: ff2f3f3d-783f-4e27-8a39-47237501a313
 artificial_analysis_slug: muse-wonder
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: 0.38033333333333336
+        aa_omniscience_hallucination_rate: 0.2087143625605164
         agentic_index: null
+        automationbench_partial_score: 0.6809455131207758
+        code2video_elo: 997.01
         coding_index: null
+        critpt: 0.282857142857143
+        critpt_agentic_hard: 0.48
         economics_index: 50.9
         engineering_index: 49.3
         finance_and_accounting_index: 51.1
+        frontiercode: 0.464713333333333
+        frontiercode_v2_0: 0.27875303030303
+        gdp_pdf_all_pass: 0.306
+        gdpval_aa_elo: 1770.34
+        harvey_lab: 0.1
         healthcare_and_medical_index: 48.7
-        intelligence_index: 43.3
+        hle: 0.500926784059314
+        hle_diamond: 0.39
+        intelligence_index: 43.3248225998431
+        lcr: 0.806666666666667
         legal_index: 46.9
+        mlcr_overall: 0.222222222222222
+        omniscience_index: 25.1
+        scicode: 0.603009259259259
         strategy_and_ops_index: 54.5
+        terminalbench_science: 0.257142857142857
+        terminalbench_v4_0: 0.52020202020202
     design_arena:
         Muse Wonder (max):
             agents:
@@ -58,14 +77,15 @@ metrics:
             models:
                 3d:
                     avg_generation_time_ms: 230647
-                    elo: 1443
+                    elo: 1442
                     elo_percentile: 98
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 61.8
+                    first_place: 433
+                    fourth_place: 30
+                    rank: 5
+                    second_place: 308
+                    third_place: 209
+                    total_tournaments: 980
+                    win_rate: 61.5
                 codecategories:
                     avg_generation_time_ms: 186482
                     elo: 1382
@@ -80,44 +100,53 @@ metrics:
                     avg_generation_time_ms: 119987
                     elo: 1304
                     elo_percentile: 91
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 18
+                    fourth_place: 7
+                    rank: 16
+                    second_place: 14
+                    third_place: 15
+                    total_tournaments: 54
                     win_rate: 55.4
                 gamedev:
                     avg_generation_time_ms: 235075
                     elo: 1402
                     elo_percentile: 97
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 428
+                    fourth_place: 52
+                    rank: 7
+                    second_place: 287
+                    third_place: 196
+                    total_tournaments: 963
                     win_rate: 62.2
                 uicomponent:
                     avg_generation_time_ms: 140804
                     elo: 1379
                     elo_percentile: 99
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 55
+                    fourth_place: 15
+                    rank: 3
+                    second_place: 37
+                    third_place: 26
+                    total_tournaments: 133
                     win_rate: 63.4
                 website:
                     avg_generation_time_ms: 153259
-                    elo: 1367
+                    elo: 1366
                     elo_percentile: 99
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 62.7
+                    first_place: 1083
+                    fourth_place: 291
+                    rank: 1
+                    second_place: 659
+                    third_place: 506
+                    total_tournaments: 2539
+                    win_rate: 62.6
     vals_ai:
         meta/muse-wonder:
+            biomysterybench:
+                accuracy: 67.037
+                cost_per_test: 3.228928
+                latency_seconds: 1081.905
+                stderr: 0.37
             code-migration:
                 accuracy: 62.552
                 cost_per_test: 69.535349
@@ -128,6 +157,11 @@ metrics:
                 cost_per_test: 47.931802
                 latency_seconds: 9713.56
                 stderr: 3.187
+            cua_bench:
+                accuracy: 7.166667
+                cost_per_test: 597.211635
+                latency_seconds: 30.56
+                stderr: 0
             cyber:
                 accuracy: 80.357
                 cost_per_test: 3.658792
@@ -188,11 +222,21 @@ metrics:
                 cost_per_test: 3.980242
                 latency_seconds: 927.111
                 stderr: 3.475
+            mysterymechanism:
+                accuracy: 27.477
+                cost_per_test: 3.389451
+                latency_seconds: 1096.935
+                stderr: 3.003
             proof_bench:
-                accuracy: 84
+                accuracy: 84.0
                 cost_per_test: 1.313345
                 latency_seconds: 929.053
                 stderr: 3.685
+            public-benefits-bench:
+                accuracy: 70.23
+                cost_per_test: 2.457181
+                latency_seconds: 1184.49
+                stderr: 1.189
             science_index:
                 accuracy: 39.124
                 cost_per_test: 8.742674
@@ -213,6 +257,11 @@ metrics:
                 cost_per_test: 14.657694
                 latency_seconds: 3280.687
                 stderr: 2.201
+            terminal-bench-science:
+                accuracy: 22.857
+                cost_per_test: 19.609644
+                latency_seconds: 5584.198
+                stderr: 5.055
             vals_index:
                 accuracy: 64.877
                 cost_per_test: 10.647504
@@ -223,6 +272,11 @@ metrics:
                 cost_per_test: 11.434974
                 latency_seconds: 2227.95
                 stderr: 1.075
+            vals_router_index:
+                accuracy: 64.877
+                cost_per_test: 10.647504
+                latency_seconds: 2123.575
+                stderr: 1.067
             vcb-1-100:
                 accuracy: 26.55
                 cost_per_test: 13.721565

@@ -2,6 +2,11 @@ model: tencent/Hy4-preview
 metrics:
     vals_ai:
         tencent/hy4-preview:
+            biomysterybench:
+                accuracy: 69.259
+                cost_per_test: 0.361814
+                latency_seconds: 1410.317
+                stderr: 2.593
             code-migration:
                 accuracy: 47.434
                 cost_per_test: 3.405133
@@ -83,15 +88,20 @@ metrics:
                 latency_seconds: 349.623
                 stderr: 2.065
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 12.809118
                 latency_seconds: 7801.049
-                stderr: 0
+                stderr: 0.0
             proof_bench:
-                accuracy: 75
+                accuracy: 75.0
                 cost_per_test: 0.335717
                 latency_seconds: 1373.837
                 stderr: 4.352
+            public-benefits-bench:
+                accuracy: 68.606
+                cost_per_test: 0.252532
+                latency_seconds: 3755.023
+                stderr: 1.207
             srebench:
                 accuracy: 2.29
                 cost_per_test: 4.902269
@@ -112,6 +122,11 @@ metrics:
                 cost_per_test: 3.07266
                 latency_seconds: 7798.686
                 stderr: 1.336
+            terminal-bench-science:
+                accuracy: 1.429
+                cost_per_test: 2.143682
+                latency_seconds: 13679.187
+                stderr: 1.429
             vals_index:
                 accuracy: 53.209
                 cost_per_test: 1.56824
@@ -127,6 +142,11 @@ metrics:
                 cost_per_test: 1.438575
                 latency_seconds: 3656.53
                 stderr: 1.149
+            vals_router_index:
+                accuracy: 53.209
+                cost_per_test: 1.446335
+                latency_seconds: 3562.637
+                stderr: 1.13
             vibe-code:
                 accuracy: 77.478
                 cost_per_test: 2.181516

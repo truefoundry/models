@@ -1,31 +1,124 @@
 model: openai/gpt-6-sol:batch
 metrics:
     artificial_analysis:
+        aa_3d_elo: 1120.9891
         aa_omniscience_accuracy: null
         aa_omniscience_non_hallucination_rate: null
         agentic_index: null
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.6163369295959864
         coding_index: null
-        critpt: 0.309
+        critpt: 0.308571428571429
+        gdp_pdf_all_pass: 0.252
         gdpval_aa: 0.508
+        gdpval_aa_elo: 1516.8
         gpqa: null
-        hle: 0.479
+        harvey_lab: 0.03611111111111111
+        healthbench: 0.5417750874280344
+        healthbench_professional: 0.6234270683386911
+        hle: 0.479147358665431
+        hle_diamond: 0.452
         ifbench: null
         intelligence_index: null
-        lcr: 0.837
+        itbench_sre: 0.494350282485876
+        lcr: 0.836666666666667
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.338888888888889
         mmlu_pro: null
-        scicode: 0.576
+        mmmu_pro: 0.829479768786127
+        scicode: 0.576388888888889
         tau2: null
         tau_banking: null
         terminalbench_hard: null
+        terminalbench_science: 0.3
         terminalbench_v2_1: null
         terminalbench_v4_0: 0.439393939393939
+    design_arena:
+        GPT-6 Sol:
+            agents:
+                fullstack:
+                    elo: 1237
+                    first_place: 699
+                    fourth_place: 0
+                    rank: 16
+                    second_place: 642
+                    third_place: 0
+                    total_tournaments: 1341
+                    win_rate: 52
+                webapps:
+                    elo: 1234
+                    first_place: 365
+                    fourth_place: 0
+                    rank: 19
+                    second_place: 372
+                    third_place: 0
+                    total_tournaments: 737
+                    win_rate: 49.6
+            models:
+                3d:
+                    elo: 1309
+                    first_place: 67
+                    fourth_place: 33
+                    rank: 26
+                    second_place: 62
+                    third_place: 53
+                    total_tournaments: 215
+                    win_rate: 53.8
+                dataviz:
+                    elo: 1270
+                    first_place: 37
+                    fourth_place: 37
+                    rank: 35
+                    second_place: 52
+                    third_place: 38
+                    total_tournaments: 164
+                    win_rate: 51.2
+                gamedev:
+                    elo: 1310
+                    first_place: 193
+                    fourth_place: 92
+                    rank: 26
+                    second_place: 217
+                    third_place: 166
+                    total_tournaments: 668
+                    win_rate: 54.3
+                svg:
+                    elo: 1305
+                    first_place: 70
+                    fourth_place: 31
+                    rank: 10
+                    second_place: 83
+                    third_place: 75
+                    total_tournaments: 259
+                    win_rate: 56.8
+                uicomponent:
+                    elo: 1289
+                    first_place: 106
+                    fourth_place: 74
+                    rank: 33
+                    second_place: 87
+                    third_place: 107
+                    total_tournaments: 374
+                    win_rate: 51.4
+                website:
+                    elo: 1287
+                    first_place: 463
+                    fourth_place: 246
+                    rank: 28
+                    second_place: 452
+                    third_place: 436
+                    total_tournaments: 1597
+                    win_rate: 51.8
     vals_ai:
         openai/gpt-6-sol:
+            biomysterybench:
+                accuracy: 74.815
+                cost_per_test: 0.662358
+                latency_seconds: 324.465
+                stderr: 2.429
             code-migration:
                 accuracy: 57.195
                 cost_per_test: 15.676945
@@ -71,16 +164,26 @@ metrics:
                 cost_per_test: 0.083138
                 latency_seconds: 81.135
                 stderr: 1.942
+            mysterymechanism:
+                accuracy: 30.18
+                cost_per_test: 0.460931
+                latency_seconds: 373.426
+                stderr: 3.088
             programbench:
-                accuracy: 2
+                accuracy: 2.0
                 cost_per_test: 11.672651
                 latency_seconds: 2771.488
                 stderr: 0.992
             proof_bench:
-                accuracy: 83
+                accuracy: 83.0
                 cost_per_test: 0.476321
                 latency_seconds: 304.509
                 stderr: 3.775
+            public-benefits-bench:
+                accuracy: 56.631
+                cost_per_test: 2.491613
+                latency_seconds: 1862.494
+                stderr: 1.289
             rsi_index:
                 accuracy: 28.11
                 cost_per_test: 665.105649
@@ -116,6 +219,11 @@ metrics:
                 cost_per_test: 5.79322
                 latency_seconds: 2096.128
                 stderr: 3.535
+            terminal-bench-science:
+                accuracy: 30.0
+                cost_per_test: 5.821477
+                latency_seconds: 4930.428
+                stderr: 5.517
             vals_index_v2:
                 accuracy: 62.569
                 cost_per_test: 7.564103

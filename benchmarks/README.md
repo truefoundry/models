@@ -8,22 +8,36 @@ file contains:
 - `artificial_analysis_id` and `artificial_analysis_slug`: the repository's
   Artificial Analysis match, when one exists; and
 - `metrics`, grouped by source. `metrics: {}` means no source publishes
-  benchmark data for the model, or the model is not listed on OpenRouter.
+  benchmark data for the model, or the model could not be matched to any
+  source.
+
+Data comes from each model's OpenRouter benchmark page
+(`https://openrouter.ai/<model>#benchmarks`) and directly from the source
+websites: [artificialanalysis.ai](https://artificialanalysis.ai/), Design Arena
+model pages on [designarena.ai](https://www.designarena.ai/), and Vals AI
+benchmark pages on [vals.ai](https://www.vals.ai/). Models are matched to
+OpenRouter and to each source by exact identifiers first, then by name; a name
+match is used only above a confidence threshold, and version, size, creator,
+and variant (for example, reasoning or preview) must agree.
+
+Within a sub-section, values are merged with this precedence: source website >
+Artificial Analysis Free Data API > OpenRouter. When sources disagree, the
+source website wins; lower-precedence sources only fill metrics the others
+leave missing.
 
 Metric sub-sections:
 
-- `artificial_analysis`: metrics from the Artificial Analysis Free Data API,
-  merged with the Artificial Analysis evaluations shown on the model's
-  OpenRouter page (`https://openrouter.ai/<model>#benchmarks`). Metric names
-  drop the `artificial_analysis_` prefix. Free Data API values take precedence;
-  OpenRouter values fill metrics the Free Data API leaves `null`. Image, video,
-  and speech models report arena Elo fields instead. When OpenRouter maps the
-  model to several Artificial Analysis variants (for example, reasoning and
-  non-reasoning modes) and none matches the model, each variant is listed under
-  `variants`, keyed by Artificial Analysis slug.
+- `artificial_analysis`: Artificial Analysis evaluations and indexes. Metric
+  names drop the `artificial_analysis_` prefix. `gdpval_aa` is the normalized
+  GDPval score and `gdpval_aa_elo` the GDPval Elo. Image, video, and speech
+  models report arena Elo fields instead. When the model maps to several
+  Artificial Analysis variants (for example, reasoning and non-reasoning modes)
+  and none matches the model, each variant is listed under `variants`, keyed by
+  Artificial Analysis slug.
 - `design_arena`: Elo, win rate, Elo percentile, placements, and average
   generation time from Design Arena, keyed by Design Arena model, arena, and
-  category.
+  category. Entries from the Design Arena site may also include `rank`, and
+  their placements are per category.
 - `vals_ai`: accuracy, standard error, latency, and cost per test from Vals AI,
   keyed by Vals AI model and benchmark.
 - `openrouter`: OpenRouter's own benchmark runs, keyed by benchmark and listing

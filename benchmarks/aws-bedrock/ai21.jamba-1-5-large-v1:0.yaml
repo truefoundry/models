@@ -14,14 +14,14 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.427
+        gpqa: 0.427272727272727
         healthcare_and_medical_index: null
-        hle: 0.041
+        hle: 0.0407
         ifbench: null
         intelligence_index: null
         lcr: null
         legal_index: null
-        livecodebench: 0.143
+        livecodebench: 0.142857142857143
         math_500: 0.606
         math_index: null
         mmlu_pro: 0.572
@@ -32,3 +32,24 @@ metrics:
         terminalbench_hard: null
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    vals_ai:
+        ai21labs/jamba-1.5-large:
+            corp_fin_v2:
+                accuracy: 39.433
+                cost_per_test: 0.149067
+                latency_seconds: 10.765
+                stderr: 0.959
+            legal_bench:
+                accuracy: 74.16
+                latency_seconds: 0.808
+                stderr: 0.639
+            medqa:
+                accuracy: 68.108
+                cost_per_test: 0.002198
+                latency_seconds: 5.999
+                stderr: 0.833
+            tax_eval_v2:
+                accuracy: 58.176
+                cost_per_test: 0.005384
+                latency_seconds: 20.028
+                stderr: 0.971

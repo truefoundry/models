@@ -1,2 +1,134 @@
 model: google/gemini-pro-1.5
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            gemini-1-5-pro:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                agentic_percentile: null
+                aime: 0.23
+                aime_25: null
+                coding_index: 23.6
+                coding_percentile: 23
+                critpt: null
+                gdpval_aa: null
+                gpqa: 0.588888888888889
+                hle: 0.0464
+                ifbench: null
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: null
+                livecodebench: 0.316402116402116
+                math_500: 0.876
+                math_index: null
+                mmlu_pro: 0.75
+                mmmu_pro: 0.55028901734104
+                name: Gemini 1.5 Pro (Sep '24)
+                scicode: null
+                tau2: null
+                tau_banking: null
+                terminalbench_hard: null
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            gemini-1-5-pro-may-2024:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                agentic_percentile: null
+                aime: 0.08
+                aime_25: null
+                coding_index: 19.8
+                coding_percentile: 16
+                critpt: null
+                gdpval_aa: null
+                gpqa: 0.370707070707071
+                hle: 0.0348
+                ifbench: null
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: null
+                livecodebench: 0.244444444444444
+                math_500: 0.673333333333333
+                math_index: null
+                mmlu_pro: 0.657
+                name: Gemini 1.5 Pro (May '24)
+                scicode: null
+                tau2: null
+                tau_banking: null
+                terminalbench_hard: null
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    design_arena:
+        Gemini 1.5 Pro:
+            models:
+                website:
+                    elo: 783
+                    first_place: 20
+                    fourth_place: 51
+                    rank: 201
+                    second_place: 43
+                    third_place: 28
+                    total_tournaments: 142
+                    win_rate: 26.6
+    vals_ai:
+        google/gemini-1.5-pro-002:
+            aime:
+                accuracy: 18.75
+                cost_per_test: 0.004203
+                latency_seconds: 10.642
+                stderr: 0.534
+            corp_fin_v2:
+                accuracy: 40.521
+                cost_per_test: 0.131149
+                latency_seconds: 38.05
+                stderr: 0.967
+            gpqa:
+                accuracy: 58.334
+                cost_per_test: 0.003655
+                latency_seconds: 7.709
+                stderr: 2.475
+            lcb:
+                accuracy: 41.719
+                cost_per_test: 0.001975
+                latency_seconds: 3.954
+                stderr: 1.089
+            legal_bench:
+                accuracy: 69.08
+                latency_seconds: 0.898
+                stderr: 0.751
+            math500:
+                accuracy: 82.8
+                cost_per_test: 0.002164
+                latency_seconds: 5.021
+                stderr: 3.305
+            medqa:
+                accuracy: 76.53
+                cost_per_test: 0.002954
+                latency_seconds: 5.927
+                stderr: 0.758
+            mgsm:
+                accuracy: 89.2
+                cost_per_test: 0.001014
+                latency_seconds: 2.798
+                stderr: 1.921
+            mmlu_pro:
+                accuracy: 75.294
+                cost_per_test: 0.002649
+                latency_seconds: 3.343
+                stderr: 0.417
+            mmmu:
+                accuracy: 65.511
+                cost_per_test: 0.001846
+                latency_seconds: 43.736
+                stderr: 1.142
+            mortgage_tax:
+                accuracy: 56.756
+                cost_per_test: 0.002028
+                latency_seconds: 4.205
+                stderr: 1.916
+            tax_eval_v2:
+                accuracy: 59.485
+                cost_per_test: 0.002545
+                latency_seconds: 9.86
+                stderr: 0.962

@@ -1,2 +1,195 @@
 model: claude-opus-4
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            claude-4-opus:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.563333333333333
+                aime_25: 0.363333333333333
+                coding_index: null
+                critpt: null
+                gdpval_aa: null
+                gpqa: 0.701010101010101
+                hle: 0.061631139944393
+                ifbench: 0.43265306122449
+                intelligence_index: null
+                lcr: null
+                livecodebench: 0.541798941798942
+                math_500: 0.940666666666667
+                math_index: 36.3
+                mmlu_pro: 0.86
+                name: Claude 4 Opus (Non-reasoning)
+                scicode: null
+                tau2: null
+                tau_banking: null
+                terminalbench_hard: null
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            claude-4-opus-thinking:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.756666666666667
+                aime_25: 0.733333333333333
+                coding_index: null
+                critpt: null
+                gdpval_aa: null
+                gpqa: 0.795959595959596
+                hle: 0.123262279888786
+                ifbench: 0.537414965986395
+                intelligence_index: null
+                lcr: 0.693333333333333
+                livecodebench: 0.635978835978836
+                math_500: 0.982
+                math_index: 73.3
+                mmlu_pro: 0.873
+                name: Claude 4 Opus (Reasoning)
+                scicode: null
+                tau2: 0.733918128654971
+                tau_banking: null
+                terminalbench_hard: 0.310606060606061
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    design_arena:
+        Claude Opus 4:
+            models:
+                3d:
+                    avg_generation_time_ms: 66615
+                    elo: 1135
+                    elo_percentile: 45
+                    first_place: 218
+                    fourth_place: 61
+                    rank: 91
+                    second_place: 208
+                    third_place: 127
+                    total_tournaments: 614
+                    win_rate: 57.7
+                codecategories:
+                    avg_generation_time_ms: 88501
+                    elo: 1159
+                    elo_percentile: 41
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.6
+                dataviz:
+                    avg_generation_time_ms: 81967
+                    elo: 1147
+                    elo_percentile: 36
+                    first_place: 37
+                    fourth_place: 16
+                    rank: 110
+                    second_place: 39
+                    third_place: 19
+                    total_tournaments: 111
+                    win_rate: 57.9
+                gamedev:
+                    avg_generation_time_ms: 91259
+                    elo: 1169
+                    elo_percentile: 52
+                    first_place: 296
+                    fourth_place: 54
+                    rank: 94
+                    second_place: 225
+                    third_place: 167
+                    total_tournaments: 742
+                    win_rate: 59.9
+                svg:
+                    avg_generation_time_ms: 22205
+                    elo: 1125
+                    elo_percentile: 39
+                    first_place: 247
+                    fourth_place: 78
+                    rank: 86
+                    second_place: 260
+                    third_place: 161
+                    total_tournaments: 746
+                    win_rate: 57.7
+                uicomponent:
+                    avg_generation_time_ms: 83659
+                    elo: 1148
+                    elo_percentile: 41
+                    first_place: 87
+                    fourth_place: 31
+                    rank: 108
+                    second_place: 75
+                    third_place: 42
+                    total_tournaments: 235
+                    win_rate: 59.2
+                website:
+                    avg_generation_time_ms: 90971
+                    elo: 1164
+                    elo_percentile: 41
+                    first_place: 1690
+                    fourth_place: 677
+                    rank: 120
+                    second_place: 1745
+                    third_place: 1369
+                    total_tournaments: 5481
+                    win_rate: 54.6
+    vals_ai:
+        anthropic/claude-opus-4-20250514:
+            aime:
+                accuracy: 41.25
+                cost_per_test: 0.110384
+                latency_seconds: 37.029
+                stderr: 1.152
+            gpqa:
+                accuracy: 71.717
+                cost_per_test: 0.066808
+                latency_seconds: 19.13
+                stderr: 2.261
+            lcb:
+                accuracy: 62.629
+                cost_per_test: 0.055697
+                latency_seconds: 14.777
+                stderr: 1.117
+            legal_bench:
+                accuracy: 83.071
+                latency_seconds: 3.733
+                stderr: 0.439
+            math500:
+                accuracy: 90.4
+                cost_per_test: 0.045429
+                latency_seconds: 14.812
+                stderr: 1.318
+            medqa:
+                accuracy: 92.867
+                cost_per_test: 0.037936
+                latency_seconds: 11.929
+                stderr: 0.235
+            mgsm:
+                accuracy: 93.782
+                cost_per_test: 0.027191
+                latency_seconds: 10.1
+                stderr: 1.499
+            mmlu_pro:
+                accuracy: 86.166
+                cost_per_test: 0.049652
+                latency_seconds: 10.405
+                stderr: 0.337
+            mmmu:
+                accuracy: 73.31
+                cost_per_test: 0.061801
+                latency_seconds: 14.023
+                stderr: 1.063
+            mortgage_tax:
+                accuracy: 58.586
+                cost_per_test: 0.08824
+                latency_seconds: 13.758
+                stderr: 0.982
+            tax_eval_v2:
+                accuracy: 71.914
+                cost_per_test: 0.03694
+                latency_seconds: 15.23
+                stderr: 0.879
+        anthropic/claude-opus-4-20250514-thinking:
+            lcb:
+                accuracy: 70.188
+                cost_per_test: 0.397382
+                latency_seconds: 93.538
+                stderr: 1.111

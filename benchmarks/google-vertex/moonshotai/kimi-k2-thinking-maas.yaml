@@ -1,2 +1,155 @@
 model: moonshotai/kimi-k2-thinking-maas
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            k2-think-v2:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                agentic_percentile: null
+                aime: null
+                aime_25: null
+                coding_index: 21
+                coding_percentile: 19
+                critpt: 0
+                gdpval_aa: 0
+                gdpval_aa_elo: 137.57
+                gpqa: 0.713131313131313
+                hle: 0.101019462465246
+                ifbench: 0.627891156462585
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.57
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: K2 Think V2
+                openness_index: 88.88888888888889
+                scicode: null
+                tau2: 0.254385964912281
+                tau_banking: null
+                terminalbench_hard: 0.0681818181818182
+                terminalbench_v2_1: 0.149812734082397
+                terminalbench_v4_0: null
+            kimi-k2-thinking:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: 0.946666666666667
+                coding_index: null
+                critpt: 0.0257142857142857
+                gdpval_aa: null
+                gpqa: 0.838383838383838
+                hle: 0.238183503243744
+                ifbench: 0.680952380952381
+                intelligence_index: null
+                lcr: 0.72
+                livecodebench: 0.852910052910053
+                math_500: null
+                math_index: 94.7
+                mmlu_pro: 0.848
+                name: Kimi K2 Thinking
+                openness_index: 27.77777777777778
+                scicode: null
+                tau2: 0.929824561403509
+                tau_banking: null
+                terminalbench_hard: 0.310606060606061
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    design_arena:
+        Kimi K2 Thinking:
+            models:
+                website:
+                    avg_generation_time_ms: 245138
+                    elo: 1111
+                    elo_percentile: 26
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.8
+    vals_ai:
+        kimi/kimi-k2-thinking:
+            aime:
+                accuracy: 85.417
+                cost_per_test: 0.044508
+                latency_seconds: 924.913
+                stderr: 1.327
+            case_law_v2:
+                accuracy: 65.702
+                cost_per_test: 0.015284
+                latency_seconds: 91.045
+                stderr: 1.822
+            corp_fin_v2:
+                accuracy: 60.567
+                cost_per_test: 0.038163
+                latency_seconds: 93.297
+                stderr: 0.962
+            finance_agent:
+                accuracy: 36.647
+                cost_per_test: 0.249634
+                latency_seconds: 666.531
+                stderr: 2.609
+            finance_agent_v1:
+                accuracy: 25.9945
+                cost_per_test: 0.095624
+                latency_seconds: 125.0259
+                stderr: 1.3028
+            gpqa:
+                accuracy: 78.536
+                cost_per_test: 0.023072
+                latency_seconds: 585.555
+                stderr: 2.183
+            lcb:
+                accuracy: 63.145
+                cost_per_test: 0.033631
+                latency_seconds: 1150.624
+                stderr: 1.157
+            legal_bench:
+                accuracy: 80.201
+                cost_per_test: 0.002182
+                latency_seconds: 43.991
+                stderr: 0.459
+            medqa:
+                accuracy: 92.592
+                cost_per_test: 0.006153
+                latency_seconds: 225.305
+                stderr: 0.239
+            mgsm:
+                accuracy: 90.146
+                cost_per_test: 0.000891
+                latency_seconds: 48.41
+                stderr: 1.83
+            mmlu_pro:
+                accuracy: 81.068
+                cost_per_test: 0.002067
+                latency_seconds: 94.771
+                stderr: 0.396
+            poker_agent:
+                accuracy: 1011.6338984569229
+                cost_per_test: 0.02410503610648917
+                latency_seconds: 71.72413331456877
+                stderr: 0.0
+            swebench:
+                accuracy: 60.2
+                cost_per_test: 0.366026
+                latency_seconds: 1632.209
+                stderr: 2.191
+            tax_eval_v2:
+                accuracy: 71.709
+                cost_per_test: 0.00913
+                latency_seconds: 61.408
+                stderr: 0.878
+            terminal-bench:
+                accuracy: 40
+                cost_per_test: 0.33518
+                latency_seconds: 133.903
+                stderr: 5.477
+            terminal-bench-2:
+                accuracy: 37.079
+                cost_per_test: 0.115876
+                latency_seconds: 986.553
+                stderr: 5.149

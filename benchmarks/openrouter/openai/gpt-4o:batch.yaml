@@ -1,17 +1,100 @@
 model: openai/gpt-4o:batch
 metrics:
+    artificial_analysis:
+        variants:
+            gpt-4o:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.15
+                aime_25: 0.06
+                coding_index: null
+                critpt: 0
+                gdpval_aa: 0
+                gdpval_aa_elo: -8.78
+                gpqa: 0.543434343434343
+                hle: 0.0242
+                ifbench: 0.342857142857143
+                intelligence_index: null
+                lcr: 0.493333333333333
+                livecodebench: 0.308994708994709
+                math_500: 0.759333333333333
+                math_index: 6
+                mmlu_pro: 0.748
+                name: GPT-4o (Nov '24)
+                scicode: null
+                tau2: 0.251461988304094
+                tau_banking: null
+                terminalbench_hard: 0.0833333333333333
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            gpt-4o-2024-05-13:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                agentic_percentile: null
+                aime: 0.11
+                aime_25: null
+                coding_index: 24.2
+                coding_percentile: 23
+                critpt: null
+                gdpval_aa: null
+                gpqa: 0.526262626262626
+                hle: 0.0176
+                ifbench: null
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: null
+                livecodebench: 0.334391534391534
+                math_500: 0.791333333333333
+                math_index: null
+                mmlu_pro: 0.74
+                name: GPT-4o (May '24)
+                scicode: null
+                tau2: null
+                tau_banking: null
+                terminalbench_hard: null
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            gpt-4o-2024-08-06:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.116666666666667
+                aime_25: null
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.521212121212121
+                hle: 0.0233
+                ifbench: 0.359863945578231
+                intelligence_index: null
+                lcr: 0.41
+                livecodebench: 0.317460317460317
+                math_500: 0.794666666666667
+                math_index: null
+                mmlu_pro: null
+                mmmu_pro: 0.563005780346821
+                name: GPT-4o (Aug '24)
+                scicode: null
+                tau2: 0.289473684210526
+                tau_banking: null
+                terminalbench_hard: 0.0833333333333333
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
     design_arena:
         GPT-4o:
             models:
                 3d:
                     avg_generation_time_ms: 11549
-                    elo: 866
+                    elo: 865
                     elo_percentile: 3
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 10
+                    fourth_place: 25
+                    rank: 166
+                    second_place: 33
+                    third_place: 25
+                    total_tournaments: 93
                     win_rate: 39.2
                 codecategories:
                     avg_generation_time_ms: 14190
@@ -35,34 +118,153 @@ metrics:
                     win_rate: 36
                 gamedev:
                     avg_generation_time_ms: 18325
-                    elo: 906
+                    elo: 905
                     elo_percentile: 4
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 25
+                    fourth_place: 27
+                    rank: 181
+                    second_place: 44
+                    third_place: 24
+                    total_tournaments: 120
                     win_rate: 42.3
                 uicomponent:
                     avg_generation_time_ms: 12849
                     elo: 880
                     elo_percentile: 2
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 15
+                    fourth_place: 29
+                    rank: 176
+                    second_place: 21
+                    third_place: 23
+                    total_tournaments: 88
                     win_rate: 38.1
                 website:
                     avg_generation_time_ms: 14231
-                    elo: 831
+                    elo: 830
                     elo_percentile: 2
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 75
+                    fourth_place: 182
+                    rank: 197
+                    second_place: 111
+                    third_place: 141
+                    total_tournaments: 509
                     win_rate: 31.5
+    vals_ai:
+        openai/gpt-4o-2024-05-13:
+            gpqa:
+                accuracy: 50.252
+                cost_per_test: 0.01544
+                latency_seconds: 10.078
+                stderr: 2.512
+        openai/gpt-4o-2024-08-06:
+            aime:
+                accuracy: 13.958
+                cost_per_test: 0.012158
+                latency_seconds: 68.368
+                stderr: 0.968
+            corp_fin_v2:
+                accuracy: 39.433
+                cost_per_test: 0.147391
+                latency_seconds: 0.046
+                stderr: 0.951
+            legal_bench:
+                accuracy: 80.12
+                latency_seconds: 0.532
+                stderr: 0.538
+            math500:
+                accuracy: 75.2
+                cost_per_test: 0.005641
+                latency_seconds: 12.291
+                stderr: 3.776
+            medqa:
+                accuracy: 88.161
+                cost_per_test: 0.002787
+                latency_seconds: 3.392
+                stderr: 0.578
+            mgsm:
+                accuracy: 90.691
+                cost_per_test: 0.002941
+                latency_seconds: 6.731
+                stderr: 1.789
+            mmlu_pro:
+                accuracy: 74.13
+                cost_per_test: 0.007217
+                latency_seconds: 8.998
+                stderr: 0.42
+            mmmu:
+                accuracy: 64.009
+                cost_per_test: 0.006251
+                latency_seconds: 47.52
+                stderr: 1.154
+            mortgage_tax:
+                accuracy: 60.97
+                cost_per_test: 0.006956
+                latency_seconds: 7.356
+                stderr: 1.862
+            tax_eval_v2:
+                accuracy: 71.136
+                cost_per_test: 0.004417
+                latency_seconds: 9.543
+                stderr: 0.892
+        openai/gpt-4o-2024-11-20:
+            aime:
+                accuracy: 11.875
+                cost_per_test: 0.011954
+                latency_seconds: 15.776
+                stderr: 0.955
+            case_law_v2:
+                accuracy: 59.7
+                cost_per_test: 0.066774
+                latency_seconds: 40.867
+                stderr: 0.429
+            corp_fin_v2:
+                accuracy: 45.921
+                latency_seconds: 6.461
+                stderr: 0.973
+            gpqa:
+                accuracy: 53.788
+                cost_per_test: 0.009465
+                latency_seconds: 14.924
+                stderr: 2.507
+            lcb:
+                accuracy: 43.444
+                cost_per_test: 0.003999
+                latency_seconds: 4.347
+                stderr: 1.123
+            legal_bench:
+                accuracy: 82.214
+                latency_seconds: 0.452
+                stderr: 0.463
+            math500:
+                accuracy: 74.0
+                cost_per_test: 0.008846
+                latency_seconds: 12.804
+                stderr: 3.834
+            mgsm:
+                accuracy: 90.364
+                cost_per_test: 0.004323
+                latency_seconds: 3.982
+                stderr: 1.826
+            mmlu_pro:
+                accuracy: 72.563
+                cost_per_test: 0.007465
+                latency_seconds: 9.143
+                stderr: 0.441
+            mmmu:
+                accuracy: 62.161
+                cost_per_test: 0.006822
+                latency_seconds: 45.873
+                stderr: 1.166
+            mortgage_tax:
+                accuracy: 57.432
+                cost_per_test: 0.007141
+                latency_seconds: 5.984
+                stderr: 1.907
+            tax_eval_v2:
+                accuracy: 74.53
+                cost_per_test: 0.005806
+                latency_seconds: 5.855
+                stderr: 0.859
     openrouter:
         gpqa_diamond:
             - endpoint_id: a1dcf276-9b84-441f-8e6e-7cfedb115751

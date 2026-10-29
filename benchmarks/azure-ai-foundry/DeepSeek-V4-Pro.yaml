@@ -4,38 +4,197 @@ artificial_analysis_slug: deepseek-v4-pro
 metrics:
     artificial_analysis:
         aa_omniscience_accuracy: 0.452
+        aa_omniscience_hallucination_rate: 0.9409975669099757
         aa_omniscience_non_hallucination_rate: 0.059
         agentic_index: 41.3
         agentic_percentile: 75
         aime: null
         aime_25: null
+        automationbench_partial_score: 0.5671165546344002
         coding_index: 68.8
         coding_percentile: 73
         critpt: 0.18
+        critpt_agentic_hard: 0.235
         economics_index: 30.6
         engineering_index: 29.8
+        enterprise_ops_gym: 0.4959713518352731
         finance_and_accounting_index: 30.4
+        frontiercode: 0.388022666666667
+        frontiercode_v2_0: 0.170742929292929
+        gdp_pdf_all_pass: 0.114
         gdpval_aa: 0.479
-        gpqa: 0.928
+        gdpval_aa_elo: 1457.37
+        gpqa: 0.928282828282828
         healthcare_and_medical_index: null
-        hle: 0.41
+        hle: 0.410101946246525
+        hle_diamond: 0.195
         ifbench: null
-        intelligence_index: 23.1
+        intelligence_index: 23.0632981493003
         intelligence_percentile: 23
-        lcr: 0.803
+        lcr: 0.803333333333333
         legal_index: 27.5
         livecodebench: null
         math_500: null
         math_index: null
         mmlu_pro: null
-        scicode: 0.51
+        omniscience_index: -6.366666666666666
+        openness_index: 44.44444444444444
+        scicode: 0.510416666666667
         strategy_and_ops_index: 41.1
         tau2: null
         tau_banking: 0.395876288659794
         terminalbench_hard: null
+        terminalbench_science: 0.0571428571428571
         terminalbench_v2_1: 0.786516853932584
         terminalbench_v4_0: 0.141414141414141
+    design_arena:
+        DeepSeek-V4-Pro:
+            models:
+                3d:
+                    elo: 1250
+                    first_place: 612
+                    fourth_place: 242
+                    rank: 43
+                    second_place: 553
+                    third_place: 413
+                    total_tournaments: 1820
+                    win_rate: 56.8
+                dataviz:
+                    elo: 1204
+                    first_place: 125
+                    fourth_place: 105
+                    rank: 74
+                    second_place: 103
+                    third_place: 132
+                    total_tournaments: 465
+                    win_rate: 48.7
+                gamedev:
+                    elo: 1228
+                    first_place: 493
+                    fourth_place: 354
+                    rank: 61
+                    second_place: 475
+                    third_place: 426
+                    total_tournaments: 1748
+                    win_rate: 52.3
+                svg:
+                    elo: 1137
+                    first_place: 168
+                    fourth_place: 184
+                    rank: 77
+                    second_place: 242
+                    third_place: 262
+                    total_tournaments: 856
+                    win_rate: 45.4
+                uicomponent:
+                    elo: 1216
+                    first_place: 210
+                    fourth_place: 180
+                    rank: 73
+                    second_place: 239
+                    third_place: 215
+                    total_tournaments: 844
+                    win_rate: 50.6
+                website:
+                    elo: 1233
+                    first_place: 1734
+                    fourth_place: 1276
+                    rank: 70
+                    second_place: 1764
+                    third_place: 1748
+                    total_tournaments: 6522
+                    win_rate: 50.5
     vals_ai:
+        deepseek/deepseek-v4-pro:
+            case_law_v2:
+                accuracy: 59.378
+                cost_per_test: 0.013152
+                latency_seconds: 48.444
+                stderr: 1.5
+            corp_fin_v2:
+                accuracy: 61.383
+                cost_per_test: 0.148855
+                latency_seconds: 79.331
+                stderr: 0.959
+            gpqa:
+                accuracy: 89.394
+                cost_per_test: 0.125847
+                latency_seconds: 900.378
+                stderr: 1.654
+            lcb:
+                accuracy: 87.484
+                cost_per_test: 0.109669
+                latency_seconds: 715.504
+                stderr: 0.953
+            legal_bench:
+                accuracy: 80.323
+                cost_per_test: 0.004788
+                latency_seconds: 184.46
+                stderr: 0.468
+            legal_research:
+                accuracy: 23.077
+                cost_per_test: 0.682218
+                latency_seconds: 1024.619
+                stderr: 2.928
+            medcode:
+                accuracy: 40.455
+                cost_per_test: 0.06071
+                latency_seconds: 382.667
+                stderr: 2.122
+            medscribe:
+                accuracy: 75.144
+                cost_per_test: 0.053954
+                latency_seconds: 345.723
+                stderr: 2.002
+            mmlu_pro:
+                accuracy: 87.249
+                cost_per_test: 0.027032
+                latency_seconds: 577.617
+                stderr: 0.335
+            programbench:
+                accuracy: 0.0
+                latency_seconds: 3778.098
+                stderr: 0.0
+            proof_bench:
+                accuracy: 16.0
+                cost_per_test: 0.142045
+                latency_seconds: 423.45
+                stderr: 3.685
+            public-benefits-bench:
+                accuracy: 62.923
+                cost_per_test: 0.460453
+                latency_seconds: 922.395
+                stderr: 1.256
+            skillsbench:
+                accuracy: 51.274
+                cost_per_test: 0.397123
+                latency_seconds: 495.558
+                stderr: 4.6
+            swebench:
+                accuracy: 77.4
+                cost_per_test: 0.436763
+                latency_seconds: 634.611
+                stderr: 1.872
+            tax_agent_bench:
+                accuracy: 25.17
+                cost_per_test: 0.719152
+                latency_seconds: 1244.635
+                stderr: 3.058
+            tax_eval_v2:
+                accuracy: 72.077
+                cost_per_test: 0.033187
+                latency_seconds: 189.695
+                stderr: 0.877
+            terminal-bench-4:
+                accuracy: 11.111
+                cost_per_test: 3.452522
+                latency_seconds: 5146.973
+                stderr: 1.336
+            vibe-code:
+                accuracy: 49.931
+                cost_per_test: 2.205991
+                latency_seconds: 3418.92
+                stderr: 4.767
         deepseek/deepseek-v4-pro-0813:
             code-migration:
                 accuracy: 41.54
@@ -143,12 +302,12 @@ metrics:
                 latency_seconds: 59.624
                 stderr: 0.341
             programbench:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 3.412918
                 latency_seconds: 4970.276
-                stderr: 0
+                stderr: 0.0
             proof_bench:
-                accuracy: 50
+                accuracy: 50.0
                 cost_per_test: 0.262008
                 latency_seconds: 732.365
                 stderr: 5.025
@@ -192,6 +351,11 @@ metrics:
                 cost_per_test: 3.311817
                 latency_seconds: 5493.603
                 stderr: 2.02
+            terminal-bench-science:
+                accuracy: 4.286
+                cost_per_test: 4.630215
+                latency_seconds: 8181.756
+                stderr: 2.438
             vals_index:
                 accuracy: 52.974
                 cost_per_test: 2.499691
@@ -207,6 +371,11 @@ metrics:
                 cost_per_test: 3.352147
                 latency_seconds: 3839.679
                 stderr: 1.116
+            vals_router_index:
+                accuracy: 52.974
+                cost_per_test: 2.499691
+                latency_seconds: 3482.913
+                stderr: 1.044
             vcb-1-100:
                 accuracy: 17.533
                 cost_per_test: 5.892792

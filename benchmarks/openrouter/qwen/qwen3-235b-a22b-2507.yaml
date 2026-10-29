@@ -9,19 +9,20 @@ metrics:
         coding_index: null
         critpt: 0
         gdpval_aa: null
-        gpqa: 0.753
-        hle: 0.111
-        ifbench: 0.461
+        gpqa: 0.752525252525253
+        hle: 0.111214087117702
+        ifbench: 0.460544217687075
         intelligence_index: null
         lcr: 0.339
-        livecodebench: 0.524
+        livecodebench: 0.523809523809524
         math_500: 0.98
         math_index: 71.7
         mmlu_pro: 0.828
+        openness_index: 44.44444444444444
         scicode: null
-        tau2: 0.333
+        tau2: 0.333333333333333
         tau_banking: null
-        terminalbench_hard: 0.152
+        terminalbench_hard: 0.151515151515152
         terminalbench_v2_1: null
         terminalbench_v4_0: null
     design_arena:
@@ -31,11 +32,12 @@ metrics:
                     avg_generation_time_ms: 39482
                     elo: 991
                     elo_percentile: 9
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 42
+                    fourth_place: 51
+                    rank: 154
+                    second_place: 68
+                    third_place: 64
+                    total_tournaments: 225
                     win_rate: 41.1
                 codecategories:
                     avg_generation_time_ms: 53834
@@ -51,42 +53,84 @@ metrics:
                     avg_generation_time_ms: 49862
                     elo: 1070
                     elo_percentile: 17
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 16
+                    fourth_place: 10
+                    rank: 135
+                    second_place: 18
+                    third_place: 22
+                    total_tournaments: 66
                     win_rate: 49
                 gamedev:
                     avg_generation_time_ms: 64323
                     elo: 950
                     elo_percentile: 6
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 42
+                    fourth_place: 77
+                    rank: 176
+                    second_place: 70
+                    third_place: 82
+                    total_tournaments: 271
                     win_rate: 35
                 uicomponent:
                     avg_generation_time_ms: 38286
                     elo: 960
                     elo_percentile: 10
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 33
+                    fourth_place: 41
+                    rank: 164
+                    second_place: 50
+                    third_place: 60
+                    total_tournaments: 184
                     win_rate: 38.4
                 website:
                     avg_generation_time_ms: 55072
-                    elo: 1056
+                    elo: 1057
                     elo_percentile: 16
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 532
+                    fourth_place: 614
+                    rank: 166
+                    second_place: 643
+                    third_place: 673
+                    total_tournaments: 2462
                     win_rate: 43.6
+        Qwen3-235B-A22B-Thinking-2507:
+            models:
+                3d:
+                    elo: 994
+                    first_place: 39
+                    fourth_place: 44
+                    rank: 153
+                    second_place: 48
+                    third_place: 60
+                    total_tournaments: 191
+                    win_rate: 40.4
+                gamedev:
+                    elo: 956
+                    first_place: 45
+                    fourth_place: 82
+                    rank: 175
+                    second_place: 42
+                    third_place: 77
+                    total_tournaments: 246
+                    win_rate: 34.2
+                uicomponent:
+                    elo: 940
+                    first_place: 22
+                    fourth_place: 39
+                    rank: 168
+                    second_place: 18
+                    third_place: 40
+                    total_tournaments: 119
+                    win_rate: 34
+                website:
+                    elo: 1051
+                    first_place: 477
+                    fourth_place: 618
+                    rank: 168
+                    second_place: 588
+                    third_place: 624
+                    total_tournaments: 2307
+                    win_rate: 42
     openrouter:
         gpqa_diamond:
             - endpoint_id: 813ce28a-1334-47e3-881e-a7f8833b34b4

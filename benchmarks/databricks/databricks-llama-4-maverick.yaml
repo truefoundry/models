@@ -9,30 +9,35 @@ metrics:
         agentic_percentile: 2
         aime: 0.39
         aime_25: 0.193333333333333
+        automationbench_partial_score: 0.002121918776569101
         coding_index: 16.3
         coding_percentile: 14
         critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.008
         gdpval_aa: 0
-        gpqa: 0.671
+        gdpval_aa_elo: -267.42
+        gpqa: 0.670707070707071
         healthcare_and_medical_index: null
-        hle: 0.049
-        ifbench: 0.43
+        hle: 0.0491195551436515
+        ifbench: 0.429931972789116
         intelligence_index: null
         intelligence_percentile: null
         lcr: 0.5
         legal_index: null
-        livecodebench: 0.397
+        livecodebench: 0.396825396825397
         math_500: 0.888666666666667
         math_index: 19.3
         mmlu_pro: 0.809
-        scicode: 0.317
+        mmmu_pro: 0.621387283236994
+        openness_index: 27.77777777777778
+        scicode: 0.31712962962963
         strategy_and_ops_index: null
-        tau2: 0.178
+        tau2: 0.178362573099415
         tau_banking: 0.0371134020618557
-        terminalbench_hard: 0.068
+        terminalbench_hard: 0.0681818181818182
         terminalbench_v2_1: 0.0786516853932584
         terminalbench_v4_0: 0
     design_arena:
@@ -40,13 +45,14 @@ metrics:
             models:
                 3d:
                     avg_generation_time_ms: 9460
-                    elo: 898
+                    elo: 897
                     elo_percentile: 3
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 15
+                    fourth_place: 21
+                    rank: 165
+                    second_place: 20
+                    third_place: 19
+                    total_tournaments: 75
                     win_rate: 40.2
                 codecategories:
                     avg_generation_time_ms: 13055
@@ -70,34 +76,113 @@ metrics:
                     win_rate: 38.4
                 gamedev:
                     avg_generation_time_ms: 14339
-                    elo: 836
+                    elo: 837
                     elo_percentile: 1
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 13
+                    fourth_place: 32
+                    rank: 186
+                    second_place: 22
+                    third_place: 26
+                    total_tournaments: 93
                     win_rate: 33.7
                 uicomponent:
                     avg_generation_time_ms: 12741
                     elo: 894
                     elo_percentile: 3
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 14
+                    fourth_place: 17
+                    rank: 174
+                    second_place: 22
+                    third_place: 29
+                    total_tournaments: 82
                     win_rate: 40.8
                 website:
                     avg_generation_time_ms: 13594
-                    elo: 869
+                    elo: 870
                     elo_percentile: 4
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 81
+                    fourth_place: 159
+                    rank: 192
+                    second_place: 139
+                    third_place: 121
+                    total_tournaments: 500
                     win_rate: 34.4
+    vals_ai:
+        fireworks/llama4-maverick-instruct-basic:
+            aime:
+                accuracy: 25.208
+                cost_per_test: 0.001142
+                latency_seconds: 15.502
+                stderr: 0.784
+            corp_fin_v2:
+                accuracy: 49.728
+                cost_per_test: 0.014178
+                latency_seconds: 4.724
+                stderr: 0.981
+            gpqa:
+                accuracy: 69.444
+                cost_per_test: 0.000964
+                latency_seconds: 10.071
+                stderr: 2.35
+            lcb:
+                accuracy: 47.251
+                cost_per_test: 0.000832
+                latency_seconds: 9.442
+                stderr: 1.169
+            legal_bench:
+                accuracy: 77.812
+                latency_seconds: 0.472
+                stderr: 0.42
+            math500:
+                accuracy: 85.2
+                cost_per_test: 0.00059
+                latency_seconds: 7.469
+                stderr: 1.588
+            medcode:
+                accuracy: 36.514
+                cost_per_test: 0.002888
+                latency_seconds: 21.241
+                stderr: 1.994
+            medqa:
+                accuracy: 43.3
+                cost_per_test: 0.000687
+                latency_seconds: 7.751
+                stderr: 0.452
+            medscribe:
+                accuracy: 54.219
+                cost_per_test: 0.00246
+                latency_seconds: 25.048
+                stderr: 1.871
+            mgsm:
+                accuracy: 92.436
+                cost_per_test: 0.000218
+                latency_seconds: 2.714
+                stderr: 1.635
+            mmlu_pro:
+                accuracy: 79.415
+                cost_per_test: 0.000686
+                latency_seconds: 6.803
+                stderr: 0.395
+            mmmu:
+                accuracy: 71.693
+                cost_per_test: 0.001078
+                latency_seconds: 7.908
+                stderr: 1.083
+            mortgage_tax:
+                accuracy: 58.506
+                cost_per_test: 0.000752
+                latency_seconds: 2.716
+                stderr: 0.967
+            poker_agent:
+                accuracy: 890.5037748478502
+                cost_per_test: 0.005185648762098834
+                latency_seconds: 13.958395570116652
+                stderr: 0.0
+            tax_eval_v2:
+                accuracy: 66.558
+                cost_per_test: 0.000527
+                latency_seconds: 25.143
+                stderr: 0.919
     openrouter:
         gpqa_diamond:
             - endpoint_id: caa850a1-e628-41bd-8585-9b3076efea90

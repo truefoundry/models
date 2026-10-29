@@ -1,2 +1,74 @@
 model: Mistral-Large-2411
-metrics: {}
+metrics:
+    design_arena:
+        Mistral Large 2.1 (2411):
+            models:
+                gamedev:
+                    elo: 887
+                    first_place: 10
+                    fourth_place: 16
+                    rank: 183
+                    second_place: 11
+                    third_place: 18
+                    total_tournaments: 55
+                    win_rate: 37.9
+                uicomponent:
+                    elo: 819
+                    first_place: 6
+                    fourth_place: 27
+                    rank: 180
+                    second_place: 10
+                    third_place: 26
+                    total_tournaments: 69
+                    win_rate: 30.1
+                website:
+                    elo: 857
+                    first_place: 45
+                    fourth_place: 144
+                    rank: 193
+                    second_place: 84
+                    third_place: 110
+                    total_tournaments: 383
+                    win_rate: 33
+    vals_ai:
+        mistralai/mistral-large-2411:
+            aime:
+                accuracy: 9.167
+                cost_per_test: 0.006338
+                latency_seconds: 19.676
+                stderr: 1.091
+            gpqa:
+                accuracy: 47.728
+                cost_per_test: 0.006714
+                latency_seconds: 15.802
+                stderr: 2.5
+            lcb:
+                accuracy: 37.088
+                cost_per_test: 0.003291
+                latency_seconds: 5.349
+                stderr: 1.091
+            math500:
+                accuracy: 74.4
+                cost_per_test: 0.003323
+                latency_seconds: 9.928
+                stderr: 3.815
+            medqa:
+                accuracy: 76.225
+                cost_per_test: 0.002428
+                latency_seconds: 4.86
+                stderr: 0.761
+            mgsm:
+                accuracy: 87.236
+                cost_per_test: 0.002954
+                latency_seconds: 8.041
+                stderr: 2.045
+            mmlu_pro:
+                accuracy: 69.706
+                cost_per_test: 0.004997
+                latency_seconds: 7.192
+                stderr: 0.442
+            tax_eval_v2:
+                accuracy: 63.778
+                cost_per_test: 0.004079
+                latency_seconds: 12.019
+                stderr: 0.95

@@ -1,2 +1,19 @@
 model: command-a-plus-05-2026
-metrics: {}
+metrics:
+    vals_ai:
+        cohere/command-a-plus-05-2026:
+            legal_bench:
+                accuracy: 61.422
+                cost_per_test: 0.033012
+                latency_seconds: 22.648
+                stderr: 0.627
+            medcode:
+                accuracy: 19.718
+                cost_per_test: 0.055695
+                latency_seconds: 103.751
+                stderr: 1.835
+            medscribe:
+                accuracy: 55.682
+                cost_per_test: 0.140316
+                latency_seconds: 203.051
+                stderr: 3.646

@@ -2,6 +2,11 @@ model: ~openai/gpt-astra-latest
 metrics:
     vals_ai:
         openai/gpt-6-astra:
+            biomysterybench:
+                accuracy: 79.259
+                cost_per_test: 1.719326
+                latency_seconds: 286.147
+                stderr: 0.98
             code-migration:
                 accuracy: 67.74
                 cost_per_test: 44.364548
@@ -12,6 +17,11 @@ metrics:
                 cost_per_test: 62.066613
                 latency_seconds: 5221.422
                 stderr: 2.336
+            cua_bench:
+                accuracy: 19.166667
+                cost_per_test: 1821.373046
+                latency_seconds: 32.09
+                stderr: 0
             cyber:
                 accuracy: 41.072
                 cost_per_test: 1.840737
@@ -58,10 +68,10 @@ metrics:
                 latency_seconds: 501.41
                 stderr: 1.548
             ioi:
-                accuracy: 100
+                accuracy: 100.0
                 cost_per_test: 6.495051
                 latency_seconds: 1899.783
-                stderr: 0
+                stderr: 0.0
             legal_index:
                 accuracy: 68.386
                 cost_per_test: 13.944579
@@ -82,16 +92,26 @@ metrics:
                 cost_per_test: 0.581991
                 latency_seconds: 153.728
                 stderr: 1.938
+            mysterymechanism:
+                accuracy: 53.153
+                cost_per_test: 1.559704
+                latency_seconds: 488.597
+                stderr: 3.357
             programbench:
                 accuracy: 5.5
                 cost_per_test: 11.574605
                 latency_seconds: 1621.514
                 stderr: 1.616
             proof_bench:
-                accuracy: 99
+                accuracy: 99.0
                 cost_per_test: 1.71238
                 latency_seconds: 307.867
-                stderr: 1
+                stderr: 1.0
+            robo_bench:
+                accuracy: 23.333
+                cost_per_test: 28.479
+                latency_seconds: 74.88
+                stderr: 0.0
             rsi_index:
                 accuracy: 27.07
                 cost_per_test: 759.508154
@@ -132,6 +152,16 @@ metrics:
                 cost_per_test: 9.584259
                 latency_seconds: 2142.082
                 stderr: 4.403
+            terminal-bench-science:
+                accuracy: 62.857
+                cost_per_test: 20.802802
+                latency_seconds: 6534.868
+                stderr: 5.817
+            time_horizon_index:
+                accuracy: 90.5
+                cost_per_test: 4206.58511
+                latency_seconds: 0.0
+                stderr: 0.0
             vals_index:
                 accuracy: 65.023
                 cost_per_test: 21.277828
@@ -147,6 +177,11 @@ metrics:
                 cost_per_test: 18.457813
                 latency_seconds: 1667.737
                 stderr: 1.19
+            vals_router_index:
+                accuracy: 65.023
+                cost_per_test: 21.277828
+                latency_seconds: 2018.879
+                stderr: 1.098
             vcb-1-100:
                 accuracy: 27.644
                 cost_per_test: 84.720155

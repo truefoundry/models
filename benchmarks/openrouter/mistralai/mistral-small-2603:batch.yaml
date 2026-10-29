@@ -3,31 +3,43 @@ metrics:
     artificial_analysis:
         variants:
             mistral-small-4:
-                aa_omniscience_accuracy: 0.214
+                aa_omniscience_accuracy: 0.21366666666666667
+                aa_omniscience_hallucination_rate: 0.665536244171259
                 aa_omniscience_non_hallucination_rate: 0.334
                 agentic_index: 0.8
                 agentic_percentile: 3
                 aime: null
                 aime_25: null
+                analyst_agent: 0.0125
+                automationbench_partial_score: 0.009635410038882158
                 coding_index: 26.6
                 coding_percentile: 27
-                critpt: 0.003
+                critpt: 0.00285714285714286
+                critpt_agentic_hard: 0
+                gdp_pdf_all_pass: 0
                 gdpval_aa: 0
-                gpqa: 0.769
-                hle: 0.099
-                ifbench: 0.482
+                gdpval_aa_elo: 370.08
+                gpqa: 0.768686868686869
+                hle: 0.0987025023169602
+                hle_diamond: 0.044
+                ifbench: 0.481632653061224
                 intelligence_index: null
                 intelligence_percentile: null
-                lcr: 0.497
+                lcr: 0.496666666666667
                 livecodebench: null
                 math_500: null
                 math_index: null
+                mlcr_overall: 0.0166666666666667
                 mmlu_pro: null
+                mmmu_pro: 0.568208092485549
                 name: Mistral Small 4 (Reasoning)
-                scicode: 0.388
-                tau2: 0.412
+                omniscience_index: -30.966666666666665
+                openness_index: 38.888888888888886
+                scicode: 0.387731481481481
+                tau2: 0.412280701754386
                 tau_banking: 0.0494845360824742
-                terminalbench_hard: 0.174
+                terminalbench_hard: 0.174242424242424
+                terminalbench_science: 0
                 terminalbench_v2_1: 0.209737827715356
                 terminalbench_v4_0: 0
             mistral-small-4-non-reasoning:
@@ -37,22 +49,24 @@ metrics:
                 aime: null
                 aime_25: null
                 coding_index: null
-                critpt: 0.003
+                critpt: 0.00285714285714286
                 gdpval_aa: null
-                gpqa: 0.571
-                hle: 0.038
-                ifbench: 0.328
+                gpqa: 0.570707070707071
+                hle: 0.0379981464318814
+                ifbench: 0.327891156462585
                 intelligence_index: null
-                lcr: 0.283
+                lcr: 0.283333333333333
                 livecodebench: null
                 math_500: null
                 math_index: null
                 mmlu_pro: null
+                mmmu_pro: 0.464739884393064
                 name: Mistral Small 4 (Non-reasoning)
+                openness_index: 38.888888888888886
                 scicode: null
-                tau2: 0.184
+                tau2: 0.184210526315789
                 tau_banking: null
-                terminalbench_hard: 0.106
+                terminalbench_hard: 0.106060606060606
                 terminalbench_v2_1: null
                 terminalbench_v4_0: null
     vals_ai:
@@ -73,7 +87,7 @@ metrics:
                 latency_seconds: 553.591
                 stderr: 1.605
             vibe-code:
-                accuracy: 0
+                accuracy: 0.0
                 cost_per_test: 6.473001
                 latency_seconds: 1814.681
-                stderr: 0
+                stderr: 0.0

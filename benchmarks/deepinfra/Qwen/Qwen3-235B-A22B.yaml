@@ -1,2 +1,93 @@
 model: Qwen/Qwen3-235B-A22B
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            qwen3-235b-a22b-instruct:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.326666666666667
+                aime_25: 0.236666666666667
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.613131313131313
+                hle: 0.0419
+                ifbench: 0.365986394557823
+                intelligence_index: null
+                lcr: 0
+                livecodebench: 0.342857142857143
+                math_500: 0.902
+                math_index: 23.7
+                mmlu_pro: 0.762
+                name: Qwen3 235B A22B (Non-reasoning)
+                scicode: null
+                tau2: 0.271929824561404
+                tau_banking: null
+                terminalbench_hard: 0.0606060606060606
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            qwen3-235b-a22b-instruct-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.84
+                aime_25: 0.82
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.7
+                hle: 0.1098
+                ifbench: 0.387074829931973
+                intelligence_index: null
+                lcr: 0
+                livecodebench: 0.622222222222222
+                math_500: 0.93
+                math_index: 82
+                mmlu_pro: 0.828
+                name: Qwen3 235B A22B (Reasoning)
+                scicode: null
+                tau2: 0.239766081871345
+                tau_banking: null
+                terminalbench_hard: 0.0606060606060606
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    design_arena:
+        Qwen3-235B-A22B:
+            models:
+                3d:
+                    elo: 855
+                    first_place: 18
+                    fourth_place: 67
+                    rank: 167
+                    second_place: 49
+                    third_place: 98
+                    total_tournaments: 232
+                    win_rate: 24.5
+                gamedev:
+                    elo: 926
+                    first_place: 31
+                    fourth_place: 77
+                    rank: 180
+                    second_place: 56
+                    third_place: 89
+                    total_tournaments: 253
+                    win_rate: 32.9
+                uicomponent:
+                    elo: 954
+                    first_place: 19
+                    fourth_place: 30
+                    rank: 167
+                    second_place: 37
+                    third_place: 37
+                    total_tournaments: 123
+                    win_rate: 38.6
+                website:
+                    elo: 1029
+                    first_place: 311
+                    fourth_place: 477
+                    rank: 174
+                    second_place: 441
+                    third_place: 522
+                    total_tournaments: 1751
+                    win_rate: 40.4

@@ -14,21 +14,129 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.693
+        gpqa: 0.692929292929293
         healthcare_and_medical_index: null
-        hle: 0.041
-        ifbench: 0.469
+        hle: 0.0412
+        ifbench: 0.469387755102041
         intelligence_index: null
         lcr: 0.58
         legal_index: null
-        livecodebench: 0.425
+        livecodebench: 0.425396825396825
         math_500: 0.87
         math_index: 58
         mmlu_pro: 0.799
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.488
+        tau2: 0.488304093567252
         tau_banking: null
-        terminalbench_hard: 0.114
+        terminalbench_hard: 0.113636363636364
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    design_arena:
+        Grok 3:
+            models:
+                3d:
+                    elo: 1046
+                    first_place: 263
+                    fourth_place: 174
+                    rank: 137
+                    second_place: 303
+                    third_place: 357
+                    total_tournaments: 1097
+                    win_rate: 44.3
+                dataviz:
+                    elo: 1031
+                    first_place: 49
+                    fourth_place: 67
+                    rank: 143
+                    second_place: 74
+                    third_place: 96
+                    total_tournaments: 286
+                    win_rate: 39.2
+                gamedev:
+                    elo: 1025
+                    first_place: 216
+                    fourth_place: 235
+                    rank: 158
+                    second_place: 332
+                    third_place: 498
+                    total_tournaments: 1281
+                    win_rate: 38.9
+                svg:
+                    elo: 980
+                    first_place: 194
+                    fourth_place: 271
+                    rank: 126
+                    second_place: 382
+                    third_place: 482
+                    total_tournaments: 1329
+                    win_rate: 36.1
+                uicomponent:
+                    elo: 1031
+                    first_place: 115
+                    fourth_place: 105
+                    rank: 149
+                    second_place: 154
+                    third_place: 166
+                    total_tournaments: 540
+                    win_rate: 41.6
+                website:
+                    elo: 1058
+                    first_place: 1591
+                    fourth_place: 1901
+                    rank: 165
+                    second_place: 2156
+                    third_place: 2987
+                    total_tournaments: 8635
+                    win_rate: 39.6
+    vals_ai:
+        grok/grok-3:
+            aime:
+                accuracy: 58.75
+                cost_per_test: 0.090668
+                latency_seconds: 63.989
+                stderr: 1.439
+            corp_fin_v2:
+                accuracy: 59.713
+                cost_per_test: 0.169809
+                latency_seconds: 24.354
+                stderr: 0.965
+            gpqa:
+                accuracy: 74.242
+                cost_per_test: 0.039242
+                latency_seconds: 29.912
+                stderr: 2.209
+            lcb:
+                accuracy: 52.901
+                cost_per_test: 0.009356
+                latency_seconds: 5.517
+                stderr: 1.134
+            legal_bench:
+                accuracy: 82.595
+                latency_seconds: 0.741
+                stderr: 0.394
+            math500:
+                accuracy: 89.8
+                cost_per_test: 0.012781
+                latency_seconds: 9.085
+                stderr: 1.354
+            medqa:
+                accuracy: 83.85
+                cost_per_test: 0.006196
+                latency_seconds: 7.536
+                stderr: 0.336
+            mgsm:
+                accuracy: 91.346
+                cost_per_test: 0.00567
+                latency_seconds: 5.831
+                stderr: 1.72
+            mmlu_pro:
+                accuracy: 79.949
+                cost_per_test: 0.016622
+                latency_seconds: 12.096
+                stderr: 0.39
+            tax_eval_v2:
+                accuracy: 75.879
+                cost_per_test: 0.017475
+                latency_seconds: 13.058
+                stderr: 0.83

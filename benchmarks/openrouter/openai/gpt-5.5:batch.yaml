@@ -7,24 +7,34 @@ metrics:
         agentic_percentile: 66
         aime: null
         aime_25: null
+        analyst_agent: 0.5
+        apex_agents: 0.376843657817109
+        automationbench_partial_score: 0.4730056587293313
+        code2video_elo: 1000
         coding_index: 74.9
         coding_percentile: 87
-        critpt: 0.271
+        critpt: 0.271428571428571
+        enterprise_ops_gym: 0.4664279319606088
+        gdp_pdf_all_pass: 0.212
         gdpval_aa: 0.43
-        gpqa: 0.935
-        hle: 0.458
-        ifbench: 0.759
+        gdpval_aa_elo: 1359.62
+        gpqa: 0.935353535353535
+        hle: 0.457831325301205
+        ifbench: 0.758503401360544
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.843
+        itbench_sre: 0.458097928436911
+        lcr: 0.843333333333333
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.288888888888889
         mmlu_pro: null
-        scicode: 0.558
-        tau2: 0.939
+        mmmu_pro: 0.798843930635838
+        scicode: 0.55787037037037
+        tau2: 0.93859649122807
         tau_banking: 0.389690721649485
-        terminalbench_hard: 0.606
+        terminalbench_hard: 0.606060606060606
         terminalbench_v2_1: 0.842696629213483
         terminalbench_v4_0: 0.146464646464646
     design_arena:
@@ -32,13 +42,14 @@ metrics:
             agents:
                 agenticgamedev:
                     avg_generation_time_ms: null
-                    elo: 1141
+                    elo: 1143
                     elo_percentile: 38
-                    first_place: 0
+                    first_place: 986
                     fourth_place: 0
-                    second_place: 0
+                    rank: 16
+                    second_place: 917
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 1903
                     win_rate: 52.4
                 agentichtmlslides:
                     avg_generation_time_ms: null
@@ -82,13 +93,14 @@ metrics:
                     win_rate: 45.2
                 androidnative:
                     avg_generation_time_ms: null
-                    elo: 1162
+                    elo: 1160
                     elo_percentile: 45
-                    first_place: 0
+                    first_place: 571
                     fourth_place: 0
-                    second_place: 0
+                    rank: 20
+                    second_place: 507
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 1078
                     win_rate: 50.9
                 fullstack:
                     avg_generation_time_ms: null
@@ -104,11 +116,12 @@ metrics:
                     avg_generation_time_ms: null
                     elo: 1173
                     elo_percentile: 50
-                    first_place: 0
+                    first_place: 600
                     fourth_place: 0
-                    second_place: 0
+                    rank: 17
+                    second_place: 536
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 1136
                     win_rate: 52.3
                 htmlslides:
                     avg_generation_time_ms: 228028
@@ -142,34 +155,37 @@ metrics:
                     win_rate: 45.3
                 python-pptxslides:
                     avg_generation_time_ms: 279227
-                    elo: 1063
+                    elo: 1064
                     elo_percentile: 11
-                    first_place: 0
+                    first_place: 493
                     fourth_place: 0
-                    second_place: 0
+                    rank: 30
+                    second_place: 698
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 1191
                     win_rate: 41.4
                 webapps:
                     avg_generation_time_ms: null
-                    elo: 1117
+                    elo: 1118
                     elo_percentile: 20
-                    first_place: 0
+                    first_place: 2085
                     fourth_place: 0
-                    second_place: 0
+                    rank: 43
+                    second_place: 2640
                     third_place: 0
-                    total_tournaments: 0
+                    total_tournaments: 4725
                     win_rate: 42.6
             models:
                 3d:
                     avg_generation_time_ms: 135367
                     elo: 1194
                     elo_percentile: 63
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 569
+                    fourth_place: 431
+                    rank: 69
+                    second_place: 609
+                    third_place: 640
+                    total_tournaments: 2249
                     win_rate: 49.3
                 asciiart:
                     avg_generation_time_ms: 58496
@@ -195,52 +211,57 @@ metrics:
                     avg_generation_time_ms: 124141
                     elo: 1263
                     elo_percentile: 78
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 222
+                    fourth_place: 108
+                    rank: 39
+                    second_place: 177
+                    third_place: 154
+                    total_tournaments: 661
                     win_rate: 55.2
                 gamedev:
                     avg_generation_time_ms: 146326
                     elo: 1292
                     elo_percentile: 86
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 1023
+                    fourth_place: 379
+                    rank: 31
+                    second_place: 940
+                    third_place: 727
+                    total_tournaments: 3069
                     win_rate: 56.6
                 svg:
                     avg_generation_time_ms: 52241
                     elo: 1231
                     elo_percentile: 80
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
+                    first_place: 439
+                    fourth_place: 184
+                    rank: 32
+                    second_place: 417
+                    third_place: 341
+                    total_tournaments: 1381
                     win_rate: 54.9
                 uicomponent:
                     avg_generation_time_ms: 110238
-                    elo: 1254
+                    elo: 1255
                     elo_percentile: 73
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 53.2
+                    first_place: 293
+                    fourth_place: 178
+                    rank: 53
+                    second_place: 310
+                    third_place: 247
+                    total_tournaments: 1028
+                    win_rate: 53.3
                 website:
                     avg_generation_time_ms: 145854
-                    elo: 1256
+                    elo: 1255
                     elo_percentile: 74
-                    first_place: 0
-                    fourth_place: 0
-                    second_place: 0
-                    third_place: 0
-                    total_tournaments: 0
-                    win_rate: 52.2
+                    first_place: 2940
+                    fourth_place: 1588
+                    rank: 59
+                    second_place: 2754
+                    third_place: 2584
+                    total_tournaments: 9866
+                    win_rate: 52.1
     vals_ai:
         openai/gpt-5.5:
             case_law_v2:
@@ -333,6 +354,11 @@ metrics:
                 cost_per_test: 1.68179
                 latency_seconds: 2953.443
                 stderr: 5
+            public-benefits-bench:
+                accuracy: 60.893
+                cost_per_test: 3.971165
+                latency_seconds: 2377.308
+                stderr: 1.269
             rsi_index:
                 accuracy: 16.48
                 cost_per_test: 857.163302
@@ -378,6 +404,11 @@ metrics:
                 cost_per_test: 0.741883
                 latency_seconds: 427.412
                 stderr: 0.649
+            time_horizon_index:
+                accuracy: 8.333
+                cost_per_test: 516.360641
+                latency_seconds: 0.0
+                stderr: 0.0
             vals_index_v1:
                 accuracy: 71.004
                 cost_per_test: 4.801356

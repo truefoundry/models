@@ -11,13 +11,13 @@ metrics:
         coding_percentile: 30
         critpt: null
         gdpval_aa: null
-        gpqa: 0.599
-        hle: 0.037
+        gpqa: 0.598989898989899
+        hle: 0.0369
         ifbench: null
         intelligence_index: null
         intelligence_percentile: null
         lcr: null
-        livecodebench: 0.381
+        livecodebench: 0.380952380952381
         math_500: 0.771333333333333
         math_index: null
         mmlu_pro: 0.772
@@ -27,3 +27,60 @@ metrics:
         terminalbench_hard: null
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    vals_ai:
+        anthropic/claude-3-5-sonnet-20241022:
+            aime:
+                accuracy: 10.0
+                cost_per_test: 0.008821
+                latency_seconds: 9.188
+                stderr: 0.938
+            corp_fin_v2:
+                accuracy: 53.613
+                cost_per_test: 0.23772
+                latency_seconds: 0.049
+                stderr: 0.981
+            gpqa:
+                accuracy: 59.344
+                cost_per_test: 0.009078
+                latency_seconds: 7.241
+                stderr: 2.468
+            lcb:
+                accuracy: 49.628
+                cost_per_test: 0.011661
+                latency_seconds: 11.035
+                stderr: 1.14
+            math500:
+                accuracy: 72.4
+                cost_per_test: 0.004988
+                latency_seconds: 4.628
+                stderr: 3.907
+            medqa:
+                accuracy: 83.191
+                cost_per_test: 0.005964
+                latency_seconds: 5.924
+                stderr: 0.669
+            mgsm:
+                accuracy: 92.582
+                cost_per_test: 0.004012
+                latency_seconds: 4.1
+                stderr: 1.616
+            mmlu_pro:
+                accuracy: 78.404
+                cost_per_test: 0.00859
+                latency_seconds: 6.288
+                stderr: 0.397
+            mmmu:
+                accuracy: 68.804
+                cost_per_test: 0.010237
+                latency_seconds: 46.011
+                stderr: 1.114
+            mortgage_tax:
+                accuracy: 64.07
+                cost_per_test: 0.015076
+                latency_seconds: 4.224
+                stderr: 1.805
+            tax_eval_v2:
+                accuracy: 70.156
+                cost_per_test: 0.006006
+                latency_seconds: 5.943
+                stderr: 0.902

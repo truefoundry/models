@@ -14,21 +14,82 @@ metrics:
         engineering_index: null
         finance_and_accounting_index: null
         gdpval_aa: null
-        gpqa: 0.623
+        gpqa: 0.623232323232323
         healthcare_and_medical_index: null
-        hle: 0.043
-        ifbench: 0.402
+        hle: 0.0426
+        ifbench: 0.402040816326531
         intelligence_index: null
-        lcr: 0.313
+        lcr: 0.313333333333333
         legal_index: null
-        livecodebench: 0.334
+        livecodebench: 0.334391534391534
         math_500: 0.93
         math_index: 21.7
         mmlu_pro: 0.779
         scicode: null
         strategy_and_ops_index: null
-        tau2: 0.295
+        tau2: 0.295321637426901
         tau_banking: null
-        terminalbench_hard: 0.038
+        terminalbench_hard: 0.0378787878787879
         terminalbench_v2_1: null
         terminalbench_v4_0: null
+    vals_ai:
+        google/gemini-2.0-flash-001:
+            aime:
+                accuracy: 29.792
+                cost_per_test: 0.001044
+                latency_seconds: 11.214
+                stderr: 0.644
+            corp_fin_v2:
+                accuracy: 33.722
+                cost_per_test: 0.010481
+                latency_seconds: 30.038
+                stderr: 0.93
+            gpqa:
+                accuracy: 65.152
+                cost_per_test: 0.00049
+                latency_seconds: 5.803
+                stderr: 2.394
+            lcb:
+                accuracy: 43.608
+                cost_per_test: 0.000304
+                latency_seconds: 3.358
+                stderr: 1.078
+            legal_bench:
+                accuracy: 78.364
+                latency_seconds: 0.447
+                stderr: 0.782
+            math500:
+                accuracy: 88.0
+                cost_per_test: 0.00026
+                latency_seconds: 3.367
+                stderr: 2.852
+            medqa:
+                accuracy: 81.467
+                cost_per_test: 0.000114
+                latency_seconds: 1.941
+                stderr: 0.695
+            mgsm:
+                accuracy: 89.018
+                cost_per_test: 0.000102
+                latency_seconds: 1.536
+                stderr: 1.877
+            mmlu_pro:
+                accuracy: 77.376
+                cost_per_test: 0.000414
+                latency_seconds: 4.318
+                stderr: 0.407
+            mmmu:
+                accuracy: 69.786
+                cost_per_test: 0.000365
+                latency_seconds: 45.203
+                stderr: 1.104
+            mortgage_tax:
+                accuracy: 59.658
+                cost_per_test: 0.00027
+                latency_seconds: 3.794
+                stderr: 1.91
+            tax_eval_v2:
+                accuracy: 65.25
+                cost_per_test: 0.000296
+                latency_seconds: 5.702
+                stderr: 0.933

@@ -1,2 +1,238 @@
 model: openai.gpt-oss-20b-1:0
-metrics: {}
+metrics:
+    artificial_analysis:
+        variants:
+            gpt-oss-20b:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 1.2
+                agentic_percentile: 15
+                aime: null
+                aime_25: 0.893333333333333
+                apex_agents: 0.00737463126843658
+                automationbench_partial_score: 0.0019111706206154657
+                coding_index: 20.7
+                coding_percentile: 18
+                critpt: 0.0142857142857143
+                gdp_pdf_all_pass: 0.02
+                gdpval_aa: 0
+                gdpval_aa_elo: 347.58
+                gpqa: 0.687878787878788
+                hle: 0.10982391102873
+                hle_diamond: 0.048
+                ifbench: 0.651020408163265
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.346666666666667
+                livecodebench: 0.776719576719577
+                math_500: null
+                math_index: 89.3
+                mlcr_overall: 0.0111111111111111
+                mmlu_pro: 0.748
+                name: gpt-oss-20b (High)
+                openness_index: 38.888888888888886
+                scicode: 0.388888888888889
+                tau2: 0.60233918128655
+                tau_banking: 0.0701030927835052
+                terminalbench_hard: 0.106060606060606
+                terminalbench_v2_1: 0.138576779026217
+                terminalbench_v4_0: 0
+            gpt-oss-20b-low:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: 0.623333333333333
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.611111111111111
+                hle: 0.0528266913809083
+                ifbench: 0.578231292517007
+                intelligence_index: null
+                lcr: 0.31
+                livecodebench: 0.651851851851852
+                math_500: null
+                math_index: 62.3
+                mmlu_pro: 0.718
+                name: gpt-oss-20b (Low)
+                openness_index: 38.888888888888886
+                scicode: null
+                tau2: 0.502923976608187
+                tau_banking: null
+                terminalbench_hard: 0.0454545454545455
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    design_arena:
+        GPT OSS 20B:
+            models:
+                dataviz:
+                    avg_generation_time_ms: 8412
+                    elo: 933
+                    elo_percentile: 6
+                    first_place: 72
+                    fourth_place: 171
+                    second_place: 122
+                    third_place: 106
+                    total_tournaments: 471
+                    win_rate: 39.7
+                website:
+                    avg_generation_time_ms: 13086
+                    elo: 851
+                    elo_percentile: 3
+                    first_place: 49
+                    fourth_place: 120
+                    rank: 195
+                    second_place: 85
+                    third_place: 69
+                    total_tournaments: 323
+                    win_rate: 27.9
+    vals_ai:
+        fireworks/gpt-oss-20b:
+            aime:
+                accuracy: 86.042
+                cost_per_test: 0.011043
+                latency_seconds: 244.712
+                stderr: 1.133
+            case_law_v2:
+                accuracy: 43.837
+                cost_per_test: 0.002158
+                latency_seconds: 85.696
+                stderr: 0.935
+            corp_fin_v2:
+                accuracy: 53.147
+                cost_per_test: 0.004549
+                latency_seconds: 33.968
+                stderr: 0.979
+            gpqa:
+                accuracy: 68.94
+                cost_per_test: 0.006738
+                latency_seconds: 145.092
+                stderr: 2.465
+            lcb:
+                accuracy: 80.387
+                cost_per_test: 0.006706
+                latency_seconds: 109.453
+                stderr: 1.078
+            legal_bench:
+                accuracy: 70.849
+                cost_per_test: null
+                latency_seconds: 7.187
+                stderr: 0.61
+            math500:
+                accuracy: 94.2
+                cost_per_test: 0.000955
+                latency_seconds: 31.472
+                stderr: 1.045
+            medqa:
+                accuracy: 82.875
+                cost_per_test: 0.000335
+                latency_seconds: 25.351
+                stderr: 0.344
+            mgsm:
+                accuracy: 89.018
+                cost_per_test: 0.000453
+                latency_seconds: 5.791
+                stderr: 1.89
+            mmlu_pro:
+                accuracy: 71.636
+                cost_per_test: 0.00062
+                latency_seconds: 30.207
+                stderr: 0.447
+            tax_eval_v2:
+                accuracy: 63.696
+                cost_per_test: 0.002254
+                latency_seconds: 49.004
+                stderr: 0.936
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: b61e45c4-cd4f-49c1-945f-fbfc22213878
+              provider: AkashML
+              run_count: 11
+              score: 0.6791198703242332
+            - endpoint_id: 3dab0c5c-47bb-4f84-aaf0-dcc5aec260bf
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.669519692238947
+            - endpoint_id: 9dd64d3e-4b3f-4cf0-b045-35a2c5e1c821
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.6780152833870333
+            - endpoint_id: e668be79-ecd1-4163-9cec-7a3664486541
+              provider: CoreWeave
+              run_count: 4
+              score: 0.6789359635380322
+            - endpoint_id: e5149726-1456-4cba-8f55-2fd44345af51
+              provider: Darkbloom
+              run_count: 4
+              score: 0.6399462888496755
+            - endpoint_id: bfc33027-e2bd-4d16-9ee2-cee1913475f0
+              provider: DeepInfra
+              run_count: 5
+              score: 0.672062944608708
+            - endpoint_id: af501cd6-cd9b-4370-80a2-4478ee212999
+              provider: DekaLLM
+              run_count: 3
+              score: 0.6891661816359248
+            - endpoint_id: d14eeefb-d9fc-4732-b0d7-db609aad8308
+              provider: Google Vertex
+              run_count: 2
+              score: 0.5768327840531108
+            - endpoint_id: 60654a45-42cc-48ee-8b1d-47bd44d0ecb0
+              provider: Groq
+              run_count: 4
+              score: 0.6186837335168697
+            - endpoint_id: c3e700d0-32ff-45cb-a018-c57f16219648
+              provider: NovitaAI
+              run_count: 1
+              score: 0.580808
+            - endpoint_id: 8febad8c-bc14-42f6-9b78-67e46f6c0cfb
+              provider: Parasail
+              run_count: 4
+              score: 0.6782314193519615
+            - endpoint_id: e51a0e22-c86d-4fce-8344-5989e5d68461
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.599327
+            - endpoint_id: 73e031d2-12fd-49a3-8284-44d902295c23
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.6310270521933916
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.6667375037622032
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 3dab0c5c-47bb-4f84-aaf0-dcc5aec260bf
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.24471168186255107
+            - endpoint_id: 9dd64d3e-4b3f-4cf0-b045-35a2c5e1c821
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.2111976451909933
+            - endpoint_id: e668be79-ecd1-4163-9cec-7a3664486541
+              provider: CoreWeave
+              run_count: 3
+              score: 0.012553652664245515
+            - endpoint_id: e5149726-1456-4cba-8f55-2fd44345af51
+              provider: Darkbloom
+              run_count: 4
+              score: 0.5186985826681854
+            - endpoint_id: 60654a45-42cc-48ee-8b1d-47bd44d0ecb0
+              provider: Groq
+              run_count: 3
+              score: 0.454857321587708
+            - endpoint_id: 8febad8c-bc14-42f6-9b78-67e46f6c0cfb
+              provider: Parasail
+              run_count: 4
+              score: 0.460534611891288
+            - endpoint_id: e51a0e22-c86d-4fce-8344-5989e5d68461
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.333333
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.5322295493478861

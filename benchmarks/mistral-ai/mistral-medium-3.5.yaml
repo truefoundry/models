@@ -3,35 +3,180 @@ artificial_analysis_id: dd059b25-d82a-4ead-82a4-4adceaaec48b
 artificial_analysis_slug: mistral-medium-3-5
 metrics:
     artificial_analysis:
-        aa_omniscience_accuracy: 0.23
+        aa_omniscience_accuracy: 0.23033333333333333
+        aa_omniscience_hallucination_rate: 0.8020788220008662
         aa_omniscience_non_hallucination_rate: 0.198
         agentic_index: 7
         agentic_percentile: 28
         aime: null
         aime_25: null
+        analyst_agent: 0.125
+        automationbench_partial_score: 0.06299648656993127
         coding_index: 46.9
         coding_percentile: 47
         critpt: 0
         economics_index: 11.4
         engineering_index: null
+        enterprise_ops_gym: 0.3372127723067741
         finance_and_accounting_index: 11.1
+        gdp_pdf_all_pass: 0.028
         gdpval_aa: 0.135
-        gpqa: 0.748
+        gdpval_aa_elo: 769.26
+        gpqa: 0.748484848484849
         healthcare_and_medical_index: 10.7
-        hle: 0.138
-        ifbench: 0.688
+        hle: 0.137627432808156
+        hle_diamond: 0.047
+        ifbench: 0.687755102040816
         intelligence_index: null
         intelligence_percentile: null
-        lcr: 0.693
+        lcr: 0.693333333333333
         legal_index: 9.7
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.1
         mmlu_pro: null
-        scicode: 0.402
+        mmmu_pro: 0.648554913294798
+        omniscience_index: -38.7
+        openness_index: 33.333333333333336
+        scicode: 0.40162037037037
         strategy_and_ops_index: 9.4
-        tau2: 0.942
+        tau2: 0.941520467836257
         tau_banking: 0.150515463917526
-        terminalbench_hard: 0.333
+        terminalbench_hard: 0.333333333333333
         terminalbench_v2_1: 0.50561797752809
         terminalbench_v4_0: 0
+    design_arena:
+        Mistral Medium 3.5:
+            models:
+                3d:
+                    elo: 1057
+                    first_place: 108
+                    fourth_place: 205
+                    rank: 130
+                    second_place: 179
+                    third_place: 269
+                    total_tournaments: 761
+                    win_rate: 38.3
+                dataviz:
+                    elo: 1121
+                    first_place: 60
+                    fourth_place: 78
+                    rank: 123
+                    second_place: 82
+                    third_place: 101
+                    total_tournaments: 321
+                    win_rate: 43.2
+                gamedev:
+                    elo: 1078
+                    first_place: 85
+                    fourth_place: 173
+                    rank: 141
+                    second_place: 113
+                    third_place: 190
+                    total_tournaments: 561
+                    win_rate: 38.6
+                svg:
+                    elo: 947
+                    first_place: 28
+                    fourth_place: 256
+                    rank: 131
+                    second_place: 64
+                    third_place: 112
+                    total_tournaments: 460
+                    win_rate: 26.7
+                uicomponent:
+                    elo: 1074
+                    first_place: 57
+                    fourth_place: 98
+                    rank: 139
+                    second_place: 80
+                    third_place: 128
+                    total_tournaments: 363
+                    win_rate: 37.2
+                website:
+                    elo: 1141
+                    first_place: 467
+                    fourth_place: 559
+                    rank: 135
+                    second_place: 632
+                    third_place: 800
+                    total_tournaments: 2458
+                    win_rate: 42.4
+    vals_ai:
+        mistralai/mistral-medium-3.5:
+            case_law_v2:
+                accuracy: 44.159
+                cost_per_test: 0.084987
+                latency_seconds: 64.635
+                stderr: 1.056
+            corp_fin_v2:
+                accuracy: 58.78
+                cost_per_test: 0.14574
+                latency_seconds: 43.699
+                stderr: 0.969
+            gpqa:
+                accuracy: 34.848
+                cost_per_test: 0.095489
+                latency_seconds: 256.17
+                stderr: 2.39
+            legal_research:
+                accuracy: 9.135
+                cost_per_test: 1.308079
+                latency_seconds: 613.248
+                stderr: 2.002
+            medcode:
+                accuracy: 33.752
+                cost_per_test: 0.05337
+                latency_seconds: 34.879
+                stderr: 1.148
+            medscribe:
+                accuracy: 67.728
+                cost_per_test: 0.157641
+                latency_seconds: 104.053
+                stderr: 2.011
+            mmlu_pro:
+                accuracy: 75.335
+                cost_per_test: 0.041763
+                latency_seconds: 66.384
+                stderr: 0.418
+            mortgage_tax:
+                accuracy: 28.895
+                cost_per_test: 0.024032
+                latency_seconds: 68.43
+                stderr: 0.838
+            proof_bench:
+                accuracy: 9.0
+                cost_per_test: 1.302032
+                latency_seconds: 479.048
+                stderr: 2.876
+            sage:
+                accuracy: 71.965
+                cost_per_test: 0.073632
+                latency_seconds: 46.75
+                stderr: 2.215
+            swebench:
+                accuracy: 66.4
+                cost_per_test: 4.004623
+                latency_seconds: 1143.68
+                stderr: 2.114
+            tax_agent_bench:
+                accuracy: 4.482
+                cost_per_test: 1.443655
+                latency_seconds: 430.673
+                stderr: 1.47
+            tax_eval_v2:
+                accuracy: 67.988
+                cost_per_test: 0.079101
+                latency_seconds: 102.392
+                stderr: 0.916
+            vals_multimodal_index:
+                accuracy: 34.768
+                cost_per_test: 3.453606
+                latency_seconds: 734.703
+                stderr: 0.833
+            vibe-code:
+                accuracy: 2.888
+                cost_per_test: 16.735503
+                latency_seconds: 2470.533
+                stderr: 1.713

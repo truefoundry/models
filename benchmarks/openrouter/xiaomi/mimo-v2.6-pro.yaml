@@ -3,36 +3,51 @@ artificial_analysis_id: 24d8fdfe-6241-424e-b7b7-1b6efb06e4fb
 artificial_analysis_slug: mimo-v2-6-pro
 metrics:
     artificial_analysis:
+        aa_3d_elo: 983.1402
         aa_omniscience_accuracy: 0.348
+        aa_omniscience_hallucination_rate: 0.6022494887525562
         aa_omniscience_non_hallucination_rate: 0.398
         agentic_index: null
         agentic_percentile: null
         aime: null
         aime_25: null
+        analyst_agent: 0.375
+        automationbench_partial_score: 0.5862340943419085
+        code2video_elo: 1051.51
         coding_index: null
         coding_percentile: null
-        critpt: 0.266
+        critpt: 0.265714285714286
+        critpt_agentic_hard: 0.34
         economics_index: 37.7
         engineering_index: 34.3
         finance_and_accounting_index: 38.9
+        frontiercode: 0.454153333333333
+        frontiercode_v2_0: 0.239701262626263
+        gdp_pdf_all_pass: 0.192
         gdpval_aa: 0.596
+        gdpval_aa_elo: 1691.26
         gpqa: null
         healthcare_and_medical_index: 35.8
-        hle: 0.494
+        hle: 0.493512511584801
+        hle_diamond: 0.152
         ifbench: null
-        intelligence_index: 29.9
+        intelligence_index: 29.8897833093321
         intelligence_percentile: 41
-        lcr: 0.863
+        lcr: 0.863333333333333
         legal_index: 35
         livecodebench: null
         math_500: null
         math_index: null
+        mlcr_overall: 0.127777777777778
         mmlu_pro: null
-        scicode: 0.609
+        omniscience_index: -4.466666666666667
+        openness_index: 52.77777777777778
+        scicode: 0.608796296296296
         strategy_and_ops_index: 46.9
         tau2: null
         tau_banking: null
         terminalbench_hard: null
+        terminalbench_science: 0.0571428571428571
         terminalbench_v2_1: null
         terminalbench_v4_0: 0.348484848484849
     design_arena:
@@ -119,6 +134,72 @@ metrics:
                     third_place: 0
                     total_tournaments: 0
                     win_rate: 50.8
+        MiMo-V2.6-Pro (mimo-v2.6-pro):
+            agents:
+                webapps:
+                    elo: 1291
+                    first_place: 1853
+                    fourth_place: 0
+                    rank: 11
+                    second_place: 1332
+                    third_place: 0
+                    total_tournaments: 3185
+                    win_rate: 58.3
+            models:
+                3d:
+                    elo: 1332
+                    first_place: 508
+                    fourth_place: 249
+                    rank: 21
+                    second_place: 361
+                    third_place: 290
+                    total_tournaments: 1408
+                    win_rate: 57.5
+                dataviz:
+                    elo: 1335
+                    first_place: 195
+                    fourth_place: 99
+                    rank: 6
+                    second_place: 169
+                    third_place: 119
+                    total_tournaments: 582
+                    win_rate: 58.4
+                gamedev:
+                    elo: 1315
+                    first_place: 1095
+                    fourth_place: 760
+                    rank: 23
+                    second_place: 974
+                    third_place: 804
+                    total_tournaments: 3633
+                    win_rate: 53.5
+                svg:
+                    elo: 1285
+                    first_place: 64
+                    fourth_place: 51
+                    rank: 18
+                    second_place: 59
+                    third_place: 49
+                    total_tournaments: 223
+                    win_rate: 52.7
+                uicomponent:
+                    elo: 1334
+                    first_place: 184
+                    fourth_place: 83
+                    rank: 15
+                    second_place: 158
+                    third_place: 113
+                    total_tournaments: 538
+                    win_rate: 58.9
+                website:
+                    elo: 1307
+                    first_place: 2437
+                    fourth_place: 2298
+                    rank: 18
+                    second_place: 2041
+                    third_place: 1732
+                    total_tournaments: 8508
+                    win_rate: 50.8
     vals_ai:
         xiaomi/mimo-v2.6-pro:
             code-migration:
@@ -201,16 +282,26 @@ metrics:
                 cost_per_test: 0.00988
                 latency_seconds: 173.345
                 stderr: 1.938
+            mysterymechanism:
+                accuracy: 15.315
+                cost_per_test: 0.153721
+                latency_seconds: 2639.688
+                stderr: 2.423
             programbench:
                 accuracy: 0.5
                 cost_per_test: 0.726582
                 latency_seconds: 10825.24
                 stderr: 0.5
             proof_bench:
-                accuracy: 70
+                accuracy: 70.0
                 cost_per_test: 0.24535
                 latency_seconds: 3693.469
                 stderr: 4.606
+            public-benefits-bench:
+                accuracy: 68.945
+                cost_per_test: 0.081936
+                latency_seconds: 2234.344
+                stderr: 1.204
             sage:
                 accuracy: 84.448
                 cost_per_test: 0.021366
@@ -246,6 +337,11 @@ metrics:
                 cost_per_test: 0.456609
                 latency_seconds: 9720.048
                 stderr: 3.072
+            terminal-bench-science:
+                accuracy: 2.857
+                cost_per_test: 0.62088
+                latency_seconds: 11504.04
+                stderr: 2.006
             vals_index:
                 accuracy: 57.813
                 cost_per_test: 0.42958
@@ -261,6 +357,11 @@ metrics:
                 cost_per_test: 0.410427
                 latency_seconds: 4038.85
                 stderr: 1.182
+            vals_router_index:
+                accuracy: 57.813
+                cost_per_test: 0.434692
+                latency_seconds: 4355.892
+                stderr: 1.24
             vibe-code:
                 accuracy: 85.223
                 cost_per_test: 1.043846
