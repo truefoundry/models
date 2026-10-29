@@ -1,0 +1,78 @@
+model: alibaba/qwen3-5-plus
+openrouter_id: qwen/qwen3.5-plus-20260420
+openrouter_permaslug: qwen/qwen3.5-plus-20260420
+vals_ai_id: alibaba/qwen3.5-plus-thinking
+metrics:
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 8b4a0fbb-6705-4f8d-a7f1-ad18ecc0edbc
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.4562877975276577
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.44509299999999996
+    vals_ai:
+        alibaba/qwen3.5-plus-thinking:
+            aime:
+                accuracy: 86.042
+                cost_per_test: 0.04516
+                latency_seconds: 213.536
+                stderr: 1.111
+            case_law_v2:
+                accuracy: 59.7
+                cost_per_test: 0.029604
+                latency_seconds: 94.691
+                stderr: 1.134
+            corp_fin_v2:
+                accuracy: 65.307
+                cost_per_test: 0.058073
+                latency_seconds: 155.861
+                stderr: 0.936
+            gpqa:
+                accuracy: 87.374
+                cost_per_test: 0.018542
+                latency_seconds: 103.772
+                stderr: 1.669
+            lcb:
+                accuracy: 85.326
+                cost_per_test: 0.04786
+                latency_seconds: 247.472
+                stderr: 1.001
+            legal_bench:
+                accuracy: 85.104
+                cost_per_test: 0.003671
+                latency_seconds: 30.422
+                stderr: 0.408
+            medqa:
+                accuracy: 95.208
+                cost_per_test: 0.00829
+                latency_seconds: 52.361
+                stderr: 0.195
+            mmlu_pro:
+                accuracy: 87.178
+                cost_per_test: 0.008912
+                latency_seconds: 76.678
+                stderr: 0.328
+            mmmu:
+                accuracy: 22.775
+                cost_per_test: 0.01513
+                latency_seconds: 135.183
+                stderr: 1.008
+            mortgage_tax:
+                accuracy: 60.772
+                cost_per_test: 0.010812
+                latency_seconds: 62.075
+                stderr: 0.972
+            swebench:
+                accuracy: 71.2
+                cost_per_test: 0.963553
+                latency_seconds: 496.245
+                stderr: 2.027
+            vibe-code:
+                accuracy: 15.738
+                cost_per_test: 3.803761
+                latency_seconds: 3015.618
+                stderr: 3.179

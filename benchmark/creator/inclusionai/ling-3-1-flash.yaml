@@ -1,0 +1,74 @@
+model: inclusionai/ling-3-1-flash
+artificial_analysis_id: a6043b9b-628a-4a76-a021-2834e0627d05
+artificial_analysis_slug: ling-3-1-flash
+design_arena_id: ling-3.1-flash
+openrouter_id: inclusionai/ling-3.1-flash
+openrouter_permaslug: inclusionai/ling-3.1-flash-20261002
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: null
+        aime_25: null
+        automationbench_partial_score: 0.6174373352506193
+        coding_index: null
+        critpt: 0.18
+        economics_index: null
+        engineering_index: null
+        finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.1
+        gdpval_aa: 0.563
+        gdpval_aa_elo: 1626.56
+        gpqa: null
+        healthcare_and_medical_index: null
+        hle: 0.394346617238183
+        ifbench: null
+        intelligence_index: null
+        lcr: 0.83
+        legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.122222222222222
+        mmlu_pro: null
+        openness_index: 38.888888888888886
+        scicode: 0.540509259259259
+        strategy_and_ops_index: null
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: 0.333333333333333
+    design_arena:
+        Ling-3.1-flash:
+            agents:
+                mobileapps:
+                    elo: 1198
+                    first_place: 1517
+                    fourth_place: 0
+                    rank: 21
+                    second_place: 1531
+                    third_place: 0
+                    total_tournaments: 3048
+                    win_rate: 49.8
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 08141471-7a96-45d7-b605-a21413fd9ecf
+              provider: DeepInfra
+              run_count: 1
+              score: 0.9479169999999999
+            - endpoint_id: 99952eba-3dc9-47c1-8372-798b91502165
+              provider: NovitaAI
+              run_count: 1
+              score: 0.813051
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 08141471-7a96-45d7-b605-a21413fd9ecf
+              provider: DeepInfra
+              run_count: 1
+              score: 0.793333
+            - endpoint_id: 99952eba-3dc9-47c1-8372-798b91502165
+              provider: NovitaAI
+              run_count: 1
+              score: 0.793333

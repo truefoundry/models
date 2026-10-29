@@ -1,0 +1,173 @@
+model: meta/llama-4-scout
+artificial_analysis_id: adf9a85e-abc3-4f28-937b-db6655cc5238
+artificial_analysis_slug: llama-4-scout
+design_arena_id: llama-4-scout
+openrouter_id: meta-llama/llama-4-scout
+openrouter_permaslug: meta-llama/llama-4-scout-17b-16e-instruct
+vals_ai_id: together/meta-llama/Llama-4-Scout-17B-16E-Instruct
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 0.5
+        agentic_percentile: 1
+        aime: 0.283333333333333
+        aime_25: 0.14
+        automationbench_partial_score: 0.0019111706206154657
+        coding_index: 8.2
+        coding_percentile: 4
+        critpt: 0
+        economics_index: null
+        engineering_index: null
+        finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0
+        gdpval_aa: 0
+        gdpval_aa_elo: -155.39
+        gpqa: 0.586868686868687
+        healthcare_and_medical_index: null
+        hle: 0.0378
+        ifbench: 0.395238095238095
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.277
+        legal_index: null
+        livecodebench: 0.299470899470899
+        math_500: 0.844
+        math_index: 14
+        mmlu_pro: 0.752
+        mmmu_pro: 0.529479768786127
+        openness_index: 27.77777777777778
+        scicode: 0.212962962962963
+        strategy_and_ops_index: null
+        tau2: 0.154970760233918
+        tau_banking: 0.0329896907216495
+        terminalbench_hard: 0.0151515151515152
+        terminalbench_v2_1: 0.0374531835205993
+        terminalbench_v4_0: 0
+    design_arena:
+        Llama 4 Scout:
+            models:
+                codecategories:
+                    avg_generation_time_ms: 11984
+                    elo: 788
+                    elo_percentile: 0
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 26.6
+                dataviz:
+                    avg_generation_time_ms: 11682
+                    elo: 896
+                    elo_percentile: 3
+                    first_place: 66
+                    fourth_place: 264
+                    second_place: 152
+                    third_place: 133
+                    total_tournaments: 615
+                    win_rate: 39.3
+                gamedev:
+                    avg_generation_time_ms: 14894
+                    elo: 772
+                    elo_percentile: 0
+                    first_place: 9
+                    fourth_place: 32
+                    rank: 189
+                    second_place: 25
+                    third_place: 20
+                    total_tournaments: 86
+                    win_rate: 27.4
+                uicomponent:
+                    avg_generation_time_ms: 12056
+                    elo: 762
+                    elo_percentile: 0
+                    first_place: 5
+                    fourth_place: 33
+                    rank: 181
+                    second_place: 17
+                    third_place: 18
+                    total_tournaments: 73
+                    win_rate: 25.5
+                website:
+                    avg_generation_time_ms: 11855
+                    elo: 749
+                    elo_percentile: 0
+                    first_place: 36
+                    fourth_place: 174
+                    rank: 202
+                    second_place: 82
+                    third_place: 78
+                    total_tournaments: 370
+                    win_rate: 22.7
+    vals_ai:
+        together/meta-llama/Llama-4-Scout-17B-16E-Instruct:
+            aime:
+                accuracy: 18.958
+                cost_per_test: 0.000813
+                latency_seconds: 21.69
+                stderr: 0.7
+            corp_fin_v2:
+                accuracy: 46.776
+                cost_per_test: 0.011639
+                latency_seconds: 9.697
+                stderr: 0.98
+            gpqa:
+                accuracy: 46.97
+                cost_per_test: 0.000654
+                latency_seconds: 12.092
+                stderr: 2.491
+            lcb:
+                accuracy: 38.541
+                cost_per_test: 0.000615
+                latency_seconds: 16.762
+                stderr: 1.016
+            legal_bench:
+                accuracy: 72.036
+                latency_seconds: 0.392
+                stderr: 0.479
+            math500:
+                accuracy: 79.2
+                cost_per_test: 0.00043
+                latency_seconds: 10.523
+                stderr: 1.815
+            medcode:
+                accuracy: 23.311
+                cost_per_test: 0.002176
+                latency_seconds: 10.736
+                stderr: 1.749
+            medqa:
+                accuracy: 50.9
+                cost_per_test: 0.000326
+                latency_seconds: 4.802
+                stderr: 0.456
+            medscribe:
+                accuracy: 50.593
+                cost_per_test: 0.0017
+                latency_seconds: 11.323
+                stderr: 1.901
+            mgsm:
+                accuracy: 87.964
+                cost_per_test: 0.000147
+                latency_seconds: 3.499
+                stderr: 1.993
+            mmlu_pro:
+                accuracy: 69.632
+                cost_per_test: 0.000507
+                latency_seconds: 5.342
+                stderr: 0.445
+            mmmu:
+                accuracy: 58.752
+                cost_per_test: 0.000835
+                latency_seconds: 10.506
+                stderr: 1.183
+            mortgage_tax:
+                accuracy: 57.75
+                cost_per_test: 0.000572
+                latency_seconds: 2.426
+                stderr: 0.979
+            tax_eval_v2:
+                accuracy: 55.192
+                cost_per_test: 0.000378
+                latency_seconds: 7.042
+                stderr: 0.975

@@ -1,0 +1,180 @@
+model: alibaba/qwen3-6-27b
+artificial_analysis_id: 8c29d66d-bf98-4ea3-8572-5409353ecc66
+artificial_analysis_slug: qwen3-6-27b
+openrouter_id: qwen/qwen3.6-27b
+openrouter_permaslug: qwen/qwen3.6-27b-20260422
+vals_ai_id: alibaba/qwen3.6-27b
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 18.5
+        agentic_percentile: 42
+        aime: null
+        aime_25: null
+        automationbench_partial_score: 0.11045223588713587
+        coding_index: 53.7
+        coding_percentile: 56
+        critpt: 0.0114285714285714
+        economics_index: null
+        engineering_index: null
+        finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.11
+        gdpval_aa: 0.247
+        gdpval_aa_elo: 993.38
+        gpqa: 0.842424242424242
+        healthcare_and_medical_index: null
+        hle: 0.230769230769231
+        ifbench: 0.675510204081633
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.773333333333333
+        legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.105555555555556
+        mmlu_pro: null
+        mmmu_pro: 0.746242774566474
+        openness_index: 38.888888888888886
+        scicode: 0.428240740740741
+        strategy_and_ops_index: null
+        tau2: 0.941520467836257
+        tau_banking: 0.167010309278351
+        terminalbench_hard: 0.348484848484849
+        terminalbench_v2_1: 0.606741573033708
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 82097366-3a73-4790-ac36-f96ba9f6f577
+              provider: Alibaba Cloud Int.
+              run_count: 5
+              score: 0.8468590756552201
+            - endpoint_id: 328bee10-7e34-44f8-a7cc-c33c8f8775ed
+              provider: Chutes
+              run_count: 4
+              score: 0.8509044403508976
+            - endpoint_id: 450be8a0-0ccb-4a62-844f-e83040dfc9cc
+              provider: DeepInfra
+              run_count: 5
+              score: 0.8382754384485921
+            - endpoint_id: 9180b066-c688-4624-8395-bc96cfd367f1
+              provider: Phala
+              run_count: 2
+              score: 0.8501096369300529
+            - endpoint_id: 7180c901-26ce-4cb4-904f-57d5134f49a3
+              provider: Reka AI
+              run_count: 7
+              score: 0.8133342007540293
+            - endpoint_id: 33b43f52-9a4d-495e-9843-1de4b35098c0
+              provider: SiliconFlow
+              run_count: 3
+              score: 0.8528582642442901
+            - endpoint_id: c9496737-ca51-4bb6-96aa-697b715141d6
+              provider: Venice
+              run_count: 4
+              score: 0.8541137647026534
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8525372007380099
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 82097366-3a73-4790-ac36-f96ba9f6f577
+              provider: Alibaba Cloud Int.
+              run_count: 5
+              score: 0.762557754186841
+            - endpoint_id: 328bee10-7e34-44f8-a7cc-c33c8f8775ed
+              provider: Chutes
+              run_count: 4
+              score: 0.7943607047148752
+            - endpoint_id: 450be8a0-0ccb-4a62-844f-e83040dfc9cc
+              provider: DeepInfra
+              run_count: 5
+              score: 0.7564228347379918
+            - endpoint_id: 9180b066-c688-4624-8395-bc96cfd367f1
+              provider: Phala
+              run_count: 2
+              score: 0.7780739764534895
+            - endpoint_id: 7180c901-26ce-4cb4-904f-57d5134f49a3
+              provider: Reka AI
+              run_count: 2
+              score: 0.7971081108675235
+            - endpoint_id: 33b43f52-9a4d-495e-9843-1de4b35098c0
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.7652965330999352
+            - endpoint_id: c9496737-ca51-4bb6-96aa-697b715141d6
+              provider: Venice
+              run_count: 4
+              score: 0.7511324584956406
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7845099534039067
+        vgi_bench:
+            - endpoint_id: 82097366-3a73-4790-ac36-f96ba9f6f577
+              provider: Alibaba Cloud Int.
+              run_count: 5
+              score: 0.11860234635724415
+            - endpoint_id: 450be8a0-0ccb-4a62-844f-e83040dfc9cc
+              provider: DeepInfra
+              run_count: 1
+              score: 0.379651
+    vals_ai:
+        alibaba/qwen3.6-27b:
+            case_law_v2:
+                accuracy: 53.162
+                cost_per_test: 0.023877
+                latency_seconds: 42.493
+                stderr: 2.168
+            corp_fin_v2:
+                accuracy: 62.315
+                cost_per_test: 0.053549
+                latency_seconds: 62.759
+                stderr: 0.954
+            mortgage_tax:
+                accuracy: 68.283
+                cost_per_test: 0.016906
+                latency_seconds: 42.074
+                stderr: 0.916
+            proof_bench_v1:
+                accuracy: 8
+                cost_per_test: 0.512041
+                latency_seconds: 695.339
+                stderr: 2.713
+            sage-v1:
+                accuracy: 45.577
+                cost_per_test: 0.050269
+                latency_seconds: 159.25
+                stderr: 3.427
+            swebench:
+                accuracy: 70.0
+                cost_per_test: 0.91414
+                latency_seconds: 1028.733
+                stderr: 2.051
+            tax_eval_v2:
+                accuracy: 71.26
+                cost_per_test: 0.030256
+                latency_seconds: 147.778
+                stderr: 0.882
+            terminal-bench-2:
+                accuracy: 44.944
+                cost_per_test: 0.298145
+                latency_seconds: 2007.631
+                stderr: 5.303
+            vals_index_v1:
+                accuracy: 48.703
+                cost_per_test: 1.287196
+                latency_seconds: 2663.466
+                stderr: 1.657
+            vals_multimodal_index_v1:
+                accuracy: 50.18
+                cost_per_test: 0.929022
+                latency_seconds: 1931.236
+                stderr: 1.322
+            vibe-code:
+                accuracy: 11.941
+                cost_per_test: 4.655127
+                latency_seconds: 9762.856
+                stderr: 3.414

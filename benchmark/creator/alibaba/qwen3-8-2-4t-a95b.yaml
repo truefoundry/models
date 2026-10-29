@@ -1,0 +1,115 @@
+model: alibaba/qwen3-8-2-4t-a95b
+artificial_analysis_id: 8df710d3-9dae-4498-9b4e-9818238e6f31
+artificial_analysis_slug: qwen3-8-2-4t-a95b
+openrouter_id: qwen/qwen3.8-2.4t-a95b
+openrouter_permaslug: qwen/qwen3.8-2.4t-a95b-20260812
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: 0.314
+        aa_omniscience_hallucination_rate: 0.34450923226433433
+        aa_omniscience_non_hallucination_rate: 0.655
+        agentic_index: 50.1
+        agentic_percentile: 87
+        aime: null
+        aime_25: null
+        automationbench_partial_score: 0.572473765458222
+        coding_index: 71.9
+        coding_percentile: 81
+        critpt: 0.2
+        economics_index: null
+        engineering_index: null
+        enterprise_ops_gym: 0.4735899731423456
+        finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.156
+        gdpval_aa: 0.558
+        gdpval_aa_elo: 1615.94
+        gpqa: 0.935353535353535
+        healthcare_and_medical_index: null
+        hle: 0.424467099165894
+        ifbench: null
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.803333333333333
+        legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.305555555555556
+        mmlu_pro: null
+        omniscience_index: 7.766666666666667
+        openness_index: 27.77777777777778
+        scicode: 0.540509259259259
+        strategy_and_ops_index: 44.4
+        tau2: null
+        tau_banking: 0.490721649484536
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.820224719101124
+        terminalbench_v4_0: 0.111111111111111
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: b7eadc37-5099-4808-b89d-161c27763c17
+              provider: Alibaba Cloud Int.
+              run_count: 5
+              score: 0.8658903721015003
+            - endpoint_id: 57870cab-954a-44ee-8231-e525460f55a9
+              provider: DeepInfra
+              run_count: 3
+              score: 0.8676465885956092
+            - endpoint_id: 553a8719-4bf1-402c-8469-45e761d0b212
+              provider: Modal
+              run_count: 2
+              score: 0.8735357451806884
+            - endpoint_id: fbb272e9-93a9-4f8e-9abf-d9cac58b46c5
+              provider: NovitaAI
+              run_count: 4
+              score: 0.8679079308569837
+            - endpoint_id: 05e65ad4-e6ed-462b-8013-3be86ba59dad
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.8551612868012876
+            - endpoint_id: 6151a50a-47bf-4e39-9d0f-63d2fe7b41e0
+              provider: Together
+              run_count: 4
+              score: 0.8706423972591747
+            - endpoint_id: ad9ab674-7100-4b21-af0b-f3d7f395c590
+              provider: Venice
+              run_count: 4
+              score: 0.9239322322936578
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8754342714061112
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: b7eadc37-5099-4808-b89d-161c27763c17
+              provider: Alibaba Cloud Int.
+              run_count: 5
+              score: 0.7640680993123374
+            - endpoint_id: 57870cab-954a-44ee-8231-e525460f55a9
+              provider: DeepInfra
+              run_count: 3
+              score: 0.7765589542149707
+            - endpoint_id: 553a8719-4bf1-402c-8469-45e761d0b212
+              provider: Modal
+              run_count: 2
+              score: 0.7439756089440501
+            - endpoint_id: fbb272e9-93a9-4f8e-9abf-d9cac58b46c5
+              provider: NovitaAI
+              run_count: 4
+              score: 0.7416704521292571
+            - endpoint_id: 05e65ad4-e6ed-462b-8013-3be86ba59dad
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.7641838410615376
+            - endpoint_id: 6151a50a-47bf-4e39-9d0f-63d2fe7b41e0
+              provider: Together
+              run_count: 4
+              score: 0.7545562905025103
+            - endpoint_id: ad9ab674-7100-4b21-af0b-f3d7f395c590
+              provider: Venice
+              run_count: 4
+              score: 0.7320695971859899
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7499587118207882

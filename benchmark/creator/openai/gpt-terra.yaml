@@ -1,0 +1,77 @@
+model: openai/gpt-terra
+openrouter_id: ~openai/gpt-terra-latest
+openrouter_permaslug: ~openai/gpt-terra-latest
+vals_ai_id: openai/gpt-6.1-terra
+metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 6a8480a0-23c9-4ce7-8540-f0e85521e213
+              provider: Azure
+              run_count: 1
+              score: 0.919192
+            - endpoint_id: 2d2ad10f-098e-4bbf-aa95-11f705b2b9a2
+              provider: OpenAI
+              run_count: 1
+              score: 0.910774
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 6a8480a0-23c9-4ce7-8540-f0e85521e213
+              provider: Azure
+              run_count: 1
+              score: 0.686667
+            - endpoint_id: 2d2ad10f-098e-4bbf-aa95-11f705b2b9a2
+              provider: OpenAI
+              run_count: 1
+              score: 0.7
+    vals_ai:
+        openai/gpt-6.1-terra:
+            emb-v1-1:
+                accuracy: 73.33
+                cost_per_test: 0.559258
+                latency_seconds: 756.889
+                stderr: 2.235
+            fabv2-1:
+                accuracy: 55.958
+                cost_per_test: 1.922848
+                latency_seconds: 1787.129
+                stderr: 2.094
+            finance_index:
+                accuracy: 52.864
+                cost_per_test: 1.547308
+                latency_seconds: 1765.123
+                stderr: 1.302
+            hlab:
+                accuracy: 1.667
+                cost_per_test: 1.477673
+                latency_seconds: 821.505
+                stderr: 1.013
+            legal_index:
+                accuracy: 58.638
+                cost_per_test: 2.286035
+                latency_seconds: 2591.861
+                stderr: 1.359
+            legal_research:
+                accuracy: 25.962
+                cost_per_test: 3.220614
+                latency_seconds: 4202.728
+                stderr: 3.047
+            tax_agent_bench:
+                accuracy: 15.166
+                cost_per_test: 2.159819
+                latency_seconds: 2751.35
+                stderr: 2.426
+            terminal-bench-4:
+                accuracy: 49.495
+                cost_per_test: 2.039693
+                latency_seconds: 1965.137
+                stderr: 1.821
+            vals_index:
+                accuracy: 60.473
+                cost_per_test: 2.924759
+                latency_seconds: 2374.816
+                stderr: 0.993
+            vibe-code:
+                accuracy: 83.997
+                cost_per_test: 5.996953
+                latency_seconds: 2250.002
+                stderr: 2.865

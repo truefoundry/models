@@ -1,0 +1,73 @@
+model: amazon/nova-micro
+artificial_analysis_id: 344c6718-c573-41d4-9556-10287a3fa1fc
+artificial_analysis_slug: nova-micro
+openrouter_id: amazon/nova-micro-v1
+openrouter_permaslug: amazon/nova-micro-v1
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: 0.08
+        aime_25: 0.06
+        coding_index: null
+        critpt: 0
+        economics_index: null
+        engineering_index: null
+        finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.357575757575758
+        healthcare_and_medical_index: null
+        hle: 0.046339202965709
+        ifbench: 0.293877551020408
+        intelligence_index: null
+        lcr: 0.13
+        legal_index: null
+        livecodebench: 0.13968253968254
+        math_500: 0.703333333333333
+        math_index: 6
+        mmlu_pro: 0.531
+        openness_index: 11.11111111111111
+        scicode: null
+        strategy_and_ops_index: null
+        tau2: 0.140350877192982
+        tau_banking: null
+        terminalbench_hard: 0.0151515151515152
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 474f0074-66f9-42f0-a866-81a2ffebb001
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.373737
+            - endpoint_id: b2fd24f9-80a2-4d47-8b3b-209fbc345d69
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.40404
+            - endpoint_id: 8b37e15d-6f97-4561-bab7-007aaee76c5c
+              provider: Anthropic
+              run_count: 1
+              score: 0.8956229999999998
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.888889
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 474f0074-66f9-42f0-a866-81a2ffebb001
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.176871
+            - endpoint_id: b2fd24f9-80a2-4d47-8b3b-209fbc345d69
+              provider: Amazon Bedrock
+              run_count: 1
+              score: 0.166667
+            - endpoint_id: 8b37e15d-6f97-4561-bab7-007aaee76c5c
+              provider: Anthropic
+              run_count: 1
+              score: 0.733333
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.766667

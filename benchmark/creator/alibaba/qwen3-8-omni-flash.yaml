@@ -1,0 +1,15 @@
+model: alibaba/qwen3-8-omni-flash
+openrouter_id: qwen/qwen3.8-omni-flash
+openrouter_permaslug: qwen/qwen3.8-omni-flash-20260918
+metrics:
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: d3fa16a4-c662-45f7-9b15-d678bfdbd542
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.6618962905849901
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.654984

@@ -1,0 +1,96 @@
+model: google/gemini-3-1-flash-lite
+artificial_analysis_id: 598190f8-dc9c-4fea-a7ea-4b81c402ab18
+artificial_analysis_slug: gemini-3-1-flash-lite-preview
+openrouter_id: google/gemini-3.1-flash-lite
+openrouter_permaslug: google/gemini-3.1-flash-lite-20260507
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 1.6
+        agentic_percentile: 19
+        aime: null
+        aime_25: null
+        analyst_agent: 0.0875
+        apex_agents: 0.121681415929204
+        automationbench_partial_score: 0.06796182033119545
+        coding_index: 34.7
+        coding_percentile: 33
+        critpt: 0.0114285714285714
+        economics_index: null
+        engineering_index: null
+        enterprise_ops_gym: 0.2802148612354521
+        finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.078
+        gdpval_aa: 0
+        gdpval_aa_elo: 438.32
+        gpqa: 0.822222222222222
+        healthcare_and_medical_index: null
+        hle: 0.17191844300278
+        ifbench: 0.772108843537415
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.743333333333333
+        legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.05
+        mmlu_pro: null
+        mmmu_pro: 0.755491329479769
+        scicode: 0.434027777777778
+        strategy_and_ops_index: null
+        tau2: 0.312865497076023
+        tau_banking: 0.0969072164948454
+        terminalbench_hard: 0.242424242424242
+        terminalbench_v2_1: 0.310861423220974
+        terminalbench_v4_0: 0.00505050505050505
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 237af107-d2e9-46c7-b146-c74d75980dee
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.826599
+            - endpoint_id: 0d6ee1b8-2f68-491f-9707-4febcfa3a6c4
+              provider: Google Vertex
+              run_count: 1
+              score: 0.833333
+            - endpoint_id: 38f720a7-7220-4605-93c7-83eef1b3ce58
+              provider: Google Vertex
+              run_count: 1
+              score: 0.823232
+            - endpoint_id: 3b5d6cdb-68b9-45c7-bba0-470690b95072
+              provider: Google Vertex
+              run_count: 1
+              score: 0.8316499999999999
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.845118
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 237af107-d2e9-46c7-b146-c74d75980dee
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.686667
+            - endpoint_id: 0d6ee1b8-2f68-491f-9707-4febcfa3a6c4
+              provider: Google Vertex
+              run_count: 1
+              score: 0.733333
+            - endpoint_id: 38f720a7-7220-4605-93c7-83eef1b3ce58
+              provider: Google Vertex
+              run_count: 1
+              score: 0.7
+            - endpoint_id: 3b5d6cdb-68b9-45c7-bba0-470690b95072
+              provider: Google Vertex
+              run_count: 1
+              score: 0.746667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.7133329999999999
+        vgi_bench:
+            - endpoint_id: 237af107-d2e9-46c7-b146-c74d75980dee
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.082005

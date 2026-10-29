@@ -1,0 +1,382 @@
+model: alibaba/qwen3-8-max-0902
+artificial_analysis_id: b112af07-3bd5-4647-b09f-b23204361bb2
+artificial_analysis_slug: qwen3-8-max
+lmarena_id: Qwen3.8-Max (0902)
+openrouter_id: qwen/qwen3.8-max-0902
+openrouter_permaslug: qwen/qwen3.8-max-20260902
+vals_ai_id:
+    - alibaba/qwen3.8-max
+    - alibaba/qwen3.8-max-internal
+metrics:
+    artificial_analysis:
+        aa_3d_elo: 944.768
+        aa_omniscience_accuracy: 0.29533333333333334
+        aa_omniscience_hallucination_rate: 0.27057710501419113
+        aa_omniscience_non_hallucination_rate: 0.729
+        agentic_index: 56
+        agentic_percentile: 97
+        aime: null
+        aime_25: null
+        analyst_agent: 0.45
+        apex_agents: 0.424041297935103
+        automationbench_partial_score: 0.561905381087678
+        code2video_elo: 1020.76
+        coding_index: 76.2
+        coding_percentile: 90
+        critpt: 0.177142857142857
+        critpt_agentic_hard: 0.285
+        economics_index: 44.2
+        engineering_index: 39.2
+        enterprise_ops_gym: 0.4762757385854969
+        finance_and_accounting_index: 45
+        frontiercode: 0.431563
+        frontiercode_v2_0: 0.234232323232323
+        gdp_pdf_all_pass: 0.228
+        gdpval_aa: 0.587
+        gdpval_aa_elo: 1673.46
+        gpqa: 0.928282828282828
+        healthcare_and_medical_index: 40.8
+        hle: 0.430954587581094
+        hle_diamond: 0.24
+        ifbench: null
+        intelligence_index: 33.5545627367888
+        intelligence_percentile: 50
+        itbench_sre: 0.402542372881356
+        lcr: 0.803333333333333
+        legal_index: 41
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.2
+        mmlu_pro: null
+        mmmu_pro: 0.827745664739884
+        omniscience_index: 10.466666666666667
+        scicode: 0.520833333333333
+        strategy_and_ops_index: 47.3
+        tau2: null
+        tau_banking: 0.478350515463918
+        terminalbench_hard: null
+        terminalbench_science: 0.119047619047619
+        terminalbench_v2_1: 0.887640449438202
+        terminalbench_v4_0: 0.388888888888889
+    lmarena:
+        Qwen3.8-Max (0902):
+            webdev:
+                image_to_webdev:
+                    publish_date: "2026-10-19"
+                    rank: 9
+                    rating: 1636.59
+                    rating_lower: 1618.25
+                    rating_upper: 1654.93
+                    vote_count: 1163
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 13
+                    rating: 1675.94
+                    rating_lower: 1669.26
+                    rating_upper: 1682.61
+                    vote_count: 17936
+                webdev:
+                    publish_date: "2026-10-28"
+                    rank: 13
+                    rating: 1675.94
+                    rating_lower: 1669.26
+                    rating_upper: 1682.61
+                    vote_count: 17936
+                webdev-html:
+                    publish_date: "2026-10-28"
+                    rank: 16
+                    rating: 1657.38
+                    rating_lower: 1644.81
+                    rating_upper: 1669.96
+                    vote_count: 3300
+                webdev-react:
+                    publish_date: "2026-10-28"
+                    rank: 12
+                    rating: 1691.77
+                    rating_lower: 1683.95
+                    rating_upper: 1699.59
+                    vote_count: 10994
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 0fe01449-9981-49eb-804f-a31e57e4fb09
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.6395896750695447
+            - endpoint_id: a6e057a6-5101-4f0f-b838-e11b7b90556b
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.6463279991352125
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.637209
+    vals_ai:
+        alibaba/qwen3.8-max:
+            code-migration:
+                accuracy: 23.958
+                cost_per_test: 10.53816
+                latency_seconds: 16065.728
+                stderr: 4.309
+            corp_fin_v2:
+                accuracy: 65.851
+                cost_per_test: 0.179323
+                latency_seconds: 46.649
+                stderr: 0.935
+            cyber:
+                accuracy: 28.572
+                cost_per_test: 0.784693
+                latency_seconds: 580.168
+                stderr: 3.306
+            emb:
+                accuracy: 60.066
+                cost_per_test: 2.655924
+                latency_seconds: 3467.209
+                stderr: 3.352
+            emb-v1-1:
+                accuracy: 65.986
+                cost_per_test: 2.655924
+                latency_seconds: 3467.209
+                stderr: 2.694
+            fabv2:
+                accuracy: 50.593
+                cost_per_test: 1.236977
+                latency_seconds: 1174.928
+                stderr: 0.578
+            gpqa:
+                accuracy: 93.686
+                cost_per_test: 0.077028
+                latency_seconds: 266.606
+                stderr: 1.221
+            hlab-v1:
+                accuracy: 10.417
+                cost_per_test: 2.365468
+                latency_seconds: 2952.433
+                stderr: 2.287
+            immigration:
+                accuracy: 70.139
+                cost_per_test: 0.116743
+                latency_seconds: 264.993
+                stderr: 1.571
+            ioi:
+                accuracy: 68.889
+                cost_per_test: 9.468852
+                latency_seconds: 6398.213
+                stderr: 5.204
+            ioi-v1:
+                accuracy: 73
+                cost_per_test: 2.392116
+                latency_seconds: 3946.139
+                stderr: 1
+            lcb:
+                accuracy: 87.852
+                cost_per_test: 0.091412
+                latency_seconds: 337.788
+                stderr: 0.951
+            legal_bench:
+                accuracy: 83.609
+                cost_per_test: 0.010412
+                latency_seconds: 36.373
+                stderr: 0.418
+            legal_research:
+                accuracy: 47.596
+                cost_per_test: 2.486351
+                latency_seconds: 3677.636
+                stderr: 3.471
+            medcode:
+                accuracy: 40.668
+                cost_per_test: 0.120827
+                latency_seconds: 378.022
+                stderr: 2.029
+            medscribe:
+                accuracy: 84.947
+                cost_per_test: 0.089616
+                latency_seconds: 251.26
+                stderr: 1.999
+            mmlu_pro:
+                accuracy: 88.602
+                cost_per_test: 0.018585
+                latency_seconds: 63.576
+                stderr: 0.313
+            mmmu:
+                accuracy: 88.035
+                cost_per_test: 0.015881
+                latency_seconds: 43.853
+                stderr: 0.78
+            mortgage_tax:
+                accuracy: 63.99
+                cost_per_test: 0.027349
+                latency_seconds: 47.499
+                stderr: 0.942
+            mysterymechanism:
+                accuracy: 23.874
+                cost_per_test: 1.309463
+                latency_seconds: 2268.77
+                stderr: 2.868
+            programbench:
+                accuracy: 0.0
+                cost_per_test: 12.357107
+                latency_seconds: 21263.689
+                stderr: 0.0
+            proof_bench:
+                accuracy: 58.0
+                cost_per_test: 1.503984
+                latency_seconds: 1867.622
+                stderr: 4.96
+            proof_bench_v1:
+                accuracy: 47
+                cost_per_test: 1.576343
+                latency_seconds: 1998.736
+                stderr: 5.016
+            public-benefits-bench:
+                accuracy: 67.118
+                cost_per_test: 0.991386
+                latency_seconds: 2443.976
+                stderr: 1.222
+            rsi_index:
+                accuracy: 21.76
+                cost_per_test: 113.780219
+                latency_seconds: 324000
+                stderr: 0
+            sage:
+                accuracy: 81.762
+                cost_per_test: 0.086734
+                latency_seconds: 112.397
+                stderr: 2.079
+            sage-v1:
+                accuracy: 51.254
+                cost_per_test: 0.073645
+                latency_seconds: 132.802
+                stderr: 3.415
+            skillsbench:
+                accuracy: 42.011
+                cost_per_test: 0.524988
+                latency_seconds: 948.433
+                stderr: 4.435
+            swebench:
+                accuracy: 85.6
+                cost_per_test: 1.128442
+                latency_seconds: 2502.097
+                stderr: 1.572
+            swebench-multimodal:
+                accuracy: 42.5
+                cost_per_test: 0.994423
+                latency_seconds: 1124.029
+                stderr: 2.259
+            tax_agent_bench:
+                accuracy: 32.095
+                cost_per_test: 1.552558
+                latency_seconds: 2436.106
+                stderr: 3.367
+            tax_eval_v2:
+                accuracy: 75.552
+                cost_per_test: 0.07645
+                latency_seconds: 265.751
+                stderr: 0.838
+            terminal-bench-2-1:
+                accuracy: 67.416
+                cost_per_test: 0.448084
+                latency_seconds: 890.917
+                stderr: 0.649
+            terminal-bench-4:
+                accuracy: 34.343
+                cost_per_test: 10.633329
+                latency_seconds: 8900.152
+                stderr: 3.945
+            terminal-bench-science:
+                accuracy: 12.857
+                cost_per_test: 16.682189
+                latency_seconds: 12243.338
+                stderr: 4.03
+            vals_index_v1_2:
+                accuracy: 65.469
+                cost_per_test: 2.676811
+                latency_seconds: 2758.566
+                stderr: 1.625
+            vals_index_v2:
+                accuracy: 51.844
+                cost_per_test: 3.996716
+                latency_seconds: 5445.777
+                stderr: 1.288
+            vals_index_v2_1:
+                accuracy: 48.27
+                cost_per_test: 4.964352
+                latency_seconds: 6070.722
+                stderr: 1.337
+            vals_multimodal_index:
+                accuracy: 65.394
+                cost_per_test: 1.926436
+                latency_seconds: 1996.162
+                stderr: 1.449
+            vcb-1-100:
+                accuracy: 12.833
+                cost_per_test: 9.675734
+                latency_seconds: 5735.815
+                stderr: 3.183
+            vibe-code:
+                accuracy: 64.696
+                cost_per_test: 8.238852
+                latency_seconds: 10135.139
+                stderr: 5.362
+        alibaba/qwen3.8-max-internal:
+            code-migration-v1-1:
+                accuracy: 57.187
+                cost_per_test: 27.080702
+                latency_seconds: 14882.537
+                stderr: 2.801
+            emb-v1-1:
+                accuracy: 71.979
+                cost_per_test: 4.430287
+                latency_seconds: 3193.384
+                stderr: 2.387
+            fabv2-1:
+                accuracy: 58.829
+                cost_per_test: 2.992239
+                latency_seconds: 3319.592
+                stderr: 2.117
+            finance_index:
+                accuracy: 61.656
+                cost_per_test: 3.830358
+                latency_seconds: 3914.738
+                stderr: 1.488
+            hlab:
+                accuracy: 15.417
+                cost_per_test: 3.358663
+                latency_seconds: 2950.56
+                stderr: 3.063
+            legal_index:
+                accuracy: 73.901
+                cost_per_test: 4.246502
+                latency_seconds: 5277.128
+                stderr: 1.848
+            legal_research:
+                accuracy: 46.154
+                cost_per_test: 5.312295
+                latency_seconds: 7649.584
+                stderr: 3.465
+            tax_agent_bench:
+                accuracy: 49.663
+                cost_per_test: 4.068548
+                latency_seconds: 5231.239
+                stderr: 3.603
+            terminal-bench-4:
+                accuracy: 38.889
+                cost_per_test: 12.146852
+                latency_seconds: 8591.435
+                stderr: 1.336
+            vals_index:
+                accuracy: 59.045
+                cost_per_test: 8.729516
+                latency_seconds: 6345.62
+                stderr: 1.082
+            vcb-1-100:
+                accuracy: 24.833
+                cost_per_test: 11.589207
+                latency_seconds: 9477.164
+                stderr: 4.489
+            vibe-code:
+                accuracy: 77.141
+                cost_per_test: 11.668329
+                latency_seconds: 5079.378
+                stderr: 3.721

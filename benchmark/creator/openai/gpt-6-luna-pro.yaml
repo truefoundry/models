@@ -1,0 +1,48 @@
+model: openai/gpt-6-luna-pro
+openrouter_id: openai/gpt-6-luna-pro
+openrouter_permaslug: openai/gpt-6-luna-pro-20260922
+metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 1be5edc4-7a3e-487c-a532-1216b530c2ed
+              provider: Azure
+              run_count: 1
+              score: 0.885522
+            - endpoint_id: 3784c621-fbe9-421f-8e7c-a7cce1596774
+              provider: Azure
+              run_count: 1
+              score: 0.897306
+            - endpoint_id: f0e5626e-2bfb-468b-a6a7-46e4986fab0f
+              provider: Azure
+              run_count: 1
+              score: 0.893939
+            - endpoint_id: b6286562-1665-4a4e-8ce1-ae5a77dc078f
+              provider: OpenAI
+              run_count: 2
+              score: 0.8906197898112685
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.8838379999999999
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 1be5edc4-7a3e-487c-a532-1216b530c2ed
+              provider: Azure
+              run_count: 1
+              score: 0.7
+            - endpoint_id: 3784c621-fbe9-421f-8e7c-a7cce1596774
+              provider: Azure
+              run_count: 1
+              score: 0.6666669999999999
+            - endpoint_id: f0e5626e-2bfb-468b-a6a7-46e4986fab0f
+              provider: Azure
+              run_count: 1
+              score: 0.673333
+            - endpoint_id: b6286562-1665-4a4e-8ce1-ae5a77dc078f
+              provider: OpenAI
+              run_count: 2
+              score: 0.7034275427528467
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.6666670000000001

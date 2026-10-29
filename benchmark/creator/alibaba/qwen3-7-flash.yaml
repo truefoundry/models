@@ -1,0 +1,19 @@
+model: alibaba/qwen3-7-flash
+openrouter_id: qwen/qwen3.7-flash
+openrouter_permaslug: qwen/qwen3.7-flash-20260727
+metrics:
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 5a9a0ee6-874a-4d03-92be-e5094c0df4e7
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.5574526690132262
+            - endpoint_id: be0fa3bc-7ecd-46e1-821b-8a1233ea9129
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.542824
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.552978

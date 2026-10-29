@@ -1,0 +1,40 @@
+model: openai/gpt-6-astra-pro
+openrouter_id: openai/gpt-6-astra-pro
+openrouter_permaslug: openai/gpt-6-astra-pro-20260903
+metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 00dadce2-dc5c-496f-a26f-944d2e85131c
+              provider: Azure
+              run_count: 1
+              score: 0.9494949999999999
+            - endpoint_id: 73ddd88b-2dd3-402b-a7ae-f589767550a6
+              provider: Azure
+              run_count: 1
+              score: 0.949495
+            - endpoint_id: 51316ada-2b30-415b-adc1-1671322cf289
+              provider: OpenAI
+              run_count: 2
+              score: 0.9512257960737542
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.954545
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 00dadce2-dc5c-496f-a26f-944d2e85131c
+              provider: Azure
+              run_count: 1
+              score: 0.6800000000000002
+            - endpoint_id: 73ddd88b-2dd3-402b-a7ae-f589767550a6
+              provider: Azure
+              run_count: 1
+              score: 0.7
+            - endpoint_id: 51316ada-2b30-415b-adc1-1671322cf289
+              provider: OpenAI
+              run_count: 2
+              score: 0.7072324675845315
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.726667

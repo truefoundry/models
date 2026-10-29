@@ -1,0 +1,350 @@
+model: minimax/minimax-m3-1-flash
+artificial_analysis_id: d49c8680-e29b-400e-9511-824f7ddebe07
+artificial_analysis_slug: minimax-m3-1-flash
+design_arena_id: minimax-m3.1-flash
+lmarena_id: MiniMax-M3.1-Flash
+openrouter_id: minimax/minimax-m3.1-flash
+openrouter_permaslug: minimax/minimax-m3.1-flash-20261019
+vals_ai_id: minimax/MiniMax-M3.1-flash
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: 0.45066666666666666
+        aa_omniscience_hallucination_rate: 0.9368932038834952
+        aa_omniscience_non_hallucination_rate: 0.063
+        agentic_index: null
+        agentic_percentile: null
+        aime: null
+        aime_25: null
+        automationbench_partial_score: 0.7252180957532544
+        coding_index: null
+        coding_percentile: null
+        critpt: 0.222857142857143
+        critpt_agentic_hard: 0.31
+        economics_index: 38.8
+        engineering_index: 34.1
+        finance_and_accounting_index: 39.1
+        frontiercode: 0.385759
+        frontiercode_v2_0: 0.208218181818182
+        gdp_pdf_all_pass: 0.208
+        gdpval_aa: 0.483
+        gdpval_aa_elo: 1465.71
+        gpqa: null
+        healthcare_and_medical_index: 36.8
+        hle: 0.479610750695088
+        hle_diamond: 0.281
+        ifbench: null
+        intelligence_index: 28.9095214290458
+        intelligence_percentile: 38
+        lcr: 0.796666666666667
+        legal_index: 33
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.166666666666667
+        mmlu_pro: null
+        mmmu_pro: 0.791329479768786
+        omniscience_index: -6.4
+        scicode: 0.533564814814815
+        strategy_and_ops_index: 50.8
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_science: 0.0333333333333333
+        terminalbench_v2_1: null
+        terminalbench_v4_0: 0.257575757575758
+    design_arena:
+        MiniMax M3.1 Flash:
+            agents:
+                mobileapps:
+                    elo: 1238
+                    first_place: 118
+                    fourth_place: 0
+                    rank: 8
+                    second_place: 102
+                    third_place: 0
+                    total_tournaments: 220
+                    win_rate: 53.4
+            models:
+                3d:
+                    elo: 1334
+                    first_place: 80
+                    fourth_place: 38
+                    rank: 18
+                    second_place: 89
+                    third_place: 54
+                    total_tournaments: 261
+                    win_rate: 53.4
+                dataviz:
+                    elo: 1201
+                    first_place: 10
+                    fourth_place: 22
+                    rank: 76
+                    second_place: 11
+                    third_place: 14
+                    total_tournaments: 57
+                    win_rate: 39.7
+                gamedev:
+                    elo: 1318
+                    first_place: 278
+                    fourth_place: 145
+                    rank: 21
+                    second_place: 246
+                    third_place: 199
+                    total_tournaments: 868
+                    win_rate: 54.4
+                uicomponent:
+                    elo: 1291
+                    first_place: 33
+                    fourth_place: 42
+                    rank: 30
+                    second_place: 46
+                    third_place: 30
+                    total_tournaments: 151
+                    win_rate: 49.5
+                website:
+                    elo: 1278
+                    first_place: 277
+                    fourth_place: 285
+                    rank: 35
+                    second_place: 288
+                    third_place: 292
+                    total_tournaments: 1142
+                    win_rate: 49.6
+    lmarena:
+        MiniMax-M3.1-Flash:
+            webdev:
+                overall:
+                    publish_date: "2026-10-28"
+                    rank: 38
+                    rating: 1582.46
+                    rating_lower: 1570.93
+                    rating_upper: 1593.99
+                    vote_count: 3062
+                webdev:
+                    publish_date: "2026-10-28"
+                    rank: 38
+                    rating: 1582.46
+                    rating_lower: 1570.93
+                    rating_upper: 1593.99
+                    vote_count: 3062
+                webdev-html:
+                    publish_date: "2026-10-28"
+                    rank: 52
+                    rating: 1538.76
+                    rating_lower: 1508.73
+                    rating_upper: 1568.79
+                    vote_count: 486
+                webdev-react:
+                    publish_date: "2026-10-28"
+                    rank: 35
+                    rating: 1606.9
+                    rating_lower: 1592.48
+                    rating_upper: 1621.31
+                    vote_count: 1915
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 365202e3-301c-4dfc-9301-53f5f68829d0
+              provider: DigitalOcean
+              run_count: 2
+              score: 0.8712048984721465
+            - endpoint_id: 0a7eec19-891c-42db-b438-391771aa3116
+              provider: Fireworks
+              run_count: 1
+              score: 0.855721
+            - endpoint_id: 4d9f67d5-db9f-428c-8709-67504d918492
+              provider: GMICloud
+              run_count: 3
+              score: 0.89082063088521
+            - endpoint_id: 24b59984-feca-418b-9b78-5e6d4a39724c
+              provider: MiniMax
+              run_count: 1
+              score: 0.885522
+            - endpoint_id: c23050de-e072-4c61-81a5-df71513dd477
+              provider: ModelRun [by Modular]
+              run_count: 3
+              score: 0.8632716170353898
+            - endpoint_id: b7c1636b-c8c0-4a38-a96e-57cf8968e5b7
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.8686570397831949
+            - endpoint_id: e624ced3-92f2-414f-b423-3eff7071c4a1
+              provider: NovitaAI
+              run_count: 2
+              score: 0.89127750228267
+            - endpoint_id: c6e051f7-8cb8-453b-9833-5dd708b8a48f
+              provider: Parasail
+              run_count: 2
+              score: 0.8517243214673552
+            - endpoint_id: 6db80135-74ce-4c8e-9444-477d516ab075
+              provider: Relace
+              run_count: 1
+              score: 0.86532
+            - endpoint_id: 3d61bda3-5251-4a1c-9605-3979447cbbc0
+              provider: SambaNova
+              run_count: 2
+              score: 0.8737510295092804
+            - endpoint_id: 7ae32641-3a9f-4be7-b832-0988ef11ea52
+              provider: StreamLake
+              run_count: 1
+              score: 0.879965
+            - endpoint_id: 50179d31-3430-4e07-913a-e3171ef11851
+              provider: Together
+              run_count: 2
+              score: 0.8747052839737668
+            - endpoint_id: a7806784-eb1e-4d92-a139-1a31ce0034b8
+              provider: Wafer
+              run_count: 2
+              score: 0.8569874492405295
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.867003
+            - endpoint_id: 4ea7752e-fcf8-4725-b282-b7d87434971d
+              provider: inference.net
+              run_count: 2
+              score: 0.8501679999999999
+            - endpoint_id: e669e886-8ead-486b-bf03-61465c15dfb4
+              provider: inference.net
+              run_count: 2
+              score: 0.8670832975089262
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 365202e3-301c-4dfc-9301-53f5f68829d0
+              provider: DigitalOcean
+              run_count: 2
+              score: 0.6765586836173949
+            - endpoint_id: 4d9f67d5-db9f-428c-8709-67504d918492
+              provider: GMICloud
+              run_count: 3
+              score: 0.7193899201768161
+            - endpoint_id: 24b59984-feca-418b-9b78-5e6d4a39724c
+              provider: MiniMax
+              run_count: 1
+              score: 0.6799999999999999
+            - endpoint_id: c23050de-e072-4c61-81a5-df71513dd477
+              provider: ModelRun [by Modular]
+              run_count: 3
+              score: 0.7030152205095962
+            - endpoint_id: b7c1636b-c8c0-4a38-a96e-57cf8968e5b7
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.7257723932194956
+            - endpoint_id: e624ced3-92f2-414f-b423-3eff7071c4a1
+              provider: NovitaAI
+              run_count: 2
+              score: 0.7100492592352758
+            - endpoint_id: c6e051f7-8cb8-453b-9833-5dd708b8a48f
+              provider: Parasail
+              run_count: 2
+              score: 0.7035510100895696
+            - endpoint_id: 6db80135-74ce-4c8e-9444-477d516ab075
+              provider: Relace
+              run_count: 1
+              score: 0.7466669999999999
+            - endpoint_id: 3d61bda3-5251-4a1c-9605-3979447cbbc0
+              provider: SambaNova
+              run_count: 2
+              score: 0.7167094120979562
+            - endpoint_id: 50179d31-3430-4e07-913a-e3171ef11851
+              provider: Together
+              run_count: 2
+              score: 0.6934947412689494
+            - endpoint_id: a7806784-eb1e-4d92-a139-1a31ce0034b8
+              provider: Wafer
+              run_count: 2
+              score: 0.6861537892800658
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.66
+            - endpoint_id: 4ea7752e-fcf8-4725-b282-b7d87434971d
+              provider: inference.net
+              run_count: 2
+              score: 0.6965904492796495
+            - endpoint_id: e669e886-8ead-486b-bf03-61465c15dfb4
+              provider: inference.net
+              run_count: 2
+              score: 0.7300258560646504
+        vgi_bench:
+            - endpoint_id: 4d9f67d5-db9f-428c-8709-67504d918492
+              provider: GMICloud
+              run_count: 2
+              score: 0.22258898870410104
+            - endpoint_id: e624ced3-92f2-414f-b423-3eff7071c4a1
+              provider: NovitaAI
+              run_count: 2
+              score: 0.21037865113239013
+            - endpoint_id: 6db80135-74ce-4c8e-9444-477d516ab075
+              provider: Relace
+              run_count: 1
+              score: 0.272443
+            - endpoint_id: 50179d31-3430-4e07-913a-e3171ef11851
+              provider: Together
+              run_count: 1
+              score: 0.43508
+            - endpoint_id: a7806784-eb1e-4d92-a139-1a31ce0034b8
+              provider: Wafer
+              run_count: 1
+              score: 0.394077
+    vals_ai:
+        minimax/MiniMax-M3.1-flash:
+            emb-v1-1:
+                accuracy: 67.843
+                cost_per_test: 0.268958
+                latency_seconds: 1847.78
+                stderr: 2.29
+            fabv2-1:
+                accuracy: 58.826
+                cost_per_test: 0.158978
+                latency_seconds: 904.204
+                stderr: 2.07
+            finance_index:
+                accuracy: 55.906
+                cost_per_test: 0.249628
+                latency_seconds: 1571.585
+                stderr: 1.42
+            hlab:
+                accuracy: 7.5
+                cost_per_test: 0.472848
+                latency_seconds: 1497.601
+                stderr: 2.265
+            legal_index:
+                accuracy: 67.069
+                cost_per_test: 0.412858
+                latency_seconds: 2124.118
+                stderr: 1.778
+            legal_research:
+                accuracy: 34.135
+                cost_per_test: 0.444777
+                latency_seconds: 2911.983
+                stderr: 3.296
+            sage:
+                accuracy: 85.258
+                cost_per_test: 0.007619
+                latency_seconds: 73.758
+                stderr: 1.996
+            tax_agent_bench:
+                accuracy: 32.136
+                cost_per_test: 0.320948
+                latency_seconds: 1962.771
+                stderr: 3.342
+            terminal-bench-4:
+                accuracy: 25.253
+                cost_per_test: 0.734722
+                latency_seconds: 3030.551
+                stderr: 1.01
+            vals_index:
+                accuracy: 53.781
+                cost_per_test: 0.659684
+                latency_seconds: 2597.835
+                stderr: 1.067
+            vals_router_index:
+                accuracy: 53.781
+                cost_per_test: 0.659684
+                latency_seconds: 2597.835
+                stderr: 1.067
+            vibe-code:
+                accuracy: 73.944
+                cost_per_test: 1.146649
+                latency_seconds: 1263.916
+                stderr: 4.249

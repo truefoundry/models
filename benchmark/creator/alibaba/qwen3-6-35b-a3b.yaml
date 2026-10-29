@@ -1,0 +1,143 @@
+model: alibaba/qwen3-6-35b-a3b
+artificial_analysis_id: 8665ca00-c687-44c7-875c-22618cb31c4f
+artificial_analysis_slug: qwen3-6-35b-a3b
+openrouter_id: qwen/qwen3.6-35b-a3b
+openrouter_permaslug: qwen/qwen3.6-35b-a3b-20260415
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 13.1
+        agentic_percentile: 33
+        aime: null
+        aime_25: null
+        automationbench_partial_score: 0.05208565614505884
+        coding_index: 41.9
+        coding_percentile: 39
+        critpt: 0.00285714285714286
+        economics_index: null
+        engineering_index: null
+        finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.066
+        gdpval_aa: 0.2
+        gdpval_aa_elo: 899.85
+        gpqa: 0.841414141414142
+        healthcare_and_medical_index: null
+        hle: 0.222428174235403
+        hle_diamond: 0.069
+        ifbench: 0.643537414965986
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.716666666666667
+        legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.05
+        mmlu_pro: null
+        mmmu_pro: 0.75028901734104
+        openness_index: 38.888888888888886
+        scicode: 0.365740740740741
+        strategy_and_ops_index: null
+        tau2: 0.953216374269006
+        tau_banking: 0.0927835051546392
+        terminalbench_hard: 0.348484848484849
+        terminalbench_v2_1: 0.449438202247191
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 4b2c2cec-2b41-42d0-adf6-131c28558141
+              provider: AkashML
+              run_count: 11
+              score: 0.8409134357933661
+            - endpoint_id: 179c6985-3a1c-48f1-a009-9f3e3e402cdd
+              provider: AtlasCloud
+              run_count: 4
+              score: 0.8399917601659105
+            - endpoint_id: 13884dd2-337d-4b36-a853-606e5eb1049a
+              provider: CoreWeave
+              run_count: 4
+              score: 0.8141725770250944
+            - endpoint_id: babd4746-9e93-4855-8578-4b40539a5f4a
+              provider: Darkbloom
+              run_count: 4
+              score: 0.712183512316911
+            - endpoint_id: 8858bfd6-7383-41fa-8cc1-f14511cb2e09
+              provider: DeepInfra
+              run_count: 5
+              score: 0.8440259523983957
+            - endpoint_id: 86f8d300-3ee0-4776-a92f-8053dfe0fe26
+              provider: DekaLLM
+              run_count: 4
+              score: 0.8122440985720601
+            - endpoint_id: 57ebdffc-b059-4d92-a1ac-94436bae3d31
+              provider: Parasail
+              run_count: 4
+              score: 0.8522924405643266
+            - endpoint_id: a3cff4e7-f9b7-4eb2-a795-8c5dd47d6186
+              provider: Phala
+              run_count: 4
+              score: 0.8244778072133501
+            - endpoint_id: 3f2c6b62-6cf6-406f-936d-4fa515b5e401
+              provider: Reka AI
+              run_count: 1
+              score: 0.835017
+            - endpoint_id: c1ef920a-0527-464d-ac1c-a320de7539ab
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.849632588191114
+            - endpoint_id: 35f996a0-1f00-4ec8-bf24-b0e4c510ef6d
+              provider: Venice
+              run_count: 4
+              score: 0.853411253317786
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8271538513116924
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 4b2c2cec-2b41-42d0-adf6-131c28558141
+              provider: AkashML
+              run_count: 9
+              score: 0.7399173419494873
+            - endpoint_id: 179c6985-3a1c-48f1-a009-9f3e3e402cdd
+              provider: AtlasCloud
+              run_count: 4
+              score: 0.7421742105359583
+            - endpoint_id: babd4746-9e93-4855-8578-4b40539a5f4a
+              provider: Darkbloom
+              run_count: 4
+              score: 0.7683895187433046
+            - endpoint_id: 8858bfd6-7383-41fa-8cc1-f14511cb2e09
+              provider: DeepInfra
+              run_count: 4
+              score: 0.7311789450806381
+            - endpoint_id: 86f8d300-3ee0-4776-a92f-8053dfe0fe26
+              provider: DekaLLM
+              run_count: 5
+              score: 0.767605188908119
+            - endpoint_id: 57ebdffc-b059-4d92-a1ac-94436bae3d31
+              provider: Parasail
+              run_count: 4
+              score: 0.7502274405454198
+            - endpoint_id: a3cff4e7-f9b7-4eb2-a795-8c5dd47d6186
+              provider: Phala
+              run_count: 4
+              score: 0.7675153866176645
+            - endpoint_id: 3f2c6b62-6cf6-406f-936d-4fa515b5e401
+              provider: Reka AI
+              run_count: 1
+              score: 0.74
+            - endpoint_id: 35f996a0-1f00-4ec8-bf24-b0e4c510ef6d
+              provider: Venice
+              run_count: 3
+              score: 0.006667000000000001
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7714891593399413
+        vgi_bench:
+            - endpoint_id: 57ebdffc-b059-4d92-a1ac-94436bae3d31
+              provider: Parasail
+              run_count: 1
+              score: 0.10554299999999998

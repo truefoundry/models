@@ -1,0 +1,75 @@
+model: inclusionai/ling-3-0-flash-fin
+artificial_analysis_id: 6d6fa1c9-b833-40b2-8a58-fa810e24a84e
+artificial_analysis_slug: ling-3-0-flash-fin
+openrouter_id: inclusionai/ling-3.0-flash-fin
+openrouter_permaslug: inclusionai/ling-3.0-flash-fin-20260827
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 27.9
+        agentic_percentile: 56
+        aime: null
+        aime_25: null
+        analyst_agent: 0.1625
+        apex_agents: 0.274336283185841
+        automationbench_partial_score: 0.07394444993005693
+        coding_index: 55.6
+        coding_percentile: 56
+        critpt: 0.0257142857142857
+        economics_index: null
+        engineering_index: null
+        finance_and_accounting_index: null
+        gdp_pdf_all_pass: 0.054
+        gdpval_aa: 0.304
+        gdpval_aa_elo: 1108.4
+        gpqa: null
+        healthcare_and_medical_index: null
+        hle: 0.22613531047266
+        hle_diamond: 0.054
+        ifbench: null
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.736666666666667
+        legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mlcr_overall: 0.0388888888888889
+        mmlu_pro: null
+        openness_index: 44.44444444444444
+        scicode: 0.423611111111111
+        strategy_and_ops_index: null
+        tau2: null
+        tau_banking: 0.385567010309278
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.625468164794007
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: c48fe5e8-e0e7-4f6d-a9ec-84e20378b017
+              provider: DeepInfra
+              run_count: 2
+              score: 0.15902491771078156
+            - endpoint_id: 2a4e9687-05a1-4dff-ae24-3c6a6a805c19
+              provider: NovitaAI
+              run_count: 2
+              score: 0.6324194634316492
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.505051
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: c48fe5e8-e0e7-4f6d-a9ec-84e20378b017
+              provider: DeepInfra
+              run_count: 1
+              score: 0.638298
+            - endpoint_id: 2a4e9687-05a1-4dff-ae24-3c6a6a805c19
+              provider: NovitaAI
+              run_count: 2
+              score: 0.6530349044004469
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.707483

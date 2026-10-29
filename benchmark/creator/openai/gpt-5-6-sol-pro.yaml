@@ -1,0 +1,40 @@
+model: openai/gpt-5-6-sol-pro
+openrouter_id: openai/gpt-5.6-sol-pro
+openrouter_permaslug: openai/gpt-5.6-sol-pro-20260709
+metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 946e8bff-0892-4c72-89e1-030302b0663b
+              provider: Azure
+              run_count: 1
+              score: 0.936027
+            - endpoint_id: d514d96e-fab0-43aa-b4d4-3cf7d498aa3e
+              provider: Azure
+              run_count: 1
+              score: 0.942761
+            - endpoint_id: 24801a82-7216-49bb-89a6-5480320ae736
+              provider: OpenAI
+              run_count: 2
+              score: 0.9395072364421466
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.941077
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 946e8bff-0892-4c72-89e1-030302b0663b
+              provider: Azure
+              run_count: 1
+              score: 0.6533329999999999
+            - endpoint_id: d514d96e-fab0-43aa-b4d4-3cf7d498aa3e
+              provider: Azure
+              run_count: 1
+              score: 0.693333
+            - endpoint_id: 24801a82-7216-49bb-89a6-5480320ae736
+              provider: OpenAI
+              run_count: 2
+              score: 0.7174903294273515
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.706667

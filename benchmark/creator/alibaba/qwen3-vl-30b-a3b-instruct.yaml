@@ -1,0 +1,90 @@
+model: alibaba/qwen3-vl-30b-a3b-instruct
+artificial_analysis_id: 51d0b717-953d-4b44-af61-406c6b7dff39
+artificial_analysis_slug: qwen3-vl-30b-a3b-instruct
+openrouter_id: qwen/qwen3-vl-30b-a3b-instruct
+openrouter_permaslug: qwen/qwen3-vl-30b-a3b-instruct
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: null
+        aime_25: 0.723333333333333
+        coding_index: null
+        critpt: 0
+        economics_index: null
+        engineering_index: null
+        finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.694949494949495
+        healthcare_and_medical_index: null
+        hle: 0.0630213160333642
+        ifbench: 0.331292517006803
+        intelligence_index: null
+        lcr: null
+        legal_index: null
+        livecodebench: 0.476190476190476
+        math_500: null
+        math_index: 72.3
+        mmlu_pro: 0.764
+        mmmu_pro: 0.621387283236994
+        openness_index: 50
+        scicode: null
+        strategy_and_ops_index: null
+        tau2: 0.190058479532164
+        tau_banking: null
+        terminalbench_hard: 0.0606060606060606
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 27e433ca-988e-4aaa-902a-37bc06c59e3b
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.661616
+            - endpoint_id: 9b9d1187-7d55-4ec6-87b0-734dd1432829
+              provider: DeepInfra
+              run_count: 2
+              score: 0.5992350537845353
+            - endpoint_id: 0ae33e05-f2b8-49bd-8a58-f61a835466bd
+              provider: NovitaAI
+              run_count: 1
+              score: 0.6633
+            - endpoint_id: 82f29e55-5d20-44d8-8d4d-7df9340adcf3
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.658249
+            - endpoint_id: 1553890e-99fa-45d4-b77c-132776f6cac6
+              provider: SiliconFlow
+              run_count: 1
+              score: 0.607744
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.632997
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 27e433ca-988e-4aaa-902a-37bc06c59e3b
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.306667
+            - endpoint_id: 9b9d1187-7d55-4ec6-87b0-734dd1432829
+              provider: DeepInfra
+              run_count: 2
+              score: 0.35740797142464653
+            - endpoint_id: 0ae33e05-f2b8-49bd-8a58-f61a835466bd
+              provider: NovitaAI
+              run_count: 1
+              score: 0.4000000000000001
+            - endpoint_id: 82f29e55-5d20-44d8-8d4d-7df9340adcf3
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.38666700000000004
+            - endpoint_id: 1553890e-99fa-45d4-b77c-132776f6cac6
+              provider: SiliconFlow
+              run_count: 1
+              score: 0.08
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.366667
