@@ -1,3 +1,7 @@
+costs:
+    - region: global
+      # Microsoft Foundry pricing page shows "$-" (not yet published) for Cohere Embed V5 Fast as of now; omitting cost values until published.
+      # not found in official docs
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -17,6 +21,8 @@ sources:
     - https://docs.cohere.com/changelog/embed-v5
     - https://docs.cohere.com/docs/models
     - https://ai.azure.com/catalog/models/Cohere-Embed-V5-Fast
+    - https://docs.cohere.com/docs/cohere-on-microsoft-azure
+    - https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/cohere
 status: preview
 supportedModes:
     - embedding
