@@ -1,15 +1,14 @@
 # Model benchmarks
 
-This directory mirrors the relative paths of model files in `providers/`: every
-provider model file has a benchmark file with the same name and sub-path. Each
-file contains:
+This directory mirrors the relative paths of model files in `providers/`. A
+benchmark file exists only when at least one source publishes metrics for that
+model. Each file contains:
 
 - `model`: the provider model name;
 - `artificial_analysis_id` and `artificial_analysis_slug`: the repository's
   Artificial Analysis match, when one exists; and
-- `metrics`, grouped by source. `metrics: {}` means no source publishes
-  benchmark data for the model, or the model could not be matched to any
-  source.
+- `metrics`, grouped by source. Provider models with no published benchmarks,
+  or that could not be matched to any source, have no file here.
 
 Data comes from each model's OpenRouter benchmark page
 (`https://openrouter.ai/<model>#benchmarks`) and directly from the source
