@@ -1,3 +1,6 @@
+costs:
+    - input_cost_per_token: 1.2e-7
+      region: "*"
 limits:
     context_window: 128000
     max_input_tokens: 128000
@@ -27,6 +30,8 @@ sources:
     - https://docs.cohere.com/docs/models
     - https://docs.cohere.com/changelog/embed-v5
     - https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-cohere-embed
-status: active
+    - https://ai.azure.com/catalog/models/Cohere-Embed-V5-Pro
+    - https://cohere.com/blog/embed-5
+status: preview
 supportedModes:
     - embedding
