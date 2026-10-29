@@ -23,6 +23,9 @@ python3 scripts/propose_canonical_models.py
 # Match YAML canonical_model values to AA (writes reports/; needs AA_API_KEY)
 AA_API_KEY=... python3 scripts/match_artificial_analysis.py
 
+# Refresh benchmarks/ from the AA Free Data API
+AA_API_KEY=... python3 scripts/fetch_artificial_analysis_benchmarks.py
+
 # Bulk apply from a local mapping file you created while reviewing reports
 python3 scripts/apply_canonical_models.py --from /tmp/aliases.yaml
 python3 scripts/apply_external_ids.py --from /tmp/external_ids.yaml
