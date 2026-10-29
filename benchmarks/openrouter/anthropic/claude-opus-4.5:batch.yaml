@@ -1,0 +1,308 @@
+model: anthropic/claude-opus-4.5:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: null
+        aime_25: 0.626666666666667
+        coding_index: null
+        critpt: 0.003
+        gdpval_aa: null
+        gpqa: 0.81
+        hle: 0.132
+        ifbench: 0.43
+        intelligence_index: null
+        lcr: 0.707
+        livecodebench: 0.738
+        math_500: null
+        math_index: 62.7
+        mmlu_pro: 0.889
+        scicode: null
+        tau2: 0.863
+        tau_banking: null
+        terminalbench_hard: 0.409
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        Claude Opus 4.5 (claude-opus-4-5):
+            models:
+                3d:
+                    avg_generation_time_ms: 86138
+                    elo: 1211
+                    elo_percentile: 67
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.5
+                asciiart:
+                    avg_generation_time_ms: 48250
+                    elo: 1187
+                    elo_percentile: 63
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.8
+                codecategories:
+                    avg_generation_time_ms: 123562
+                    elo: 1240
+                    elo_percentile: 71
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 59.5
+                dataviz:
+                    avg_generation_time_ms: 92915
+                    elo: 1243
+                    elo_percentile: 73
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.5
+                gamedev:
+                    avg_generation_time_ms: 125719
+                    elo: 1229
+                    elo_percentile: 71
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 59.3
+                svg:
+                    avg_generation_time_ms: 31924
+                    elo: 1177
+                    elo_percentile: 61
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.7
+                uicomponent:
+                    avg_generation_time_ms: 99851
+                    elo: 1233
+                    elo_percentile: 69
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.1
+                website:
+                    avg_generation_time_ms: 135567
+                    elo: 1245
+                    elo_percentile: 71
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 59.7
+        Claude Opus 4.5 (claude-opus-4-5-20251101):
+            agents:
+                androidnative:
+                    avg_generation_time_ms: null
+                    elo: 1174
+                    elo_percentile: 50
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 65.5
+                fullstack:
+                    avg_generation_time_ms: null
+                    elo: 1156
+                    elo_percentile: 43
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 60.2
+                mobileapps:
+                    avg_generation_time_ms: null
+                    elo: 1189
+                    elo_percentile: 54
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 60.7
+                webapps:
+                    avg_generation_time_ms: null
+                    elo: 1159
+                    elo_percentile: 33
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.1
+    vals_ai:
+        anthropic/claude-opus-4-5-20251101:
+            aime:
+                accuracy: 76.875
+                cost_per_test: 0.089253
+                latency_seconds: 17.442
+                stderr: 1.389
+            corp_fin_v2:
+                accuracy: 61.305
+                cost_per_test: 0.150159
+                latency_seconds: 9.401
+                stderr: 0.96
+            finance_agent_v1:
+                accuracy: 54.5167
+                cost_per_test: 1.189665
+                latency_seconds: 84.8069
+                stderr: 1.137
+            gpqa:
+                accuracy: 79.546
+                cost_per_test: 0.074932
+                latency_seconds: 13.54
+                stderr: 2.463
+            ioi-v1:
+                accuracy: 23.584
+                cost_per_test: 3.048735
+                latency_seconds: 7682.383
+                stderr: 7.547
+            lcb:
+                accuracy: 75.034
+                cost_per_test: 0.077323
+                latency_seconds: 13.599
+                stderr: 1.12
+            legal_bench:
+                accuracy: 82.837
+                cost_per_test: 0.01319
+                latency_seconds: 2.376
+                stderr: 0.434
+            medcode:
+                accuracy: 45.174
+                cost_per_test: 0.006826
+                latency_seconds: 5.023
+                stderr: 1.888
+            medqa:
+                accuracy: 93.158
+                cost_per_test: 0.043201
+                latency_seconds: 10.357
+                stderr: 0.23
+            medscribe:
+                accuracy: 83.246
+                cost_per_test: 0.281674
+                latency_seconds: 43.305
+                stderr: 1.926
+            mgsm:
+                accuracy: 94.764
+                cost_per_test: 0.027118
+                latency_seconds: 5.559
+                stderr: 1.35
+            mmlu_pro:
+                accuracy: 85.59
+                cost_per_test: 0.052065
+                latency_seconds: 8.248
+                stderr: 0.367
+            mmmu:
+                accuracy: 81.098
+                cost_per_test: 0.021549
+                latency_seconds: 19.557
+                stderr: 0.941
+            mortgage_tax:
+                accuracy: 68.68
+                cost_per_test: 0.092448
+                latency_seconds: 10.534
+                stderr: 0.908
+            rsi_index:
+                accuracy: 14.82
+                cost_per_test: 365.763371
+                latency_seconds: 324000
+                stderr: 0
+            sage-v1:
+                accuracy: 45.002
+                cost_per_test: 0.018815
+                latency_seconds: 22.727
+                stderr: 3.352
+            tax_eval_v2:
+                accuracy: 74.325
+                cost_per_test: 0.058665
+                latency_seconds: 14.876
+                stderr: 0.854
+            terminal-bench:
+                accuracy: 56.25
+                cost_per_test: 0.744198
+                latency_seconds: 177.102
+                stderr: 5.546
+            terminal-bench-2:
+                accuracy: 58.427
+                cost_per_test: 1.175583
+                latency_seconds: 627.493
+                stderr: 5.254
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: de32581c-2e11-4f54-8d29-e8a6e19d3038
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8556933406107514
+            - endpoint_id: fcea0eb0-1c49-4f72-bebe-83de5b19e4e3
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8681651453879841
+            - endpoint_id: be883404-eb42-4b2d-b6e4-c7daa3aa8d62
+              provider: Anthropic
+              run_count: 4
+              score: 0.8720419849193578
+            - endpoint_id: 5d048218-c60f-4cff-9719-6cb2b71acd57
+              provider: Azure
+              run_count: 4
+              score: 0.8642876305911026
+            - endpoint_id: 4d2d1f7b-36e3-4858-a7a3-0404d6f71c0c
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.8659941270752057
+            - endpoint_id: f28aad62-67fa-4156-a139-0b80b28bc08f
+              provider: Google Vertex
+              run_count: 4
+              score: 0.8549421677479259
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8681517898986749
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: de32581c-2e11-4f54-8d29-e8a6e19d3038
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7537587353518777
+            - endpoint_id: fcea0eb0-1c49-4f72-bebe-83de5b19e4e3
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7757385487107376
+            - endpoint_id: be883404-eb42-4b2d-b6e4-c7daa3aa8d62
+              provider: Anthropic
+              run_count: 4
+              score: 0.7650099700117152
+            - endpoint_id: 5d048218-c60f-4cff-9719-6cb2b71acd57
+              provider: Azure
+              run_count: 4
+              score: 0.7700357545730713
+            - endpoint_id: 4d2d1f7b-36e3-4858-a7a3-0404d6f71c0c
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.7676229229078209
+            - endpoint_id: f28aad62-67fa-4156-a139-0b80b28bc08f
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7793994045952373
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7660562756834258

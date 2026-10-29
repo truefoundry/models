@@ -1,0 +1,17 @@
+model: google/gemini-3.1-flash-lite-image
+metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 55b53628-1e94-4ee3-9494-2c04e7f2c43a
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.117845
+            - endpoint_id: a1fb76ba-8406-44ff-b113-4129addd1eee
+              provider: Google Vertex
+              run_count: 1
+              score: 0.119529
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.102694
+        lookback_days: 32

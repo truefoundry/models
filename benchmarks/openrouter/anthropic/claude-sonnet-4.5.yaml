@@ -1,0 +1,349 @@
+model: anthropic/claude-sonnet-4.5
+metrics:
+    artificial_analysis:
+        variants:
+            claude-4-5-sonnet:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: 0.37
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.727
+                hle: 0.072
+                ifbench: 0.427
+                intelligence_index: null
+                lcr: 0.54
+                livecodebench: 0.59
+                math_500: null
+                math_index: 37
+                mmlu_pro: 0.86
+                name: Claude 4.5 Sonnet (Non-reasoning)
+                scicode: null
+                tau2: 0.705
+                tau_banking: null
+                terminalbench_hard: 0.288
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            claude-4-5-sonnet-thinking:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 15.8
+                agentic_percentile: 38
+                aime: null
+                aime_25: 0.88
+                coding_index: 52.1
+                coding_percentile: 53
+                critpt: 0.011
+                gdpval_aa: 0.208
+                gpqa: 0.834
+                hle: 0.178
+                ifbench: 0.573
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.723
+                livecodebench: 0.714
+                math_500: null
+                math_index: 88
+                mmlu_pro: 0.875
+                name: Claude 4.5 Sonnet (Reasoning)
+                scicode: 0.457
+                tau2: 0.781
+                tau_banking: 0.245360824742268
+                terminalbench_hard: 0.356
+                terminalbench_v2_1: 0.558052434456929
+                terminalbench_v4_0: 0
+    design_arena:
+        Claude Sonnet 4.5 (Thinking):
+            models:
+                3d:
+                    avg_generation_time_ms: 62555
+                    elo: 1149
+                    elo_percentile: 50
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.4
+                asciiart:
+                    avg_generation_time_ms: 47486
+                    elo: 1202
+                    elo_percentile: 69
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.1
+                codecategories:
+                    avg_generation_time_ms: 93777
+                    elo: 1180
+                    elo_percentile: 54
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.3
+                dataviz:
+                    avg_generation_time_ms: 73704
+                    elo: 1158
+                    elo_percentile: 39
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 46
+                gamedev:
+                    avg_generation_time_ms: 96440
+                    elo: 1163
+                    elo_percentile: 48
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.5
+                svg:
+                    avg_generation_time_ms: 26675
+                    elo: 1113
+                    elo_percentile: 36
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.2
+                uicomponent:
+                    avg_generation_time_ms: 79001
+                    elo: 1167
+                    elo_percentile: 49
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49.4
+                website:
+                    avg_generation_time_ms: 102362
+                    elo: 1188
+                    elo_percentile: 53
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.8
+        Claude Sonnet 4.5 (claude-sonnet-4-5):
+            models:
+                3d:
+                    avg_generation_time_ms: 66440
+                    elo: 1155
+                    elo_percentile: 52
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51
+                asciiart:
+                    avg_generation_time_ms: 56892
+                    elo: 1172
+                    elo_percentile: 58
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.7
+                codecategories:
+                    avg_generation_time_ms: 98423
+                    elo: 1181
+                    elo_percentile: 56
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.5
+                dataviz:
+                    avg_generation_time_ms: 73737
+                    elo: 1167
+                    elo_percentile: 44
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.4
+                gamedev:
+                    avg_generation_time_ms: 96559
+                    elo: 1166
+                    elo_percentile: 50
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.1
+                svg:
+                    avg_generation_time_ms: 27618
+                    elo: 1104
+                    elo_percentile: 32
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49
+                uicomponent:
+                    avg_generation_time_ms: 84444
+                    elo: 1156
+                    elo_percentile: 44
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.3
+                website:
+                    avg_generation_time_ms: 108057
+                    elo: 1188
+                    elo_percentile: 53
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.8
+        Claude Sonnet 4.5 (claude-sonnet-4-5-20250929):
+            agents:
+                fullstack:
+                    avg_generation_time_ms: null
+                    elo: 1050
+                    elo_percentile: 16
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 43.7
+                mobileapps:
+                    avg_generation_time_ms: null
+                    elo: 1137
+                    elo_percentile: 29
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.9
+                webapps:
+                    avg_generation_time_ms: null
+                    elo: 1059
+                    elo_percentile: 9
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 43.2
+    vals_ai:
+        anthropic/claude-sonnet-4-5-20250929:
+            corp_fin_v2:
+                accuracy: 60.8
+                cost_per_test: 0.237245
+                latency_seconds: 13.383
+                stderr: 0.962
+            finance_agent_v1:
+                accuracy: 49.2495
+                cost_per_test: 1.149563
+                latency_seconds: 111.3328
+                stderr: 1.1933
+            medcode:
+                accuracy: 40.569
+                cost_per_test: 0.042403
+                latency_seconds: 12.006
+                stderr: 1.995
+            medscribe:
+                accuracy: 84.515
+                cost_per_test: 0.054649
+                latency_seconds: 44.419
+                stderr: 1.929
+            sage-v1:
+                accuracy: 32.88
+                cost_per_test: 0.046215
+                latency_seconds: 16.542
+                stderr: 3.141
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: ba1b74b0-6c1b-4a2d-b615-a070cd457656
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8137394444928208
+            - endpoint_id: d8bee848-f020-454a-b2be-4a7ce868f99f
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8172754312168965
+            - endpoint_id: f2e829ec-4a2c-45c4-9657-fd5998271267
+              provider: Anthropic
+              run_count: 4
+              score: 0.8194448069056682
+            - endpoint_id: 63eb7cf5-99b7-429b-a7e3-1b2fab706208
+              provider: Azure
+              run_count: 4
+              score: 0.8145087039024338
+            - endpoint_id: 6544ac65-5419-4b89-b883-a73fd1f70e2a
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.8085196640828496
+            - endpoint_id: 3a2c65ff-b039-4459-804a-9aafcb4d693c
+              provider: Google Vertex
+              run_count: 4
+              score: 0.8086593770351351
+            - endpoint_id: 83c3ce47-c679-4cb1-9e21-a5defad78b61
+              provider: Google Vertex
+              run_count: 4
+              score: 0.8143342692223308
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8173516964817206
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: ba1b74b0-6c1b-4a2d-b615-a070cd457656
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7547256654933991
+            - endpoint_id: d8bee848-f020-454a-b2be-4a7ce868f99f
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.748578335483713
+            - endpoint_id: f2e829ec-4a2c-45c4-9657-fd5998271267
+              provider: Anthropic
+              run_count: 4
+              score: 0.7715426268962587
+            - endpoint_id: 63eb7cf5-99b7-429b-a7e3-1b2fab706208
+              provider: Azure
+              run_count: 4
+              score: 0.7488492815734387
+            - endpoint_id: 6544ac65-5419-4b89-b883-a73fd1f70e2a
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.735917103268746
+            - endpoint_id: 3a2c65ff-b039-4459-804a-9aafcb4d693c
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7403877265514474
+            - endpoint_id: 83c3ce47-c679-4cb1-9e21-a5defad78b61
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7370964564122563
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7454905311888854

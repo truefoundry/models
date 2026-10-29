@@ -1,0 +1,97 @@
+model: openai/gpt-4o:batch
+metrics:
+    design_arena:
+        GPT-4o:
+            models:
+                3d:
+                    avg_generation_time_ms: 11549
+                    elo: 866
+                    elo_percentile: 3
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 39.2
+                codecategories:
+                    avg_generation_time_ms: 14190
+                    elo: 859
+                    elo_percentile: 2
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 34.8
+                dataviz:
+                    avg_generation_time_ms: 11120
+                    elo: 858
+                    elo_percentile: 1
+                    first_place: 133
+                    fourth_place: 279
+                    second_place: 206
+                    third_place: 228
+                    total_tournaments: 846
+                    win_rate: 36
+                gamedev:
+                    avg_generation_time_ms: 18325
+                    elo: 906
+                    elo_percentile: 4
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 42.3
+                uicomponent:
+                    avg_generation_time_ms: 12849
+                    elo: 880
+                    elo_percentile: 2
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 38.1
+                website:
+                    avg_generation_time_ms: 14231
+                    elo: 831
+                    elo_percentile: 2
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 31.5
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: a1dcf276-9b84-441f-8e6e-7cfedb115751
+              provider: Azure
+              run_count: 1
+              score: 0.521886
+            - endpoint_id: 452a72a0-2c24-4e31-98cb-d6cc1084fb99
+              provider: OpenAI
+              run_count: 2
+              score: 0.5493028747321773
+            - endpoint_id: 906fe1ff-fa76-492a-9289-ce2a3e007bed
+              provider: OpenAI
+              run_count: 2
+              score: 0.5014939704999887
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.510101
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 452a72a0-2c24-4e31-98cb-d6cc1084fb99
+              provider: OpenAI
+              run_count: 2
+              score: 0.4365915365456505
+            - endpoint_id: 906fe1ff-fa76-492a-9289-ce2a3e007bed
+              provider: OpenAI
+              run_count: 2
+              score: 0.4260679518963547
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.386667

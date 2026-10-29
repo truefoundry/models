@@ -1,0 +1,135 @@
+model: deepseek-r1-0528
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: 0.893333333333333
+        aime_25: 0.76
+        coding_index: null
+        critpt: 0.014
+        gdpval_aa: null
+        gpqa: 0.813
+        hle: 0.158
+        ifbench: 0.396
+        intelligence_index: null
+        lcr: 0.557
+        livecodebench: 0.77
+        math_500: 0.982666666666667
+        math_index: 76
+        mmlu_pro: 0.849
+        scicode: null
+        tau2: 0.365
+        tau_banking: null
+        terminalbench_hard: 0.159
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        DeepSeek-R1-0528:
+            models:
+                3d:
+                    avg_generation_time_ms: 68603
+                    elo: 1108
+                    elo_percentile: 34
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.3
+                codecategories:
+                    avg_generation_time_ms: 88620
+                    elo: 1137
+                    elo_percentile: 30
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.6
+                dataviz:
+                    avg_generation_time_ms: 76004
+                    elo: 1182
+                    elo_percentile: 51
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 60.9
+                gamedev:
+                    avg_generation_time_ms: 107308
+                    elo: 1097
+                    elo_percentile: 28
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49.3
+                svg:
+                    avg_generation_time_ms: 60191
+                    elo: 1035
+                    elo_percentile: 15
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.7
+                uicomponent:
+                    avg_generation_time_ms: 66393
+                    elo: 1097
+                    elo_percentile: 28
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.9
+                website:
+                    avg_generation_time_ms: 89806
+                    elo: 1149
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.7
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 0f47837d-9d06-4c68-a93c-29b0c7cd9027
+              provider: DeepInfra
+              run_count: 4
+              score: 0.7787481966473636
+            - endpoint_id: 04c4f1eb-bb42-42b6-823b-107ae08cf7a2
+              provider: NovitaAI
+              run_count: 3
+              score: 0.6815727397904138
+            - endpoint_id: 09c6f79f-1cd9-4822-b247-ee1b6be7e4d4
+              provider: SiliconFlow
+              run_count: 3
+              score: 0.7961950591923468
+            - endpoint_id: d4f38905-f90a-4a4b-aecb-cdd706b87a9e
+              provider: StreamLake
+              run_count: 4
+              score: 0.7930448551940656
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 3
+              score: 0.7608496837717784
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 04c4f1eb-bb42-42b6-823b-107ae08cf7a2
+              provider: NovitaAI
+              run_count: 3
+              score: 0.5942423766306592
+            - endpoint_id: 09c6f79f-1cd9-4822-b247-ee1b6be7e4d4
+              provider: SiliconFlow
+              run_count: 2
+              score: 0.47586549257501265
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 3
+              score: 0.5077481935729684

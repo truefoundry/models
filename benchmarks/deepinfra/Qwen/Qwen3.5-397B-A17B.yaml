@@ -3,12 +3,220 @@ artificial_analysis_id: 0e66bae9-41f1-42fc-9276-ce8cb6f72919
 artificial_analysis_slug: qwen3-5-397b-a17b
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 8.3
+        agentic_percentile: 31
+        aime: null
+        aime_25: null
+        coding_index: 48.2
+        coding_percentile: 48
+        critpt: 0.017
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0.151
+        gpqa: 0.893
         healthcare_and_medical_index: null
+        hle: 0.29
+        ifbench: 0.788
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.773
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.448
         strategy_and_ops_index: null
+        tau2: 0.956
+        tau_banking: 0.134020618556701
+        terminalbench_hard: 0.409
+        terminalbench_v2_1: 0.51310861423221
+        terminalbench_v4_0: 0
+    design_arena:
+        Qwen3.5 397B A17B:
+            models:
+                3d:
+                    avg_generation_time_ms: 104740
+                    elo: 1158
+                    elo_percentile: 53
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.7
+                codecategories:
+                    avg_generation_time_ms: 135674
+                    elo: 1178
+                    elo_percentile: 53
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.6
+                dataviz:
+                    avg_generation_time_ms: 123930
+                    elo: 1175
+                    elo_percentile: 46
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.2
+                gamedev:
+                    avg_generation_time_ms: 142465
+                    elo: 1140
+                    elo_percentile: 42
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.2
+                svg:
+                    avg_generation_time_ms: 73358
+                    elo: 1136
+                    elo_percentile: 46
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.1
+                uicomponent:
+                    avg_generation_time_ms: 133187
+                    elo: 1158
+                    elo_percentile: 45
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.4
+                website:
+                    avg_generation_time_ms: 140653
+                    elo: 1189
+                    elo_percentile: 55
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.5
+    vals_ai:
+        alibaba/qwen3.5-397b-a17b:
+            sage:
+                accuracy: 85.53
+                cost_per_test: 0.013475
+                latency_seconds: 168.001
+                stderr: 1.812
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 180484a2-e24b-495a-ba41-b34b680d5a9f
+              provider: Alibaba Cloud Int.
+              run_count: 5
+              score: 0.8671134356417539
+            - endpoint_id: ca5088a7-9042-417b-bdd4-4c1fdc8f16ee
+              provider: AtlasCloud
+              run_count: 4
+              score: 0.8744196739763129
+            - endpoint_id: 43089c62-fc4d-4908-a8ca-188eaf2cbb9e
+              provider: DeepInfra
+              run_count: 5
+              score: 0.8679553132328149
+            - endpoint_id: c7d8eec6-5bcd-417f-966a-eb5a69e0062c
+              provider: DigitalOcean
+              run_count: 5
+              score: 0.8806485208447453
+            - endpoint_id: 2873f79d-2a83-4f29-86e7-38be27a40a6f
+              provider: NovitaAI
+              run_count: 4
+              score: 0.8686109597174939
+            - endpoint_id: c44f326d-715f-4c77-9526-1ecc3416078e
+              provider: Parasail
+              run_count: 4
+              score: 0.8836133816909754
+            - endpoint_id: e155a95a-b7c2-491a-ad31-569e34a1e537
+              provider: Phala
+              run_count: 4
+              score: 0.8713480452835046
+            - endpoint_id: b32658ba-56b3-48a5-a2d3-2d05ab75612c
+              provider: StreamLake
+              run_count: 5
+              score: 0.8652225342033741
+            - endpoint_id: b67fac87-8915-4264-950f-5e3662c346d1
+              provider: Venice
+              run_count: 4
+              score: 0.8701941636209302
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8713534310881705
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 180484a2-e24b-495a-ba41-b34b680d5a9f
+              provider: Alibaba Cloud Int.
+              run_count: 4
+              score: 0.798355035387153
+            - endpoint_id: ca5088a7-9042-417b-bdd4-4c1fdc8f16ee
+              provider: AtlasCloud
+              run_count: 4
+              score: 0.7898012664914834
+            - endpoint_id: 43089c62-fc4d-4908-a8ca-188eaf2cbb9e
+              provider: DeepInfra
+              run_count: 4
+              score: 0.7623549167512986
+            - endpoint_id: c7d8eec6-5bcd-417f-966a-eb5a69e0062c
+              provider: DigitalOcean
+              run_count: 4
+              score: 0.8008677691842762
+            - endpoint_id: 2873f79d-2a83-4f29-86e7-38be27a40a6f
+              provider: NovitaAI
+              run_count: 3
+              score: 0.7322504516505235
+            - endpoint_id: c44f326d-715f-4c77-9526-1ecc3416078e
+              provider: Parasail
+              run_count: 3
+              score: 0.8000842481269038
+            - endpoint_id: e155a95a-b7c2-491a-ad31-569e34a1e537
+              provider: Phala
+              run_count: 4
+              score: 0.8204277777321002
+            - endpoint_id: b67fac87-8915-4264-950f-5e3662c346d1
+              provider: Venice
+              run_count: 4
+              score: 0.786174690408449
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7985256025064357
+        vgi_bench:
+            - endpoint_id: 180484a2-e24b-495a-ba41-b34b680d5a9f
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.4641691722707987
+            - endpoint_id: ca5088a7-9042-417b-bdd4-4c1fdc8f16ee
+              provider: AtlasCloud
+              run_count: 4
+              score: 0.4806483243359437
+            - endpoint_id: 43089c62-fc4d-4908-a8ca-188eaf2cbb9e
+              provider: DeepInfra
+              run_count: 1
+              score: 0.388756
+            - endpoint_id: abf33300-5917-46d4-9bff-449d4a1802b3
+              provider: GMICloud
+              run_count: 1
+              score: 0.497911
+            - endpoint_id: 2873f79d-2a83-4f29-86e7-38be27a40a6f
+              provider: NovitaAI
+              run_count: 3
+              score: 0.4590929295104411
+            - endpoint_id: b32658ba-56b3-48a5-a2d3-2d05ab75612c
+              provider: StreamLake
+              run_count: 5
+              score: 0.353036116339572

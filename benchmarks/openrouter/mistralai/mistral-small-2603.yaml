@@ -1,0 +1,79 @@
+model: mistralai/mistral-small-2603
+metrics:
+    artificial_analysis:
+        variants:
+            mistral-small-4:
+                aa_omniscience_accuracy: 0.214
+                aa_omniscience_non_hallucination_rate: 0.334
+                agentic_index: 0.8
+                agentic_percentile: 3
+                aime: null
+                aime_25: null
+                coding_index: 26.6
+                coding_percentile: 27
+                critpt: 0.003
+                gdpval_aa: 0
+                gpqa: 0.769
+                hle: 0.099
+                ifbench: 0.482
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.497
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: Mistral Small 4 (Reasoning)
+                scicode: 0.388
+                tau2: 0.412
+                tau_banking: 0.0494845360824742
+                terminalbench_hard: 0.174
+                terminalbench_v2_1: 0.209737827715356
+                terminalbench_v4_0: 0
+            mistral-small-4-non-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: null
+                coding_index: null
+                critpt: 0.003
+                gdpval_aa: null
+                gpqa: 0.571
+                hle: 0.038
+                ifbench: 0.328
+                intelligence_index: null
+                lcr: 0.283
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: Mistral Small 4 (Non-reasoning)
+                scicode: null
+                tau2: 0.184
+                tau_banking: null
+                terminalbench_hard: 0.106
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    vals_ai:
+        mistralai/mistral-small-2603:
+            sage:
+                accuracy: 59.158
+                cost_per_test: 0.003493
+                latency_seconds: 14.094
+                stderr: 2.125
+            terminal-bench-2:
+                accuracy: 16.854
+                cost_per_test: 0.105762
+                latency_seconds: 407.865
+                stderr: 3.991
+            vals_index_v1:
+                accuracy: 29.068
+                cost_per_test: 1.394531
+                latency_seconds: 553.591
+                stderr: 1.605
+            vibe-code:
+                accuracy: 0
+                cost_per_test: 6.473001
+                latency_seconds: 1814.681
+                stderr: 0

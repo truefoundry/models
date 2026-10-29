@@ -1,0 +1,291 @@
+model: anthropic/claude-opus-4.1
+metrics:
+    artificial_analysis:
+        variants:
+            claude-4-1-opus:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: null
+                coding_index: null
+                critpt: null
+                gdpval_aa: null
+                gpqa: null
+                hle: null
+                ifbench: null
+                intelligence_index: null
+                lcr: null
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: Claude 4.1 Opus (Non-reasoning)
+                scicode: null
+                tau2: null
+                tau_banking: null
+                terminalbench_hard: null
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            claude-4-1-opus-thinking:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: 0.803333333333333
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.809
+                hle: 0.125
+                ifbench: 0.554
+                intelligence_index: null
+                lcr: 0.76
+                livecodebench: 0.654
+                math_500: null
+                math_index: 80.3
+                mmlu_pro: 0.88
+                name: Claude 4.1 Opus (Reasoning)
+                scicode: null
+                tau2: 0.714
+                tau_banking: null
+                terminalbench_hard: 0.343
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    design_arena:
+        Claude Opus 4.1:
+            models:
+                3d:
+                    avg_generation_time_ms: 76759
+                    elo: 1150
+                    elo_percentile: 51
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.9
+                asciiart:
+                    avg_generation_time_ms: 44470
+                    elo: 1164
+                    elo_percentile: 55
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.5
+                codecategories:
+                    avg_generation_time_ms: 105112
+                    elo: 1163
+                    elo_percentile: 43
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.1
+                dataviz:
+                    avg_generation_time_ms: 85232
+                    elo: 1162
+                    elo_percentile: 42
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.9
+                gamedev:
+                    avg_generation_time_ms: 110539
+                    elo: 1163
+                    elo_percentile: 48
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.3
+                svg:
+                    avg_generation_time_ms: 27481
+                    elo: 1106
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.1
+                uicomponent:
+                    avg_generation_time_ms: 92429
+                    elo: 1150
+                    elo_percentile: 42
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.7
+                website:
+                    avg_generation_time_ms: 111525
+                    elo: 1163
+                    elo_percentile: 41
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49.4
+        Claude Opus 4.1 (Thinking):
+            models:
+                3d:
+                    avg_generation_time_ms: 76889
+                    elo: 1136
+                    elo_percentile: 45
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.5
+                codecategories:
+                    avg_generation_time_ms: 104535
+                    elo: 1169
+                    elo_percentile: 48
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.8
+                dataviz:
+                    avg_generation_time_ms: 83632
+                    elo: 1166
+                    elo_percentile: 43
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.4
+                gamedev:
+                    avg_generation_time_ms: 111666
+                    elo: 1171
+                    elo_percentile: 53
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.4
+                svg:
+                    avg_generation_time_ms: 32979
+                    elo: 1149
+                    elo_percentile: 55
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 60.8
+                uicomponent:
+                    avg_generation_time_ms: 95054
+                    elo: 1159
+                    elo_percentile: 46
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 57.8
+                website:
+                    avg_generation_time_ms: 107162
+                    elo: 1175
+                    elo_percentile: 46
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.3
+    vals_ai:
+        anthropic/claude-opus-4-1-20250805:
+            aime:
+                accuracy: 44.236
+                cost_per_test: 0
+                latency_seconds: 29.675
+                stderr: 1.677
+            finance_agent_v1:
+                accuracy: 46.0645
+                cost_per_test: 3.73444
+                latency_seconds: 118.947
+                stderr: 1.2199
+            gpqa:
+                accuracy: 69.95
+                cost_per_test: 0.067421
+                latency_seconds: 35.934
+                stderr: 2.303
+            ioi-v1:
+                accuracy: 12.516
+                cost_per_test: 17.585952
+                latency_seconds: 6124.896
+                stderr: 4.913
+            lcb:
+                accuracy: 64.559
+                cost_per_test: 0.055988
+                latency_seconds: 32.509
+                stderr: 1.112
+            legal_bench:
+                accuracy: 83.458
+                cost_per_test: null
+                latency_seconds: 2.79
+                stderr: 0.449
+            math500:
+                accuracy: 93
+                cost_per_test: 0.045983
+                latency_seconds: 30.932
+                stderr: 1.141
+            medcode:
+                accuracy: 41.372
+                cost_per_test: 0.20627
+                latency_seconds: 13.084
+                stderr: 1.958
+            medqa:
+                accuracy: 92.533
+                cost_per_test: 0.041528
+                latency_seconds: 13.971
+                stderr: 0.24
+            medscribe:
+                accuracy: 71.753
+                cost_per_test: 0.187162
+                latency_seconds: 38.04
+                stderr: 2.021
+            mgsm:
+                accuracy: 94.218
+                cost_per_test: 0.027189
+                latency_seconds: 7.897
+                stderr: 1.456
+            mmlu_pro:
+                accuracy: 87.214
+                cost_per_test: 0.007078
+                latency_seconds: 17.757
+                stderr: 0.328
+            mmmu:
+                accuracy: 73.715
+                cost_per_test: 0.044475
+                latency_seconds: 46.277
+                stderr: 1.058
+            mortgage_tax:
+                accuracy: 61.089
+                cost_per_test: 0.088232
+                latency_seconds: 10.065
+                stderr: 0.969
+            sage-v1:
+                accuracy: 31.38
+                cost_per_test: 0.219262
+                latency_seconds: 17.334
+                stderr: 3.024
+            tax_eval_v2:
+                accuracy: 71.464
+                cost_per_test: 0.039842
+                latency_seconds: 32.602
+                stderr: 0.882

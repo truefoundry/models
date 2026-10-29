@@ -1,0 +1,36 @@
+model: google/gemma-3-4b-it:free
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        agentic_percentile: null
+        aime: 0.0633333333333333
+        aime_25: 0.126666666666667
+        coding_index: 2.7
+        coding_percentile: 0
+        critpt: 0
+        gdpval_aa: null
+        gpqa: 0.291
+        hle: 0.053
+        ifbench: 0.283
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.067
+        livecodebench: 0.112
+        math_500: 0.766
+        math_index: 12.7
+        mmlu_pro: 0.417
+        scicode: null
+        tau2: 0.05
+        tau_banking: 0.00412371134020619
+        terminalbench_hard: 0.008
+        terminalbench_v2_1: 0.00374531835205993
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: cdb70970-36b5-48fa-ab1e-ce8ad2708c61
+              provider: Parasail
+              run_count: 1
+              score: 0.271044
+        lookback_days: 32

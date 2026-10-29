@@ -3,12 +3,215 @@ artificial_analysis_id: 5b52def2-ac9b-4465-ad80-91ea8079e253
 artificial_analysis_slug: nvidia-nemotron-3-ultra-550b-a55b
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: 0.212
+        aa_omniscience_non_hallucination_rate: 0.774
+        agentic_index: 20.1
+        agentic_percentile: 43
+        aime: null
+        aime_25: null
+        coding_index: 49.3
+        coding_percentile: 49
+        critpt: 0.031
         economics_index: 24.8
         engineering_index: 22.8
         finance_and_accounting_index: 24.2
+        gdpval_aa: 0.26
+        gpqa: 0.867
         healthcare_and_medical_index: 18
+        hle: 0.284
+        ifbench: 0.814
         intelligence_index: 11.8
+        intelligence_percentile: 8
+        lcr: 0.793
         legal_index: 22.6
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.403
         strategy_and_ops_index: 15.3
+        tau2: 0.833
+        tau_banking: 0.142268041237113
+        terminalbench_hard: 0.364
+        terminalbench_v2_1: 0.539325842696629
+        terminalbench_v4_0: 0.00505050505050505
+    design_arena:
+        Nemotron 3 Ultra:
+            models:
+                3d:
+                    avg_generation_time_ms: 110512
+                    elo: 1126
+                    elo_percentile: 40
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 38.1
+                asciiart:
+                    avg_generation_time_ms: 104820
+                    elo: 1098
+                    elo_percentile: 14
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 37.3
+                codecategories:
+                    avg_generation_time_ms: 135867
+                    elo: 1146
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 36
+                dataviz:
+                    avg_generation_time_ms: 108673
+                    elo: 1144
+                    elo_percentile: 34
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 37.6
+                gamedev:
+                    avg_generation_time_ms: 131547
+                    elo: 1140
+                    elo_percentile: 42
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 36.1
+                svg:
+                    avg_generation_time_ms: 39273
+                    elo: 1067
+                    elo_percentile: 22
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 32.3
+                uicomponent:
+                    avg_generation_time_ms: 101858
+                    elo: 1136
+                    elo_percentile: 37
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 35.9
+                website:
+                    avg_generation_time_ms: 150991
+                    elo: 1145
+                    elo_percentile: 33
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 35.3
+    vals_ai:
+        nvidia/nemotron-3-ultra-550b-a55b:
+            code-migration:
+                accuracy: 4.905
+                cost_per_test: null
+                latency_seconds: 5470.513
+                stderr: 1.589
+            corp_fin_v2:
+                accuracy: 65.462
+                cost_per_test: null
+                latency_seconds: 15.015
+                stderr: 0.937
+            emb:
+                accuracy: 31.735
+                cost_per_test: null
+                latency_seconds: 2382.355
+                stderr: 2.805
+            fabv2:
+                accuracy: 37.667
+                cost_per_test: null
+                latency_seconds: 253.882
+                stderr: 0.149
+            gpqa:
+                accuracy: 86.112
+                cost_per_test: null
+                latency_seconds: 158.471
+                stderr: 1.738
+            hlab-v1:
+                accuracy: 0.417
+                cost_per_test: null
+                latency_seconds: 2048.539
+                stderr: 0
+            lcb:
+                accuracy: 85.976
+                cost_per_test: null
+                latency_seconds: 161.2
+                stderr: 0.992
+            legal_bench:
+                accuracy: 82.066
+                cost_per_test: null
+                latency_seconds: 5.179
+                stderr: 0.46
+            legal_research:
+                accuracy: 15.385
+                cost_per_test: null
+                latency_seconds: 611.366
+                stderr: 2.508
+            medcode:
+                accuracy: 38.621
+                cost_per_test: null
+                latency_seconds: 18.675
+                stderr: 2.001
+            mmlu_pro:
+                accuracy: 85.761
+                cost_per_test: null
+                latency_seconds: 32.92
+                stderr: 0.345
+            programbench:
+                accuracy: 0
+                cost_per_test: null
+                latency_seconds: 3718.555
+                stderr: 0
+            proof_bench_v1:
+                accuracy: 2
+                cost_per_test: null
+                latency_seconds: 2552.288
+                stderr: 1.407
+            swebench:
+                accuracy: 69
+                cost_per_test: null
+                latency_seconds: 283.089
+                stderr: 2.07
+            tax_eval_v2:
+                accuracy: 73.099
+                cost_per_test: null
+                latency_seconds: 36.485
+                stderr: 0.866
+            terminal-bench-2-1:
+                accuracy: 50.936
+                cost_per_test: null
+                latency_seconds: 584.116
+                stderr: 2.925
+            vals_index_v1_2:
+                accuracy: 43.987
+                cost_per_test: null
+                latency_seconds: 638.492
+                stderr: 1.263
+            vals_index_v2:
+                accuracy: 27.395
+                cost_per_test: null
+                latency_seconds: 1948.359
+                stderr: 0.949
+            vibe-code:
+                accuracy: 7.636
+                cost_per_test: null
+                latency_seconds: 2217.462
+                stderr: 2.783

@@ -1,0 +1,51 @@
+model: mistralai/devstral-2512
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 2.3
+        agentic_percentile: 23
+        aime: null
+        aime_25: 0.366666666666667
+        coding_index: 31.3
+        coding_percentile: 31
+        critpt: 0
+        gdpval_aa: 0.026
+        gpqa: 0.594
+        hle: 0.036
+        ifbench: 0.381
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.323
+        livecodebench: 0.448
+        math_500: null
+        math_index: 36.7
+        mmlu_pro: 0.762
+        scicode: 0.328
+        tau2: 0.249
+        tau_banking: 0.105154639175258
+        terminalbench_hard: 0.189
+        terminalbench_v2_1: 0.303370786516854
+        terminalbench_v4_0: 0
+    vals_ai:
+        mistralai/devstral-2512:
+            ioi-v1:
+                accuracy: 0.666
+                cost_per_test: 1.753753
+                latency_seconds: 8044.645
+                stderr: 0.608
+            lcb:
+                accuracy: 51.841
+                cost_per_test: 0.056631
+                latency_seconds: 87.57
+                stderr: 1.174
+            swebench:
+                accuracy: 62.8
+                cost_per_test: 0.747244
+                latency_seconds: 243.516
+                stderr: 2.164
+            terminal-bench:
+                accuracy: 43.75
+                cost_per_test: 0.424819
+                latency_seconds: 488.55
+                stderr: 5.546

@@ -1,0 +1,21 @@
+model: l3-lunaris-8b
+metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: cc4c8dc5-8b3f-4d54-84e2-8381184ff841
+              provider: DeepInfra (Turbo)
+              run_count: 2
+              score: 0.287879
+            - endpoint_id: d5d16ef3-adbc-4e45-8421-bc7d343e902f
+              provider: NovitaAI
+              run_count: 1
+              score: 0.284314
+            - endpoint_id: 802c16d5-fb79-4761-93e1-b40d07fc7a1b
+              provider: Parasail
+              run_count: 2
+              score: 0.26774379129798115
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 2
+              score: 0.2769331431083627
+        lookback_days: 32

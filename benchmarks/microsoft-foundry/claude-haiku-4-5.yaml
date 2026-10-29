@@ -1,0 +1,223 @@
+model: claude-haiku-4-5
+metrics:
+    artificial_analysis:
+        variants:
+            claude-4-5-haiku:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: 0.39
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.646
+                hle: 0.042
+                ifbench: 0.42
+                intelligence_index: null
+                lcr: 0.497
+                livecodebench: 0.511
+                math_500: null
+                math_index: 39
+                mmlu_pro: 0.8
+                name: Claude 4.5 Haiku (Non-reasoning)
+                scicode: null
+                tau2: 0.325
+                tau_banking: null
+                terminalbench_hard: 0.273
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            claude-4-5-haiku-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 8
+                agentic_percentile: 30
+                aime: null
+                aime_25: 0.836666666666667
+                coding_index: 43.9
+                coding_percentile: 42
+                critpt: 0
+                gdpval_aa: 0.12
+                gpqa: 0.672
+                hle: 0.104
+                ifbench: 0.543
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.743
+                livecodebench: 0.615
+                math_500: null
+                math_index: 83.7
+                mmlu_pro: 0.76
+                name: Claude 4.5 Haiku (Reasoning)
+                scicode: 0.422
+                tau2: 0.547
+                tau_banking: 0.0927835051546392
+                terminalbench_hard: 0.273
+                terminalbench_v2_1: 0.441947565543071
+                terminalbench_v4_0: 0
+    design_arena:
+        Claude Haiku 4.5:
+            models:
+                3d:
+                    avg_generation_time_ms: 29732
+                    elo: 1069
+                    elo_percentile: 24
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 41.1
+                asciiart:
+                    avg_generation_time_ms: 11177
+                    elo: 1137
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49.3
+                codecategories:
+                    avg_generation_time_ms: 48103
+                    elo: 1113
+                    elo_percentile: 26
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 44.9
+                dataviz:
+                    avg_generation_time_ms: 39176
+                    elo: 1124
+                    elo_percentile: 27
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.6
+                gamedev:
+                    avg_generation_time_ms: 47201
+                    elo: 1097
+                    elo_percentile: 28
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 44.7
+                svg:
+                    avg_generation_time_ms: 11562
+                    elo: 1022
+                    elo_percentile: 11
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 39.1
+                uicomponent:
+                    avg_generation_time_ms: 37987
+                    elo: 1095
+                    elo_percentile: 26
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 42.6
+                website:
+                    avg_generation_time_ms: 52499
+                    elo: 1122
+                    elo_percentile: 28
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.1
+    vals_ai:
+        anthropic/claude-haiku-4-5-20251001:
+            corp_fin_v2:
+                accuracy: 60.295
+                cost_per_test: 0.075779
+                latency_seconds: 7.951
+                stderr: 0.964
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 6d959414-9365-4caa-9b39-8e48ef4e1fc8
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7309799353221975
+            - endpoint_id: d000261c-5aeb-47d1-ac87-ad64dbe1cdb6
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7293231676423397
+            - endpoint_id: d5b19fd2-6e72-4610-8c39-0be29f34b736
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7254794428681463
+            - endpoint_id: 41d2915a-92e6-4993-b537-210b4e10cba8
+              provider: Anthropic
+              run_count: 4
+              score: 0.7323470622062606
+            - endpoint_id: 8d380bdc-aa3c-4cee-9969-f7e18327c061
+              provider: Azure
+              run_count: 4
+              score: 0.7314140039145814
+            - endpoint_id: 0dcd21d6-4dc2-44ef-9495-c327c9b150ef
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7261153377425731
+            - endpoint_id: 8a5e69a1-ea0d-4af6-899e-8b7e1c93a7a9
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7284110797685736
+            - endpoint_id: e8aa604a-f8cb-41f3-b516-5cd491f89cf7
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7162024039707285
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7270397286933827
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 6d959414-9365-4caa-9b39-8e48ef4e1fc8
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.6693490200947488
+            - endpoint_id: d000261c-5aeb-47d1-ac87-ad64dbe1cdb6
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.664094540253953
+            - endpoint_id: d5b19fd2-6e72-4610-8c39-0be29f34b736
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.6681210469096845
+            - endpoint_id: 41d2915a-92e6-4993-b537-210b4e10cba8
+              provider: Anthropic
+              run_count: 4
+              score: 0.6634565735389629
+            - endpoint_id: 8d380bdc-aa3c-4cee-9969-f7e18327c061
+              provider: Azure
+              run_count: 4
+              score: 0.6562608582638709
+            - endpoint_id: 0dcd21d6-4dc2-44ef-9495-c327c9b150ef
+              provider: Google Vertex
+              run_count: 4
+              score: 0.6505233611231414
+            - endpoint_id: 8a5e69a1-ea0d-4af6-899e-8b7e1c93a7a9
+              provider: Google Vertex
+              run_count: 4
+              score: 0.6723375736205229
+            - endpoint_id: e8aa604a-f8cb-41f3-b516-5cd491f89cf7
+              provider: Google Vertex
+              run_count: 4
+              score: 0.6790562717194044
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.6585748751299396

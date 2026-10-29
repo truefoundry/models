@@ -1,0 +1,209 @@
+model: qwen/qwen3.7-plus:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 17.5
+        agentic_percentile: 40
+        aime: null
+        aime_25: null
+        coding_index: 55.9
+        coding_percentile: 57
+        critpt: 0.091
+        gdpval_aa: 0.138
+        gpqa: 0.9
+        hle: 0.356
+        ifbench: 0.78
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.73
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.461
+        tau2: 0.93
+        tau_banking: 0.175257731958763
+        terminalbench_hard: 0.47
+        terminalbench_v2_1: 0.610486891385768
+        terminalbench_v4_0: 0.0101010101010101
+    design_arena:
+        Qwen3.7 Plus:
+            models:
+                3d:
+                    avg_generation_time_ms: 173343
+                    elo: 1236
+                    elo_percentile: 72
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.4
+                asciiart:
+                    avg_generation_time_ms: 239475
+                    elo: 1140
+                    elo_percentile: 38
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 41.3
+                codecategories:
+                    avg_generation_time_ms: 279435
+                    elo: 1267
+                    elo_percentile: 79
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.2
+                dataviz:
+                    avg_generation_time_ms: 234996
+                    elo: 1279
+                    elo_percentile: 85
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.2
+                gamedev:
+                    avg_generation_time_ms: 254102
+                    elo: 1260
+                    elo_percentile: 76
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49.3
+                svg:
+                    avg_generation_time_ms: 110562
+                    elo: 1205
+                    elo_percentile: 73
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 46.7
+                uicomponent:
+                    avg_generation_time_ms: 224747
+                    elo: 1257
+                    elo_percentile: 74
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.8
+                website:
+                    avg_generation_time_ms: 325316
+                    elo: 1268
+                    elo_percentile: 80
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.4
+    vals_ai:
+        alibaba/qwen3.7-plus:
+            code-migration:
+                accuracy: 12.856
+                cost_per_test: 0.41923
+                latency_seconds: 2146.993
+                stderr: 2.931
+            emb:
+                accuracy: 49.345
+                cost_per_test: 0.597724
+                latency_seconds: 2209.243
+                stderr: 3.181
+            fabv2:
+                accuracy: 38.22
+                cost_per_test: 0.357661
+                latency_seconds: 542.045
+                stderr: 1.04
+            hlab-v1:
+                accuracy: 0
+                cost_per_test: 0.234226
+                latency_seconds: 529.178
+                stderr: 0
+            legal_research:
+                accuracy: 16.346
+                cost_per_test: 0.295949
+                latency_seconds: 831.995
+                stderr: 2.57
+            mortgage_tax:
+                accuracy: 66.176
+                cost_per_test: 0.007588
+                latency_seconds: 60.548
+                stderr: 0.928
+            sage:
+                accuracy: 89.147
+                cost_per_test: 0.020459
+                latency_seconds: 108.812
+                stderr: 1.396
+            sage-v1:
+                accuracy: 39.251
+                cost_per_test: 0.021774
+                latency_seconds: 177.044
+                stderr: 3.384
+            skillsbench:
+                accuracy: 54.296
+                cost_per_test: 0.137331
+                latency_seconds: 724.46
+                stderr: 4.333
+            tax_agent_bench:
+                accuracy: 10.466
+                cost_per_test: 0.093885
+                latency_seconds: 310.263
+                stderr: 1.993
+            terminal-bench-2-1:
+                accuracy: 52.809
+                cost_per_test: 0.095849
+                latency_seconds: 654.983
+                stderr: 0.649
+            vals_index_v1_2:
+                accuracy: 52.331
+                cost_per_test: 0.351425
+                latency_seconds: 832.609
+                stderr: 1.628
+            vals_index_v2:
+                accuracy: 38.645
+                cost_per_test: 0.439693
+                latency_seconds: 1307.967
+                stderr: 1.171
+            vals_multimodal_index:
+                accuracy: 53.892
+                cost_per_test: 0.255213
+                latency_seconds: 628.662
+                stderr: 1.478
+            vibe-code:
+                accuracy: 46.391
+                cost_per_test: 1.082348
+                latency_seconds: 2231.75
+                stderr: 4.614
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: b77fd6ef-e2e0-4e92-96e1-8ffbf62d9792
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.8737370000000001
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.878788
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: b77fd6ef-e2e0-4e92-96e1-8ffbf62d9792
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.726667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.703333

@@ -3,12 +3,286 @@ artificial_analysis_id: 127de816-57d3-4037-8484-480a613cd413
 artificial_analysis_slug: mimo-v2-6-flash
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: 0.272
+        aa_omniscience_non_hallucination_rate: 0.478
         agentic_index: null
+        agentic_percentile: null
+        aime: null
+        aime_25: null
         coding_index: null
+        coding_percentile: null
+        critpt: 0.12
         economics_index: 34.2
         engineering_index: 31
         finance_and_accounting_index: 36.9
+        gdpval_aa: 0.558
+        gpqa: null
         healthcare_and_medical_index: 35.1
+        hle: 0.351
+        ifbench: null
         intelligence_index: 26.7
+        intelligence_percentile: 32
+        lcr: 0.743
         legal_index: 33.8
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.513
         strategy_and_ops_index: 45.7
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: 0.227272727272727
+    vals_ai:
+        xiaomi/mimo-v2.6-flash:
+            code-migration:
+                accuracy: 40.927
+                cost_per_test: 0.493563
+                latency_seconds: 11538.747
+                stderr: 4.351
+            code-migration-v1-1:
+                accuracy: 39.552
+                cost_per_test: 0.534944
+                latency_seconds: 15010.995
+                stderr: 3.537
+            cyber:
+                accuracy: 75.357
+                cost_per_test: 0.046276
+                latency_seconds: 1701.995
+                stderr: 5.417
+            emb:
+                accuracy: 65.459
+                cost_per_test: 0.108634
+                latency_seconds: 1521.906
+                stderr: 2.709
+            emb-v1-1:
+                accuracy: 68.882
+                cost_per_test: 0.108634
+                latency_seconds: 1521.906
+                stderr: 2.267
+            fabv2:
+                accuracy: 56.277
+                cost_per_test: 0.071536
+                latency_seconds: 421.99
+                stderr: 0.462
+            fabv2-1:
+                accuracy: 63.316
+                cost_per_test: 0.066534
+                latency_seconds: 936.347
+                stderr: 2.084
+            finance_index:
+                accuracy: 57.149
+                cost_per_test: 0.074717
+                latency_seconds: 1165.727
+                stderr: 1.391
+            hlab:
+                accuracy: 13.333
+                cost_per_test: 0.085646
+                latency_seconds: 1342.563
+                stderr: 2.821
+            hlab-v1:
+                accuracy: 11.25
+                cost_per_test: 0.085646
+                latency_seconds: 1031.581
+                stderr: 2.543
+            ioi:
+                accuracy: 47.667
+                cost_per_test: 0.215104
+                latency_seconds: 6521.606
+                stderr: 4.785
+            legal_index:
+                accuracy: 68.99
+                cost_per_test: 0.068351
+                latency_seconds: 1100.393
+                stderr: 1.774
+            legal_research:
+                accuracy: 37.981
+                cost_per_test: 0.070424
+                latency_seconds: 919.689
+                stderr: 3.373
+            medcode:
+                accuracy: 41.057
+                cost_per_test: 0.002865
+                latency_seconds: 93.373
+                stderr: 2.032
+            medscribe:
+                accuracy: 85.275
+                cost_per_test: 0.002184
+                latency_seconds: 74.481
+                stderr: 1.986
+            programbench:
+                accuracy: 0.5
+                cost_per_test: 0.470526
+                latency_seconds: 12091.441
+                stderr: 0.5
+            proof_bench:
+                accuracy: 63
+                cost_per_test: 0.123277
+                latency_seconds: 3769.808
+                stderr: 4.852
+            sage:
+                accuracy: 83.256
+                cost_per_test: 0.007384
+                latency_seconds: 166.54
+                stderr: 2.142
+            sage-v1:
+                accuracy: 43.53
+                cost_per_test: 0.004922
+                latency_seconds: 136.141
+                stderr: 3.429
+            science_index:
+                accuracy: 31.722
+                cost_per_test: 0.117321
+                latency_seconds: 6047.487
+                stderr: 1.272
+            srebench:
+                accuracy: 4.198
+                cost_per_test: 0.395481
+                latency_seconds: 12121.727
+                stderr: 1.241
+            tax_agent_bench:
+                accuracy: 28.507
+                cost_per_test: 0.048982
+                latency_seconds: 1038.928
+                stderr: 3.14
+            terminal-bench-2-1:
+                accuracy: 76.404
+                cost_per_test: 0.02332
+                latency_seconds: 809.733
+                stderr: 1.716
+            terminal-bench-4:
+                accuracy: 24.242
+                cost_per_test: 0.211804
+                latency_seconds: 8712.24
+                stderr: 1.515
+            vals_index:
+                accuracy: 54.826
+                cost_per_test: 0.221007
+                latency_seconds: 4027.975
+                stderr: 1.114
+            vals_index_v2:
+                accuracy: 59.584
+                cost_per_test: 0.19671
+                latency_seconds: 2701.771
+                stderr: 1.133
+            vals_index_v2_1:
+                accuracy: 53.231
+                cost_per_test: 0.202364
+                latency_seconds: 3481.728
+                stderr: 1.097
+            vibe-code:
+                accuracy: 78.96
+                cost_per_test: 0.563041
+                latency_seconds: 3013.012
+                stderr: 4.045
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 11acf9dd-150f-425d-a435-0a977e7c212a
+              provider: Cohere
+              run_count: 2
+              score: 0.7195808438367255
+            - endpoint_id: e4495a5b-36ee-45b8-be70-95af1fa34dc7
+              provider: Darkbloom
+              run_count: 1
+              score: 0.713213
+            - endpoint_id: 8f1a1d4b-adc8-465f-860a-4dc2aad88765
+              provider: DeepInfra
+              run_count: 5
+              score: 0.777881982120702
+            - endpoint_id: 76fba6e4-0f14-4337-9721-160f5724eb20
+              provider: GMICloud
+              run_count: 5
+              score: 0.7740598553671684
+            - endpoint_id: 784c9d91-dce7-4a89-adc1-98960547e58e
+              provider: Makora
+              run_count: 6
+              score: 0.7175180259233871
+            - endpoint_id: add858d2-7c8d-48df-94ac-30a72a5d2a35
+              provider: NovitaAI
+              run_count: 5
+              score: 0.7492081080274379
+            - endpoint_id: 8bdf635a-6ccc-4247-82aa-467b04da83e9
+              provider: Relace
+              run_count: 2
+              score: 0.7475733718269659
+            - endpoint_id: 5a4f83c9-eb01-4268-a607-eaf6d5ce435a
+              provider: Venice
+              run_count: 2
+              score: 0.8528701086949392
+            - endpoint_id: 6f7ea660-c5e2-492e-8a39-ec254953b3ae
+              provider: Xiaomi
+              run_count: 4
+              score: 0.7733726635876013
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7416102004952
+            - endpoint_id: ce5f9973-5610-439d-b8d5-5e0acbac07b1
+              provider: inference.net
+              run_count: 2
+              score: 0.76272163463413
+            - endpoint_id: 26aaacd7-6d71-4b8a-a902-f264dccea66c
+              provider: io.net
+              run_count: 7
+              score: 0.7463972993278861
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 11acf9dd-150f-425d-a435-0a977e7c212a
+              provider: Cohere
+              run_count: 2
+              score: 0.7403963323687643
+            - endpoint_id: 8f1a1d4b-adc8-465f-860a-4dc2aad88765
+              provider: DeepInfra
+              run_count: 4
+              score: 0.775369414556369
+            - endpoint_id: 76fba6e4-0f14-4337-9721-160f5724eb20
+              provider: GMICloud
+              run_count: 4
+              score: 0.7685169651410942
+            - endpoint_id: 784c9d91-dce7-4a89-adc1-98960547e58e
+              provider: Makora
+              run_count: 6
+              score: 0.7601176949445695
+            - endpoint_id: add858d2-7c8d-48df-94ac-30a72a5d2a35
+              provider: NovitaAI
+              run_count: 5
+              score: 0.7841961975529617
+            - endpoint_id: 8bdf635a-6ccc-4247-82aa-467b04da83e9
+              provider: Relace
+              run_count: 2
+              score: 0.7570250656590515
+            - endpoint_id: 5a4f83c9-eb01-4268-a607-eaf6d5ce435a
+              provider: Venice
+              run_count: 2
+              score: 0.7513237143197886
+            - endpoint_id: 6f7ea660-c5e2-492e-8a39-ec254953b3ae
+              provider: Xiaomi
+              run_count: 4
+              score: 0.7629052664458338
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7782376305018476
+            - endpoint_id: ce5f9973-5610-439d-b8d5-5e0acbac07b1
+              provider: inference.net
+              run_count: 2
+              score: 0.7765666829540225
+            - endpoint_id: 26aaacd7-6d71-4b8a-a902-f264dccea66c
+              provider: io.net
+              run_count: 7
+              score: 0.7672417673716752
+        vgi_bench:
+            - endpoint_id: 76fba6e4-0f14-4337-9721-160f5724eb20
+              provider: GMICloud
+              run_count: 2
+              score: 0.36984596765382316
+            - endpoint_id: 784c9d91-dce7-4a89-adc1-98960547e58e
+              provider: Makora
+              run_count: 3
+              score: 0.27311304926969665
+            - endpoint_id: add858d2-7c8d-48df-94ac-30a72a5d2a35
+              provider: NovitaAI
+              run_count: 2
+              score: 0.3876068327365928

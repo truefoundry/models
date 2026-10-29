@@ -3,12 +3,209 @@ artificial_analysis_id: e2c0623e-c855-4a61-bb66-be1f1ed43234
 artificial_analysis_slug: nemotron-3-5-super-vl
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: 0.212
+        aa_omniscience_non_hallucination_rate: 0.695
         agentic_index: null
+        agentic_percentile: null
+        aime: null
+        aime_25: null
         coding_index: null
+        coding_percentile: null
+        critpt: 0.106
         economics_index: 27
         engineering_index: 23.5
         finance_and_accounting_index: 26.7
+        gdpval_aa: 0.331
+        gpqa: null
         healthcare_and_medical_index: 21
+        hle: 0.307
+        ifbench: null
         intelligence_index: 13.6
+        intelligence_percentile: 12
+        lcr: 0.69
         legal_index: 25.3
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.478
         strategy_and_ops_index: 21.8
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: 0
+    design_arena:
+        Nemotron 3.5 Super VL:
+            models:
+                3d:
+                    avg_generation_time_ms: 96381
+                    elo: 1119
+                    elo_percentile: 38
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 28.5
+                codecategories:
+                    avg_generation_time_ms: 104922
+                    elo: 1151
+                    elo_percentile: 39
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 32.8
+                gamedev:
+                    avg_generation_time_ms: 102653
+                    elo: 1108
+                    elo_percentile: 30
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 29.3
+                uicomponent:
+                    avg_generation_time_ms: 69621
+                    elo: 1134
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 30.3
+                website:
+                    avg_generation_time_ms: 107547
+                    elo: 1167
+                    elo_percentile: 42
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 34.9
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 5384b3f0-0402-4832-9b8e-844dba62a32a
+              provider: Baseten
+              run_count: 2
+              score: 0.8804191684872946
+            - endpoint_id: 7c584b34-1286-491c-8ee6-d7909f84fc19
+              provider: CoreWeave
+              run_count: 2
+              score: 0.8810575531126335
+            - endpoint_id: 719d0b53-cc58-4aa8-856f-dc7192f78729
+              provider: Crusoe
+              run_count: 2
+              score: 0.8179646806768366
+            - endpoint_id: e114048d-f073-4ea2-be12-05d113480be9
+              provider: Darkbloom
+              run_count: 2
+              score: 0.818289270456549
+            - endpoint_id: 53e78594-2a96-4584-bc98-584e0508e436
+              provider: DeepInfra
+              run_count: 2
+              score: 0.8756238826518029
+            - endpoint_id: 9797188b-2888-4111-849c-78c9b49a2fd6
+              provider: Nebius Token Factory
+              run_count: 1
+              score: 0.885522
+            - endpoint_id: 6a42a031-5822-4d00-a401-090b7f1bc351
+              provider: Together
+              run_count: 2
+              score: 0.8806308099187086
+            - endpoint_id: 36dbe4f5-257e-47f0-a30a-5c4890eda440
+              provider: Venice
+              run_count: 3
+              score: 0.8442202847198429
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 2
+              score: 0.8729254544979952
+            - endpoint_id: e8814018-a4b1-47b7-b428-0ee09ed36de6
+              provider: io.net
+              run_count: 2
+              score: 0.9356243053409603
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 5384b3f0-0402-4832-9b8e-844dba62a32a
+              provider: Baseten
+              run_count: 1
+              score: 0.693333
+            - endpoint_id: 7c584b34-1286-491c-8ee6-d7909f84fc19
+              provider: CoreWeave
+              run_count: 2
+              score: 0.7309006255837817
+            - endpoint_id: 719d0b53-cc58-4aa8-856f-dc7192f78729
+              provider: Crusoe
+              run_count: 2
+              score: 0.5844508264379127
+            - endpoint_id: e114048d-f073-4ea2-be12-05d113480be9
+              provider: Darkbloom
+              run_count: 1
+              score: 0.755319
+            - endpoint_id: 53e78594-2a96-4584-bc98-584e0508e436
+              provider: DeepInfra
+              run_count: 2
+              score: 0.7412956928800613
+            - endpoint_id: 9797188b-2888-4111-849c-78c9b49a2fd6
+              provider: Nebius Token Factory
+              run_count: 1
+              score: 0.713333
+            - endpoint_id: 6a42a031-5822-4d00-a401-090b7f1bc351
+              provider: Together
+              run_count: 2
+              score: 0.731711601584008
+            - endpoint_id: 36dbe4f5-257e-47f0-a30a-5c4890eda440
+              provider: Venice
+              run_count: 3
+              score: 0.7160349470791685
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 2
+              score: 0.7308872345810806
+            - endpoint_id: e8814018-a4b1-47b7-b428-0ee09ed36de6
+              provider: io.net
+              run_count: 2
+              score: 0.6614811221237831
+        vgi_bench:
+            - endpoint_id: 5384b3f0-0402-4832-9b8e-844dba62a32a
+              provider: Baseten
+              run_count: 1
+              score: 0.287016
+            - endpoint_id: 7c584b34-1286-491c-8ee6-d7909f84fc19
+              provider: CoreWeave
+              run_count: 3
+              score: 0.25727730148050193
+            - endpoint_id: 719d0b53-cc58-4aa8-856f-dc7192f78729
+              provider: Crusoe
+              run_count: 3
+              score: 0.0327708895368107
+            - endpoint_id: e114048d-f073-4ea2-be12-05d113480be9
+              provider: Darkbloom
+              run_count: 1
+              score: 0.080854
+            - endpoint_id: 53e78594-2a96-4584-bc98-584e0508e436
+              provider: DeepInfra
+              run_count: 2
+              score: 0.32316118647010283
+            - endpoint_id: 9797188b-2888-4111-849c-78c9b49a2fd6
+              provider: Nebius Token Factory
+              run_count: 1
+              score: 0.229502
+            - endpoint_id: 6a42a031-5822-4d00-a401-090b7f1bc351
+              provider: Together
+              run_count: 3
+              score: 0.08471138206541835
+            - endpoint_id: 36dbe4f5-257e-47f0-a30a-5c4890eda440
+              provider: Venice
+              run_count: 3
+              score: 0.24200877728152614
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 2
+              score: 0.28864394976373714

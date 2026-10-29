@@ -1,0 +1,319 @@
+model: ~anthropic/claude-haiku-latest
+metrics:
+    design_arena:
+        Claude Haiku 5.5:
+            models:
+                3d:
+                    avg_generation_time_ms: 164378
+                    elo: 1343
+                    elo_percentile: 92
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.1
+                codecategories:
+                    avg_generation_time_ms: 182678
+                    elo: 1280
+                    elo_percentile: 84
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.6
+                dataviz:
+                    avg_generation_time_ms: 88526
+                    elo: 1287
+                    elo_percentile: 89
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.9
+                gamedev:
+                    avg_generation_time_ms: 257042
+                    elo: 1321
+                    elo_percentile: 92
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.7
+                svg:
+                    avg_generation_time_ms: 22909
+                    elo: 1202
+                    elo_percentile: 72
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 44.2
+                uicomponent:
+                    avg_generation_time_ms: 87976
+                    elo: 1279
+                    elo_percentile: 83
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51
+                website:
+                    avg_generation_time_ms: 170335
+                    elo: 1262
+                    elo_percentile: 77
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.7
+    vals_ai:
+        anthropic/claude-haiku-5-5:
+            claimbench:
+                accuracy: 100
+                cost_per_test: 0.002541
+                latency_seconds: 5.059
+                stderr: 0
+            code-migration:
+                accuracy: 44.568
+                cost_per_test: 6.23191
+                latency_seconds: 4971.306
+                stderr: 4.231
+            code-migration-v1-1:
+                accuracy: 52.36
+                cost_per_test: 6.199353
+                latency_seconds: 5158.092
+                stderr: 3.489
+            cyber:
+                accuracy: 75.476
+                cost_per_test: 1.248102
+                latency_seconds: 1959.181
+                stderr: 5.205
+            emb:
+                accuracy: 59.015
+                cost_per_test: 1.146892
+                latency_seconds: 1082.902
+                stderr: 4.17
+            emb-v1-1:
+                accuracy: 65.477
+                cost_per_test: 1.364559
+                latency_seconds: 1195.527
+                stderr: 3.691
+            fabv2:
+                accuracy: 54.138
+                cost_per_test: 1.636603
+                latency_seconds: 1849
+                stderr: 2.132
+            fabv2-1:
+                accuracy: 65.373
+                cost_per_test: 1.637243
+                latency_seconds: 1864.634
+                stderr: 2.063
+            finance_index:
+                accuracy: 57.448
+                cost_per_test: 1.38867
+                latency_seconds: 2011.269
+                stderr: 1.798
+            hlab:
+                accuracy: 4.167
+                cost_per_test: 4.264376
+                latency_seconds: 2620.795
+                stderr: 1.518
+            hlab-v1:
+                accuracy: 1.25
+                cost_per_test: 3.394654
+                latency_seconds: 2113.923
+                stderr: 0.716
+            immigration:
+                accuracy: 61.791
+                cost_per_test: 0.089748
+                latency_seconds: 399.438
+                stderr: 1.637
+            ioi:
+                accuracy: 47.278
+                cost_per_test: 0.826826
+                latency_seconds: 753.816
+                stderr: 10.721
+            legal_index:
+                accuracy: 70.294
+                cost_per_test: 2.358647
+                latency_seconds: 3524.749
+                stderr: 1.827
+            legal_research:
+                accuracy: 43.75
+                cost_per_test: 1.647359
+                latency_seconds: 4979.806
+                stderr: 3.448
+            medcode:
+                accuracy: 51.542
+                cost_per_test: 0.031937
+                latency_seconds: 226.464
+                stderr: 2.166
+            medscribe:
+                accuracy: 89.542
+                cost_per_test: 0.043777
+                latency_seconds: 323.396
+                stderr: 1.917
+            programbench:
+                accuracy: 2.5
+                cost_per_test: 6.828942
+                latency_seconds: 4389.65
+                stderr: 1.107
+            proof_bench:
+                accuracy: 89
+                cost_per_test: 0.173874
+                latency_seconds: 418.047
+                stderr: 3.145
+            sage:
+                accuracy: 89.829
+                cost_per_test: 0.016108
+                latency_seconds: 112.327
+                stderr: 1.435
+            sage-v1:
+                accuracy: 45.783
+                cost_per_test: 0.019327
+                latency_seconds: 143.279
+                stderr: 3.423
+            science_index:
+                accuracy: 38.502
+                cost_per_test: 1.859159
+                latency_seconds: 2398.32
+                stderr: 1.671
+            srebench:
+                accuracy: 5.725
+                cost_per_test: 3.140034
+                latency_seconds: 3475.503
+                stderr: 1.438
+            swebench-multimodal:
+                accuracy: 43.958
+                cost_per_test: 0.704848
+                latency_seconds: 975.904
+                stderr: 2.268
+            tax_agent_bench:
+                accuracy: 31.922
+                cost_per_test: 1.164207
+                latency_seconds: 2973.647
+                stderr: 3.352
+            terminal-bench-4:
+                accuracy: 36.364
+                cost_per_test: 3.117464
+                latency_seconds: 3116.385
+                stderr: 2.314
+            vals_index:
+                accuracy: 58.727
+                cost_per_test: 3.17475
+                latency_seconds: 2996.841
+                stderr: 1.282
+            vals_index_v2_1:
+                accuracy: 54.435
+                cost_per_test: 3.000096
+                latency_seconds: 2843.636
+                stderr: 1.412
+            vcb-1-100:
+                accuracy: 20.406
+                cost_per_test: 8.304533
+                latency_seconds: 14744.334
+                stderr: 3.792
+            vibe-code:
+                accuracy: 90.444
+                cost_per_test: 6.071856
+                latency_seconds: 2075.723
+                stderr: 1.725
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 1590ab1a-59ff-4d19-8aac-db738d634562
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8695772282028413
+            - endpoint_id: 2c62ff91-80e4-4f0a-aae1-775dbb1d7c63
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8734414327475223
+            - endpoint_id: 510bc24f-96dd-4b1e-a4c9-cf2d6863bb85
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.8719376454187584
+            - endpoint_id: b5642c35-75b9-488f-9480-5010d4f2798f
+              provider: Anthropic
+              run_count: 4
+              score: 0.8689180630453892
+            - endpoint_id: 8648dd4b-6f53-470a-ae7d-e7e5a612afed
+              provider: Azure
+              run_count: 4
+              score: 0.8672268636768844
+            - endpoint_id: be1c9178-4c8a-4831-a706-25ba981d03dd
+              provider: Azure
+              run_count: 4
+              score: 0.8715238655737659
+            - endpoint_id: b6cdf493-3a61-441f-a134-e7944fddb980
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.8677155904184264
+            - endpoint_id: 90d0dbe6-1b97-4ae2-914f-a9eec9987489
+              provider: Google Vertex
+              run_count: 4
+              score: 0.8681158533367868
+            - endpoint_id: e0db136d-f16b-4d7e-a2b3-798112b9f0d6
+              provider: Google Vertex
+              run_count: 4
+              score: 0.8703744058702249
+            - endpoint_id: e1e89706-f4b2-42b0-a604-11309ba86b93
+              provider: Google Vertex
+              run_count: 4
+              score: 0.863963288062904
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 3
+              score: 0.8696136578241914
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 1590ab1a-59ff-4d19-8aac-db738d634562
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7381034137406924
+            - endpoint_id: 2c62ff91-80e4-4f0a-aae1-775dbb1d7c63
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7515014593548714
+            - endpoint_id: 510bc24f-96dd-4b1e-a4c9-cf2d6863bb85
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7247192639418701
+            - endpoint_id: b5642c35-75b9-488f-9480-5010d4f2798f
+              provider: Anthropic
+              run_count: 4
+              score: 0.7351183110098709
+            - endpoint_id: 8648dd4b-6f53-470a-ae7d-e7e5a612afed
+              provider: Azure
+              run_count: 4
+              score: 0.7342595900538655
+            - endpoint_id: be1c9178-4c8a-4831-a706-25ba981d03dd
+              provider: Azure
+              run_count: 4
+              score: 0.7279969071253892
+            - endpoint_id: b6cdf493-3a61-441f-a134-e7944fddb980
+              provider: Claude Platform on AWS
+              run_count: 4
+              score: 0.7297710845800227
+            - endpoint_id: 90d0dbe6-1b97-4ae2-914f-a9eec9987489
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7444557308409269
+            - endpoint_id: e0db136d-f16b-4d7e-a2b3-798112b9f0d6
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7427000720459815
+            - endpoint_id: e1e89706-f4b2-42b0-a604-11309ba86b93
+              provider: Google Vertex
+              run_count: 4
+              score: 0.741482794222155
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 3
+              score: 0.718777772483895

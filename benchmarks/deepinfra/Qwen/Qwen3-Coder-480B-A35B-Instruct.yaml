@@ -3,12 +3,137 @@ artificial_analysis_id: 093883ed-f5fc-443b-8e18-afbfb166699e
 artificial_analysis_slug: qwen3-coder-480b-a35b-instruct
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: 0.476666666666667
+        aime_25: 0.393333333333333
         coding_index: null
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.618
         healthcare_and_medical_index: null
+        hle: 0.045
+        ifbench: 0.405
         intelligence_index: null
+        lcr: 0.457
         legal_index: null
+        livecodebench: 0.585
+        math_500: 0.942
+        math_index: 39.3
+        mmlu_pro: 0.788
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.436
+        tau_banking: null
+        terminalbench_hard: 0.189
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        Qwen3 Coder 480B A35B Instruct:
+            models:
+                codecategories:
+                    avg_generation_time_ms: 62063
+                    elo: 1141
+                    elo_percentile: 33
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 61.2
+                dataviz:
+                    avg_generation_time_ms: 54144
+                    elo: 1084
+                    elo_percentile: 19
+                    first_place: 359
+                    fourth_place: 94
+                    second_place: 281
+                    third_place: 168
+                    total_tournaments: 902
+                    win_rate: 54.9
+                gamedev:
+                    avg_generation_time_ms: 58990
+                    elo: 1099
+                    elo_percentile: 29
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.7
+                uicomponent:
+                    avg_generation_time_ms: 39087
+                    elo: 1107
+                    elo_percentile: 29
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 61.4
+                website:
+                    avg_generation_time_ms: 68275
+                    elo: 1157
+                    elo_percentile: 37
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 61.7
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: eb365617-e7c9-41fa-98ea-a3aa2183ce58
+              provider: Alibaba OpenSource
+              run_count: 1
+              score: 0.597643
+            - endpoint_id: 6982ced0-1d3c-4fd0-bc36-21297218fdbe
+              provider: DeepInfra (Turbo)
+              run_count: 2
+              score: 0.5933301537341701
+            - endpoint_id: 803d4906-0d0b-49b6-8705-7ae0a4d45217
+              provider: Google Vertex
+              run_count: 1
+              score: 0.606061
+            - endpoint_id: 223e0b1b-e924-4da4-8d45-74cc9deeb40f
+              provider: NovitaAI
+              run_count: 1
+              score: 0.6111109999999998
+            - endpoint_id: 042e96a9-24e0-43c1-a472-b93b506f211c
+              provider: Venice
+              run_count: 1
+              score: 0.60101
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.611111
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: eb365617-e7c9-41fa-98ea-a3aa2183ce58
+              provider: Alibaba OpenSource
+              run_count: 1
+              score: 0.36
+            - endpoint_id: 6982ced0-1d3c-4fd0-bc36-21297218fdbe
+              provider: DeepInfra (Turbo)
+              run_count: 1
+              score: 0.433333
+            - endpoint_id: 803d4906-0d0b-49b6-8705-7ae0a4d45217
+              provider: Google Vertex
+              run_count: 1
+              score: 0.413333
+            - endpoint_id: 223e0b1b-e924-4da4-8d45-74cc9deeb40f
+              provider: NovitaAI
+              run_count: 1
+              score: 0.34
+            - endpoint_id: 042e96a9-24e0-43c1-a472-b93b506f211c
+              provider: Venice
+              run_count: 1
+              score: 0.426667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.44

@@ -1,0 +1,69 @@
+model: deepseek/deepseek-v4-flash-vision-exp:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 47.5
+        agentic_percentile: 84
+        aime: null
+        aime_25: null
+        coding_index: 65
+        coding_percentile: 68
+        critpt: 0.109
+        gdpval_aa: 0.527
+        gpqa: 0.913
+        hle: 0.345
+        ifbench: null
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.813
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.497
+        tau2: null
+        tau_banking: 0.410309278350515
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.741573033707865
+        terminalbench_v4_0: 0.121212121212121
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 53d3d2f0-295e-4fcc-8031-a4f19d41a9cd
+              provider: DeepInfra
+              run_count: 2
+              score: 0.878508850162168
+            - endpoint_id: 017cf4d1-af67-4ab4-bb39-ff310053f47e
+              provider: GMICloud
+              run_count: 2
+              score: 0.8997440120099361
+            - endpoint_id: 9877f782-d917-40cd-9e79-afd5c40f7390
+              provider: NovitaAI
+              run_count: 1
+              score: 0.920068
+            - endpoint_id: a2822625-351a-4985-a613-e6529592b3ec
+              provider: SiliconFlow
+              run_count: 1
+              score: 0.902357
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.888889
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 53d3d2f0-295e-4fcc-8031-a4f19d41a9cd
+              provider: DeepInfra
+              run_count: 2
+              score: 0.7647348262697028
+            - endpoint_id: 017cf4d1-af67-4ab4-bb39-ff310053f47e
+              provider: GMICloud
+              run_count: 2
+              score: 0.7461120932365546
+            - endpoint_id: a2822625-351a-4985-a613-e6529592b3ec
+              provider: SiliconFlow
+              run_count: 1
+              score: 0.773333
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.786667

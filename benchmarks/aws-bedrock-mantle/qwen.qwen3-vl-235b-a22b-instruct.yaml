@@ -3,12 +3,92 @@ artificial_analysis_id: d58cf573-1bd3-4d1f-9182-5482a460f570
 artificial_analysis_slug: qwen3-vl-235b-a22b-instruct
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: null
+        aime_25: 0.706666666666667
         coding_index: null
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.712
         healthcare_and_medical_index: null
+        hle: 0.066
+        ifbench: 0.427
         intelligence_index: null
+        lcr: 0.327
         legal_index: null
+        livecodebench: 0.594
+        math_500: null
+        math_index: 70.7
+        mmlu_pro: 0.823
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.351
+        tau_banking: null
+        terminalbench_hard: 0.068
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: ffa79fb8-8758-4c19-a790-40706e9033d6
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.715488
+            - endpoint_id: a352cc82-2bdb-411b-9f99-bd7829655412
+              provider: DeepInfra
+              run_count: 2
+              score: 0.6903981638577532
+            - endpoint_id: 7f224e57-ba59-49bb-92f7-0fe85eff0e72
+              provider: NovitaAI
+              run_count: 1
+              score: 0.713805
+            - endpoint_id: 9d2c36b8-0885-4ea2-9df4-954e856e4f7a
+              provider: Parasail
+              run_count: 1
+              score: 0.713805
+            - endpoint_id: 62b21803-45b9-46a7-9a55-37b6863f9d77
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.707071
+            - endpoint_id: 1a247ee7-2973-430d-8445-7c7a30adb983
+              provider: Venice
+              run_count: 1
+              score: 0.698653
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.685185
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: ffa79fb8-8758-4c19-a790-40706e9033d6
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.426667
+            - endpoint_id: a352cc82-2bdb-411b-9f99-bd7829655412
+              provider: DeepInfra
+              run_count: 2
+              score: 0.40490051083561257
+            - endpoint_id: 7f224e57-ba59-49bb-92f7-0fe85eff0e72
+              provider: NovitaAI
+              run_count: 1
+              score: 0.45333299999999993
+            - endpoint_id: 9d2c36b8-0885-4ea2-9df4-954e856e4f7a
+              provider: Parasail
+              run_count: 1
+              score: 0.413333
+            - endpoint_id: 62b21803-45b9-46a7-9a55-37b6863f9d77
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.48
+            - endpoint_id: 1a247ee7-2973-430d-8445-7c7a30adb983
+              provider: Venice
+              run_count: 1
+              score: 0.426667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.393333

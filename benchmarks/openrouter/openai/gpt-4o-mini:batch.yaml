@@ -1,0 +1,57 @@
+model: openai/gpt-4o-mini:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        agentic_percentile: null
+        aime: 0.116666666666667
+        aime_25: 0.146666666666667
+        coding_index: 11.4
+        coding_percentile: 7
+        critpt: null
+        gdpval_aa: 0
+        gpqa: 0.426
+        hle: 0.042
+        ifbench: 0.31
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: null
+        livecodebench: 0.234
+        math_500: 0.788666666666667
+        math_index: 14.7
+        mmlu_pro: 0.648
+        scicode: null
+        tau2: null
+        tau_banking: 0.0288659793814433
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.0561797752808989
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 685e6cfb-ecef-4c83-8e2d-aa1ba667d744
+              provider: Azure
+              run_count: 1
+              score: 0.420875
+            - endpoint_id: 74a2cb83-3a90-447c-b27a-8b6d955d082f
+              provider: Azure
+              run_count: 1
+              score: 0.449495
+            - endpoint_id: 77e40332-6f2a-4c48-bc14-e44596b30ce2
+              provider: OpenAI
+              run_count: 2
+              score: 0.4310790476887781
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.429293
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 77e40332-6f2a-4c48-bc14-e44596b30ce2
+              provider: OpenAI
+              run_count: 2
+              score: 0.29265628366471647
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.313333

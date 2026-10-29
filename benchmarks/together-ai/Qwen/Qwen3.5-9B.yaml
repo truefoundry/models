@@ -3,12 +3,104 @@ artificial_analysis_id: 2d28a13a-096e-475a-beb8-26bbd1c7d51c
 artificial_analysis_slug: qwen3-5-9b
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 1.2
+        agentic_percentile: 15
+        aime: null
+        aime_25: null
+        coding_index: 28.7
+        coding_percentile: 29
+        critpt: 0.003
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0
+        gpqa: 0.806
         healthcare_and_medical_index: null
+        hle: 0.149
+        ifbench: 0.667
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.7
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.295
         strategy_and_ops_index: null
+        tau2: 0.868
+        tau_banking: 0.0701030927835052
+        terminalbench_hard: 0.242
+        terminalbench_v2_1: 0.292134831460674
+        terminalbench_v4_0: 0.00505050505050505
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: a805a3bd-3eec-4311-b47c-d3d75bbff5c3
+              provider: Darkbloom
+              run_count: 2
+              score: 0.6113665157014448
+            - endpoint_id: 073a2dde-9ebc-4ae0-840f-c84fc8f72247
+              provider: DeepInfra
+              run_count: 4
+              score: 0.7941907897515991
+            - endpoint_id: 02b618a1-b3fa-4b5c-8626-45c0e7c157d0
+              provider: Parasail
+              run_count: 4
+              score: 0.7887362986911082
+            - endpoint_id: 8c3fbe50-de8a-43eb-a1f0-3621a4202f03
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.827851
+            - endpoint_id: 9de3d9d3-be5f-402f-8bb0-fb5de1bf0f91
+              provider: SiliconFlow
+              run_count: 1
+              score: 0.776094
+            - endpoint_id: 00d506d9-a5e9-4382-a2b9-d54732365594
+              provider: Together
+              run_count: 4
+              score: 0.7933770406983465
+            - endpoint_id: f8e609ab-d193-4bb7-b7e7-ff76ac405a7d
+              provider: Venice
+              run_count: 3
+              score: 0.7926775994950624
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7656969147851783
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: a805a3bd-3eec-4311-b47c-d3d75bbff5c3
+              provider: Darkbloom
+              run_count: 1
+              score: 0.786232
+            - endpoint_id: 073a2dde-9ebc-4ae0-840f-c84fc8f72247
+              provider: DeepInfra
+              run_count: 2
+              score: 0.7669514796921769
+            - endpoint_id: 8c3fbe50-de8a-43eb-a1f0-3621a4202f03
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.74
+            - endpoint_id: 9de3d9d3-be5f-402f-8bb0-fb5de1bf0f91
+              provider: SiliconFlow
+              run_count: 2
+              score: 0.8066670000000001
+            - endpoint_id: 00d506d9-a5e9-4382-a2b9-d54732365594
+              provider: Together
+              run_count: 4
+              score: 0.7644028604269729
+            - endpoint_id: f8e609ab-d193-4bb7-b7e7-ff76ac405a7d
+              provider: Venice
+              run_count: 3
+              score: 0.6901282627207712
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 2
+              score: 0.7434651457732058
+        vgi_bench:
+            - endpoint_id: 02b618a1-b3fa-4b5c-8626-45c0e7c157d0
+              provider: Parasail
+              run_count: 1
+              score: 0.070467

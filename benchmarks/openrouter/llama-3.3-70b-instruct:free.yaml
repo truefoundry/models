@@ -1,0 +1,101 @@
+model: llama-3.3-70b-instruct:free
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        agentic_percentile: null
+        aime: 0.3
+        aime_25: 0.0766666666666667
+        coding_index: 11.9
+        coding_percentile: 8
+        critpt: 0
+        gdpval_aa: 0
+        gpqa: 0.498
+        hle: 0.036
+        ifbench: 0.471
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.157
+        livecodebench: 0.288
+        math_500: 0.772666666666667
+        math_index: 7.7
+        mmlu_pro: 0.713
+        scicode: null
+        tau2: 0.266
+        tau_banking: null
+        terminalbench_hard: 0.03
+        terminalbench_v2_1: 0.048689138576779
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 63d08afe-bb7c-478f-9d67-1832b10ad6ea
+              provider: AkashML
+              run_count: 11
+              score: 0.4818133139044232
+            - endpoint_id: 7427a4ca-e462-4d5f-94e0-41666c4a6593
+              provider: Cloudflare
+              run_count: 5
+              score: 0.4869782486271275
+            - endpoint_id: 3c8ebbd4-853a-4a59-a276-f7eb5a319564
+              provider: CoreWeave
+              run_count: 4
+              score: 0.4899433768098442
+            - endpoint_id: e3b0a527-44d6-4ea6-9ec2-6a6416a84c7c
+              provider: DeepInfra (Turbo)
+              run_count: 5
+              score: 0.46252297982003115
+            - endpoint_id: 0d4cc43e-1b8b-4694-b2d5-57ea43dc0909
+              provider: Groq
+              run_count: 4
+              score: 0.49518320283699935
+            - endpoint_id: 8f74ff86-f435-4f1b-aea0-f7869c7eaa51
+              provider: NovitaAI
+              run_count: 4
+              score: 0.4713235108441536
+            - endpoint_id: d0567a96-c81f-4106-bc94-eb36da460587
+              provider: Parasail
+              run_count: 4
+              score: 0.47821707157156973
+            - endpoint_id: 7ad92dfb-bc2d-44bf-b704-e0b424fcb6ce
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.469697
+            - endpoint_id: e3cb933e-a526-472c-b69b-df1d8302e016
+              provider: SambaNova Turbo
+              run_count: 4
+              score: 0.4848519762615634
+            - endpoint_id: 0f0f7609-28d7-40d1-848e-2b2e69d11912
+              provider: Together
+              run_count: 3
+              score: 0.47594567518509545
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.48027134838510716
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 63d08afe-bb7c-478f-9d67-1832b10ad6ea
+              provider: AkashML
+              run_count: 11
+              score: 0.36853993235629223
+            - endpoint_id: 3c8ebbd4-853a-4a59-a276-f7eb5a319564
+              provider: CoreWeave
+              run_count: 4
+              score: 0.33406716117890206
+            - endpoint_id: 8f74ff86-f435-4f1b-aea0-f7869c7eaa51
+              provider: NovitaAI
+              run_count: 1
+              score: 0.38148100000000007
+            - endpoint_id: 7ad92dfb-bc2d-44bf-b704-e0b424fcb6ce
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.313333
+            - endpoint_id: 0f0f7609-28d7-40d1-848e-2b2e69d11912
+              provider: Together
+              run_count: 3
+              score: 0.2845135192707016
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.3317965441808698

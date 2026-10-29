@@ -3,12 +3,59 @@ artificial_analysis_id: adfae555-f489-4f3e-9064-c6b7fcdd0783
 artificial_analysis_slug: granite-4-2-8b
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 1.3
+        agentic_percentile: 17
+        aime: null
+        aime_25: null
+        coding_index: 22.4
+        coding_percentile: 21
+        critpt: 0.003
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0
+        gpqa: 0.631
         healthcare_and_medical_index: null
+        hle: 0.097
+        ifbench: null
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.45
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.315
         strategy_and_ops_index: null
+        tau2: null
+        tau_banking: 0.0762886597938144
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.183520599250936
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 0aaad85e-20b0-4103-bd71-d6608c23d0e1
+              provider: CoreWeave
+              run_count: 1
+              score: 0.647493
+            - endpoint_id: 8efd9dc5-fd52-4046-a925-581ad09a6f22
+              provider: DeepInfra
+              run_count: 2
+              score: 0.6520242850141458
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.65736
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 8efd9dc5-fd52-4046-a925-581ad09a6f22
+              provider: DeepInfra
+              run_count: 1
+              score: 0.64
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.583333

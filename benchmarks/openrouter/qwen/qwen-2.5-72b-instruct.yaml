@@ -1,0 +1,50 @@
+model: qwen/qwen-2.5-72b-instruct
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: 0.16
+        aime_25: 0.14
+        coding_index: null
+        critpt: 0
+        gdpval_aa: null
+        gpqa: 0.491
+        hle: 0.036
+        ifbench: 0.369
+        intelligence_index: null
+        lcr: null
+        livecodebench: 0.276
+        math_500: 0.858
+        math_index: 14
+        mmlu_pro: 0.72
+        scicode: null
+        tau2: 0.345
+        tau_banking: null
+        terminalbench_hard: 0.045
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 8b6b26e9-621a-4b31-b55a-c9aaa7482ede
+              provider: DeepInfra
+              run_count: 1
+              score: 0.467593
+            - endpoint_id: a2a8a9fd-2784-448f-99b8-076fb6e1d8e5
+              provider: NovitaAI
+              run_count: 1
+              score: 0.461279
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.47306399999999993
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: a2a8a9fd-2784-448f-99b8-076fb6e1d8e5
+              provider: NovitaAI
+              run_count: 1
+              score: 0.286667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.206667

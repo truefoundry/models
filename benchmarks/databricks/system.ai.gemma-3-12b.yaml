@@ -3,12 +3,51 @@ artificial_analysis_id: 2e6400f5-85ca-4ebc-ba8f-c2811a631138
 artificial_analysis_slug: gemma-3-12b
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 0.1
+        agentic_percentile: 0
+        aime: 0.22
+        aime_25: 0.183333333333333
+        coding_index: 5.8
+        coding_percentile: 2
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0
+        gpqa: 0.349
         healthcare_and_medical_index: null
+        hle: 0.042
+        ifbench: 0.367
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.083
         legal_index: null
+        livecodebench: 0.137
+        math_500: 0.853333333333333
+        math_index: 18.3
+        mmlu_pro: 0.595
+        scicode: 0.164
         strategy_and_ops_index: null
+        tau2: 0.108
+        tau_banking: 0.00824742268041237
+        terminalbench_hard: 0.008
+        terminalbench_v2_1: 0
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: eb06dc92-5a16-47ec-a776-6ef956457c47
+              provider: DeepInfra
+              run_count: 1
+              score: 0.405724
+            - endpoint_id: 43b0bdb3-999d-4211-ac7a-7fd4880b0da0
+              provider: NextBit
+              run_count: 2
+              score: 0.378768684926293
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: eb06dc92-5a16-47ec-a776-6ef956457c47
+              provider: DeepInfra
+              run_count: 1
+              score: 0.48

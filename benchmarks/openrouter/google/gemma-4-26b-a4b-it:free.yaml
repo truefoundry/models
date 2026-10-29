@@ -1,0 +1,182 @@
+model: google/gemma-4-26b-a4b-it:free
+metrics:
+    artificial_analysis:
+        variants:
+            gemma-4-26b-a4b:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 2.9
+                agentic_percentile: 24
+                aime: null
+                aime_25: null
+                coding_index: 39.3
+                coding_percentile: 37
+                critpt: 0
+                gdpval_aa: 0.037
+                gpqa: 0.792
+                hle: 0.193
+                ifbench: 0.724
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.657
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: Gemma 4 26B A4B (Reasoning)
+                scicode: 0.4
+                tau2: 0.436
+                tau_banking: 0.119587628865979
+                terminalbench_hard: 0.136
+                terminalbench_v2_1: 0.389513108614232
+                terminalbench_v4_0: null
+            gemma-4-26b-a4b-non-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: null
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.714
+                hle: 0.115
+                ifbench: 0.454
+                intelligence_index: null
+                lcr: 0.423
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: Gemma 4 26B A4B (Non-reasoning)
+                scicode: null
+                tau2: 0.404
+                tau_banking: null
+                terminalbench_hard: 0.25
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 3dd0f39c-eedd-4d04-8757-19e832b42f6f
+              provider: AkashML
+              run_count: 2
+              score: 0.727243255797704
+            - endpoint_id: e2a16fa6-1f65-413e-9ecb-93901089ddb1
+              provider: Cloudflare
+              run_count: 5
+              score: 0.802756937927726
+            - endpoint_id: 78d135a1-6256-443f-9222-fbd9915ae306
+              provider: CoreWeave
+              run_count: 5
+              score: 0.7714183640661341
+            - endpoint_id: 0e9b72a2-e1eb-45bd-adc5-81f0f31e185f
+              provider: Darkbloom
+              run_count: 4
+              score: 0.5579609326594358
+            - endpoint_id: d71c6981-347d-4622-a86b-2c9e5d0f2c6c
+              provider: DeepInfra
+              run_count: 5
+              score: 0.7680681299354073
+            - endpoint_id: d4538a98-da96-4e06-b81c-386320f67566
+              provider: DekaLLM
+              run_count: 6
+              score: 0.7693405443176595
+            - endpoint_id: f286e714-9e04-4948-8001-3b478b51e1ec
+              provider: Google Vertex
+              run_count: 4
+              score: 0.7960276294595616
+            - endpoint_id: a40c0765-b206-48bb-83bd-0be51924144d
+              provider: Makora
+              run_count: 5
+              score: 0.7471353430245007
+            - endpoint_id: e22ce918-7adb-4e4f-b2e2-c6c5b3066b69
+              provider: NextBit
+              run_count: 5
+              score: 0.7429746172254116
+            - endpoint_id: 03b96766-ef7e-454f-9519-c76b70654b49
+              provider: NovitaAI
+              run_count: 4
+              score: 0.7695236022801879
+            - endpoint_id: 91f05fe1-9a18-4bcf-8cfa-093c369d8cea
+              provider: Parasail
+              run_count: 4
+              score: 0.7699715758326725
+            - endpoint_id: 484aa713-3b4b-456a-8586-e666d97114aa
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.810284
+            - endpoint_id: eb382d64-dce1-42d5-b23d-6fefb91948a3
+              provider: SiliconFlow
+              run_count: 2
+              score: 0.7747444116900214
+            - endpoint_id: 2e9daaa4-87bf-49f7-a44a-2c1d617c2c51
+              provider: Venice
+              run_count: 4
+              score: 0.4228771170191323
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.686288166827485
+            - endpoint_id: c8598ff0-05b9-4d36-ac6c-e2e7b848322a
+              provider: io.net
+              run_count: 5
+              score: 0.7913555871243996
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 3dd0f39c-eedd-4d04-8757-19e832b42f6f
+              provider: AkashML
+              run_count: 2
+              score: 0.6337670897885683
+            - endpoint_id: e2a16fa6-1f65-413e-9ecb-93901089ddb1
+              provider: Cloudflare
+              run_count: 5
+              score: 0.6801042141009391
+            - endpoint_id: 0e9b72a2-e1eb-45bd-adc5-81f0f31e185f
+              provider: Darkbloom
+              run_count: 4
+              score: 0.6552704403388675
+            - endpoint_id: d71c6981-347d-4622-a86b-2c9e5d0f2c6c
+              provider: DeepInfra
+              run_count: 5
+              score: 0.7015094740434477
+            - endpoint_id: d4538a98-da96-4e06-b81c-386320f67566
+              provider: DekaLLM
+              run_count: 6
+              score: 0.6807271774785039
+            - endpoint_id: f286e714-9e04-4948-8001-3b478b51e1ec
+              provider: Google Vertex
+              run_count: 4
+              score: 0.4993162342594032
+            - endpoint_id: a40c0765-b206-48bb-83bd-0be51924144d
+              provider: Makora
+              run_count: 5
+              score: 0.7039567305680615
+            - endpoint_id: e22ce918-7adb-4e4f-b2e2-c6c5b3066b69
+              provider: NextBit
+              run_count: 5
+              score: 0.6760047589780496
+            - endpoint_id: 03b96766-ef7e-454f-9519-c76b70654b49
+              provider: NovitaAI
+              run_count: 3
+              score: 0.6917555965938832
+            - endpoint_id: 2e9daaa4-87bf-49f7-a44a-2c1d617c2c51
+              provider: Venice
+              run_count: 4
+              score: 0.6312502274560177
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.6900161378394281
+            - endpoint_id: c8598ff0-05b9-4d36-ac6c-e2e7b848322a
+              provider: io.net
+              run_count: 6
+              score: 0.6881336643685139
+        vgi_bench:
+            - endpoint_id: a40c0765-b206-48bb-83bd-0be51924144d
+              provider: Makora
+              run_count: 3
+              score: 0.3749407913435365
+            - endpoint_id: 2e9daaa4-87bf-49f7-a44a-2c1d617c2c51
+              provider: Venice
+              run_count: 4
+              score: 0.24557116095852216

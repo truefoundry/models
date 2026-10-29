@@ -3,12 +3,52 @@ artificial_analysis_id: a6043b9b-628a-4a76-a021-2834e0627d05
 artificial_analysis_slug: ling-3-1-flash
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: null
+        aime_25: null
         coding_index: null
+        critpt: 0.18
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0.563
+        gpqa: null
         healthcare_and_medical_index: null
+        hle: 0.394
+        ifbench: null
         intelligence_index: null
+        lcr: 0.83
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.541
         strategy_and_ops_index: null
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: 0.333333333333333
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 08141471-7a96-45d7-b605-a21413fd9ecf
+              provider: DeepInfra
+              run_count: 1
+              score: 0.9479169999999999
+            - endpoint_id: 99952eba-3dc9-47c1-8372-798b91502165
+              provider: NovitaAI
+              run_count: 1
+              score: 0.813051
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 08141471-7a96-45d7-b605-a21413fd9ecf
+              provider: DeepInfra
+              run_count: 1
+              score: 0.793333
+            - endpoint_id: 99952eba-3dc9-47c1-8372-798b91502165
+              provider: NovitaAI
+              run_count: 1
+              score: 0.793333

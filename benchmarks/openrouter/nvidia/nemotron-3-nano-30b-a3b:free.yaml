@@ -1,0 +1,89 @@
+model: nvidia/nemotron-3-nano-30b-a3b:free
+metrics:
+    artificial_analysis:
+        variants:
+            nvidia-nemotron-3-nano-30b-a3b:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: null
+                aime_25: 0.133333333333333
+                coding_index: null
+                critpt: 0
+                gdpval_aa: 0
+                gpqa: 0.399
+                hle: 0.046
+                ifbench: 0.375
+                intelligence_index: null
+                lcr: 0.107
+                livecodebench: 0.36
+                math_500: null
+                math_index: 13.3
+                mmlu_pro: 0.579
+                name: NVIDIA Nemotron 3 Nano 30B A3B (Non-reasoning)
+                scicode: null
+                tau2: 0.254
+                tau_banking: null
+                terminalbench_hard: 0.121
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            nvidia-nemotron-3-nano-30b-a3b-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 1
+                agentic_percentile: 10
+                aime: null
+                aime_25: 0.91
+                coding_index: 14.4
+                coding_percentile: 11
+                critpt: 0.009
+                gdpval_aa: 0
+                gpqa: 0.757
+                hle: 0.114
+                ifbench: 0.711
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.38
+                livecodebench: 0.741
+                math_500: null
+                math_index: 91
+                mmlu_pro: 0.794
+                name: NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)
+                scicode: 0.306
+                tau2: 0.409
+                tau_banking: 0.0597938144329897
+                terminalbench_hard: 0.136
+                terminalbench_v2_1: 0.0674157303370786
+                terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 8532db0a-9cc7-48ad-b411-b3c98185c08c
+              provider: Crusoe
+              run_count: 1
+              score: 0.636364
+            - endpoint_id: 38ce4c8d-18d4-4d62-b370-d4f7babd9f2b
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.6357708330508962
+            - endpoint_id: 0cbc2efc-e7b3-408d-834b-c876c3df5280
+              provider: NovitaAI
+              run_count: 1
+              score: 0.599327
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.6195290000000001
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 8532db0a-9cc7-48ad-b411-b3c98185c08c
+              provider: Crusoe
+              run_count: 1
+              score: 0.51
+            - endpoint_id: 38ce4c8d-18d4-4d62-b370-d4f7babd9f2b
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.4818954609416021
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.48

@@ -1,0 +1,222 @@
+model: google/gemini-2.5-pro:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 1.6
+        agentic_percentile: 19
+        aime: 0.886666666666667
+        aime_25: 0.876666666666667
+        coding_index: 33.3
+        coding_percentile: 32
+        critpt: 0.026
+        gdpval_aa: 0
+        gpqa: 0.844
+        hle: 0.225
+        ifbench: 0.487
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.69
+        livecodebench: 0.801
+        math_500: 0.967333333333333
+        math_index: 87.7
+        mmlu_pro: 0.862
+        scicode: 0.463
+        tau2: 0.541
+        tau_banking: 0.0969072164948454
+        terminalbench_hard: 0.265
+        terminalbench_v2_1: 0.284644194756554
+        terminalbench_v4_0: 0
+    design_arena:
+        Gemini 2.5 Pro:
+            models:
+                3d:
+                    avg_generation_time_ms: 57072
+                    elo: 1076
+                    elo_percentile: 27
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.6
+                codecategories:
+                    avg_generation_time_ms: 74111
+                    elo: 1150
+                    elo_percentile: 37
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 57.5
+                dataviz:
+                    avg_generation_time_ms: 71196
+                    elo: 1222
+                    elo_percentile: 65
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 68.2
+                gamedev:
+                    avg_generation_time_ms: 86712
+                    elo: 1111
+                    elo_percentile: 31
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.2
+                uicomponent:
+                    avg_generation_time_ms: 65962
+                    elo: 1134
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 57.5
+                website:
+                    avg_generation_time_ms: 75638
+                    elo: 1165
+                    elo_percentile: 42
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.4
+    vals_ai:
+        google/gemini-2.5-pro:
+            case_law_v2:
+                accuracy: 63.88
+                cost_per_test: 0.257186
+                latency_seconds: 44.02
+                stderr: 0.597
+            corp_fin_v2:
+                accuracy: 60.8
+                cost_per_test: 0.09535
+                latency_seconds: 27.425
+                stderr: 0.961
+            finance_agent:
+                accuracy: 41.589
+                cost_per_test: 0.34118
+                latency_seconds: 1839.558
+                stderr: 2.783
+            ioi-v1:
+                accuracy: 17.084
+                cost_per_test: 0.615461
+                latency_seconds: 2964.799
+                stderr: 6.17
+            medcode:
+                accuracy: 50.59
+                cost_per_test: 0.015389
+                latency_seconds: 27.415
+                stderr: 2.113
+            medscribe:
+                accuracy: 73.552
+                cost_per_test: 0.046379
+                latency_seconds: 35.909
+                stderr: 1.91
+            mortgage_tax:
+                accuracy: 68.918
+                cost_per_test: 0.004794
+                latency_seconds: 24.008
+                stderr: 0.907
+            sage-v1:
+                accuracy: 41.916
+                cost_per_test: 0.008806
+                latency_seconds: 52.934
+                stderr: 3.411
+            swebench:
+                accuracy: 54.4
+                cost_per_test: 0.351578
+                latency_seconds: 207.791
+                stderr: 2.23
+            terminal-bench:
+                accuracy: 41.25
+                cost_per_test: 0.664031
+                latency_seconds: 352.476
+                stderr: 5.504
+            terminal-bench-2:
+                accuracy: 30.337
+                cost_per_test: 0.472003
+                latency_seconds: 796.526
+                stderr: 4.901
+            vals_index_v1:
+                accuracy: 39.322
+                cost_per_test: 0.505033
+                latency_seconds: 999.357
+                stderr: 1.771
+            vals_multimodal_index_v1:
+                accuracy: 42.408
+                cost_per_test: 0.36268
+                latency_seconds: 724.818
+                stderr: 1.234
+            vibe-code:
+                accuracy: 0.4
+                cost_per_test: 1.223831
+                latency_seconds: 2097.144
+                stderr: 0.4
+            vibe-code-v1:
+                accuracy: 0.4
+                cost_per_test: 1.223831
+                latency_seconds: 2097.1444
+                stderr: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: b261d15b-95ce-4c8c-8bce-00eb0dc1ff77
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.846801
+            - endpoint_id: 43106252-bd69-498f-84f5-1fde678783f7
+              provider: Google Vertex
+              run_count: 1
+              score: 0.863636
+            - endpoint_id: 4ebed968-2df0-4b40-ac46-6af592e9487e
+              provider: Google Vertex
+              run_count: 1
+              score: 0.845118
+            - endpoint_id: 4ec3ad9d-d6cd-4a0a-a57a-514356c0c1e6
+              provider: Google Vertex
+              run_count: 1
+              score: 0.855219
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.841751
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: b261d15b-95ce-4c8c-8bce-00eb0dc1ff77
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.586667
+            - endpoint_id: 43106252-bd69-498f-84f5-1fde678783f7
+              provider: Google Vertex
+              run_count: 1
+              score: 0.54
+            - endpoint_id: 4ebed968-2df0-4b40-ac46-6af592e9487e
+              provider: Google Vertex
+              run_count: 1
+              score: 0.606667
+            - endpoint_id: 4ec3ad9d-d6cd-4a0a-a57a-514356c0c1e6
+              provider: Google Vertex
+              run_count: 1
+              score: 0.586667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.553333
+        vgi_bench:
+            - endpoint_id: b261d15b-95ce-4c8c-8bce-00eb0dc1ff77
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.604262
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.621005

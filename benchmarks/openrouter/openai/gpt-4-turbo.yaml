@@ -3,12 +3,47 @@ artificial_analysis_id: 76aa6af5-fdc6-4739-a300-983f14e74a67
 artificial_analysis_slug: gpt-4-turbo
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
-        coding_index: null
+        agentic_percentile: null
+        aime: 0.15
+        aime_25: null
+        coding_index: 21.5
+        coding_percentile: 20
+        critpt: null
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: null
         healthcare_and_medical_index: null
+        hle: 0.031
+        ifbench: null
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: null
         legal_index: null
+        livecodebench: 0.291
+        math_500: 0.736666666666667
+        math_index: null
+        mmlu_pro: 0.694
+        scicode: null
         strategy_and_ops_index: null
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    vals_ai:
+        openai/gpt-4-turbo:
+            legal_bench:
+                accuracy: 80.462
+                cost_per_test: null
+                latency_seconds: 1.405
+                stderr: 0.482
+            medqa:
+                accuracy: 81.986
+                cost_per_test: 0.012152
+                latency_seconds: 8.413
+                stderr: 0.686

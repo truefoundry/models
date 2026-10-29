@@ -1,0 +1,41 @@
+model: openai/gpt-4-turbo:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        agentic_percentile: null
+        aime: 0.15
+        aime_25: null
+        coding_index: 21.5
+        coding_percentile: 20
+        critpt: null
+        gdpval_aa: null
+        gpqa: null
+        hle: 0.031
+        ifbench: null
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: null
+        livecodebench: 0.291
+        math_500: 0.736666666666667
+        math_index: null
+        mmlu_pro: 0.694
+        scicode: null
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    vals_ai:
+        openai/gpt-4-turbo:
+            legal_bench:
+                accuracy: 80.462
+                cost_per_test: null
+                latency_seconds: 1.405
+                stderr: 0.482
+            medqa:
+                accuracy: 81.986
+                cost_per_test: 0.012152
+                latency_seconds: 8.413
+                stderr: 0.686

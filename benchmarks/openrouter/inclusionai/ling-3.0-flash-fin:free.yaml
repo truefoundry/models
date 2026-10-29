@@ -3,12 +3,63 @@ artificial_analysis_id: 6d6fa1c9-b833-40b2-8a58-fa810e24a84e
 artificial_analysis_slug: ling-3-0-flash-fin
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 27.9
+        agentic_percentile: 56
+        aime: null
+        aime_25: null
+        coding_index: 55.6
+        coding_percentile: 56
+        critpt: 0.026
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0.304
+        gpqa: null
         healthcare_and_medical_index: null
+        hle: 0.226
+        ifbench: null
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.737
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.424
         strategy_and_ops_index: null
+        tau2: null
+        tau_banking: 0.385567010309278
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.625468164794007
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: c48fe5e8-e0e7-4f6d-a9ec-84e20378b017
+              provider: DeepInfra
+              run_count: 2
+              score: 0.15902491771078156
+            - endpoint_id: 2a4e9687-05a1-4dff-ae24-3c6a6a805c19
+              provider: NovitaAI
+              run_count: 2
+              score: 0.6324194634316492
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.505051
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: c48fe5e8-e0e7-4f6d-a9ec-84e20378b017
+              provider: DeepInfra
+              run_count: 1
+              score: 0.638298
+            - endpoint_id: 2a4e9687-05a1-4dff-ae24-3c6a6a805c19
+              provider: NovitaAI
+              run_count: 2
+              score: 0.6530349044004469
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.707483

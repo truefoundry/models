@@ -1,0 +1,225 @@
+model: gemma-4-31B-it
+metrics:
+    artificial_analysis:
+        variants:
+            gemma-4-31b:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 4.2
+                agentic_percentile: 26
+                aime: null
+                aime_25: null
+                coding_index: 43.4
+                coding_percentile: 41
+                critpt: 0.014
+                gdpval_aa: 0.064
+                gpqa: 0.857
+                hle: 0.236
+                ifbench: 0.756
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.697
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: Gemma 4 31B (Reasoning)
+                scicode: 0.455
+                tau2: 0.599
+                tau_banking: 0.148453608247423
+                terminalbench_hard: 0.364
+                terminalbench_v2_1: 0.434456928838951
+                terminalbench_v4_0: 0
+            gemma-4-31b-non-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                agentic_percentile: null
+                aime: null
+                aime_25: null
+                coding_index: 33.2
+                coding_percentile: 32
+                critpt: 0
+                gdpval_aa: 0.028
+                gpqa: 0.763
+                hle: 0.118
+                ifbench: 0.535
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0.467
+                livecodebench: null
+                math_500: null
+                math_index: null
+                mmlu_pro: null
+                name: Gemma 4 31B (Non-reasoning)
+                scicode: null
+                tau2: 0.655
+                tau_banking: 0.088659793814433
+                terminalbench_hard: 0.303
+                terminalbench_v2_1: 0.292134831460674
+                terminalbench_v4_0: null
+    vals_ai:
+        google/gemma-4-31b-it:
+            case_law_v2:
+                accuracy: 52.626
+                cost_per_test: 0
+                latency_seconds: 28.716
+                stderr: 1.343
+            finance_agent:
+                accuracy: 50.788
+                cost_per_test: 0
+                latency_seconds: 5360.333
+                stderr: 2.856
+            mortgage_tax:
+                accuracy: 61.368
+                cost_per_test: 0
+                latency_seconds: 41.928
+                stderr: 0.967
+            sage:
+                accuracy: 82.782
+                cost_per_test: 0
+                latency_seconds: 106.811
+                stderr: 2.085
+            sage-v1:
+                accuracy: 55.034
+                cost_per_test: 0
+                latency_seconds: 93.058
+                stderr: 3.411
+            terminal-bench-2:
+                accuracy: 39.326
+                cost_per_test: null
+                latency_seconds: 855.298
+                stderr: 5.207
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 5a7d69c8-0cb3-4b4b-995d-c711e42bd42e
+              provider: Chutes
+              run_count: 4
+              score: 0.8566647820287425
+            - endpoint_id: a3bb7748-8088-4463-a894-4b19c64045bd
+              provider: CoreWeave
+              run_count: 4
+              score: 0.8346924499764259
+            - endpoint_id: 443b1870-80be-434d-81f5-919b8d44d17e
+              provider: Crusoe
+              run_count: 4
+              score: 0.8585402947299838
+            - endpoint_id: 0178c93a-f177-44c9-8873-ac815d9ac7fe
+              provider: DeepInfra
+              run_count: 5
+              score: 0.8445561114661344
+            - endpoint_id: 4149ab03-3b69-45a0-b94c-6c253b8641a1
+              provider: DeepInfra
+              run_count: 5
+              score: 0.8486857082164948
+            - endpoint_id: ba0bca6f-6852-4cec-952a-0ad699c7edb6
+              provider: DekaLLM
+              run_count: 2
+              score: 0.8622380538267466
+            - endpoint_id: 5f39227d-1f41-4e5f-858f-5798bfb80e5e
+              provider: Friendli
+              run_count: 5
+              score: 0.6888542150785851
+            - endpoint_id: bb363372-c31e-44ce-b876-9f32cb4b169f
+              provider: ModelRun [by Modular]
+              run_count: 8
+              score: 0.8503272616173287
+            - endpoint_id: 69279254-6a96-4e9d-abc6-ea76e6bf8e97
+              provider: NovitaAI
+              run_count: 4
+              score: 0.8436975842244114
+            - endpoint_id: 9d4644e9-a5e5-41f4-b810-d75f484d2c24
+              provider: Parasail
+              run_count: 4
+              score: 0.8538783946637264
+            - endpoint_id: ad20736d-3f92-4cff-8034-294555a8f6a6
+              provider: SambaNova
+              run_count: 4
+              score: 0.8505968781643853
+            - endpoint_id: 5cbbae78-c69d-4a66-94b4-159975f8634c
+              provider: SiliconFlow
+              run_count: 3
+              score: 0.8601647913940734
+            - endpoint_id: 29b94af5-d8f8-419a-9cf1-ae1f2831142b
+              provider: Venice
+              run_count: 4
+              score: 0.6786879397634915
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8305589390191219
+            - endpoint_id: 2078521b-38a1-4821-a619-85bd3d94aad7
+              provider: io.net
+              run_count: 1
+              score: 0.797619
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 5a7d69c8-0cb3-4b4b-995d-c711e42bd42e
+              provider: Chutes
+              run_count: 4
+              score: 0.4246909350236308
+            - endpoint_id: a3bb7748-8088-4463-a894-4b19c64045bd
+              provider: CoreWeave
+              run_count: 4
+              score: 0.7415739234343028
+            - endpoint_id: 0178c93a-f177-44c9-8873-ac815d9ac7fe
+              provider: DeepInfra
+              run_count: 4
+              score: 0.7597182484249517
+            - endpoint_id: 4149ab03-3b69-45a0-b94c-6c253b8641a1
+              provider: DeepInfra
+              run_count: 5
+              score: 0.7970387837363551
+            - endpoint_id: 5f39227d-1f41-4e5f-858f-5798bfb80e5e
+              provider: Friendli
+              run_count: 5
+              score: 0.7590888845463548
+            - endpoint_id: bb363372-c31e-44ce-b876-9f32cb4b169f
+              provider: ModelRun [by Modular]
+              run_count: 9
+              score: 0.7538318067334395
+            - endpoint_id: 69279254-6a96-4e9d-abc6-ea76e6bf8e97
+              provider: NovitaAI
+              run_count: 4
+              score: 0.703825248507192
+            - endpoint_id: 9d4644e9-a5e5-41f4-b810-d75f484d2c24
+              provider: Parasail
+              run_count: 3
+              score: 0.46235341074377917
+            - endpoint_id: ad20736d-3f92-4cff-8034-294555a8f6a6
+              provider: SambaNova
+              run_count: 3
+              score: 0.7559740893221035
+            - endpoint_id: 5cbbae78-c69d-4a66-94b4-159975f8634c
+              provider: SiliconFlow
+              run_count: 2
+              score: 0.7949710057297433
+            - endpoint_id: 29b94af5-d8f8-419a-9cf1-ae1f2831142b
+              provider: Venice
+              run_count: 4
+              score: 0.7520740144730111
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7664331273260115
+        vgi_bench:
+            - endpoint_id: 5a7d69c8-0cb3-4b4b-995d-c711e42bd42e
+              provider: Chutes
+              run_count: 1
+              score: 0.495065
+            - endpoint_id: a3bb7748-8088-4463-a894-4b19c64045bd
+              provider: CoreWeave
+              run_count: 1
+              score: 0.508352
+            - endpoint_id: 0178c93a-f177-44c9-8873-ac815d9ac7fe
+              provider: DeepInfra
+              run_count: 4
+              score: 0.5566192630001737
+            - endpoint_id: 5f39227d-1f41-4e5f-858f-5798bfb80e5e
+              provider: Friendli
+              run_count: 4
+              score: 0.16908957061440819
+            - endpoint_id: bb363372-c31e-44ce-b876-9f32cb4b169f
+              provider: ModelRun [by Modular]
+              run_count: 9
+              score: 0.5086246645440512

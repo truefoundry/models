@@ -1,0 +1,147 @@
+model: reflection/beam-1.0-501b-a23b
+metrics:
+    design_arena:
+        Beam 1.0 (max):
+            models:
+                codecategories:
+                    avg_generation_time_ms: 95456
+                    elo: 1220
+                    elo_percentile: 64
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 42.8
+                gamedev:
+                    avg_generation_time_ms: 117769
+                    elo: 1204
+                    elo_percentile: 65
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 40.6
+                website:
+                    avg_generation_time_ms: 86916
+                    elo: 1226
+                    elo_percentile: 65
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 43.7
+    vals_ai:
+        reflection/Beam-1.0:
+            code-migration-v1-1:
+                accuracy: 22.846
+                cost_per_test: null
+                latency_seconds: 819.971
+                stderr: 3.28
+            emb-v1-1:
+                accuracy: 64.733
+                cost_per_test: null
+                latency_seconds: 1204.28
+                stderr: 2.259
+            fabv2-1:
+                accuracy: 51.827
+                cost_per_test: null
+                latency_seconds: 85.425
+                stderr: 2.107
+            finance_index:
+                accuracy: 46.501
+                cost_per_test: null
+                latency_seconds: 449.231
+                stderr: 1.261
+            hlab:
+                accuracy: 4.583
+                cost_per_test: null
+                latency_seconds: 116.883
+                stderr: 1.775
+            ioi:
+                accuracy: 22.833
+                cost_per_test: null
+                latency_seconds: 432.586
+                stderr: 8.012
+            legal_index:
+                accuracy: 61.799
+                cost_per_test: null
+                latency_seconds: 89.813
+                stderr: 1.613
+            legal_research:
+                accuracy: 28.846
+                cost_per_test: null
+                latency_seconds: 94.568
+                stderr: 3.149
+            proof_bench:
+                accuracy: 18
+                cost_per_test: null
+                latency_seconds: 266.658
+                stderr: 3.861
+            science_index:
+                accuracy: 22.031
+                cost_per_test: null
+                latency_seconds: 1747.731
+                stderr: 1.175
+            tax_agent_bench:
+                accuracy: 8.808
+                cost_per_test: null
+                latency_seconds: 57.987
+                stderr: 1.902
+            terminal-bench-4:
+                accuracy: 4.04
+                cost_per_test: null
+                latency_seconds: 1154.552
+                stderr: 1.336
+            vals_index:
+                accuracy: 43.424
+                cost_per_test: null
+                latency_seconds: 446.562
+                stderr: 1.062
+            vibe-code:
+                accuracy: 66.436
+                cost_per_test: null
+                latency_seconds: 145.263
+                stderr: 4.062
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 04299569-d001-4ca9-87d5-3cfe6f03f87e
+              provider: Baseten
+              run_count: 2
+              score: 0.8945641945372627
+            - endpoint_id: 52cf4852-e82b-4249-bdf8-726c3424b4ed
+              provider: CoreWeave
+              run_count: 2
+              score: 0.8966813446698542
+            - endpoint_id: 4a5ca2fc-93a6-4bc8-98bb-c1a0c8693801
+              provider: DigitalOcean
+              run_count: 2
+              score: 0.8914837083283504
+            - endpoint_id: bed67b5d-455d-4b49-9937-8661f7cec4bd
+              provider: Nebius Token Factory
+              run_count: 3
+              score: 0.902042187137408
+            - endpoint_id: d312f824-d20f-4f5f-afd7-f1fe9475871a
+              provider: Together
+              run_count: 2
+              score: 0.8848967675262567
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.883838
+            - endpoint_id: 05771d20-cd7e-4219-91b5-4a5e5ec7684f
+              provider: io.net
+              run_count: 2
+              score: 0.8604384931032689
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.693333
+            - endpoint_id: 05771d20-cd7e-4219-91b5-4a5e5ec7684f
+              provider: io.net
+              run_count: 2
+              score: 0.7367311547815711

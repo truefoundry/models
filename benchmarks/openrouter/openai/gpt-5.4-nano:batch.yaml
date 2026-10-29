@@ -1,0 +1,232 @@
+model: openai/gpt-5.4-nano:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 16
+        agentic_percentile: 39
+        aime: null
+        aime_25: null
+        coding_index: 56.1
+        coding_percentile: 58
+        critpt: 0.093
+        gdpval_aa: 0.228
+        gpqa: 0.817
+        hle: 0.283
+        ifbench: 0.759
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.767
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.472
+        tau2: 0.76
+        tau_banking: 0.274226804123711
+        terminalbench_hard: 0.424
+        terminalbench_v2_1: 0.606741573033708
+        terminalbench_v4_0: 0.00505050505050505
+    vals_ai:
+        openai/gpt-5.4-nano-2026-03-17:
+            aime:
+                accuracy: 88.75
+                cost_per_test: 0.003432
+                latency_seconds: 65.876
+                stderr: 0.99
+            case_law_v2:
+                accuracy: 51.875
+                cost_per_test: 0.001108
+                latency_seconds: 7.62
+                stderr: 1.088
+            code-migration:
+                accuracy: 14.467
+                cost_per_test: 0.416225
+                latency_seconds: 1594.162
+                stderr: 4.025
+            corp_fin_v2:
+                accuracy: 61.189
+                cost_per_test: 0.01612
+                latency_seconds: 9.397
+                stderr: 0.961
+            emb:
+                accuracy: 44.751
+                cost_per_test: 0.57312
+                latency_seconds: 1767.043
+                stderr: 3.121
+            fabv2:
+                accuracy: 38.217
+                cost_per_test: 0.15925
+                latency_seconds: 334.538
+                stderr: 1.185
+            finance_agent:
+                accuracy: 47.801
+                cost_per_test: 0.012919
+                latency_seconds: 283.802
+                stderr: 2.828
+            gpqa:
+                accuracy: 77.526
+                cost_per_test: 0.001565
+                latency_seconds: 29.498
+                stderr: 2.417
+            hlab-v1:
+                accuracy: 0
+                cost_per_test: 0.184287
+                latency_seconds: 363.008
+                stderr: 0
+            ioi-v1:
+                accuracy: 15.25
+                cost_per_test: 0.042833
+                latency_seconds: 1170.492
+                stderr: 6.438
+            lcb:
+                accuracy: 84.009
+                cost_per_test: 0.002468
+                latency_seconds: 60.089
+                stderr: 1.044
+            legal_bench:
+                accuracy: 77.92
+                cost_per_test: 0.000114
+                latency_seconds: 2.697
+                stderr: 0.427
+            legal_research:
+                accuracy: 6.25
+                cost_per_test: 0.141253
+                latency_seconds: 526.838
+                stderr: 1.682
+            medcode:
+                accuracy: 41.029
+                cost_per_test: 0.000844
+                latency_seconds: 8.043
+                stderr: 2.256
+            medscribe:
+                accuracy: 77.09
+                cost_per_test: 0.0018
+                latency_seconds: 20.527
+                stderr: 1.891
+            mmlu_pro:
+                accuracy: 77.172
+                cost_per_test: 0.000396
+                latency_seconds: 8.21
+                stderr: 0.433
+            mmmu:
+                accuracy: 73.584
+                cost_per_test: 0.000844
+                latency_seconds: 21.907
+                stderr: 1.06
+            mortgage_tax:
+                accuracy: 59.102
+                cost_per_test: 0.002585
+                latency_seconds: 14.526
+                stderr: 0.964
+            proof_bench_v1:
+                accuracy: 5
+                cost_per_test: 0.015894
+                latency_seconds: 525.432
+                stderr: 2.179
+            sage-v1:
+                accuracy: 38.081
+                cost_per_test: 0.005936
+                latency_seconds: 34.334
+                stderr: 3.087
+            swebench:
+                accuracy: 69.8
+                cost_per_test: 0.097712
+                latency_seconds: 262.552
+                stderr: 2.055
+            tax_agent_bench:
+                accuracy: 4.974
+                cost_per_test: 0.069662
+                latency_seconds: 220.306
+                stderr: 1.417
+            tax_eval_v2:
+                accuracy: 67.416
+                cost_per_test: 0.000638
+                latency_seconds: 15.898
+                stderr: 0.926
+            terminal-bench-2:
+                accuracy: 39.888
+                cost_per_test: 0.075077
+                latency_seconds: 845.812
+                stderr: 4.454
+            terminal-bench-2-1:
+                accuracy: 41.573
+                cost_per_test: 0.072321
+                latency_seconds: 757.485
+                stderr: 2.973
+            vals_index_v1:
+                accuracy: 51.882
+                cost_per_test: 0.334884
+                latency_seconds: 1261.683
+                stderr: 2.444
+            vals_index_v1_1:
+                accuracy: 46.461
+                cost_per_test: 0.355489
+                latency_seconds: 1283.782
+                stderr: 1.897
+            vals_index_v1_2:
+                accuracy: 46.635
+                cost_per_test: 0.324322
+                latency_seconds: 929.692
+                stderr: 1.866
+            vals_index_v2:
+                accuracy: 32.997
+                cost_per_test: 0.398254
+                latency_seconds: 1229.587
+                stderr: 1.276
+            vals_multimodal_index:
+                accuracy: 47.643
+                cost_per_test: 0.232894
+                latency_seconds: 671.046
+                stderr: 1.707
+            vals_multimodal_index_v1:
+                accuracy: 50.805
+                cost_per_test: 0.240585
+                latency_seconds: 908.182
+                stderr: 1.976
+            vals_multimodal_index_v1_1:
+                accuracy: 47.484
+                cost_per_test: 0.255302
+                latency_seconds: 923.967
+                stderr: 1.736
+            vibe-code:
+                accuracy: 26.097
+                cost_per_test: 1.277298
+                latency_seconds: 3276.224
+                stderr: 5.075
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 3986e556-fea6-44f1-aa0e-63a15a5efe07
+              provider: Azure
+              run_count: 1
+              score: 0.7727270000000002
+            - endpoint_id: b6040dff-d381-47ee-82d2-a8aff4b6b281
+              provider: Azure
+              run_count: 1
+              score: 0.779461
+            - endpoint_id: 0c835f2e-c18d-4e8c-b245-e1e3bd08b97f
+              provider: OpenAI
+              run_count: 2
+              score: 0.7826228750161285
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.772727
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 3986e556-fea6-44f1-aa0e-63a15a5efe07
+              provider: Azure
+              run_count: 1
+              score: 0.666667
+            - endpoint_id: b6040dff-d381-47ee-82d2-a8aff4b6b281
+              provider: Azure
+              run_count: 1
+              score: 0.626667
+            - endpoint_id: 0c835f2e-c18d-4e8c-b245-e1e3bd08b97f
+              provider: OpenAI
+              run_count: 2
+              score: 0.6602703592982382
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.62

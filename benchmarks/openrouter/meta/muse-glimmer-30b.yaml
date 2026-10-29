@@ -1,0 +1,98 @@
+model: meta/muse-glimmer-30b
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: 0.28
+        aa_omniscience_non_hallucination_rate: 0.164
+        agentic_index: 8.5
+        agentic_percentile: 32
+        aime: null
+        aime_25: null
+        coding_index: 49
+        coding_percentile: 48
+        critpt: 0.026
+        gdpval_aa: 0.146
+        gpqa: 0.835
+        hle: 0.22
+        ifbench: null
+        intelligence_index: 6.3
+        intelligence_percentile: 2
+        lcr: 0.833
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.449
+        tau2: null
+        tau_banking: 0.235051546391753
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.51685393258427
+        terminalbench_v4_0: 0.00505050505050505
+    design_arena:
+        Muse Glimmer 30B (xhigh):
+            models:
+                codecategories:
+                    avg_generation_time_ms: 84002
+                    elo: 1146
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 33.4
+                gamedev:
+                    avg_generation_time_ms: 89249
+                    elo: 1113
+                    elo_percentile: 32
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 30.1
+                website:
+                    avg_generation_time_ms: 86598
+                    elo: 1159
+                    elo_percentile: 38
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 35
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: a9912acb-568e-4147-8ed3-5d20aea22135
+              provider: DeepInfra
+              run_count: 2
+              score: 0.8059139350592417
+            - endpoint_id: 6244f10e-1e45-488b-a47f-f575e0edd12b
+              provider: Phala
+              run_count: 1
+              score: 0.8265989999999999
+            - endpoint_id: e6c588fa-aef0-4e1b-bb7f-78185dd5b6da
+              provider: Together
+              run_count: 1
+              score: 0.8367
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.811448
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: a9912acb-568e-4147-8ed3-5d20aea22135
+              provider: DeepInfra
+              run_count: 2
+              score: 0.8104311215830658
+            - endpoint_id: 6244f10e-1e45-488b-a47f-f575e0edd12b
+              provider: Phala
+              run_count: 1
+              score: 0.78
+            - endpoint_id: e6c588fa-aef0-4e1b-bb7f-78185dd5b6da
+              provider: Together
+              run_count: 1
+              score: 0.766667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.78

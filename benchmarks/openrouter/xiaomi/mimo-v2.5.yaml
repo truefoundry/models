@@ -3,12 +3,298 @@ artificial_analysis_id: 22d09131-343b-4adf-8760-533e20a2155f
 artificial_analysis_slug: mimo-v2-5-0424
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 15.8
+        agentic_percentile: 38
+        aime: null
+        aime_25: null
+        coding_index: 56.8
+        coding_percentile: 60
+        critpt: 0.037
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0.253
+        gpqa: 0.849
         healthcare_and_medical_index: null
+        hle: 0.272
+        ifbench: 0.671
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.73
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.439
         strategy_and_ops_index: null
+        tau2: 0.906
+        tau_banking: 0.0865979381443299
+        terminalbench_hard: 0.417
+        terminalbench_v2_1: 0.636704119850187
+        terminalbench_v4_0: 0
+    design_arena:
+        MiMo-V2.5:
+            models:
+                3d:
+                    avg_generation_time_ms: 143016
+                    elo: 1213
+                    elo_percentile: 68
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.8
+                asciiart:
+                    avg_generation_time_ms: 191055
+                    elo: 1141
+                    elo_percentile: 39
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.1
+                codecategories:
+                    avg_generation_time_ms: 230109
+                    elo: 1259
+                    elo_percentile: 75
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.5
+                dataviz:
+                    avg_generation_time_ms: 162829
+                    elo: 1250
+                    elo_percentile: 75
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.6
+                gamedev:
+                    avg_generation_time_ms: 286706
+                    elo: 1250
+                    elo_percentile: 75
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.6
+                svg:
+                    avg_generation_time_ms: 99214
+                    elo: 1179
+                    elo_percentile: 63
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.2
+                uicomponent:
+                    avg_generation_time_ms: 167204
+                    elo: 1252
+                    elo_percentile: 71
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.6
+                website:
+                    avg_generation_time_ms: 259907
+                    elo: 1265
+                    elo_percentile: 78
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.6
+    vals_ai:
+        xiaomi/mimo-v2.5:
+            code-migration:
+                accuracy: 14.228
+                cost_per_test: 0.102802
+                latency_seconds: 2274.632
+                stderr: 3.687
+            corp_fin_v2:
+                accuracy: 59.907
+                cost_per_test: 0.011733
+                latency_seconds: 17.625
+                stderr: 0.966
+            emb:
+                accuracy: 55.092
+                cost_per_test: 0.083304
+                latency_seconds: 1837.949
+                stderr: 3.127
+            fabv2:
+                accuracy: 36.728
+                cost_per_test: 0.08693
+                latency_seconds: 339.26
+                stderr: 0.109
+            gpqa:
+                accuracy: 81.566
+                cost_per_test: 0.002538
+                latency_seconds: 89.393
+                stderr: 2.054
+            hlab-v1:
+                accuracy: 1.667
+                cost_per_test: 0.036252
+                latency_seconds: 419.277
+                stderr: 0
+            lcb:
+                accuracy: 81.512
+                cost_per_test: 0.002243
+                latency_seconds: 108.607
+                stderr: 1.072
+            legal_bench:
+                accuracy: 78.886
+                cost_per_test: 0.000264
+                latency_seconds: 11.184
+                stderr: 0.506
+            legal_research:
+                accuracy: 9.135
+                cost_per_test: 0.033318
+                latency_seconds: 391.469
+                stderr: 2.002
+            medcode:
+                accuracy: 31.895
+                cost_per_test: 0.002162
+                latency_seconds: 17.704
+                stderr: 2.025
+            medscribe:
+                accuracy: 72.151
+                cost_per_test: 0.001351
+                latency_seconds: 20.261
+                stderr: 1.851
+            mmlu_pro:
+                accuracy: 82.931
+                cost_per_test: 0.000774
+                latency_seconds: 30.248
+                stderr: 0.372
+            mmmu:
+                accuracy: 80
+                cost_per_test: 0.001396
+                latency_seconds: 42.47
+                stderr: 0.962
+            mortgage_tax:
+                accuracy: 59.26
+                cost_per_test: 0.001523
+                latency_seconds: 32.939
+                stderr: 0.979
+            proof_bench:
+                accuracy: 16
+                cost_per_test: 0.05707
+                latency_seconds: 1255.813
+                stderr: 3.685
+            proof_bench_v1:
+                accuracy: 16
+                cost_per_test: 0.074885
+                latency_seconds: 1943.239
+                stderr: 3.685
+            sage-v1:
+                accuracy: 43.265
+                cost_per_test: 0.004398
+                latency_seconds: 52.66
+                stderr: 3.387
+            swebench:
+                accuracy: 71
+                cost_per_test: 0.010032
+                latency_seconds: 244.053
+                stderr: 2.031
+            tax_agent_bench:
+                accuracy: 7.772
+                cost_per_test: 0.017023
+                latency_seconds: 500.826
+                stderr: 1.779
+            tax_eval_v2:
+                accuracy: 71.832
+                cost_per_test: 0.000729
+                latency_seconds: 26.3
+                stderr: 0.881
+            terminal-bench-2-1:
+                accuracy: 60.674
+                cost_per_test: 0.021658
+                latency_seconds: 775.239
+                stderr: 5.207
+            vals_index_v1_2:
+                accuracy: 51.57
+                cost_per_test: 0.039823
+                latency_seconds: 585.32
+                stderr: 1.569
+            vals_index_v2:
+                accuracy: 39.91
+                cost_per_test: 0.061288
+                latency_seconds: 1092.973
+                stderr: 1.312
+            vals_multimodal_index:
+                accuracy: 52.767
+                cost_per_test: 0.029291
+                latency_seconds: 430.314
+                stderr: 1.419
+            vibe-code:
+                accuracy: 42.174
+                cost_per_test: 0.068395
+                latency_seconds: 1580.348
+                stderr: 4.568
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: fb34a890-eaa9-428e-8fc4-4ad0fdcba2ff
+              provider: GMICloud
+              run_count: 3
+              score: 0.8203444870288638
+            - endpoint_id: 0a0ee639-4272-4196-8c6e-2ff9510d5ecc
+              provider: NovitaAI
+              run_count: 3
+              score: 0.8224413533065569
+            - endpoint_id: fdfd0a98-24aa-4f03-b646-d5544e8e4a37
+              provider: StreamLake
+              run_count: 4
+              score: 0.8132924806621877
+            - endpoint_id: 3c0fdbe3-7f6f-4907-b296-cca1ad43cb28
+              provider: Venice
+              run_count: 2
+              score: 0.8279893778905678
+            - endpoint_id: 2af4bf94-26fa-42b9-bce0-8b11071e105a
+              provider: Xiaomi
+              run_count: 3
+              score: 0.8039929401426503
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 3
+              score: 0.8105597524945263
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: fb34a890-eaa9-428e-8fc4-4ad0fdcba2ff
+              provider: GMICloud
+              run_count: 2
+              score: 0.7933329999999998
+            - endpoint_id: 0a0ee639-4272-4196-8c6e-2ff9510d5ecc
+              provider: NovitaAI
+              run_count: 3
+              score: 0.7904544156747327
+            - endpoint_id: 3c0fdbe3-7f6f-4907-b296-cca1ad43cb28
+              provider: Venice
+              run_count: 1
+              score: 0.766667
+            - endpoint_id: 2af4bf94-26fa-42b9-bce0-8b11071e105a
+              provider: Xiaomi
+              run_count: 3
+              score: 0.7650773331504723
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 3
+              score: 0.7777936732742002
+        vgi_bench:
+            - endpoint_id: 2af4bf94-26fa-42b9-bce0-8b11071e105a
+              provider: Xiaomi
+              run_count: 1
+              score: 0.424731

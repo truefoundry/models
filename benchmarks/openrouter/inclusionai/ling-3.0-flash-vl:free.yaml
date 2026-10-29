@@ -3,12 +3,76 @@ artificial_analysis_id: 433d5c5d-3092-4026-9727-1587ca07915d
 artificial_analysis_slug: ling-3-0-flash-vl
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 28.7
+        agentic_percentile: 57
+        aime: null
+        aime_25: null
+        coding_index: 57
+        coding_percentile: 61
+        critpt: 0.02
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0.335
+        gpqa: 0.862
         healthcare_and_medical_index: null
+        hle: 0.22
+        ifbench: null
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.783
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.442
         strategy_and_ops_index: null
+        tau2: null
+        tau_banking: 0.344329896907216
+        terminalbench_hard: null
+        terminalbench_v2_1: 0.644194756554307
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 4e861358-8845-4142-8575-25151201d9ff
+              provider: DeepInfra
+              run_count: 1
+              score: 0.835185
+            - endpoint_id: 325a2e06-d0b4-4305-953b-cee27b771a9d
+              provider: NovitaAI
+              run_count: 1
+              score: 0.850168
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.848485
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 4e861358-8845-4142-8575-25151201d9ff
+              provider: DeepInfra
+              run_count: 1
+              score: 0.7133329999999999
+            - endpoint_id: 325a2e06-d0b4-4305-953b-cee27b771a9d
+              provider: NovitaAI
+              run_count: 1
+              score: 0.72
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.7
+        vgi_bench:
+            - endpoint_id: 4e861358-8845-4142-8575-25151201d9ff
+              provider: DeepInfra
+              run_count: 1
+              score: 0.371352
+            - endpoint_id: 325a2e06-d0b4-4305-953b-cee27b771a9d
+              provider: NovitaAI
+              run_count: 1
+              score: 0.090909
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.192337

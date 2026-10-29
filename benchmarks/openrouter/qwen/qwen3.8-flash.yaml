@@ -1,0 +1,43 @@
+model: qwen/qwen3.8-flash
+metrics:
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 84b1e4a7-5aed-4464-818f-1994f0b4ee18
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.908420191382287
+            - endpoint_id: c00f8f3f-fcaf-4087-92b2-60d0b8402813
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.9081475074682492
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.8855219999999999
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 84b1e4a7-5aed-4464-818f-1994f0b4ee18
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.7669265060533963
+            - endpoint_id: c00f8f3f-fcaf-4087-92b2-60d0b8402813
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.8
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.7133330000000001
+        vgi_bench:
+            - endpoint_id: 84b1e4a7-5aed-4464-818f-1994f0b4ee18
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.5700040840664392
+            - endpoint_id: c00f8f3f-fcaf-4087-92b2-60d0b8402813
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.563953
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.567901

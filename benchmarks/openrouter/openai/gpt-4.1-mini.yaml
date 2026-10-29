@@ -3,12 +3,201 @@ artificial_analysis_id: 9f7c7566-a704-49a2-a383-cb3181da33a4
 artificial_analysis_slug: gpt-4-1-mini
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
-        coding_index: null
+        agentic_percentile: null
+        aime: 0.43
+        aime_25: 0.463333333333333
+        coding_index: 20.2
+        coding_percentile: 17
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0
+        gpqa: 0.664
         healthcare_and_medical_index: null
+        hle: 0.05
+        ifbench: 0.383
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.44
         legal_index: null
+        livecodebench: 0.483
+        math_500: 0.925333333333333
+        math_index: 46.3
+        mmlu_pro: 0.781
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.529
+        tau_banking: 0.0536082474226804
+        terminalbench_hard: 0.076
+        terminalbench_v2_1: 0.101123595505618
+        terminalbench_v4_0: null
+    design_arena:
+        GPT-4.1 mini:
+            models:
+                3d:
+                    avg_generation_time_ms: 61716
+                    elo: 834
+                    elo_percentile: 0
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 30.5
+                codecategories:
+                    avg_generation_time_ms: 71382
+                    elo: 992
+                    elo_percentile: 8
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.5
+                dataviz:
+                    avg_generation_time_ms: 73645
+                    elo: 1034
+                    elo_percentile: 14
+                    first_place: 163
+                    fourth_place: 162
+                    second_place: 178
+                    third_place: 182
+                    total_tournaments: 685
+                    win_rate: 49.2
+                gamedev:
+                    avg_generation_time_ms: 86601
+                    elo: 1069
+                    elo_percentile: 21
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 58.5
+                uicomponent:
+                    avg_generation_time_ms: 64589
+                    elo: 956
+                    elo_percentile: 9
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.4
+                website:
+                    avg_generation_time_ms: 70415
+                    elo: 997
+                    elo_percentile: 10
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.8
+    vals_ai:
+        openai/gpt-4.1-mini-2025-04-14:
+            aime:
+                accuracy: 49.375
+                cost_per_test: 0.0079
+                latency_seconds: 33.139
+                stderr: 1.122
+            corp_fin_v2:
+                accuracy: 57.926
+                cost_per_test: 0.026113
+                latency_seconds: 6.443
+                stderr: 0.972
+            finance_agent_v1:
+                accuracy: 20.837
+                cost_per_test: 0.026036
+                latency_seconds: 45.1963
+                stderr: 1.2833
+            gpqa:
+                accuracy: 67.929
+                cost_per_test: 0.002324
+                latency_seconds: 9.282
+                stderr: 2.351
+            lcb:
+                accuracy: 58.158
+                cost_per_test: 0.001178
+                latency_seconds: 27.592
+                stderr: 1.181
+            legal_bench:
+                accuracy: 78.044
+                cost_per_test: null
+                latency_seconds: 0.467
+                stderr: 0.419
+            math500:
+                accuracy: 88
+                cost_per_test: 0.00122
+                latency_seconds: 5.76
+                stderr: 1.453
+            medqa:
+                accuracy: 84.633
+                cost_per_test: 0.000519
+                latency_seconds: 1.858
+                stderr: 0.329
+            mgsm:
+                accuracy: 87.782
+                cost_per_test: 0.000394
+                latency_seconds: 2.748
+                stderr: 1.928
+            mmlu_pro:
+                accuracy: 77.225
+                cost_per_test: 0.001316
+                latency_seconds: 3.832
+                stderr: 0.405
+            mmmu:
+                accuracy: 70.537
+                cost_per_test: 0.001788
+                latency_seconds: 8.225
+                stderr: 1.096
+            mortgage_tax:
+                accuracy: 65.501
+                cost_per_test: 0.002797
+                latency_seconds: 4.598
+                stderr: 0.938
+            tax_eval_v2:
+                accuracy: 71.914
+                cost_per_test: 0.001233
+                latency_seconds: 5.921
+                stderr: 0.881
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 1551aa56-4221-448a-b280-f862f73c27de
+              provider: Azure
+              run_count: 1
+              score: 0.639731
+            - endpoint_id: fd1475c4-5864-42c0-bca0-d78568a069cb
+              provider: Azure
+              run_count: 1
+              score: 0.638047
+            - endpoint_id: 872eccb7-9c85-45fc-974a-ff7c8e2407e6
+              provider: OpenAI
+              run_count: 2
+              score: 0.6547117716832317
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.664983
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 1551aa56-4221-448a-b280-f862f73c27de
+              provider: Azure
+              run_count: 1
+              score: 0.4
+            - endpoint_id: fd1475c4-5864-42c0-bca0-d78568a069cb
+              provider: Azure
+              run_count: 1
+              score: 0.38
+            - endpoint_id: 872eccb7-9c85-45fc-974a-ff7c8e2407e6
+              provider: OpenAI
+              run_count: 2
+              score: 0.4570038664342416
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.433333

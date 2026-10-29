@@ -3,12 +3,327 @@ artificial_analysis_id: 40663ad2-b218-471e-bdd4-a1e0c2360e2b
 artificial_analysis_slug: glm-5
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: null
+        aime_25: null
         coding_index: null
+        critpt: 0.02
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.82
         healthcare_and_medical_index: null
+        hle: 0.293
+        ifbench: 0.723
         intelligence_index: null
+        lcr: 0.757
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.982
+        tau_banking: null
+        terminalbench_hard: 0.432
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        GLM 5:
+            agents:
+                androidnative:
+                    avg_generation_time_ms: null
+                    elo: 1144
+                    elo_percentile: 34
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.2
+                fullstack:
+                    avg_generation_time_ms: null
+                    elo: 1123
+                    elo_percentile: 36
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.7
+                godotgamedev:
+                    avg_generation_time_ms: null
+                    elo: 1144
+                    elo_percentile: 42
+                    first_place: 12022
+                    fourth_place: 3234
+                    second_place: 11409
+                    third_place: 5439
+                    total_tournaments: 32104
+                    win_rate: 46.7
+                htmlslides:
+                    avg_generation_time_ms: 365805
+                    elo: 1044
+                    elo_percentile: 20
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.1
+                mobileapps:
+                    avg_generation_time_ms: null
+                    elo: 1136
+                    elo_percentile: 27
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.7
+            models:
+                3d:
+                    avg_generation_time_ms: 134699
+                    elo: 1226
+                    elo_percentile: 70
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.3
+                asciiart:
+                    avg_generation_time_ms: 83337
+                    elo: 1144
+                    elo_percentile: 40
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.9
+                codecategories:
+                    avg_generation_time_ms: 197139
+                    elo: 1245
+                    elo_percentile: 72
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.5
+                dataviz:
+                    avg_generation_time_ms: 150235
+                    elo: 1228
+                    elo_percentile: 67
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53
+                gamedev:
+                    avg_generation_time_ms: 189694
+                    elo: 1234
+                    elo_percentile: 73
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 57.4
+                svg:
+                    avg_generation_time_ms: 57008
+                    elo: 1165
+                    elo_percentile: 59
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.4
+                uicomponent:
+                    avg_generation_time_ms: 161437
+                    elo: 1225
+                    elo_percentile: 65
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.6
+                website:
+                    avg_generation_time_ms: 232642
+                    elo: 1247
+                    elo_percentile: 72
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55
+    vals_ai:
+        zai/glm-5-thinking:
+            aime:
+                accuracy: 91.667
+                cost_per_test: 0.069817
+                latency_seconds: 458.694
+                stderr: 0.772
+            case_law_v2:
+                accuracy: 52.519
+                cost_per_test: 0.0344
+                latency_seconds: 117.983
+                stderr: 1.725
+            corp_fin_v2:
+                accuracy: 62.898
+                cost_per_test: 0.067926
+                latency_seconds: 68.577
+                stderr: 0.95
+            finance_agent:
+                accuracy: 53.182
+                cost_per_test: 0.501332
+                latency_seconds: 564.093
+                stderr: 2.798
+            gpqa:
+                accuracy: 83.333
+                cost_per_test: 0.034091
+                latency_seconds: 242.523
+                stderr: 1.873
+            ioi-v1:
+                accuracy: 22
+                cost_per_test: 3.273674
+                latency_seconds: 6806.938
+                stderr: 7.832
+            lcb:
+                accuracy: 81.868
+                cost_per_test: 0.043918
+                latency_seconds: 289.752
+                stderr: 1.057
+            legal_bench:
+                accuracy: 84.059
+                cost_per_test: 0.002311
+                latency_seconds: 16.056
+                stderr: 0.411
+            medqa:
+                accuracy: 94.267
+                cost_per_test: 0.008007
+                latency_seconds: 81.08
+                stderr: 0.212
+            mmlu_pro:
+                accuracy: 86.03
+                cost_per_test: 0.011542
+                latency_seconds: 86.889
+                stderr: 0.343
+            swebench:
+                accuracy: 71.4
+                cost_per_test: 0.448911
+                latency_seconds: 513.842
+                stderr: 2.023
+            tax_eval_v2:
+                accuracy: 70.033
+                cost_per_test: 0.021913
+                latency_seconds: 149.298
+                stderr: 0.9
+            terminal-bench-2:
+                accuracy: 49.438
+                cost_per_test: 0.247234
+                latency_seconds: 875.602
+                stderr: 5.33
+            vals_index_v1:
+                accuracy: 55.09
+                cost_per_test: 8.334239
+                latency_seconds: 3120.378
+                stderr: 2.139
+            vibe-code:
+                accuracy: 23.359
+                cost_per_test: 40.270258
+                latency_seconds: 13455.794
+                stderr: 4.034
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: a53482cb-6c2a-4c86-a427-5a8ffcf59fb8
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.834450101225131
+            - endpoint_id: 5511be67-bb6c-441b-8271-3037b1582491
+              provider: Baidu Qianfan
+              run_count: 4
+              score: 0.7416046862949214
+            - endpoint_id: a9ca9362-3ad6-458a-bd00-a9f09e42796c
+              provider: GMICloud
+              run_count: 5
+              score: 0.8253013251844343
+            - endpoint_id: 898a8e6d-04a4-48c0-8457-36690a68782b
+              provider: NovitaAI
+              run_count: 4
+              score: 0.718054023860974
+            - endpoint_id: c173ea30-3dc0-4957-850e-f2df8c031f10
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.7318838863039193
+            - endpoint_id: d109ea64-6b71-42ab-9ab6-fe31d5f233e3
+              provider: StreamLake
+              run_count: 5
+              score: 0.8225223551975179
+            - endpoint_id: 386799c7-7d9c-48ee-9da5-c89cb19dee5c
+              provider: Venice
+              run_count: 2
+              score: 0.7684695275487142
+            - endpoint_id: 4a90ead5-f1e2-4648-8dcd-673ff9003b15
+              provider: Venice
+              run_count: 4
+              score: 0.8948360593588337
+            - endpoint_id: 85146950-32c1-410b-9b81-4467d938fd16
+              provider: Z.ai
+              run_count: 4
+              score: 0.719889065624009
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8056281640555242
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: a53482cb-6c2a-4c86-a427-5a8ffcf59fb8
+              provider: Amazon Bedrock
+              run_count: 4
+              score: 0.7386683696994547
+            - endpoint_id: 5511be67-bb6c-441b-8271-3037b1582491
+              provider: Baidu Qianfan
+              run_count: 4
+              score: 0.7280330572696573
+            - endpoint_id: a9ca9362-3ad6-458a-bd00-a9f09e42796c
+              provider: GMICloud
+              run_count: 5
+              score: 0.7594317772544592
+            - endpoint_id: 898a8e6d-04a4-48c0-8457-36690a68782b
+              provider: NovitaAI
+              run_count: 4
+              score: 0.7098708466439058
+            - endpoint_id: c173ea30-3dc0-4957-850e-f2df8c031f10
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.7418875907896189
+            - endpoint_id: d109ea64-6b71-42ab-9ab6-fe31d5f233e3
+              provider: StreamLake
+              run_count: 5
+              score: 0.751222575783349
+            - endpoint_id: 386799c7-7d9c-48ee-9da5-c89cb19dee5c
+              provider: Venice
+              run_count: 2
+              score: 0.6968823852043068
+            - endpoint_id: 4a90ead5-f1e2-4648-8dcd-673ff9003b15
+              provider: Venice
+              run_count: 4
+              score: 0.7014570360910405
+            - endpoint_id: 85146950-32c1-410b-9b81-4467d938fd16
+              provider: Z.ai
+              run_count: 4
+              score: 0.7343249777604642
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.753298484175814

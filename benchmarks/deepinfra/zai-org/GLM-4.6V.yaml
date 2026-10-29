@@ -3,12 +3,69 @@ artificial_analysis_id: 43098bd0-77ca-408b-b698-9d60b1d1c3b8
 artificial_analysis_slug: glm-4-6v
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: null
+        aime_25: 0.263333333333333
         coding_index: null
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.566
         healthcare_and_medical_index: null
+        hle: 0.037
+        ifbench: 0.279
         intelligence_index: null
+        lcr: 0.17
         legal_index: null
+        livecodebench: 0.411
+        math_500: null
+        math_index: 26.3
+        mmlu_pro: 0.752
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.307
+        tau_banking: null
+        terminalbench_hard: 0.03
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: a44ea9fe-fc2b-4765-804b-2e31215b5ca5
+              provider: NovitaAI
+              run_count: 1
+              score: 0.6633
+            - endpoint_id: edd46a04-7eac-4d37-bfb6-207ef7905f90
+              provider: Z.ai
+              run_count: 1
+              score: 0.659933
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.66835
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: a44ea9fe-fc2b-4765-804b-2e31215b5ca5
+              provider: NovitaAI
+              run_count: 1
+              score: 0.513333
+            - endpoint_id: edd46a04-7eac-4d37-bfb6-207ef7905f90
+              provider: Z.ai
+              run_count: 1
+              score: 0.593333
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.606667
+        vgi_bench:
+            - endpoint_id: edd46a04-7eac-4d37-bfb6-207ef7905f90
+              provider: Z.ai
+              run_count: 1
+              score: 0.086009
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.09877999999999999

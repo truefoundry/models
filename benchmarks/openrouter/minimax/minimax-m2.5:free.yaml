@@ -3,12 +3,182 @@ artificial_analysis_id: 12adec16-19fe-4d92-aeff-5ef3eb7e780a
 artificial_analysis_slug: minimax-m2-5
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: null
+        aime_25: null
         coding_index: null
+        critpt: 0.011
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.848
         healthcare_and_medical_index: null
+        hle: 0.205
+        ifbench: 0.716
         intelligence_index: null
+        lcr: 0.733
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.953
+        tau_banking: null
+        terminalbench_hard: 0.348
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        MiniMax M2.5:
+            models:
+                3d:
+                    avg_generation_time_ms: 93209
+                    elo: 1167
+                    elo_percentile: 55
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 57.6
+                codecategories:
+                    avg_generation_time_ms: 137444
+                    elo: 1205
+                    elo_percentile: 60
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 56.8
+                dataviz:
+                    avg_generation_time_ms: 107581
+                    elo: 1172
+                    elo_percentile: 45
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.2
+                gamedev:
+                    avg_generation_time_ms: 140486
+                    elo: 1176
+                    elo_percentile: 55
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.5
+                svg:
+                    avg_generation_time_ms: 46740
+                    elo: 1146
+                    elo_percentile: 51
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.5
+                uicomponent:
+                    avg_generation_time_ms: 116820
+                    elo: 1167
+                    elo_percentile: 49
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.4
+                website:
+                    avg_generation_time_ms: 147442
+                    elo: 1222
+                    elo_percentile: 63
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 57.5
+    vals_ai:
+        minimax/MiniMax-M2.5:
+            aime:
+                accuracy: 88.75
+                cost_per_test: 0.041379
+                latency_seconds: 373.487
+                stderr: 0.877
+            case_law_v2:
+                accuracy: 53.483
+                cost_per_test: 0.012109
+                latency_seconds: 30.875
+                stderr: 0.467
+            corp_fin_v2:
+                accuracy: 59.596
+                cost_per_test: 0.024284
+                latency_seconds: 16.599
+                stderr: 0.966
+            finance_agent:
+                accuracy: 38.579
+                cost_per_test: 0.164656
+                latency_seconds: 1355.194
+                stderr: 2.646
+            gpqa:
+                accuracy: 82.07
+                cost_per_test: 0.017869
+                latency_seconds: 171.962
+                stderr: 2.258
+            ioi-v1:
+                accuracy: 6.666
+                cost_per_test: 1.501416
+                latency_seconds: 22887.998
+                stderr: 2.641
+            lcb:
+                accuracy: 79.208
+                cost_per_test: 0.033052
+                latency_seconds: 312.011
+                stderr: 1.119
+            legal_bench:
+                accuracy: 79.963
+                cost_per_test: 0.001287
+                latency_seconds: 15.819
+                stderr: 0.473
+            medqa:
+                accuracy: 92.525
+                cost_per_test: 0.002928
+                latency_seconds: 33.54
+                stderr: 0.24
+            mmlu_pro:
+                accuracy: 80.093
+                cost_per_test: 0.005362
+                latency_seconds: 48.271
+                stderr: 0.39
+            proof_bench_v1:
+                accuracy: 4
+                cost_per_test: 0.057497
+                latency_seconds: 4514.143
+                stderr: 1.96
+            swebench:
+                accuracy: 74.2
+                cost_per_test: 0.456928
+                latency_seconds: 402.941
+                stderr: 1.959
+            tax_eval_v2:
+                accuracy: 68.152
+                cost_per_test: 0.008629
+                latency_seconds: 73.243
+                stderr: 0.906
+            terminal-bench-2:
+                accuracy: 41.573
+                cost_per_test: 0.085163
+                latency_seconds: 754.513
+                stderr: 5.254
+            vibe-code:
+                accuracy: 14.853
+                cost_per_test: 2.197729
+                latency_seconds: 3065.622
+                stderr: 2.953

@@ -1,0 +1,103 @@
+model: deepseek/deepseek-chat
+metrics:
+    design_arena:
+        DeepSeek-V3-0324:
+            models:
+                3d:
+                    avg_generation_time_ms: 43047
+                    elo: 1084
+                    elo_percentile: 31
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.5
+                codecategories:
+                    avg_generation_time_ms: 73963
+                    elo: 1106
+                    elo_percentile: 24
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.4
+                dataviz:
+                    avg_generation_time_ms: 47770
+                    elo: 1089
+                    elo_percentile: 21
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50
+                gamedev:
+                    avg_generation_time_ms: 70729
+                    elo: 1053
+                    elo_percentile: 19
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 43.7
+                svg:
+                    avg_generation_time_ms: 15247
+                    elo: 973
+                    elo_percentile: 2
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 38.8
+                uicomponent:
+                    avg_generation_time_ms: 47158
+                    elo: 1088
+                    elo_percentile: 24
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.7
+                website:
+                    avg_generation_time_ms: 79569
+                    elo: 1118
+                    elo_percentile: 27
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.5
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 5294d55f-9012-496b-8f22-8cc919432dcd
+              provider: DeepInfra
+              run_count: 2
+              score: 0.5280603935914865
+            - endpoint_id: 511ddb79-1d9e-4f5f-9863-c12b0f9b80ba
+              provider: StreamLake
+              run_count: 2
+              score: 0.6641291419556385
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.632997
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 5294d55f-9012-496b-8f22-8cc919432dcd
+              provider: DeepInfra
+              run_count: 2
+              score: 0.42740535652995937
+            - endpoint_id: 511ddb79-1d9e-4f5f-9863-c12b0f9b80ba
+              provider: StreamLake
+              run_count: 2
+              score: 0.40431082949874286
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.416667

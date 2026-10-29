@@ -3,12 +3,94 @@ artificial_analysis_id: 71f51ea9-94fe-4635-a80d-4cfffbb685f4
 artificial_analysis_slug: gemini-2-5-flash-lite-preview-09-2025
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: null
+        aime_25: 0.466666666666667
         coding_index: null
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: null
+        gpqa: 0.651
         healthcare_and_medical_index: null
+        hle: 0.051
+        ifbench: 0.418
         intelligence_index: null
+        lcr: 0.497
         legal_index: null
+        livecodebench: 0.641
+        math_500: null
+        math_index: 46.7
+        mmlu_pro: 0.796
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.304
+        tau_banking: null
+        terminalbench_hard: 0.076
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    vals_ai:
+        google/gemini-2.5-flash-lite:
+            medcode:
+                accuracy: 27.115
+                cost_per_test: 0.001342
+                latency_seconds: 5.746
+                stderr: 1.843
+            medscribe:
+                accuracy: 72.832
+                cost_per_test: 0.001211
+                latency_seconds: 4.847
+                stderr: 1.982
+            sage-v1:
+                accuracy: 27.533
+                cost_per_test: 0.000929
+                latency_seconds: 13.781
+                stderr: 3.124
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: ce839073-aa24-4f29-8358-15b319bd05ec
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.595118
+            - endpoint_id: 6b2ea9bc-3a79-441d-97a4-9b7d33210122
+              provider: Google Vertex
+              run_count: 1
+              score: 0.569024
+            - endpoint_id: ebdbef25-737d-4ac3-9e98-fd3928724e45
+              provider: Google Vertex
+              run_count: 1
+              score: 0.560606
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.547138
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: ce839073-aa24-4f29-8358-15b319bd05ec
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.516667
+            - endpoint_id: 6b2ea9bc-3a79-441d-97a4-9b7d33210122
+              provider: Google Vertex
+              run_count: 1
+              score: 0.533333
+            - endpoint_id: ebdbef25-737d-4ac3-9e98-fd3928724e45
+              provider: Google Vertex
+              run_count: 1
+              score: 0.42333300000000007
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.534014
+        vgi_bench:
+            - endpoint_id: ce839073-aa24-4f29-8358-15b319bd05ec
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.479879
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.47987899999999994

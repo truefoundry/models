@@ -1,0 +1,199 @@
+model: gpt-5.3-codex
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: null
+        aime_25: null
+        coding_index: null
+        critpt: 0.169
+        gdpval_aa: null
+        gpqa: 0.915
+        hle: 0.425
+        ifbench: 0.754
+        intelligence_index: null
+        lcr: 0.833
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: null
+        tau2: 0.86
+        tau_banking: null
+        terminalbench_hard: 0.53
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        GPT-5.3 Codex:
+            agents:
+                androidnative:
+                    avg_generation_time_ms: null
+                    elo: 1084
+                    elo_percentile: 21
+                    first_place: 2952
+                    fourth_place: 1287
+                    second_place: 3922
+                    third_place: 1408
+                    total_tournaments: 9569
+                    win_rate: 35.2
+                fullstack:
+                    avg_generation_time_ms: null
+                    elo: 983
+                    elo_percentile: 2
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 36.5
+                godotgamedev:
+                    avg_generation_time_ms: null
+                    elo: 1124
+                    elo_percentile: 25
+                    first_place: 3601
+                    fourth_place: 1287
+                    second_place: 4455
+                    third_place: 2452
+                    total_tournaments: 11795
+                    win_rate: 45.1
+                mobileapps:
+                    avg_generation_time_ms: null
+                    elo: 1053
+                    elo_percentile: 2
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 41.4
+                webapps:
+                    avg_generation_time_ms: null
+                    elo: 1032
+                    elo_percentile: 4
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 36.9
+            models:
+                3d:
+                    avg_generation_time_ms: 45992
+                    elo: 1005
+                    elo_percentile: 11
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 35.3
+                asciiart:
+                    avg_generation_time_ms: 24046
+                    elo: 1149
+                    elo_percentile: 43
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.2
+                codecategories:
+                    avg_generation_time_ms: 52370
+                    elo: 1143
+                    elo_percentile: 34
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.2
+                dataviz:
+                    avg_generation_time_ms: 43451
+                    elo: 1164
+                    elo_percentile: 42
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.6
+                gamedev:
+                    avg_generation_time_ms: 65135
+                    elo: 1161
+                    elo_percentile: 48
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.3
+                svg:
+                    avg_generation_time_ms: 17590
+                    elo: 1126
+                    elo_percentile: 41
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54
+                uicomponent:
+                    avg_generation_time_ms: 36215
+                    elo: 1132
+                    elo_percentile: 35
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.3
+                website:
+                    avg_generation_time_ms: 52340
+                    elo: 1161
+                    elo_percentile: 40
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.6
+    vals_ai:
+        openai/gpt-5.3-codex:
+            ioi:
+                accuracy: 53.833
+                cost_per_test: 2.68083
+                latency_seconds: 1791.685
+                stderr: 6.312
+            ioi-v1:
+                accuracy: 43.834
+                cost_per_test: 2.020025
+                latency_seconds: 3574.257
+                stderr: 7.81
+            lcb:
+                accuracy: 87.313
+                cost_per_test: 0.091585
+                latency_seconds: 132.631
+                stderr: 0.968
+            swebench:
+                accuracy: 78
+                cost_per_test: 0.455384
+                latency_seconds: 246.527
+                stderr: 1.854
+            terminal-bench-2:
+                accuracy: 64.045
+                cost_per_test: 0.345045
+                latency_seconds: 506.283
+                stderr: 5.115
+            vibe-code:
+                accuracy: 61.767
+                cost_per_test: 11.914536
+                latency_seconds: 4548.115
+                stderr: 4.714
+    openrouter:
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 75bb5ca0-7b08-4f1a-aca5-aa2bbf44d98e
+              provider: OpenAI
+              run_count: 1
+              score: 0.753333

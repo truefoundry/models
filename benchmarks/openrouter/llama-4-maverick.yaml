@@ -3,12 +3,110 @@ artificial_analysis_id: 922c69c7-9037-43c6-8bcf-a1c555e7f3eb
 artificial_analysis_slug: llama-4-maverick
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 0.6
+        agentic_percentile: 2
+        aime: 0.39
+        aime_25: 0.193333333333333
+        coding_index: 16.3
+        coding_percentile: 14
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0
+        gpqa: 0.671
         healthcare_and_medical_index: null
+        hle: 0.049
+        ifbench: 0.43
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.5
         legal_index: null
+        livecodebench: 0.397
+        math_500: 0.888666666666667
+        math_index: 19.3
+        mmlu_pro: 0.809
+        scicode: 0.317
         strategy_and_ops_index: null
+        tau2: 0.178
+        tau_banking: 0.0371134020618557
+        terminalbench_hard: 0.068
+        terminalbench_v2_1: 0.0786516853932584
+        terminalbench_v4_0: 0
+    design_arena:
+        Llama 4 Maverick:
+            models:
+                3d:
+                    avg_generation_time_ms: 9460
+                    elo: 898
+                    elo_percentile: 3
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 40.2
+                codecategories:
+                    avg_generation_time_ms: 13055
+                    elo: 878
+                    elo_percentile: 2
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 35.8
+                dataviz:
+                    avg_generation_time_ms: 11012
+                    elo: 882
+                    elo_percentile: 2
+                    first_place: 127
+                    fourth_place: 242
+                    second_place: 217
+                    third_place: 204
+                    total_tournaments: 790
+                    win_rate: 38.4
+                gamedev:
+                    avg_generation_time_ms: 14339
+                    elo: 836
+                    elo_percentile: 1
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 33.7
+                uicomponent:
+                    avg_generation_time_ms: 12741
+                    elo: 894
+                    elo_percentile: 3
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 40.8
+                website:
+                    avg_generation_time_ms: 13594
+                    elo: 869
+                    elo_percentile: 4
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 34.4
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: caa850a1-e628-41bd-8585-9b3076efea90
+              provider: DigitalOcean
+              run_count: 1
+              score: 0.666667
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: caa850a1-e628-41bd-8585-9b3076efea90
+              provider: DigitalOcean
+              run_count: 1
+              score: 0.373333

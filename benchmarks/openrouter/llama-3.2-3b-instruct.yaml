@@ -1,0 +1,33 @@
+model: meta-llama/llama-3.2-3b-instruct
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: 0.0666666666666667
+        aime_25: 0.0333333333333333
+        coding_index: null
+        critpt: null
+        gdpval_aa: null
+        gpqa: 0.255
+        hle: 0.053
+        ifbench: 0.262
+        intelligence_index: null
+        lcr: 0.043
+        livecodebench: 0.083
+        math_500: 0.488666666666667
+        math_index: 3.3
+        mmlu_pro: 0.347
+        scicode: null
+        tau2: 0.211
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: d3d36982-b3b4-43e8-9c5a-14e0e5769b78
+              provider: Cloudflare
+              run_count: 1
+              score: 0.286195
+        lookback_days: 32

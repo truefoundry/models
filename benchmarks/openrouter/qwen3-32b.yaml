@@ -1,0 +1,77 @@
+model: qwen3-32b
+metrics:
+    artificial_analysis:
+        variants:
+            qwen3-32b-instruct:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.303333333333333
+                aime_25: 0.196666666666667
+                coding_index: null
+                critpt: null
+                gdpval_aa: null
+                gpqa: 0.535
+                hle: 0.041
+                ifbench: 0.315
+                intelligence_index: null
+                lcr: 0
+                livecodebench: 0.288
+                math_500: 0.868666666666667
+                math_index: 19.7
+                mmlu_pro: 0.727
+                name: Qwen3 32B (Non-reasoning)
+                scicode: null
+                tau2: null
+                tau_banking: null
+                terminalbench_hard: null
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            qwen3-32b-instruct-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 0.9
+                agentic_percentile: 7
+                aime: 0.806666666666667
+                aime_25: 0.73
+                coding_index: 15.3
+                coding_percentile: 12
+                critpt: 0.003
+                gdpval_aa: 0
+                gpqa: 0.668
+                hle: 0.074
+                ifbench: 0.363
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0
+                livecodebench: 0.546
+                math_500: 0.960666666666667
+                math_index: 73
+                mmlu_pro: 0.798
+                name: Qwen3 32B (Reasoning)
+                scicode: 0.36
+                tau2: 0.298
+                tau_banking: 0.0536082474226804
+                terminalbench_hard: 0.03
+                terminalbench_v2_1: 0.052434456928839
+                terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 6b8c829d-3094-45e7-8139-0a67e09060c3
+              provider: DeepInfra
+              run_count: 1
+              score: 0.56734
+            - endpoint_id: 7043a44c-7219-4b03-ba31-49dadf2f815d
+              provider: Tenstorrent
+              run_count: 6
+              score: 0.5506685848264956
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 6b8c829d-3094-45e7-8139-0a67e09060c3
+              provider: DeepInfra
+              run_count: 1
+              score: 0.483333
+            - endpoint_id: 7043a44c-7219-4b03-ba31-49dadf2f815d
+              provider: Tenstorrent
+              run_count: 2
+              score: 0.4344295815011433

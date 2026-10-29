@@ -3,12 +3,225 @@ artificial_analysis_id: 34fc646a-0174-470e-9e62-d8df452210b3
 artificial_analysis_slug: mistral-large-4-preview
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: 0.239
+        aa_omniscience_non_hallucination_rate: 0.587
         agentic_index: null
+        agentic_percentile: null
+        aime: null
+        aime_25: null
         coding_index: null
+        coding_percentile: null
+        critpt: 0.106
         economics_index: 35.7
         engineering_index: 30.9
         finance_and_accounting_index: 38.1
+        gdpval_aa: 0.467
+        gpqa: null
         healthcare_and_medical_index: 33.8
+        hle: 0.35
+        ifbench: null
         intelligence_index: 25.3
+        intelligence_percentile: 29
+        lcr: 0.813
         legal_index: 32.9
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.542
         strategy_and_ops_index: 43.4
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: 0.267676767676768
+    design_arena:
+        Mistral Large 4:
+            models:
+                3d:
+                    avg_generation_time_ms: 385636
+                    elo: 1248
+                    elo_percentile: 76
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45
+                asciiart:
+                    avg_generation_time_ms: 294200
+                    elo: 1206
+                    elo_percentile: 71
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 43.5
+                codecategories:
+                    avg_generation_time_ms: 382027
+                    elo: 1258
+                    elo_percentile: 74
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 46.7
+                dataviz:
+                    avg_generation_time_ms: 356800
+                    elo: 1275
+                    elo_percentile: 83
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51
+                gamedev:
+                    avg_generation_time_ms: 353788
+                    elo: 1226
+                    elo_percentile: 71
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 42.3
+                svg:
+                    avg_generation_time_ms: 178837
+                    elo: 1231
+                    elo_percentile: 80
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 45.3
+                uicomponent:
+                    avg_generation_time_ms: 396754
+                    elo: 1269
+                    elo_percentile: 78
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.6
+                website:
+                    avg_generation_time_ms: 415136
+                    elo: 1256
+                    elo_percentile: 74
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 47.3
+    vals_ai:
+        mistralai/mistral-large-4:
+            code-migration:
+                accuracy: 30.561
+                cost_per_test: 47.890583
+                latency_seconds: 17441.256
+                stderr: 4.221
+            emb:
+                accuracy: 56.213
+                cost_per_test: 4.839324
+                latency_seconds: 4904.981
+                stderr: 3.22
+            emb-v1-1:
+                accuracy: 68.972
+                cost_per_test: 4.839324
+                latency_seconds: 4904.981
+                stderr: 2.339
+            fabv2:
+                accuracy: 54.678
+                cost_per_test: 1.201399
+                latency_seconds: 1561.879
+                stderr: 0.58
+            fabv2-1:
+                accuracy: 61.383
+                cost_per_test: 1.021615
+                latency_seconds: 986.069
+                stderr: 2.023
+            finance_index:
+                accuracy: 56.895
+                cost_per_test: 2.860726
+                latency_seconds: 3109.826
+                stderr: 1.417
+            hlab:
+                accuracy: 17.5
+                cost_per_test: 4.181392
+                latency_seconds: 3483.562
+                stderr: 3.222
+            hlab-v1:
+                accuracy: 15.833
+                cost_per_test: 4.181392
+                latency_seconds: 2364.651
+                stderr: 2.958
+            immigration:
+                accuracy: 63.708
+                cost_per_test: 0.146037
+                latency_seconds: 554.005
+                stderr: 1.659
+            ioi:
+                accuracy: 45.278
+                cost_per_test: 5.392691
+                latency_seconds: 5023.763
+                stderr: 3.783
+            legal_index:
+                accuracy: 65.613
+                cost_per_test: 4.076507
+                latency_seconds: 4164.363
+                stderr: 1.625
+            legal_research:
+                accuracy: 31.731
+                cost_per_test: 5.32689
+                latency_seconds: 5571.099
+                stderr: 3.235
+            medcode:
+                accuracy: 40.685
+                cost_per_test: 0.041909
+                latency_seconds: 68.682
+                stderr: 2.171
+            medscribe:
+                accuracy: 80.434
+                cost_per_test: 0.047445
+                latency_seconds: 125.352
+                stderr: 1.996
+            proof_bench:
+                accuracy: 10
+                cost_per_test: 0.642365
+                latency_seconds: 1258.806
+                stderr: 3.015
+            swebench-multimodal:
+                accuracy: 33.125
+                cost_per_test: 5.142005
+                latency_seconds: 1647.478
+                stderr: 2.151
+            tax_agent_bench:
+                accuracy: 30.391
+                cost_per_test: 2.72124
+                latency_seconds: 3438.427
+                stderr: 3.309
+            terminal-bench-4:
+                accuracy: 27.778
+                cost_per_test: 10.246978
+                latency_seconds: 6011.951
+                stderr: 1.821
+            vals_index_v2_1:
+                accuracy: 48.661
+                cost_per_test: 14.070121
+                latency_seconds: 6468.1
+                stderr: 1.129
+            vcb-1-100:
+                accuracy: 14.261
+                cost_per_test: 6.749045
+                latency_seconds: 3593.189
+                stderr: 3.205
+            vibe-code:
+                accuracy: 78.403
+                cost_per_test: 39.456533
+                latency_seconds: 10395.145
+                stderr: 3.55

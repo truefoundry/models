@@ -1,0 +1,91 @@
+model: qwen/qwen3-30b-a3b
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        aime: 0.753333333333333
+        aime_25: 0.723333333333333
+        coding_index: null
+        critpt: 0
+        gdpval_aa: null
+        gpqa: 0.616
+        hle: 0.062
+        ifbench: 0.415
+        intelligence_index: null
+        lcr: 0
+        livecodebench: 0.506
+        math_500: 0.959333333333333
+        math_index: 72.3
+        mmlu_pro: 0.777
+        scicode: null
+        tau2: 0.26
+        tau_banking: null
+        terminalbench_hard: 0.023
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    design_arena:
+        Qwen3 30B-A3B:
+            models:
+                codecategories:
+                    avg_generation_time_ms: 28819
+                    elo: 940
+                    elo_percentile: 4
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 37.5
+                dataviz:
+                    avg_generation_time_ms: 24475
+                    elo: 967
+                    elo_percentile: 8
+                    first_place: 158
+                    fourth_place: 337
+                    second_place: 356
+                    third_place: 331
+                    total_tournaments: 1182
+                    win_rate: 39
+                gamedev:
+                    avg_generation_time_ms: 31870
+                    elo: 897
+                    elo_percentile: 3
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 33.9
+                uicomponent:
+                    avg_generation_time_ms: 28807
+                    elo: 940
+                    elo_percentile: 6
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 42.4
+                website:
+                    avg_generation_time_ms: 29130
+                    elo: 953
+                    elo_percentile: 6
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 37.7
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: efdfff77-9574-4695-8e08-32d968a43376
+              provider: DeepInfra
+              run_count: 1
+              score: 0.609428
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: efdfff77-9574-4695-8e08-32d968a43376
+              provider: DeepInfra
+              run_count: 1
+              score: 0.47

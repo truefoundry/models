@@ -1,0 +1,357 @@
+model: openai/gpt-5:batch
+metrics:
+    artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: null
+        agentic_percentile: null
+        aime: 0.956666666666667
+        aime_25: 0.943333333333333
+        coding_index: 37.8
+        coding_percentile: 36
+        critpt: 0.057
+        gdpval_aa: 0.213
+        gpqa: 0.854
+        hle: 0.285
+        ifbench: 0.731
+        intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.782
+        livecodebench: 0.846
+        math_500: 0.994
+        math_index: 94.3
+        mmlu_pro: 0.871
+        scicode: null
+        tau2: 0.848
+        tau_banking: 0.220618556701031
+        terminalbench_hard: 0.326
+        terminalbench_v2_1: 0.352059925093633
+        terminalbench_v4_0: null
+    design_arena:
+        GPT-5 (High):
+            models:
+                3d:
+                    avg_generation_time_ms: 154331
+                    elo: 1023
+                    elo_percentile: 13
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 39.6
+                codecategories:
+                    avg_generation_time_ms: 164087
+                    elo: 1166
+                    elo_percentile: 47
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 54.5
+                dataviz:
+                    avg_generation_time_ms: 147769
+                    elo: 1221
+                    elo_percentile: 64
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 60.5
+                gamedev:
+                    avg_generation_time_ms: 174896
+                    elo: 1185
+                    elo_percentile: 57
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 59.3
+                svg:
+                    avg_generation_time_ms: 133872
+                    elo: 1185
+                    elo_percentile: 65
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 64.1
+                uicomponent:
+                    avg_generation_time_ms: 152078
+                    elo: 1174
+                    elo_percentile: 51
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 57.4
+                website:
+                    avg_generation_time_ms: 164685
+                    elo: 1182
+                    elo_percentile: 49
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 55.2
+        GPT-5 (Minimal):
+            models:
+                3d:
+                    avg_generation_time_ms: 116761
+                    elo: 1053
+                    elo_percentile: 20
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 41.3
+                asciiart:
+                    avg_generation_time_ms: 84558
+                    elo: 1138
+                    elo_percentile: 36
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49
+                codecategories:
+                    avg_generation_time_ms: 119297
+                    elo: 1163
+                    elo_percentile: 43
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.8
+                dataviz:
+                    avg_generation_time_ms: 116246
+                    elo: 1176
+                    elo_percentile: 47
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 50.5
+                gamedev:
+                    avg_generation_time_ms: 136581
+                    elo: 1153
+                    elo_percentile: 46
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52.2
+                svg:
+                    avg_generation_time_ms: 59721
+                    elo: 1124
+                    elo_percentile: 39
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 52
+                uicomponent:
+                    avg_generation_time_ms: 110924
+                    elo: 1139
+                    elo_percentile: 38
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49.5
+                website:
+                    avg_generation_time_ms: 117222
+                    elo: 1184
+                    elo_percentile: 51
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.7
+    vals_ai:
+        openai/gpt-5-2025-08-07:
+            aime:
+                accuracy: 93.374
+                cost_per_test: 0.092693
+                latency_seconds: 292.202
+                stderr: 1.305
+            case_law_v2:
+                accuracy: 66.452
+                cost_per_test: 0.066591
+                latency_seconds: 123.423
+                stderr: 0.652
+            corp_fin_v2:
+                accuracy: 61.072
+                cost_per_test: 0.086116
+                latency_seconds: 160.705
+                stderr: 0.961
+            finance_agent:
+                accuracy: 52.151
+                cost_per_test: 0.586458
+                latency_seconds: 926.611
+                stderr: 2.879
+            finance_agent_v1:
+                accuracy: 46.8901
+                cost_per_test: 0.690356
+                latency_seconds: 458.528
+                stderr: 1.2192
+            gpqa:
+                accuracy: 85.606
+                cost_per_test: 0.072708
+                latency_seconds: 169.716
+                stderr: 1.764
+            ioi-v1:
+                accuracy: 20
+                cost_per_test: 1.629264
+                latency_seconds: 2608.252
+                stderr: 4.581
+            lcb:
+                accuracy: 85.911
+                cost_per_test: 0.063751
+                latency_seconds: 150.441
+                stderr: 0.974
+            legal_bench:
+                accuracy: 86.023
+                cost_per_test: null
+                latency_seconds: 18.59
+                stderr: 0.379
+            math500:
+                accuracy: 96
+                cost_per_test: 0.020071
+                latency_seconds: 32.217
+                stderr: 0.876
+            medcode:
+                accuracy: 49.634
+                cost_per_test: 0.045858
+                latency_seconds: 58.268
+                stderr: 2.098
+            medqa:
+                accuracy: 96.317
+                cost_per_test: 0.020888
+                latency_seconds: 35.496
+                stderr: 0.172
+            medscribe:
+                accuracy: 83.65
+                cost_per_test: 0.1015
+                latency_seconds: 184.536
+                stderr: 1.936
+            mgsm:
+                accuracy: 92.836
+                cost_per_test: 0.014278
+                latency_seconds: 20.353
+                stderr: 1.559
+            mmlu_pro:
+                accuracy: 86.544
+                cost_per_test: 0.024135
+                latency_seconds: 37.239
+                stderr: 0.336
+            mmmu:
+                accuracy: 81.503
+                cost_per_test: 0.032532
+                latency_seconds: 72.114
+                stderr: 0.934
+            mortgage_tax:
+                accuracy: 65.454
+                cost_per_test: 0.028906
+                latency_seconds: 62.828
+                stderr: 0.879
+            proof_bench_v1:
+                accuracy: 18
+                cost_per_test: 0.852361
+                latency_seconds: 4579.325
+                stderr: 3.842
+            sage-v1:
+                accuracy: 43.68
+                cost_per_test: 0.032224
+                latency_seconds: 58.593
+                stderr: 3.349
+            swebench:
+                accuracy: 69
+                cost_per_test: 0.27029
+                latency_seconds: 232.842
+                stderr: 2.07
+            tax_eval_v2:
+                accuracy: 73.385
+                cost_per_test: 0.053873
+                latency_seconds: 78.668
+                stderr: 0.868
+            terminal-bench:
+                accuracy: 48.75
+                cost_per_test: 0.100635
+                latency_seconds: 957.628
+                stderr: 5.588
+            terminal-bench-2:
+                accuracy: 37.079
+                cost_per_test: 0.477064
+                latency_seconds: 986.102
+                stderr: 5.149
+            vals_index_v1:
+                accuracy: 48.993
+                cost_per_test: 0.576959
+                latency_seconds: 859.407
+                stderr: 2.038
+            vals_multimodal_index_v1:
+                accuracy: 49.933
+                cost_per_test: 0.420847
+                latency_seconds: 631.208
+                stderr: 1.536
+            vibe-code:
+                accuracy: 20.088
+                cost_per_test: 1.525167
+                latency_seconds: 1852.149
+                stderr: 3.409
+            vibe-code-v1:
+                accuracy: 20.0882
+                cost_per_test: 1.525167
+                latency_seconds: 1852.1489
+                stderr: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 301846ae-36c6-4900-8c41-1e98761fdaf4
+              provider: Azure
+              run_count: 1
+              score: 0.851852
+            - endpoint_id: df54c692-a4df-49c3-aeef-21041a805a19
+              provider: Azure
+              run_count: 1
+              score: 0.850168
+            - endpoint_id: 7c2f859a-7890-4e8e-b1de-1cd1c0a800b4
+              provider: OpenAI
+              run_count: 1
+              score: 0.851852
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.853535
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 301846ae-36c6-4900-8c41-1e98761fdaf4
+              provider: Azure
+              run_count: 1
+              score: 0.7
+            - endpoint_id: df54c692-a4df-49c3-aeef-21041a805a19
+              provider: Azure
+              run_count: 1
+              score: 0.693333
+            - endpoint_id: 7c2f859a-7890-4e8e-b1de-1cd1c0a800b4
+              provider: OpenAI
+              run_count: 2
+              score: 0.7034089688018147
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.7

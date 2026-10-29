@@ -3,12 +3,80 @@ artificial_analysis_id: 2236df45-0699-40d1-b5cc-69ee345d2257
 artificial_analysis_slug: qwen3-5-122b-a10b
 metrics:
     artificial_analysis:
-        agentic_index: null
-        coding_index: null
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
+        agentic_index: 7.6
+        agentic_percentile: 29
+        aime: null
+        aime_25: null
+        coding_index: 45.7
+        coding_percentile: 44
+        critpt: 0.006
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0.161
+        gpqa: 0.857
         healthcare_and_medical_index: null
+        hle: 0.252
+        ifbench: 0.757
         intelligence_index: null
+        intelligence_percentile: null
+        lcr: 0.763
         legal_index: null
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.397
         strategy_and_ops_index: null
+        tau2: 0.936
+        tau_banking: 0.152577319587629
+        terminalbench_hard: 0.311
+        terminalbench_v2_1: 0.47565543071161
+        terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 33d466d1-d2f7-45ed-8ff3-fda7d2e32351
+              provider: Alibaba Cloud Int.
+              run_count: 5
+              score: 0.8586346088613231
+            - endpoint_id: 4774bc7a-1bc5-40f4-b61e-2541e3c6313e
+              provider: AtlasCloud
+              run_count: 4
+              score: 0.8453869827682963
+            - endpoint_id: fa56b1c6-5be1-461d-9f1f-9a97dd64ddd7
+              provider: NovitaAI
+              run_count: 4
+              score: 0.8443283493428637
+            - endpoint_id: 0a90a7cd-5063-4bcf-a228-e51ebb87feee
+              provider: SiliconFlow
+              run_count: 4
+              score: 0.8474376867696335
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.8504497528467941
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 33d466d1-d2f7-45ed-8ff3-fda7d2e32351
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.7553190000000001
+            - endpoint_id: 4774bc7a-1bc5-40f4-b61e-2541e3c6313e
+              provider: AtlasCloud
+              run_count: 4
+              score: 0.7965427568938187
+            - endpoint_id: fa56b1c6-5be1-461d-9f1f-9a97dd64ddd7
+              provider: NovitaAI
+              run_count: 4
+              score: 0.7827742407251082
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 4
+              score: 0.7873696170708361
+        vgi_bench:
+            - endpoint_id: 33d466d1-d2f7-45ed-8ff3-fda7d2e32351
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.131912

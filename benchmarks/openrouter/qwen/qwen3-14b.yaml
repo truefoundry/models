@@ -1,0 +1,85 @@
+model: qwen/qwen3-14b
+metrics:
+    artificial_analysis:
+        variants:
+            qwen3-14b-instruct:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.28
+                aime_25: 0.58
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.47
+                hle: 0.041
+                ifbench: 0.239
+                intelligence_index: null
+                lcr: 0
+                livecodebench: 0.28
+                math_500: 0.871333333333333
+                math_index: 58
+                mmlu_pro: 0.675
+                name: Qwen3 14B (Non-reasoning)
+                scicode: null
+                tau2: 0.322
+                tau_banking: null
+                terminalbench_hard: 0.053
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            qwen3-14b-instruct-reasoning:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: 0.9
+                agentic_percentile: 7
+                aime: 0.763333333333333
+                aime_25: 0.556666666666667
+                coding_index: 13.8
+                coding_percentile: 10
+                critpt: 0
+                gdpval_aa: 0
+                gpqa: 0.604
+                hle: 0.045
+                ifbench: 0.405
+                intelligence_index: null
+                intelligence_percentile: null
+                lcr: 0
+                livecodebench: 0.523
+                math_500: 0.961333333333333
+                math_index: 55.7
+                mmlu_pro: 0.774
+                name: Qwen3 14B (Reasoning)
+                scicode: 0.307
+                tau2: 0.345
+                tau_banking: 0.0556701030927835
+                terminalbench_hard: 0.038
+                terminalbench_v2_1: 0.048689138576779
+                terminalbench_v4_0: 0
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: b845a37e-3369-44ef-86ac-9f494e453af1
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.493266
+            - endpoint_id: 778bdebf-d018-4a24-a34e-230fce0f2045
+              provider: DeepInfra
+              run_count: 2
+              score: 0.6115349894864788
+            - endpoint_id: c399a914-434e-4f21-b11b-8f4b3b2ec72c
+              provider: NextBit
+              run_count: 4
+              score: 0.5954548893248494
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.589226
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 778bdebf-d018-4a24-a34e-230fce0f2045
+              provider: DeepInfra
+              run_count: 2
+              score: 0.40062104650360175
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.446667

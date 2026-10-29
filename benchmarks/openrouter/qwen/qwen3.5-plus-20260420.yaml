@@ -1,0 +1,13 @@
+model: qwen/qwen3.5-plus-20260420
+metrics:
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 8b4a0fbb-6705-4f8d-a7f1-ad18ecc0edbc
+              provider: Alibaba Cloud Int.
+              run_count: 2
+              score: 0.4562877975276577
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.44509299999999996

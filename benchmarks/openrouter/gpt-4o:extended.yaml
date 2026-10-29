@@ -3,12 +3,94 @@ artificial_analysis_id: c1045dc0-4fd3-4adb-9548-18763e0d051f
 artificial_analysis_slug: gpt-4o
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: 0.15
+        aime_25: 0.06
         coding_index: null
+        critpt: 0
         economics_index: null
         engineering_index: null
         finance_and_accounting_index: null
+        gdpval_aa: 0
+        gpqa: 0.543
         healthcare_and_medical_index: null
+        hle: 0.024
+        ifbench: 0.343
         intelligence_index: null
+        lcr: 0.493
         legal_index: null
+        livecodebench: 0.309
+        math_500: 0.759333333333333
+        math_index: 6
+        mmlu_pro: 0.748
+        scicode: null
         strategy_and_ops_index: null
+        tau2: 0.251
+        tau_banking: null
+        terminalbench_hard: 0.083
+        terminalbench_v2_1: null
+        terminalbench_v4_0: null
+    vals_ai:
+        openai/gpt-4o-2024-11-20:
+            aime:
+                accuracy: 11.875
+                cost_per_test: 0.011954
+                latency_seconds: 15.776
+                stderr: 0.955
+            case_law_v2:
+                accuracy: 59.7
+                cost_per_test: 0.066774
+                latency_seconds: 40.867
+                stderr: 0.429
+            corp_fin_v2:
+                accuracy: 45.921
+                cost_per_test: null
+                latency_seconds: 6.461
+                stderr: 0.973
+            gpqa:
+                accuracy: 53.788
+                cost_per_test: 0.009465
+                latency_seconds: 14.924
+                stderr: 2.507
+            lcb:
+                accuracy: 43.444
+                cost_per_test: 0.003999
+                latency_seconds: 4.347
+                stderr: 1.123
+            legal_bench:
+                accuracy: 82.214
+                cost_per_test: null
+                latency_seconds: 0.452
+                stderr: 0.463
+            math500:
+                accuracy: 74
+                cost_per_test: 0.008846
+                latency_seconds: 12.804
+                stderr: 3.834
+            mgsm:
+                accuracy: 90.364
+                cost_per_test: 0.004323
+                latency_seconds: 3.982
+                stderr: 1.826
+            mmlu_pro:
+                accuracy: 72.563
+                cost_per_test: 0.007465
+                latency_seconds: 9.143
+                stderr: 0.441
+            mmmu:
+                accuracy: 62.161
+                cost_per_test: 0.006822
+                latency_seconds: 45.873
+                stderr: 1.166
+            mortgage_tax:
+                accuracy: 57.432
+                cost_per_test: 0.007141
+                latency_seconds: 5.984
+                stderr: 1.907
+            tax_eval_v2:
+                accuracy: 74.53
+                cost_per_test: 0.005806
+                latency_seconds: 5.855
+                stderr: 0.859

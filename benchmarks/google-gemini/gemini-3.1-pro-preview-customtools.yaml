@@ -1,0 +1,13 @@
+model: gemini-3.1-pro-preview-customtools
+metrics:
+    openrouter:
+        lookback_days: 32
+        vgi_bench:
+            - endpoint_id: 3ccc4f6d-d337-43ed-9c40-bb43618ba0ca
+              provider: Google AI Studio
+              run_count: 1
+              score: 0.103265
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.105543

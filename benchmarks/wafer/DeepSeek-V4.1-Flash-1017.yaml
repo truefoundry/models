@@ -3,12 +3,537 @@ artificial_analysis_id: f151fd0b-2139-40cf-a3ec-995e8cedc592
 artificial_analysis_slug: deepseek-v4-1-flash-1017
 metrics:
     artificial_analysis:
+        aa_omniscience_accuracy: null
+        aa_omniscience_non_hallucination_rate: null
         agentic_index: null
+        aime: null
+        aime_25: null
         coding_index: null
+        critpt: 0.143
         economics_index: 40.3
         engineering_index: 37.5
         finance_and_accounting_index: 42.2
+        gdpval_aa: 0.55
+        gpqa: null
         healthcare_and_medical_index: 41.3
+        hle: 0.392
+        ifbench: null
         intelligence_index: 32.5
+        lcr: 0.84
         legal_index: 37.7
+        livecodebench: null
+        math_500: null
+        math_index: null
+        mmlu_pro: null
+        scicode: 0.519
         strategy_and_ops_index: 49.2
+        tau2: null
+        tau_banking: null
+        terminalbench_hard: null
+        terminalbench_v2_1: null
+        terminalbench_v4_0: 0.267676767676768
+    design_arena:
+        DeepSeek-V4.1-Flash (1017):
+            agents:
+                spreadsheet:
+                    avg_generation_time_ms: null
+                    elo: 1280
+                    elo_percentile: 77
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.2
+            models:
+                3d:
+                    avg_generation_time_ms: 393026
+                    elo: 1360
+                    elo_percentile: 93
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 46.7
+                asciiart:
+                    avg_generation_time_ms: 194366
+                    elo: 1229
+                    elo_percentile: 75
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.6
+                codecategories:
+                    avg_generation_time_ms: 240673
+                    elo: 1290
+                    elo_percentile: 87
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 48.1
+                dataviz:
+                    avg_generation_time_ms: 94220
+                    elo: 1263
+                    elo_percentile: 78
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 49.6
+                gamedev:
+                    avg_generation_time_ms: 117013
+                    elo: 1260
+                    elo_percentile: 76
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 43.1
+                svg:
+                    avg_generation_time_ms: 107650
+                    elo: 1245
+                    elo_percentile: 84
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 51.8
+                uicomponent:
+                    avg_generation_time_ms: 204443
+                    elo: 1301
+                    elo_percentile: 88
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.3
+                website:
+                    avg_generation_time_ms: 272811
+                    elo: 1303
+                    elo_percentile: 91
+                    first_place: 0
+                    fourth_place: 0
+                    second_place: 0
+                    third_place: 0
+                    total_tournaments: 0
+                    win_rate: 53.5
+    vals_ai:
+        deepseek/deepseek-v4.1-flash-1017:
+            code-migration:
+                accuracy: 44.21
+                cost_per_test: 1.858025
+                latency_seconds: 7843.507
+                stderr: 4.455
+            code-migration-v1-1:
+                accuracy: 67.524
+                cost_per_test: 1.764297
+                latency_seconds: 8475.469
+                stderr: 2.763
+            cyber_offense:
+                accuracy: 72.7599
+                cost_per_test: null
+                latency_seconds: null
+                stderr: null
+            emb:
+                accuracy: 61.805
+                cost_per_test: 0.355142
+                latency_seconds: 1007.461
+                stderr: 3.192
+            emb-v1-1:
+                accuracy: 69.173
+                cost_per_test: 0.330922
+                latency_seconds: 1971.687
+                stderr: 2.395
+            fabv2:
+                accuracy: 56.96
+                cost_per_test: 0.462841
+                latency_seconds: 879.256
+                stderr: 2.049
+            fabv2-1:
+                accuracy: 62.933
+                cost_per_test: 0.466261
+                latency_seconds: 909.212
+                stderr: 2.028
+            finance_index:
+                accuracy: 60.886
+                cost_per_test: 0.418879
+                latency_seconds: 1381.778
+                stderr: 1.467
+            hlab:
+                accuracy: 14.167
+                cost_per_test: 0.612596
+                latency_seconds: 1328.108
+                stderr: 2.787
+            hlab-v1:
+                accuracy: 9.167
+                cost_per_test: 0.543702
+                latency_seconds: 1298.986
+                stderr: 2.509
+            legal_index:
+                accuracy: 71.863
+                cost_per_test: 0.590203
+                latency_seconds: 1566.474
+                stderr: 1.822
+            legal_research:
+                accuracy: 45.192
+                cost_per_test: 0.69856
+                latency_seconds: 2106.881
+                stderr: 3.459
+            tax_agent_bench:
+                accuracy: 44.35
+                cost_per_test: 0.459454
+                latency_seconds: 1264.434
+                stderr: 3.574
+            terminal-bench-4:
+                accuracy: 31.818
+                cost_per_test: 0.539359
+                latency_seconds: 2470.449
+                stderr: 2.624
+            vals_index:
+                accuracy: 61.257
+                cost_per_test: 0.65747
+                latency_seconds: 2394.709
+                stderr: 1.055
+            vals_index_v2_1:
+                accuracy: 56.584
+                cost_per_test: 0.637296
+                latency_seconds: 2193.117
+                stderr: 1.275
+            vibe-code:
+                accuracy: 87.73
+                cost_per_test: 0.579984
+                latency_seconds: 973.834
+                stderr: 2.752
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 7be9abfd-5172-47b6-8950-0fc8c98318e6
+              provider: Alibaba Cloud Int.
+              run_count: 3
+              score: 0.9131610363367245
+            - endpoint_id: 38bef80a-be01-4f1d-8273-d386b5e49580
+              provider: AtlasCloud
+              run_count: 2
+              score: 0.9102843968226205
+            - endpoint_id: 6b6dd19c-9bdc-4d62-b0ef-5d663bdb3efb
+              provider: Baidu Qianfan
+              run_count: 2
+              score: 0.9158622327614316
+            - endpoint_id: b7371050-21e6-47a4-b538-ff56d9aa2eb6
+              provider: Baseten
+              run_count: 2
+              score: 0.9063543141016412
+            - endpoint_id: db9c5571-00d1-4cb9-a8b1-4c99f6e3de87
+              provider: Cloudflare
+              run_count: 2
+              score: 0.9009072804243382
+            - endpoint_id: 448020c2-5922-46c6-b994-849a58da32d8
+              provider: Cohere
+              run_count: 1
+              score: 0.915825
+            - endpoint_id: 79433609-9bff-4ceb-b5c4-59b9884749ca
+              provider: Crusoe
+              run_count: 2
+              score: 0.8951448914672435
+            - endpoint_id: 995d2e54-4f2f-4b18-bb00-b3b08e8b6847
+              provider: Decart
+              run_count: 2
+              score: 0.911409547356464
+            - endpoint_id: a34868e3-d8e3-46c4-acf2-19c86ae3365a
+              provider: DeepInfra
+              run_count: 2
+              score: 0.9263762251469267
+            - endpoint_id: ca094cda-a75e-4d5f-bb36-4758e79f4d18
+              provider: DigitalOcean
+              run_count: 2
+              score: 0.9199165866622065
+            - endpoint_id: ac9eda21-1d18-4d95-b9fa-19bbcbdcc4fd
+              provider: Fireworks
+              run_count: 2
+              score: 0.9147759931488646
+            - endpoint_id: c857cf2a-1fc7-42f0-8318-fff11e6a28fe
+              provider: Fireworks
+              run_count: 1
+              score: 0.91619
+            - endpoint_id: 9f90ca83-58b7-4ccb-8489-f15175902d5c
+              provider: Fireworks Spot
+              run_count: 2
+              score: 0.9015235977862018
+            - endpoint_id: a7a64bc4-44bc-44ff-b160-9292500608bc
+              provider: GMICloud
+              run_count: 3
+              score: 0.9116186378669724
+            - endpoint_id: 97877a2b-db8c-463c-be76-91fe6a7ecd64
+              provider: Ionstream
+              run_count: 2
+              score: 0.907407
+            - endpoint_id: 80ff1ad9-0bb9-4b02-8708-097af3b845de
+              provider: Makora
+              run_count: 4
+              score: 0.9052412425847506
+            - endpoint_id: 2d4b3d45-280e-4f98-94b5-01000903c01d
+              provider: Mistral
+              run_count: 1
+              score: 0.909091
+            - endpoint_id: edae2c86-a199-447d-83fb-11f5dcac70b3
+              provider: Modal
+              run_count: 2
+              score: 0.9047435083772115
+            - endpoint_id: 8151dfde-838e-419d-95a3-f71683de8579
+              provider: ModelRun [by Modular]
+              run_count: 1
+              score: 0.882155
+            - endpoint_id: e768a23f-2848-4af0-a7c0-c02cf79ed41c
+              provider: Morph
+              run_count: 3
+              score: 0.9050943539162714
+            - endpoint_id: e755d94b-77e3-4fa2-ae3d-df466b233540
+              provider: Nebius Token Factory
+              run_count: 3
+              score: 0.9096800081735926
+            - endpoint_id: b1e02962-78f4-44c5-b010-e43a1633a0a6
+              provider: NovitaAI
+              run_count: 2
+              score: 0.8641971971231606
+            - endpoint_id: 4cec88c1-b7f3-43fc-890a-76e6decc17d4
+              provider: Open Inference
+              run_count: 2
+              score: 0.89615244777875
+            - endpoint_id: bddfc3ba-e63a-443d-9adb-d4cef7ec7ac0
+              provider: Parasail
+              run_count: 2
+              score: 0.9006896061695456
+            - endpoint_id: 91aeefa7-9cc4-4935-9f11-84e016617eca
+              provider: Particle AI
+              run_count: 2
+              score: 0.9090993781899094
+            - endpoint_id: 27056fc6-7656-4e7d-b8b7-6fa5faf2d47d
+              provider: Phala
+              run_count: 2
+              score: 0.8874338094581082
+            - endpoint_id: 2b9b6bb4-dec5-474f-bfc9-7ade62a8f0a4
+              provider: Prime Intellect
+              run_count: 3
+              score: 0.9035846304542161
+            - endpoint_id: 92b83e0c-2db1-40d0-b69a-b36b555c8592
+              provider: Reka AI
+              run_count: 4
+              score: 0.8749008606916002
+            - endpoint_id: 485d24f3-be58-4b01-b08e-62f7b9f1f6ac
+              provider: Relace
+              run_count: 2
+              score: 0.9077759224921018
+            - endpoint_id: 8f31c510-c6ab-4ce3-9c0d-162d2d78fe02
+              provider: Sail Research
+              run_count: 2
+              score: 0.9131902590623796
+            - endpoint_id: a79e9269-183e-4bf8-8d54-6f667d8be0b0
+              provider: Sail Research
+              run_count: 2
+              score: 0.899580277659158
+            - endpoint_id: a65c86b0-a8d7-4692-8559-5dca58395a10
+              provider: SiliconFlow
+              run_count: 2
+              score: 0.9166126552149314
+            - endpoint_id: c26e4e2a-a739-4930-b69e-c454c9d4ae21
+              provider: StreamLake
+              run_count: 1
+              score: 0.905724
+            - endpoint_id: 34cd16bf-a525-40b2-beeb-5f1809202c06
+              provider: Together
+              run_count: 2
+              score: 0.901738093589262
+            - endpoint_id: 57183cbe-82ab-4f1b-9d23-6cfdd0f7221b
+              provider: Venice
+              run_count: 1
+              score: 0.907407
+            - endpoint_id: 66d4851d-7738-4948-9d40-2ab6dc54f895
+              provider: Wafer
+              run_count: 3
+              score: 0.9066401940968405
+            - endpoint_id: 913e3d9a-dc7e-4e84-b892-35169efa3de3
+              provider: Wafer
+              run_count: 1
+              score: 0.907407
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.907407
+            - endpoint_id: 4231aea9-73af-4a2f-bd14-660b1d8b13b2
+              provider: inference.net
+              run_count: 2
+              score: 0.9057627552956354
+            - endpoint_id: a74ca7c9-69a5-461d-ad10-93e3c04267b9
+              provider: inference.net
+              run_count: 2
+              score: 0.9104887902829819
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 7be9abfd-5172-47b6-8950-0fc8c98318e6
+              provider: Alibaba Cloud Int.
+              run_count: 3
+              score: 0.7688501337722565
+            - endpoint_id: 38bef80a-be01-4f1d-8273-d386b5e49580
+              provider: AtlasCloud
+              run_count: 2
+              score: 0.772189801169773
+            - endpoint_id: 6b6dd19c-9bdc-4d62-b0ef-5d663bdb3efb
+              provider: Baidu Qianfan
+              run_count: 1
+              score: 0.753333
+            - endpoint_id: b7371050-21e6-47a4-b538-ff56d9aa2eb6
+              provider: Baseten
+              run_count: 1
+              score: 0.753333
+            - endpoint_id: db9c5571-00d1-4cb9-a8b1-4c99f6e3de87
+              provider: Cloudflare
+              run_count: 2
+              score: 0.7442992104770008
+            - endpoint_id: 448020c2-5922-46c6-b994-849a58da32d8
+              provider: Cohere
+              run_count: 1
+              score: 0.693333
+            - endpoint_id: 79433609-9bff-4ceb-b5c4-59b9884749ca
+              provider: Crusoe
+              run_count: 2
+              score: 0.7258003696723418
+            - endpoint_id: 995d2e54-4f2f-4b18-bb00-b3b08e8b6847
+              provider: Decart
+              run_count: 2
+              score: 0.753333
+            - endpoint_id: a34868e3-d8e3-46c4-acf2-19c86ae3365a
+              provider: DeepInfra
+              run_count: 1
+              score: 0.7733329999999999
+            - endpoint_id: ca094cda-a75e-4d5f-bb36-4758e79f4d18
+              provider: DigitalOcean
+              run_count: 2
+              score: 0.7028256801684916
+            - endpoint_id: ac9eda21-1d18-4d95-b9fa-19bbcbdcc4fd
+              provider: Fireworks
+              run_count: 2
+              score: 0.7445514979708348
+            - endpoint_id: c857cf2a-1fc7-42f0-8318-fff11e6a28fe
+              provider: Fireworks
+              run_count: 1
+              score: 0.763333
+            - endpoint_id: 9f90ca83-58b7-4ccb-8489-f15175902d5c
+              provider: Fireworks Spot
+              run_count: 2
+              score: 0.7500414657961278
+            - endpoint_id: a7a64bc4-44bc-44ff-b160-9292500608bc
+              provider: GMICloud
+              run_count: 3
+              score: 0.7644045725666955
+            - endpoint_id: 97877a2b-db8c-463c-be76-91fe6a7ecd64
+              provider: Ionstream
+              run_count: 2
+              score: 0.7315872881139467
+            - endpoint_id: 80ff1ad9-0bb9-4b02-8708-097af3b845de
+              provider: Makora
+              run_count: 4
+              score: 0.7060456735884951
+            - endpoint_id: 2d4b3d45-280e-4f98-94b5-01000903c01d
+              provider: Mistral
+              run_count: 1
+              score: 0.74
+            - endpoint_id: edae2c86-a199-447d-83fb-11f5dcac70b3
+              provider: Modal
+              run_count: 2
+              score: 0.7273493970299543
+            - endpoint_id: 8151dfde-838e-419d-95a3-f71683de8579
+              provider: ModelRun [by Modular]
+              run_count: 1
+              score: 0.7666670000000001
+            - endpoint_id: e768a23f-2848-4af0-a7c0-c02cf79ed41c
+              provider: Morph
+              run_count: 2
+              score: 0.7488809404650574
+            - endpoint_id: e755d94b-77e3-4fa2-ae3d-df466b233540
+              provider: Nebius Token Factory
+              run_count: 3
+              score: 0.7264818696831412
+            - endpoint_id: b1e02962-78f4-44c5-b010-e43a1633a0a6
+              provider: NovitaAI
+              run_count: 2
+              score: 0.7284488915333455
+            - endpoint_id: 4cec88c1-b7f3-43fc-890a-76e6decc17d4
+              provider: Open Inference
+              run_count: 2
+              score: 0.7389338265779279
+            - endpoint_id: bddfc3ba-e63a-443d-9adb-d4cef7ec7ac0
+              provider: Parasail
+              run_count: 2
+              score: 0.7562819181928536
+            - endpoint_id: 91aeefa7-9cc4-4935-9f11-84e016617eca
+              provider: Particle AI
+              run_count: 2
+              score: 0.7333562980059638
+            - endpoint_id: 27056fc6-7656-4e7d-b8b7-6fa5faf2d47d
+              provider: Phala
+              run_count: 2
+              score: 0.7270542260590673
+            - endpoint_id: 2b9b6bb4-dec5-474f-bfc9-7ade62a8f0a4
+              provider: Prime Intellect
+              run_count: 3
+              score: 0.7304241887471143
+            - endpoint_id: 92b83e0c-2db1-40d0-b69a-b36b555c8592
+              provider: Reka AI
+              run_count: 4
+              score: 0.7218712977287806
+            - endpoint_id: 485d24f3-be58-4b01-b08e-62f7b9f1f6ac
+              provider: Relace
+              run_count: 2
+              score: 0.7414334338974029
+            - endpoint_id: 8f31c510-c6ab-4ce3-9c0d-162d2d78fe02
+              provider: Sail Research
+              run_count: 2
+              score: 0.7136367990969614
+            - endpoint_id: a79e9269-183e-4bf8-8d54-6f667d8be0b0
+              provider: Sail Research
+              run_count: 2
+              score: 0.7275744968383304
+            - endpoint_id: a65c86b0-a8d7-4692-8559-5dca58395a10
+              provider: SiliconFlow
+              run_count: 2
+              score: 0.7559772907665893
+            - endpoint_id: c26e4e2a-a739-4930-b69e-c454c9d4ae21
+              provider: StreamLake
+              run_count: 1
+              score: 0.72
+            - endpoint_id: 34cd16bf-a525-40b2-beeb-5f1809202c06
+              provider: Together
+              run_count: 2
+              score: 0.7442433661566977
+            - endpoint_id: 57183cbe-82ab-4f1b-9d23-6cfdd0f7221b
+              provider: Venice
+              run_count: 1
+              score: 0.72
+            - endpoint_id: 66d4851d-7738-4948-9d40-2ab6dc54f895
+              provider: Wafer
+              run_count: 3
+              score: 0.7594993942029632
+            - endpoint_id: 913e3d9a-dc7e-4e84-b892-35169efa3de3
+              provider: Wafer
+              run_count: 1
+              score: 0.726667
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.7333330000000001
+            - endpoint_id: 4231aea9-73af-4a2f-bd14-660b1d8b13b2
+              provider: inference.net
+              run_count: 2
+              score: 0.7464475763475107
+            - endpoint_id: a74ca7c9-69a5-461d-ad10-93e3c04267b9
+              provider: inference.net
+              run_count: 2
+              score: 0.7360427370845507

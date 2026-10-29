@@ -1,0 +1,118 @@
+model: Qwen/Qwen3-30B-A3B-Instruct-2507
+metrics:
+    artificial_analysis:
+        variants:
+            qwen3-30b-a3b-2507:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.726666666666667
+                aime_25: 0.663333333333333
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.659
+                hle: 0.069
+                ifbench: 0.331
+                intelligence_index: null
+                lcr: 0.263
+                livecodebench: 0.515
+                math_500: 0.975333333333333
+                math_index: 66.3
+                mmlu_pro: 0.777
+                name: Qwen3 30B A3B 2507 Instruct
+                scicode: null
+                tau2: 0.102
+                tau_banking: null
+                terminalbench_hard: 0.061
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+            qwen3-30b-a3b-instruct:
+                aa_omniscience_accuracy: null
+                aa_omniscience_non_hallucination_rate: null
+                agentic_index: null
+                aime: 0.26
+                aime_25: 0.216666666666667
+                coding_index: null
+                critpt: 0
+                gdpval_aa: null
+                gpqa: 0.515
+                hle: 0.046
+                ifbench: 0.319
+                intelligence_index: null
+                lcr: 0
+                livecodebench: 0.322
+                math_500: 0.862666666666667
+                math_index: 21.7
+                mmlu_pro: 0.71
+                name: Qwen3 30B A3B (Non-reasoning)
+                scicode: null
+                tau2: 0.222
+                tau_banking: null
+                terminalbench_hard: 0.068
+                terminalbench_v2_1: null
+                terminalbench_v4_0: null
+    openrouter:
+        gpqa_diamond:
+            - endpoint_id: 64103172-a7d0-4c84-a908-fdd09043dca2
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.653199
+            - endpoint_id: 3a4e3c03-330d-4636-8498-d50d45f8d79b
+              provider: Ambient
+              run_count: 1
+              score: 0.641414
+            - endpoint_id: 817708f7-1cab-454b-b034-1678c88ba332
+              provider: DekaLLM
+              run_count: 3
+              score: 0.6094135047460125
+            - endpoint_id: 52dbed07-6ee1-40d4-ae95-7375769ab577
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.6066679688117703
+            - endpoint_id: 646e8b59-19d9-43af-abd1-26b252c61eba
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.621212
+            - endpoint_id: 73b51933-48c6-42d4-9440-2ce3c91ce131
+              provider: SiliconFlow
+              run_count: 1
+              score: 0.643098
+            - endpoint_id: 4ea9b8c2-e4a8-4707-8e4b-a8693745edbe
+              provider: StreamLake
+              run_count: 2
+              score: 0.6311623719748846
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.648148
+        lookback_days: 32
+        tau_bench_verified_airline:
+            - endpoint_id: 64103172-a7d0-4c84-a908-fdd09043dca2
+              provider: Alibaba Cloud Int.
+              run_count: 1
+              score: 0.333333
+            - endpoint_id: 3a4e3c03-330d-4636-8498-d50d45f8d79b
+              provider: Ambient
+              run_count: 1
+              score: 0.386667
+            - endpoint_id: 52dbed07-6ee1-40d4-ae95-7375769ab577
+              provider: Nebius Token Factory
+              run_count: 2
+              score: 0.355471283572094
+            - endpoint_id: 646e8b59-19d9-43af-abd1-26b252c61eba
+              provider: Prime Intellect
+              run_count: 1
+              score: 0.36
+            - endpoint_id: 73b51933-48c6-42d4-9440-2ce3c91ce131
+              provider: SiliconFlow
+              run_count: 1
+              score: 0.38
+            - endpoint_id: 4ea9b8c2-e4a8-4707-8e4b-a8693745edbe
+              provider: StreamLake
+              run_count: 2
+              score: 0.4156225095837866
+            - endpoint_id: null
+              provider: auto-routing
+              run_count: 1
+              score: 0.373333
