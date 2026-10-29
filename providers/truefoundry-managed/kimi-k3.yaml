@@ -31,13 +31,6 @@ model: kimi-k3
 params:
     - key: max_tokens
       maxValue: 943718
-    - defaultValue: max
-      key: reasoning_effort
-      supportedValues:
-          - low
-          - high
-          - max
-      type: string
 provisioning: serverless
 sources:
     - https://openrouter.ai/moonshotai/kimi-k3
