@@ -57,18 +57,26 @@ export interface components {
         };
         /** @description Pricing entry; "*" applies to all regions */
         CostWithRegion: {
+            flex_pricing?: components["schemas"]["Cost"];
             priority_pricing?: components["schemas"]["Cost"];
             /** @enum {string} */
             region?: "*" | "af-south-1" | "ap-east-1" | "ap-east-2" | "ap-northeast-1" | "ap-northeast-2" | "ap-northeast-3" | "ap-south-1" | "ap-south-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-southeast-3" | "ap-southeast-4" | "ap-southeast-5" | "ap-southeast-6" | "ap-southeast-7" | "ca-central-1" | "ca-west-1" | "cn-north-1" | "cn-northwest-1" | "eu-central-1" | "eu-central-2" | "eu-north-1" | "eu-south-1" | "eu-south-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "il-central-1" | "me-central-1" | "me-south-1" | "mx-central-1" | "sa-east-1" | "us-east-1" | "us-east-2" | "us-gov-east-1" | "us-gov-west-1" | "us-west-1" | "us-west-2" | "asia-east1" | "asia-east2" | "asia-northeast1" | "asia-northeast2" | "asia-northeast3" | "asia-south1" | "asia-south2" | "asia-southeast1" | "asia-southeast2" | "australia-southeast1" | "australia-southeast2" | "europe-central2" | "europe-north1" | "europe-southwest1" | "europe-west1" | "europe-west2" | "europe-west3" | "europe-west4" | "europe-west6" | "europe-west8" | "europe-west9" | "global" | "me-central1" | "me-central2" | "me-west1" | "northamerica-northeast1" | "northamerica-northeast2" | "southamerica-east1" | "us-central1" | "us-east1" | "us-east4" | "us-east5" | "us-south1" | "us-west1" | "us-west2" | "us-west3" | "us-west4" | "datazone_eu" | "datazone_us" | "us" | "eu";
+            ultrafast_pricing?: components["schemas"]["Cost"];
         } & (components["schemas"]["Cost"] & unknown);
         /** @description Schema for default.yaml files (provider-level defaults) */
         DefaultConfig: {
             /** @description Official documentation links for models, pricing, and deprecations */
             documentation?: string[];
+            limits?: components["schemas"]["DefaultLimits"];
             messages?: components["schemas"]["MessageConfig"];
             /** @description Configurable parameters with defaults */
             params?: components["schemas"]["ModelParam"][];
             tool_pricing?: components["schemas"]["ToolPricing"];
+        };
+        /** @description Provider-level fallback limits for models that do not declare their own */
+        DefaultLimits: {
+            context_window?: number;
+            max_tokens?: number;
         };
         /**
          * @description Verified Artificial Analysis identifiers for a foundation model.
@@ -135,7 +143,7 @@ export interface components {
          */
         Mode: "audio_transcription" | "audio_translation" | "chat" | "completion" | "decision" | "embedding" | "image" | "moderation" | "ocr" | "realtime" | "rerank" | "responses" | "text_to_speech" | "unknown" | "unsupported" | "video";
         ModelConfig: {
-            /** @description Stable foundation-model identity: <creator>/<foundation-model> */
+            /** @description Optional foundation-model identity: <creator>/<foundation-model> */
             canonical_model?: string;
             /** @description Pricing entries per region; use "*" for global/uniform pricing */
             costs?: components["schemas"]["CostWithRegion"][];
@@ -264,6 +272,7 @@ export type BetaColumn = components['schemas']['BetaColumn'];
 export type Cost = components['schemas']['Cost'];
 export type CostWithRegion = components['schemas']['CostWithRegion'];
 export type DefaultConfig = components['schemas']['DefaultConfig'];
+export type DefaultLimits = components['schemas']['DefaultLimits'];
 export type ExternalIds = components['schemas']['ExternalIds'];
 export type ExtraConfiguration = components['schemas']['ExtraConfiguration'];
 export type Feature = components['schemas']['Feature'];
