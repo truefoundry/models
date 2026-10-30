@@ -1,0 +1,25 @@
+canonical_model: minimax/minimax-m3-1-flash
+costs:
+    - cache_read_input_token_cost: 3e-8
+      input_cost_per_token: 3e-7
+      output_cost_per_token: 1.2e-6
+      region: "*"
+external_ids:
+    artificial_analysis_id: d49c8680-e29b-400e-9511-824f7ddebe07
+    artificial_analysis_slug: minimax-m3-1-flash
+# features: not found in official docs
+limits:
+    context_window: 1048576
+    max_output_tokens: 1048576
+    max_tokens: 1048576
+mode: chat
+model: MiniMax-M3.1-Flash
+# modalities: not found in official docs
+provisioning: serverless
+sources:
+    - https://api.sambanova.ai/v1/models
+status: active
+supportedModes:
+    - chat
+
+# thinking: not found in official docs
