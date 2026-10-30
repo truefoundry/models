@@ -19,10 +19,14 @@ export type ProviderSpec = {
   authType?: 'api-key' | 'key-file';
   /** Account region. Vertex key-file uses europe-west4; Bedrock API-key accounts use us-east-1. */
   region?: string;
+  /** Per-publisher region override (first path segment of the model id), e.g. Vertex `meta` → us-east5. */
+  publisherRegions?: Record<string, string>;
   /** Account manifest fields whose values come from env (Databricks base_url, Foundry endpoints). */
   accountEnv?: Record<string, string>;
   /** Model verified live for smoke; if deprecated or unset, the first non-deprecated chat model. */
   smokeModel?: string;
+  /** Prepended to the catalogue model id on the wire, for gateways that namespace models by account. */
+  modelIdPrefix?: string;
 };
 
 const SPECS: Record<string, ProviderSpec> = {
@@ -130,7 +134,8 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/google-vertex',
     apiKeyEnv: 'VERTEX_KEY_FILE',
     authType: 'key-file',
-    region: 'us-east5',
+    region: 'global',
+    publisherRegions: { meta: 'us-east5' },
     smokeModel: 'anthropic/claude-haiku-4-5',
   },
   'aws-bedrock': {
@@ -188,6 +193,29 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/elevenlabs',
     apiKeyEnv: 'ELEVENLABS_API_KEY',
     smokeModel: 'eleven_flash_v2_5',
+  },
+  deepgram: {
+    sdkProvider: 'deepgram',
+    modelIntegrationType: 'integration/model/deepgram',
+    accountType: 'provider-account/deepgram',
+    apiKeyEnv: 'DEEPGRAM_API_KEY',
+    smokeModel: 'aura-2-thalia-en',
+  },
+  'fireworks-ai': {
+    sdkProvider: 'fireworks-ai',
+    modelIntegrationType: 'integration/model/fireworks-ai',
+    accountType: 'provider-account/fireworks-ai',
+    apiKeyEnv: 'FIREWORKS_AI_API_KEY',
+    smokeModel: 'accounts/fireworks/models/gpt-oss-120b',
+  },
+  'truefoundry-managed': {
+    sdkProvider: 'truefoundry-managed',
+    modelIntegrationType: 'integration/model/truefoundry-managed',
+    accountType: 'provider-account/truefoundry-managed',
+    apiKeyEnv: 'TRUEFOUNDRY_MANAGED_API_KEY',
+    accountEnv: { base_url: 'TRUEFOUNDRY_MANAGED_BASE_URL' },
+    modelIdPrefix: 'tfy-managed/',
+    smokeModel: 'gpt-oss-120b',
   },
 };
 
