@@ -19,7 +19,7 @@ export type ProviderSpec = {
   authType?: 'api-key' | 'key-file';
   /** Account region. Vertex key-file uses europe-west4; Bedrock API-key accounts use us-east-1. */
   region?: string;
-  /** Region override by model-id prefix, e.g. Vertex `meta/` → us-east5, Bedrock geo profile `in.` → ap-south-1. */
+  /** Region override by model-id prefix, e.g. Vertex `meta/` → us-east5. */
   modelPrefixRegions?: Record<string, string>;
   /** Account manifest fields whose values come from env (Databricks base_url, Foundry endpoints). */
   accountEnv?: Record<string, string>;
@@ -144,12 +144,6 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/aws-bedrock',
     apiKeyEnv: 'AWS_BEDROCK_API_KEY',
     region: 'us-east-1',
-    modelPrefixRegions: {
-      'in.': 'ap-south-1',
-      'eu.': 'eu-west-1',
-      'ca.': 'ca-central-1',
-      'au.': 'ap-southeast-2',
-    },
     smokeModel: 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
   },
   'aws-bedrock-mantle': {
