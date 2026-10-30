@@ -465,6 +465,24 @@ function decisionBody(model: CatalogueModel): Record<string, unknown> {
   };
 }
 
+/** OpenRouter Decisions: image parts go directly in the top-level `state` array. */
+function decisionVisionBody(model: CatalogueModel): Record<string, unknown> {
+  return {
+    model: model.model,
+    state: [
+      'Does the image contain visible text?',
+      { type: 'image_url', image_url: { url: sampleImageDataUrl() } },
+    ],
+    questions: {
+      has_text: {
+        type: 'noul',
+        instructions: 'Does the image contain visible text?',
+        criteria: { true: 'yes', false: 'no' },
+      },
+    },
+  };
+}
+
 /** Chat Completions → Responses: flatten nested `function` tools. */
 function toResponsesTools(tools: unknown): unknown {
   if (!Array.isArray(tools)) return tools;
@@ -834,6 +852,14 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
         path: '/v1/decisions',
         body: decisionBody(model),
       });
+      if (model.provider === 'openrouter' && inputModalities(model).has('image')) {
+        out.push({
+          id: 'decision/vision',
+          endpoint: 'decision',
+          path: '/v1/decisions',
+          body: decisionVisionBody(model),
+        });
+      }
       return out;
 
     default:
