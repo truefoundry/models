@@ -67,7 +67,39 @@ class SourceResult:
                 and not self.promo and not self.promo_active)
 
 
+@dataclass(frozen=True)
+class Proposed:
+    """One value a source would give for a model that has none yet. `locator` has exactly the
+    meaning of `Check.locator`, and `check()` on a doc holding `value` at `locator` must say
+    `verified` (the round trip is a permanent test)."""
+
+    locator: tuple[str, ...]
+    value: float | int | str
+    note: str = ""
+
+
+@dataclass
+class Proposal:
+    """What a source gives for a NEW model (no prices yet). Never a guess: a field the source cannot
+    state unambiguously is left out and said in `notes`."""
+
+    source: str
+    values: list[Proposed] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
+    # True when the source cannot say it has given EVERY price the model has (a field was left out
+    # as ambiguous, a tier the source cannot describe exists, or the source quotes a listing price
+    # that may differ from first-party). A partial proposal is still the source's value.
+    partial: bool = False
+    # True when the source could not be READ at all (outage, timeout, spent budget), as opposed to "read
+    # fine, the model is not there". The addition job counts consecutive unreachable answers and stops
+    # asking a source that is down. Additive.
+    unreachable: bool = False
+
+
 class Source(Protocol):
+    """An adapter. Optionally it also has `propose(repo_path, doc) -> Proposal | None` (see
+    `ProposingSource`); an adapter without it simply gives no proposals. Additive."""
+
     name: str
 
     def covers(self, provider: str) -> bool:
@@ -79,3 +111,12 @@ class Source(Protocol):
 
     def check(self, repo_path: str, doc: dict) -> SourceResult:
         """`repo_path` is e.g. providers/openrouter/stepfun/x.yaml, `doc` the parsed YAML."""
+
+
+class ProposingSource(Source, Protocol):
+    def propose(self, repo_path: str, doc: dict) -> Proposal | None:
+        """The price / limit values this source gives for a model with NO prices yet. `doc` holds at
+        least `model` and `mode` (and, for a per-region provider, optional `costs: [{region: ...}]`
+        entries naming the regions wanted). `repo_path` is `providers/<provider>/<model>.yaml`. Uses the
+        same lookup, matching and unit logic as `check()`. None when the model is not in the source;
+        never raises."""
