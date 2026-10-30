@@ -21,6 +21,11 @@ modalities:
         - text
 mode: chat
 model: deepseek-ai/DeepSeek-V4.1-Flash
+params:
+    - key: reasoning_effort
+      maxValue: 100
+      minValue: 1
+      type: number
 provisioning: serverless
 sources:
     - https://www.together.ai/models/deepseek-v4-1-flash
