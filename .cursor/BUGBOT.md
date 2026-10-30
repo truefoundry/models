@@ -1,9 +1,27 @@
+# Provider default limits
+
+Every chat-capable provider's `default.yaml` must define `limits.context_window`
+and `limits.max_tokens` as positive integers. Flag a new or modified
+`default.yaml` that omits either. These are fallbacks for models without their
+own limits, so prefer values that the provider's typical chat models meet or
+exceed rather than the largest model's limit. Providers with no chat-capable
+models (for example `elevenlabs`, `typesafe`, `deepgram`) are exempt.
+
 # Context windows
 
 For added or modified models under `providers/**/*.yaml` supporting `chat`,
 `completion`, or `responses`, flag a missing or invalid `limits.context_window`
 unless a YAML comment explains why it is unknown and cites official docs.
 The value must be a positive integer. Skip provider configuration files.
+
+# Max tokens (openai, anthropic)
+
+For added or modified models under `providers/openai/` and `providers/anthropic/`
+supporting `chat`, `completion`, or `responses`, also require both
+`limits.context_window` and a positive `limits.max_tokens` (or
+`limits.max_output_tokens`) verified against official docs. Embedding models
+need `limits.context_window` only. Image, video, TTS, transcription, and
+moderation models are exempt.
 
 Compare models with the same `canonical_model` to spot omissions, but verify
 values against official docs before suggesting a fix. Provider-specific limits
