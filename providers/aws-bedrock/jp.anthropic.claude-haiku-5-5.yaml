@@ -4,9 +4,7 @@ costs:
       cache_creation_input_token_cost_per_hour: 2.2e-7
       cache_read_input_token_cost: 1.1e-8
       input_cost_per_token: 1.1e-7
-      input_cost_per_token_batches: 5.5e-8
       output_cost_per_token: 5.5e-7
-      output_cost_per_token_batches: 2.75e-7
       region: ap-northeast-3
       tiered_pricing:
           cache_read:
@@ -26,9 +24,7 @@ costs:
       cache_creation_input_token_cost_per_hour: 2.2e-7
       cache_read_input_token_cost: 1.1e-8
       input_cost_per_token: 1.1e-7
-      input_cost_per_token_batches: 5.5e-8
       output_cost_per_token: 5.5e-7
-      output_cost_per_token_batches: 2.75e-7
       region: ap-northeast-1
       tiered_pricing:
           cache_read:
@@ -88,7 +84,6 @@ removeParams:
     - temperature
     - top_p
     - top_k
-retirementDate: "2027-10-07"
 sources:
     - https://platform.claude.com/docs/en/models/haiku-5-5/overview
     - https://platform.claude.com/docs/en/about-claude/pricing
