@@ -10,6 +10,7 @@
  * Vertex (google-vertex): VERTEX_KEY_FILE = SA JSON → auth_data type key-file;
  * project_id from that JSON; region from provider spec (europe-west4).
  */
+import { setTimeout as sleep } from 'node:timers/promises';
 import {
   LlmGatewaySdk,
   type Endpoint,
@@ -90,7 +91,7 @@ function buildCall(
     spec.authType === 'key-file'
       ? {
           project_id: projectIdFromKeyFile(credential),
-          region: spec.region ?? 'europe-west4',
+          region: spec.publisherRegions?.[model.model.split('/')[0]] ?? spec.region ?? 'europe-west4',
         }
       : {};
   const providerOptions = {
@@ -100,7 +101,7 @@ function buildCall(
       manifest: {
         name: model.model,
         type: spec.modelIntegrationType,
-        model_id: model.model,
+        model_id: `${spec.modelIdPrefix ?? ''}${model.model}`,
         model_types: [model.mode],
       },
     },
@@ -126,16 +127,39 @@ function buildCall(
     request: {
       body: scenario.body as SdkRequestBody,
       method: 'POST',
-      headers: {},
+      headers: scenario.headers ?? {},
       endpoint: scenario.endpoint as Endpoint,
       path: scenario.path,
-      search: '',
+      search: scenario.search ?? '',
     },
     execution: { requestTimeoutMs: 120_000 },
     providerOptions,
     callConfig: {},
     session: { tenantName: 'sdk-live' },
   };
+}
+
+const MAX_RETRIES = 3;
+const RETRY_BASE_MS = 2_000;
+// Rate limits and transient upstream errors; 500 is excluded since it can be a real failure.
+const RETRYABLE_STATUSES = new Set([429, 502, 503, 504]);
+
+/** Retries transient failures with 2s, 4s, 8s backoff. */
+async function executeWithRetry(
+  sdk: LlmGatewaySdk,
+  call: SdkCallInputs,
+  label: string,
+): Promise<{ response: Response; text: string }> {
+  for (let attempt = 0; ; attempt++) {
+    const { response, executionReport } = await sdk.execute(call);
+    const text = await response.text();
+    await executionReport;
+    if (!RETRYABLE_STATUSES.has(response.status) || attempt >= MAX_RETRIES) return { response, text };
+
+    const waitMs = RETRY_BASE_MS * 2 ** attempt;
+    console.log(`${response.status} ${label}: retry ${attempt + 1}/${MAX_RETRIES} in ${waitMs / 1000}s`);
+    await sleep(waitMs);
+  }
 }
 
 export type RunTargetsOptions = {
@@ -227,9 +251,11 @@ export async function runTargets(
       const elapsed = () => `${((performance.now() - started) / 1000).toFixed(1)}s`;
       try {
         const call = buildCall(model, credential, scenario);
-        const { response, executionReport } = await sdk.execute(call);
-        const text = await response.text();
-        await executionReport;
+        const { response, text } = await executeWithRetry(
+          sdk,
+          call,
+          `${t.provider}/${t.modelId} ${scenario.id}`,
+        );
         if (!response.ok) {
           pushResult(results, {
             provider: t.provider,
