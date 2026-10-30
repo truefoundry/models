@@ -19,8 +19,8 @@ export type ProviderSpec = {
   authType?: 'api-key' | 'key-file';
   /** Account region. Vertex key-file uses europe-west4; Bedrock API-key accounts use us-east-1. */
   region?: string;
-  /** Per-publisher region override (first path segment of the model id), e.g. Vertex `meta` → us-east5. */
-  publisherRegions?: Record<string, string>;
+  /** Region override by model-id prefix, e.g. Vertex `meta/` → us-east5. */
+  modelPrefixRegions?: Record<string, string>;
   /** Account manifest fields whose values come from env (Databricks base_url, Foundry endpoints). */
   accountEnv?: Record<string, string>;
   /** Model verified live for smoke; if deprecated or unset, the first non-deprecated chat model. */
@@ -135,7 +135,7 @@ const SPECS: Record<string, ProviderSpec> = {
     apiKeyEnv: 'VERTEX_KEY_FILE',
     authType: 'key-file',
     region: 'global',
-    publisherRegions: { meta: 'us-east5' },
+    modelPrefixRegions: { 'meta/': 'us-east5' },
     smokeModel: 'anthropic/claude-haiku-4-5',
   },
   'aws-bedrock': {
@@ -242,6 +242,17 @@ export function missingAccountEnv(spec: ProviderSpec): string | undefined {
     if (!process.env[envName]) return envName;
   }
   return undefined;
+}
+
+/** Prefix override, else the default region if the catalogue lists it, else the first listed region (`*` is pricing, not a region). */
+export function resolveRegion(
+  model: { model: string; costs?: { region: string }[] },
+  spec: ProviderSpec,
+): string | undefined {
+  const byPrefix = Object.entries(spec.modelPrefixRegions ?? {}).find(([prefix]) => model.model.startsWith(prefix));
+  if (byPrefix) return byPrefix[1];
+  const costRegions = (model.costs ?? []).map((c) => c.region).filter((r) => r !== '*');
+  return spec.region && costRegions.length && !costRegions.includes(spec.region) ? costRegions[0] : spec.region;
 }
 
 export function getProviderSpec(providerDir: string): ProviderSpec | undefined {

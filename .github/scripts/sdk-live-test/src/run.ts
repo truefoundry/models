@@ -28,6 +28,7 @@ import {
   getProviderSpec,
   missingAccountEnv,
   projectIdFromKeyFile,
+  resolveRegion,
   type ProviderSpec,
 } from './providers.js';
 import { planScenarios, type Scenario } from './scenarios.js';
@@ -87,11 +88,12 @@ function buildCall(
   // Synthetic account — same shape the gateway would load from control-plane.
   // Example FQN: sdk-live-openai/gpt-4o-mini
   const accountName = `sdk-live-${model.provider}`;
+  const region = resolveRegion(model, spec);
   const keyFileExtras =
     spec.authType === 'key-file'
       ? {
           project_id: projectIdFromKeyFile(credential),
-          region: spec.publisherRegions?.[model.model.split('/')[0]] ?? spec.region ?? 'europe-west4',
+          region: region ?? 'europe-west4',
         }
       : {};
   const providerOptions = {
@@ -114,7 +116,7 @@ function buildCall(
         type: spec.accountType,
         name: accountName,
         ...(spec.baseUrl ? { base_url: spec.baseUrl } : {}),
-        ...(spec.region && spec.authType !== 'key-file' ? { region: spec.region } : {}),
+        ...(region && spec.authType !== 'key-file' ? { region } : {}),
         ...accountEnvFields(spec),
         ...keyFileExtras,
         auth_data: authData(spec, credential),
