@@ -30,13 +30,15 @@ describe('realtimeHandshake', () => {
     assert.equal(h.url, 'wss://api.openai.com/v1/realtime?model=gpt-realtime-2.1');
     assert.deepEqual(h.protocols, ['realtime', 'openai-insecure-api-key.k']);
   });
-  it('picks TEXT only when the catalogue lists text output for gemini', () => {
-    const live = model({ provider: 'google-gemini', model: 'gemini-3.8-live' });
-    const text = realtimeHandshake({ ...live, modalities: { output: ['text', 'audio'] } }, 'k');
-    const audio = realtimeHandshake({ ...live, modalities: { output: ['audio'] } }, 'k');
-    assert.deepEqual((text.setup as any).setup.generationConfig.responseModalities, ['TEXT']);
-    assert.deepEqual((audio.setup as any).setup.generationConfig.responseModalities, ['AUDIO']);
-    assert.equal((text.setup as any).setup.model, 'models/gemini-3.8-live');
+  it('requests AUDIO for gemini even when the catalogue lists text output', () => {
+    const live = model({
+      provider: 'google-gemini',
+      model: 'gemini-3.8-live',
+      modalities: { output: ['text', 'audio'] },
+    });
+    const h = realtimeHandshake(live, 'k');
+    assert.deepEqual((h.setup as any).setup.generationConfig.responseModalities, ['AUDIO']);
+    assert.equal((h.setup as any).setup.model, 'models/gemini-3.8-live');
   });
 });
 

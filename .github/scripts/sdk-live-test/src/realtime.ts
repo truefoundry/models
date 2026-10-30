@@ -27,14 +27,13 @@ export function realtimeHandshake(model: CatalogueModel, apiKey: string): Handsh
       protocols: ['realtime', `openai-insecure-api-key.${apiKey}`],
     };
   }
-  // Native-audio Live models reject TEXT; use it only when the catalogue lists text output.
-  const modality = model.modalities?.output?.includes('text') ? 'TEXT' : 'AUDIO';
+  // Native-audio Live models close the socket on the first turn when asked for TEXT.
   return {
     url: `${GEMINI_WS}?key=${encodeURIComponent(apiKey)}`,
     setup: {
       setup: {
         model: `models/${model.model}`,
-        generationConfig: { responseModalities: [modality] },
+        generationConfig: { responseModalities: ['AUDIO'] },
       },
     },
   };
