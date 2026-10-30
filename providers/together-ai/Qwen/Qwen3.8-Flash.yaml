@@ -22,8 +22,8 @@ modalities:
 mode: chat
 model: Qwen/Qwen3.8-Flash
 params:
-    - defaultValue: medium
-      key: reasoning_effort
+    # default effort not stated in official docs
+    - key: reasoning_effort
       supportedValues:
           - low
           - medium

@@ -1,22 +1,22 @@
 canonical_model: openai/gpt-6-1-terra
 costs:
-    - cache_creation_input_token_cost: 1.25e-06
-      cache_read_input_token_cost: 5e-08
-      input_cost_per_token: 1e-06
-      output_cost_per_token: 5e-06
+    - cache_creation_input_token_cost: 1.25e-6
+      cache_read_input_token_cost: 5e-8
+      input_cost_per_token: 1e-6
+      output_cost_per_token: 5e-6
       region: "*"
       tiered_pricing:
           cache_read:
-              - cost_per_token: 1e-07
+              - cost_per_token: 1e-7
                 from: 272000
           cache_write:
-              - cost_per_token: 2.5e-06
+              - cost_per_token: 2.5e-6
                 from: 272000
           input:
-              - cost_per_token: 2e-06
+              - cost_per_token: 2e-6
                 from: 272000
           output:
-              - cost_per_token: 7.5e-06
+              - cost_per_token: 7.5e-6
                 from: 272000
           pricing_mode: cumulative
 features:
