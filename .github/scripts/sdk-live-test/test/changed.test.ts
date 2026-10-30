@@ -327,6 +327,51 @@ describe('wafer, typesafe, elevenlabs', () => {
   });
 });
 
+describe('deepgram', () => {
+  it('is registered with its secret', () => {
+    assert.equal(getProviderSpec('deepgram')?.apiKeyEnv, 'DEEPGRAM_API_KEY');
+  });
+
+  it('tts uses the native proxy with the model as a query param', () => {
+    const [scenario, ...rest] = planScenarios({
+      provider: 'deepgram',
+      model: 'aura-2-thalia-en',
+      mode: 'text_to_speech',
+    });
+    assert.equal(rest.length, 0);
+    assert.equal(scenario!.endpoint, 'tts-proxy');
+    assert.equal(scenario!.path, '/tts/deepgram/v1/speak');
+    assert.equal(scenario!.search, '?model=aura-2-thalia-en');
+    assert.deepEqual(scenario!.body, { text: 'hello' });
+  });
+
+  it('stt posts raw wav bytes through stt-proxy with the model as a query param', () => {
+    const [scenario, ...rest] = planScenarios({
+      provider: 'deepgram',
+      model: 'nova-3-general',
+      mode: 'audio_transcription',
+    });
+    assert.equal(rest.length, 0);
+    assert.equal(scenario!.endpoint, 'stt-proxy');
+    assert.equal(scenario!.path, '/stt/deepgram/v1/listen');
+    assert.equal(scenario!.search, '?model=nova-3-general');
+    assert.equal(scenario!.headers?.['content-type'], 'audio/wav');
+    assert.ok(scenario!.body instanceof Uint8Array);
+  });
+});
+
+describe('fireworks-ai, truefoundry-managed', () => {
+  it('are registered with their secrets', () => {
+    assert.equal(getProviderSpec('fireworks-ai')?.apiKeyEnv, 'FIREWORKS_AI_API_KEY');
+    assert.equal(getProviderSpec('truefoundry-managed')?.apiKeyEnv, 'TRUEFOUNDRY_MANAGED_API_KEY');
+    assert.equal(
+      getProviderSpec('truefoundry-managed')?.accountEnv?.base_url,
+      'TRUEFOUNDRY_MANAGED_BASE_URL',
+    );
+    assert.equal(getProviderSpec('truefoundry-managed')?.modelIdPrefix, 'tfy-managed/');
+  });
+});
+
 describe('google-vertex key-file', () => {
   it('is registered as key-file auth', () => {
     const spec = getProviderSpec('google-vertex');
