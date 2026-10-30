@@ -25,7 +25,10 @@ export type Scenario = {
   id: string;
   endpoint: Endpoint;
   path: string;
-  body: Record<string, unknown> | FormData;
+  /** Query string including `?`, for native-proxy routes that take the model there. */
+  search?: string;
+  headers?: Record<string, string>;
+  body: Record<string, unknown> | FormData | Uint8Array;
 };
 
 const FEATURE_KEYS = [
@@ -134,6 +137,11 @@ function mergeParams(model: CatalogueModel): Record<string, unknown> {
   }
   if (typeof merged.n === 'number') merged.n = Math.min(merged.n, 1);
   return merged;
+}
+
+/** The SDK appends the request path to `{openai_endpoint}/openai/v1` for Foundry, so `/v1` would be doubled. */
+function responsesPath(model: CatalogueModel): string {
+  return model.provider === 'microsoft-foundry' ? '/responses' : '/v1/responses';
 }
 
 /** Cheap output cap; honor removeParams (gpt-4.1* → max_completion_tokens). */
@@ -644,7 +652,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
         out.push({
           id: label('responses/baseline', stream),
           endpoint: 'createModelResponse',
-          path: '/v1/responses',
+          path: responsesPath(model),
           body: {
             model: modelId,
             input: 'Reply with the single word: ok',
@@ -663,7 +671,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
           out.push({
             id: label(kind, stream),
             endpoint: 'createModelResponse',
-            path: '/v1/responses',
+            path: responsesPath(model),
             body: {
               ...responsesModalityBody(chatFeatureBody(model, feature)),
               ...(stream ? { stream: true } : {}),
@@ -678,7 +686,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
             out.push({
               id: label('responses/params', stream),
               endpoint: 'createModelResponse',
-              path: '/v1/responses',
+              path: responsesPath(model),
               body: {
                 ...responsesModalityBody(
                   withCap(model, {
@@ -693,7 +701,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
           }
         }
       }
-      pushModalitySmokes(out, model, 'createModelResponse', '/v1/responses', responsesModalityBody);
+      pushModalitySmokes(out, model, 'createModelResponse', responsesPath(model), responsesModalityBody);
       return out;
 
     case 'embedding':
@@ -745,6 +753,16 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
       return out;
 
     case 'text_to_speech':
+      if (model.provider === 'deepgram') {
+        out.push({
+          id: 'text_to_speech/baseline',
+          endpoint: 'tts-proxy',
+          path: '/tts/deepgram/v1/speak',
+          search: `?model=${encodeURIComponent(modelId)}`,
+          body: { text: 'hello' },
+        });
+        return out;
+      }
       if (model.provider === 'elevenlabs') {
         out.push({
           id: 'text_to_speech/baseline',
@@ -763,6 +781,17 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
       return out;
 
     case 'audio_transcription':
+      if (model.provider === 'deepgram') {
+        out.push({
+          id: 'audio_transcription/baseline',
+          endpoint: 'stt-proxy',
+          path: '/stt/deepgram/v1/listen',
+          search: `?model=${encodeURIComponent(modelId)}`,
+          headers: { 'content-type': 'audio/wav' },
+          body: sampleWavBytes(),
+        });
+        return out;
+      }
       out.push({
         id: 'audio_transcription/baseline',
         endpoint: 'createTranscription',

@@ -4,6 +4,9 @@ documentation:
     - https://docs.together.ai/docs/changelog
     - https://docs.together.ai/docs/serverless-models
     - https://docs.together.ai/docs/inference/chat/reasoning
+limits:
+    context_window: 131072
+    max_tokens: 8192
 params:
     - defaultValue: medium
       key: reasoning_effort
