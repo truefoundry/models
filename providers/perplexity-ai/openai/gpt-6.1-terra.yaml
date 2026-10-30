@@ -1,2 +1,15 @@
-mode: unknown
+canonical_model: openai/gpt-6-1-terra
+# costs: not found in official docs
+limits:
+    # Not published for this model in Perplexity's Agent API docs; taken from the exact upstream model's spec (OpenAI).
+    context_window: 1050000
+mode: chat
 model: openai/gpt-6.1-terra
+provisioning: serverless
+sources:
+    - https://developers.openai.com/api/docs/models/gpt-6.1-terra
+    - https://docs.perplexity.ai/docs/router/models
+    - https://docs.perplexity.ai/llms.txt
+status: active
+supportedModes:
+    - chat
