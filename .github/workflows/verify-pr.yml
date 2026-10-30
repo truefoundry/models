@@ -1,0 +1,26 @@
+name: Verify PR
+
+# A thin trigger, on purpose. This workflow's definition comes from the PR's merge ref, so a PR
+# can rewrite it (or delete it); nothing it does is trusted. It checks out nothing, runs no PR
+# code and produces nothing the verdict uses. verify-label.yml (workflow_run) fires after it and
+# does everything from the DEFAULT branch: it fetches the PR head as git objects only and runs the
+# default branch's verifier on base..head. A PR that stops this workflow from running simply gets
+# no labels.
+
+on:
+  pull_request:
+
+permissions: {}
+
+concurrency:
+  group: verify-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  trigger:
+    name: Trigger verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Note
+        run: echo "Verification of the changed model YAMLs runs in the 'Verify labels' workflow (trusted, default-branch code); see the catalog-verify check and the PR comment." >> "$GITHUB_STEP_SUMMARY"

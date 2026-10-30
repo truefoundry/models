@@ -1,0 +1,366 @@
+[
+ {
+  "model_name": "black-forest-labs/FLUX-2-pro",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "image_units",
+   "cents_per_image_unit": 1.5,
+   "default_width": 0,
+   "default_height": 0,
+   "default_iterations": 0,
+   "default_price_cents": null,
+   "usage_from_cost": true
+  }
+ },
+ {
+  "model_name": "Qwen/Qwen3-235B-A22B",
+  "type": "text-generation",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 1.8e-05,
+   "cents_per_output_token": 5.4e-05,
+   "rate_per_input_token_cached": null,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": null,
+   "rate_per_service_tier_flex": null,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  }
+ },
+ {
+  "model_name": "PrunaAI/p-video",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": "$0.02 / second",
+   "full": "$0.02 / second for 720P, $0.04 / second for 1080P, $0.005 / second for 720P DRAFT, $0.01 / second for 1080P DRAFT",
+   "table": null,
+   "type": "output_length",
+   "cents_per_output_sec": 2.0
+  }
+ },
+ {
+  "model_name": "nvidia/Cosmos3-Nano",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": "$0.0350 / second (720p)",
+   "full": null,
+   "table": null,
+   "type": "frame_units",
+   "cents_per_frame_unit": 0.14583333
+  }
+ },
+ {
+  "model_name": "black-forest-labs/FLUX-2-max",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "image_units",
+   "cents_per_image_unit": 10.0,
+   "default_width": 0,
+   "default_height": 0,
+   "default_iterations": 0,
+   "default_price_cents": 7.0,
+   "usage_from_cost": true
+  }
+ },
+ {
+  "model_name": "Qwen/Qwen3-ASR-1.7B",
+  "type": "automatic-speech-recognition",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "input_length",
+   "cents_per_input_sec": 0.00075
+  }
+ },
+ {
+  "model_name": "BAAI/bge-base-en-v1.5",
+  "type": "embeddings",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 5e-07,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "moonshotai/Kimi-K2.7-Code",
+  "type": "text-generation",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 6.8e-05,
+   "cents_per_output_token": 0.00034,
+   "rate_per_input_token_cached": 0.2,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": 1.5,
+   "rate_per_service_tier_flex": 0.8,
+   "rate_per_explicit_cache_write_token": {
+    "5m": 1.25,
+    "1h": 2.0
+   },
+   "explicit_cache_granularity_tokens": 1024
+  }
+ },
+ {
+  "model_name": "Qwen/Qwen3-TTS",
+  "type": "text-to-speech",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "input_character_length",
+   "cents_per_input_chars": 0.002
+  }
+ },
+ {
+  "model_name": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "type": "text-generation",
+  "pricing": {
+   "discount": 0.3,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 2e-05,
+   "cents_per_output_token": 6e-05,
+   "rate_per_input_token_cached": 0.03,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": 1.5,
+   "rate_per_service_tier_flex": 0.8,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  }
+ },
+ {
+  "model_name": "zai-org/GLM-5.3",
+  "type": "text-generation",
+  "pricing": {
+   "discount": 0.375,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 9e-05,
+   "cents_per_output_token": 0.0004,
+   "rate_per_input_token_cached": 0.22222222,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": null,
+   "rate_per_service_tier_flex": 0.8,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  }
+ },
+ {
+  "model_name": "XiaomiMiMo/MiMo-V2.6-Flash",
+  "type": "text-generation",
+  "pricing": {
+   "discount": 0.1,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 1.4e-05,
+   "cents_per_output_token": 2.8e-05,
+   "rate_per_input_token_cached": 0.02,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": null,
+   "rate_per_service_tier_flex": null,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  }
+ },
+ {
+  "model_name": "stepfun-ai/Step-5-Preview",
+  "type": "text-generation",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 0.0001,
+   "cents_per_output_token": 0.00027,
+   "rate_per_input_token_cached": 0.1,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": null,
+   "rate_per_service_tier_flex": null,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  }
+ },
+ {
+  "model_name": "ByteDance/Seedance-2.0",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "$4.7/M with video, $7.7/M without for 480p and 780p; $5.1/M with video, $8.4/M without for 1080p",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.00047,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "google/nano-banana-2",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "1120 tokens per input image, with output image costs scaling by resolution: 747 tokens ($0.045) for 512 (roughly 0.25MP), 1120 tokens ($0.067) for 1K (roughly 1MP), 1680 tokens ($0.101) for 2K (roughly 4MP), and 2520 tokens ($0.151) for 4K (roughly 16MP)",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.006,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "Pixverse/Pixverse-6-T2V",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": "$0.045 / second",
+   "full": "Per-second pricing varies by quality and audio toggle. 360p: $0.025/$0.035 \u00b7 540p: $0.035/$0.045 \u00b7 720p: $0.045/$0.060 \u00b7 1080p: $0.090/$0.115 (no audio /\n  with audio).",
+   "table": null,
+   "type": "output_length",
+   "cents_per_output_sec": 4.5
+  }
+ },
+ {
+  "model_name": "google/nano-banana-pro",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "560 tokens per input image, with output image costs scaling by resolution: 1120 tokens ($0.134) for 1K and 2K (roughly 1MP and 4MP), and 2000 tokens ($0.24) for 4K (roughly 16MP)",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.012,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "google/nano-banana-2-lite",
+  "type": "text-to-image",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": "1120 tokens ($0.034) per output image at the single supported 1K resolution (roughly 1MP)",
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.003,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "Pixverse/Pixverse-T2V-HD",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "image_units",
+   "cents_per_image_unit": 40.0,
+   "default_width": 0,
+   "default_height": 0,
+   "default_iterations": 0,
+   "default_price_cents": null,
+   "usage_from_cost": false
+  }
+ },
+ {
+  "model_name": "ByteDance/Seedance-1.5-Pro",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "input_tokens",
+   "cents_per_input_token": 0.00012,
+   "cents_per_image_token": null
+  }
+ },
+ {
+  "model_name": "Pixverse/Pixverse-T2V",
+  "type": "text-to-video",
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "image_units",
+   "cents_per_image_unit": 20.0,
+   "default_width": 0,
+   "default_height": 0,
+   "default_iterations": 0,
+   "default_price_cents": null,
+   "usage_from_cost": false
+  }
+ },
+ {
+  "model_name": "nace-ai/drex-max",
+  "type": "decision",
+  "pricing": {
+   "discount": 0.5,
+   "discount_ends_at": null,
+   "short": "$0.12 / 1M tokens",
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 1.2e-05,
+   "cents_per_output_token": 0.0,
+   "rate_per_input_token_cached": 1.0,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": null,
+   "rate_per_service_tier_flex": null,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  }
+ }
+]
