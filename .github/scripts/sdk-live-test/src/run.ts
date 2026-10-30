@@ -91,7 +91,7 @@ function buildCall(
     spec.authType === 'key-file'
       ? {
           project_id: projectIdFromKeyFile(credential),
-          region: spec.region ?? 'europe-west4',
+          region: spec.publisherRegions?.[model.model.split('/')[0]] ?? spec.region ?? 'europe-west4',
         }
       : {};
   const providerOptions = {
