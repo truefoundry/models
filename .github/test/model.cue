@@ -56,10 +56,18 @@ package model
 	web_search?: #ToolCost
 }
 
+// Provider-level fallback limits for models that do not declare their own
+#DefaultLimits: {
+	context_window?: int & >0 // Typical maximum tokens the provider's chat models hold in context
+	max_tokens?:     int & >0 // Typical maximum tokens the provider's chat models generate in a response
+}
+
 // Schema for default.yaml files (provider-level defaults)
 #DefaultConfig: {
 	// Official documentation links for models, pricing, and deprecations
 	documentation?: [...string]
+	// Fallback token limits for the provider's models
+	limits?: #DefaultLimits
 	// Message types supported
 	messages?: #MessageConfig
 	// Configurable parameters with defaults

@@ -20,6 +20,17 @@ modalities:
         - text
 mode: chat
 model: anthropic/claude-sonnet-5-5
+params:
+    # DeepInfra page: effort tunable "from low to max"; no API default effort documented, so defaultValue omitted. "none" is the preserved gateway alias.
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - low
+          - medium
+          - high
+          - xhigh
+          - max
+      type: string
 provisioning: serverless
 sources:
     - https://deepinfra.com/anthropic/claude-sonnet-5-5
