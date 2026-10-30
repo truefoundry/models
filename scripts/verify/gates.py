@@ -9,6 +9,9 @@ Exactly one gate per PR, strongest first:
               partial / uncovered / promo, or no source covers the file, or the file is new
   review      every changed field verified, nothing escalating
 
+On top of the gate, `fast-lane` (fast_lane_ok) marks a features / params or lifecycle PR that needs
+one look; the comment's "Review lane" line says fast-lane | normal | escalate | hold.
+
 What "every changed field verified" means, exactly. For a MODIFIED file the changed fields are the
 ones the risk assessment found (risk.assess). A price or limit leaf is verified when a source
 returned a verified Check at that exact locator. Features, params, modalities, lifecycle and every
@@ -23,11 +26,14 @@ from collections.abc import Iterable
 from dataclasses import dataclass, field
 
 from . import classify
-from .labels import SHADOW, is_hold
+from .labels import FAST_LANE, SHADOW, is_hold
 from .model import FileReport
 from .risk import PRICE
 
 SHADOW_PRICE_LIMIT = 0.10
+FAST_LANE_KINDS = (classify.FEATURES_PARAMS, classify.LIFECYCLE)
+FAST_LANE_GATES = ("review", "unverified")
+FAST_LANE_MAX_FILES = 10
 
 
 @dataclass
@@ -37,6 +43,7 @@ class Verdict:
     verify: str | None  # official | partial | conflict | none | None (nothing changed)
     shadow: bool
     labels: list[str] = field(default_factory=list)
+    lane: str | None = None  # fast-lane | normal | escalate | hold | None (nothing changed)
 
 
 def changed(files: Iterable[FileReport]) -> list[FileReport]:
@@ -91,12 +98,35 @@ def shadow_ok(files: Iterable[FileReport], current: Iterable[str] = ()) -> bool:
     return True
 
 
+def fast_lane_ok(files: Iterable[FileReport], gate: str | None, kind: str | None) -> bool:
+    """`fast-lane`: one look, review within 24 h. Only a features / params or a lifecycle change
+    (never price, mixed, new-model or provider-default), only gate review or unverified (never
+    escalate or hold), no escalating risk or rule finding and no source conflict in any file, and at
+    most FAST_LANE_MAX_FILES changed files. Historically 79% (features / params) and 90% (lifecycle)
+    of such update PRs merged with no human correction."""
+    files = changed(files)
+    if gate not in FAST_LANE_GATES or kind not in FAST_LANE_KINDS or not files:
+        return False
+    if len(files) > FAST_LANE_MAX_FILES:
+        return False
+    return not any(r.escalate for f in files for r in f.risks) and not any(f.conflicts for f in files)
+
+
+def lane_of(gate: str | None, fast: bool) -> str | None:
+    if gate is None:
+        return None
+    if gate in ("hold", "escalate"):
+        return gate
+    return "fast-lane" if fast else "normal"
+
+
 def decide(files: list[FileReport], current: Iterable[str] = ()) -> Verdict:
     current = list(current)
     gate = gate_of(files, current)
     kind = classify.pr_kind(files)
     verify = verify_of(files)
     shadow = shadow_ok(files, current)
+    fast = fast_lane_ok(files, gate, kind)
     labels: set[str] = set()
     if gate and gate != "hold":
         labels.add(f"gate:{gate}")
@@ -106,5 +136,7 @@ def decide(files: list[FileReport], current: Iterable[str] = ()) -> Verdict:
         labels.add(f"verify:{verify}")
     if shadow:
         labels.add(SHADOW)
+    if fast:
+        labels.add(FAST_LANE)
     labels |= {r.label for f in changed(files) for r in f.risks}
-    return Verdict(gate, kind, verify, shadow, sorted(labels))
+    return Verdict(gate, kind, verify, shadow, sorted(labels), lane_of(gate, fast))

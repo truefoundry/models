@@ -52,7 +52,7 @@ def test_result_shape_and_validates_against_the_label_schema():
     out = run(one_file_repo(price(input_cost_per_token=3.1e-6)), FakeSource(res=result(check(IN))))
     assert (out["gate"], out["kind"], out["verify"]) == ("review", "price-only", "official")
     assert out["labels"] == ["gate:review", "kind:price-only", "risk:price", "shadow:auto", "verify:official"]
-    assert set(out) == {"version", "base_sha", "head_sha", "skipped", "labels", "gate", "kind", "verify", "shadow", "files",
+    assert set(out) == {"version", "base_sha", "head_sha", "skipped", "labels", "gate", "kind", "verify", "shadow", "lane", "files",
                         "files_total", "files_omitted", "notes", "comment_md", "summary_md"}
     validate(json.loads(json.dumps(out)))  # exactly what the label job accepts
 

@@ -23,7 +23,8 @@ scripts/verify/
   sync.py        applies a verdict: validation, labels, comment, check run (stdlib only)
   labeljob.py    the trusted label job entry point: fetch the PR head as objects, run, apply
   textclean.py   cleaning of untrusted text (stdlib only)
-  labels.py      the label names this tool owns
+  labels.py      the label names this tool owns, with their colours and descriptions
+  queue.py       python -m verify.queue: the "Bot PR review queue" issue (verify-stale.yml)
   sources/       adapters; each registers itself in SOURCES
 ```
 
@@ -57,6 +58,11 @@ This tool owns these names, matched **exactly**, and nothing else:
 | `verify:official` `verify:partial` `verify:conflict` `verify:none` | how far the official sources got |
 | `kind:price-only` `kind:lifecycle` `kind:features-params` `kind:mixed` `kind:new-model` `kind:provider-default` | what the PR changes |
 | `shadow:auto` | measured only; never merges anything |
+| `fast-lane` | one look, target review within 24 h, see Review lanes |
+
+Every owned label has a colour and a short description in `labels.py`. The label job creates a
+missing one with them (`sync.ensure_labels`, before it adds the label to the PR); a label that
+already exists is never edited. Without it GitHub would create the label plain.
 
 Never touched: `gate:hold` (set by humans or the addition job), `id:*`, `gate:reviewed`, any other label.
 
@@ -76,6 +82,31 @@ Never touched: `gate:hold` (set by humans or the addition job), `id:*`, `gate:re
    the fields the risk assessment found: a price or limit counts as verified when a source
    returned a verified check at that exact locator; features, params, modalities, lifecycle and
    every other key are never source-checked, so changing one always leaves a file `unverified`.
+
+### Review lanes
+
+Every comment starts with `**Review lane: fast-lane | normal | escalate | hold**` and at most three
+lines saying why, so a reviewer knows in five seconds how much attention the PR needs. The lane is
+in the result as `lane`; only `fast-lane` is also a label.
+
+| lane | when |
+|---|---|
+| `fast-lane` | kind is `features-params` or `lifecycle` (never price, mixed, new-model, provider-default), gate is `review` or `unverified`, no risk or static rule at escalate level, no conflict with an official source, and at most 10 changed model files. Meaning: one look, target review within 24 h |
+| `normal` | gate `review` or `unverified`, not fast-lane: the first line says why (kind, or more than 10 files) |
+| `escalate` | `gate:escalate`: the lines name the conflict or the escalating risks |
+| `hold` | `gate:hold` / `id:*`: no gate is set, the lines still name what would escalate |
+
+A review-level rule finding (`risk:rule-*` that does not escalate) does not leave the fast lane. The
+label job refuses a result whose `fast-lane` label, `lane`, gate and kind disagree.
+
+`verify-stale.yml` (daily 08:00 UTC, default branch code, `pull-requests: read` + `issues: write`)
+runs `python -m verify.queue`: it lists the open bot PRs labelled `fast-lane` that are older than
+24 h and the open PRs labelled `gate:escalate` older than 72 h (drafts, `trueforge/*`, `gate:hold`
+and `id:*` left out) in one issue, `Bot PR review queue`: created when missing (found by exact title
+and the Actions bot as author), body edited in place, one comment per day while something is
+overdue. It never labels, comments on or edits a PR, mentions nobody and writes nothing when
+nothing changed. `python -m verify.queue --dry-run` prints the body from the live open PRs and writes
+nothing (needs `GITHUB_TOKEN` or `gh auth login`, and `--repo` or `GITHUB_REPOSITORY`).
 
 ### Escalating risks
 
@@ -120,17 +151,21 @@ rule finding adds nothing for a source to verify. Rules do not affect `kind:*`.
 | `reasoning-default` | review | the `reasoning_effort` `defaultValue` is not in its own `supportedValues` |
 | `reasoning-unsupported` | review | the model declares a `reasoning_effort` param without `thinking: true`, or on a non-text mode |
 | `feature-enum` | escalate | a `features` entry is not in the CUE `#Feature` enum (`.github/test/model.cue`) |
+| `claude-feature-gaps` | review | a Claude >= 4.8 chat model in `CLAUDE_MID_PROVIDERS` (anthropic, aws-bedrock, aws-bedrock-mantle, azure-ai-foundry, google-vertex, microsoft-foundry) lacks `mid_conversation_system_messages`, or a Claude >= 4.6 lists `assistant_prefill` (those models reject a prefilled assistant turn) |
 
 Calibration: `python -m verify.rules --calibrate --providers providers` runs every rule over the
 catalog and flags any rule above 5% of files, since existing files are the ground truth of
 "accepted". On origin/main (4,523 files): below-limit 0.42%, inherited-cap 2.87%, completion-pair
 0.04%, null-status 0, deprecated-conflict 0.13%, deprecated-undated 0.49%, reasoning-enum 0,
-reasoning-default 0, reasoning-unsupported 0.20%, feature-enum 0. Narrowed to get there: the
+reasoning-default 0, reasoning-unsupported 0.20%, feature-enum 0, claude-feature-gaps 0.31% (14 files). Narrowed to get there: the
 inherited cap fired on 16.7% (openrouter inherits it in 61% of its files), so it only applies to
 `CAP_OVERRIDE_PROVIDERS`, the providers where at least 60% of files override it; the undated
 deprecation fired on 7%, so it needs a cited source; an inherited `reasoning_effort` (24% of chat
 files) is never flagged. The two enum rules and `null-status` fire nowhere today because CUE
-already rejects them; they stay as an early, labelled warning. Re-run `--calibrate` after a large
+already rejects them; they stay as an early, labelled warning. `claude-feature-gaps` only checks the providers where at least 60% of the Claude >= 4.8 chat files carry the
+flag (the resellers openrouter 2/18, perplexity-ai 1/8 and deepinfra 0/6 never do), and has no `tool_choice`
+check: Claude 5.1 / 5.5 files disagree on it (2/9, 15/45), so the catalog has no convention to enforce.
+Re-run `--calibrate` after a large
 catalog change and refresh `CAP_OVERRIDE_PROVIDERS` if a provider's convention moved.
 
 ### kind:*
@@ -139,6 +174,15 @@ catalog change and refresh `CAP_OVERRIDE_PROVIDERS` if a provider's convention m
 modalities, no price), `new-model` (added files only), `provider-default` (only `default.yaml` /
 `provider-config.yaml` changed), `mixed` (anything else, price plus other, several kinds, a
 deleted file).
+
+### fast-lane
+
+See Review lanes. Replayed on the bot's own last commit of every bot PR merged in the 90 days to
+2026-10-28, 45 of 1,214 merged bot PRs (17% of the 268 update PRs, none of the add PRs) would have been
+`fast-lane`; 38 of them (84%, Wilson 95% CI 71-92%) merged with no human correction of what the bot
+wrote, against 59% for the other update PRs. In the last 100 merged PRs 6 were fast-lane and none was
+corrected. The replay ran without the source adapters (no network), so every fast-lane PR is
+`gate:unverified` and the conflict condition never fired; a conflict can only remove PRs from the lane.
 
 ### shadow:auto
 

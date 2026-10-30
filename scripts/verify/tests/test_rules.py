@@ -400,3 +400,76 @@ def test_calibrate_cli_prints_every_rule_and_flags_over_5_percent(tmp_path, caps
     assert all(rid in out for rid in labels.RULE_IDS) and "over 5%" in out
     with pytest.raises(SystemExit):
         rules.main([])
+
+
+# ---- claude-feature-gaps -------------------------------------------------------------------------
+def claude(model="claude-opus-5-5", features=None, mode="chat", **kw):
+    return {"model": model, "mode": mode, "features": features if features is not None else ["function_calling"], **kw}
+
+
+def gaps(doc, provider="aws-bedrock"):
+    return [(f.locator[1], f.severity) for f in rules.evaluate(doc, ctx(provider)) if f.id == "claude-feature-gaps"]
+
+
+@pytest.mark.parametrize("model,expected", [
+    ("claude-opus-4-8", (4, 8)), ("claude-opus-4-8-2", (4, 8)), ("claude-sonnet-5", (5, 0)), ("claude-opus-5-5-fast", (5, 5)),
+    ("anthropic.claude-opus-5-5-v1:0", (5, 5)), ("global.anthropic.claude-sonnet-4-5-20250929-v1:0", (4, 5)),
+    ("claude-opus-4-20250514", (4, 0)), ("claude-3-5-sonnet-20241022", (3, 5)), ("claude-3-haiku-20240307", (3, 0)),
+    ("claude-fable-5.1", (5, 1)), ("anthropic/claude-opus-4.8:batch", (4, 8)), ("CLAUDE-OPUS-5", (5, 0)),
+    ("gpt-5", None), ("", None), (None, None), ("claude", None),
+])
+def test_claude_version(model, expected):
+    assert rules.claude_version({"model": model}) == expected
+
+
+def test_missing_mid_conversation_flag_on_a_new_claude_in_a_provider_that_carries_it():
+    assert gaps(claude("claude-opus-5-5")) == [("mid_conversation_system_messages", "review")]
+    assert gaps(claude("claude-opus-4-8")) == [("mid_conversation_system_messages", "review")]   # the threshold itself
+    assert gaps(claude("claude-opus-4-7")) == []                                               # older Claude never had it
+    assert gaps(claude("claude-opus-5-5", ["function_calling", "mid_conversation_system_messages"])) == []
+
+
+@pytest.mark.parametrize("provider", ["anthropic", "aws-bedrock", "aws-bedrock-mantle", "azure-ai-foundry", "google-vertex", "microsoft-foundry"])
+def test_the_providers_that_carry_the_mid_conversation_flag(provider):
+    assert gaps(claude(), provider) == [("mid_conversation_system_messages", "review")]
+
+
+@pytest.mark.parametrize("provider", ["openrouter", "perplexity-ai", "deepinfra", "p", ""])
+def test_resellers_that_never_carry_it_are_not_flagged(provider):
+    assert gaps(claude(), provider) == []
+
+
+def test_only_chat_models_and_only_claude():
+    assert gaps(claude(mode="embedding")) == [] and gaps(claude(mode="unknown")) == []
+    assert gaps({"model": "gpt-6", "mode": "chat", "features": []}) == []
+    assert gaps({"model": "claude-opus-5-5", "features": []}) == []                            # no mode yet: a stub
+
+
+def test_assistant_prefill_on_claude_4_6_and_later_is_flagged_everywhere():
+    for model in ("claude-opus-4-6", "claude-opus-4-7", "claude-sonnet-5", "claude-opus-5-5"):
+        assert ("assistant_prefill", "review") in gaps(claude(model, ["assistant_prefill"]), "openrouter"), model
+    assert gaps(claude("claude-opus-4-5", ["assistant_prefill"]), "aws-bedrock") == []        # 4.5 and older still accept it
+    assert gaps(claude("claude-3-5-sonnet", ["assistant_prefill"]), "aws-bedrock") == []
+    assert gaps(claude("claude-opus-4-7", ["function_calling"]), "openrouter") == []
+
+
+def test_both_gaps_in_one_file_are_two_findings_with_distinct_locators():
+    found = [f for f in rules.evaluate(claude("claude-opus-5-5", ["assistant_prefill"]), ctx("anthropic")) if f.id == "claude-feature-gaps"]
+    assert sorted(f.locator for f in found) == [("features", "assistant_prefill"), ("features", "mid_conversation_system_messages")]
+
+
+def test_an_old_accepted_gap_is_not_reintroduced_by_touching_the_file():
+    old = claude("claude-opus-5-5", ["function_calling"])
+    assert rules.introduced(old, {**old, "limits": {"context_window": 5}}, ctx("aws-bedrock")) == []
+    assert ids(rules.introduced(None, old, ctx("aws-bedrock"))) == ["claude-feature-gaps"]    # a new file is judged whole
+    fixed = claude("claude-opus-5-5", ["function_calling", "mid_conversation_system_messages"])
+    assert rules.introduced(old, fixed, ctx("aws-bedrock")) == []
+
+
+def test_the_rule_is_review_level_and_becomes_a_label_not_an_escalation():
+    f = build_file("providers/aws-bedrock/anthropic.claude-opus-5-5.yaml", ADDED, None,
+                   "model: anthropic.claude-opus-5-5\nmode: chat\nfeatures: [function_calling]\n", runner(),
+                   rules.Context({}, "aws-bedrock", rules.Schema()))
+    assert "risk:rule-claude-feature-gaps" in {r.label for r in f.risks}
+    assert not any(r.escalate for r in f.risks if r.label == "risk:rule-claude-feature-gaps")
+    assert "risk:rule-claude-feature-gaps" in labels.OWNED

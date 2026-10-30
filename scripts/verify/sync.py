@@ -25,8 +25,8 @@ import urllib.parse
 import urllib.request
 from collections.abc import Callable
 
-from .labels import (GATE_LABELS, GATES, KIND_LABELS, KINDS, MARKER, VERIFY, VERIFY_LABELS, SHADOW, is_hold,
-                     is_owned)
+from .labels import (FAST_LANE, GATE_LABELS, GATES, KIND_LABELS, KINDS, LANES, MARKER, VERIFY, VERIFY_LABELS, SHADOW,
+                     is_hold, is_owned, label_meta)
 from .textclean import safe_markdown
 
 MAX_COMMENT = 60_000
@@ -37,7 +37,8 @@ SKIPPED = ("trueforge-branch", "no-verifier-at-base")
 CHECK_NAME = "catalog-verify"
 BOT_LOGIN = "github-actions[bot]"
 _SHA = re.compile(r"^[0-9a-f]{40}$")
-_KEYS = {"version", "base_sha", "head_sha", "skipped", "labels", "gate", "kind", "verify", "shadow", "files",
+FAST_LANE_KINDS = ("features-params", "lifecycle")  # keep equal to gates.FAST_LANE_KINDS (this module is stdlib only)
+_KEYS = {"version", "base_sha", "head_sha", "skipped", "labels", "gate", "kind", "verify", "shadow", "lane", "files",
          "files_total", "files_omitted", "notes", "comment_md", "summary_md"}
 
 
@@ -94,6 +95,18 @@ def validate(data) -> dict:
         raise ValidationError("verify label does not match verify")
     if not isinstance(data["shadow"], bool) or data["shadow"] != (SHADOW in labels):
         raise ValidationError("shadow does not match labels")
+    lane = data["lane"]
+    if lane not in (None, *LANES):
+        raise ValidationError("bad lane")
+    if gate in ("hold", "escalate", None):  # the lane of these gates is the gate itself
+        if lane != gate:
+            raise ValidationError("lane does not match gate")
+    elif lane not in ("fast-lane", "normal"):
+        raise ValidationError("lane does not match gate")
+    if (FAST_LANE in labels) != (lane == "fast-lane"):
+        raise ValidationError("fast-lane label does not match lane")
+    if lane == "fast-lane" and kind not in FAST_LANE_KINDS:
+        raise ValidationError("fast-lane on a kind that is not features-params or lifecycle")
     if data["skipped"] and (labels or gate):
         raise ValidationError("a skipped run must carry no labels")
     if not (isinstance(data["files"], list) and len(data["files"]) <= MAX_FILES
@@ -166,12 +179,33 @@ def desired_labels(artifact_labels: list[str], live: list[str]) -> set[str]:
     return want - GATE_LABELS if is_hold(live) else want
 
 
+def ensure_labels(api: GitHub, names) -> list[str]:
+    """Create each owned label that does not exist yet, with its colour and description (a label
+    GitHub creates on first use has neither). An existing label is never edited. A failure here
+    (a race that lost with 422, a token without the right) only costs the description: the label
+    still gets added to the PR and GitHub creates it plain."""
+    created: list[str] = []
+    for name in sorted(names):
+        meta = label_meta(name)
+        if meta is None:
+            continue
+        try:
+            if api.request("GET", f"/repos/{api.repo}/labels/{urllib.parse.quote(name, safe='')}", ok_missing=True) is not None:
+                continue
+            api.request("POST", f"/repos/{api.repo}/labels", {"name": name, "color": meta[0], "description": meta[1]})
+            created.append(name)
+        except SyncError:
+            continue
+    return created
+
+
 def sync_labels(api: GitHub, number: int, want: set[str], live: list[str]) -> tuple[list[str], list[str]]:
     """Add what is missing, then remove OWNED labels no longer wanted (exact names). Anything
     else on the PR is left alone."""
     add = sorted(want - set(live))
     remove = sorted(x for x in live if is_owned(x) and x not in want)
     if add:
+        ensure_labels(api, add)
         api.request("POST", f"/repos/{api.repo}/issues/{number}/labels", {"labels": add})
     for name in remove:
         api.request("DELETE", f"/repos/{api.repo}/issues/{number}/labels/{urllib.parse.quote(name, safe='')}", ok_missing=True)

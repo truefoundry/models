@@ -1,7 +1,7 @@
 """python -m verify --base <sha> --head <sha> [--head-ref B] [--json out.json]  (run from scripts/)
 
 Compares the model YAMLs changed between two commits and prints one JSON result:
-{labels, gate, kind, verify, shadow, files, notes, comment_md, summary_md, ...}.
+{labels, gate, kind, verify, shadow, lane, files, notes, comment_md, summary_md, ...}.
 Report only: the exit code is 0 whatever the verdict. Only a crash of the tool itself fails.
 """
 from __future__ import annotations
@@ -77,7 +77,7 @@ def is_model_file(path: str) -> bool:
 
 def empty_result(base: str, head: str, skipped: str | None = None, notes: Iterable[str] = ()) -> dict:
     return {"version": VERSION, "base_sha": base, "head_sha": head, "skipped": skipped, "labels": [], "gate": None,
-            "kind": None, "verify": None, "shadow": False, "files": [], "files_total": 0, "files_omitted": 0,
+            "kind": None, "verify": None, "shadow": False, "lane": None, "files": [], "files_total": 0, "files_omitted": 0,
             "notes": list(notes),
             "comment_md": "", "summary_md": ""}
 
@@ -123,7 +123,7 @@ def run(repo: Repo, base: str, head: str, *, head_ref: str = "", current_labels:
     out = empty_result(base, head, None, notes)
     out.update({
         "labels": verdict.labels, "gate": verdict.gate, "kind": verdict.kind, "verify": verdict.verify,
-        "shadow": verdict.shadow, "files": [report.file_json(f) for f in listed],
+        "shadow": verdict.shadow, "lane": verdict.lane, "files": [report.file_json(f) for f in listed],
         "files_total": len(files), "files_omitted": len(files) - len(listed),
         "comment_md": report.render_comment(verdict, files, notes, hold),
         "summary_md": report.render_summary(verdict, files, notes, hold),
