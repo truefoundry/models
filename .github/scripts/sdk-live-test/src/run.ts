@@ -31,6 +31,7 @@ import {
   resolveRegion,
   type ProviderSpec,
 } from './providers.js';
+import { runRealtime, type RealtimeKind } from './realtime.js';
 import { planScenarios, type Scenario } from './scenarios.js';
 
 export type Target = { provider: string; modelId: string };
@@ -252,6 +253,17 @@ export async function runTargets(
       const started = performance.now();
       const elapsed = () => `${((performance.now() - started) / 1000).toFixed(1)}s`;
       try {
+        if (scenario.endpoint === 'realtime') {
+          const ready = await runRealtime(model, credential, scenario.id.split('/')[1] as RealtimeKind);
+          pushResult(results, {
+            provider: t.provider,
+            modelId: t.modelId,
+            scenario: scenario.id,
+            status: 'pass',
+            detail: `${ready} (${elapsed()})`,
+          });
+          continue;
+        }
         const call = buildCall(model, credential, scenario);
         const { response, text } = await executeWithRetry(
           sdk,
