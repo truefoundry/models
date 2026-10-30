@@ -76,6 +76,7 @@ features:
     - cache_control
     - json_output
     - mid_conversation_system_messages
+    - structured_output
 limits:
     context_window: 1000000
     max_output_tokens: 128000
@@ -99,6 +100,10 @@ params:
           - max
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
