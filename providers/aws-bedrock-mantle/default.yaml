@@ -4,6 +4,9 @@ documentation:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/structured-output.html#structured-output-supported-apis
     - https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-mid-conversation-system.html
+limits:
+    context_window: 128000
+    max_tokens: 8000
 tool_pricing:
     web_search:
         per_thousand_requests: 12
