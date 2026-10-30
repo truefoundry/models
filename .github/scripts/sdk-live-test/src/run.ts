@@ -28,6 +28,7 @@ import {
   getProviderSpec,
   missingAccountEnv,
   projectIdFromKeyFile,
+  resolveRegion,
   type ProviderSpec,
 } from './providers.js';
 import { planScenarios, type Scenario } from './scenarios.js';
@@ -87,11 +88,7 @@ function buildCall(
   // Synthetic account — same shape the gateway would load from control-plane.
   // Example FQN: sdk-live-openai/gpt-4o-mini
   const accountName = `sdk-live-${model.provider}`;
-  // Fall back to a region the catalogue lists (e.g. bare Bedrock IDs are in-region only in a few regions).
-  const costRegions = (model.costs ?? []).map((c) => c.region);
-  const region =
-    Object.entries(spec.modelPrefixRegions ?? {}).find(([prefix]) => model.model.startsWith(prefix))?.[1] ??
-    (spec.region && costRegions.length && !costRegions.includes(spec.region) ? costRegions[0] : spec.region);
+  const region = resolveRegion(model, spec);
   const keyFileExtras =
     spec.authType === 'key-file'
       ? {

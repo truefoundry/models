@@ -244,6 +244,17 @@ export function missingAccountEnv(spec: ProviderSpec): string | undefined {
   return undefined;
 }
 
+/** Prefix override, else the default region if the catalogue lists it, else the first listed region (`*` is pricing, not a region). */
+export function resolveRegion(
+  model: { model: string; costs?: { region: string }[] },
+  spec: ProviderSpec,
+): string | undefined {
+  const byPrefix = Object.entries(spec.modelPrefixRegions ?? {}).find(([prefix]) => model.model.startsWith(prefix));
+  if (byPrefix) return byPrefix[1];
+  const costRegions = (model.costs ?? []).map((c) => c.region).filter((r) => r !== '*');
+  return spec.region && costRegions.length && !costRegions.includes(spec.region) ? costRegions[0] : spec.region;
+}
+
 export function getProviderSpec(providerDir: string): ProviderSpec | undefined {
   return SPECS[providerDir];
 }
