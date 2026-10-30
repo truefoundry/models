@@ -15,6 +15,7 @@ export type CatalogueModel = {
   isDeprecated?: boolean;
   features?: string[];
   thinking?: boolean;
+  costs?: { region: string }[];
   removeParams?: string[];
   requiredParams?: string[];
   supportedModes?: string[];

@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, it } from 'node:test';
 import { modelIdFromYamlFile, parseProviderPath } from '../src/changed.js';
-import { getProviderSpec, projectIdFromKeyFile } from '../src/providers.js';
+import { getProviderSpec, projectIdFromKeyFile, resolveRegion } from '../src/providers.js';
 import { planScenarios } from '../src/scenarios.js';
 import { targetsWithSecrets } from '../src/smoke.js';
 
@@ -283,6 +283,29 @@ describe('new provider credentials', () => {
       getProviderSpec('microsoft-foundry')?.accountEnv?.openai_endpoint,
       'MICROSOFT_FOUNDRY_OPENAI_ENDPOINT',
     );
+  });
+});
+
+describe('resolveRegion', () => {
+  const bedrock = getProviderSpec('aws-bedrock')!;
+  const vertex = getProviderSpec('google-vertex')!;
+  const costs = (...regions: string[]) => regions.map((region) => ({ region }));
+
+  it('uses the model-id prefix override', () => {
+    assert.equal(resolveRegion({ model: 'meta/llama-4', costs: costs('global') }, vertex), 'us-east5');
+  });
+  it('keeps the default region when the catalogue lists it', () => {
+    assert.equal(resolveRegion({ model: 'us.anthropic.claude-sonnet-5', costs: costs('us-west-2', 'us-east-1') }, bedrock), 'us-east-1');
+  });
+  it('falls back to the first catalogue region when the default is not listed', () => {
+    assert.equal(resolveRegion({ model: 'anthropic.claude-sonnet-5', costs: costs('eu-west-2', 'ap-southeast-1') }, bedrock), 'eu-west-2');
+    assert.equal(resolveRegion({ model: 'in.anthropic.claude-sonnet-5', costs: costs('ap-south-2', 'ap-south-1') }, bedrock), 'ap-south-2');
+  });
+  it('ignores wildcard cost regions', () => {
+    assert.equal(resolveRegion({ model: 'language-v1-moderate-text', costs: costs('*') }, vertex), 'global');
+  });
+  it('keeps the default region when the model has no costs', () => {
+    assert.equal(resolveRegion({ model: 'anthropic.claude-sonnet-5' }, bedrock), 'us-east-1');
   });
 });
 

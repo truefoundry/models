@@ -278,6 +278,7 @@ features:
     - tool_choice
     - prompt_caching
     - mid_conversation_system_messages
+    - structured_output
 limits:
     context_window: 1000000
     max_input_tokens: 1000000
@@ -306,6 +307,8 @@ params:
 provisioning: serverless
 removeParams:
     - temperature
+    - top_p
+    - top_k
 sources:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html
     - https://platform.claude.com/docs/en/about-claude/models/overview
