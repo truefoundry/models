@@ -136,13 +136,27 @@ def _escalations(ch: list[FileReport]) -> list[str]:
     return out
 
 
+def _why_not_verified(verdict: Verdict, ch: list[FileReport]) -> str:
+    """The line under a normal lane when no changed field is missing a source check. Say the truth
+    about WHY the gate is not review, never "every field verified" for a gate that is unverified."""
+    if verdict.gate == "review":
+        return "every changed field verified by an official source"
+    if any(f.is_new for f in ch):
+        return "new file: features, modalities and status are not source-checked"
+    if any(f.source_state == "partial" for f in ch):
+        return "a source result is partial, uncovered or a promotion: see the per-file notes"
+    if any(f.source_state == "none" for f in ch):
+        return "no official source covers a changed file"
+    return "not every changed field is source-checked"
+
+
 def lane_reasons(verdict: Verdict, files: list[FileReport]) -> list[str]:
     """At most LANE_REASONS lines saying why the PR is in its lane."""
     ch = changed(files)
     lane, kind, n = verdict.lane, verdict.kind, len(ch)
     if lane in ("escalate", "hold"):
-        found = _escalations(ch)
-        lines = (["`gate:hold` or an `id:*` label is on the PR, so no gate is set here"] if lane == "hold" else []) + found
+        found = list(verdict.flags) + _escalations(ch)
+        lines = (["`gate:hold` is on the PR, so no gate is set here"] if lane == "hold" else []) + found
         if lane == "hold" and not found:
             lines.append("nothing in the diff would escalate")
     elif lane == "fast-lane":
@@ -162,7 +176,7 @@ def lane_reasons(verdict: Verdict, files: list[FileReport]) -> list[str]:
             lines.append(f"{sum(len(m) for _, m in missing)} changed field(s) with no verified source check, "
                          f"e.g. {code(_field(needs[0]), 60)} in {code(f.path, 60)}")
         else:
-            lines.append("every changed field verified by an official source")
+            lines.append(_why_not_verified(verdict, ch))
         if verdict.shadow:
             lines.append("`shadow:auto`: every price move is within ±10% and confirmed by the source")
         elif verdict.verify:
@@ -205,7 +219,7 @@ def _head(verdict: Verdict, files: list[FileReport], notes: Iterable[str], hold:
         blocks.append("`shadow:auto`: every change is a price move within ±10% that the official source confirms. "
                       "Measured only: nothing is merged.")
     if hold:
-        blocks.append("`gate:hold` (or an `id:*` label) is on this PR, so no gate is set here. Remove it once checked.")
+        blocks.append("`gate:hold` is on this PR, so no gate is set here. Remove it once checked.")
     for note in list(notes)[:MAX_NOTES]:
         blocks.append(f"> {code(note, 300)}")
     if not ch:

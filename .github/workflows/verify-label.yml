@@ -5,7 +5,9 @@ name: Verify labels
 # The PR head is fetched as git objects into a private ref and is NEVER checked out: the verifier
 # reads blobs with `git show` and parses them as untrusted data (no anchors / aliases, size and
 # node caps). Nothing the PR's own workflow produced is read. Labels are written first (owned names,
-# exact match; gate:hold / id:* are sticky), then one marker comment, then a neutral check run.
+# exact match; gate:hold is sticky, the addition job's id:* flags escalate), then one marker comment,
+# then a neutral check run. It reads the PR's live labels every time, so it is safe to run on
+# labeled / unlabeled events too.
 
 on:
   workflow_run:

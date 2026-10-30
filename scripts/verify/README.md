@@ -65,13 +65,25 @@ Every owned label has a colour and a short description in `labels.py`. The label
 missing one with them (`sync.ensure_labels`, before it adds the label to the PR); a label that
 already exists is never edited. Without it GitHub would create the label plain.
 
-Never touched: `gate:hold` (set by humans or the addition job), `id:*`, `gate:reviewed`, any other label.
+Never touched: `gate:hold`, the addition job's `id:*` labels and `verify:prices-from-source`,
+`gate:reviewed`, any other label. What the labels this tool does not own mean:
+
+| label | set by | meaning |
+|---|---|---|
+| `gate:hold` | a human | the ONLY hold: no gate is set, risks and verification are still reported; never removed |
+| `id:case-duplicate` | the addition job | INPUT: the verifier sets `gate:escalate` and says "addition flagged: case duplicate of an existing file" |
+| `id:high-edit-provider` | the addition job | INPUT: the verifier sets `gate:escalate` and says "provider has a high human-edit rate and no source price was written" |
+| any other `id:*` | the addition job | ignored: not a hold, not an escalation |
+| `verify:prices-from-source` | the addition job | its prices were written from the official source; the verifier never reads or touches it |
+
+The addition job sets no `gate:*` label any more; the gate always comes from this tool.
 
 ### Gates (strongest first)
 
-1. `gate:hold` (not ours): `gate:hold` or any `id:*` label is on the PR. Sticky; this tool then
-   sets no gate and never removes it. It still reports risks and verification.
-2. `gate:escalate`: any escalating risk, or a conflict with an official source in a field this PR
+1. `gate:hold` (not ours): a human put `gate:hold` on the PR. Sticky; this tool then sets no gate
+   and never removes it. It still reports risks and verification. No `id:*` label is a hold.
+2. `gate:escalate`: an addition-job flag (`id:case-duplicate`, `id:high-edit-provider`, with the
+   reason in the comment), any escalating risk, or a conflict with an official source in a field this PR
    changed (every field of a new file). A conflict in a field the PR did not touch is existing
    catalog drift: listed under "existing drift (not from this PR)", it makes `verify:` partial at
    most and never changes the gate or `shadow:auto`.
@@ -94,18 +106,19 @@ in the result as `lane`; only `fast-lane` is also a label.
 |---|---|
 | `fast-lane` | kind is `features-params` or `lifecycle` (never price, mixed, new-model, provider-default), gate is `review` or `unverified`, no risk or static rule at escalate level, no conflict with an official source, and at most 10 changed model files. Meaning: one look, target review within 24 h |
 | `normal` | gate `review` or `unverified`, not fast-lane: the first line says why (kind, or more than 10 files) |
-| `escalate` | `gate:escalate`: the lines name the conflict or the escalating risks |
-| `hold` | `gate:hold` / `id:*`: no gate is set, the lines still name what would escalate |
+| `escalate` | `gate:escalate`: the lines name the addition flags, the conflict or the escalating risks |
+| `hold` | `gate:hold`: no gate is set, the lines still name what would escalate |
 
 A review-level rule finding (`risk:rule-*` that does not escalate) does not leave the fast lane. The
 label job refuses a result whose `fast-lane` label, `lane`, gate and kind disagree.
 
 `verify-stale.yml` (daily 08:00 UTC, default branch code, `pull-requests: read` + `issues: write`)
 runs `python -m verify.queue`: it lists the open bot PRs labelled `fast-lane` that are older than
-24 h and the open PRs labelled `gate:escalate` older than 72 h (drafts, `trueforge/*`, `gate:hold`
-and `id:*` left out) in one issue, `Bot PR review queue`: created when missing (found by exact title
+24 h and the open PRs labelled `gate:escalate` older than 72 h (drafts, `trueforge/*` and
+`gate:hold` left out; a PR the addition job flagged is `gate:escalate` and so is listed) in one issue, `Bot PR review queue`: created when missing (found by exact title
 and the Actions bot as author), body edited in place, one comment per day while something is
-overdue. It never labels, comments on or edits a PR, mentions nobody and writes nothing when
+overdue. A human who closes the tracking issue is respected: closed issues are looked at too, nothing
+is written while the newest one is closed, and reopening it restarts the queue. It never labels, comments on or edits a PR, mentions nobody and writes nothing when
 nothing changed. `python -m verify.queue --dry-run` prints the body from the live open PRs and writes
 nothing (needs `GITHUB_TOKEN` or `gh auth login`, and `--repo` or `GITHUB_REPOSITORY`).
 
@@ -215,7 +228,12 @@ nothing the PR changed can alter how it runs.
    Labels go first so a rejected comment can never cost them. A per-PR concurrency group stops two
    runs from creating two comments.
 
-`verify-pr.yml` is only a trigger: it has no permissions, checks out nothing and runs no code.
+`verify-pr.yml` is only a trigger: it has no permissions, checks out nothing and runs no code. It fires on
+`opened`, `synchronize`, `reopened`, `labeled` and `unlabeled`, so a human setting or removing `gate:hold`, or the
+addition job adding an `id:*` flag later, re-runs the verdict. No loop: the label job writes with `GITHUB_TOKEN`,
+and events that token causes never start a workflow run; a burst of label events collapses through the per-PR
+concurrency groups and the label job always reads the PR's live labels. The `trueforge/` skip is case-insensitive
+(GitHub's `startsWith` and the Python checks agree).
 
 | Trusted (default branch) | Untrusted (the PR) |
 |---|---|
@@ -242,7 +260,8 @@ must never use a URL taken from a PR file.
    SOURCES["my-source"] = MySource
    ```
 2. Add a row to `sources/registry.yaml` (repo root): `provider`, `kind` (`api` | `pricelist` |
-   `page`), `source` (the key above), `fields` (what it compares), `added`. The core runs only
+   `page`), `source` (the key above), `fields` (what it compares: `price` makes the provider price-owned for the sweep and the agent,
+   `price-report` is the report-only twin), `added`. The core runs only
    adapters registered there for a provider. A row naming an adapter that fails to import or does
    not cover the provider yields `verify:partial`, not a crash.
 3. Add offline tests with recorded data; never call the network from a test.
@@ -259,7 +278,7 @@ matching, units and guards as `check()`, so `apply the proposal to an empty doc,
 
 ```
 cd scripts && python -m verify.propose --provider aws-bedrock --model-id global.anthropic.claude-sonnet-4-5-20250929-v1:0 \
-    [--mode chat] [--regions us-east-1,eu-west-1] [--allow-listing-prices] [--json]
+    [--mode chat] [--regions us-east-1,eu-west-1] [--json]
 ```
 
 It reads `sources/registry.yaml` (the sources listed for the provider with `price` in `fields`) and prints
@@ -272,17 +291,21 @@ does not list the model is an empty proposal with a note; `unreachable` is true 
 |---|---|---|
 | `aws-price-list` | per region: input, output, cache read, cache write 5m / 1h, batch, flex, priority. Regions: the ones named in `doc.costs`, else every region of the Price List's `region_index.json`. `global.` ids take the global price, all other ids the regional one | two SKUs with two prices, a unit it does not read, a 5x source outlier, a $0 SKU, anything long-context / latency-optimized / custom-model (`tiered_pricing` is never proposed), and token SKUs of another modality (Nova 2 Omni / Pro audio, image, video; Nova Sonic speech) or of a family the parser has no grammar for (listed as unread). `partial` when any of those, a failed region, a requested region with no price, or such a SKU exists |
 | `deepinfra` | the LIST price as `check` maps it: input / output / cache read / cache write 5m / 1h, per-second, per-character | `image_units` (input or output per image is a catalog convention), `input_tokens` of a generator (input vs output image / video token), `time`, `frame_units`, zero prices. An active discount: list price proposed, `partial`, the note gives the percentage and end date. Priority / flex service-tier rates (the API publishes them as multipliers, `rate_per_service_tier_*`) are not read: `partial` and a note, nothing written. Cache prices derived from the API's 8-decimal ratios are rounded to 6 significant digits |
-| `openrouter` | prompt, completion, cache read, cache write (5m), context window, max output | the 1h cache write, negative (variable) prices, tier overrides, image / audio / request prices. ALWAYS `partial`: the listing quotes the cheapest endpoint |
+| `openrouter` (adapter only, see below) | prompt, completion, cache read, cache write (5m), context window, max output | the 1h cache write, negative (variable) prices, tier overrides, image / audio / request prices. ALWAYS `partial`: the listing quotes the cheapest endpoint |
 
-`apply` says whether the addition job may WRITE a proposal: `deepinfra` and `aws-price-list` yes,
-`openrouter` no unless `--allow-listing-prices`.
+`apply` says whether the addition job may WRITE a proposal: `deepinfra` and `aws-price-list` yes. `openrouter` is not
+asked at all: its registry row is `[limits]`, and `propose` only consults rows with `price`, so
+`propose --provider openrouter` answers "no price source is registered for this provider". The adapter still has a
+`propose()` and `--allow-listing-prices` still exists; it only marks the listing price `apply` for a registry that lists
+`price` for openrouter, which this repo's does not.
 
 **Why OpenRouter is report-only.** (1) The addition job's own fetcher already writes the listing price into the
 stub, so a proposal adds nothing: of the last 30 merged OpenRouter addition PRs, 27 files kept the stub's costs
 untouched to merge and the 3 that changed only added `tiered_pricing`. (2) The listing is the cheapest endpoint,
 not first-party: today's /models against 30 random existing `providers/openrouter` files that are listed:
 17 equal, 9 below the listing, 4 above it (file prices above the listing are first-party prices, below it are
-older cheapest-endpoint prices). The price sweep keeps the same line (`SAFE_SOURCES`). Turn it on only with a range check.
+older cheapest-endpoint prices). The price sweep keeps the same line (`SAFE_SOURCES`). Turn it on (`price` in its registry
+row, and `--allow-listing-prices` to mark it `apply`) only with a range check.
 
 ## Page-based sources
 

@@ -124,7 +124,7 @@ def test_escalating_risk_beats_verified():
     assert decide(pr(6e-6)).gate == "escalate"
 
 
-@pytest.mark.parametrize("labels", [["gate:hold"], ["id:123"], ["bug", "gate:hold"], ["id:x", "gate:review"]])
+@pytest.mark.parametrize("labels", [["gate:hold"], ["bug", "gate:hold"], ["id:case-duplicate", "gate:hold"]])
 def test_hold_is_sticky_and_sets_no_gate(labels):
     v = decide(pr(), labels)
     assert v.gate == "hold" and not v.shadow
@@ -136,7 +136,7 @@ def test_hold_outranks_escalate():
     assert decide(pr(6e-6), ["gate:hold"]).gate == "hold"
 
 
-@pytest.mark.parametrize("labels", [["gate:reviewed"], ["gate:holdup"], ["identity"], ["gate:review"], []])
+@pytest.mark.parametrize("labels", [["gate:reviewed"], ["gate:holdup"], ["identity"], ["gate:review"], [], ["id:123"], ["id:x"], ["id:Case-Duplicate"], ["id:case-duplicate2"]])
 def test_near_miss_labels_are_not_hold(labels):
     assert decide(pr(), labels).gate == "review"
 
@@ -406,7 +406,7 @@ def test_a_source_conflict_blocks_fast_lane():
 def test_hold_is_lane_hold_and_never_fast_lane():
     v = decide(feat(), ["gate:hold"])
     assert (v.gate, v.lane) == ("hold", "hold") and "fast-lane" not in v.labels
-    assert decide(feat(), ["id:5"]).lane == "hold"
+    assert decide(feat(), ["id:5"]).lane != "hold"      # an unknown id:* label is no hold
 
 
 def test_ten_files_are_fast_lane_eleven_are_not():
@@ -432,3 +432,37 @@ def test_lane_of():
     assert gates.lane_of(None, False) is None
     assert gates.lane_of("hold", True) == "hold" and gates.lane_of("escalate", True) == "escalate"
     assert gates.lane_of("review", True) == "fast-lane" and gates.lane_of("unverified", False) == "normal"
+
+
+# ---- the addition job's id:* labels --------------------------------------------------------------
+CASE_DUP = "addition flagged: case duplicate of an existing file"
+HIGH_EDIT = "provider has a high human-edit rate and no source price was written"
+
+
+@pytest.mark.parametrize("label,reason", [("id:case-duplicate", CASE_DUP), ("id:high-edit-provider", HIGH_EDIT)])
+def test_addition_flags_escalate_with_a_reason_even_when_everything_is_verified(label, reason):
+    v = decide(pr(), [label])
+    assert (v.gate, v.lane, v.flags) == ("escalate", "escalate", [reason])
+    assert "gate:escalate" in v.labels and not v.shadow and "fast-lane" not in v.labels
+    assert not [x for x in v.labels if x.startswith("id:")]            # the verifier never writes id:* labels
+    assert decide(pr(), []).gate == "review"                           # same PR without the flag
+
+
+def test_both_flags_give_both_reasons_in_a_stable_order():
+    assert decide(pr(), ["id:high-edit-provider", "id:case-duplicate"]).flags == [CASE_DUP, HIGH_EDIT]
+
+
+def test_a_flag_escalates_features_only_prs_out_of_the_fast_lane():
+    v = decide(feat(), ["id:case-duplicate"])
+    assert (v.gate, v.lane) == ("escalate", "escalate") and "fast-lane" not in v.labels
+
+
+def test_hold_outranks_an_addition_flag_and_other_id_labels_do_nothing():
+    assert decide(pr(), ["gate:hold", "id:case-duplicate"]).gate == "hold"
+    v = decide(pr(), ["id:something-else", "id:12"])
+    assert (v.gate, v.flags) == ("review", [])
+
+
+def test_a_flag_escalates_even_when_no_model_file_changed():
+    v = decide([], ["id:case-duplicate"])
+    assert (v.gate, v.lane, v.labels) == ("escalate", "escalate", ["gate:escalate"])

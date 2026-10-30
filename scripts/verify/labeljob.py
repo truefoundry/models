@@ -47,7 +47,7 @@ def make_compute(root: str, token: str):
     def compute(pr: dict, live: list[str]) -> dict:
         base, head = pr["base"]["sha"], pr["head"]["sha"]
         head_ref = str((pr.get("head") or {}).get("ref") or "")
-        if not head_ref.startswith(cli.SKIP_BRANCH_PREFIX):
+        if not head_ref.lower().startswith(cli.SKIP_BRANCH_PREFIX):
             fetch_head(root, pr["number"], head, token, base)
         return cli.run_repo(root, base, head, head_ref=head_ref, current_labels=live)
     return compute

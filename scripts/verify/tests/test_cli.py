@@ -299,3 +299,38 @@ def test_lone_surrogates_in_text_do_not_crash_writing_the_outputs(tmp_path):
     cli.write_text(out, "ok \ud800 end")
     assert out.read_text(encoding="utf-8") == "ok ? end"
     cli.write_text(tmp_path / "p.json", "plain")
+
+
+def test_an_addition_flag_label_reaches_the_comment_as_a_reason_line():
+    out = run(one_file_repo(price(input_cost_per_token=3.1e-6)), FakeSource(res=result(check(IN))), current_labels=["id:case-duplicate"])
+    assert out["gate"] == "escalate" and out["lane"] == "escalate" and "gate:escalate" in out["labels"]
+    assert "addition flagged: case duplicate of an existing file" in out["comment_md"]
+    assert "id:case-duplicate" not in out["labels"]
+    validate(json.loads(json.dumps(out)))
+
+
+# ---- the hold note is its own line, independent of the lane block ---------------------------------------
+def test_a_hold_pr_gets_the_hold_note_in_the_header_and_other_prs_do_not():
+    held = run(one_file_repo(price(input_cost_per_token=3.1e-6)), FakeSource(res=result(check(IN))), current_labels=["gate:hold"])
+    assert held["gate"] == "hold" and "so no gate is set here. Remove it once checked." in held["comment_md"]
+    free = run(one_file_repo(price(input_cost_per_token=3.1e-6)), FakeSource(res=result(check(IN))))
+    assert "Remove it once checked" not in free["comment_md"]
+
+
+def test_the_trueforge_skip_ignores_case():
+    for ref in ("trueforge/x", "TrueForge/x", "TRUEFORGE/X"):
+        assert cli.run(FakeRepo([], {}), BASE_SHA, HEAD_SHA, head_ref=ref)["skipped"] == "trueforge-branch", ref
+    assert cli.run(one_file_repo(base()), BASE_SHA, HEAD_SHA, head_ref="trueforgery/x")["skipped"] is None
+
+
+def test_an_oversized_blob_is_unreadable_not_truncated(repo, monkeypatch):
+    git(repo, "checkout", "-q", "-b", "pr")
+    (repo / "providers" / "p" / "m.yaml").write_text(dump(price(input_cost_per_token=3.1e-6)))
+    git(repo, "commit", "-qam", "change")
+    size = len((repo / "providers" / "p" / "m.yaml").read_bytes())
+    g = cli.GitRepo(repo)
+    monkeypatch.setattr(cli, "MAX_BLOB", size)                       # exactly at the cap: readable
+    assert g.show("HEAD", "providers/p/m.yaml") is not None
+    monkeypatch.setattr(cli, "MAX_BLOB", size - 1)                   # one byte over: None, never a cut-off text
+    assert g.show("HEAD", "providers/p/m.yaml") is None
+    assert g.show("HEAD", "providers/p/missing.yaml") is None

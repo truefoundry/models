@@ -13,10 +13,13 @@ not list is a result with no values and a reason, never a crash. Exit code 0 wha
 APPLY. A proposal is a lead; `apply` says whether the addition job may WRITE it:
   deepinfra, aws-price-list   yes: their prices are the provider's own (DeepInfra's list price, the
                               AWS Price List's on-demand price), the same ones the PR gate verifies.
-  openrouter                  NO, report-only, unless --allow-listing-prices. The listing quotes the
+  openrouter                  NO. The registry lists it as `limits`, not `price`, so `propose` does not consult
+                              it ("no price source is registered for this provider"). The listing quotes the
                               cheapest endpoint, not the first-party price, and the addition job's own
                               fetcher already writes the same listing price into the stub. The sweep
                               keeps the same line (`SAFE_SOURCES`). Evidence: scripts/verify/README.md.
+                              --allow-listing-prices only marks its price `apply` for a registry that lists
+                              `price` for openrouter (tests do); the registry in this repo does not.
 """
 from __future__ import annotations
 
@@ -166,7 +169,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--repo", default=None, help="repo root with sources/registry.yaml (default: this checkout)")
     ap.add_argument("--registry", default=None)
     ap.add_argument("--allow-listing-prices", action="store_true",
-                    help="let an OpenRouter listing price be marked `apply` (default: report-only)")
+                    help="mark an OpenRouter listing price `apply`; only matters for a registry that lists `price` "
+                         "for openrouter (this repo's does not, so openrouter is never asked)")
     ap.add_argument("--deadline", type=float, default=DEFAULT_DEADLINE_S, help="seconds of network per source")
     ap.add_argument("--json", dest="as_json", action="store_true")
     args = ap.parse_args(argv)

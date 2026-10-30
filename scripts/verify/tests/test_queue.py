@@ -101,7 +101,7 @@ def test_drafts_closed_trueforge_and_held_prs_are_left_out():
     assert rows_of(pr(3, 100, "gate:escalate", ref="trueforge/models-bot-x", bot=False)) == []
     assert rows_of(pr(3, 100, "gate:escalate", ref="trueforge")) != []                  # only the exact prefix
     assert rows_of(pr(4, 100, "gate:escalate", "gate:hold")) == []
-    assert rows_of(pr(5, 100, "gate:escalate", "id:12")) == []
+    assert rows_of(pr(5, 100, "gate:escalate", "id:12")) != []                         # id:* is no hold
     assert rows_of(pr(6, 100, "gate:escalate", "gate:holdup")) != []
 
 
@@ -275,3 +275,62 @@ def test_a_pr_title_cannot_break_the_table_or_the_code_span():
     row = next(x for x in body.split("\n") if x.startswith("| [#7]"))
     assert row.count("|") == 4 and row.count("`") == 2 and "\u202e" not in body
     assert "a'b/c d" in row
+
+
+# ---- a human closed the tracking issue ------------------------------------------------------------
+def tracker(number, state="open", **kw):
+    return {"number": number, "title": queue.TITLE, "body": "old", "user": {"login": BOT}, "state": state, **kw}
+
+
+def test_a_closed_tracking_issue_is_not_reopened_nor_replaced_nor_commented():
+    api = FakeApi(prs=[pr(1, 30, "fast-lane")], issues=[tracker(7, "closed")])
+    did = queue.publish(api, queue.overdue(api.prs, NOW), NOW)
+    assert did == {"issue": "closed by a human: left alone", "number": 7, "comment": "none"}
+    assert api.writes() == []
+
+
+def test_an_open_issue_wins_over_a_closed_one_and_the_newest_closed_is_the_one_respected():
+    api = FakeApi(issues=[tracker(3, "closed"), tracker(9, "open")])
+    assert queue.find_issue(api)["number"] == 9
+    api = FakeApi(issues=[tracker(3, "closed"), tracker(9, "closed")])
+    assert queue.find_issue(api)["number"] == 9
+    assert queue.find_issue(FakeApi(issues=[tracker(3)]))["number"] == 3                       # no state key: open
+    other = tracker(4, "closed", user={"login": "mallory"})
+    assert queue.find_issue(FakeApi(issues=[other])) is None                                   # a stranger's closed issue is not ours
+
+
+def test_the_issues_are_listed_with_state_all():
+    seen = []
+    api = FakeApi(issues=[tracker(1)])
+    real = api.request
+    api.request = lambda m, p, *a, **k: (seen.append(p), real(m, p, *a, **k))[1]
+    queue.find_issue(api)
+    assert any("/issues?state=all" in p for p in seen)
+
+
+# ---- bot detection, links, branch case --------------------------------------------------------------
+@pytest.mark.parametrize("user_type,ref,expected", [
+    ("Bot", "bot/update-x", True), ("User", "bot/update-x", False), ("Bot", "feature/x", False),
+    ("Bot", "Bot/update-x", False), (None, "bot/update-x", False), ("bot", "bot/update-x", False),
+])
+def test_is_bot_pr_needs_a_bot_account_and_a_bot_branch(user_type, ref, expected):
+    assert queue.is_bot_pr({"user": {"type": user_type}, "head": {"ref": ref}}) is expected
+    assert queue.is_bot_pr({"user": None, "head": None}) is False
+
+
+@pytest.mark.parametrize("link,expected_fallback", [
+    ("https://github.com/o/r/pull/5", False), ("https://github.com/o/r/pull/5 evil", True), ("https://github.com/o/r/pull/5)", True),
+    ("https://example.com/o/r/pull/5", True), (None, True), (5, True), ("http://github.com/o/r/pull/5", True),
+    ("https://github.com.evil.io/o/r/pull/5", True), ("https://github.comx/o/r/pull/5", True),
+])
+def test_the_pr_link_is_the_apis_only_when_it_is_a_clean_github_link(link, expected_fallback):
+    p = {**pr(5, 30), "html_url": link}
+    got = queue._url(p)
+    assert (got == link) is (not expected_fallback)
+    assert " " not in got and ")" not in got
+
+
+def test_the_trueforge_branch_skip_ignores_case():
+    for ref in ("trueforge/x", "TrueForge/X", "TRUEFORGE/y"):
+        assert rows_of(pr(1, 100, "gate:escalate", ref=ref)) == [], ref
+    assert rows_of(pr(1, 100, "gate:escalate", ref="trueforgery/x")) != []

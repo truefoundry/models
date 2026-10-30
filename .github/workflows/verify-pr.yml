@@ -6,9 +6,16 @@ name: Verify PR
 # does everything from the DEFAULT branch: it fetches the PR head as git objects only and runs the
 # default branch's verifier on base..head. A PR that stops this workflow from running simply gets
 # no labels.
+#
+# `labeled` / `unlabeled` re-run the verdict when a human sets or removes gate:hold, or the addition
+# job adds an id:* flag later. No loop: the label job writes with GITHUB_TOKEN, and events created
+# by GITHUB_TOKEN never start another workflow run. Several quick label changes are collapsed by the
+# concurrency groups here and in verify-label.yml (one run per PR, the newest wins; the label job
+# always reads the PR's live labels).
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
 
 permissions: {}
 

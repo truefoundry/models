@@ -5,22 +5,78 @@
 #   provider  directory under providers/
 #   kind      api | pricelist | page   (how the source is read)
 #   source    adapter name: the key in scripts/verify/sources/__init__.py SOURCES
-#   fields    what the adapter compares: price | limits | features | modalities | lifecycle
+#   fields    what the adapter compares: price | price-report | limits | features | modalities | lifecycle
+#             Only `price` is read by code (the sweep, the update agent and `verify.propose` test
+#             `"price" in fields`); the other values say what the adapter compares and decide nothing.
+#             List `limits` only for an adapter that compares context window / max output (openrouter);
+#             deepinfra's adapter reads prices only, so its row says `[price]`.
 #   added     ISO date the entry was added
+#
+# CONTRACT with the price sweep and the update agent (they live in the models-agent repo and read
+# this file; they cannot be imported from here):
+#   `price-report` is the report-only twin of `price`: the adapter compares prices (the PR gate shows
+#   them) but the provider is NOT price-owned. Both the sweep (sweep/verifier.py load_registry) and the
+#   agent (updation/job/ownership.py load_price_owned) test `"price" in fields` by list membership,
+#   so they read `price-report` as nothing: the agent keeps writing the prices, the sweep only reports.
+#
+#   An entry with `price` in `fields` means the sweep / agent treat that provider as PRICE-OWNED:
+#   the agent stops writing its prices and the sweep writes them from the source. So `price` may
+#   only be listed for a source the SWEEP itself writes (its SAFE_SOURCES plus the adapter in its
+#   snapshot), and only those:
+#
+# SAFE-TO-WRITE: deepinfra, aws-price-list, anthropic-pricing-page
+# PRICE-OWNED: deepinfra, aws-price-list
+# REPORT-ONLY: openrouter, azure-retail-prices
+#
+#   SAFE-TO-WRITE = the adapter is verified safe; PRICE-OWNED = the rows that carry `price`.
+#   anthropic-pricing-page is safe to write, but its row carries `price-report`: the registry does not
+#   hand it price ownership until the sweep carries the adapter and a SAFE_SOURCES entry. Otherwise the
+#   agent would stop writing Anthropic prices while the sweep never writes them (frozen prices).
+#
+#   openrouter is deliberately report-only until a range check exists: /models quotes the CHEAPEST
+#   endpoint, not the first-party price (of 30 existing files 9 sit below it and 4 above). It is
+#   listed with `[limits]` (context window, max output: those it compares reliably) and NOT `price`,
+#   because `price` would make the agent stop writing OpenRouter prices while the sweep only reports
+#   them. The PR gate still compares OpenRouter prices (report-only); `verify.propose` therefore does
+#   not consult it through this file.
+#   azure-retail-prices compares prices but is NOT safe to write: on 2026-10-28 15 of 979 Azure files
+#   conflict (26 checks, one 2.6x) and the Global vs Regional meter is a guess for some files. Its three
+#   rows therefore carry `price-report`, not `price`. Move them to `price` only when the sweep's SAFE
+#   set lists azure-retail-prices.
 version: 1
 sources:
   - provider: openrouter
     kind: api
     source: openrouter
-    fields: [price, limits]
+    fields: [limits]
     added: 2026-10-27
   - provider: deepinfra
     kind: api
     source: deepinfra
-    fields: [price, limits]
+    fields: [price]
     added: 2026-10-27
   - provider: aws-bedrock
     kind: pricelist
     source: aws-price-list
     fields: [price]
     added: 2026-10-27
+  - provider: anthropic
+    kind: page
+    source: anthropic-pricing-page
+    fields: [price-report]
+    added: 2026-10-28
+  - provider: azure-open-ai
+    kind: api
+    source: azure-retail-prices
+    fields: [price-report]
+    added: 2026-10-28
+  - provider: azure-ai-foundry
+    kind: api
+    source: azure-retail-prices
+    fields: [price-report]
+    added: 2026-10-28
+  - provider: microsoft-foundry
+    kind: api
+    source: azure-retail-prices
+    fields: [price-report]
+    added: 2026-10-28

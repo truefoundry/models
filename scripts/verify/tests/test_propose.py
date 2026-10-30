@@ -740,3 +740,19 @@ def test_main_json_and_registry_failure(tmp_path, capsys):
 
 def test_cli_applies_only_deepinfra_and_aws_by_default():
     assert P.APPLY_SOURCES == frozenset({"deepinfra", "aws-price-list"})
+
+
+# ---- the registry rows for anthropic / azure: no proposal, cleanly ------------------------------------
+def test_providers_whose_adapter_has_no_propose_give_no_proposal_not_an_error():
+    from verify import registry
+    from verify.sources.anthropic_pricing import AnthropicPricingSource
+    from verify.sources.azure_retail import AzureRetailSource
+    root = Path(__file__).resolve().parents[3]
+    reg = registry.load(root / "sources" / "registry.yaml", root / "providers")
+    sources = {"anthropic-pricing-page": lambda **kw: AnthropicPricingSource(fetch=FakeFetch({})),
+               "azure-retail-prices": lambda **kw: AzureRetailSource(fetch=FakeFetch({}))}
+    for provider in ("anthropic", "azure-open-ai", "azure-ai-foundry", "microsoft-foundry"):
+        out = P.propose_for(reg, provider, "some-model", sources=sources)
+        assert out["proposals"] == [] and out["reason"] == "no price source is registered for this provider", provider
+    out = P.propose_for(reg, "openrouter", "x/y", sources=sources)          # price-less in the registry on purpose
+    assert out["proposals"] == [] and out["reason"] == "no price source is registered for this provider"

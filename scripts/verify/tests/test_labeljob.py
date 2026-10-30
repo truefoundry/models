@@ -142,3 +142,9 @@ def test_main_requires_its_environment(monkeypatch):
     for k in ("GITHUB_TOKEN", "GH_TOKEN", "GITHUB_REPOSITORY", "GITHUB_EVENT_PATH", "VERIFY_ROOT", "GITHUB_WORKSPACE"):
         monkeypatch.delenv(k, raising=False)
     assert labeljob.main() == 2
+
+
+@pytest.mark.parametrize("ref", ["trueforge/models", "TrueForge/models", "TRUEFORGE/x"])
+def test_the_trueforge_skip_never_fetches_whatever_the_case(world, monkeypatch, ref):
+    monkeypatch.setattr(labeljob, "fetch_head", lambda *a, **k: pytest.fail("must not fetch"))
+    assert labeljob.make_compute(str(world.trusted), "")(pr_of(world, ref=ref), [])["skipped"] == "trueforge-branch"
