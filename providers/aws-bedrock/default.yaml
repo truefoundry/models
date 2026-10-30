@@ -8,6 +8,9 @@ documentation:
     - https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html
     - https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-mid-conversation-system.html
     - https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html
+limits:
+    context_window: 128000
+    max_tokens: 4096
 messages:
     options:
         - system
