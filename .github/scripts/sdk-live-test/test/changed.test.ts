@@ -219,7 +219,7 @@ describe('planScenarios', () => {
   });
 
   it('unsupported mode fails marker', () => {
-    for (const mode of ['realtime', 'video', 'ocr', 'unknown']) {
+    for (const mode of ['video', 'ocr', 'unknown']) {
       assert.deepEqual(
         planScenarios({ provider: 'openai', model: 'x', mode }).map((s) => s.id),
         [`unsupported/${mode}`],
