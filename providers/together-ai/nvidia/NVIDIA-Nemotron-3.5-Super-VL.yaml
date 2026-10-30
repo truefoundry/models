@@ -3,20 +3,29 @@ costs:
       input_cost_per_token: 1.5e-7
       output_cost_per_token: 5e-7
       region: "*"
+features:
+    - function_calling
+    - structured_output
 limits:
     context_window: 262144
 modalities:
     input:
         - text
         - image
+        - video
     output:
         - text
 mode: chat
 model: nvidia/NVIDIA-Nemotron-3.5-Super-VL
 provisioning: serverless
+removeParams:
+    - reasoning_effort
 sources:
     - https://www.together.ai/pricing
+    - https://www.together.ai/models/nemotron-3-5-super-vl
+    - https://docs.together.ai/docs/inference-models
     - https://docs.nvidia.com/nemo/automodel/model-coverage/omni/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16
     - https://docs.nvidia.com/nemo/megatron-bridge/nightly/models/nemotron/nemotron3.5-super-vl.html
+status: active
 supportedModes:
     - chat
