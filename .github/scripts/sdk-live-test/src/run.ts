@@ -87,9 +87,11 @@ function buildCall(
   // Synthetic account — same shape the gateway would load from control-plane.
   // Example FQN: sdk-live-openai/gpt-4o-mini
   const accountName = `sdk-live-${model.provider}`;
+  // Fall back to a region the catalogue lists (e.g. bare Bedrock IDs are in-region only in a few regions).
+  const costRegions = (model.costs ?? []).map((c) => c.region);
   const region =
     Object.entries(spec.modelPrefixRegions ?? {}).find(([prefix]) => model.model.startsWith(prefix))?.[1] ??
-    spec.region;
+    (spec.region && costRegions.length && !costRegions.includes(spec.region) ? costRegions[0] : spec.region);
   const keyFileExtras =
     spec.authType === 'key-file'
       ? {
