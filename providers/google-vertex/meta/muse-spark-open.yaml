@@ -1,7 +1,8 @@
 features:
     - function_calling
 limits:
-    context_window: 1000000
+    context_window: 1048576
+    max_input_tokens: 1048576
 modalities:
     input:
         - text
@@ -12,9 +13,22 @@ modalities:
         - text
 mode: chat
 model: meta/muse-spark-open
+params:
+    - defaultValue: xhigh
+      key: reasoning_effort
+      supportedValues:
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
 provisioning: provisioned
 sources:
     - https://research.meta.ai/blog/muse-spark-open
     - https://thenewstack.io/meta-muse-spark-open/
+    - https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/muse-spark-open
+    - https://dev.meta.ai/docs/muse-spark-open
+status: active
 supportedModes:
     - chat
+thinking: true
