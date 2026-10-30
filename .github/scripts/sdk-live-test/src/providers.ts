@@ -19,6 +19,8 @@ export type ProviderSpec = {
   authType?: 'api-key' | 'key-file';
   /** Account region. Vertex key-file uses europe-west4; Bedrock API-key accounts use us-east-1. */
   region?: string;
+  /** Per-publisher region override (first path segment of the model id), e.g. Vertex `meta` → us-east5. */
+  publisherRegions?: Record<string, string>;
   /** Account manifest fields whose values come from env (Databricks base_url, Foundry endpoints). */
   accountEnv?: Record<string, string>;
   /** Model verified live for smoke; if deprecated or unset, the first non-deprecated chat model. */
@@ -132,7 +134,8 @@ const SPECS: Record<string, ProviderSpec> = {
     accountType: 'provider-account/google-vertex',
     apiKeyEnv: 'VERTEX_KEY_FILE',
     authType: 'key-file',
-    region: 'us-east5',
+    region: 'global',
+    publisherRegions: { meta: 'us-east5' },
     smokeModel: 'anthropic/claude-haiku-4-5',
   },
   'aws-bedrock': {
