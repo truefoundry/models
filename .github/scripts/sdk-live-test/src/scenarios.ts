@@ -9,11 +9,12 @@
  *   chat/vision|pdf|audio/non-stream when modalities.input declares them
  *
  * Plans every harnessed mode in `mode` ∪ `supportedModes` (e.g. chat+responses).
- * Unharnessed extras (realtime, video, ocr, …) are skipped when another mode runs;
+ * Unharnessed extras (video, ocr, …) are skipped when another mode runs;
  * if none are harnessed, returns id `unsupported/<mode>` → fail in run.ts.
  */
 import type { Endpoint } from '@truefoundry/ai-gateway-sdk';
 import type { CatalogueModel, ModelParam } from './catalogue.js';
+import { REALTIME_PROVIDERS } from './realtime.js';
 import {
   sampleImageDataUrl,
   samplePdfBase64,
@@ -604,6 +605,7 @@ const HARNESSED_MODES = new Set([
   'image',
   'moderation',
   'decision',
+  'realtime',
 ]);
 
 /** Primary `mode` first, then any extra `supportedModes` (deduped). */
@@ -860,6 +862,11 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
           body: decisionVisionBody(model),
         });
       }
+      return out;
+
+    case 'realtime':
+      if (!REALTIME_PROVIDERS.has(model.provider)) return [];
+      out.push({ id: 'realtime/baseline', endpoint: 'realtime', path: '/v1/realtime', body: {} });
       return out;
 
     default:
