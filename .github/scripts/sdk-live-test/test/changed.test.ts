@@ -180,6 +180,22 @@ describe('planScenarios', () => {
     );
   });
 
+  it('plans a vision scenario only for openrouter decision models with image input', () => {
+    const decision = (provider: string, input: string[]) =>
+      planScenarios({
+        provider,
+        model: 'dec',
+        mode: 'decision',
+        modalities: { input, output: [] },
+      }).map((s) => s.id);
+    assert.deepEqual(decision('openrouter', ['text', 'image']), [
+      'decision/baseline',
+      'decision/vision',
+    ]);
+    assert.deepEqual(decision('openrouter', ['text']), ['decision/baseline']);
+    assert.deepEqual(decision('openai', ['text', 'image']), ['decision/baseline']);
+  });
+
   it('plans every harnessed supportedModes entry', () => {
     const ids = planScenarios({
       provider: 'openai',
@@ -203,7 +219,7 @@ describe('planScenarios', () => {
   });
 
   it('unsupported mode fails marker', () => {
-    for (const mode of ['realtime', 'video', 'ocr', 'unknown']) {
+    for (const mode of ['video', 'ocr', 'unknown']) {
       assert.deepEqual(
         planScenarios({ provider: 'openai', model: 'x', mode }).map((s) => s.id),
         [`unsupported/${mode}`],
