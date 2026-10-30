@@ -139,6 +139,11 @@ function mergeParams(model: CatalogueModel): Record<string, unknown> {
   return merged;
 }
 
+/** The SDK appends the request path to `{openai_endpoint}/openai/v1` for Foundry, so `/v1` would be doubled. */
+function responsesPath(model: CatalogueModel): string {
+  return model.provider === 'microsoft-foundry' ? '/responses' : '/v1/responses';
+}
+
 /** Cheap output cap; honor removeParams (gpt-4.1* → max_completion_tokens). */
 function withCap(model: CatalogueModel, body: Record<string, unknown>): Record<string, unknown> {
   const removed = new Set(model.removeParams ?? []);
@@ -637,7 +642,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
         out.push({
           id: label('responses/baseline', stream),
           endpoint: 'createModelResponse',
-          path: '/v1/responses',
+          path: responsesPath(model),
           body: {
             model: modelId,
             input: 'Reply with the single word: ok',
@@ -656,7 +661,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
           out.push({
             id: label(kind, stream),
             endpoint: 'createModelResponse',
-            path: '/v1/responses',
+            path: responsesPath(model),
             body: {
               ...responsesModalityBody(chatFeatureBody(model, feature)),
               ...(stream ? { stream: true } : {}),
@@ -671,7 +676,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
             out.push({
               id: label('responses/params', stream),
               endpoint: 'createModelResponse',
-              path: '/v1/responses',
+              path: responsesPath(model),
               body: {
                 ...responsesModalityBody(
                   withCap(model, {
@@ -686,7 +691,7 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
           }
         }
       }
-      pushModalitySmokes(out, model, 'createModelResponse', '/v1/responses', responsesModalityBody);
+      pushModalitySmokes(out, model, 'createModelResponse', responsesPath(model), responsesModalityBody);
       return out;
 
     case 'embedding':
