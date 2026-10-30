@@ -284,6 +284,24 @@ not first-party: today's /models against 30 random existing `providers/openroute
 17 equal, 9 below the listing, 4 above it (file prices above the listing are first-party prices, below it are
 older cheapest-endpoint prices). The price sweep keeps the same line (`SAFE_SOURCES`). Turn it on only with a range check.
 
+## azure-retail-prices (azure-open-ai, azure-ai-foundry, microsoft-foundry)
+
+Public Azure Retail Prices API, one filter (Foundry Models, Consumption, five reference regions), at most 12 pages
+and 8 MB per run, a wall-clock deadline. A 429, 408, 5xx or network error on a page is retried up to 3 times (1, 2, 4 s;
+the server's `Retry-After` when it is at most 10 s) while the budget allows. If the fetch still fails, every Azure file is
+`partial` with the note `prepare failed (HTTPError 429)` (the status is in the note) and nothing is compared or written.
+Details and the SKU grammar are in `sources/azure_retail.py`. What a reviewer
+must know about `*`, the catalog's default cost entry, which has no Azure deployment type of its own:
+
+- `global`, `datazone_us`, `datazone_eu` are compared with the Global / Data Zone meters of their own reference regions.
+- `*` next to a `global` entry is the **Regional** price. If Azure has no Regional meter for the model, `*` is
+  `uncovered` with a note (it is not compared with Global).
+- `*` with **no** `global` entry is taken as **Global**. When Azure also has a Regional price that differs (usually
+  about 10% higher), a `*` equal to the Global price is **verified as Global**, and every such check carries the note
+  "assumes `*` = Global (...)". A `*` equal to the Regional price is `uncovered`, and a `*` equal to neither is a
+  conflict that is not writable (which price to write is a guess).
+- Claude on Foundry (Marketplace-billed), tiered / audio / image / realtime / fine-tune prices stay `uncovered`.
+
 ## Tests
 
 ```
