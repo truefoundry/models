@@ -8,8 +8,6 @@ modalities:
     input:
         - text
         - image
-mode: decision
+mode: unsupported # Served only on OpenRouter's Extractions API (/api/alpha/extractions), not decisions; see https://openrouter.ai/cloudflare/clairic
 model: cloudflare/clairic
 provisioning: serverless
-supportedModes:
-    - decision
