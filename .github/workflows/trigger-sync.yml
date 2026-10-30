@@ -2,6 +2,11 @@ name: Build and Upload Model Configs
 
 on:
   workflow_dispatch:
+    inputs:
+      skip_publish_guard:
+        description: "Publish even if the publish guard finds problems (it still runs and reports). Check the guard's report first."
+        type: boolean
+        default: false
   push:
     branches:
       - main
@@ -77,6 +82,13 @@ jobs:
     needs: build
 
     steps:
+      # Checkout first: it cleans the workspace, which would delete the downloaded artifact.
+      - name: Checkout publish guard
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+          persist-credentials: false
+
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
@@ -93,6 +105,66 @@ jobs:
           BUCKET_NAME="${{ secrets.BUCKET_NAME }}"
           BUCKET_NAME_WITH_DASHES=$(echo "$BUCKET_NAME" | sed 's/./&-/g' | sed 's/-$//')
           echo "b-u-c-k-e-t-n-a-m-e: $BUCKET_NAME_WITH_DASHES"
+
+      # Compares the built ai-models.json with the one that is live, before anything is copied.
+      # Repository variable PUBLISH_GUARD_MODE=enforce blocks the publish on blocking findings;
+      # any other value, or unset, only reports them in the job summary. A manual run with
+      # skip_publish_guard on publishes despite findings, but never a malformed file. See
+      # scripts/publish_guard.py and scripts/README.md.
+      - name: Publish guard
+        env:
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+          GUARD_MODE: ${{ vars.PUBLISH_GUARD_MODE }}
+          SKIP_GUARD: ${{ inputs.skip_publish_guard }}
+        run: |
+          mode="${GUARD_MODE,,}"
+          mode="${mode//[[:space:]]/}"
+          enforce=false
+          if [ "$mode" = "enforce" ] && [ "$SKIP_GUARD" != "true" ]; then
+            enforce=true
+          fi
+          args=(--new ai-models.json --summary "$GITHUB_STEP_SUMMARY")
+          have_live=false
+          for attempt in 1 2 3; do
+            if aws s3 cp "s3://${BUCKET_NAME}/llm-gateway/v2/prod/ai-models.json" live-ai-models.json --only-show-errors; then
+              have_live=true
+              break
+            fi
+            sleep $((attempt * 5))
+          done
+          if [ "$have_live" = true ]; then
+            args+=(--live live-ai-models.json)
+          elif [ "$enforce" = true ]; then
+            echo "::error::publish guard could not read the live ai-models.json, so it cannot compare. Check that the publish role can s3:GetObject it, or start this workflow manually with skip_publish_guard on to publish unchecked."
+            exit 1
+          else
+            echo "::warning::publish guard could not read the live ai-models.json; only the absolute checks will run"
+          fi
+          if [ "$enforce" != true ]; then
+            args+=(--report-only)
+          fi
+          set +e
+          python3 scripts/publish_guard.py "${args[@]}"
+          status=$?
+          set -e
+          case "$status" in
+            0) ;;
+            10)
+              echo "::error::publish guard blocked this publish (see the job summary). After checking the report, start this workflow manually with skip_publish_guard on (the Re-run button keeps the old inputs). A manual run builds and publishes the current head of the branch you pick, so it also ships anything merged since."
+              exit 1
+              ;;
+            2)
+              echo "::error::publish guard: the new ai-models.json is unreadable or malformed. This cannot be overridden."
+              exit 1
+              ;;
+            *)
+              echo "::warning::publish guard did not run (exit $status); continuing without it"
+              {
+                echo "## Publish guard"
+                echo "**The guard did not run (exit $status). Nothing was checked.**"
+              } >> "$GITHUB_STEP_SUMMARY"
+              ;;
+          esac
 
       # Version file uploaded last (per destination): consumers only trust the version file
       # once the data it describes is already durably in place at that destination.
