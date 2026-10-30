@@ -25,6 +25,7 @@ mode: chat
 model: databricks-claude-sonnet-4-5
 provisioning: serverless
 removeParams:
+    - top_p
     - reasoning_effort
 sources:
     - https://docs.databricks.com/aws/en/machine-learning/model-serving/function-calling

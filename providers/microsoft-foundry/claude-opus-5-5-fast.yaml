@@ -49,6 +49,10 @@ params:
           - max
       type: string
 provisioning: serverless
+removeParams:
+    - temperature
+    - top_p
+    - top_k
 sources:
     - https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry
     - https://platform.claude.com/docs/en/about-claude/pricing
