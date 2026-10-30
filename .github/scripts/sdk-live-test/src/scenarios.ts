@@ -866,7 +866,9 @@ function planOneMode(model: CatalogueModel, mode: string): Scenario[] {
 
     case 'realtime':
       if (!REALTIME_PROVIDERS.has(model.provider)) return [];
-      out.push({ id: 'realtime/baseline', endpoint: 'realtime', path: '/v1/realtime', body: {} });
+      for (const kind of ['baseline', 'turn', ...(model.features?.includes('function_calling') ? ['tools'] : [])]) {
+        out.push({ id: `realtime/${kind}`, endpoint: 'realtime', path: '/v1/realtime', body: {} });
+      }
       return out;
 
     default:
