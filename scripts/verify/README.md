@@ -284,6 +284,15 @@ not first-party: today's /models against 30 random existing `providers/openroute
 17 equal, 9 below the listing, 4 above it (file prices above the listing are first-party prices, below it are
 older cheapest-endpoint prices). The price sweep keeps the same line (`SAFE_SOURCES`). Turn it on only with a range check.
 
+## Page-based sources
+
+`sources/anthropic_pricing.py` (Anthropic pricing docs, Markdown) is the pilot for a provider with no price API. Page
+adapters parse deterministically (no LLM) and fail closed: an unexpected header, column count, unit or model name makes
+every file `partial` with one note. Cells are cross-checked against the page's own multipliers, and the fetch is pinned to
+the page's host over https. `python -m verify.sources.anthropic_pricing --fingerprints` prints versioned per-row hashes
+for change detection (the page's raw hash is not a stable signal); the sweep and the schedule should consume that, not
+re-parse the page. Registry row: `provider: anthropic`, `kind: page`, `source: anthropic-pricing-page`.
+
 ## azure-retail-prices (azure-open-ai, azure-ai-foundry, microsoft-foundry)
 
 Public Azure Retail Prices API, one filter (Foundry Models, Consumption, five reference regions), at most 12 pages
