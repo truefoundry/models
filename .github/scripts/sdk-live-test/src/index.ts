@@ -45,8 +45,8 @@ function writeSummaryMarkdown(results: ScenarioResult[]): void {
     results.length === 0
       ? '**Result:** skipped — no models to test.'
       : failed.length === 0
-        ? `**Result:** passed (${results.length} scenarios)`
-        : `**Result:** failed (${failed.length}/${results.length} scenarios)`;
+        ? `**Result:** ✅ passed (${results.length} scenarios)`
+        : `**Result:** ❌ failed (${failed.length}/${results.length} scenarios)`;
 
   const lines = [
     '<!-- sdk-live-summary -->',
@@ -61,7 +61,9 @@ function writeSummaryMarkdown(results: ScenarioResult[]): void {
       '',
       '| Model | Pass | Fail |',
       '| --- | ---: | ---: |',
-      ...[...byModel.entries()].map(([model, c]) => `| \`${model}\` | ${c.pass} | ${c.fail} |`),
+      ...[...byModel.entries()].map(
+        ([model, c]) => `| ${c.fail === 0 ? '✅' : '❌'} \`${model}\` | ${c.pass} | ${c.fail} |`,
+      ),
     );
   }
   if (failed.length > 0) {
