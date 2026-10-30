@@ -1,7 +1,26 @@
+canonical_model: cohere/north-small-translate-1.0
+costs:
+    - input_cost_per_token: 0
+      output_cost_per_token: 0
+      region: "*"
 limits:
-    context_window: 32768
-mode: completion
+    context_window: 16000
+    max_output_tokens: 16000
+    max_tokens: 16000
+modalities:
+    input:
+        - text
+    output:
+        - text
+mode: chat
 model: north-small-translate-1.0
+params:
+    - key: max_tokens
+      maxValue: 16000
+provisioning: serverless
+sources:
+    - https://docs.cohere.com/docs/north-small-translate-1.0
+    - https://docs.cohere.com/changelog/north-small-translate-1-0
+status: active
 supportedModes:
-    - completion
     - chat
