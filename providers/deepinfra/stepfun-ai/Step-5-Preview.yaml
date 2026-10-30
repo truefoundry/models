@@ -1,16 +1,21 @@
 costs:
-    - cache_read_input_token_cost: 5e-8
+    - cache_read_input_token_cost: 1e-7
       input_cost_per_token: 1e-6
       output_cost_per_token: 2.7e-6
       region: "*"
 features:
     - prompt_caching
+    - function_calling
+    - json_output
 limits:
     context_window: 1048576
     max_tokens: 1048576
 modalities:
     input:
+        - text
         - image
+    output:
+        - text
 mode: chat
 model: stepfun-ai/Step-5-Preview
 provisioning: serverless
