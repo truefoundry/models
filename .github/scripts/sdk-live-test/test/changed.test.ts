@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, it } from 'node:test';
 import { modelIdFromYamlFile, parseProviderPath } from '../src/changed.js';
-import { getProviderSpec, projectIdFromKeyFile } from '../src/providers.js';
+import { getProviderSpec, projectIdFromKeyFile, resolveRegion } from '../src/providers.js';
 import { planScenarios } from '../src/scenarios.js';
 import { targetsWithSecrets } from '../src/smoke.js';
 
@@ -62,6 +62,15 @@ describe('planScenarios', () => {
     assert.ok(ids.includes('chat/reasoning/medium/non-stream'));
     assert.ok(ids.includes('chat/params/non-stream'));
     assert.ok(ids.includes('chat/params/stream'));
+  });
+
+  it('foundry responses use /responses, others /v1/responses', () => {
+    const paths = (provider: string) =>
+      planScenarios({ provider, model: 'gpt', mode: 'responses' })
+        .filter((s) => s.id.startsWith('responses/baseline'))
+        .map((s) => s.path);
+    assert.deepEqual(paths('microsoft-foundry'), ['/responses', '/responses']);
+    assert.deepEqual(paths('openai'), ['/v1/responses', '/v1/responses']);
   });
 
   it('caps with max_completion_tokens when max_tokens removed', () => {
@@ -277,6 +286,29 @@ describe('new provider credentials', () => {
   });
 });
 
+describe('resolveRegion', () => {
+  const bedrock = getProviderSpec('aws-bedrock')!;
+  const vertex = getProviderSpec('google-vertex')!;
+  const costs = (...regions: string[]) => regions.map((region) => ({ region }));
+
+  it('uses the model-id prefix override', () => {
+    assert.equal(resolveRegion({ model: 'meta/llama-4', costs: costs('global') }, vertex), 'us-east5');
+  });
+  it('keeps the default region when the catalogue lists it', () => {
+    assert.equal(resolveRegion({ model: 'us.anthropic.claude-sonnet-5', costs: costs('us-west-2', 'us-east-1') }, bedrock), 'us-east-1');
+  });
+  it('falls back to the first catalogue region when the default is not listed', () => {
+    assert.equal(resolveRegion({ model: 'anthropic.claude-sonnet-5', costs: costs('eu-west-2', 'ap-southeast-1') }, bedrock), 'eu-west-2');
+    assert.equal(resolveRegion({ model: 'in.anthropic.claude-sonnet-5', costs: costs('ap-south-2', 'ap-south-1') }, bedrock), 'ap-south-2');
+  });
+  it('ignores wildcard cost regions', () => {
+    assert.equal(resolveRegion({ model: 'language-v1-moderate-text', costs: costs('*') }, vertex), 'global');
+  });
+  it('keeps the default region when the model has no costs', () => {
+    assert.equal(resolveRegion({ model: 'anthropic.claude-sonnet-5' }, bedrock), 'us-east-1');
+  });
+});
+
 describe('smoke skips deprecated models', () => {
   it('falls back to first non-deprecated chat model when the pin is deprecated', () => {
     const prev = process.env.XAI_API_KEY;
@@ -315,6 +347,51 @@ describe('wafer, typesafe, elevenlabs', () => {
     assert.equal(scenario!.endpoint, 'tts-proxy');
     assert.match(scenario!.path, /^\/tts\/elevenlabs\/v1\/text-to-speech\/[A-Za-z0-9]+$/);
     assert.deepEqual(scenario!.body, { text: 'hello', model_id: 'eleven_flash_v2_5' });
+  });
+});
+
+describe('deepgram', () => {
+  it('is registered with its secret', () => {
+    assert.equal(getProviderSpec('deepgram')?.apiKeyEnv, 'DEEPGRAM_API_KEY');
+  });
+
+  it('tts uses the native proxy with the model as a query param', () => {
+    const [scenario, ...rest] = planScenarios({
+      provider: 'deepgram',
+      model: 'aura-2-thalia-en',
+      mode: 'text_to_speech',
+    });
+    assert.equal(rest.length, 0);
+    assert.equal(scenario!.endpoint, 'tts-proxy');
+    assert.equal(scenario!.path, '/tts/deepgram/v1/speak');
+    assert.equal(scenario!.search, '?model=aura-2-thalia-en');
+    assert.deepEqual(scenario!.body, { text: 'hello' });
+  });
+
+  it('stt posts raw wav bytes through stt-proxy with the model as a query param', () => {
+    const [scenario, ...rest] = planScenarios({
+      provider: 'deepgram',
+      model: 'nova-3-general',
+      mode: 'audio_transcription',
+    });
+    assert.equal(rest.length, 0);
+    assert.equal(scenario!.endpoint, 'stt-proxy');
+    assert.equal(scenario!.path, '/stt/deepgram/v1/listen');
+    assert.equal(scenario!.search, '?model=nova-3-general');
+    assert.equal(scenario!.headers?.['content-type'], 'audio/wav');
+    assert.ok(scenario!.body instanceof Uint8Array);
+  });
+});
+
+describe('fireworks-ai, truefoundry-managed', () => {
+  it('are registered with their secrets', () => {
+    assert.equal(getProviderSpec('fireworks-ai')?.apiKeyEnv, 'FIREWORKS_AI_API_KEY');
+    assert.equal(getProviderSpec('truefoundry-managed')?.apiKeyEnv, 'TRUEFOUNDRY_MANAGED_API_KEY');
+    assert.equal(
+      getProviderSpec('truefoundry-managed')?.accountEnv?.base_url,
+      'TRUEFOUNDRY_MANAGED_BASE_URL',
+    );
+    assert.equal(getProviderSpec('truefoundry-managed')?.modelIdPrefix, 'tfy-managed/');
   });
 });
 
