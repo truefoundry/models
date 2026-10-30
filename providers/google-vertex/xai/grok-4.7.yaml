@@ -46,19 +46,13 @@ modalities:
         - text
 mode: chat
 model: xai/grok-4.7
-params:
-    - defaultValue: high
-      key: reasoning_effort
-      supportedValues:
-          - low
-          - medium
-          - high
-          - xhigh
+# reasoning_effort omitted: Vertex AI docs explicitly state "Grok reasoning models don't support reasoning_effort"
 provisioning: serverless
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7
+    - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning
     - https://docs.x.ai/developers/models
-status: preview
+status: active
 supportedModes:
     - chat
 thinking: true
