@@ -100,7 +100,7 @@ function buildCall(
       manifest: {
         name: model.model,
         type: spec.modelIntegrationType,
-        model_id: model.model,
+        model_id: `${spec.modelIdPrefix ?? ''}${model.model}`,
         model_types: [model.mode],
       },
     },
@@ -126,10 +126,10 @@ function buildCall(
     request: {
       body: scenario.body as SdkRequestBody,
       method: 'POST',
-      headers: {},
+      headers: scenario.headers ?? {},
       endpoint: scenario.endpoint as Endpoint,
       path: scenario.path,
-      search: '',
+      search: scenario.search ?? '',
     },
     execution: { requestTimeoutMs: 120_000 },
     providerOptions,
