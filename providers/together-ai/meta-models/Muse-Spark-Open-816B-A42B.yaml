@@ -25,6 +25,8 @@ modalities:
 mode: chat
 model: meta-models/Muse-Spark-Open-816B-A42B
 provisioning: serverless
+removeParams:
+    - reasoning_effort # Muse Spark Open is a reasoning model, but reasoning_effort is not documented as supported for this model (only GPT-OSS and DeepSeek V4 Pro 0813 are listed on the reasoning docs page)
 sources:
     - https://www.together.ai/models/muse-spark-open
     - https://www.together.ai/pricing
