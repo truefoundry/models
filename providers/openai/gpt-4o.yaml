@@ -21,6 +21,7 @@ features:
     - prompt_caching
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 128000
     max_output_tokens: 16384
@@ -44,6 +45,7 @@ preferChatCompletions: true
 provisioning: serverless
 removeParams:
     - reasoning_effort
+retirementDate: "2027-01-14"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-4o
     - https://developers.openai.com/docs/guides/pdf-files

@@ -14,6 +14,7 @@ costs:
           input_cost_per_token: 4.5e-7
           output_cost_per_token: 3.6e-6
       region: "*"
+deprecationDate: "2026-06-11"
 external_ids:
     artificial_analysis_id: 29855680-7469-43eb-8b88-cd3fb1d99da3
     artificial_analysis_slug: gpt-5-mini
@@ -25,6 +26,7 @@ features:
     - prompt_caching
     - structured_output
     - json_output
+isDeprecated: true
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -67,11 +69,12 @@ removeParams:
     - top_p
     - n
     - max_tokens
+retirementDate: "2026-12-11"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5-mini
     - https://developers.openai.com/docs/guides/reasoning
     - https://developers.openai.com/api/docs/guides/pdf-files/
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses
