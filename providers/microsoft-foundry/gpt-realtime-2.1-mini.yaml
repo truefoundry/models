@@ -15,6 +15,7 @@ features:
     - system_messages
     - prompt_caching
 limits:
+    context_window: 256000
     max_output_tokens: 4096
     max_tokens: 4096
 modalities:
@@ -28,8 +29,7 @@ modalities:
 mode: realtime
 model: gpt-realtime-2.1-mini
 params:
-    - defaultValue: medium
-      key: reasoning_effort
+    - key: reasoning_effort # default effort not found in official docs
       supportedValues:
           - minimal
           - low
