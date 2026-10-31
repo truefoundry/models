@@ -1,4 +1,11 @@
-mode: unknown
+modalities:
+    input:
+        - audio
+mode: unknown # turn-taking prediction model; no standard #Mode fits
 model: elevenlabs/elevenlabs-turn-v1
+provisioning: provisioned # self-deploy partner model on Vertex AI Model Garden
+sources:
+    - https://console.cloud.google.com/agent-platform/publishers/elevenlabs/model-garden/elevenlabs-turn-v1
+status: active
 supportedModes:
     - unknown

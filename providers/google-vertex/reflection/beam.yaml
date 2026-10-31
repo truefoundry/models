@@ -4,6 +4,8 @@ features:
     - structured_output
     - system_messages
     - tool_choice
+limits:
+    context_window: 1048576
 modalities:
     input:
         - text
@@ -23,6 +25,8 @@ params:
 provisioning: serverless
 sources:
     - https://reflection.ai/blog/beam-is-available
+    - https://reflection.ai/beam-model-card
+    - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/self-deployed-models
 status: preview
 supportedModes:
     - chat
