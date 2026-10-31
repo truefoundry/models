@@ -1,8 +1,23 @@
 mode: unknown
 model: google/alphafold3-request
 provisioning: provisioned
+removeParams:
+    - max_tokens
+    - temperature
+    - top_p
+    - "n"
+    - stop
+    - stream
+    - tool_choice
 sources:
     - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphafold-3
 status: active
 supportedModes:
     - unknown
+
+# costs: not found in official docs — AlphaFold 3 is deployed as a dedicated Agent Platform endpoint;
+# billing is based on the underlying compute/GPU resources rather than per-token pricing.
+# limits: not applicable — AlphaFold 3 input is biological sequences (proteins, DNA, RNA, ligands),
+# not text tokens. Official docs state request payload limit of 8 MB, maximum prediction duration
+# of 60 minutes, and approximate sequence size up to ~4,500 biological tokens on A3 GPUs
+# (~5,400 with pre-computed alignments) — none of which map to the #Limits schema fields.

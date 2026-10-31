@@ -7,9 +7,12 @@ modalities:
 mode: audio_transcription
 model: elevenlabs/elevenlabs-aligner-v1
 provisioning: serverless
+# costs: not published on the Vertex AI pricing page for this partner model
+# limits: forced-alignment limits (3 GB file / 10 h audio / 675,000 chars) do not map to the schema's token-based limit fields
 sources:
     - https://elevenlabs.io/docs/cookbooks/forced-alignment
     - https://elevenlabs.io/docs/api-reference/forced-alignment/create
     - https://elevenlabs.io/docs/overview/capabilities/forced-alignment
+status: active
 supportedModes:
     - audio_transcription

@@ -5,7 +5,7 @@ modalities:
         - text
 mode: audio_transcription
 model: elevenlabs/elevenlabs-stt-v1
-provisioning: serverless
+provisioning: provisioned
 removeParams:
     - max_tokens
     - temperature
@@ -14,5 +14,9 @@ removeParams:
     - stop
     - stream
     - tool_choice
+# Pricing not published — ElevenLabs STT V1 on Vertex AI Model Garden is a self-deploy
+# partner model offered via private offer only. Contact ElevenLabs for pricing.
+sources:
+    - https://console.cloud.google.com/agent-platform/publishers/elevenlabs/model-garden/elevenlabs-stt-v1
 supportedModes:
     - audio_transcription

@@ -1,3 +1,6 @@
+costs:
+    - region: us-central1 # pricing is private-offer only; omit per-token costs — not found in official docs
+    - region: asia-south2 # pricing is private-offer only; omit per-token costs — not found in official docs
 modalities:
     input:
         - audio
@@ -5,6 +8,9 @@ modalities:
         - text
 mode: audio_transcription
 model: elevenlabs/elevenlabs-scribe-v2-turbo
-provisioning: serverless
+provisioning: provisioned # self-deploy partner model per Vertex Model Garden
+sources:
+    - https://console.cloud.google.com/vertex-ai/publishers/elevenlabs/model-garden/elevenlabs-scribe-v2-turbo
+status: active
 supportedModes:
     - audio_transcription
