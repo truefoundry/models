@@ -1,5 +1,6 @@
 canonical_model: google/gemini-3-8-flash
 costs:
+    # Rates below are the published prices through 2026-12-31; Google lists higher rates from 2027-01-01.
     - cache_creation_input_token_cost_per_hour: 5e-7
       cache_read_input_token_cost: 7.5e-8
       flex_pricing:
@@ -50,8 +51,8 @@ params:
       key: top_p
     - defaultValue: 64
       key: top_k
-    - defaultValue: medium
-      key: reasoning_effort
+    # Default thinking level is not stated in official docs; "minimal" is not supported.
+    - key: reasoning_effort
       supportedValues:
           - low
           - medium
