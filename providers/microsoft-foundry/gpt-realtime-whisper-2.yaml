@@ -1,2 +1,14 @@
-mode: unknown
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
+# CUE validation could not run (CUE is not installed in this environment).
+# gpt-realtime-whisper-2 is not listed in the official Microsoft docs I fetched:
+# the retirement schedule, and the models-sold-directly-by-azure page, which lists
+# only gpt-realtime-whisper (2026-05-06). Pricing, limits and lifecycle for -2 were
+# not found in official docs and are omitted.
 model: gpt-realtime-whisper-2
+supportedModes:
+    - audio_transcription
