@@ -1,2 +1,7 @@
-mode: unknown
+mode: image
+# Validation not run: CUE is not installed in this environment.
+# "gpt-image-2-flare" is not listed in the Microsoft Foundry docs. The retirement schedule and model catalog list only gpt-image-2 and gpt-image-2.5-flare.
+# Mode is inferred from the image-generation model family. Costs, limits, and lifecycle were not found in official docs.
 model: gpt-image-2-flare
+supportedModes:
+    - image
