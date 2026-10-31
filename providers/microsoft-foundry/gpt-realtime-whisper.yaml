@@ -1,2 +1,20 @@
-mode: unknown
+# Pricing is duration-based (per hour); the dollar rate was not found in official docs
+limits:
+    context_window: 32000
+    max_input_tokens: 32000
+    max_output_tokens: 4096
+    max_tokens: 4096
+modalities:
+    input:
+        - audio
+    output:
+        - text
+mode: audio_transcription
 model: gpt-realtime-whisper
+provisioning: serverless
+removeParams:
+    - reasoning_effort
+status: active
+supportedModes:
+    - audio_transcription
+    - realtime
