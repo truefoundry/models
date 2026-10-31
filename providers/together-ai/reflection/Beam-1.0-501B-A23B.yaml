@@ -3,6 +3,9 @@ costs:
       input_cost_per_token: 4e-7
       output_cost_per_token: 1.2e-6
       region: "*"
+features:
+    - function_calling
+    - structured_output
 limits:
     context_window: 1048576
 modalities:
@@ -12,6 +15,7 @@ modalities:
         - text
 mode: chat
 model: reflection/Beam-1.0-501B-A23B
+provisioning: serverless
 sources:
     - https://www.together.ai/models/reflection-beam
     - https://together.ai/models
