@@ -27,8 +27,8 @@ params:
       key: max_tokens
       maxValue: 65536
       minValue: 1
-    - defaultValue: medium
-      key: reasoning_effort
+    # Groq docs list low/medium/high but do not state an API default effort
+    - key: reasoning_effort
       supportedValues:
           - low
           - medium
