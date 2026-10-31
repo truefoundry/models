@@ -27,6 +27,17 @@ modalities:
         - audio
 mode: realtime
 model: gpt-realtime-2.1
+params:
+    - key: reasoning_effort
+      supportedValues:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          - xhigh
+      type: string
+      # defaultValue not documented for gpt-realtime-2.1 — official docs confirm configurable reasoning effort but don't state a per-model default
 provisioning: serverless
 removeParams:
     - stream

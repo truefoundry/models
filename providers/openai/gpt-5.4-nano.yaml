@@ -10,6 +10,7 @@ costs:
       output_cost_per_token: 1.25e-6
       output_cost_per_token_batches: 6.25e-7
       region: "*"
+deprecationDate: "2026-10-01"
 external_ids:
     artificial_analysis_id: d4fc3f33-f2b0-4da1-88ee-f1f82bd4de31
     artificial_analysis_slug: gpt-5-4-nano
@@ -19,6 +20,7 @@ features:
     - tool_choice
     - system_messages
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -49,9 +51,10 @@ params:
 provisioning: serverless
 removeParams:
     - max_tokens
+retirementDate: "2027-04-01"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.4-nano
-status: active
+status: deprecated
 supportedModes:
     - chat
     - responses

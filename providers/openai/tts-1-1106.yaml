@@ -1,6 +1,8 @@
 costs:
-    - input_cost_per_character: 0.000015
+    - input_cost_per_character: 1.5e-5
       region: "*"
+deprecationDate: "2026-10-01"
+isDeprecated: true
 limits:
     max_input_tokens: 4096
 modalities:
@@ -16,14 +18,15 @@ removeParams:
     - temperature
     - stop
     - top_p
-    - "n"
+    - n
     - stream
     - tool_choice
     - parallel_tool_calls
     - reasoning_effort
+retirementDate: "2027-01-06"
 sources:
     - https://developers.openai.com/api/docs/models/tts-1
     - https://developers.openai.com/docs/guides/text-to-speech
-status: active
+status: deprecated
 supportedModes:
     - text_to_speech

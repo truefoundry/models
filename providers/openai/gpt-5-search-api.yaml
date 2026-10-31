@@ -9,14 +9,19 @@ features:
     - system_messages
     - prompt_caching
     - structured_output
+    - function_calling
+    - parallel_function_calling
+    - tool_choice
 limits:
-    context_window: 200000
+    context_window: 272000
+    max_input_tokens: 272000
     max_output_tokens: 128000
     max_tokens: 128000
 modalities:
     input:
         - text
         - image
+        - pdf
     output:
         - text
 mode: chat
@@ -31,7 +36,7 @@ removeParams:
     - reasoning_effort
 sources:
     - https://developers.openai.com/api/docs/guides/tools-web-search/
-    - https://developers.openai.com/api/docs/models/gpt-5
+    - https://developers.openai.com/docs/pricing
 status: active
 supportedModes:
     - chat
