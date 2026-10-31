@@ -1,5 +1,8 @@
 costs:
-    - output_cost_per_second: 0.02
+    - input_cost_per_image: 0.01
+      output_cost_per_second_1080p: 0.14
+      output_cost_per_second_480p: 0.02
+      output_cost_per_second_720p: 0.03
       region: "*"
 modalities:
     input:
@@ -10,6 +13,9 @@ modalities:
 mode: video
 model: grok-imagine-video-1.5-lite
 provisioning: serverless
+sources:
+    - https://docs.x.ai/developers/models/grok-imagine-video-1.5-lite
+    - https://docs.x.ai/developers/pricing
 status: active
 supportedModes:
     - video
