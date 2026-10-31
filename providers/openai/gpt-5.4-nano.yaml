@@ -19,6 +19,7 @@ features:
     - tool_choice
     - system_messages
     - prompt_caching
+isDeprecated: true
 limits:
     context_window: 400000
     max_input_tokens: 272000
@@ -49,6 +50,7 @@ params:
 provisioning: serverless
 removeParams:
     - max_tokens
+retirementDate: "2027-04-01"
 sources:
     - https://developers.openai.com/api/docs/models/gpt-5.4-nano
 status: active
